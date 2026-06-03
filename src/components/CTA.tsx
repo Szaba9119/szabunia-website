@@ -53,8 +53,7 @@ export default function CTA() {
     setError(false);
 
     try {
-      const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ID || "xpwdjgqz";
-      const res = await fetch(`https://formspree.io/f/${endpoint}`, {
+      const res = await fetch(`/api/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
