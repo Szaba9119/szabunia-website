@@ -1,0 +1,121 @@
+import { notFound } from "next/navigation";
+import type { Metadata } from "next";
+import { portfolioCategories, getCategoryBySlug } from "@/data/portfolio";
+import Navigation from "@/components/Navigation";
+import ScrollProgress from "@/components/ScrollProgress";
+import PortfolioHero from "@/components/PortfolioHero";
+import PortfolioGallery from "@/components/PortfolioGallery";
+import PortfolioProcess from "@/components/PortfolioProcess";
+import PortfolioPricing from "@/components/PortfolioPricing";
+import PortfolioFAQ from "@/components/PortfolioFAQ";
+import PortfolioCaseStudy from "@/components/PortfolioCaseStudy";
+import CTA from "@/components/CTA";
+import Footer from "@/components/Footer";
+import ErrorBoundary from "@/components/ErrorBoundary";
+
+export function generateStaticParams() {
+  return portfolioCategories
+    .filter((cat) => !cat.externalUrl)
+    .map((c) => ({ slug: c.slug }));
+}
+
+type PageProps = { params: Promise<{ slug: string }> };
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const category = getCategoryBySlug(slug);
+  if (!category) return {};
+  return {
+    title: category.seo.title,
+    description: category.seo.description,
+    alternates: { canonical: `/portfolio/${category.slug}` },
+    openGraph: {
+      title: category.seo.title,
+      description: category.seo.description,
+      url: `https://szabunia.pl/portfolio/${category.slug}`,
+      images: [{ url: category.thumbnail, width: 1200, height: 630, alt: category.label }],
+    },
+  };
+}
+
+export default async function PortfolioPage({ params }: PageProps) {
+  const { slug } = await params;
+  const category = getCategoryBySlug(slug);
+  if (!category) notFound();
+
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: category.label,
+      description: category.seo.description,
+      provider: {
+        "@type": "ProfessionalService",
+        name: "Marcin Szabunia",
+        url: "https://szabunia.pl",
+      },
+      areaServed: { "@type": "Country", name: "PL" },
+      image: `https://szabunia.pl${category.thumbnail}`,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
+        { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://szabunia.pl/portfolio" },
+        { "@type": "ListItem", position: 3, name: category.label },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: category.faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
+
+  return (
+    <>
+      <ScrollProgress />
+      <Navigation />
+      <main id="main">
+        <ErrorBoundary>
+          <PortfolioHero category={category} />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <PortfolioGallery images={category.gallery} title={category.label} />
+        </ErrorBoundary>
+        {category.caseStudy && (
+          <ErrorBoundary>
+            <PortfolioCaseStudy data={category.caseStudy} />
+          </ErrorBoundary>
+        )}
+        <ErrorBoundary>
+          <PortfolioProcess steps={category.process} />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <PortfolioPricing
+            pricingType={category.pricingType}
+            tiers={category.tiers}
+            tables={category.tables}
+            note={category.pricingNote}
+          />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <PortfolioFAQ faqs={category.faqs} />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <CTA />
+        </ErrorBoundary>
+      </main>
+      <Footer />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+    </>
+  );
+}

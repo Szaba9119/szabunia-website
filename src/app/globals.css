@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  /* === Colors === */
+  --color-navy: #0F172A;
+  --color-navy-light: #1E293B;
+  --color-gray-bg: #F9FAFB;
+  --color-blue: #2563EB;
+  --color-blue-light: #3B82F6;
+  --color-blue-pale: #EFF6FF;
+  --color-steel: #64748B;
+  --color-steel-light: #94A3B8;
+  --color-border: #E2E8F0;
+  --color-text-body: #334155;
+
+  /* === Dark mode colors === */
+  --color-dark-bg: #0B0F1A;
+  --color-dark-card: #141B2D;
+  --color-dark-card-hover: #1A2340;
+  --color-dark-border: #1E293B;
+  --color-dark-text: #E2E8F0;
+  --color-dark-text-muted: #94A3B8;
+
+  /* === Fonts (loaded via next/font, fallback to CSS variable) === */
+  --font-barlow: var(--font-barlow), "Barlow", sans-serif;
+  --font-inter: var(--font-inter), "Inter", sans-serif;
+}
+
+/* === Smooth scrolling with offset for fixed navbar === */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+/* === Reduced motion preference === */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* === Skip to content (accessibility) === */
+.skip-to-content {
+  position: fixed;
+  top: -100%;
+  left: 16px;
+  z-index: 200;
+  background: #2563EB;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 0 0 12px 12px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-to-content:focus {
+  top: 0;
+}
+
+/* === Focus-visible styles for keyboard navigation === */
+*:focus-visible {
+  outline: 2px solid #2563EB;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+.dark *:focus-visible {
+  outline-color: #3B82F6;
+}
+
+/* === Dark mode body === */
+html.dark {
+  background-color: #0B0F1A;
+  color-scheme: dark;
+}
+
+/* === Selection color === */
+::selection {
+  background: rgba(37, 99, 235, 0.15);
+  color: #0F172A;
+}
+.dark ::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: #F1F5F9;
+}
+
+/* === Marquee animation === */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* === Scroll progress bar === */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #2563EB, #3B82F6);
+  z-index: 100;
+  width: 0%;
+  pointer-events: none;
+}
+
+/* === Glassmorphism utility === */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+.dark .glass {
+  background: rgba(11, 15, 26, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-dark {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* === Gradient button glow === */
+.btn-glow {
+  box-shadow: 0 0 24px rgba(37, 99, 235, 0.25);
+  transition: box-shadow 0.2s ease;
+}
+.btn-glow:hover {
+  box-shadow: 0 0 32px rgba(37, 99, 235, 0.4);
+}
+.dark .btn-glow {
+  box-shadow: 0 0 28px rgba(59, 130, 246, 0.35);
+}
+.dark .btn-glow:hover {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.5);
+}
+.btn-glow:focus-visible {
+  box-shadow: 0 0 32px rgba(37, 99, 235, 0.4), 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+.dark .btn-glow:focus-visible {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.5), 0 0 0 3px rgba(59, 130, 246, 0.4);
+}
+
+/* === Focus styles === */
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #2563EB;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+.dark input:focus, .dark textarea:focus, .dark select:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* === Fade-in animation for testimonial carousel === */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}

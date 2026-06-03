@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#1a253a"/>
+  <rect x="500" y="200" width="200" height="170" rx="16" fill="#2b3a52"/>
+  <path d="M600 238 C572 238 552 259 552 286 C552 318 600 352 600 352 C600 352 648 318 648 286 C648 259 628 238 600 238 Z" fill="#4a8cff" opacity="0.2"/>
+  <circle cx="600" cy="286" r="16" fill="#4a8cff" opacity="0.75"/>
+  <text x="600" y="430" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#6b7f99" font-weight="600">Sesja wizerunkowa — Poznań</text>
+</svg>
