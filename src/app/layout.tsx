@@ -89,7 +89,6 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="manifest" href="/manifest.json" />
         <meta name="theme-color" content="#0F172A" />
-        <link rel="dns-prefetch" href="https://formspree.io" />
         <link rel="preconnect" href="https://www.youtube.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <script

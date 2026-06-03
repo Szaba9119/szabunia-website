@@ -85,8 +85,8 @@ export default function PrivacyPolicy() {
                 4. Odbiorcy danych
               </h2>
               <p>
-                Formularz kontaktowy obsługiwany jest przez usługę Formspree
-                (Formspree, Inc., USA). Dane mogą być przekazywane do podmiotów
+                Formularz kontaktowy obsługiwany jest przez usługę Resend
+                (Resend, Inc., USA). Dane mogą być przekazywane do podmiotów
                 świadczących usługi hostingowe, e-mailowe i informatyczne na
                 podstawie umów powierzenia przetwarzania danych.
               </p>
