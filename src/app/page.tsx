@@ -11,6 +11,7 @@ import Testimonials from "@/components/Testimonials";
 import Publications from "@/components/Publications";
 import FAQ from "@/components/FAQ";
 import BlogPreview from "@/components/BlogPreview";
+import PoradnikTeaser from "@/components/PoradnikTeaser";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -145,6 +146,7 @@ export default function Home() {
         <ErrorBoundary><Publications /></ErrorBoundary>
         <ErrorBoundary><Process /></ErrorBoundary>
         <ErrorBoundary><BlogPreview /></ErrorBoundary>
+        <ErrorBoundary><PoradnikTeaser /></ErrorBoundary>
         <ErrorBoundary><FAQ /></ErrorBoundary>
         <ErrorBoundary><CTA /></ErrorBoundary>
       </main>

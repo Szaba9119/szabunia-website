@@ -9,6 +9,7 @@ import BackToTopButton from "@/components/BackToTopButton";
 import Footer from "@/components/Footer";
 import BlogContent from "@/components/BlogContent";
 import AnimatedSection from "@/components/AnimatedSection";
+import PoradnikBlogCTA from "@/components/PoradnikBlogCTA";
 
 const blurPlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
@@ -144,6 +145,13 @@ export default async function BlogPostPage({ params }: PageProps) {
           <AnimatedSection>
             <BlogContent html={post.content} />
           </AnimatedSection>
+
+          {/* Lead magnet CTA — tylko przy wpisach o przygotowaniu / stylizacji */}
+          {["jak-przygotowac-sie-do-sesji-biznesowej", "co-zalozyc-na-sesje-biznesowa"].includes(post.slug) && (
+            <AnimatedSection className="mt-10">
+              <PoradnikBlogCTA />
+            </AnimatedSection>
+          )}
 
           {/* Back link */}
           <AnimatedSection className="mt-12 pt-8 border-t border-border dark:border-dark-border">
