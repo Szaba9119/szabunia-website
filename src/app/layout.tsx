@@ -3,6 +3,7 @@ import { Barlow, Inter } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 import CookieConsent from "@/components/CookieConsent";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const barlow = Barlow({
   subsets: ["latin", "latin-ext"],
@@ -269,6 +270,7 @@ export default function RootLayout({
           {children}
           <CookieConsent />
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
