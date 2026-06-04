@@ -113,6 +113,16 @@ function fmtPrice(netto: number, mode: PriceMode): string {
   return value.toLocaleString("pl-PL");
 }
 
+/** Przelicza "od X zł / ..." na netto/brutto, zachowując prefiks i sufiks (/ h, / os., / szt.). */
+function formatCardPrice(priceStr: string, mode: PriceMode): string {
+  const match = priceStr.match(/\d[\d\s]*\d/);
+  if (!match) return priceStr;
+  const netto = parseInt(match[0].replace(/\s/g, ""), 10);
+  if (!netto) return priceStr;
+  const value = mode === "brutto" ? Math.round(netto * 1.23) : netto;
+  return priceStr.replace(match[0], value.toLocaleString("pl-PL"));
+}
+
 function PriceModeToggle({ mode, onChange }: { mode: PriceMode; onChange: (m: PriceMode) => void }) {
   return (
     <div className="flex justify-center mb-8">
@@ -504,7 +514,7 @@ export default function PricingCalculator() {
                         {s.title}
                       </p>
                       <p className="text-blue dark:text-blue-light text-[11px] font-barlow font-semibold">
-                        {s.price}
+                        {formatCardPrice(s.price, mode)}
                       </p>
                     </div>
                   </div>

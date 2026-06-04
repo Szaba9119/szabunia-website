@@ -28,8 +28,8 @@ export default function ThemeProvider({
   // Sync real theme from localStorage / system preference after hydration
   useEffect(() => {
     const saved = localStorage.getItem("theme") as Theme | null;
-    const resolved =
-      saved ?? (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    // Domyślnie ciemny motyw przy pierwszej wizycie; tylko jawny wybór "light" go wyłącza.
+    const resolved: Theme = saved === "light" ? "light" : "dark";
     // eslint-disable-next-line react-hooks/set-state-in-effect -- post-hydration sync: localStorage/matchMedia unavailable during SSR render
     setTheme(resolved);
   }, []);

@@ -70,10 +70,10 @@ export default function About() {
               <div className="mt-8 pt-6 border-t border-border dark:border-dark-border">
                 <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
                   {[
-                    { end: 7, suffix: "+", label: "lat najdłuższej współpracy z jedną firmą" },
-                    { end: 8, suffix: "+", label: "lat doświadczenia" },
-                    { end: 100, suffix: "+", label: "obsłużonych firm z branży B2B" },
                     { end: 500000, suffix: "+", label: "wykonanych zdjęć" },
+                    { end: 100, suffix: "+", label: "obsłużonych firm z branży B2B" },
+                    { end: 8, suffix: "+", label: "lat doświadczenia" },
+                    { end: 7, suffix: "+", label: "lat najdłuższej współpracy z jedną firmą" },
                   ].map((stat) => (
                     <div key={stat.label} className="text-center">
                       <p className="font-barlow font-extrabold text-2xl md:text-3xl text-blue dark:text-blue-light leading-none mb-1">

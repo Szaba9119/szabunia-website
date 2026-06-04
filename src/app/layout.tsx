@@ -3,6 +3,7 @@ import { Barlow, Inter } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 import CookieConsent from "@/components/CookieConsent";
+import { Analytics } from "@vercel/analytics/next";
 
 const barlow = Barlow({
   subsets: ["latin", "latin-ext"],
@@ -93,7 +94,7 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark'}})();`,
+            __html: `(function(){var t=localStorage.getItem('theme');if(t!=='light'){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark'}})();`,
           }}
         />
         <script
@@ -269,6 +270,7 @@ export default function RootLayout({
           {children}
           <CookieConsent />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
