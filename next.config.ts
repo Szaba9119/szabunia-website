@@ -32,6 +32,16 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      {
+        // Stara strona sesji prywatnych usunięta — kierujemy na kalkulator (ceny brutto)
+        source: "/sesje-prywatne",
+        destination: "/kalkulator",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
