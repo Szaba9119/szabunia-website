@@ -34,6 +34,7 @@ export default function Footer() {
               { label: "Kontakt", href: "/kontakt" },
               { label: "Blog", href: "/blog" },
               { label: "Kalkulator wyceny", href: "/kalkulator" },
+              { label: "Poradnik", href: "/poradnik" },
             ].map((link) => (
               <a
                 key={link.label}

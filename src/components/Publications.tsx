@@ -6,7 +6,7 @@ import { PARALLAX } from "@/lib/motion";
 
 export default function Publications() {
   return (
-    <section className="py-12 md:py-24 px-4">
+    <section className="py-12 md:py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <p className="text-[11px] uppercase tracking-widest text-steel-light dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
@@ -24,7 +24,7 @@ export default function Publications() {
 
         {/* Karta publikacji: Big Furniture Group Magazine */}
         <AnimatedSection>
-          <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6 md:p-8 mb-8 max-w-3xl mx-auto">
+          <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6 md:p-8 max-w-3xl mx-auto">
             <p className="text-[10px] font-barlow font-semibold uppercase tracking-wider text-steel dark:text-dark-text-muted mb-3">
               Prasa branżowa · UK · 2026
             </p>
@@ -47,20 +47,6 @@ export default function Publications() {
             </a>
           </div>
         </AnimatedSection>
-
-        {/* TODO: Gdy Marcin dostarczy obrazy okładek, podmienić na <Image> */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto">
-          {[0, 1, 2].map((i) => (
-            <AnimatedSection key={i} delay={i * 0.1}>
-              <div className="aspect-[2/3] rounded-xl border border-border dark:border-dark-border bg-gray-bg dark:bg-dark-card flex flex-col items-center justify-center gap-2">
-                <span className="text-2xl" aria-hidden="true">📰</span>
-                <span className="text-[11px] font-barlow font-semibold uppercase tracking-widest text-steel-light dark:text-dark-text-muted">
-                  Wkrótce
-                </span>
-              </div>
-            </AnimatedSection>
-          ))}
-        </div>
       </div>
     </section>
   );

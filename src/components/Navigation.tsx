@@ -79,9 +79,9 @@ export default function Navigation() {
       aria-label="Nawigacja główna"
     >
       <div
-        className={`glass max-w-2xl w-full rounded-full px-6 transition-all duration-300 flex items-center justify-between ${
+        className={`glass max-w-3xl w-full rounded-full px-6 transition-all duration-300 flex items-center justify-between ${
           scrolled
-            ? "py-2.5 shadow-lg shadow-navy/5 dark:shadow-black/20"
+            ? "py-2.5 shadow-lg shadow-navy/5 dark:shadow-black/20 bg-white/90 dark:bg-dark-bg/90"
             : "py-3 shadow-md shadow-navy/[0.03] dark:shadow-black/10"
         }`}
       >
@@ -92,7 +92,7 @@ export default function Navigation() {
           MARCIN SZABUNIA
         </Link>
 
-        <div className="hidden md:flex items-center gap-5">
+        <div className="hidden md:flex items-center gap-4">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -125,6 +125,16 @@ export default function Navigation() {
             }`}
           >
             Kalkulator
+          </Link>
+          <Link
+            href="/poradnik"
+            className={`text-[13px] transition-colors font-inter ${
+              pathname === "/poradnik"
+                ? "text-blue dark:text-blue-light font-semibold"
+                : "text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white"
+            }`}
+          >
+            Poradnik
           </Link>
           <ThemeToggle />
           <Link
@@ -218,6 +228,14 @@ export default function Navigation() {
               className="text-sm font-barlow font-semibold text-navy dark:text-white"
             >
               Kalkulator wyceny
+            </Link>
+            <Link
+              href="/poradnik"
+              role="menuitem"
+              onClick={() => closeMobileMenu()}
+              className="text-sm font-barlow font-semibold text-navy dark:text-white"
+            >
+              Poradnik
             </Link>
             <Link
               href="/kontakt"

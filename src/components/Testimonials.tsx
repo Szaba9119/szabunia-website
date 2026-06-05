@@ -70,7 +70,7 @@ export default function Testimonials() {
   const t = testimonials[currentIndex];
 
   return (
-    <section className="py-12 md:py-24 px-4">
+    <section className="py-12 md:py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">
@@ -78,7 +78,7 @@ export default function Testimonials() {
               Co mówią klienci
             </h2>
           </Parallax>
-          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
+          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-md mx-auto">
             Opinie klientów, z którymi miałem przyjemność współpracować.
           </p>
         </AnimatedSection>
@@ -94,7 +94,7 @@ export default function Testimonials() {
             onMouseLeave={() => setIsPaused(false)}
           >
             {/* Main testimonial card */}
-            <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-8 md:p-12 min-h-[280px] flex flex-col justify-center relative overflow-hidden">
+            <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-8 md:p-12 min-h-[240px] flex flex-col justify-center relative overflow-hidden">
               {/* Quote decoration */}
               <svg
                 className="absolute top-6 right-6 w-16 h-16 text-blue/[0.06] dark:text-blue-light/[0.06]"
