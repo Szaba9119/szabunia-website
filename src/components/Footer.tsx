@@ -30,7 +30,6 @@ export default function Footer() {
               { label: "Usługi", href: "/#uslugi" },
               { label: "Portfolio", href: "/#portfolio" },
               { label: "Cennik", href: "/#cennik" },
-              { label: "Sesje prywatne", href: "/sesje-prywatne" },
               { label: "Kontakt", href: "/kontakt" },
               { label: "Blog", href: "/blog" },
               { label: "Kalkulator wyceny", href: "/kalkulator" },

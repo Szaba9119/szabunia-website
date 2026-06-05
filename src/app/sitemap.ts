@@ -44,12 +44,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...servicePages,
     {
-      url: `${baseUrl}/sesje-prywatne`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
       url: `${baseUrl}/kontakt`,
       lastModified: new Date(),
       changeFrequency: "yearly",

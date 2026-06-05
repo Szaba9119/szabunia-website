@@ -205,7 +205,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Kiedy lepiej iść do fotografa?</h2>
       <p>Zdjęcie z telefonu wystarczy na szybką aplikację. Ale jeśli zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing) — <a href="/uslugi/wizerunek-portrety">profesjonalna sesja portretowa</a> zwróci się wielokrotnie. Sesja headshot zaczyna się od 1 000 zł, a jedno dobrze zrobione zdjęcie posłuży Ci na LinkedIn, stronę firmową i materiały branżowe.</p>
-      <p>Robisz zdjęcie prywatnie, nie dla firmy? Zobacz <a href="/sesje-prywatne">sesje prywatne</a>. A jeśli chcesz, żeby profil naprawdę pracował — przeczytaj, jak <a href="/blog/headshoty-linkedin-konwersja">headshoty zwiększają konwersję na LinkedIn</a>.</p>
+      <p>Jeśli chcesz, żeby profil naprawdę pracował — przeczytaj, jak <a href="/blog/headshoty-linkedin-konwersja">headshoty zwiększają konwersję na LinkedIn</a>.</p>
     `,
     seo: {
       title: "Jak zrobić zdjęcie do CV w domu — poradnik | Marcin Szabunia",

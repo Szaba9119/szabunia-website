@@ -103,26 +103,6 @@ export default function UslugiPage() {
             ))}
           </div>
 
-          {/* Sesje prywatne — link dla osób prywatnych */}
-          <AnimatedSection delay={0.2}>
-            <div className="mt-4 bg-blue-pale dark:bg-dark-card rounded-2xl border border-blue/30 dark:border-blue-light/30 p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div>
-                <h2 className="font-barlow font-extrabold text-lg text-navy dark:text-white mb-1">
-                  Szukasz sesji prywatnej?
-                </h2>
-                <p className="text-[14px] text-steel dark:text-dark-text-muted leading-relaxed">
-                  Portrety, sesje par, zdjęcia produktowe i wideo dla osób
-                  prywatnych — ceny brutto z paragonem lub fakturą.
-                </p>
-              </div>
-              <Link
-                href="/sesje-prywatne"
-                className="shrink-0 bg-gradient-to-br from-blue to-blue-light text-white px-5 py-2.5 rounded-full font-barlow font-semibold text-sm btn-glow"
-              >
-                Sesje prywatne →
-              </Link>
-            </div>
-          </AnimatedSection>
         </div>
         <div className="mt-12">
           <ErrorBoundary>

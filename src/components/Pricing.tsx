@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
 import PricingCalculator from "./PricingCalculator";
 import Parallax from "./Parallax";
@@ -71,19 +70,11 @@ export default function Pricing() {
           </p>
         </AnimatedSection>
 
-        {/* === CENY NETTO (B2B) + LINK DO SESJI PRYWATNYCH === */}
+        {/* === CENY NETTO (B2B) === */}
         <AnimatedSection>
-          <p className="text-center text-[12px] text-steel-light dark:text-dark-text-muted mb-4">
+          <p className="text-center text-[12px] text-steel-light dark:text-dark-text-muted mb-12">
             Wszystkie ceny są kwotami netto (+23% VAT). Faktura VAT.
           </p>
-          <div className="flex justify-center mb-12">
-            <Link
-              href="/sesje-prywatne"
-              className="inline-flex items-center gap-2 text-[13px] font-barlow font-semibold text-blue dark:text-blue-light bg-blue-pale dark:bg-blue/10 border border-blue/20 dark:border-blue-light/20 rounded-full px-4 py-2 hover:border-blue dark:hover:border-blue-light transition-colors"
-            >
-              Jesteś osobą prywatną? Zobacz sesje prywatne (ceny brutto) →
-            </Link>
-          </div>
         </AnimatedSection>
 
         {/* === PORTRETY BIZNESOWE & HEADSHOTY (PIERWSZE) === */}
