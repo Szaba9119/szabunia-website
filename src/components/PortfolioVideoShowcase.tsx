@@ -88,7 +88,7 @@ export default function PortfolioVideoShowcase({
         {reels.length > 0 && (
           <AnimatedSection className="mt-14">
             <h2 className="font-barlow font-bold text-xl md:text-2xl text-navy dark:text-white mb-1">
-              Pionowe reelsy — wywiady
+              Pionowe reelsy z wywiadami
             </h2>
             <p className="text-steel dark:text-dark-text-muted text-[14px] mb-6">
               Trzy pionowe formaty pod Social Media. Kliknij, żeby obejrzeć na Instagramie.
@@ -100,7 +100,7 @@ export default function PortfolioVideoShowcase({
                   href={r.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label={`${r.title} — reels na Instagramie (otwiera się w nowej karcie)`}
+                  aria-label={`${r.title} (reels na Instagramie, otwiera się w nowej karcie)`}
                   className="group block"
                 >
                   <div className="relative aspect-[9/16] rounded-2xl overflow-hidden border border-border dark:border-dark-border bg-navy">

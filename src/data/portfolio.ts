@@ -72,9 +72,9 @@ export const portfolioCategories: PortfolioCategory[] = [
     label: "E-commerce All-in",
     heroTitle: "E-commerce All-in",
     heroSubtitle:
-      "Podsumowanie wideo wydarzenia E-commerce All In na Enea Stadion w Poznaniu — poziomy film i trzy pionowe reelsy z wywiadami.",
+      "Podsumowanie wideo wydarzenia E-commerce All In na Enea Stadion w Poznaniu: poziomy film i trzy pionowe reelsy z wywiadami.",
     description:
-      "E-commerce All In to wydarzenie zorganizowane przez ICEA i Autopay na Enea Stadion w Poznaniu. Odpowiadałem za komplet materiału wideo: poziomy film podsumowujący całe wydarzenie z publikacją na YouTube oraz trzy pionowe reelsy z wywiadami, skrojone pod Social Media. Jeden twórca, spójny materiał — od planu zdjęciowego, przez realizację, po montaż i postprodukcję.",
+      "E-commerce All In to wydarzenie zorganizowane przez ICEA i Autopay na Enea Stadion w Poznaniu. Odpowiadałem za komplet materiału wideo: poziomy film podsumowujący całe wydarzenie z publikacją na YouTube oraz trzy pionowe reelsy z wywiadami, skrojone pod Social Media. Jeden twórca, spójny materiał: od planu zdjęciowego, przez realizację, po montaż i postprodukcję.",
     thumbnail: "/images/portfolio/woohoo-autopay.jpg",
     gallery: [],
     process: [],
@@ -89,7 +89,7 @@ export const portfolioCategories: PortfolioCategory[] = [
         url: "https://www.instagram.com/woohoo_pl/reel/DYULbqYIWT3/",
         title: "Co zniknie z e-commerce?",
         cover: "/images/portfolio/reel-3.jpg",
-        desc: "Jak zmieni się e-commerce w 2–3 lata — nie tylko technologia, ale i oczekiwania klientów oraz to, co wpływa na decyzję zakupową. Prognozy ekspertów.",
+        desc: "Jak zmieni się e-commerce w 2–3 lata: nie tylko technologia, ale i oczekiwania klientów oraz to, co wpływa na decyzję zakupową. Prognozy ekspertów.",
       },
       {
         url: "https://www.instagram.com/woohoo_pl/reel/DYCsTRXIy0d/",
@@ -101,7 +101,7 @@ export const portfolioCategories: PortfolioCategory[] = [
         url: "https://www.instagram.com/woohoo_pl/reel/DXOYU35CIcn/",
         title: "Co boli właścicieli e-commerce?",
         cover: "/images/portfolio/reel-2.jpg",
-        desc: "Realne hamulce wzrostu wg liderów branży — rosnące koszty pozyskania klienta, trudniejsze skalowanie, spadająca konwersja, dużo danych i mało decyzji, operacje, które nie nadążają.",
+        desc: "Realne hamulce wzrostu wg liderów branży: rosnące koszty pozyskania klienta, trudniejsze skalowanie, spadająca konwersja, dużo danych i mało decyzji, operacje, które nie nadążają.",
       },
     ],
     seo: {
