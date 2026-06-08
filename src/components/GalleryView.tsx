@@ -1,12 +1,19 @@
 "use client";
 
-import { useState, useCallback, useEffect, useSyncExternalStore } from "react";
+import { useState, useCallback, useEffect, useRef, useSyncExternalStore } from "react";
+import Image from "next/image";
 import type { GalleryVideo } from "@/data/galeria";
+
+export interface SizedImage {
+  src: string;
+  width: number;
+  height: number;
+}
 
 export interface GalleryCategory {
   key: string;
   label: string;
-  images: string[];
+  images: SizedImage[];
   alt: string;
 }
 
@@ -40,6 +47,10 @@ export default function GalleryView({
   const [lightbox, setLightbox] = useState<number | null>(null);
   const cols = useGalleryColumns();
 
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
+  const touchX = useRef<number | null>(null);
+
   const activeCat = categories.find((c) => c.key === active);
   const images = activeCat?.images ?? [];
   const imageCount = images.length;
@@ -47,10 +58,13 @@ export default function GalleryView({
   // Rozkład rzędami (round-robin): zdjęcie i trafia do kolumny i % cols,
   // dzięki czemu górny rząd to 1,2,3, kolejny 4,5,6 — kolejność czyta się od lewej do prawej.
   const masonryColumns = Array.from({ length: cols }, (_, ci) =>
-    images.map((src, i) => ({ src, i })).filter((item) => item.i % cols === ci)
+    images.map((img, i) => ({ img, i })).filter((item) => item.i % cols === ci)
   );
 
-  const close = useCallback(() => setLightbox(null), []);
+  const close = useCallback(() => {
+    setLightbox(null);
+    requestAnimationFrame(() => triggerRef.current?.focus());
+  }, []);
   const prev = useCallback(
     () => setLightbox((i) => (i === null ? null : (i - 1 + imageCount) % imageCount)),
     [imageCount]
@@ -60,6 +74,15 @@ export default function GalleryView({
     [imageCount]
   );
 
+  const selectTab = (key: string) => {
+    setActive(key);
+    setLightbox(null);
+    if (typeof window !== "undefined") {
+      window.history.replaceState(null, "", `/galeria?kat=${key}`);
+    }
+  };
+
+  // Klawiatura + blokada scrolla, gdy otwarty lightbox
   useEffect(() => {
     if (lightbox === null) return;
     const onKey = (e: KeyboardEvent) => {
@@ -75,6 +98,24 @@ export default function GalleryView({
     };
   }, [lightbox, close, prev, next]);
 
+  // Fokus na oknie podglądu po otwarciu (dostępność)
+  useEffect(() => {
+    if (lightbox !== null) dialogRef.current?.focus();
+  }, [lightbox]);
+
+  // Wstępne wczytanie sąsiednich zdjęć — płynniejsza nawigacja.
+  // Zależność od `active` (a nie tablicy `images`) wystarcza: zmiana kategorii odświeża zestaw.
+  useEffect(() => {
+    if (lightbox === null || imageCount < 2) return;
+    [(lightbox + 1) % imageCount, (lightbox - 1 + imageCount) % imageCount].forEach((idx) => {
+      const src = images[idx]?.src;
+      if (!src) return;
+      const im = new window.Image();
+      im.src = src;
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- `images` pochodzi z `active`; identyczność tablicy nie ma znaczenia
+  }, [lightbox, imageCount, active]);
+
   return (
     <div>
       {/* Zakładki kategorii */}
@@ -82,10 +123,8 @@ export default function GalleryView({
         {tabs.map((t) => (
           <button
             key={t.key}
-            onClick={() => {
-              setActive(t.key);
-              setLightbox(null);
-            }}
+            type="button"
+            onClick={() => selectTab(t.key)}
             aria-pressed={active === t.key}
             className={`px-4 py-2 rounded-full text-[13px] font-barlow font-semibold transition-colors ${
               active === t.key
@@ -134,18 +173,24 @@ export default function GalleryView({
         <div className="flex gap-3 items-start">
           {masonryColumns.map((col, ci) => (
             <div key={ci} className="flex-1 min-w-0 flex flex-col gap-3">
-              {col.map(({ src, i }) => (
+              {col.map(({ img, i }) => (
                 <button
-                  key={src}
-                  onClick={() => setLightbox(i)}
+                  key={img.src}
+                  type="button"
+                  onClick={(e) => {
+                    triggerRef.current = e.currentTarget;
+                    setLightbox(i);
+                  }}
                   aria-label={`Powiększ zdjęcie ${i + 1}`}
                   className="block w-full rounded-xl overflow-hidden bg-border dark:bg-dark-card group"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={src}
+                  <Image
+                    src={img.src}
                     alt={`${activeCat?.alt ?? "Fotografia"} ${i + 1}`}
+                    width={img.width}
+                    height={img.height}
                     loading="lazy"
+                    sizes="(max-width: 640px) 50vw, 33vw"
                     className="w-full h-auto transition-opacity group-hover:opacity-90"
                   />
                 </button>
@@ -158,21 +203,42 @@ export default function GalleryView({
       {/* Lightbox */}
       {lightbox !== null && activeCat && (
         <div
-          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 sm:p-8"
+          ref={dialogRef}
+          tabIndex={-1}
+          className="fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 sm:p-8 outline-none"
           onClick={close}
+          onTouchStart={(e) => {
+            touchX.current = e.touches[0].clientX;
+          }}
+          onTouchEnd={(e) => {
+            if (touchX.current === null) return;
+            const dx = e.changedTouches[0].clientX - touchX.current;
+            touchX.current = null;
+            if (Math.abs(dx) > 50) {
+              if (dx < 0) next();
+              else prev();
+            }
+          }}
           role="dialog"
           aria-modal="true"
           aria-label="Podgląd zdjęcia"
         >
+          {imageCount > 1 && (
+            <span className="absolute top-4 left-1/2 -translate-x-1/2 text-white/85 text-sm font-barlow font-semibold tabular-nums select-none">
+              {lightbox + 1} / {imageCount}
+            </span>
+          )}
           <button
+            type="button"
             onClick={close}
             aria-label="Zamknij podgląd"
             className="absolute top-4 right-4 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl flex items-center justify-center transition-colors"
           >
             ✕
           </button>
-          {images.length > 1 && (
+          {imageCount > 1 && (
             <button
+              type="button"
               onClick={(e) => {
                 e.stopPropagation();
                 prev();
@@ -186,13 +252,14 @@ export default function GalleryView({
           <div className="max-h-[88vh] max-w-[92vw]" onClick={(e) => e.stopPropagation()}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={images[lightbox]}
+              src={images[lightbox].src}
               alt={`${activeCat.alt} ${lightbox + 1}`}
               className="max-h-[88vh] max-w-[92vw] w-auto h-auto object-contain rounded-lg"
             />
           </div>
-          {images.length > 1 && (
+          {imageCount > 1 && (
             <button
+              type="button"
               onClick={(e) => {
                 e.stopPropagation();
                 next();

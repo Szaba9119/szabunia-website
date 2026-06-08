@@ -7,7 +7,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import AnimatedSection from "@/components/AnimatedSection";
 import GalleryView, { type GalleryCategory } from "@/components/GalleryView";
 import { galleryVideos } from "@/data/galeria";
-import { listGalleryImages } from "@/lib/galleryImages";
+import { listGalleryImagesSized } from "@/lib/galleryImages";
 
 export const metadata: Metadata = {
   title: "Galeria zdjęć i wideo | Marcin Szabunia, fotograf biznesowy Poznań",
@@ -44,7 +44,7 @@ export default async function GaleriaPage({
   ];
 
   const categories: GalleryCategory[] = defs
-    .map((d) => ({ key: d.key, label: d.label, images: listGalleryImages(d.folder), alt: d.alt }))
+    .map((d) => ({ key: d.key, label: d.label, images: listGalleryImagesSized(d.folder), alt: d.alt }))
     .filter((c) => c.images.length > 0);
 
   const validKeys = [...categories.map((c) => c.key), "wideo"];
