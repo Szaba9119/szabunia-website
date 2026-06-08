@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useSyncExternalStore } from "react";
 import type { GalleryVideo } from "@/data/galeria";
 
 export interface GalleryCategory {
@@ -8,6 +8,19 @@ export interface GalleryCategory {
   label: string;
   images: string[];
   alt: string;
+}
+
+// Liczba kolumn galerii zależna od szerokości (SSR-safe, bez setState-in-effect): 2 na mobile, 3 od 640px.
+function useGalleryColumns(): number {
+  return useSyncExternalStore(
+    (onChange) => {
+      const mql = window.matchMedia("(min-width: 640px)");
+      mql.addEventListener("change", onChange);
+      return () => mql.removeEventListener("change", onChange);
+    },
+    () => (window.matchMedia("(min-width: 640px)").matches ? 3 : 2),
+    () => 3
+  );
 }
 
 export default function GalleryView({
@@ -25,18 +38,26 @@ export default function GalleryView({
   ];
   const [active, setActive] = useState(initialActive ?? tabs[0]?.key ?? "wideo");
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const cols = useGalleryColumns();
 
   const activeCat = categories.find((c) => c.key === active);
   const images = activeCat?.images ?? [];
+  const imageCount = images.length;
+
+  // Rozkład rzędami (round-robin): zdjęcie i trafia do kolumny i % cols,
+  // dzięki czemu górny rząd to 1,2,3, kolejny 4,5,6 — kolejność czyta się od lewej do prawej.
+  const masonryColumns = Array.from({ length: cols }, (_, ci) =>
+    images.map((src, i) => ({ src, i })).filter((item) => item.i % cols === ci)
+  );
 
   const close = useCallback(() => setLightbox(null), []);
   const prev = useCallback(
-    () => setLightbox((i) => (i === null ? null : (i - 1 + images.length) % images.length)),
-    [images.length]
+    () => setLightbox((i) => (i === null ? null : (i - 1 + imageCount) % imageCount)),
+    [imageCount]
   );
   const next = useCallback(
-    () => setLightbox((i) => (i === null ? null : (i + 1) % images.length)),
-    [images.length]
+    () => setLightbox((i) => (i === null ? null : (i + 1) % imageCount)),
+    [imageCount]
   );
 
   useEffect(() => {
@@ -109,23 +130,27 @@ export default function GalleryView({
           ))}
         </div>
       ) : (
-        /* Zdjęcia — masonry */
-        <div className="columns-2 sm:columns-3 gap-3">
-          {images.map((src, i) => (
-            <button
-              key={src}
-              onClick={() => setLightbox(i)}
-              aria-label={`Powiększ zdjęcie ${i + 1}`}
-              className="block w-full mb-3 break-inside-avoid rounded-xl overflow-hidden bg-border dark:bg-dark-card group"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={src}
-                alt={`${activeCat?.alt ?? "Fotografia"} ${i + 1}`}
-                loading="lazy"
-                className="w-full h-auto transition-opacity group-hover:opacity-90"
-              />
-            </button>
+        /* Zdjęcia — masonry z kolejnością rzędami */
+        <div className="flex gap-3 items-start">
+          {masonryColumns.map((col, ci) => (
+            <div key={ci} className="flex-1 min-w-0 flex flex-col gap-3">
+              {col.map(({ src, i }) => (
+                <button
+                  key={src}
+                  onClick={() => setLightbox(i)}
+                  aria-label={`Powiększ zdjęcie ${i + 1}`}
+                  className="block w-full rounded-xl overflow-hidden bg-border dark:bg-dark-card group"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={src}
+                    alt={`${activeCat?.alt ?? "Fotografia"} ${i + 1}`}
+                    loading="lazy"
+                    className="w-full h-auto transition-opacity group-hover:opacity-90"
+                  />
+                </button>
+              ))}
+            </div>
           ))}
         </div>
       )}
