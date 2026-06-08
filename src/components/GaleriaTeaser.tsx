@@ -3,16 +3,38 @@ import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
+import { listGalleryImages } from "@/lib/galleryImages";
+import { galleryVideos } from "@/data/galeria";
 
-const previews = [
-  { src: "/images/galeria/portrety/portret-01.jpg", alt: "Portret biznesowy, Poznań" },
-  { src: "/images/galeria/eventy/event-01.jpg", alt: "Fotografia eventowa" },
-  { src: "/images/galeria/produktowe/produkt-01.jpg", alt: "Fotografia produktowa, packshot" },
-  { src: "/images/galeria/portrety/portret-05.jpg", alt: "Portret biznesowy, Poznań" },
-  { src: "/images/galeria/eventy/event-06.jpg", alt: "Fotografia eventowa" },
-];
+type Tile = {
+  key: string;
+  label: string;
+  desc: string;
+  img: string;
+  video?: boolean;
+};
 
 export default function GaleriaTeaser() {
+  const portrety = listGalleryImages("portrety");
+  const eventy = listGalleryImages("eventy");
+  const produktowe = listGalleryImages("produktowe");
+  const firstVideo = galleryVideos[0];
+
+  const tiles: Tile[] = (
+    [
+      { key: "portrety", label: "Portrety", desc: "Zdjęcia portretowe", img: portrety[0] ?? "" },
+      { key: "eventy", label: "Eventy", desc: "Zdjęcia eventowe", img: eventy[0] ?? "" },
+      { key: "produktowe", label: "Produktowe", desc: "Zdjęcia produktowe", img: produktowe[0] ?? "" },
+      {
+        key: "wideo",
+        label: "Wideo",
+        desc: "Realizacje wideo",
+        img: firstVideo ? `https://i.ytimg.com/vi/${firstVideo.youtubeId}/hqdefault.jpg` : "",
+        video: true,
+      },
+    ] as Tile[]
+  ).filter((t) => t.img);
+
   return (
     <section className="py-12 md:py-16 px-4">
       <div className="max-w-6xl mx-auto">
@@ -28,23 +50,51 @@ export default function GaleriaTeaser() {
         </AnimatedSection>
 
         <AnimatedSection>
-          <div className="grid grid-cols-3 sm:grid-cols-5 gap-3">
-            {previews.map((p, i) => (
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {tiles.map((t) => (
               <Link
-                key={p.src}
-                href="/galeria"
-                aria-label="Przejdź do galerii"
-                className={`group relative aspect-[4/5] rounded-xl overflow-hidden bg-border dark:bg-dark-card ${
-                  i >= 3 ? "hidden sm:block" : ""
-                }`}
+                key={t.key}
+                href={`/galeria?kat=${t.key}`}
+                aria-label={`Galeria: ${t.desc}`}
+                className="group relative aspect-[4/5] rounded-xl overflow-hidden bg-border dark:bg-dark-card"
               >
-                <Image
-                  src={p.src}
-                  alt={p.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 33vw, 20vw"
-                />
+                {t.video ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={t.img}
+                    alt={t.desc}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                ) : (
+                  <Image
+                    src={t.img}
+                    alt={t.desc}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, 25vw"
+                  />
+                )}
+
+                {/* Spójny efekt: gradient + etykieta; na hover ciemniejszy i z opisem */}
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/20 to-transparent opacity-70 group-hover:opacity-95 transition-opacity duration-300" />
+
+                {t.video && (
+                  <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm border border-white/40 flex items-center justify-center text-white group-hover:bg-blue group-hover:border-blue transition-colors">
+                    <svg className="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                )}
+
+                <div className="absolute inset-x-0 bottom-0 p-3 sm:p-4">
+                  <span className="block text-white font-barlow font-bold text-sm sm:text-base leading-tight">
+                    {t.label}
+                  </span>
+                  <span className="block text-white/0 group-hover:text-white/85 text-[11px] sm:text-xs translate-y-1 group-hover:translate-y-0 transition-all duration-300">
+                    {t.desc} →
+                  </span>
+                </div>
               </Link>
             ))}
           </div>

@@ -13,15 +13,17 @@ export interface GalleryCategory {
 export default function GalleryView({
   categories,
   videos,
+  initialActive,
 }: {
   categories: GalleryCategory[];
   videos: GalleryVideo[];
+  initialActive?: string;
 }) {
   const tabs = [
     ...categories.map((c) => ({ key: c.key, label: c.label })),
     { key: "wideo", label: "Wideo" },
   ];
-  const [active, setActive] = useState(tabs[0]?.key ?? "wideo");
+  const [active, setActive] = useState(initialActive ?? tabs[0]?.key ?? "wideo");
   const [lightbox, setLightbox] = useState<number | null>(null);
 
   const activeCat = categories.find((c) => c.key === active);
@@ -108,7 +110,7 @@ export default function GalleryView({
         </div>
       ) : (
         /* Zdjęcia — masonry */
-        <div className="columns-2 md:columns-3 lg:columns-4 gap-3">
+        <div className="columns-2 sm:columns-3 gap-3">
           {images.map((src, i) => (
             <button
               key={src}

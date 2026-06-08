@@ -18,6 +18,7 @@ export interface ServiceData {
   pricingNote?: string;
   faqs: FAQItem[];
   portfolioSlug?: string;
+  galleryCategory?: "portrety" | "eventy" | "produktowe" | "wideo";
   seo: {
     title: string;
     description: string;
@@ -27,6 +28,7 @@ export interface ServiceData {
 export const serviceCategories: ServiceData[] = [
   {
     slug: "wizerunek-portrety",
+    galleryCategory: "portrety",
     title: "Wizerunek & Portrety",
     subtitle:
       "Profesjonalne portrety biznesowe, headshoty i zdjęcia personal branding, które budują zaufanie.",
@@ -87,6 +89,7 @@ export const serviceCategories: ServiceData[] = [
   },
   {
     slug: "pakiety-foto-wideo",
+    galleryCategory: "eventy",
     title: "Pakiety Foto + Wideo",
     subtitle:
       "Jeden twórca, spójny materiał, mniej logistyki. Bestseller wśród klientów korporacyjnych.",
@@ -151,6 +154,7 @@ export const serviceCategories: ServiceData[] = [
   },
   {
     slug: "eventy-reportaze",
+    galleryCategory: "eventy",
     title: "Eventy & Reportaże",
     subtitle:
       "Profesjonalna dokumentacja konferencji, targów, gal i wydarzeń firmowych. Opcja live editing.",
@@ -209,6 +213,7 @@ export const serviceCategories: ServiceData[] = [
   },
   {
     slug: "sesje-zespolowe",
+    galleryCategory: "portrety",
     title: "Sesje zespołowe",
     subtitle:
       "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze — bez logistyki.",
@@ -274,6 +279,7 @@ export const serviceCategories: ServiceData[] = [
   },
   {
     slug: "wideo-marketing",
+    galleryCategory: "wideo",
     title: "Wideo marketing",
     subtitle:
       "Reelsy, filmy promocyjne, relacje z eventów. Formaty pionowe i poziome dopasowane do platformy.",
@@ -337,6 +343,7 @@ export const serviceCategories: ServiceData[] = [
   },
   {
     slug: "fotografia-produktowa",
+    galleryCategory: "produktowe",
     title: "Fotografia produktowa",
     subtitle:
       "Packshoty na białym tle, zdjęcia kreatywne i aranżacje na e-commerce, katalogi i Social Media.",

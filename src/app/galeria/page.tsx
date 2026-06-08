@@ -1,5 +1,3 @@
-import fs from "fs";
-import path from "path";
 import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -9,6 +7,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import AnimatedSection from "@/components/AnimatedSection";
 import GalleryView, { type GalleryCategory } from "@/components/GalleryView";
 import { galleryVideos } from "@/data/galeria";
+import { listGalleryImages } from "@/lib/galleryImages";
 
 export const metadata: Metadata = {
   title: "Galeria zdjęć i wideo | Marcin Szabunia, fotograf biznesowy Poznań",
@@ -31,20 +30,13 @@ export const metadata: Metadata = {
   },
 };
 
-function listImages(folder: string): string[] {
-  try {
-    const dir = path.join(process.cwd(), "public", "images", "galeria", folder);
-    return fs
-      .readdirSync(dir)
-      .filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
-      .sort()
-      .map((f) => `/images/galeria/${folder}/${f}`);
-  } catch {
-    return [];
-  }
-}
+export default async function GaleriaPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ kat?: string }>;
+}) {
+  const { kat } = await searchParams;
 
-export default function GaleriaPage() {
   const defs = [
     { key: "portrety", label: "Portrety", folder: "portrety", alt: "Portret biznesowy, Marcin Szabunia, Poznań" },
     { key: "eventy", label: "Eventy", folder: "eventy", alt: "Fotografia eventowa, Marcin Szabunia, Poznań" },
@@ -52,8 +44,11 @@ export default function GaleriaPage() {
   ];
 
   const categories: GalleryCategory[] = defs
-    .map((d) => ({ key: d.key, label: d.label, images: listImages(d.folder), alt: d.alt }))
+    .map((d) => ({ key: d.key, label: d.label, images: listGalleryImages(d.folder), alt: d.alt }))
     .filter((c) => c.images.length > 0);
+
+  const validKeys = [...categories.map((c) => c.key), "wideo"];
+  const initialActive = kat && validKeys.includes(kat) ? kat : categories[0]?.key ?? "wideo";
 
   const structuredData = [
     {
@@ -91,7 +86,7 @@ export default function GaleriaPage() {
           </AnimatedSection>
 
           <ErrorBoundary>
-            <GalleryView categories={categories} videos={galleryVideos} />
+            <GalleryView categories={categories} videos={galleryVideos} initialActive={initialActive} />
           </ErrorBoundary>
         </div>
 

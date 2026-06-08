@@ -4,6 +4,7 @@ import { serviceCategories, getServiceBySlug } from "@/data/services";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import ServiceHero from "@/components/ServiceHero";
+import ServiceGalleryStrip from "@/components/ServiceGalleryStrip";
 import PortfolioProcess from "@/components/PortfolioProcess";
 import PortfolioPricing from "@/components/PortfolioPricing";
 import PortfolioFAQ from "@/components/PortfolioFAQ";
@@ -87,6 +88,11 @@ export default async function ServicePage({ params }: PageProps) {
         <ErrorBoundary>
           <ServiceHero service={service} />
         </ErrorBoundary>
+        {service.galleryCategory && (
+          <ErrorBoundary>
+            <ServiceGalleryStrip category={service.galleryCategory} />
+          </ErrorBoundary>
+        )}
         <ErrorBoundary>
           <PortfolioProcess steps={service.process} />
         </ErrorBoundary>
