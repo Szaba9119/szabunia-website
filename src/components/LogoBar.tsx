@@ -15,7 +15,7 @@ export default function LogoBar() {
   return (
     <AnimatedSection>
       <section className="py-12 md:py-16">
-        <p className="text-center text-xs font-barlow font-semibold uppercase tracking-[1.5px] text-steel-light dark:text-dark-text-muted mb-6">
+        <p className="text-center text-base md:text-lg font-barlow font-semibold uppercase tracking-[1.5px] text-steel dark:text-dark-text-muted mb-6">
           Współpracowałem m.in. z
         </p>
         <div
