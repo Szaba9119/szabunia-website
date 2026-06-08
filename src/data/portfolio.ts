@@ -57,7 +57,7 @@ export interface PortfolioCategory {
   faqs: FAQItem[];
   caseStudy?: CaseStudy;
   video?: { youtubeId: string; title: string };
-  reels?: { url: string; title: string; desc: string }[];
+  reels?: { url: string; title: string; cover: string }[];
   seo: {
     title: string;
     description: string;
@@ -87,18 +87,18 @@ export const portfolioCategories: PortfolioCategory[] = [
     reels: [
       {
         url: "https://www.instagram.com/woohoo_pl/reel/DYULbqYIWT3/",
-        title: "Wywiad #1",
-        desc: "Pionowy reels z wydarzenia — opublikowany na profilu @woohoo_pl.",
+        title: "Co ogranicza Twój sklep?",
+        cover: "/images/portfolio/reel-1.jpg",
       },
       {
         url: "https://www.instagram.com/woohoo_pl/reel/DYCsTRXIy0d/",
-        title: "Wywiad #2",
-        desc: "Pionowy reels z wydarzenia — opublikowany na profilu @woohoo_pl.",
+        title: "Co boli właścicieli e-commerce?",
+        cover: "/images/portfolio/reel-2.jpg",
       },
       {
         url: "https://www.instagram.com/woohoo_pl/reel/DXOYU35CIcn/",
-        title: "Wywiad #3",
-        desc: "Pionowy reels z wydarzenia — opublikowany na profilu @woohoo_pl.",
+        title: "Co zniknie z e-commerce?",
+        cover: "/images/portfolio/reel-3.jpg",
       },
     ],
     seo: {
