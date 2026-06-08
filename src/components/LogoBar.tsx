@@ -16,7 +16,7 @@ export default function LogoBar() {
     <AnimatedSection>
       <section className="py-12 md:py-16">
         <p className="text-center text-xs font-barlow font-semibold uppercase tracking-[1.5px] text-steel-light dark:text-dark-text-muted mb-6">
-          Zaufali mi między innymi
+          Współpracowałem m.in. z
         </p>
         <div
           className="relative overflow-hidden"
@@ -33,7 +33,7 @@ export default function LogoBar() {
             {[...clients, ...clients].map((client, i) => (
               <span
                 key={i}
-                className="font-barlow font-extrabold text-2xl md:text-3xl tracking-tight text-steel/70 dark:text-dark-text-muted/70 whitespace-nowrap flex-shrink-0"
+                className="font-barlow font-extrabold text-2xl md:text-3xl tracking-tight text-steel dark:text-dark-text-muted whitespace-nowrap flex-shrink-0"
                 aria-hidden={i >= clients.length}
               >
                 {client}

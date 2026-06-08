@@ -14,7 +14,7 @@ export default function Portfolio() {
   if (portfolioItems.length < 4) return null;
 
   return (
-    <section id="portfolio" className="py-12 md:py-24 px-4">
+    <section id="portfolio" className="py-12 md:py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">

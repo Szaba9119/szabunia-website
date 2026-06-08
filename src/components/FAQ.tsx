@@ -64,7 +64,7 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="py-12 md:py-24 px-4">
+    <section className="py-12 md:py-16 px-4">
       <div className="max-w-2xl mx-auto">
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">

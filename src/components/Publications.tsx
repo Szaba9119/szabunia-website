@@ -6,7 +6,7 @@ import { PARALLAX } from "@/lib/motion";
 
 export default function Publications() {
   return (
-    <section className="py-12 md:py-20 px-4">
+    <section className="py-12 md:py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <p className="text-[11px] uppercase tracking-widest text-steel-light dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">

@@ -8,7 +8,7 @@ import { serviceItems } from "@/data/services";
 
 export default function Services() {
   return (
-    <section id="uslugi" className="py-12 md:py-24 px-4">
+    <section id="uslugi" className="py-12 md:py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">

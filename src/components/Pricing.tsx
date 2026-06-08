@@ -56,7 +56,7 @@ export default function Pricing() {
   const isOpen = (id: string) => openSections.has(id);
 
   return (
-    <section id="cennik" className="py-12 md:py-24 px-4 bg-gray-bg dark:bg-dark-bg">
+    <section id="cennik" className="py-12 md:py-16 px-4 bg-gray-bg dark:bg-dark-bg">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <AnimatedSection>
