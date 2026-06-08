@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
+import YouTubeFacade from "./YouTubeFacade";
 import type { PortfolioCategory } from "@/data/portfolio";
 
 const scope = [
@@ -50,19 +51,9 @@ export default function PortfolioVideoShowcase({
           </p>
         </AnimatedSection>
 
-        {/* Poziomy film */}
+        {/* Poziomy film — fasada (player ładuje się po kliknięciu) */}
         <AnimatedSection>
-          <div className="relative aspect-video rounded-2xl overflow-hidden bg-navy ring-1 ring-border dark:ring-dark-border shadow-xl mt-8">
-            <iframe
-              className="absolute inset-0 w-full h-full"
-              src={`https://www.youtube.com/embed/${video.youtubeId}`}
-              title={video.title}
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-              referrerPolicy="strict-origin-when-cross-origin"
-            />
-          </div>
+          <YouTubeFacade id={video.youtubeId} title={video.title} />
         </AnimatedSection>
 
         {/* Opis + zakres */}
