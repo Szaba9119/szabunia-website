@@ -5,6 +5,7 @@ import About from "@/components/About";
 import Services from "@/components/Services";
 import Equipment from "@/components/Equipment";
 import Portfolio from "@/components/Portfolio";
+import GaleriaTeaser from "@/components/GaleriaTeaser";
 import Pricing from "@/components/Pricing";
 import Process from "@/components/Process";
 import Testimonials from "@/components/Testimonials";
@@ -141,6 +142,7 @@ export default function Home() {
         <ErrorBoundary><Services /></ErrorBoundary>
         <ErrorBoundary><Equipment /></ErrorBoundary>
         <ErrorBoundary><Portfolio /></ErrorBoundary>
+        <ErrorBoundary><GaleriaTeaser /></ErrorBoundary>
         <ErrorBoundary><Pricing /></ErrorBoundary>
         <ErrorBoundary><Testimonials /></ErrorBoundary>
         <ErrorBoundary><Publications /></ErrorBoundary>

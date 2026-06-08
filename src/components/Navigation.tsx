@@ -79,7 +79,7 @@ export default function Navigation() {
       aria-label="Nawigacja główna"
     >
       <div
-        className={`glass max-w-3xl w-full rounded-full px-6 transition-all duration-300 flex items-center justify-between ${
+        className={`glass max-w-4xl w-full rounded-full px-6 transition-all duration-300 flex items-center justify-between ${
           scrolled
             ? "py-2.5 shadow-lg shadow-navy/5 dark:shadow-black/20 bg-white/90 dark:bg-dark-bg/90"
             : "py-3 shadow-md shadow-navy/[0.03] dark:shadow-black/10"
@@ -92,7 +92,7 @@ export default function Navigation() {
           MARCIN SZABUNIA
         </Link>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
           {navLinks.map((link) => (
             <a
               key={link.href}
@@ -106,6 +106,16 @@ export default function Navigation() {
               {link.label}
             </a>
           ))}
+          <Link
+            href="/galeria"
+            className={`text-[13px] transition-colors font-inter ${
+              pathname === "/galeria"
+                ? "text-blue dark:text-blue-light font-semibold"
+                : "text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white"
+            }`}
+          >
+            Galeria
+          </Link>
           <Link
             href="/blog"
             className={`text-[13px] transition-colors font-inter ${
@@ -213,6 +223,14 @@ export default function Navigation() {
                 {link.label}
               </a>
             ))}
+            <Link
+              href="/galeria"
+              role="menuitem"
+              onClick={() => closeMobileMenu()}
+              className="text-sm font-barlow font-semibold text-navy dark:text-white"
+            >
+              Galeria
+            </Link>
             <Link
               href="/blog"
               role="menuitem"

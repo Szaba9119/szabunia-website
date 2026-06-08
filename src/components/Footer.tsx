@@ -29,6 +29,7 @@ export default function Footer() {
               { label: "O mnie", href: "/#o-mnie" },
               { label: "Usługi", href: "/#uslugi" },
               { label: "Portfolio", href: "/#portfolio" },
+              { label: "Galeria", href: "/galeria" },
               { label: "Cennik", href: "/#cennik" },
               { label: "Kontakt", href: "/kontakt" },
               { label: "Blog", href: "/blog" },
