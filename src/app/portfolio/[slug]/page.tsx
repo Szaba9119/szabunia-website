@@ -9,6 +9,7 @@ import PortfolioProcess from "@/components/PortfolioProcess";
 import PortfolioPricing from "@/components/PortfolioPricing";
 import PortfolioFAQ from "@/components/PortfolioFAQ";
 import PortfolioCaseStudy from "@/components/PortfolioCaseStudy";
+import PortfolioVideoShowcase from "@/components/PortfolioVideoShowcase";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import ErrorBoundary from "@/components/ErrorBoundary";
@@ -43,70 +44,100 @@ export default async function PortfolioPage({ params }: PageProps) {
   const category = getCategoryBySlug(slug);
   if (!category) notFound();
 
-  const structuredData = [
-    {
-      "@context": "https://schema.org",
-      "@type": "Service",
-      name: category.label,
-      description: category.seo.description,
-      provider: {
-        "@type": "ProfessionalService",
-        name: "Marcin Szabunia",
-        url: "https://szabunia.pl",
-      },
-      areaServed: { "@type": "Country", name: "PL" },
-      image: `https://szabunia.pl${category.thumbnail}`,
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
-        { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://szabunia.pl/portfolio" },
-        { "@type": "ListItem", position: 3, name: category.label },
-      ],
-    },
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: category.faqs.map((f) => ({
-        "@type": "Question",
-        name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    },
-  ];
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
+      { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://szabunia.pl/portfolio" },
+      { "@type": "ListItem", position: 3, name: category.label },
+    ],
+  };
+
+  const structuredData = category.video
+    ? [
+        {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          name: category.heroTitle || category.label,
+          description: category.seo.description,
+          thumbnailUrl: [
+            `https://i.ytimg.com/vi/${category.video.youtubeId}/maxresdefault.jpg`,
+          ],
+          embedUrl: `https://www.youtube.com/embed/${category.video.youtubeId}`,
+          contentUrl: `https://www.youtube.com/watch?v=${category.video.youtubeId}`,
+          publisher: {
+            "@type": "Person",
+            name: "Marcin Szabunia",
+            url: "https://szabunia.pl",
+          },
+        },
+        breadcrumb,
+      ]
+    : [
+        {
+          "@context": "https://schema.org",
+          "@type": "Service",
+          name: category.label,
+          description: category.seo.description,
+          provider: {
+            "@type": "ProfessionalService",
+            name: "Marcin Szabunia",
+            url: "https://szabunia.pl",
+          },
+          areaServed: { "@type": "Country", name: "PL" },
+          image: `https://szabunia.pl${category.thumbnail}`,
+        },
+        breadcrumb,
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: category.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        },
+      ];
 
   return (
     <>
       <ScrollProgress />
       <Navigation />
       <main id="main">
-        <ErrorBoundary>
-          <PortfolioHero category={category} />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <PortfolioGallery images={category.gallery} title={category.label} />
-        </ErrorBoundary>
-        {category.caseStudy && (
+        {category.video ? (
           <ErrorBoundary>
-            <PortfolioCaseStudy data={category.caseStudy} />
+            <PortfolioVideoShowcase category={category} />
           </ErrorBoundary>
+        ) : (
+          <>
+            <ErrorBoundary>
+              <PortfolioHero category={category} />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <PortfolioGallery images={category.gallery} title={category.label} />
+            </ErrorBoundary>
+            {category.caseStudy && (
+              <ErrorBoundary>
+                <PortfolioCaseStudy data={category.caseStudy} />
+              </ErrorBoundary>
+            )}
+            <ErrorBoundary>
+              <PortfolioProcess steps={category.process} />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <PortfolioPricing
+                pricingType={category.pricingType}
+                tiers={category.tiers}
+                tables={category.tables}
+                note={category.pricingNote}
+              />
+            </ErrorBoundary>
+            <ErrorBoundary>
+              <PortfolioFAQ faqs={category.faqs} />
+            </ErrorBoundary>
+          </>
         )}
-        <ErrorBoundary>
-          <PortfolioProcess steps={category.process} />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <PortfolioPricing
-            pricingType={category.pricingType}
-            tiers={category.tiers}
-            tables={category.tables}
-            note={category.pricingNote}
-          />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <PortfolioFAQ faqs={category.faqs} />
-        </ErrorBoundary>
         <ErrorBoundary>
           <CTA />
         </ErrorBoundary>

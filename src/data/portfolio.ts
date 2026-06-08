@@ -56,6 +56,8 @@ export interface PortfolioCategory {
   pricingNote?: string;
   faqs: FAQItem[];
   caseStudy?: CaseStudy;
+  video?: { youtubeId: string; title: string };
+  reels?: { url: string; title: string; desc: string }[];
   seo: {
     title: string;
     description: string;
@@ -67,19 +69,42 @@ export interface PortfolioCategory {
 export const portfolioCategories: PortfolioCategory[] = [
   {
     slug: "woohoo-autopay",
-    externalUrl: "https://www.youtube.com/watch?v=4INLtKcKcZk",
-    label: "Woohoo × Autopay — Enea Stadion",
-    heroTitle: "",
-    heroSubtitle: "",
-    description: "",
+    label: "E-commerce All-in",
+    heroTitle: "E-commerce All-in",
+    heroSubtitle:
+      "Podsumowanie wideo wydarzenia Woohoo × Autopay na Enea Stadion w Poznaniu — poziomy film i trzy pionowe reelsy z wywiadami.",
+    description:
+      "E-commerce All-in to wydarzenie zorganizowane przez Woohoo i Autopay (wraz z partnerami) na Enea Stadion w Poznaniu. Odpowiadałem za komplet materiału wideo: poziomy film podsumowujący całe wydarzenie z publikacją na YouTube oraz trzy pionowe reelsy z wywiadami, skrojone pod Social Media. Jeden twórca, spójny materiał — od planu zdjęciowego, przez realizację, po montaż i postprodukcję.",
     thumbnail: "/images/portfolio/woohoo-autopay.jpg",
     gallery: [],
     process: [],
     pricingType: "tiers",
     faqs: [],
+    video: {
+      youtubeId: "4INLtKcKcZk",
+      title: "E-commerce All-in — podsumowanie wydarzenia (Woohoo × Autopay)",
+    },
+    reels: [
+      {
+        url: "https://www.instagram.com/woohoo_pl/reel/DYULbqYIWT3/",
+        title: "Wywiad #1",
+        desc: "Pionowy reels z wydarzenia — opublikowany na profilu @woohoo_pl.",
+      },
+      {
+        url: "https://www.instagram.com/woohoo_pl/reel/DYCsTRXIy0d/",
+        title: "Wywiad #2",
+        desc: "Pionowy reels z wydarzenia — opublikowany na profilu @woohoo_pl.",
+      },
+      {
+        url: "https://www.instagram.com/woohoo_pl/reel/DXOYU35CIcn/",
+        title: "Wywiad #3",
+        desc: "Pionowy reels z wydarzenia — opublikowany na profilu @woohoo_pl.",
+      },
+    ],
     seo: {
-      title: "Woohoo × Autopay — Case study wideo",
-      description: "Film korporacyjny z Enea Stadion w Poznaniu.",
+      title: "E-commerce All-in (Woohoo × Autopay) — realizacja wideo | Marcin Szabunia",
+      description:
+        "Case study realizacji wideo z wydarzenia E-commerce All-in (Woohoo × Autopay) na Enea Stadion: poziomy film podsumowujący i trzy pionowe reelsy z wywiadami.",
     },
   },
   {
