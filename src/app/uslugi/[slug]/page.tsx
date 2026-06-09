@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://szabunia.pl/uslugi/${service.slug}`,
       images: [
         {
-          url: "/images/marcin-hero.jpg",
+          url: `/images/og/uslugi/${service.slug}.png`,
           width: 1200,
           height: 630,
           alt: `${service.title} — Marcin Szabunia`,

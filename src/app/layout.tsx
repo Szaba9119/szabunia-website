@@ -37,6 +37,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://szabunia.pl"),
   alternates: {
     canonical: "/",
+    types: {
+      "application/rss+xml": [{ url: "/feed.xml", title: "Blog — Marcin Szabunia" }],
+    },
   },
   openGraph: {
     title: "Marcin Szabunia — Fotograf biznesowy & twórca wideo",

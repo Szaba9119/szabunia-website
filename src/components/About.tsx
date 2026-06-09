@@ -17,7 +17,7 @@ export default function About() {
               <Parallax distance={PARALLAX.subtle} direction="up" className="absolute inset-0">
                 <div className="absolute inset-0 scale-[1.15]">
                   <Image
-                    src="/images/marcin-o-mnie.png"
+                    src="/images/marcin-o-mnie.jpg"
                     alt="Marcin Szabunia — fotograf biznesowy, portret, Poznań"
                     fill
                     className="object-cover"

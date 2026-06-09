@@ -42,7 +42,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://szabunia.pl/blog/${post.slug}`,
       type: "article",
       publishedTime: post.date,
-      images: [{ url: post.thumbnail, width: 1200, height: 630, alt: post.title }],
+      images: [
+        {
+          url: `/images/og/blog/${post.slug}.png`,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
     },
   };
 }
@@ -69,7 +76,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         name: "Marcin Szabunia",
         url: "https://szabunia.pl",
       },
-      image: `https://szabunia.pl${post.thumbnail}`,
+      image: `https://szabunia.pl/images/og/blog/${post.slug}.png`,
       mainEntityOfPage: `https://szabunia.pl/blog/${post.slug}`,
     },
     {
