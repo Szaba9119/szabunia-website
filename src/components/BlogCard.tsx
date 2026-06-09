@@ -43,7 +43,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
         <p className="text-steel dark:text-dark-text-muted text-[13px] leading-relaxed line-clamp-2">
           {post.excerpt}
         </p>
-        <time dateTime={post.date} className="block text-[12px] text-steel-light dark:text-dark-text-muted/60 mt-3">
+        <time dateTime={post.date} className="block text-[12px] text-steel dark:text-dark-text-muted/60 mt-3">
           {new Date(post.date).toLocaleDateString("pl-PL", {
             year: "numeric",
             month: "long",

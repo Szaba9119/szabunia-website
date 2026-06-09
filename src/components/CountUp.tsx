@@ -63,7 +63,7 @@ export default function CountUp({ end, duration = 2000, suffix = "", prefix = ""
 
   return (
     <span ref={ref}>
-      {prefix}{count.toLocaleString("pl-PL")}{suffix}
+      {prefix}{(started ? count : end).toLocaleString("pl-PL")}{suffix}
     </span>
   );
 }

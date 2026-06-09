@@ -57,7 +57,7 @@ export default function Hero() {
                 </div>
               ))}
             </div>
-            <p className="text-xs text-steel-light dark:text-dark-text-muted">
+            <p className="text-xs text-steel dark:text-dark-text-muted">
               Zaufało mi{" "}
               <span className="font-semibold text-steel dark:text-dark-text">100+ firm</span>{" "}
               z&nbsp;całej Polski

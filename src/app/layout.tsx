@@ -140,6 +140,29 @@ export default function RootLayout({
                 bestRating: "5",
                 worstRating: "1",
               },
+              review: [
+                {
+                  "@type": "Review",
+                  author: { "@type": "Person", name: "Maksymilian Chodziak" },
+                  reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+                  reviewBody:
+                    "Jak zwykle profesjonalizm w każdym calu. Z Marcinem współpracuję od wielu lat. Serdecznie polecam.",
+                },
+                {
+                  "@type": "Review",
+                  author: { "@type": "Person", name: "Natalia Tomczak" },
+                  reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+                  reviewBody:
+                    "Marcin to bardzo pozytywny i utalentowany fotograf, miałam przyjemność współpracować z nim wiele razy. Liczę na więcej wspólnych sesji!",
+                },
+                {
+                  "@type": "Review",
+                  author: { "@type": "Person", name: "Małgorzata Wagner" },
+                  reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+                  reviewBody:
+                    "Zdjęcia były robione na stronę internetową dla firmy. Profesjonalne podejście i ładne zdjęcia.",
+                },
+              ],
               sameAs: [
                 "https://instagram.com/szabunia.biz",
               ],
@@ -208,7 +231,7 @@ export default function RootLayout({
               url: "https://szabunia.pl",
               image: "https://szabunia.pl/images/marcin-hero.jpg",
               description:
-                "Profesjonalny fotograf biznesowy i twórca wideo B2B z Poznania. Specjalizacja: portrety biznesowe, fotografia eventowa, wideo marketing, fotografia produktowa. Klienci: H&M, Warner Music, Santander, John Deere, Forte.",
+                "Profesjonalny fotograf biznesowy i twórca wideo B2B z Poznania. Specjalizacja: portrety biznesowe, fotografia eventowa, wideo marketing, fotografia produktowa. Klienci: H&M, Warner Music Poland, Santander Bank Polska, John Deere, IQOS, Amica, Grupa Forte S.A., Centrum Posnania, Woohoo.",
               email: "marcin@szabunia.pl",
               address: {
                 "@type": "PostalAddress",

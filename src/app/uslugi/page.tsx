@@ -59,7 +59,7 @@ export default function UslugiPage() {
       <main id="main" className="pt-28 pb-16 px-4">
         <div className="max-w-6xl mx-auto">
           <AnimatedSection>
-            <p className="text-[11px] uppercase tracking-widest text-steel-light dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
+            <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
               Oferta
             </p>
             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">

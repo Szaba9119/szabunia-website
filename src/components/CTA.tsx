@@ -273,7 +273,7 @@ export default function CTA() {
                     ))}
                   </div>
                   <p className="text-xs text-steel">
-                    200+ zadowolonych firm B2B
+                    100+ zadowolonych firm B2B
                   </p>
                 </div>
               </div>

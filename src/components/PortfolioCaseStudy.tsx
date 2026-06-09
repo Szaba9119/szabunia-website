@@ -28,7 +28,7 @@ export default function PortfolioCaseStudy({ data }: { data: CaseStudyData }) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           {/* Client info */}
           <AnimatedSection className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6">
-            <p className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-steel-light dark:text-dark-text-muted mb-2">
+            <p className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-steel dark:text-dark-text-muted mb-2">
               Klient
             </p>
             <p className="font-barlow font-bold text-lg text-navy dark:text-white">
@@ -44,7 +44,7 @@ export default function PortfolioCaseStudy({ data }: { data: CaseStudyData }) {
             delay={0.1}
             className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6"
           >
-            <p className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-steel-light dark:text-dark-text-muted mb-2">
+            <p className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-steel dark:text-dark-text-muted mb-2">
               Wyzwanie
             </p>
             <p className="text-text-body dark:text-dark-text text-[14px] leading-relaxed">
@@ -58,7 +58,7 @@ export default function PortfolioCaseStudy({ data }: { data: CaseStudyData }) {
           delay={0.2}
           className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6 mb-8"
         >
-          <p className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-steel-light dark:text-dark-text-muted mb-2">
+          <p className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-steel dark:text-dark-text-muted mb-2">
             Rozwiązanie
           </p>
           <p className="text-text-body dark:text-dark-text text-[14px] leading-relaxed">

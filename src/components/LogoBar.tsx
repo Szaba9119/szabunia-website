@@ -7,7 +7,10 @@ const clients = [
   "Warner Music",
   "Santander",
   "John Deere",
+  "IQOS",
+  "Amica",
   "Forte",
+  "Centrum Posnania",
   "Woohoo",
 ];
 

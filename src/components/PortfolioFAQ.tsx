@@ -58,7 +58,7 @@ export default function PortfolioFAQ({ faqs }: Props) {
                       className={`w-5 h-5 flex-shrink-0 transition-all duration-300 ${
                         isOpen
                           ? "rotate-180 text-blue dark:text-blue-light"
-                          : "text-steel-light dark:text-dark-text-muted"
+                          : "text-steel dark:text-dark-text-muted"
                       }`}
                       fill="none"
                       viewBox="0 0 24 24"

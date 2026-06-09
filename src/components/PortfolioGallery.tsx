@@ -87,7 +87,7 @@ export default function PortfolioGallery({ images, title }: Props) {
           {images.length < 3 && (
             <AnimatedSection delay={0.08 * images.length}>
               <div className="aspect-[4/3] rounded-2xl bg-navy/5 dark:bg-dark-card border border-dashed border-border dark:border-dark-border flex flex-col items-center justify-center text-center px-4">
-                <span className="text-steel-light dark:text-dark-text-muted text-2xl mb-2">+</span>
+                <span className="text-steel dark:text-dark-text-muted text-2xl mb-2">+</span>
                 <span className="text-steel dark:text-dark-text-muted text-[13px] font-barlow font-semibold">
                   Więcej zdjęć wkrótce
                 </span>

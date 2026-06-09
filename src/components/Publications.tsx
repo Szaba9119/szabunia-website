@@ -9,7 +9,7 @@ export default function Publications() {
     <section className="py-12 md:py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
-          <p className="text-[11px] uppercase tracking-widest text-steel-light dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
+          <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
             Publikacje
           </p>
           <Parallax distance={PARALLAX.accent} direction="up">

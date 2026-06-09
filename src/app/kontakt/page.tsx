@@ -81,7 +81,7 @@ export default function KontaktPage() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <AnimatedSection>
-            <p className="text-[11px] uppercase tracking-widest text-steel-light dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
+            <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
               Kontakt
             </p>
             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">

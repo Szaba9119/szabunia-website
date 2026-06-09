@@ -613,3 +613,48 @@ export function getBlogPostBySlug(slug: string): BlogPost | undefined {
 }
 
 export const blogCategories = ["poradnik", "realizacja", "branża"] as const;
+
+/* ── Linkowanie wewnętrzne blog ↔ usługi ──
+   Mapa: slug wpisu → slug najbardziej powiązanej usługi (z src/data/services.tsx).
+   Trzymamy slug usługi jako string, żeby nie tworzyć zależności blog→services. */
+export const blogServiceMap: Record<string, string> = {
+  "jak-przygotowac-sie-do-sesji-biznesowej": "wizerunek-portrety",
+  "headshoty-linkedin-konwersja": "wizerunek-portrety",
+  "fotografia-eventowa-vs-reportaz": "eventy-reportaze",
+  "zdjecie-do-cv-w-domu": "wizerunek-portrety",
+  "fotografia-przemyslowa-fabryka": "fotografia-produktowa",
+  "bledy-zdjecia-zespolu": "sesje-zespolowe",
+  "ile-kosztuje-sesja-wizerunkowa-dla-firmy": "wizerunek-portrety",
+  "fotografia-produktowa-ecommerce": "fotografia-produktowa",
+  "wideo-marketing-dla-firm-formaty": "wideo-marketing",
+  "sesja-wizerunkowa-poznan": "wizerunek-portrety",
+  "zdjecia-ai-vs-profesjonalna-sesja": "wizerunek-portrety",
+  "co-zalozyc-na-sesje-biznesowa": "wizerunek-portrety",
+  "zdjecia-na-strone-firmowa": "wizerunek-portrety",
+};
+
+/** Slug usługi powiązanej z danym wpisem (lub undefined). */
+export function getServiceSlugForPost(slug: string): string | undefined {
+  return blogServiceMap[slug];
+}
+
+/** Powiązane wpisy: najpierw ta sama usługa, potem ta sama kategoria, potem reszta. */
+export function getRelatedPosts(slug: string, limit = 3): BlogPost[] {
+  const svc = blogServiceMap[slug];
+  const current = getBlogPostBySlug(slug);
+  const pool = blogPosts.filter((p) => p.slug !== slug);
+  const sameService = pool.filter((p) => !!svc && blogServiceMap[p.slug] === svc);
+  const sameCategory = pool.filter(
+    (p) => !!current && p.category === current.category && !sameService.includes(p)
+  );
+  const rest = pool.filter((p) => !sameService.includes(p) && !sameCategory.includes(p));
+  return [...sameService, ...sameCategory, ...rest].slice(0, limit);
+}
+
+/** Wpisy bloga powiązane z daną usługą (od najnowszych). */
+export function getPostsForService(serviceSlug: string, limit = 3): BlogPost[] {
+  return blogPosts
+    .filter((p) => blogServiceMap[p.slug] === serviceSlug)
+    .sort((a, b) => +new Date(b.date) - +new Date(a.date))
+    .slice(0, limit);
+}

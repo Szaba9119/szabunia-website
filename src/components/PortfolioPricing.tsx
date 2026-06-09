@@ -64,7 +64,7 @@ function PricingTiers({ tiers }: TiersProps) {
               ))}
             </ul>
             {tier.extra && (
-              <p className="text-[11px] text-steel-light dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
+              <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
                 {tier.extra}
               </p>
             )}

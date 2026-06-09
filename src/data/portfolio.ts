@@ -223,7 +223,7 @@ export const portfolioCategories: PortfolioCategory[] = [
             label: "Opcje dodatkowe",
             items: [
               { label: "Live editing (Social Media)", value: "20 zł / zdjęcie" },
-              { label: "Ekspresowa dostawa (24h)", value: "+50% ceny" },
+              { label: "Ekspresowa dostawa (24-48h)", value: "+50% ceny" },
               { label: "Ujęcia z drona", value: "+500 zł" },
             ],
           },

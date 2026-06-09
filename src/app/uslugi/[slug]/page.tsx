@@ -10,7 +10,9 @@ import PortfolioPricing from "@/components/PortfolioPricing";
 import PortfolioFAQ from "@/components/PortfolioFAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import BlogCard from "@/components/BlogCard";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { getPostsForService } from "@/data/blog";
 
 export function generateStaticParams() {
   return serviceCategories.map((s) => ({ slug: s.slug }));
@@ -46,6 +48,8 @@ export default async function ServicePage({ params }: PageProps) {
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) notFound();
+
+  const relatedPosts = getPostsForService(service.slug, 3);
 
   const structuredData = [
     {
@@ -107,6 +111,25 @@ export default async function ServicePage({ params }: PageProps) {
         <ErrorBoundary>
           <PortfolioFAQ faqs={service.faqs} />
         </ErrorBoundary>
+        {relatedPosts.length > 0 && (
+          <ErrorBoundary>
+            <section className="py-12 md:py-16 px-4">
+              <div className="max-w-5xl mx-auto">
+                <h2 className="font-barlow font-extrabold text-2xl md:text-[32px] leading-tight tracking-tight text-navy dark:text-white mb-2 text-center">
+                  Z bloga
+                </h2>
+                <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-8">
+                  Praktyczne porady powiązane z tą usługą.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                  {relatedPosts.map((p) => (
+                    <BlogCard key={p.slug} post={p} />
+                  ))}
+                </div>
+              </div>
+            </section>
+          </ErrorBoundary>
+        )}
         <ErrorBoundary>
           <CTA />
         </ErrorBoundary>

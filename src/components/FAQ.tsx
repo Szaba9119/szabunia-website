@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     q: "Ile tur poprawek otrzymuję w cenie?",
-    a: "Zdjęcia — 1 tura poprawek w cenie. Wideo — 2 tury poprawek montażowych w cenie. Każda dodatkowa godzina pracy nad zmianami: 200 zł netto. W praktyce pierwsza tura prawie zawsze wystarcza — zależy mi, żeby finalny materiał w 100% odpowiadał Twoim oczekiwaniom.",
+    a: "Zdjęcia — 2 tury poprawek w cenie. Wideo — 3 tury poprawek montażowych w cenie. Każda dodatkowa godzina pracy nad zmianami: 200 zł netto. W praktyce pierwsza tura prawie zawsze wystarcza — zależy mi, żeby finalny materiał w 100% odpowiadał Twoim oczekiwaniom.",
   },
   {
     q: "Jakiego sprzętu używasz do zdjęć i wideo?",
@@ -110,7 +110,7 @@ export default function FAQ() {
                         className={`w-5 h-5 flex-shrink-0 transition-all duration-300 ${
                           isOpen
                             ? "rotate-180 text-blue dark:text-blue-light"
-                            : "text-steel-light dark:text-dark-text-muted"
+                            : "text-steel dark:text-dark-text-muted"
                         }`}
                         fill="none"
                         viewBox="0 0 24 24"

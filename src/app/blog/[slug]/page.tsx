@@ -2,12 +2,14 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { blogPosts, getBlogPostBySlug } from "@/data/blog";
+import { blogPosts, getBlogPostBySlug, getServiceSlugForPost, getRelatedPosts } from "@/data/blog";
+import { getServiceBySlug } from "@/data/services";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import BackToTopButton from "@/components/BackToTopButton";
 import Footer from "@/components/Footer";
 import BlogContent from "@/components/BlogContent";
+import BlogCard from "@/components/BlogCard";
 import AnimatedSection from "@/components/AnimatedSection";
 import PoradnikBlogCTA from "@/components/PoradnikBlogCTA";
 
@@ -81,6 +83,10 @@ export default async function BlogPostPage({ params }: PageProps) {
     },
   ];
 
+  const serviceSlug = getServiceSlugForPost(post.slug);
+  const relatedService = serviceSlug ? getServiceBySlug(serviceSlug) : undefined;
+  const relatedPosts = getRelatedPosts(post.slug, 3);
+
   return (
     <>
       <ScrollProgress />
@@ -111,7 +117,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               <span className="text-[12px] text-steel dark:text-dark-text-muted">
                 {post.readTime} min czytania
               </span>
-              <time dateTime={post.date} className="text-[12px] text-steel-light dark:text-dark-text-muted/60">
+              <time dateTime={post.date} className="text-[12px] text-steel dark:text-dark-text-muted/60">
                 {new Date(post.date).toLocaleDateString("pl-PL", {
                   year: "numeric",
                   month: "long",
@@ -150,6 +156,46 @@ export default async function BlogPostPage({ params }: PageProps) {
           {["jak-przygotowac-sie-do-sesji-biznesowej", "co-zalozyc-na-sesje-biznesowa"].includes(post.slug) && (
             <AnimatedSection className="mt-10">
               <PoradnikBlogCTA />
+            </AnimatedSection>
+          )}
+
+          {/* Powiązana usługa */}
+          {relatedService && (
+            <AnimatedSection className="mt-10">
+              <Link
+                href={`/uslugi/${relatedService.slug}`}
+                className="group block rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card p-5 md:p-6 hover:border-blue dark:hover:border-blue transition-all"
+              >
+                <p className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-blue dark:text-blue-light mb-1">
+                  Powiązana usługa
+                </p>
+                <h2 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1.5 group-hover:text-blue dark:group-hover:text-blue-light transition-colors">
+                  {relatedService.title}
+                </h2>
+                <p className="text-[13px] text-steel dark:text-dark-text-muted leading-relaxed mb-3">
+                  {relatedService.subtitle}
+                </p>
+                <span className="inline-flex items-center gap-2 text-blue dark:text-blue-light font-barlow font-semibold text-sm">
+                  Zobacz ofertę · {relatedService.price}
+                  <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                  </svg>
+                </span>
+              </Link>
+            </AnimatedSection>
+          )}
+
+          {/* Powiązane artykuły */}
+          {relatedPosts.length > 0 && (
+            <AnimatedSection className="mt-12 pt-8 border-t border-border dark:border-dark-border">
+              <h2 className="font-barlow font-bold text-xl text-navy dark:text-white mb-5">
+                Powiązane artykuły
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                {relatedPosts.map((p) => (
+                  <BlogCard key={p.slug} post={p} />
+                ))}
+              </div>
             </AnimatedSection>
           )}
 

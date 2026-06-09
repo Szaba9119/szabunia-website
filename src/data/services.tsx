@@ -120,12 +120,12 @@ export const serviceCategories: ServiceData[] = [
       {
         name: "EVENT ESSENTIALS",
         price: "1 800 zł",
-        features: ["3 godziny obecności", "50+ wyselekcjonowanych zdjęć", "Wideo w formacie Reels (30s)"],
+        features: ["3 godziny obecności", "50+ wyselekcjonowanych zdjęć", "Wideo w formacie Reels (30s)", "Ujęcia z drona w cenie pakietu"],
       },
       {
         name: "EVENT PRO",
         price: "3 200 zł",
-        features: ["6 godzin obecności", "150+ wyselekcjonowanych zdjęć", "Główne wideo podsumowujące (60s)", "Krótki teaser do Social Media (15s)"],
+        features: ["6 godzin obecności", "150+ wyselekcjonowanych zdjęć", "Główne wideo podsumowujące (60s)", "Krótki teaser do Social Media (15s)", "Ujęcia z drona w cenie pakietu"],
         recommended: true,
       },
       {
@@ -139,6 +139,7 @@ export const serviceCategories: ServiceData[] = [
           "2–3 mini-wywiady z uczestnikami",
           "Autorska selekcja + profesjonalna obróbka zdjęć",
           "Pełen montaż wideo i post-produkcja wywiadów",
+          "Ujęcia z drona w cenie pakietu",
         ],
       },
     ],
@@ -193,7 +194,7 @@ export const serviceCategories: ServiceData[] = [
             label: "Opcje dodatkowe",
             items: [
               { label: "Live editing (Social Media)", value: "20 zł / zdjęcie" },
-              { label: "Ekspresowa dostawa (24h)", value: "+50% ceny" },
+              { label: "Ekspresowa dostawa (24-48h)", value: "+50% ceny" },
               { label: "Ujęcia z drona", value: "+500 zł" },
             ],
           },

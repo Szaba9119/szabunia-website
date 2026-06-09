@@ -24,7 +24,7 @@ function ChevronIcon({ open }: { open: boolean }) {
   return (
     <svg
       className={`w-5 h-5 flex-shrink-0 transition-transform duration-300 ${
-        open ? "rotate-180 text-blue dark:text-blue-light" : "text-steel-light dark:text-dark-text-muted"
+        open ? "rotate-180 text-blue dark:text-blue-light" : "text-steel dark:text-dark-text-muted"
       }`}
       fill="none"
       viewBox="0 0 24 24"
@@ -72,7 +72,7 @@ export default function Pricing() {
 
         {/* === CENY NETTO (B2B) === */}
         <AnimatedSection>
-          <p className="text-center text-[12px] text-steel-light dark:text-dark-text-muted mb-12">
+          <p className="text-center text-[12px] text-steel dark:text-dark-text-muted mb-12">
             Wszystkie ceny są kwotami netto (+23% VAT). Faktura VAT.
           </p>
         </AnimatedSection>
@@ -99,7 +99,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> 3 wyretuszowane zdjęcia (wybór ze 100+ ujęć)</li>
                 <li className="flex items-start gap-2"><CheckIcon /> GRATIS: Poseboard przed sesją</li>
               </ul>
-              <p className="text-[11px] text-steel-light dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
+              <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
                 Dodatkowe ujęcie: {formatPriceLabel(120)}
               </p>
             </div>
@@ -146,7 +146,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Pełna kontrola nad stylem i klimatem</li>
                 <li className="flex items-start gap-2"><CheckIcon /> GRATIS: Konsultacja wizerunkowa PDF + Poseboard</li>
               </ul>
-              <p className="text-[11px] text-steel-light dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
+              <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
                 Dodatkowe ujęcie: {formatPriceLabel(80)}
               </p>
             </div>
@@ -283,7 +283,7 @@ export default function Pricing() {
                       <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Opcje dodatkowe:</p>
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
                         <div className="flex justify-between"><span>Live editing (Social Media)</span><span>{formatPriceLabel(20)} / zdjęcie</span></div>
-                        <div className="flex justify-between"><span>Ekspresowa dostawa (24h)</span><span>+50% ceny</span></div>
+                        <div className="flex justify-between"><span>Ekspresowa dostawa (24-48h)</span><span>+50% ceny</span></div>
                         <div className="flex justify-between"><span>Ujęcia z drona</span><span>+{formatPriceLabel(500)}</span></div>
                       </div>
                     </div>
@@ -418,7 +418,7 @@ export default function Pricing() {
                         <span className="text-navy dark:text-white font-semibold">Monthly Content</span>
                         <span className="font-barlow font-extrabold text-xl text-blue dark:text-blue-light">{formatPriceLabel(4900)} / m-c</span>
                       </div>
-                      <p className="text-[11px] text-steel-light dark:text-dark-text-muted">
+                      <p className="text-[11px] text-steel dark:text-dark-text-muted">
                         1 dzień zdjęciowy + montaż 4 rolek (min. 3 miesiące umowy)
                       </p>
                     </div>
