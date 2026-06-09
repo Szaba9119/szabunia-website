@@ -36,6 +36,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://szabunia.pl/portfolio/${category.slug}`,
       images: [{ url: category.thumbnail, width: 1200, height: 630, alt: category.label }],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: category.seo.title,
+      description: category.seo.description,
+      images: [category.thumbnail],
+    },
   };
 }
 

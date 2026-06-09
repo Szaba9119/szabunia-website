@@ -41,6 +41,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
         },
       ],
     },
+    twitter: {
+      card: "summary_large_image",
+      title: service.seo.title,
+      description: service.seo.description,
+      images: [`/images/og/uslugi/${service.slug}.png`],
+    },
   };
 }
 
