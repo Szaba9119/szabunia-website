@@ -18,7 +18,7 @@ import sys
 from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SRC_LOGO = os.path.join(ROOT, "logo-ms.png")
+SRC_LOGO = os.path.join(ROOT, "public", "Logo_MS.jpg")
 NAVY = (15, 23, 42, 255)
 
 # Ile % boku ikony zajmuje znak (reszta to margines tła)
