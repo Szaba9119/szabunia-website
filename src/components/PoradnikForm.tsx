@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { gtagEvent } from "@/lib/gtag";
 
 const PDF_URL = "/poradnik-przygotowanie-do-sesji.pdf";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -41,6 +42,7 @@ export default function PoradnikForm() {
       });
       if (res.ok) {
         setSubmitted(true);
+        gtagEvent("generate_lead", { source: "poradnik" });
         triggerDownload();
       } else {
         setError(

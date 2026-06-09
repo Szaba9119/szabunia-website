@@ -7,22 +7,23 @@ import ThemeToggle from "./ThemeToggle";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
+// Kolejność linków = kolejność sekcji na stronie głównej, żeby podświetlenie
+// przy scrollu szło od lewej do prawej bez przeskoków.
+// type "anchor" = kotwica na home; type "page" = osobna podstrona z sekcją-teaserem na home.
 const navLinks = [
-  { label: "O mnie", href: "#o-mnie" },
-  { label: "Usługi", href: "#uslugi" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Cennik", href: "#cennik" },
+  { label: "O mnie", href: "#o-mnie", section: "o-mnie", page: null },
+  { label: "Usługi", href: "#uslugi", section: "uslugi", page: null },
+  { label: "Portfolio", href: "#portfolio", section: "portfolio", page: null },
+  { label: "Galeria", href: "/galeria", section: "galeria", page: "/galeria" },
+  { label: "Cennik", href: "#cennik", section: "cennik", page: null },
+  { label: "Kalkulator", href: "/kalkulator", section: "kalkulator", page: "/kalkulator" },
+  { label: "Blog", href: "/blog", section: "blog", page: "/blog" },
+  { label: "Poradnik", href: "/poradnik", section: "poradnik", page: "/poradnik" },
 ];
 
-// Scroll-spy obejmuje też sekcje-teasery na home (galeria, blog, poradnik)
-// oraz #kontakt, żeby podświetlenie nie „zamarzało" na ostatniej kotwicy.
-const sectionIds = [
-  ...navLinks.map((l) => l.href.replace("#", "")),
-  "galeria",
-  "blog",
-  "poradnik",
-  "kontakt",
-];
+// Scroll-spy w kolejności DOM na home; #kontakt domyka listę, żeby podświetlenie
+// nie „zamarzało" na ostatniej sekcji.
+const sectionIds = [...navLinks.map((l) => l.section), "kontakt"];
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -76,8 +77,11 @@ export default function Navigation() {
   }, [mobileOpen]);
 
   const isActive = useCallback(
-    (href: string) => activeSection === href.replace("#", ""),
-    [activeSection]
+    (link: (typeof navLinks)[number]) =>
+      activeSection === link.section ||
+      (link.page !== null &&
+        (link.page === "/blog" ? pathname.startsWith("/blog") : pathname === link.page)),
+    [activeSection, pathname]
   );
 
   return (
@@ -101,59 +105,22 @@ export default function Navigation() {
         </Link>
 
         <div className="hidden md:flex items-center gap-3">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={`${linkPrefix}${link.href}`}
-              className={`text-[13px] transition-colors font-inter ${
-                isActive(link.href)
-                  ? "text-blue dark:text-blue-light font-semibold"
-                  : "text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white"
-              }`}
-            >
-              {link.label}
-            </a>
-          ))}
-          <Link
-            href="/galeria"
-            className={`text-[13px] transition-colors font-inter ${
-              pathname === "/galeria" || activeSection === "galeria"
+          {navLinks.map((link) => {
+            const cls = `text-[13px] transition-colors font-inter ${
+              isActive(link)
                 ? "text-blue dark:text-blue-light font-semibold"
                 : "text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white"
-            }`}
-          >
-            Galeria
-          </Link>
-          <Link
-            href="/blog"
-            className={`text-[13px] transition-colors font-inter ${
-              pathname.startsWith("/blog") || activeSection === "blog"
-                ? "text-blue dark:text-blue-light font-semibold"
-                : "text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white"
-            }`}
-          >
-            Blog
-          </Link>
-          <Link
-            href="/kalkulator"
-            className={`text-[13px] transition-colors font-inter ${
-              pathname === "/kalkulator"
-                ? "text-blue dark:text-blue-light font-semibold"
-                : "text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white"
-            }`}
-          >
-            Kalkulator
-          </Link>
-          <Link
-            href="/poradnik"
-            className={`text-[13px] transition-colors font-inter ${
-              pathname === "/poradnik" || activeSection === "poradnik"
-                ? "text-blue dark:text-blue-light font-semibold"
-                : "text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white"
-            }`}
-          >
-            Poradnik
-          </Link>
+            }`;
+            return link.page === null ? (
+              <a key={link.label} href={`${linkPrefix}${link.href}`} className={cls}>
+                {link.label}
+              </a>
+            ) : (
+              <Link key={link.label} href={link.href} className={cls}>
+                {link.label}
+              </Link>
+            );
+          })}
           <ThemeToggle />
           <Link
             href="/kontakt"
@@ -216,53 +183,34 @@ export default function Navigation() {
           }}
         >
           <div className="flex flex-col gap-4">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={`${linkPrefix}${link.href}`}
-                role="menuitem"
-                onClick={() => closeMobileMenu()}
-                className={`text-sm font-barlow font-semibold ${
-                  isActive(link.href)
-                    ? "text-blue dark:text-blue-light"
-                    : "text-navy dark:text-white"
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
-            <Link
-              href="/galeria"
-              role="menuitem"
-              onClick={() => closeMobileMenu()}
-              className="text-sm font-barlow font-semibold text-navy dark:text-white"
-            >
-              Galeria
-            </Link>
-            <Link
-              href="/blog"
-              role="menuitem"
-              onClick={() => closeMobileMenu()}
-              className="text-sm font-barlow font-semibold text-navy dark:text-white"
-            >
-              Blog
-            </Link>
-            <Link
-              href="/kalkulator"
-              role="menuitem"
-              onClick={() => closeMobileMenu()}
-              className="text-sm font-barlow font-semibold text-navy dark:text-white"
-            >
-              Kalkulator wyceny
-            </Link>
-            <Link
-              href="/poradnik"
-              role="menuitem"
-              onClick={() => closeMobileMenu()}
-              className="text-sm font-barlow font-semibold text-navy dark:text-white"
-            >
-              Poradnik
-            </Link>
+            {navLinks.map((link) => {
+              const cls = `text-sm font-barlow font-semibold ${
+                isActive(link)
+                  ? "text-blue dark:text-blue-light"
+                  : "text-navy dark:text-white"
+              }`;
+              return link.page === null ? (
+                <a
+                  key={link.label}
+                  href={`${linkPrefix}${link.href}`}
+                  role="menuitem"
+                  onClick={() => closeMobileMenu()}
+                  className={cls}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  role="menuitem"
+                  onClick={() => closeMobileMenu()}
+                  className={cls}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <Link
               href="/kontakt"
               role="menuitem"

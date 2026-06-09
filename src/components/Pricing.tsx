@@ -491,7 +491,7 @@ export default function Pricing() {
 
           {/* === KALKULATOR WYCENY (STAŁY KAFELEK) === */}
           <AnimatedSection>
-            <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border overflow-hidden">
+            <div id="kalkulator" className="scroll-mt-24 bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border overflow-hidden">
               <div className="px-6 md:px-8 py-5 flex items-center gap-4 border-b border-border/50 dark:border-dark-border">
                 <div className="w-10 h-10 rounded-xl bg-blue-pale dark:bg-blue/15 flex items-center justify-center flex-shrink-0">
                   <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

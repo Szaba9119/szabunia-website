@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { updateAnalyticsConsent } from "@/lib/gtag";
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
@@ -16,11 +17,13 @@ export default function CookieConsent() {
 
   const accept = () => {
     localStorage.setItem("cookie-consent", "accepted");
+    updateAnalyticsConsent(true);
     setVisible(false);
   };
 
   const decline = () => {
     localStorage.setItem("cookie-consent", "declined");
+    updateAnalyticsConsent(false);
     setVisible(false);
   };
 

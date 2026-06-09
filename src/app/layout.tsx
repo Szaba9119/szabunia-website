@@ -95,6 +95,21 @@ export default function RootLayout({
         <meta name="theme-color" content="#0F172A" />
         <link rel="preconnect" href="https://www.youtube.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
+        {/* GA4 (gtag.js) z Consent Mode v2 — domyślnie wszystko denied;
+            zgoda nadawana po "Akceptuję" w banerze cookie (CookieConsent.tsx).
+            Celowo zwykły <script> w <head>, nie next/script ani @next/third-parties:
+            consent default MUSI wykonać się przed załadowaniem gtag.js, a nowych
+            paczek nie dodajemy (CLAUDE.md §11). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+try{if(localStorage.getItem('cookie-consent')==='accepted'){gtag('consent','update',{analytics_storage:'granted'});}}catch(e){}
+gtag('js',new Date());gtag('config','G-MD8FJ0CZG3');`,
+          }}
+        />
+        {/* eslint-disable-next-line @next/next/next-script-for-ga -- patrz komentarz wyżej */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MD8FJ0CZG3" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){var t=localStorage.getItem('theme');if(t!=='light'){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark'}})();`,

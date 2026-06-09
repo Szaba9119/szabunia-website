@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { serviceItems } from "@/data/services";
+import { gtagEvent } from "@/lib/gtag";
 
 type ServiceSlug =
   | "wizerunek-portrety"
@@ -551,7 +552,10 @@ export default function PricingCalculator() {
                 Wróć
               </button>
               <button
-                onClick={() => setStep(3)}
+                onClick={() => {
+                  setStep(3);
+                  gtagEvent("calculator_done", { service: selectedService ?? "(brak)" });
+                }}
                 className="flex-1 bg-gradient-to-br from-blue to-blue-light text-white py-3 rounded-xl font-barlow font-bold text-sm btn-glow"
               >
                 Zobacz wycenę

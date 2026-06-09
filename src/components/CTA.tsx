@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
+import { gtagEvent } from "@/lib/gtag";
 
 interface FieldErrors {
   name?: string;
@@ -68,6 +69,7 @@ export default function CTA() {
 
       if (res.ok) {
         setSubmitted(true);
+        gtagEvent("contact_submit", { service: formData.service || "(brak)" });
       } else {
         setError(true);
       }
