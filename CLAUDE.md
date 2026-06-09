@@ -25,7 +25,7 @@ Język treści: **polski**. Docelowo druga wersja językowa DE (nie wcześniej n
 - **framer-motion 12.34.2**
 - **ESLint 9** + `eslint-config-next`
 - Fonts przez `next/font/google` (Barlow + Inter)
-- Forms: **Formspree** (`NEXT_PUBLIC_FORMSPREE_ID=xpwdjgqz`)
+- Forms: **Resend** (REST API w `/api/contact` i `/api/lead`; zmienna `RESEND_API_KEY`, opc. `CONTACT_TO_EMAIL` / `CONTACT_FROM_EMAIL`)
 - Hosting docelowy: **Vercel** (jeszcze nie podpięty live na szabunia.pl)
 
 **Zakaz instalowania nowych dependency bez pisemnej zgody Marcina.** Jeśli zadanie wymaga nowej paczki — zapytaj najpierw, uzasadnij, czekaj na "ok".
@@ -142,7 +142,9 @@ npm start       # production server (lokalnie)
 
 - Przykład w `.env.local.example`. Marcin trzyma `.env.local` lokalnie.
 - Obecnie używane:
-  - `NEXT_PUBLIC_FORMSPREE_ID` — ID formularza Formspree
+  - `RESEND_API_KEY` — klucz API Resend (WYMAGANE — bez tego `/api/contact` i `/api/lead` zwracają 500)
+  - `CONTACT_TO_EMAIL` — opcjonalne, adres powiadomień (domyślnie marcin.szabunia@gmail.com)
+  - `CONTACT_FROM_EMAIL` — opcjonalne, nadawca (domyślnie onboarding@resend.dev)
   - `NEXT_PUBLIC_ANALYTICS_URL` — opcjonalne (Plausible/Umami), jeszcze nieustawione
 - **Nigdy nie loguj wartości env do konsoli, nie wstawiaj ich do kodu na stałe, nie commituj `.env*`.**
 

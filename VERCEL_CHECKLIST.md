@@ -24,7 +24,7 @@ Ustaw **przed** pierwszym deployem produkcyjnym.
 
 | Zmienna | Wartość | Scope | Wymagana |
 |---|---|---|---|
-| `NEXT_PUBLIC_FORMSPREE_ID` | `xpwdjgqz` | Production, Preview, Development | **TAK** — formularz kontaktowy |
+| `RESEND_API_KEY` | (klucz z panelu Resend) | Production, Preview, Development | **TAK** — formularze /api/contact i /api/lead |
 | `NEXT_PUBLIC_ANALYTICS_URL` | URL skryptu Plausible lub Umami (np. `https://plausible.io/js/script.js`) | Production only | NIE — opcjonalna, pomija się jeśli pusta |
 
 > **Uwaga CSP:** Jeśli ustawisz `NEXT_PUBLIC_ANALYTICS_URL`, skrypt analityczny zostanie
@@ -90,7 +90,7 @@ Ustaw **przed** pierwszym deployem produkcyjnym.
 - [ ] `https://www.szabunia.pl` → redirect → `https://szabunia.pl`
 - [ ] `https://szabunia.pl/sitemap.xml` → lista URLi z domeną `szabunia.pl`
 - [ ] `https://szabunia.pl/robots.txt` → `Sitemap: https://szabunia.pl/sitemap.xml`
-- [ ] Formularz kontaktowy — wyślij testową wiadomość, sprawdź na Formspree dashboard
+- [ ] Formularz kontaktowy — wyślij testową wiadomość, sprawdź skrzynkę CONTACT_TO_EMAIL / panel Resend
 - [ ] Dark mode toggle działa
 - [ ] `https://szabunia.pl/blog`, `/portfolio/sesja-wizerunkowa`, `/uslugi/wizerunek-portrety` → 200
 

@@ -65,7 +65,7 @@ W Vercel: **Settings → Environment Variables**
 
 | Zmienna | Wartość | Scope |
 |---|---|---|
-| `NEXT_PUBLIC_FORMSPREE_ID` | `xpwdjgqz` | Production, Preview, Development |
+| `RESEND_API_KEY` | (klucz z panelu Resend) | Production, Preview, Development |
 
 Bez tego formularz kontaktowy nie zadziała.
 
@@ -110,7 +110,7 @@ Po propagacji DNS:
 - [ ] <https://szabunia.pl/kalkulator> → 200
 - [ ] <https://szabunia.pl/sitemap.xml> → XML z linkami
 - [ ] <https://szabunia.pl/robots.txt> → `Sitemap: https://szabunia.pl/sitemap.xml`
-- [ ] Formularz kontaktowy → wyślij test, sprawdź w Formspree dashboard
+- [ ] Formularz kontaktowy → wyślij test, sprawdź skrzynkę CONTACT_TO_EMAIL / panel Resend
 - [ ] Dark mode toggle → działa
 - [ ] Mobile: sticky CTA "Zadzwoń" na dole działa
 
@@ -142,7 +142,7 @@ Z `plan_rozwoju_marcinszabunia.md` w Twoim folderze, FAZA 1 (miesiąc 1):
 ## W razie problemów
 
 **Build wywala się na Vercel?** — Wklej mi log błędu, naprawiam.
-**Formularz nie wysyła?** — Sprawdź czy `NEXT_PUBLIC_FORMSPREE_ID` jest ustawione w Vercel env.
+**Formularz nie wysyła?** — Sprawdź czy `RESEND_API_KEY` jest ustawione w Vercel env.
 **DNS nie propaguje się po 2h?** — `dig szabunia.pl` w terminalu pokaże co jest aktualnie.
 **Vercel nie widzi nowych zmian po push?** — Sprawdź czy commit faktycznie poszedł do gałęzi `main` na GitHubie.
 
