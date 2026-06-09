@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <rect width="1200" height="630" fill="#1a253a"/>
-  <rect x="480" y="205" width="240" height="150" rx="16" fill="#2b3a52"/>
-  <circle cx="600" cy="280" r="44" fill="#4a8cff" opacity="0.18"/>
-  <path d="M586 258 L628 280 L586 302 Z" fill="#4a8cff" opacity="0.75"/>
-  <rect x="760" y="225" width="60" height="110" rx="12" fill="#2b3a52"/>
-  <path d="M778 268 L806 282 L778 296 Z" fill="#4a8cff" opacity="0.5"/>
-  <text x="600" y="430" text-anchor="middle" font-family="system-ui,sans-serif" font-size="16" fill="#6b7f99" font-weight="600">Wideo marketing dla firm</text>
-</svg>

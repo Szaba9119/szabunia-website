@@ -14,7 +14,15 @@ const navLinks = [
   { label: "Cennik", href: "#cennik" },
 ];
 
-const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
+// Scroll-spy obejmuje też sekcje-teasery na home (galeria, blog, poradnik)
+// oraz #kontakt, żeby podświetlenie nie „zamarzało" na ostatniej kotwicy.
+const sectionIds = [
+  ...navLinks.map((l) => l.href.replace("#", "")),
+  "galeria",
+  "blog",
+  "poradnik",
+  "kontakt",
+];
 
 export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -109,7 +117,7 @@ export default function Navigation() {
           <Link
             href="/galeria"
             className={`text-[13px] transition-colors font-inter ${
-              pathname === "/galeria"
+              pathname === "/galeria" || activeSection === "galeria"
                 ? "text-blue dark:text-blue-light font-semibold"
                 : "text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white"
             }`}
@@ -119,7 +127,7 @@ export default function Navigation() {
           <Link
             href="/blog"
             className={`text-[13px] transition-colors font-inter ${
-              pathname.startsWith("/blog")
+              pathname.startsWith("/blog") || activeSection === "blog"
                 ? "text-blue dark:text-blue-light font-semibold"
                 : "text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white"
             }`}
@@ -139,7 +147,7 @@ export default function Navigation() {
           <Link
             href="/poradnik"
             className={`text-[13px] transition-colors font-inter ${
-              pathname === "/poradnik"
+              pathname === "/poradnik" || activeSection === "poradnik"
                 ? "text-blue dark:text-blue-light font-semibold"
                 : "text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white"
             }`}

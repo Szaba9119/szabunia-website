@@ -11,7 +11,7 @@ export default function BlogPreview() {
     .slice(0, 3);
 
   return (
-    <section className="py-12 md:py-16 px-4">
+    <section id="blog" className="py-12 md:py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">
