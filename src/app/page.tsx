@@ -145,13 +145,15 @@ export default function Home() {
         <ErrorBoundary><LogoBar /></ErrorBoundary>
         <ErrorBoundary><About /></ErrorBoundary>
         <ErrorBoundary><Services /></ErrorBoundary>
-        <ErrorBoundary><Equipment /></ErrorBoundary>
         <ErrorBoundary><Portfolio /></ErrorBoundary>
         <ErrorBoundary><GaleriaTeaser /></ErrorBoundary>
         <ErrorBoundary><Pricing /></ErrorBoundary>
         <ErrorBoundary><Testimonials /></ErrorBoundary>
         <ErrorBoundary><Publications /></ErrorBoundary>
         <ErrorBoundary><Process /></ErrorBoundary>
+        {/* Sprzęt nisko: buduje zaufanie techniczne, ale nie może przerywać
+            ścieżki Usługi → Portfolio → Cennik (klient B2B kupuje efekt). */}
+        <ErrorBoundary><Equipment /></ErrorBoundary>
         <ErrorBoundary><BlogPreview /></ErrorBoundary>
         <ErrorBoundary><PoradnikTeaser /></ErrorBoundary>
         <ErrorBoundary><FAQ /></ErrorBoundary>
