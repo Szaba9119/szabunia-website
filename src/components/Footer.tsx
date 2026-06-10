@@ -10,11 +10,11 @@ export default function Footer() {
 
   return (
     <footer className="px-4 pb-8">
-      <div className="max-w-6xl mx-auto bg-navy dark:bg-dark-card dark:border dark:border-dark-border rounded-[20px] px-8 py-10 md:px-12 md:py-14">
+      <div className="max-w-6xl mx-auto bg-white border border-border dark:bg-dark-card dark:border-dark-border rounded-[20px] px-8 py-10 md:px-12 md:py-14">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <div className="font-barlow font-extrabold text-sm tracking-wide text-white mb-2">
+            <div className="font-barlow font-extrabold text-sm tracking-wide text-navy dark:text-white mb-2">
               MARCIN SZABUNIA
             </div>
             <p className="text-xs text-steel">
@@ -24,7 +24,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation */}
-          <div className="flex flex-col gap-1.5 text-xs text-steel-light">
+          <div className="flex flex-col gap-1.5 text-xs text-steel dark:text-steel-light">
             {[
               { label: "O mnie", href: "/#o-mnie" },
               { label: "Usługi", href: "/#uslugi" },
@@ -39,7 +39,7 @@ export default function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                className="hover:text-white transition-colors"
+                className="hover:text-navy dark:hover:text-white transition-colors"
               >
                 {link.label}
               </a>
@@ -47,16 +47,16 @@ export default function Footer() {
           </div>
 
           {/* Contact & Social */}
-          <div className="flex flex-col gap-1.5 text-xs text-steel-light">
+          <div className="flex flex-col gap-1.5 text-xs text-steel dark:text-steel-light">
             <a
               href="tel:+48514900688"
-              className="hover:text-white transition-colors"
+              className="hover:text-navy dark:hover:text-white transition-colors"
             >
               +48 514 900 688
             </a>
             <a
               href="mailto:marcin@szabunia.pl"
-              className="hover:text-white transition-colors"
+              className="hover:text-navy dark:hover:text-white transition-colors"
             >
               marcin@szabunia.pl
             </a>
@@ -64,7 +64,7 @@ export default function Footer() {
               href="https://instagram.com/szabunia.biz"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-white transition-colors"
+              className="hover:text-navy dark:hover:text-white transition-colors"
             >
               Instagram
             </a>
@@ -74,7 +74,7 @@ export default function Footer() {
           <div className="flex items-start justify-end col-span-2 md:col-span-1">
             <button
               onClick={scrollToTop}
-              className="w-10 h-10 rounded-xl border border-navy-light dark:border-dark-border flex items-center justify-center text-steel-light hover:text-white hover:border-white/30 transition-all"
+              className="w-10 h-10 rounded-xl border border-border dark:border-dark-border flex items-center justify-center text-steel dark:text-steel-light hover:text-navy dark:hover:text-white hover:border-blue dark:hover:border-white/30 transition-all"
               aria-label="Przewiń do góry"
             >
               <svg
@@ -94,14 +94,14 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-navy-light dark:border-dark-border mt-8 pt-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-steel">
+        <div className="border-t border-border dark:border-dark-border mt-8 pt-5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-steel dark:text-dark-text-muted">
           <span>
             © {new Date().getFullYear()} Marcin Szabunia. Wszelkie prawa
             zastrzeżone.
           </span>
           <a
             href="/polityka-prywatnosci"
-            className="hover:text-white transition-colors"
+            className="hover:text-navy dark:hover:text-white transition-colors"
           >
             Polityka prywatności
           </a>
