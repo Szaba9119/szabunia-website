@@ -113,7 +113,7 @@ export default function Equipment() {
         </div>
 
         <AnimatedSection delay={0.32}>
-          <div className="mt-4 max-w-4xl mx-auto bg-blue-pale dark:bg-dark-card rounded-2xl border border-blue/30 dark:border-blue-light/30 p-6">
+          <div className="mt-4 max-w-4xl mx-auto bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6">
             <div className="flex items-baseline justify-between gap-3 mb-2">
               <span className="font-barlow font-extrabold text-lg text-navy dark:text-white">
                 Dron

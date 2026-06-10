@@ -40,13 +40,21 @@ export default function Hero() {
             Fotografia i wideo, które budują zaufanie, przyciągają klientów
             i&nbsp;wzmacniają Twój autorytet na rynku.
           </p>
-          <a
-            href="#kontakt"
-            className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]"
-          >
-            Wyślij brief, odezwę się w 24h
-            <span className="text-white/80">→</span>
-          </a>
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="#kontakt"
+              className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]"
+            >
+              Wyślij brief, odezwę się w 24h
+              <span className="text-white/80">→</span>
+            </a>
+            <a
+              href="#cennik"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-border dark:border-dark-border text-navy dark:text-white font-barlow font-bold text-[15px] hover:border-blue hover:text-blue dark:hover:border-blue-light dark:hover:text-blue-light transition-colors"
+            >
+              Zobacz cennik
+            </a>
+          </div>
 
           <div className="flex items-center gap-3 mt-5">
             <div className="flex -space-x-2" aria-hidden="true">

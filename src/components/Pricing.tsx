@@ -41,6 +41,30 @@ function formatPriceLabel(netto: number): string {
   return `${netto.toLocaleString("pl-PL")} zł`;
 }
 
+/** Prefill formularza kontaktowego (ten sam most co kalkulator) i przewinięcie do #kontakt. */
+function askAboutPackage(serviceSlug: string, packageLabel: string) {
+  window.dispatchEvent(
+    new CustomEvent("calc-to-form", {
+      detail: {
+        service: serviceSlug,
+        message: `Interesuje mnie pakiet ${packageLabel}. Proszę o szczegóły i dostępne terminy.`,
+      },
+    })
+  );
+  document.getElementById("kontakt")?.scrollIntoView({ behavior: "smooth" });
+}
+
+function AskButton({ slug, label }: { slug: string; label: string }) {
+  return (
+    <button
+      onClick={() => askAboutPackage(slug, label)}
+      className="mt-4 w-full py-2.5 rounded-xl border border-blue/40 dark:border-blue-light/40 text-blue dark:text-blue-light text-[13px] font-barlow font-bold hover:bg-blue hover:text-white dark:hover:bg-blue-light dark:hover:text-navy hover:border-blue dark:hover:border-blue-light transition-colors"
+    >
+      Zapytaj o ten pakiet →
+    </button>
+  );
+}
+
 export default function Pricing() {
   const [openSections, setOpenSections] = useState<Set<string>>(new Set());
 
@@ -72,14 +96,46 @@ export default function Pricing() {
 
         {/* === CENY NETTO (B2B) === */}
         <AnimatedSection>
-          <p className="text-center text-[12px] text-steel dark:text-dark-text-muted mb-12">
+          <p className="text-center text-[12px] text-steel dark:text-dark-text-muted mb-6">
             Wszystkie ceny są kwotami netto (+23% VAT). Faktura VAT.
           </p>
         </AnimatedSection>
 
+        {/* === SZYBKA NAWIGACJA PO CENNIKU === */}
+        <AnimatedSection>
+          <nav aria-label="Kategorie cennika" className="flex flex-wrap justify-center gap-2 mb-12">
+            {[
+              { id: "cennik-portrety", label: "Portrety" },
+              { id: "cennik-hybrydy", label: "Foto + Wideo" },
+              { id: "pricing-card-eventy", label: "Eventy", open: "eventy" },
+              { id: "pricing-card-zespoly", label: "Zespoły", open: "zespoly" },
+              { id: "pricing-card-wideo", label: "Wideo", open: "wideo" },
+              { id: "pricing-card-produkt", label: "Produktowa", open: "produkt" },
+              { id: "kalkulator", label: "Kalkulator" },
+            ].map((chip) => (
+              <button
+                key={chip.id}
+                onClick={() => {
+                  const sectionToOpen = chip.open;
+                  if (sectionToOpen) {
+                    setOpenSections((prev) => new Set(prev).add(sectionToOpen));
+                  }
+                  // setTimeout: poczekaj na render rozwiniętej sekcji przed scrollem
+                  setTimeout(() => {
+                    document.getElementById(chip.id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+                  }, 50);
+                }}
+                className="px-4 py-2 rounded-full border border-border dark:border-dark-border bg-white dark:bg-dark-card text-[13px] font-barlow font-semibold text-steel dark:text-dark-text-muted hover:border-blue hover:text-blue dark:hover:border-blue-light dark:hover:text-blue-light transition-colors"
+              >
+                {chip.label}
+              </button>
+            ))}
+          </nav>
+        </AnimatedSection>
+
         {/* === PORTRETY BIZNESOWE & HEADSHOTY (PIERWSZE) === */}
         <AnimatedSection>
-          <h3 className="font-barlow font-bold text-xl text-blue dark:text-blue-light mb-8 text-center">
+          <h3 id="cennik-portrety" className="scroll-mt-24 font-barlow font-bold text-xl text-blue dark:text-blue-light mb-8 text-center">
             Portrety Biznesowe & Headshoty
           </h3>
         </AnimatedSection>
@@ -102,6 +158,7 @@ export default function Pricing() {
               <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
                 Dodatkowe ujęcie: {formatPriceLabel(120)}
               </p>
+              <AskButton slug="wizerunek-portrety" label="ESSENTIAL" />
             </div>
           </AnimatedSection>
 
@@ -127,6 +184,7 @@ export default function Pricing() {
               <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
                 Dodatkowe ujęcie: {formatPriceLabel(100)}
               </p>
+              <AskButton slug="wizerunek-portrety" label="PROFESSIONAL" />
             </div>
           </AnimatedSection>
 
@@ -149,13 +207,14 @@ export default function Pricing() {
               <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
                 Dodatkowe ujęcie: {formatPriceLabel(80)}
               </p>
+              <AskButton slug="wizerunek-portrety" label="PRO BRANDING" />
             </div>
           </AnimatedSection>
         </div>
 
         {/* === PAKIETY HYBRYDOWE (DRUGIE) === */}
         <AnimatedSection>
-          <h3 className="font-barlow font-bold text-xl text-blue dark:text-blue-light mb-8 text-center">
+          <h3 id="cennik-hybrydy" className="scroll-mt-24 font-barlow font-bold text-xl text-blue dark:text-blue-light mb-8 text-center">
             Pakiety Hybrydowe (Foto + Wideo)
           </h3>
         </AnimatedSection>
@@ -174,6 +233,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Wideo w formacie Reels (30s)</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
+              <AskButton slug="pakiety-foto-wideo" label="EVENT ESSENTIALS" />
             </div>
           </AnimatedSection>
 
@@ -195,6 +255,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Krótki teaser do Social Media (15s)</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
+              <AskButton slug="pakiety-foto-wideo" label="EVENT PRO" />
             </div>
           </AnimatedSection>
 
@@ -219,6 +280,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Pełen montaż wideo i post-produkcja wywiadów</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
+              <AskButton slug="pakiety-foto-wideo" label="EVENT PREMIUM" />
             </div>
           </AnimatedSection>
         </div>
@@ -227,7 +289,7 @@ export default function Pricing() {
         <div className="space-y-3">
           {/* --- Reportaż & Eventy --- */}
           <AnimatedSection>
-            <div className={`bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
+            <div id="pricing-card-eventy" className={`scroll-mt-24 bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
               isOpen("eventy") ? "border-blue dark:border-blue-light shadow-sm shadow-blue/5" : "border-border dark:border-dark-border hover:border-blue/50 dark:hover:border-blue-light/30"
             }`}>
               <button
@@ -295,7 +357,7 @@ export default function Pricing() {
 
           {/* --- Zespoły i Biura --- */}
           <AnimatedSection>
-            <div className={`bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
+            <div id="pricing-card-zespoly" className={`scroll-mt-24 bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
               isOpen("zespoly") ? "border-blue dark:border-blue-light shadow-sm shadow-blue/5" : "border-border dark:border-dark-border hover:border-blue/50 dark:hover:border-blue-light/30"
             }`}>
               <button
@@ -361,7 +423,7 @@ export default function Pricing() {
 
           {/* --- Wideo Marketing --- */}
           <AnimatedSection>
-            <div className={`bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
+            <div id="pricing-card-wideo" className={`scroll-mt-24 bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
               isOpen("wideo") ? "border-blue dark:border-blue-light shadow-sm shadow-blue/5" : "border-border dark:border-dark-border hover:border-blue/50 dark:hover:border-blue-light/30"
             }`}>
               <button
@@ -430,7 +492,7 @@ export default function Pricing() {
 
           {/* --- Fotografia Produktowa --- */}
           <AnimatedSection>
-            <div className={`bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
+            <div id="pricing-card-produkt" className={`scroll-mt-24 bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
               isOpen("produkt") ? "border-blue dark:border-blue-light shadow-sm shadow-blue/5" : "border-border dark:border-dark-border hover:border-blue/50 dark:hover:border-blue-light/30"
             }`}>
               <button

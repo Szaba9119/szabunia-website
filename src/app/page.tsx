@@ -1,23 +1,28 @@
+import dynamic from "next/dynamic";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import LogoBar from "@/components/LogoBar";
 import About from "@/components/About";
 import Services from "@/components/Services";
-import Equipment from "@/components/Equipment";
-import Portfolio from "@/components/Portfolio";
-import GaleriaTeaser from "@/components/GaleriaTeaser";
-import Pricing from "@/components/Pricing";
-import Process from "@/components/Process";
-import Testimonials from "@/components/Testimonials";
-import Publications from "@/components/Publications";
-import FAQ from "@/components/FAQ";
-import BlogPreview from "@/components/BlogPreview";
-import PoradnikTeaser from "@/components/PoradnikTeaser";
-import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import ScrollProgress from "@/components/ScrollProgress";
 import MobileFAB from "@/components/MobileFAB";
 import ErrorBoundary from "@/components/ErrorBoundary";
+
+// Sekcje poniżej folda ładowane osobnymi chunkami (SSR zostaje — HTML w pełni
+// renderowany; dzielony jest tylko JS hydratacji, co odchudza krytyczny bundle
+// na mobile i skraca LCP).
+const Equipment = dynamic(() => import("@/components/Equipment"));
+const Portfolio = dynamic(() => import("@/components/Portfolio"));
+const GaleriaTeaser = dynamic(() => import("@/components/GaleriaTeaser"));
+const Pricing = dynamic(() => import("@/components/Pricing"));
+const Process = dynamic(() => import("@/components/Process"));
+const Testimonials = dynamic(() => import("@/components/Testimonials"));
+const Publications = dynamic(() => import("@/components/Publications"));
+const FAQ = dynamic(() => import("@/components/FAQ"));
+const BlogPreview = dynamic(() => import("@/components/BlogPreview"));
+const PoradnikTeaser = dynamic(() => import("@/components/PoradnikTeaser"));
+const CTA = dynamic(() => import("@/components/CTA"));
 
 const faqStructuredData = {
   "@context": "https://schema.org",
