@@ -12,7 +12,7 @@ const gear: GearGroup[] = [
     category: "Aparaty",
     brand: "Canon",
     items: [
-      { label: "2× Canon R6", desc: "Pełna redundancja zapisu (dual SD) na każdym zleceniu." },
+      { label: "2× Canon R6", desc: "Każde zdjęcie zapisuje się równolegle na dwóch kartach, więc materiał z sesji jest bezpieczny." },
     ],
   },
   {
@@ -21,7 +21,7 @@ const gear: GearGroup[] = [
     items: [
       {
         label: "Sigma 20 / 35 / 50 mm f/1.4 Art",
-        desc: "Portrety i eventy przy słabym świetle, bez flesza — oddają klimat miejsca.",
+        desc: "Portrety i eventy przy słabym świetle, bez flesza, z zachowaniem klimatu miejsca.",
       },
       {
         label: "Sigma 70-200 mm f/2.8 Sport",
@@ -29,11 +29,11 @@ const gear: GearGroup[] = [
       },
       {
         label: "Tamron 24-70 mm f/2.8",
-        desc: "Uniwersalny do większości zadań — także jako backup.",
+        desc: "Uniwersalny do większości zadań, sprawdza się też jako backup.",
       },
       { label: "Tokina 16-28 mm f/2.8", desc: "Wnętrza i nieruchomości." },
     ],
-    note: "Pokrycie 16-200 mm — bez dziur w ogniskowych.",
+    note: "Pełne pokrycie ogniskowych od 16 do 200 mm.",
   },
   {
     category: "Oświetlenie",
@@ -42,7 +42,7 @@ const gear: GearGroup[] = [
       { label: "Mobilny system flash Godox", desc: "Z kompletem modyfikatorów." },
       { label: "Studyjne światło ciągłe LED", desc: "2× Godox LA200D." },
     ],
-    note: "Dwa niezależne systemy — flash i LED mogą działać równolegle.",
+    note: "Lampy błyskowe i światło ciągłe mogą pracować równolegle na jednym planie.",
   },
   {
     category: "Dźwięk",
@@ -69,7 +69,7 @@ export default function Equipment() {
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-            Dwa korpusy Canon R6 z pełną redundancją zapisu, komplet obiektywów Sigma, Tamron i Tokina (16-200 mm), dwa niezależne systemy oświetlenia Godox — flash i LED — oraz dron i profesjonalna rejestracja dźwięku. Świadomy wybór narzędzi, które dają powtarzalność na planie i spójną jakość między kadrami — niezależnie od tego, czy sesja trwa godzinę, czy cały dzień.
+            Dwa aparaty Canon R6, komplet obiektywów Sigma, Tamron i Tokina od 16 do 200 mm, oświetlenie Godox, dron i profesjonalna rejestracja dźwięku. To zestaw, który daje powtarzalność na planie i spójną jakość między kadrami, niezależnie od tego, czy sesja trwa godzinę, czy cały dzień.
           </p>
         </AnimatedSection>
 
@@ -119,11 +119,11 @@ export default function Equipment() {
                 Dron
               </span>
               <span className="text-[11px] uppercase tracking-wider text-blue dark:text-blue-light font-barlow font-semibold text-right">
-                DJI Mini 5 Pro
+                DJI
               </span>
             </div>
             <p className="text-[14px] text-navy dark:text-dark-text leading-relaxed">
-              Zdjęcia i wideo z drona — eventy, architektura oraz tereny i obiekty firmowe. Certyfikat A1/A3. Pełna oferta foto, wideo i dron w jednym zespole.
+              Zdjęcia i wideo z drona DJI Mini 5 Pro. Eventy, architektura oraz tereny i obiekty firmowe. Certyfikat A1/A3. Pełna oferta foto, wideo i dron w jednym zespole.
             </p>
           </div>
         </AnimatedSection>

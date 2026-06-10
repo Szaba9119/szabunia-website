@@ -20,11 +20,15 @@ export default function GaleriaTeaser() {
   const produktowe = listGalleryImages("produktowe");
   const firstVideo = galleryVideos[0];
 
+  // Okładki kategorii wybrane ręcznie (decyzja Marcina, 2026-06): najmocniejsze kadry.
+  const cover = (list: string[], preferred: string) =>
+    list.find((src) => src.includes(preferred)) ?? list[0] ?? "";
+
   const tiles: Tile[] = (
     [
-      { key: "portrety", label: "Portrety", desc: "Zdjęcia portretowe", img: portrety[0] ?? "" },
-      { key: "eventy", label: "Eventy", desc: "Zdjęcia eventowe", img: eventy[0] ?? "" },
-      { key: "produktowe", label: "Produktowe", desc: "Zdjęcia produktowe", img: produktowe[0] ?? "" },
+      { key: "portrety", label: "Portrety", desc: "Zdjęcia portretowe", img: cover(portrety, "portret-04") },
+      { key: "eventy", label: "Eventy", desc: "Zdjęcia eventowe", img: cover(eventy, "event-04") },
+      { key: "produktowe", label: "Produktowe", desc: "Zdjęcia produktowe", img: cover(produktowe, "produkt-05") },
       {
         key: "wideo",
         label: "Wideo",
@@ -64,7 +68,7 @@ export default function GaleriaTeaser() {
                     src={t.img}
                     alt={t.desc}
                     loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="absolute inset-0 w-full h-full object-cover scale-[1.35] transition-transform duration-500 group-hover:scale-[1.45]"
                   />
                 ) : (
                   <Image

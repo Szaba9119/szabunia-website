@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
@@ -24,7 +25,23 @@ export default function Publications() {
 
         {/* Karta publikacji: Big Furniture Group Magazine */}
         <AnimatedSection>
-          <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6 md:p-8 max-w-3xl mx-auto">
+          <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6 md:p-8 max-w-3xl mx-auto flex flex-col sm:flex-row gap-6 md:gap-8 items-start">
+            <a
+              href="https://bigfurnituregroup.com/big-furniture-group-magazine-april-2026-now-live/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Okładka Big Furniture Group Magazine, kwiecień 2026 (otwiera się w nowej karcie)"
+              className="block shrink-0 w-40 sm:w-44 mx-auto sm:mx-0 rounded-lg overflow-hidden border border-border dark:border-dark-border shadow-md hover:shadow-lg transition-shadow"
+            >
+              <Image
+                src="/images/publikacje/bfg-april-2026.jpg"
+                alt="Okładka Big Furniture Group Magazine, kwiecień 2026, z meblami Forte na okładce"
+                width={290}
+                height={416}
+                className="w-full h-auto"
+              />
+            </a>
+            <div className="min-w-0">
             <p className="text-[10px] font-barlow font-semibold uppercase tracking-wider text-steel dark:text-dark-text-muted mb-3">
               Prasa branżowa · UK · 2026
             </p>
@@ -32,10 +49,10 @@ export default function Publications() {
               Big Furniture Group Magazine
             </h3>
             <p className="text-[13px] text-steel dark:text-dark-text-muted mb-4">
-              Kwiecień 2026 — wydanie z Forte jako cover story
+              Kwiecień 2026, wydanie z Forte jako cover story
             </p>
             <p className="text-[15px] text-steel dark:text-dark-text-muted leading-relaxed mb-6">
-              Fotografie wykonane dla <strong className="text-navy dark:text-white font-semibold">Grupa Forte S.A.</strong> znalazły się w kwietniowym wydaniu Big Furniture Group Magazine — brytyjskiego, audytowanego przez ABC pisma branży meblarskiej. Wydanie, w którym Forte była cover story.
+              Fotografie wykonane dla <strong className="text-navy dark:text-white font-semibold">Grupa Forte S.A.</strong> znalazły się w kwietniowym wydaniu Big Furniture Group Magazine, brytyjskiego pisma branży meblarskiej audytowanego przez ABC. Wydanie, w którym Forte była cover story.
             </p>
             <a
               href="https://bigfurnituregroup.com/big-furniture-group-magazine-april-2026-now-live/"
@@ -45,6 +62,7 @@ export default function Publications() {
             >
               Zobacz wydanie →
             </a>
+            </div>
           </div>
         </AnimatedSection>
       </div>

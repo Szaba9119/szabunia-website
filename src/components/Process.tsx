@@ -147,7 +147,7 @@ export default function Process() {
                   Rozliczenia
                 </p>
                 <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                  Płatność przez platformę Useme — proforma, po opłacie automatyczna Faktura VAT. Termin: 7 dni.
+                  Płatność przez platformę Useme: proforma, po opłacie automatyczna faktura VAT. Termin: 7 dni.
                 </p>
               </div>
               <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">
@@ -203,7 +203,7 @@ export default function Process() {
                   Dojazd
                 </p>
                 <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                  Poznań i okolice: 0 zł. Poza Poznaniem: 2,50 zł/km. Cała Polska i Europa — koszty ustalane indywidualnie.
+                  Poznań i okolice: 0 zł. Poza Poznaniem: 2,50 zł/km. Cała Polska i Europa: koszty ustalane indywidualnie.
                 </p>
               </div>
             </div>

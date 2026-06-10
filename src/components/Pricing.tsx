@@ -211,7 +211,7 @@ export default function Pricing() {
               </div>
               <ul className="space-y-3 text-[13px] text-steel dark:text-dark-text-muted">
                 <li className="flex items-start gap-2"><CheckIcon /> Do 8 godzin na miejscu</li>
-                <li className="flex items-start gap-2"><CheckIcon /> Kompletny reportaż — min. 200 zdjęć</li>
+                <li className="flex items-start gap-2"><CheckIcon /> Kompletny reportaż, min. 200 zdjęć</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Główny film z wydarzenia (do 90s)</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Dynamiczny teaser Social Media (15s)</li>
                 <li className="flex items-start gap-2"><CheckIcon /> 2–3 mini-wywiady z uczestnikami</li>

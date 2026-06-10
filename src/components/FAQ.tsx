@@ -8,7 +8,7 @@ import { PARALLAX } from "@/lib/motion";
 const faqs = [
   {
     q: "Ile kosztuje sesja?",
-    a: "Sesje portretowe zaczynają się od 1 000 zł netto. Konkretną wycenę przygotuję po krótkim briefie — zależy od liczby osób, lokalizacji i zakresu postprodukcji. Zawsze wyceniam indywidualnie, żeby nie przepłacać za to, czego nie potrzebujesz.",
+    a: "Sesje portretowe zaczynają się od 1 000 zł netto. Konkretną wycenę przygotuję po krótkim briefie. Wycena zależy od liczby osób, lokalizacji i zakresu postprodukcji. Zawsze wyceniam indywidualnie, żeby nie przepłacać za to, czego nie potrzebujesz.",
   },
   {
     q: "Jak szybko otrzymam gotowe materiały?",
@@ -36,11 +36,11 @@ const faqs = [
   },
   {
     q: "Ile osób mogę sfotografować w jeden dzień?",
-    a: "Przy portretach biznesowych — do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 10-15 minut. Mogę przyjechać do biura z mobilnym studio.",
+    a: "Przy portretach biznesowych fotografuję do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 10-15 minut. Mogę przyjechać do biura z mobilnym studio.",
   },
   {
     q: "Co jeśli nie jestem fotogeniczny/a?",
-    a: "Słyszę to bardzo często — i za każdym razem efekt pozytywnie zaskakuje. Prowadzę Cię przez całą sesję: pomagam z pozowaniem, ustawiam światło pod Twoją twarz, dbam o naturalny wyraz. W studiu zawsze ustawiam lustro przed modelem, żebyś mógł na bieżąco widzieć siebie i poprawiać drobne detale. Nie musisz być modelem — wystarczy być sobą. Reszta to moja robota.",
+    a: "Słyszę to bardzo często i za każdym razem efekt pozytywnie zaskakuje. Prowadzę Cię przez całą sesję: pomagam z pozowaniem, ustawiam światło pod Twoją twarz, dbam o naturalny wyraz. W studiu zawsze ustawiam lustro przed modelem, żebyś mógł na bieżąco widzieć siebie i poprawiać drobne detale. Nie musisz być modelem, wystarczy być sobą. Reszta to moja robota.",
   },
   {
     q: "Czy wystawiam fakturę VAT?",
@@ -48,7 +48,7 @@ const faqs = [
   },
   {
     q: "Ile tur poprawek otrzymuję w cenie?",
-    a: "Zdjęcia — 2 tury poprawek w cenie. Wideo — 3 tury poprawek montażowych w cenie. Każda dodatkowa godzina pracy nad zmianami: 200 zł netto. W praktyce pierwsza tura prawie zawsze wystarcza — zależy mi, żeby finalny materiał w 100% odpowiadał Twoim oczekiwaniom.",
+    a: "Zdjęcia: 2 tury poprawek w cenie. Wideo: 3 tury poprawek montażowych w cenie. Każda dodatkowa godzina pracy nad zmianami: 200 zł netto. W praktyce pierwsza tura prawie zawsze wystarcza, bo zależy mi, żeby finalny materiał w 100% odpowiadał Twoim oczekiwaniom.",
   },
   {
     q: "Jakiego sprzętu używasz do zdjęć i wideo?",
@@ -56,7 +56,7 @@ const faqs = [
   },
   {
     q: "Czy pracujesz z AI w zdjęciach i wideo?",
-    a: "Tak. Jeżeli projekt tego wymaga, wspieram się narzędziami AI — generowanie grafik, fotomanipulacje, edycje zdjęć, kreatywna postprodukcja wideo. AI traktuję jako rozszerzenie warsztatu, nie zastępstwo dla autorskiego podejścia. Zawsze informuję klienta, w którym miejscu procesu AI zostało użyte.",
+    a: "Tak. Jeżeli projekt tego wymaga, wspieram się narzędziami AI: generowanie grafik, fotomanipulacje, edycje zdjęć, kreatywna postprodukcja wideo. AI traktuję jako rozszerzenie warsztatu, nie zastępstwo dla autorskiego podejścia. Zawsze informuję klienta, w którym miejscu procesu AI zostało użyte.",
   },
 ];
 
@@ -73,7 +73,7 @@ export default function FAQ() {
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
-            Zanim napiszesz — może tu znajdziesz odpowiedź.
+            Zanim napiszesz, sprawdź, czy odpowiedź już tu jest.
           </p>
         </AnimatedSection>
 

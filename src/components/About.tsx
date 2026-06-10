@@ -45,7 +45,7 @@ export default function About() {
               <div className="space-y-5 text-steel dark:text-dark-text-muted text-[15px] leading-relaxed">
                 <p>
                   Cześć, jestem Marcin. Od 2018 roku buduję wizerunek firm, które
-                  traktują swój obraz poważnie — poprzez fotografię biznesową
+                  traktują swój obraz poważnie. Robię to poprzez fotografię biznesową
                   i wideo marketing. Bazuję w Poznaniu, pracuję w całej Polsce
                   i Europie.
                 </p>
@@ -53,7 +53,7 @@ export default function About() {
                   Specjalizuję się w obsłudze marek B2B i korporacji, które
                   potrzebują powtarzalnego standardu wizerunkowego między sesjami.
                   Portrety biznesowe, reportaże z eventów, fotografia produktowa,
-                  wideo marketingowe — jeden twórca, spójny materiał, krótka droga
+                  wideo marketingowe. Jeden twórca, spójny materiał i krótka droga
                   od briefu do dostawy.
                 </p>
                 <p>
@@ -61,8 +61,8 @@ export default function About() {
                   <strong>Warner Music Poland</strong>, <strong>Santander Bank Polska</strong>,{" "}
                   <strong>John Deere</strong>, <strong>IQOS</strong>, <strong>Amica</strong>,{" "}
                   <strong>Grupa Forte S.A.</strong>, <strong>Centrum Posnania</strong> i{" "}
-                  <strong>Woohoo</strong>. W 2022 roku otrzymałem wyróżnienie
-                  w konkursie <strong>Portret</strong>.
+                  <strong>Woohoo</strong>. Otrzymałem wyróżnienie
+                  w ogólnopolskim konkursie <strong>Portret 2022</strong>.
                 </p>
               </div>
 

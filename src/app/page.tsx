@@ -28,7 +28,7 @@ const faqStructuredData = {
       name: "Ile kosztuje sesja?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Sesje portretowe zaczynają się od 1 000 zł netto. Konkretną wycenę przygotuję po krótkim briefie — zależy od liczby osób, lokalizacji i zakresu postprodukcji.",
+        text: "Sesje portretowe zaczynają się od 1 000 zł netto. Konkretną wycenę przygotuję po krótkim briefie. Wycena zależy od liczby osób, lokalizacji i zakresu postprodukcji.",
       },
     },
     {
@@ -84,7 +84,7 @@ const faqStructuredData = {
       name: "Ile osób mogę sfotografować w jeden dzień?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Przy portretach biznesowych — do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 10-15 minut.",
+        text: "Przy portretach biznesowych fotografuję do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 10-15 minut.",
       },
     },
     {
@@ -92,7 +92,7 @@ const faqStructuredData = {
       name: "Co jeśli nie jestem fotogeniczny/a?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Słyszę to bardzo często — i za każdym razem efekt pozytywnie zaskakuje. Prowadzę Cię przez całą sesję: pomagam z pozowaniem, ustawiam światło pod Twoją twarz, dbam o naturalny wyraz. W studiu zawsze ustawiam lustro przed modelem, żebyś mógł na bieżąco widzieć siebie i poprawiać drobne detale. Nie musisz być modelem — wystarczy być sobą. Reszta to moja robota.",
+        text: "Słyszę to bardzo często i za każdym razem efekt pozytywnie zaskakuje. Prowadzę Cię przez całą sesję: pomagam z pozowaniem, ustawiam światło pod Twoją twarz, dbam o naturalny wyraz. W studiu zawsze ustawiam lustro przed modelem, żebyś mógł na bieżąco widzieć siebie i poprawiać drobne detale. Nie musisz być modelem, wystarczy być sobą. Reszta to moja robota.",
       },
     },
     {
@@ -108,7 +108,7 @@ const faqStructuredData = {
       name: "Ile tur poprawek otrzymuję w cenie?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Zdjęcia — 2 tury poprawek w cenie. Wideo — 3 tury poprawek montażowych w cenie. Każda dodatkowa godzina pracy nad zmianami: 200 zł netto. W praktyce pierwsza tura prawie zawsze wystarcza — zależy mi, żeby finalny materiał w 100% odpowiadał Twoim oczekiwaniom.",
+        text: "Zdjęcia: 2 tury poprawek w cenie. Wideo: 3 tury poprawek montażowych w cenie. Każda dodatkowa godzina pracy nad zmianami: 200 zł netto. W praktyce pierwsza tura prawie zawsze wystarcza, bo zależy mi, żeby finalny materiał w 100% odpowiadał Twoim oczekiwaniom.",
       },
     },
     {
@@ -124,7 +124,7 @@ const faqStructuredData = {
       name: "Czy pracujesz z AI w zdjęciach i wideo?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Tak. Jeżeli projekt tego wymaga, wspieram się narzędziami AI — generowanie grafik, fotomanipulacje, edycje zdjęć, kreatywna postprodukcja wideo. AI traktuję jako rozszerzenie warsztatu, nie zastępstwo dla autorskiego podejścia. Zawsze informuję klienta, w którym miejscu procesu AI zostało użyte.",
+        text: "Tak. Jeżeli projekt tego wymaga, wspieram się narzędziami AI: generowanie grafik, fotomanipulacje, edycje zdjęć, kreatywna postprodukcja wideo. AI traktuję jako rozszerzenie warsztatu, nie zastępstwo dla autorskiego podejścia. Zawsze informuję klienta, w którym miejscu procesu AI zostało użyte.",
       },
     },
   ],
