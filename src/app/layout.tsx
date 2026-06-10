@@ -4,6 +4,7 @@ import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 import CookieConsent from "@/components/CookieConsent";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const barlow = Barlow({
   subsets: ["latin", "latin-ext"],
@@ -311,6 +312,7 @@ gtag('js',new Date());gtag('config','G-MD8FJ0CZG3');`,
           <CookieConsent />
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
