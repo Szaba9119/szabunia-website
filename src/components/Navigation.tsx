@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, useCallback, type KeyboardEvent as ReactKe
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
-import { useScrollPosition } from "@/hooks/useScrollPosition";
+import { useScrolledPast } from "@/hooks/useScrollPosition";
 import { useActiveSection } from "@/hooks/useActiveSection";
 
 // Kolejność linków = kolejność sekcji na stronie głównej, żeby podświetlenie
@@ -29,11 +29,11 @@ export default function Navigation() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const hamburgerRef = useRef<HTMLButtonElement>(null);
-  const scrollY = useScrollPosition();
   const pathname = usePathname();
   const isHome = pathname === "/";
 
-  const scrolled = scrollY > 40;
+  // Boolean zamiast surowego scrollY: bez re-renderu nawigacji co piksel.
+  const scrolled = useScrolledPast(40);
 
   // Prefix for links: on subpages, prepend "/" so #anchor becomes /#anchor
   const linkPrefix = isHome ? "" : "/";

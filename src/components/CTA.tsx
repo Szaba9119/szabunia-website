@@ -130,8 +130,9 @@ export default function CTA() {
           <div className="relative rounded-[20px] overflow-hidden bg-white border border-border dark:bg-dark-card dark:border-dark-border px-6 py-12 md:px-10 md:py-16">
             {/* Background glow */}
             <div className="absolute inset-0 -z-0">
-              <Parallax distance={PARALLAX.strong} direction="up" className="absolute top-[30%] left-[20%] w-[400px] h-[400px] rounded-full bg-blue/[0.12] blur-[100px]" />
-              <Parallax distance={PARALLAX.base} direction="down" className="absolute top-[50%] right-[10%] w-[300px] h-[300px] rounded-full bg-blue/[0.06] blur-[80px]" />
+              {/* Radial-gradient zamiast filter:blur — wydajność na mobile */}
+              <Parallax distance={PARALLAX.strong} direction="up" className="absolute top-[30%] left-[20%] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(37,99,235,0.14)_0%,transparent_70%)]" />
+              <Parallax distance={PARALLAX.base} direction="down" className="absolute top-[50%] right-[10%] w-[300px] h-[300px] bg-[radial-gradient(circle,rgba(37,99,235,0.08)_0%,transparent_70%)]" />
             </div>
 
             <div className="relative z-10 grid md:grid-cols-2 gap-10 items-start">

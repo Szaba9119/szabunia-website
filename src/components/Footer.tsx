@@ -17,14 +17,14 @@ export default function Footer() {
             <div className="font-barlow font-extrabold text-sm tracking-wide text-navy dark:text-white mb-2">
               MARCIN SZABUNIA
             </div>
-            <p className="text-xs text-steel">
+            <p className="text-xs text-text-body dark:text-dark-text-muted">
               Fotograf biznesowy & twórca wideo
             </p>
-            <p className="text-xs text-steel">Poznań, Polska</p>
+            <p className="text-xs text-text-body dark:text-dark-text-muted">Poznań, Polska</p>
           </div>
 
           {/* Navigation */}
-          <div className="flex flex-col gap-1.5 text-xs text-steel dark:text-steel-light">
+          <div className="flex flex-col gap-0.5 text-xs text-steel dark:text-steel-light">
             {[
               { label: "O mnie", href: "/#o-mnie" },
               { label: "Usługi", href: "/#uslugi" },
@@ -39,7 +39,7 @@ export default function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                className="hover:text-navy dark:hover:text-white transition-colors"
+                className="py-1 hover:text-navy dark:hover:text-white transition-colors"
               >
                 {link.label}
               </a>
@@ -47,16 +47,16 @@ export default function Footer() {
           </div>
 
           {/* Contact & Social */}
-          <div className="flex flex-col gap-1.5 text-xs text-steel dark:text-steel-light">
+          <div className="flex flex-col gap-0.5 text-xs text-steel dark:text-steel-light">
             <a
               href="tel:+48514900688"
-              className="hover:text-navy dark:hover:text-white transition-colors"
+              className="py-1 hover:text-navy dark:hover:text-white transition-colors"
             >
               +48 514 900 688
             </a>
             <a
               href="mailto:marcin@szabunia.pl"
-              className="hover:text-navy dark:hover:text-white transition-colors"
+              className="py-1 hover:text-navy dark:hover:text-white transition-colors"
             >
               marcin@szabunia.pl
             </a>
@@ -64,7 +64,7 @@ export default function Footer() {
               href="https://instagram.com/szabunia.biz"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-navy dark:hover:text-white transition-colors"
+              className="py-1 hover:text-navy dark:hover:text-white transition-colors"
             >
               Instagram
             </a>
@@ -101,7 +101,7 @@ export default function Footer() {
           </span>
           <a
             href="/polityka-prywatnosci"
-            className="hover:text-navy dark:hover:text-white transition-colors"
+            className="py-1 hover:text-navy dark:hover:text-white transition-colors"
           >
             Polityka prywatności
           </a>

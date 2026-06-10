@@ -38,3 +38,17 @@ function getServerSnapshot() {
 export function useScrollPosition() {
   return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 }
+
+/**
+ * Zwraca boolean "czy przewinięto poniżej progu". W odróżnieniu od
+ * useScrollPosition nie powoduje re-renderu na każdy piksel scrolla:
+ * useSyncExternalStore porównuje snapshot przez Object.is, więc komponent
+ * renderuje się tylko przy przekroczeniu progu.
+ */
+export function useScrolledPast(threshold: number) {
+  return useSyncExternalStore(
+    subscribe,
+    () => scrollY > threshold,
+    () => false
+  );
+}

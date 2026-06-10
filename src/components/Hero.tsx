@@ -9,15 +9,17 @@ export default function Hero() {
   return (
     <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 overflow-hidden">
       <div className="absolute inset-0 -z-10">
+        {/* Poświaty jako radial-gradient zamiast filter:blur — blur 100px na
+            dużych elementach zabijał wydajność GPU na mobile (PageSpeed). */}
         <Parallax
           distance={PARALLAX.strong}
           direction="up"
-          className="absolute top-[20%] left-[10%] w-[500px] h-[500px] rounded-full bg-blue/[0.04] dark:bg-blue/[0.08] blur-[100px]"
+          className="absolute top-[20%] left-[10%] w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(37,99,235,0.08)_0%,transparent_70%)] dark:bg-[radial-gradient(circle,rgba(37,99,235,0.16)_0%,transparent_70%)]"
         />
         <Parallax
           distance={PARALLAX.base}
           direction="down"
-          className="absolute bottom-[10%] right-[10%] w-[400px] h-[400px] rounded-full bg-blue/[0.03] dark:bg-blue/[0.06] blur-[80px]"
+          className="absolute bottom-[10%] right-[10%] w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(37,99,235,0.06)_0%,transparent_70%)] dark:bg-[radial-gradient(circle,rgba(37,99,235,0.12)_0%,transparent_70%)]"
         />
       </div>
 
@@ -65,12 +67,9 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: DURATION.slow, delay: 0.15, ease: EASE }}
-          className="relative"
-        >
+        {/* Bez animacji wejściowej: to element LCP — animacja opóźniała
+            wyrenderowanie zdjęcia o ~1,8 s (PageSpeed "render delay"). */}
+        <div className="relative">
           <Parallax distance={PARALLAX.subtle} direction="up">
             <div className="w-full aspect-[3/4] rounded-3xl overflow-hidden bg-border dark:bg-dark-card relative">
               <Image
@@ -79,6 +78,7 @@ export default function Hero() {
                 fill
                 className="object-cover object-top"
                 priority
+                fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, 40vw"
                 quality={85}
                 placeholder="blur"
@@ -86,7 +86,7 @@ export default function Hero() {
               />
             </div>
           </Parallax>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
