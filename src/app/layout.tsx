@@ -92,7 +92,7 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#0F172A" />
+        <meta name="theme-color" content="#F9FAFB" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         {/* GA4 (gtag.js) z Consent Mode v2 — domyślnie wszystko denied;
             zgoda nadawana po "Akceptuję" w banerze cookie (CookieConsent.tsx).
@@ -111,7 +111,7 @@ gtag('js',new Date());gtag('config','G-MD8FJ0CZG3');`,
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-MD8FJ0CZG3" />
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('theme');if(t!=='light'){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark'}})();`,
+            __html: `(function(){var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark'}})();`,
           }}
         />
         <script
