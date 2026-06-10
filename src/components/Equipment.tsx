@@ -123,7 +123,7 @@ export default function Equipment() {
               </span>
             </div>
             <p className="text-[14px] text-navy dark:text-dark-text leading-relaxed">
-              Zdjęcia i wideo z drona DJI Mini 5 Pro. Eventy, architektura oraz tereny i obiekty firmowe. Certyfikat A1/A3. Pełna oferta foto, wideo i dron w jednym zespole.
+              Zdjęcia i wideo z drona DJI Mini 5 Pro. Eventy, architektura oraz tereny i obiekty firmowe. Certyfikat A1/A3 i ubezpieczenie OC operatora drona, więc loty nad Twoim obiektem są w pełni bezpieczne formalnie. Pełna oferta foto, wideo i dron w jednym zespole.
             </p>
           </div>
         </AnimatedSection>

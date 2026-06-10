@@ -57,7 +57,7 @@ def main() -> None:
     os.makedirs(OUT, exist_ok=True)
     for slug, (rel, focus) in COVERS.items():
         src = os.path.join(SRC, rel)
-        out = os.path.join(OUT, f"{slug}.jpg")
+        out = os.path.join(OUT, f"{slug}-2.jpg")
         crop_cover(src, focus).save(out, "JPEG", quality=82, optimize=True, progressive=True)
         print(f"OK  {slug}.jpg  <- {rel}")
     print(f"\n{len(COVERS)} okładek w public/images/blog/")

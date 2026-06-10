@@ -22,7 +22,7 @@ export const blogPosts: BlogPost[] = [
     category: "poradnik",
     date: "2025-01-15",
     readTime: 6,
-    thumbnail: "/images/blog/jak-przygotowac-sie-do-sesji-biznesowej.jpg",
+    thumbnail: "/images/blog/jak-przygotowac-sie-do-sesji-biznesowej-2.jpg",
     content: `
       <p class="lead">Sesja biznesowa to inwestycja w Twój wizerunek. Niezależnie od tego, czy potrzebujesz headshota na LinkedIn, zdjęcia do materiałów prasowych, czy kompleksowej <a href="/uslugi/wizerunek-portrety">sesji personal branding</a>, odpowiednie przygotowanie sprawi, że efekt końcowy będzie dokładnie taki, jak sobie wymarzyłeś.</p>
 
@@ -70,7 +70,7 @@ export const blogPosts: BlogPost[] = [
     category: "branża",
     date: "2025-02-08",
     readTime: 5,
-    thumbnail: "/images/blog/headshoty-linkedin-konwersja.jpg",
+    thumbnail: "/images/blog/headshoty-linkedin-konwersja-2.jpg",
     content: `
       <p class="lead">LinkedIn to nie Facebook. To narzędzie biznesowe, w którym pierwsze wrażenie decyduje o tym, czy ktoś kliknie „Połącz", czy przewinie dalej. A pierwsze wrażenie zaczyna się od zdjęcia profilowego.</p>
 
@@ -118,7 +118,7 @@ export const blogPosts: BlogPost[] = [
     category: "poradnik",
     date: "2025-03-02",
     readTime: 7,
-    thumbnail: "/images/blog/fotografia-eventowa-vs-reportaz.jpg",
+    thumbnail: "/images/blog/fotografia-eventowa-vs-reportaz-2.jpg",
     content: `
       <p class="lead">Organizujesz konferencję, galę lub targi branżowe i potrzebujesz fotografa. Ale czy chcesz reportaż (dyskretne chwytanie momentów) czy sesję eventową (zaplanowane ujęcia)? Te dwa podejścia dają zupełnie inny materiał. Oto, jak wybrać mądrze.</p>
 
@@ -174,7 +174,7 @@ export const blogPosts: BlogPost[] = [
     category: "poradnik",
     date: "2025-04-10",
     readTime: 8,
-    thumbnail: "/images/blog/zdjecie-do-cv-w-domu.jpg",
+    thumbnail: "/images/blog/zdjecie-do-cv-w-domu-2.jpg",
     content: `
       <p class="lead">Zdjęcie do CV to często pierwsza rzecz, którą widzi rekruter. Nie musisz od razu iść do studia, telefonem też da się zrobić przyzwoite zdjęcie. Oto jak to zrobić krok po kroku, i kiedy warto jednak postawić na profesjonalistę.</p>
 
@@ -221,7 +221,7 @@ export const blogPosts: BlogPost[] = [
     category: "branża",
     date: "2025-05-05",
     readTime: 6,
-    thumbnail: "/images/blog/fotografia-przemyslowa-fabryka.jpg",
+    thumbnail: "/images/blog/fotografia-przemyslowa-fabryka-2.jpg",
     content: `
       <p class="lead">Fotografia przemysłowa to nie zdjęcia maszyn, to opowieść o ludziach, procesach i innowacji. Dobrze wykonane zdjęcia fabryki mogą odmienić stronę internetową, raport roczny czy materiały rekrutacyjne. Oto jak to robię.</p>
 
@@ -268,7 +268,7 @@ export const blogPosts: BlogPost[] = [
     category: "poradnik",
     date: "2025-06-01",
     readTime: 5,
-    thumbnail: "/images/blog/bledy-zdjecia-zespolu.jpg",
+    thumbnail: "/images/blog/bledy-zdjecia-zespolu-2.jpg",
     content: `
       <p class="lead">Zdjęcia zespołu na stronie firmowej budują zaufanie klientów i pomagają w rekrutacji. Ale źle zrobione potrafią osiągnąć efekt odwrotny. Oto 5 najczęstszych błędów, które widzę u swoich klientów, i jak ich uniknąć.</p>
 
@@ -305,7 +305,7 @@ export const blogPosts: BlogPost[] = [
     category: "poradnik",
     date: "2026-03-10",
     readTime: 6,
-    thumbnail: "/images/blog/ile-kosztuje-sesja-wizerunkowa-dla-firmy.jpg",
+    thumbnail: "/images/blog/ile-kosztuje-sesja-wizerunkowa-dla-firmy-2.jpg",
     content: `
       <p class="lead">„Ile kosztuje sesja wizerunkowa?" to pytanie, które dostaję najczęściej. Uczciwa odpowiedź brzmi: to zależy, ale od konkretnych, policzalnych rzeczy. Poniżej tłumaczę, co realnie wpływa na cenę <a href="/uslugi/wizerunek-portrety">sesji wizerunkowej dla firmy</a>, żebyś wiedział, za co płacisz i jak zaplanować budżet.</p>
 
@@ -348,7 +348,7 @@ export const blogPosts: BlogPost[] = [
     category: "branża",
     date: "2026-04-14",
     readTime: 6,
-    thumbnail: "/images/blog/fotografia-produktowa-ecommerce.jpg",
+    thumbnail: "/images/blog/fotografia-produktowa-ecommerce-2.jpg",
     content: `
       <p class="lead">W e-commerce klient nie weźmie produktu do ręki, ogląda go wyłącznie na zdjęciu. Dlatego <a href="/uslugi/fotografia-produktowa">fotografia produktowa</a> to nie koszt, lecz część maszyny sprzedażowej. Oto, co realnie robi dobre zdjęcie produktu i jak je zaplanować.</p>
 
@@ -387,7 +387,7 @@ export const blogPosts: BlogPost[] = [
     category: "poradnik",
     date: "2026-05-12",
     readTime: 6,
-    thumbnail: "/images/blog/wideo-marketing-dla-firm-formaty.jpg",
+    thumbnail: "/images/blog/wideo-marketing-dla-firm-formaty-2.jpg",
     content: `
       <p class="lead">„Potrzebujemy wideo" to dopiero początek rozmowy. Bo film wizerunkowy, pionowy reels i materiał z eventu to zupełnie różne formaty, które rozwiązują różne problemy. Oto przegląd formatów <a href="/uslugi/wideo-marketing">wideo marketingu dla firm</a> i tego, gdzie każdy się sprawdza.</p>
 
@@ -423,7 +423,7 @@ export const blogPosts: BlogPost[] = [
     category: "poradnik",
     date: "2026-05-27",
     readTime: 6,
-    thumbnail: "/images/blog/sesja-wizerunkowa-poznan.jpg",
+    thumbnail: "/images/blog/sesja-wizerunkowa-poznan-2.jpg",
     content: `
       <p class="lead">Szukasz fotografa do zdjęć biznesowych w Poznaniu i zastanawiasz się, gdzie właściwie zrobić sesję? Studio, Twoje biuro, a może plener? Każde z tych miejsc daje inny efekt i pasuje do innych potrzeb. Oto praktyczne porównanie, które pomoże Ci wybrać.</p>
 
@@ -472,7 +472,7 @@ export const blogPosts: BlogPost[] = [
     category: "branża",
     date: "2026-05-23",
     readTime: 6,
-    thumbnail: "/images/blog/zdjecia-ai-vs-profesjonalna-sesja.jpg",
+    thumbnail: "/images/blog/zdjecia-ai-vs-profesjonalna-sesja-2.jpg",
     content: `
       <p class="lead">Generatory zdjęć AI obiecują headshot w kilka minut, za ułamek ceny sesji. Brzmi kusząco, zwłaszcza gdy materiał jest potrzebny „na wczoraj". Ale czy portret z AI nadaje się na profil eksperta, stronę firmy i materiały, które mają budować zaufanie? Spójrzmy na to trzeźwo.</p>
 
@@ -517,7 +517,7 @@ export const blogPosts: BlogPost[] = [
     category: "poradnik",
     date: "2026-05-19",
     readTime: 7,
-    thumbnail: "/images/blog/co-zalozyc-na-sesje-biznesowa.jpg",
+    thumbnail: "/images/blog/co-zalozyc-na-sesje-biznesowa-2.jpg",
     content: `
       <p class="lead">Możesz mieć idealne światło i najlepszego fotografa, ale jeśli stylizacja nie gra, portret nie zadziała. Ubranie to jedyny element sesji, który w całości zależy od Ciebie. Oto przewodnik po tym, co założyć na <a href="/uslugi/wizerunek-portrety">sesję biznesową</a>, żeby wyglądać profesjonalnie i jak Ty.</p>
 
@@ -572,7 +572,7 @@ export const blogPosts: BlogPost[] = [
     category: "poradnik",
     date: "2026-05-15",
     readTime: 7,
-    thumbnail: "/images/blog/zdjecia-na-strone-firmowa.jpg",
+    thumbnail: "/images/blog/zdjecia-na-strone-firmowa-2.jpg",
     content: `
       <p class="lead">Strona internetowa to często pierwszy kontakt klienta z Twoją firmą, i ocenia ją w kilka sekund. Zdjęcia decydują o tym pierwszym wrażeniu bardziej niż tekst. Oto kompletna lista zdjęć, których realnie potrzebuje strona firmowa, sekcja po sekcji.</p>
 

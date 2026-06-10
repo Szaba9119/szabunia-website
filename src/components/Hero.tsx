@@ -75,7 +75,7 @@ export default function Hero() {
             <div className="w-full aspect-[3/4] rounded-3xl overflow-hidden bg-border dark:bg-dark-card relative">
               {/* Dwa warianty hero: jasny i ciemny gradient, przełączane motywem (.dark) */}
               <Image
-                src="/images/marcin-hero-light.jpg"
+                src="/images/marcin-hero-light-2.jpg"
                 alt="Marcin Szabunia, fotograf biznesowy i twórca wideo, Poznań"
                 fill
                 className="object-cover object-top dark:hidden"
@@ -86,7 +86,7 @@ export default function Hero() {
                 blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0YxRjVGOSIvPjwvc3ZnPg=="
               />
               <Image
-                src="/images/marcin-hero-dark.jpg"
+                src="/images/marcin-hero-dark-2.jpg"
                 alt="Marcin Szabunia, fotograf biznesowy i twórca wideo, Poznań"
                 fill
                 className="object-cover object-top hidden dark:block"
