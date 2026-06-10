@@ -15,6 +15,15 @@ export interface GalleryCategory {
   label: string;
   images: SizedImage[];
   alt: string;
+  /** Rotujące opisowe alt teksty; i-te zdjęcie dostaje wariant i % length. */
+  altVariants?: string[];
+}
+
+/** Alt dla i-tego zdjęcia: wariant z listy (rotacyjnie) z numerem kadru dla unikalności. */
+function altFor(cat: { alt: string; altVariants?: string[] } | undefined, i: number): string {
+  if (!cat) return `Fotografia ${i + 1}`;
+  const base = cat.altVariants?.length ? cat.altVariants[i % cat.altVariants.length] : cat.alt;
+  return `${base}, kadr ${i + 1}`;
 }
 
 // Liczba kolumn galerii zależna od szerokości (SSR-safe, bez setState-in-effect): 2 na mobile, 3 od 640px.
@@ -186,7 +195,7 @@ export default function GalleryView({
                 >
                   <Image
                     src={img.src}
-                    alt={`${activeCat?.alt ?? "Fotografia"} ${i + 1}`}
+                    alt={altFor(activeCat, i)}
                     width={img.width}
                     height={img.height}
                     loading="lazy"
@@ -253,7 +262,7 @@ export default function GalleryView({
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={images[lightbox].src}
-              alt={`${activeCat.alt} ${lightbox + 1}`}
+              alt={altFor(activeCat, lightbox)}
               className="max-h-[88vh] max-w-[92vw] w-auto h-auto object-contain rounded-lg"
             />
           </div>

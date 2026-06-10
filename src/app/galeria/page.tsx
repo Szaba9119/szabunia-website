@@ -37,14 +37,57 @@ export default async function GaleriaPage({
 }) {
   const { kat } = await searchParams;
 
+  // Rotujące, opisowe alt teksty (SEO obrazów): kolejne zdjęcia w kategorii
+  // dostają kolejne warianty z listy zamiast jednego szablonu z numerem.
   const defs = [
-    { key: "portrety", label: "Portrety", folder: "portrety", alt: "Portret biznesowy, Marcin Szabunia, Poznań" },
-    { key: "eventy", label: "Eventy", folder: "eventy", alt: "Fotografia eventowa, Marcin Szabunia, Poznań" },
-    { key: "produktowe", label: "Produktowe", folder: "produktowe", alt: "Fotografia produktowa, packshot, Marcin Szabunia" },
+    {
+      key: "portrety",
+      label: "Portrety",
+      folder: "portrety",
+      alt: "Portret biznesowy, Marcin Szabunia, Poznań",
+      altVariants: [
+        "Portret biznesowy w studio, fotograf Marcin Szabunia, Poznań",
+        "Headshot biznesowy do LinkedIn, sesja wizerunkowa, Poznań",
+        "Zdjęcie wizerunkowe dla firmy, fotografia korporacyjna, Poznań",
+        "Profesjonalny portret pracownika, sesja biznesowa, Marcin Szabunia",
+        "Sesja personal branding, portret eksperta, fotograf Poznań",
+      ],
+    },
+    {
+      key: "eventy",
+      label: "Eventy",
+      folder: "eventy",
+      alt: "Fotografia eventowa, Marcin Szabunia, Poznań",
+      altVariants: [
+        "Reportaż z eventu firmowego, fotograf eventowy Poznań",
+        "Fotografia konferencyjna, relacja z wydarzenia biznesowego",
+        "Zdjęcie z gali firmowej, fotograf Marcin Szabunia",
+        "Fotoreportaż z eventu korporacyjnego, Poznań",
+        "Relacja zdjęciowa z targów i wydarzeń firmowych",
+      ],
+    },
+    {
+      key: "produktowe",
+      label: "Produktowe",
+      folder: "produktowe",
+      alt: "Fotografia produktowa, packshot, Marcin Szabunia",
+      altVariants: [
+        "Packshot produktu na białym tle, fotografia e-commerce",
+        "Zdjęcie produktowe do sklepu internetowego, Marcin Szabunia",
+        "Fotografia produktowa kreatywna, aranżacja reklamowa",
+        "Zdjęcie katalogowe produktu, studio, Poznań",
+      ],
+    },
   ];
 
   const categories: GalleryCategory[] = defs
-    .map((d) => ({ key: d.key, label: d.label, images: listGalleryImagesSized(d.folder), alt: d.alt }))
+    .map((d) => ({
+      key: d.key,
+      label: d.label,
+      images: listGalleryImagesSized(d.folder),
+      alt: d.alt,
+      altVariants: d.altVariants,
+    }))
     .filter((c) => c.images.length > 0);
 
   const validKeys = [...categories.map((c) => c.key), "wideo"];

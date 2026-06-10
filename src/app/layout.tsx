@@ -3,6 +3,7 @@ import { Barlow, Inter } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 import CookieConsent from "@/components/CookieConsent";
+import ContactClickTracker from "@/components/ContactClickTracker";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
@@ -310,6 +311,7 @@ gtag('js',new Date());gtag('config','G-MD8FJ0CZG3');`,
         <ThemeProvider>
           {children}
           <CookieConsent />
+          <ContactClickTracker />
         </ThemeProvider>
         <Analytics />
         <SpeedInsights />
