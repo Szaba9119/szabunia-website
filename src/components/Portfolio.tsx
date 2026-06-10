@@ -76,17 +76,17 @@ export default function Portfolio() {
 
         <AnimatedSection
           delay={0.15}
-          className="group mt-3 relative overflow-hidden rounded-2xl bg-navy dark:bg-dark-card border border-navy-light dark:border-dark-border hover:scale-[1.005] transition-transform duration-300"
+          className="group mt-3 relative overflow-hidden rounded-2xl bg-white dark:bg-dark-card border border-border dark:border-dark-border hover:scale-[1.005] transition-transform duration-300"
         >
           <a
             href="#kontakt"
             className="flex items-center justify-center gap-3 text-center px-6 py-5"
           >
-            <span className="text-white/60 text-2xl group-hover:scale-110 transition-transform duration-300">→</span>
-            <span className="font-barlow font-semibold text-white text-[14px]">
+            <span className="text-blue dark:text-blue-light text-2xl group-hover:scale-110 transition-transform duration-300">→</span>
+            <span className="font-barlow font-semibold text-navy dark:text-white text-[14px]">
               Chcesz zobaczyć więcej?
             </span>
-            <span className="text-white/50 text-[11px]">Napisz do mnie</span>
+            <span className="text-steel dark:text-dark-text-muted text-[11px]">Napisz do mnie</span>
           </a>
         </AnimatedSection>
       </div>

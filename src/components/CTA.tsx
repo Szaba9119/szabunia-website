@@ -127,7 +127,7 @@ export default function CTA() {
     <section id="kontakt" className="py-12 md:py-24 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
-          <div className="relative rounded-[20px] overflow-hidden bg-navy dark:bg-dark-card dark:border dark:border-dark-border px-6 py-12 md:px-10 md:py-16">
+          <div className="relative rounded-[20px] overflow-hidden bg-white border border-border dark:bg-dark-card dark:border-dark-border px-6 py-12 md:px-10 md:py-16">
             {/* Background glow */}
             <div className="absolute inset-0 -z-0">
               <Parallax distance={PARALLAX.strong} direction="up" className="absolute top-[30%] left-[20%] w-[400px] h-[400px] rounded-full bg-blue/[0.12] blur-[100px]" />
@@ -137,12 +137,12 @@ export default function CTA() {
             <div className="relative z-10 grid md:grid-cols-2 gap-10 items-start">
               {/* Left: Info */}
               <div>
-                <h2 className="font-barlow font-black text-3xl md:text-[36px] leading-[1.1] tracking-tight text-white mb-3">
+                <h2 className="font-barlow font-black text-3xl md:text-[36px] leading-[1.1] tracking-tight text-navy dark:text-white mb-3">
                   Zacznijmy budować
                   <br />
                   Twój wizerunek
                 </h2>
-                <p className="text-steel-light text-[15px] leading-relaxed mb-8">
+                <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mb-8">
                   Odpowiadam w ciągu 24h ze spersonalizowaną ofertą dopasowaną
                   do Twojego budżetu.
                 </p>
@@ -153,7 +153,7 @@ export default function CTA() {
                     href="mailto:marcin@szabunia.pl"
                     className="flex items-center gap-3 group"
                   >
-                    <div className="w-10 h-10 rounded-xl border border-navy-light dark:border-dark-border flex items-center justify-center group-hover:border-blue transition-colors">
+                    <div className="w-10 h-10 rounded-xl border border-border dark:border-dark-border flex items-center justify-center group-hover:border-blue transition-colors">
                       <svg
                         className="w-4 h-4 text-blue"
                         fill="none"
@@ -169,10 +169,10 @@ export default function CTA() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[10px] uppercase tracking-widest text-steel mb-0.5 font-barlow font-semibold">
+                      <p className="text-[10px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-0.5 font-barlow font-semibold">
                         Email
                       </p>
-                      <p className="text-white text-sm group-hover:text-blue transition-colors">
+                      <p className="text-navy dark:text-white text-sm group-hover:text-blue transition-colors">
                         marcin@szabunia.pl
                       </p>
                     </div>
@@ -184,7 +184,7 @@ export default function CTA() {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 group"
                   >
-                    <div className="w-10 h-10 rounded-xl border border-navy-light dark:border-dark-border flex items-center justify-center group-hover:border-blue transition-colors">
+                    <div className="w-10 h-10 rounded-xl border border-border dark:border-dark-border flex items-center justify-center group-hover:border-blue transition-colors">
                       <svg
                         className="w-4 h-4 text-blue"
                         viewBox="0 0 24 24"
@@ -194,10 +194,10 @@ export default function CTA() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[10px] uppercase tracking-widest text-steel mb-0.5 font-barlow font-semibold">
+                      <p className="text-[10px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-0.5 font-barlow font-semibold">
                         Instagram
                       </p>
-                      <p className="text-white text-sm group-hover:text-blue transition-colors">
+                      <p className="text-navy dark:text-white text-sm group-hover:text-blue transition-colors">
                         @szabunia.biz
                       </p>
                     </div>
@@ -207,7 +207,7 @@ export default function CTA() {
                     href="tel:+48514900688"
                     className="flex items-center gap-3 group"
                   >
-                    <div className="w-10 h-10 rounded-xl border border-navy-light dark:border-dark-border flex items-center justify-center group-hover:border-blue transition-colors">
+                    <div className="w-10 h-10 rounded-xl border border-border dark:border-dark-border flex items-center justify-center group-hover:border-blue transition-colors">
                       <svg
                         className="w-4 h-4 text-blue"
                         fill="none"
@@ -223,17 +223,17 @@ export default function CTA() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[10px] uppercase tracking-widest text-steel mb-0.5 font-barlow font-semibold">
+                      <p className="text-[10px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-0.5 font-barlow font-semibold">
                         Telefon
                       </p>
-                      <p className="text-white text-sm group-hover:text-blue transition-colors">
+                      <p className="text-navy dark:text-white text-sm group-hover:text-blue transition-colors">
                         +48 514 900 688
                       </p>
                     </div>
                   </a>
 
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl border border-navy-light dark:border-dark-border flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-xl border border-border dark:border-dark-border flex items-center justify-center">
                       <svg
                         className="w-4 h-4 text-blue"
                         fill="none"
@@ -254,10 +254,10 @@ export default function CTA() {
                       </svg>
                     </div>
                     <div>
-                      <p className="text-[10px] uppercase tracking-widest text-steel mb-0.5 font-barlow font-semibold">
+                      <p className="text-[10px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-0.5 font-barlow font-semibold">
                         Lokalizacja
                       </p>
-                      <p className="text-white text-sm">Poznań, Polska</p>
+                      <p className="text-navy dark:text-white text-sm">Poznań, Polska</p>
                     </div>
                   </div>
                 </div>
@@ -268,20 +268,20 @@ export default function CTA() {
                     {["MC", "NT", "MW"].map((initials) => (
                       <div
                         key={initials}
-                        className="w-8 h-8 rounded-full bg-navy-light dark:bg-dark-border border-2 border-navy dark:border-dark-card flex items-center justify-center text-[10px] text-steel-light font-semibold"
+                        className="w-8 h-8 rounded-full bg-border dark:bg-dark-border border-2 border-white dark:border-dark-card flex items-center justify-center text-[10px] text-steel dark:text-steel-light font-semibold"
                       >
                         {initials}
                       </div>
                     ))}
                   </div>
-                  <p className="text-xs text-steel">
+                  <p className="text-xs text-steel dark:text-dark-text-muted">
                     100+ zadowolonych firm B2B
                   </p>
                 </div>
               </div>
 
               {/* Right: Form */}
-              <div className="glass-dark rounded-2xl p-6">
+              <div className="rounded-2xl p-6 bg-gray-bg border border-border dark:bg-white/[0.04] dark:border-white/10">
                 {submitted ? (
                   <div className="text-center py-8" role="status" aria-live="polite">
                     <div className="w-16 h-16 rounded-full bg-blue/20 flex items-center justify-center mx-auto mb-4">
@@ -299,10 +299,10 @@ export default function CTA() {
                         />
                       </svg>
                     </div>
-                    <p className="text-white font-barlow font-bold text-lg mb-1">
+                    <p className="text-navy dark:text-white font-barlow font-bold text-lg mb-1">
                       Wiadomość wysłana!
                     </p>
-                    <p className="text-steel text-sm mb-6">
+                    <p className="text-steel dark:text-dark-text-muted text-sm mb-6">
                       Dziękuję za kontakt. Odpowiem najszybciej jak to możliwe
                       (zazwyczaj w ciągu 24h).
                     </p>
@@ -319,7 +319,7 @@ export default function CTA() {
                           message: "",
                         });
                       }}
-                      className="text-xs uppercase tracking-widest text-blue hover:text-white transition-colors font-barlow font-semibold"
+                      className="text-xs uppercase tracking-widest text-blue hover:text-navy dark:hover:text-white transition-colors font-barlow font-semibold"
                     >
                       Wyślij kolejną wiadomość
                     </button>
@@ -327,7 +327,7 @@ export default function CTA() {
                 ) : (
                   <form ref={formRef} onSubmit={handleSubmit} noValidate>
                     <div className="mb-3">
-                      <label htmlFor="contact-name" className="block text-[11px] text-steel font-barlow font-semibold uppercase tracking-wide mb-1.5">
+                      <label htmlFor="contact-name" className="block text-[11px] text-steel dark:text-dark-text-muted font-barlow font-semibold uppercase tracking-wide mb-1.5">
                         Imię i nazwisko / Firma
                       </label>
                       <input
@@ -342,7 +342,7 @@ export default function CTA() {
                         aria-invalid={!!fieldErrors.name}
                         aria-describedby={fieldErrors.name ? "name-error" : undefined}
                         placeholder="Jan Kowalski / Firma Sp. z o.o."
-                        className={`w-full bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-white placeholder-steel font-inter transition-colors ${fieldErrors.name ? "border-red-400 focus:border-red-400" : "border-navy-light focus:border-blue"}`}
+                        className={`w-full bg-white dark:bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter transition-colors ${fieldErrors.name ? "border-red-400 focus:border-red-400" : "border-border dark:border-navy-light focus:border-blue"}`}
                       />
                       {fieldErrors.name && (
                         <p id="name-error" role="alert" className="text-red-400 text-[11px] mt-1">{fieldErrors.name}</p>
@@ -351,7 +351,7 @@ export default function CTA() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3">
                       <div>
-                        <label htmlFor="contact-email" className="block text-[11px] text-steel font-barlow font-semibold uppercase tracking-wide mb-1.5">
+                        <label htmlFor="contact-email" className="block text-[11px] text-steel dark:text-dark-text-muted font-barlow font-semibold uppercase tracking-wide mb-1.5">
                           E-mail
                         </label>
                         <input
@@ -366,14 +366,14 @@ export default function CTA() {
                           aria-invalid={!!fieldErrors.email}
                           aria-describedby={fieldErrors.email ? "email-error" : undefined}
                           placeholder="jan@firma.pl"
-                          className={`w-full bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-white placeholder-steel font-inter transition-colors ${fieldErrors.email ? "border-red-400 focus:border-red-400" : "border-navy-light focus:border-blue"}`}
+                          className={`w-full bg-white dark:bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter transition-colors ${fieldErrors.email ? "border-red-400 focus:border-red-400" : "border-border dark:border-navy-light focus:border-blue"}`}
                         />
                         {fieldErrors.email && (
                           <p id="email-error" role="alert" className="text-red-400 text-[11px] mt-1">{fieldErrors.email}</p>
                         )}
                       </div>
                       <div>
-                        <label htmlFor="contact-phone" className="block text-[11px] text-steel font-barlow font-semibold uppercase tracking-wide mb-1.5">
+                        <label htmlFor="contact-phone" className="block text-[11px] text-steel dark:text-dark-text-muted font-barlow font-semibold uppercase tracking-wide mb-1.5">
                           Telefon (opcjonalnie)
                         </label>
                         <input
@@ -385,13 +385,13 @@ export default function CTA() {
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="+48 xxx xxx xxx"
-                          className="w-full bg-white/[0.08] border border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-white placeholder-steel font-inter focus:border-blue transition-colors"
+                          className="w-full bg-white dark:bg-white/[0.08] border border-border dark:border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter focus:border-blue transition-colors"
                         />
                       </div>
                     </div>
 
                     <div className="mb-3">
-                      <label htmlFor="contact-service" className="block text-[11px] text-steel font-barlow font-semibold uppercase tracking-wide mb-1.5">
+                      <label htmlFor="contact-service" className="block text-[11px] text-steel dark:text-dark-text-muted font-barlow font-semibold uppercase tracking-wide mb-1.5">
                         Rodzaj usługi
                       </label>
                       <div className="relative">
@@ -400,30 +400,30 @@ export default function CTA() {
                           name="service"
                           value={formData.service}
                           onChange={handleChange}
-                          className="w-full bg-white/[0.08] border border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-white font-inter focus:border-blue transition-colors appearance-none pr-10"
+                          className="w-full bg-white dark:bg-white/[0.08] border border-border dark:border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white font-inter focus:border-blue transition-colors appearance-none pr-10"
                         >
-                          <option value="" className="bg-navy text-steel">
+                          <option value="" className="bg-white dark:bg-navy text-steel">
                             Wybierz usługę...
                           </option>
-                          <option value="wizerunek" className="bg-navy">
+                          <option value="wizerunek" className="bg-white dark:bg-navy">
                             Portrety biznesowe / Headshoty
                           </option>
-                          <option value="zespol" className="bg-navy">
+                          <option value="zespol" className="bg-white dark:bg-navy">
                             Sesje zespołowe
                           </option>
-                          <option value="produkt" className="bg-navy">
+                          <option value="produkt" className="bg-white dark:bg-navy">
                             Fotografia produktowa / przemysłowa
                           </option>
-                          <option value="event" className="bg-navy">
+                          <option value="event" className="bg-white dark:bg-navy">
                             Reportaż z eventu
                           </option>
-                          <option value="wideo" className="bg-navy">
+                          <option value="wideo" className="bg-white dark:bg-navy">
                             Wideo marketing
                           </option>
-                          <option value="pakiet" className="bg-navy">
+                          <option value="pakiet" className="bg-white dark:bg-navy">
                             Pakiet foto + wideo
                           </option>
-                          <option value="inne" className="bg-navy">
+                          <option value="inne" className="bg-white dark:bg-navy">
                             Inne zapytanie
                           </option>
                         </select>
@@ -444,7 +444,7 @@ export default function CTA() {
                     </div>
 
                     <div className="mb-4">
-                      <label htmlFor="contact-message" className="block text-[11px] text-steel font-barlow font-semibold uppercase tracking-wide mb-1.5">
+                      <label htmlFor="contact-message" className="block text-[11px] text-steel dark:text-dark-text-muted font-barlow font-semibold uppercase tracking-wide mb-1.5">
                         Wiadomość
                       </label>
                       <textarea
@@ -454,7 +454,7 @@ export default function CTA() {
                         onChange={handleChange}
                         placeholder="Opowiedz krótko o swoim projekcie..."
                         rows={3}
-                        className="w-full bg-white/[0.08] border border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-white placeholder-steel font-inter resize-none focus:border-blue transition-colors"
+                        className="w-full bg-white dark:bg-white/[0.08] border border-border dark:border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter resize-none focus:border-blue transition-colors"
                       />
                     </div>
 
@@ -466,9 +466,9 @@ export default function CTA() {
                         required
                         className="mt-0.5 w-4 h-4 rounded border-navy-light accent-blue flex-shrink-0"
                       />
-                      <span className="text-[11px] text-steel leading-relaxed">
+                      <span className="text-[11px] text-steel dark:text-dark-text-muted leading-relaxed">
                         Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z{" "}
-                        <a href="/polityka-prywatnosci" target="_blank" className="text-blue hover:text-white underline transition-colors">
+                        <a href="/polityka-prywatnosci" target="_blank" className="text-blue hover:text-navy dark:hover:text-white underline transition-colors">
                           polityką prywatności
                         </a>.
                       </span>
@@ -493,9 +493,9 @@ export default function CTA() {
                           </svg>
                           Wysyłanie...
                         </span>
-                      ) : "Wyślij zapytanie — odezwę się w 24h"}
+                      ) : "Wyślij zapytanie, odezwę się w 24h"}
                     </button>
-                    <p className="text-center text-[11px] text-steel mt-2.5">
+                    <p className="text-center text-[11px] text-steel dark:text-dark-text-muted mt-2.5">
                       Bez zobowiązań. Odpowiadam osobiście.
                     </p>
                   </form>

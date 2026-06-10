@@ -42,7 +42,7 @@ export default function Hero() {
             href="#kontakt"
             className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]"
           >
-            Wyślij brief — odezwę się w 24h
+            Wyślij brief, odezwę się w 24h
             <span className="text-white/80">→</span>
           </a>
 
