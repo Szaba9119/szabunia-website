@@ -50,6 +50,8 @@ export default function About() {
                   i Europie.
                 </p>
                 <p>
+                  Ukończyłem studia z zarządzania, więc rozumiem nie tylko kadr,
+                  ale i biznesowy cel, któremu zdjęcia mają służyć.
                   Specjalizuję się w obsłudze marek B2B i korporacji, które
                   potrzebują powtarzalnego standardu wizerunkowego między sesjami.
                   Portrety biznesowe, reportaże z eventów, fotografia produktowa,

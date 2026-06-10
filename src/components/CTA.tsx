@@ -483,7 +483,7 @@ export default function CTA() {
                     <button
                       type="submit"
                       disabled={sending || !consent}
-                      className={`w-full bg-gradient-to-br from-blue to-blue-light text-white py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform disabled:opacity-70 ${sending ? "disabled:cursor-wait" : "disabled:cursor-not-allowed"}`}
+                      className={`w-full bg-gradient-to-br from-blue to-blue-light text-white py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:shadow-blue/40 hover:brightness-110 active:scale-[0.98] disabled:opacity-80 disabled:hover:scale-100 disabled:hover:shadow-none disabled:hover:brightness-100 ${sending ? "disabled:cursor-wait" : "disabled:cursor-not-allowed"}`}
                     >
                       {sending ? (
                         <span className="inline-flex items-center gap-2">
