@@ -18,7 +18,7 @@ export const blogPosts: BlogPost[] = [
     slug: "jak-przygotowac-sie-do-sesji-biznesowej",
     title: "Jak przygotować się do sesji biznesowej: 7 praktycznych wskazówek",
     excerpt:
-      "Odpowiednie przygotowanie to połowa sukcesu. Oto sprawdzony checklist, dzięki któremu Twoje portrety biznesowe będą wyglądać profesjonalnie i naturalnie.",
+      "Odpowiednie przygotowanie to połowa sukcesu. Oto sprawdzona checklista, dzięki której Twoje portrety biznesowe będą wyglądać profesjonalnie i naturalnie.",
     category: "poradnik",
     date: "2025-01-15",
     readTime: 6,
@@ -27,39 +27,39 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">Sesja biznesowa to inwestycja w Twój wizerunek. Niezależnie od tego, czy potrzebujesz headshota na LinkedIn, zdjęcia do materiałów prasowych, czy kompleksowej <a href="/uslugi/wizerunek-portrety">sesji personal branding</a>, odpowiednie przygotowanie sprawi, że efekt końcowy będzie dokładnie taki, jak sobie wymarzyłeś.</p>
 
       <h2>1. Określ cel zdjęć</h2>
-      <p>Zanim zaczniesz wybierać garnitur, zastanów się, <strong>do czego będziesz używać tych zdjęć</strong>. LinkedIn? Strona firmowa? Materiały prasowe? Każdy kanał ma swoje wymagania, na LinkedIn sprawdzi się bliższy kadr z uśmiechem, na stronę firmową bardziej formalna pozycja.</p>
+      <p>Zanim zaczniesz wybierać garnitur, zastanów się, <strong>do czego będziesz używać tych zdjęć</strong>. LinkedIn? Strona firmowa? Materiały prasowe? Każdy kanał ma swoje wymagania: na LinkedIn sprawdzi się bliższy kadr z uśmiechem, na stronę firmową bardziej formalne ujęcie.</p>
 
       <h2>2. Wybierz odpowiednią stylizację</h2>
       <p>Zasada jest prosta: ubierz się o jeden level wyżej niż na co dzień w pracy. Jeśli pracujesz w casualu, załóż koszulę. Jeśli nosisz koszulę, dobierz marynarkę. Unikaj intensywnych wzorów, neonowych kolorów i ubrań z dużymi logotypami.</p>
       <ul>
         <li><strong>Kolory bezpieczne:</strong> granat, szarość, biel, czerń, butelkowa zieleń</li>
         <li><strong>Do uniknięcia:</strong> paski, kratka, fluorescencyjne kolory</li>
-        <li><strong>Pro tip:</strong> przygotuj 2-3 stylizacje, będziesz mieć wybór</li>
+        <li><strong>Pro tip:</strong> przygotuj 2-3 stylizacje, żeby mieć z czego wybierać</li>
       </ul>
 
       <h2>3. Zadbaj o detale</h2>
       <p>Detale widać na zdjęciach. Wyprasowana koszula, zadbane paznokcie, schludna fryzura. Jeśli nosisz okulary, wyczyść je tuż przed sesją (refleksy na brudnych szkłach to koszmar w retuszu).</p>
 
       <h2>4. Dobry sen i nawodnienie</h2>
-      <p>Brzmisz banalnie? Może. Ale cienie pod oczami i sucha skóra to pierwsze rzeczy, które widać na profesjonalnych zdjęciach. Wyśpij się, pij wodę, unikaj alkoholu dzień przed sesją.</p>
+      <p>Brzmi banalnie? Może. Ale cienie pod oczami i sucha skóra to pierwsze rzeczy, które widać na profesjonalnych zdjęciach. Wyśpij się, pij wodę, unikaj alkoholu dzień przed sesją.</p>
 
       <h2>5. Przygotuj inspiracje</h2>
       <p>Podeślij fotografowi 3-5 zdjęć, które Ci się podobają. Nie muszą być Twoje, mogą to być portrety biznesowe z internetu. Dzięki temu fotograf od razu zrozumie, jaki styl Ci odpowiada.</p>
 
       <h2>6. Zaplanuj czas</h2>
-      <p>Nie umawiaj się na sesję między dwoma spotkaniami. Stres i pośpiech widać na zdjęciach. Idealnie, sesja w luźniejszy dzień, bez cisnących deadlinów.</p>
+      <p>Nie umawiaj się na sesję między dwoma spotkaniami. Stres i pośpiech widać na zdjęciach. Najlepiej wybierz luźniejszy dzień, bez deadline'ów na karku.</p>
 
       <h2>7. Zaufaj fotografowi</h2>
-      <p>Dobry fotograf biznesowy będzie Cię prowadził, pokaże, jak stanąć, gdzie patrzeć, kiedy się uśmiechnąć. Nie musisz być modelem. Twoim jedynym zadaniem jest być sobą.</p>
+      <p>Dobry fotograf biznesowy będzie Cię prowadził: pokaże, jak stanąć, gdzie patrzeć, kiedy się uśmiechnąć. Nie musisz być modelem. Twoim jedynym zadaniem jest być sobą.</p>
 
       <h2>Podsumowanie</h2>
-      <p>Przygotowanie do sesji biznesowej nie wymaga godzin planowania. Wystarczy checklist powyżej i 30 minut na dobór stylizacji. Reszta to moja robota, zadbam o światło, kompozycję i klimat, który odda Twój profesjonalizm.</p>
+      <p>Przygotowanie do sesji biznesowej nie wymaga godzin planowania. Wystarczy checklista powyżej i 30 minut na dobór stylizacji. Reszta to moja robota: zadbam o światło, kompozycję i klimat, który odda Twój profesjonalizm.</p>
       <p>Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">profesjonalne headshoty zwiększają konwersję na LinkedIn</a>, albo przejrzyj moje <a href="/portfolio/sesja-wizerunkowa">realizacje sesji wizerunkowych</a>.</p>
     `,
     seo: {
       title: "Jak przygotować się do sesji biznesowej: 7 wskazówek | Marcin Szabunia",
       description:
-        "Praktyczny checklist przed sesją portretową. Stylizacja, detale, inspiracje, wszystko, czego potrzebujesz, żeby Twoje zdjęcia biznesowe wyglądały profesjonalnie.",
+        "Praktyczna checklista przed sesją portretową: stylizacja, detale, inspiracje. Wszystko, czego potrzebujesz, żeby Twoje zdjęcia biznesowe wyglądały profesjonalnie.",
     },
   },
   {
@@ -75,7 +75,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">LinkedIn to nie Facebook. To narzędzie biznesowe, w którym pierwsze wrażenie decyduje o tym, czy ktoś kliknie „Połącz", czy przewinie dalej. A pierwsze wrażenie zaczyna się od zdjęcia profilowego.</p>
 
       <h2>Liczby nie kłamią</h2>
-      <p>Według danych LinkedIn, profile z profesjonalnym zdjęciem generują <strong>14 razy więcej wyświetleń</strong> niż te bez zdjęcia lub z zdjęciem amatorskim. To nie jest subtelna różnica, to przepaść.</p>
+      <p>Według danych LinkedIn, profile z profesjonalnym zdjęciem generują <strong>14 razy więcej wyświetleń</strong> niż te bez zdjęcia lub ze zdjęciem amatorskim. To nie jest subtelna różnica, to przepaść.</p>
       <ul>
         <li>21x więcej wyświetleń profilu</li>
         <li>36x więcej wiadomości</li>
@@ -87,18 +87,18 @@ export const blogPosts: BlogPost[] = [
 
       <h3>Elementy dobrego headshota na LinkedIn:</h3>
       <ul>
-        <li><strong>Kontakt wzrokowy</strong>, patrz w obiektyw, nie w bok</li>
-        <li><strong>Delikatny uśmiech</strong>, dostępność, nie dystans</li>
-        <li><strong>Czyste tło</strong>, jednolite lub lekko rozmyte</li>
-        <li><strong>Właściwy kadr</strong>, od ramion w górę, twarz zajmuje ok. 60% kadru</li>
-        <li><strong>Profesjonalna stylizacja</strong>, dopasowana do branży</li>
+        <li><strong>Kontakt wzrokowy:</strong> patrz w obiektyw, nie w bok</li>
+        <li><strong>Delikatny uśmiech:</strong> sygnalizuje dostępność, nie dystans</li>
+        <li><strong>Czyste tło:</strong> jednolite lub lekko rozmyte</li>
+        <li><strong>Właściwy kadr:</strong> od ramion w górę, twarz zajmuje ok. 60% kadru</li>
+        <li><strong>Profesjonalna stylizacja:</strong> dopasowana do branży</li>
       </ul>
 
       <h2>Selfie vs profesjonalny headshot</h2>
-      <p>Selfie zrobione telefonem może być świetne na Instagram. Na LinkedIn, sygnalizuje „nie inwestuję w swój wizerunek". W świecie B2B, gdzie transakcje opiewają na tysiące złotych, profesjonalne zdjęcie to koszt minimalny w stosunku do potencjalnego zwrotu.</p>
+      <p>Selfie zrobione telefonem może być świetne na Instagram. Na LinkedIn sygnalizuje jednak: „nie inwestuję w swój wizerunek". W świecie B2B, gdzie transakcje opiewają na tysiące złotych, profesjonalne zdjęcie to koszt minimalny w stosunku do potencjalnego zwrotu.</p>
 
       <h2>Jak często aktualizować zdjęcie?</h2>
-      <p>Zasada kciuka: zdjęcie na LinkedIn powinno wyglądać jak Ty <strong>dzisiaj</strong>. Jeśli ktoś umówi się z Tobą na spotkanie i nie rozpozna Cię, masz problem. Aktualizuj headshot co 1-2 lata lub po znaczącej zmianie wizerunku.</p>
+      <p>Prosta zasada: zdjęcie na LinkedIn powinno wyglądać jak Ty <strong>dzisiaj</strong>. Jeśli ktoś umówi się z Tobą na spotkanie i nie rozpozna Cię, masz problem. Aktualizuj headshot co 1-2 lata lub po znaczącej zmianie wizerunku.</p>
 
       <h2>ROI profesjonalnego headshota</h2>
       <p><a href="/uslugi/wizerunek-portrety">Sesja portretowa</a> kosztuje od 1 000 zł. Jeden nowy klient pozyskany dzięki lepszemu profilowi na LinkedIn zwraca tę inwestycję wielokrotnie. To jedna z najtańszych i najskuteczniejszych inwestycji w personal branding.</p>
@@ -123,7 +123,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">Organizujesz konferencję, galę lub targi branżowe i potrzebujesz fotografa. Ale czy chcesz reportaż (dyskretne chwytanie momentów) czy sesję eventową (zaplanowane ujęcia)? Te dwa podejścia dają zupełnie inny materiał. Oto, jak wybrać mądrze.</p>
 
       <h2>Reportaż: historia opowiedziana kadrami</h2>
-      <p>Reportaż fotograficzny to styl, w którym fotograf jest „niewidzialny". Nie pozuje uczestników, nie prosi o uśmiech, obserwuje i dokumentuje autentyczne momenty.</p>
+      <p>Reportaż fotograficzny to styl, w którym fotograf jest „niewidzialny". Nie pozuje uczestników i nie prosi o uśmiech. Obserwuje i dokumentuje autentyczne momenty.</p>
       <h3>Kiedy wybrać reportaż:</h3>
       <ul>
         <li>Konferencje z panelami i dyskusjami</li>
@@ -145,7 +145,7 @@ export const blogPosts: BlogPost[] = [
       <p><strong>Efekt:</strong> Profesjonalne, dopracowane zdjęcia idealne do materiałów korporacyjnych i mediów.</p>
 
       <h2>Podejście hybrydowe: najlepsza opcja</h2>
-      <p>W praktyce najczęściej łączę oba style. Pierwsza część eventu, reportaż (rejestracje, networking, panele). Przerwy, portrety prelegentów i grupowe zdjęcia. Wieczór, reportaż z części oficjalnej. Dzięki temu dostajesz kompletny materiał.</p>
+      <p>W praktyce najczęściej łączę oba style. Pierwsza część eventu to reportaż: rejestracja, networking, panele. W przerwach robię portrety prelegentów i zdjęcia grupowe, a wieczorem wracam do reportażu z części oficjalnej. Dzięki temu dostajesz kompletny materiał.</p>
 
       <h2>Porównanie kosztów</h2>
       <p>Cena nie zależy od stylu fotografii, a od czasu pracy i opcji dodatkowych:</p>
@@ -157,7 +157,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Jak wybrać?</h2>
-      <p>Zadaj sobie pytanie: do czego będziesz używać tych zdjęć? Jeśli na Social Media i relacje, reportaż. Jeśli do materiałów prasowych i raportów, sesja eventowa. Jeśli jedno i drugie, podejście hybrydowe. Niezależnie od wyboru, kluczowe jest omówienie agendy przed eventem, żeby fotograf wiedział, co jest najważniejsze.</p>
+      <p>Zadaj sobie pytanie: do czego będziesz używać tych zdjęć? Na social media i szybkie relacje najlepszy będzie reportaż, do materiałów prasowych i raportów sesja eventowa, a jeśli potrzebujesz jednego i drugiego, wybierz podejście hybrydowe. Niezależnie od wyboru, kluczowe jest omówienie agendy przed eventem, żeby fotograf wiedział, co jest najważniejsze.</p>
       <p>Sprawdź pełną ofertę <a href="/uslugi/eventy-reportaze">fotografii eventowej</a> i napisz, jeśli chcesz omówić swoje wydarzenie.</p>
     `,
     seo: {
@@ -179,7 +179,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">Zdjęcie do CV to często pierwsza rzecz, którą widzi rekruter. Nie musisz od razu iść do studia, telefonem też da się zrobić przyzwoite zdjęcie. Oto jak to zrobić krok po kroku, i kiedy warto jednak postawić na profesjonalistę.</p>
 
       <h2>1. Oświetlenie: klucz do sukcesu</h2>
-      <p>Stań twarzą do dużego okna w ciągu dnia. Naturalne, rozproszone światło to najlepsze, co możesz mieć za darmo. Unikaj sztucznego oświetlenia sufitowego, tworzy cienie pod oczami. Idealny czas to godziny przedpołudniowe, gdy światło jest miękkie i równomierne.</p>
+      <p>Stań twarzą do dużego okna w ciągu dnia. Naturalne, rozproszone światło to najlepsze, co możesz mieć za darmo. Unikaj sztucznego oświetlenia sufitowego: tworzy cienie pod oczami. Idealny czas to godziny przedpołudniowe, gdy światło jest miękkie i równomierne.</p>
       <ul>
         <li><strong>Tak:</strong> twarzą do okna, za plecami ściana</li>
         <li><strong>Nie:</strong> okno za plecami (ciemna twarz), lampa sufitowa (cienie)</li>
@@ -192,16 +192,16 @@ export const blogPosts: BlogPost[] = [
       <h2>3. Ustawienie telefonu</h2>
       <p>Postaw telefon na statywie lub oprzyj o coś stabilnego na wysokości oczu. Użyj tylnego aparatu (ma lepszą jakość niż przedni). Włącz samowyzwalacz (3-10 sekund) lub poproś kogoś o pomoc. Utrzymuj odległość ok. 1-1,5 metra od aparatu.</p>
       <ul>
-        <li>Tryb portretowy (rozmyte tło), włącz, jeśli Twój telefon go ma</li>
+        <li>Tryb portretowy (rozmyte tło): włącz, jeśli Twój telefon go ma</li>
         <li>Kadr: od klatki piersiowej w górę, twarz w centrum</li>
         <li>Telefon w pionie, nie w poziomie</li>
       </ul>
 
       <h2>4. Stylizacja i wygląd</h2>
-      <p>Ubierz się tak, jak ubrałbyś/ubrałabyś się na rozmowę kwalifikacyjną. Schludna koszula lub bluzka, zadbana fryzura, minimalna biżuteria. Patrz prosto w obiektyw z lekkim uśmiechem, chodzi o to, żeby wyglądać przyjaźnie i profesjonalnie.</p>
+      <p>Ubierz się tak, jak ubrałbyś/ubrałabyś się na rozmowę kwalifikacyjną. Schludna koszula lub bluzka, zadbana fryzura, minimalna biżuteria. Patrz prosto w obiektyw z lekkim uśmiechem. Chodzi o to, żeby wyglądać przyjaźnie i profesjonalnie.</p>
 
       <h2>5. Podstawowy retusz w telefonie</h2>
-      <p>Użyj bezpłatnych aplikacji jak Snapseed lub Lightroom Mobile. Wystarczy: lekko podnieść jasność, wyrównać balans bieli, przyciąć kadr do proporcji paszportowych. Nie przesadzaj z filtrami, zdjęcie do CV powinno wyglądać naturalnie.</p>
+      <p>Użyj bezpłatnych aplikacji jak Snapseed lub Lightroom Mobile. Wystarczy: lekko podnieść jasność, wyrównać balans bieli, przyciąć kadr do proporcji paszportowych. Nie przesadzaj z filtrami: zdjęcie do CV ma wyglądać naturalnie.</p>
 
       <h2>Kiedy lepiej iść do fotografa?</h2>
       <p>Zdjęcie z telefonu wystarczy na szybką aplikację. Ale jeśli zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), <a href="/uslugi/wizerunek-portrety">profesjonalna sesja portretowa</a> zwróci się wielokrotnie. Sesja headshot zaczyna się od 1 000 zł, a jedno dobrze zrobione zdjęcie posłuży Ci na LinkedIn, stronę firmową i materiały branżowe.</p>
@@ -226,13 +226,13 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">Fotografia przemysłowa to nie zdjęcia maszyn, to opowieść o ludziach, procesach i innowacji. Dobrze wykonane zdjęcia fabryki mogą odmienić stronę internetową, raport roczny czy materiały rekrutacyjne. Oto jak to robię.</p>
 
       <h2>Specyfika hal produkcyjnych</h2>
-      <p>Hale produkcyjne to jedno z najtrudniejszych środowisk do fotografowania. Mieszane oświetlenie (jarzeniówki + naturalne), duże przestrzenie, ruch maszyn i ludzi. Trzeba być gotowym na każde warunki i mieć sprzęt, który poradzi sobie z trudnym światłem.</p>
+      <p>Hale produkcyjne to jedno z najtrudniejszych środowisk do fotografowania. Mieszane oświetlenie (jarzeniówki + naturalne), duże przestrzenie, ruch maszyn i ludzi. Trzeba być gotowym na takie warunki i mieć sprzęt, który poradzi sobie z trudnym światłem.</p>
 
       <h2>BHP na sesji zdjęciowej</h2>
-      <p>Na każdą sesję przemysłową przyjeżdżam w odpowiednim obuwiu i odzieży ochronnej. Przed wejściem na halę zapoznaję się z regulaminem BHP i konsultuję z kierownikiem produkcji, które obszary wymagają szczególnej ostrożności. Bezpieczeństwo jest priorytetem, żadne zdjęcie nie jest warte ryzyka.</p>
+      <p>Na każdą sesję przemysłową przyjeżdżam w odpowiednim obuwiu i odzieży ochronnej. Przed wejściem na halę zapoznaję się z regulaminem BHP i konsultuję z kierownikiem produkcji, które obszary wymagają szczególnej ostrożności. Bezpieczeństwo jest priorytetem: żadne zdjęcie nie jest warte ryzyka.</p>
 
       <h2>Ludzie vs maszyny</h2>
-      <p>Najskuteczniejsze zdjęcia przemysłowe łączą skalę maszyn z ludzkim elementem. Operator przy panelu sterowania, inżynier kontrolujący jakość, zespół na tle linii produkcyjnej, te ujęcia budują narrację o firmie, w której technologia spotyka się z kompetencjami ludzi.</p>
+      <p>Najskuteczniejsze zdjęcia przemysłowe łączą skalę maszyn z ludzkim elementem. Operator przy panelu sterowania, inżynier kontrolujący jakość, zespół na tle linii produkcyjnej. Te ujęcia budują narrację o firmie, w której technologia spotyka się z kompetencjami ludzi.</p>
       <ul>
         <li><strong>Zdjęcia procesów:</strong> linia montażowa w akcji, spawanie, kontrola jakości</li>
         <li><strong><a href="/uslugi/sesje-zespolowe">Portrety pracowników</a>:</strong> operatorzy, inżynierowie, kadra zarządzająca</li>
@@ -279,10 +279,10 @@ export const blogPosts: BlogPost[] = [
       <p>Zdjęcia na tle ksero, kuchni biurowej albo parkingu. Tło powinno być albo neutralne (jednolite, rozmyte), albo celowo dobrane (np. open space, sala konferencyjna, przestrzeń biurowa). Nigdy przypadkowe.</p>
 
       <h2>3. Brak briefu i przygotowania</h2>
-      <p>Pracownicy dowiadują się o sesji 5 minut przed. Efekt: pogniecione koszule, brak makijażu, stresowe miny. Informujcie zespół minimum tydzień wcześniej. Wyślijcie wskazówki dotyczące ubioru. Dajcie ludziom czas na przygotowanie, efekt będzie wielokrotnie lepszy.</p>
+      <p>Pracownicy dowiadują się o sesji 5 minut przed. Efekt: pogniecione koszule, brak makijażu, stresowe miny. Informujcie zespół minimum tydzień wcześniej. Wyślijcie wskazówki dotyczące ubioru. Dajcie ludziom czas na przygotowanie, a efekt będzie wielokrotnie lepszy.</p>
 
       <h2>4. Za mało czasu na osobę</h2>
-      <p>Sesja dla 30 osób w 2 godziny = 4 minuty na osobę. To za mało na dobry portret. Realistyczny czas to 10-15 minut na osobę, wliczając ustawienie światła, rozgrzewkę i kilka prób. Nie oszczędzaj na czasie, to inwestycja w wizerunek.</p>
+      <p>Sesja dla 30 osób w 2 godziny = 4 minuty na osobę. To za mało na dobry portret. Realistyczny czas to 10-15 minut na osobę, wliczając ustawienie światła, rozgrzewkę i kilka prób. Nie oszczędzaj na czasie: to inwestycja w wizerunek.</p>
 
       <h2>5. Zapominanie o aktualizacji</h2>
       <p>Nowy pracownik dołącza, stary odchodzi, a zdjęcia na stronie mają 3 lata. Ustal harmonogram aktualizacji, np. sesja co rok lub przy każdej większej zmianie w zespole. Regularne sesje utrzymują stronę aktualną i pokazują, że firma się rozwija.</p>
@@ -310,10 +310,10 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">„Ile kosztuje sesja wizerunkowa?" to pytanie, które dostaję najczęściej. Uczciwa odpowiedź brzmi: to zależy, ale od konkretnych, policzalnych rzeczy. Poniżej tłumaczę, co realnie wpływa na cenę <a href="/uslugi/wizerunek-portrety">sesji wizerunkowej dla firmy</a>, żebyś wiedział, za co płacisz i jak zaplanować budżet.</p>
 
       <h2>Od czego zaczyna się wycena</h2>
-      <p>Pojedynczy portret biznesowy zaczyna się od <strong>1 000 zł</strong>. To punkt wyjścia dla jednej osoby i podstawowego zestawu ujęć. Im więcej elementów dochodzi, tym wyżej idzie wycena, ale zawsze ustalamy ją z góry, przed sesją, bez niespodzianek.</p>
+      <p>Pojedynczy portret biznesowy zaczyna się od <strong>1 000 zł</strong>. To punkt wyjścia dla jednej osoby i podstawowego zestawu ujęć. Im więcej elementów dochodzi, tym wyżej idzie wycena. Zawsze jednak ustalamy ją z góry, przed sesją, bez niespodzianek.</p>
 
       <h2>1. Liczba osób</h2>
-      <p>Sesja jednej osoby to inny nakład pracy niż <a href="/uslugi/sesje-zespolowe">sesja całego zespołu</a>. Przy większej grupie liczy się czas na osobę, realnie 10–15 minut na dobry portret, wliczając ustawienie i kilka prób. To główny czynnik przy zespołach.</p>
+      <p>Sesja jednej osoby to inny nakład pracy niż <a href="/uslugi/sesje-zespolowe">sesja całego zespołu</a>. Przy większej grupie liczy się czas na osobę: realnie 10–15 minut na dobry portret, wliczając ustawienie i kilka prób. To główny czynnik przy zespołach.</p>
 
       <h2>2. Liczba ujęć i retuszu</h2>
       <p>Czy potrzebujesz jednego headshota, czy kilku wariantów (formalny, luźniejszy, kadr poziomy i pionowy)? Każde finalne zdjęcie przechodzi autorski retusz, a jego liczba wprost przekłada się na cenę.</p>
@@ -322,13 +322,13 @@ export const blogPosts: BlogPost[] = [
       <p>Sesja w Poznaniu, u mnie albo w Twoim biurze, to standard. Realizacje w innych miastach to dodatkowo czas i dojazd, które ustalamy w wycenie. Na terenie Poznania dojazd jest wliczony.</p>
 
       <h2>4. Sceneria i przygotowanie</h2>
-      <p>Neutralne tło jest najprostsze. Jeśli zależy Ci na zdjęciach w realnej przestrzeni firmy, open space, hala, gabinet, dochodzi czas na przygotowanie planu i światła. Efekt jest bardziej „Wasz", ale wymaga więcej pracy.</p>
+      <p>Neutralne tło jest najprostsze. Jeśli zależy Ci na zdjęciach w realnej przestrzeni firmy (open space, hala, gabinet), dochodzi czas na przygotowanie planu i światła. Efekt jest bardziej „Wasz", ale wymaga więcej pracy.</p>
 
       <h2>5. Licencja i sposób użycia</h2>
-      <p>Zdjęcia na wewnętrzny intranet to co innego niż materiały do ogólnopolskiej kampanii. Zakres wykorzystania (czas, media, zasięg) wpływa na licencję, i bywa elementem wyceny przy większych projektach.</p>
+      <p>Zdjęcia na wewnętrzny intranet to co innego niż materiały do ogólnopolskiej kampanii. Zakres wykorzystania (czas, media, zasięg) wpływa na licencję i bywa elementem wyceny przy większych projektach.</p>
 
       <h2>6. Tryb ekspresowy</h2>
-      <p>Standardowo gotowe zdjęcia dostajesz w ustalonym terminie. Jeśli materiał jest potrzebny „na wczoraj", możliwy jest tryb przyśpieszony, to dodatkowa opcja, a nie ukryty koszt.</p>
+      <p>Standardowo gotowe zdjęcia dostajesz w ustalonym terminie. Jeśli materiał jest potrzebny „na wczoraj", możliwy jest tryb przyśpieszony. To dodatkowa opcja, a nie ukryty koszt.</p>
 
       <h2>Jak oszacować budżet w 2 minuty</h2>
       <p>Zamiast zgadywać, policz. W <a href="/kalkulator">kalkulatorze wyceny</a> zaznaczasz zakres i od razu widzisz orientacyjny koszt. Pełne pakiety i ceny znajdziesz też w <a href="/#cennik">cenniku</a>.</p>
@@ -355,19 +355,19 @@ export const blogPosts: BlogPost[] = [
       <h2>Packshot vs lifestyle: potrzebujesz obu</h2>
       <p>To dwa różne narzędzia, które grają razem:</p>
       <ul>
-        <li><strong>Packshot</strong>, produkt na białym tle, czysty i powtarzalny. Podstawa karty produktu i wymóg większości platform sprzedażowych.</li>
-        <li><strong>Lifestyle</strong>, produkt w kontekście, w użyciu, w realnej scenerii. Buduje emocje i pokazuje skalę oraz zastosowanie.</li>
+        <li><strong>Packshot:</strong> produkt na białym tle, czysty i powtarzalny. Podstawa karty produktu i wymóg większości platform sprzedażowych.</li>
+        <li><strong>Lifestyle:</strong> produkt w kontekście, w użyciu, w realnej scenerii. Buduje emocje i pokazuje skalę oraz zastosowanie.</li>
       </ul>
       <p>Packshot sprzedaje fakty, lifestyle sprzedaje wyobrażenie. Sklepy, które łączą oba, dają klientowi komplet informacji do decyzji.</p>
 
       <h2>Spójność całego katalogu</h2>
-      <p>Najczęstszy błąd to zdjęcia robione „przy okazji", każde w innym świetle i kadrze. Efekt? Katalog wygląda przypadkowo i traci wiarygodność. Jeden standard, to samo tło, światło i proporcje kadru, sprawia, że marka wygląda dojrzale, a strona profesjonalnie.</p>
+      <p>Najczęstszy błąd to zdjęcia robione „przy okazji", każde w innym świetle i kadrze. Efekt? Katalog wygląda przypadkowo i traci wiarygodność. Jeden standard (to samo tło, światło i proporcje kadru) sprawia, że marka wygląda dojrzale, a strona profesjonalnie.</p>
 
       <h2>Zdjęcie pracuje na mobile</h2>
       <p>Większość zakupów odbywa się na telefonie, na małym ekranie. Produkt musi być czytelny w miniaturze, detale ostre po przybliżeniu, a kadr na tyle ciasny, żeby nie ginął w interfejsie. Projektuję zdjęcia z myślą o tym, gdzie realnie będą oglądane.</p>
 
       <h2>Dobre zdjęcia zmniejszają liczbę zwrotów</h2>
-      <p>Kiedy klient dokładnie widzi, co kupuje, kolor, fakturę, proporcje, detale wykończenia, rzadziej jest rozczarowany po rozpakowaniu. Mniejsza rozbieżność między oczekiwaniem a rzeczywistością to mniej zwrotów i mniej pytań do obsługi.</p>
+      <p>Kiedy klient dokładnie widzi, co kupuje (kolor, fakturę, proporcje, wykończenie), rzadziej jest rozczarowany po rozpakowaniu. Mniejsza rozbieżność między oczekiwaniem a rzeczywistością to mniej zwrotów i mniej pytań do obsługi.</p>
 
       <h2>Jak przygotować sesję produktową</h2>
       <p>Przed sesją ustalamy listę produktów, liczbę ujęć na produkt (front, tył, detale, w użyciu) i docelowe proporcje kadru pod Twój sklep. Dobry plan pozwala odfotografować większą partię sprawnie i bez chaosu.</p>
@@ -392,7 +392,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">„Potrzebujemy wideo" to dopiero początek rozmowy. Bo film wizerunkowy, pionowy reels i materiał z eventu to zupełnie różne formaty, które rozwiązują różne problemy. Oto przegląd formatów <a href="/uslugi/wideo-marketing">wideo marketingu dla firm</a> i tego, gdzie każdy się sprawdza.</p>
 
       <h2>1. Film wizerunkowy</h2>
-      <p>Wizytówka firmy w 60–120 sekundach: kim jesteście, co robicie, dlaczego warto. Ląduje na stronie głównej, w stopce maila i w prezentacjach sprzedażowych. To format „evergreen", pracuje miesiącami, więc warto zrobić go porządnie.</p>
+      <p>Wizytówka firmy w 60–120 sekundach: kim jesteście, co robicie, dlaczego warto. Ląduje na stronie głównej, w stopce maila i w prezentacjach sprzedażowych. To format „evergreen": pracuje miesiącami, więc warto zrobić go porządnie.</p>
 
       <h2>2. Pionowe reels i shorty</h2>
       <p>Krótkie, dynamiczne, pod kciuk. Format pod Instagram, TikTok i YouTube Shorts, ale coraz częściej także pod LinkedIn. Świetnie sprawdza się do budowania regularnej obecności i pokazywania kulis pracy. Liczy się rytm i pierwsze 3 sekundy.</p>
@@ -404,10 +404,10 @@ export const blogPosts: BlogPost[] = [
       <p>Produkt w ruchu, obracany, rozkładany, używany. Pokazuje to, czego nie odda zdjęcie: mechanizm, skalę, fakturę w ruchu. Naturalne uzupełnienie <a href="/uslugi/fotografia-produktowa">fotografii produktowej</a> na karcie produktu.</p>
 
       <h2>5. Relacja z eventu</h2>
-      <p>Aftermovie z konferencji, targów czy gali firmowej, energia wydarzenia zamknięta w 60–90 sekundach. Działa jako podsumowanie dla uczestników i zaproszenie na kolejną edycję. Jeśli organizujesz event, zaplanuj wideo razem z <a href="/blog/fotografia-eventowa-vs-reportaz">fotografią eventową</a>.</p>
+      <p>Aftermovie z konferencji, targów czy gali firmowej to energia wydarzenia zamknięta w 60–90 sekundach. Działa jako podsumowanie dla uczestników i zaproszenie na kolejną edycję. Jeśli organizujesz event, zaplanuj wideo razem z <a href="/blog/fotografia-eventowa-vs-reportaz">fotografią eventową</a>.</p>
 
       <h2>Foto i wideo w jednym wejściu</h2>
-      <p>Najefektywniej jest łączyć materiał foto i wideo na jednej realizacji, jeden brief, jeden dzień, spójny styl. Sprawdź <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, oszacuj zakres w <a href="/kalkulator">kalkulatorze</a> i <a href="/kontakt">opisz swój projekt</a>, podpowiem, który format da najwięcej przy Twoim budżecie.</p>
+      <p>Najefektywniej jest łączyć materiał foto i wideo na jednej realizacji: jeden brief, jeden dzień, spójny styl. Sprawdź <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, oszacuj zakres w <a href="/kalkulator">kalkulatorze</a> i <a href="/kontakt">opisz swój projekt</a>. Podpowiem, który format da najwięcej przy Twoim budżecie.</p>
     `,
     seo: {
       title: "Wideo marketing dla firm: jakie formaty wybrać | Marcin Szabunia",
@@ -419,7 +419,7 @@ export const blogPosts: BlogPost[] = [
     slug: "sesja-wizerunkowa-poznan",
     title: "Sesja wizerunkowa w Poznaniu: studio, biuro czy plener?",
     excerpt:
-      "Gdzie najlepiej zrobić zdjęcia biznesowe w Poznaniu? Porównanie trzech podejść, studio, Twoje biuro i plener, z plusami, minusami i tym, dla kogo każde z nich jest najlepsze.",
+      "Gdzie najlepiej zrobić zdjęcia biznesowe w Poznaniu? Porównanie trzech podejść: studio, Twoje biuro i plener. Plusy, minusy i to, dla kogo każde z nich sprawdzi się najlepiej.",
     category: "poradnik",
     date: "2026-05-27",
     readTime: 6,
@@ -452,11 +452,11 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Jak wybrać?</h2>
-      <p>Zacznij od pytania: gdzie te zdjęcia będą żyły? Jednolity headshot na cały zespół, studio albo Wasze biuro. Wizerunek eksperta z charakterem, plener. Kompleksowy materiał o firmie, często łączymy oba: portrety w biurze plus kilka ujęć w plenerze. Nie musisz wybierać tylko jednego.</p>
+      <p>Zacznij od pytania: gdzie te zdjęcia będą żyły? Jednolity headshot na cały zespół? Studio albo Wasze biuro. Wizerunek eksperta z charakterem? Plener. Przy kompleksowym materiale o firmie często łączymy oba podejścia: portrety w biurze plus kilka ujęć w plenerze. Nie musisz wybierać tylko jednego.</p>
 
       <h2>Logistyka i dojazd w Poznaniu</h2>
       <p>Bazuję w Poznaniu, więc dojazd na terenie miasta jest wliczony w cenę, niezależnie od tego, czy to studio, Twoje biuro, czy plener. Realizacje poza Poznaniem ustalamy indywidualnie. Przed sesją zawsze omawiamy lokalizację, żeby światło i tło grały na Twoją korzyść.</p>
-      <p>Zobacz <a href="/portfolio/sesja-wizerunkowa">realizacje sesji wizerunkowych</a> i <a href="/portfolio/sesja-korporacyjna">sesji korporacyjnych</a>, oszacuj zakres w <a href="/kalkulator">kalkulatorze</a>, a potem <a href="/kontakt">napisz, co chcesz osiągnąć</a>, dobiorę miejsce pod Twój cel.</p>
+      <p>Zobacz <a href="/portfolio/sesja-wizerunkowa">realizacje sesji wizerunkowych</a> i <a href="/portfolio/sesja-korporacyjna">sesji korporacyjnych</a>, oszacuj zakres w <a href="/kalkulator">kalkulatorze</a>, a potem <a href="/kontakt">napisz, co chcesz osiągnąć</a>. Dobiorę miejsce pod Twój cel.</p>
     `,
     seo: {
       title: "Sesja wizerunkowa Poznań: studio, biuro czy plener | Marcin Szabunia",
@@ -479,7 +479,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Co AI robi naprawdę dobrze</h2>
       <p>Nie ma sensu udawać, że narzędzia AI są bezużyteczne. W kilku zastosowaniach są świetne:</p>
       <ul>
-        <li><strong>Tempo i cena:</strong> kilka wariantów w kilkanaście minut, niskim kosztem</li>
+        <li><strong>Tempo i cena:</strong> kilka wariantów w kilkanaście minut i za niewielkie pieniądze</li>
         <li><strong>Eksperymenty:</strong> szybkie sprawdzenie tła, kadru czy stylizacji „na próbę"</li>
         <li><strong>Awatary pomocnicze:</strong> ikonka do wewnętrznego narzędzia, roboczej prezentacji, prototypu</li>
       </ul>
@@ -494,14 +494,14 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Zaufanie to waluta B2B</h2>
-      <p>W sprzedaży B2B decyzje opierają się na zaufaniu, a portret jest jego pierwszym sygnałem. Pisałem o tym przy okazji <a href="/blog/headshoty-linkedin-konwersja">headshotów na LinkedIn</a>, autentyczne, profesjonalne zdjęcie komunikuje „warto ze mną rozmawiać". Wygenerowana twarz tego nie zrobi, bo z definicji nie jest prawdziwa.</p>
+      <p>W sprzedaży B2B decyzje opierają się na zaufaniu, a portret jest jego pierwszym sygnałem. Pisałem o tym przy okazji <a href="/blog/headshoty-linkedin-konwersja">headshotów na LinkedIn</a>: autentyczne, profesjonalne zdjęcie komunikuje „warto ze mną rozmawiać". Wygenerowana twarz tego nie zrobi, bo z definicji nie jest prawdziwa.</p>
 
       <h2>Kiedy AI ma sens, a kiedy nie</h2>
       <p>Prosta zasada: im bliżej twarzy marki, tym mniej miejsca na AI. Roboczy awatar do wewnętrznego systemu? Spokojnie. Twarz prezesa na stronie głównej, profil handlowca, zdjęcia, na podstawie których ktoś zdecyduje o współpracy? Tu realna <a href="/uslugi/wizerunek-portrety">sesja wizerunkowa</a> zwraca się szybciej, niż się wydaje.</p>
 
       <h2>Werdykt</h2>
       <p>AI to narzędzie, nie zamiennik. Świetne do szkiców i zastosowań pomocniczych, słabe wszędzie tam, gdzie liczy się, że to naprawdę Ty. Twarz, która ma reprezentować Ciebie i Twoją firmę, warta jest jednej dobrej sesji.</p>
-      <p>Zobacz <a href="/portfolio/sesja-wizerunkowa">realizacje sesji wizerunkowych</a> albo od razu <a href="/kontakt">napisz, czego potrzebujesz</a>, podpowiem, ile ujęć i wariantów realnie wystarczy.</p>
+      <p>Zobacz <a href="/portfolio/sesja-wizerunkowa">realizacje sesji wizerunkowych</a> albo od razu <a href="/kontakt">napisz, czego potrzebujesz</a>. Podpowiem, ile ujęć i wariantów realnie wystarczy.</p>
     `,
     seo: {
       title: "Zdjęcia AI vs profesjonalna sesja: co wybrać | Marcin Szabunia",
@@ -522,7 +522,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">Możesz mieć idealne światło i najlepszego fotografa, ale jeśli stylizacja nie gra, portret nie zadziała. Ubranie to jedyny element sesji, który w całości zależy od Ciebie. Oto przewodnik po tym, co założyć na <a href="/uslugi/wizerunek-portrety">sesję biznesową</a>, żeby wyglądać profesjonalnie i jak Ty.</p>
 
       <h2>Zasada nadrzędna: o jeden poziom wyżej</h2>
-      <p>Ubierz się odrobinę bardziej elegancko niż na co dzień w pracy. Pracujesz w casualu, załóż dobrą koszulę. Nosisz koszulę, dodaj marynarkę. Chodzi o to, żeby na zdjęciu wyglądać jak najlepsza wersja siebie w pracy, a nie jak ktoś przebrany na galę.</p>
+      <p>Ubierz się odrobinę bardziej elegancko niż na co dzień w pracy. Pracujesz w casualu? Załóż dobrą koszulę. Nosisz koszulę? Dodaj marynarkę. Chodzi o to, żeby na zdjęciu wyglądać jak najlepsza wersja siebie w pracy, a nie jak ktoś przebrany na galę.</p>
 
       <h2>Kolory, które dobrze wychodzą na zdjęciach</h2>
       <p>Stonowane, jednolite barwy są bezpieczne i ponadczasowe. Pozwalają skupić uwagę na twarzy, a nie na ubraniu.</p>
@@ -541,22 +541,22 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Warstwy = warianty na jednej sesji</h2>
-      <p>Marynarka, którą można zdjąć, sweter pod nią, zmiana koszuli czy dodanie szalika, to najprostszy sposób, żeby z jednej sesji wyjść z kilkoma różnymi nastrojami zdjęć. Formalny wariant na materiały korporacyjne i luźniejszy na social media, bez dodatkowego dnia zdjęciowego.</p>
+      <p>Marynarka, którą można zdjąć, sweter pod spodem, zapasowa koszula albo szalik: to najprostszy sposób, żeby z jednej sesji wyjść z kilkoma różnymi nastrojami zdjęć. Formalny wariant na materiały korporacyjne, luźniejszy na social media. Bez dodatkowego dnia zdjęciowego.</p>
 
       <h2>Detale, które widać</h2>
-      <p>Na portrecie wszystko jest w zbliżeniu. Wyprasowana koszula, zadbane dłonie (jeśli będą w kadrze), świeża fryzura. Okulary? Przetrzyj szkła tuż przed sesją, refleksy i odciski to żmudna robota w retuszu. Biżuterię ogranicz do kilku spójnych elementów.</p>
+      <p>Na portrecie wszystko jest w zbliżeniu. Wyprasowana koszula, zadbane dłonie (jeśli będą w kadrze), świeża fryzura. Okulary? Przetrzyj szkła tuż przed sesją: refleksy i odciski to żmudna robota w retuszu. Biżuterię ogranicz do kilku spójnych elementów.</p>
 
       <h2>Co spakować na sesję</h2>
       <ul>
         <li>2–3 przygotowane stylizacje (na wieszaku, nie zwinięte w torbie)</li>
         <li>Zapasowa koszula lub bluzka w neutralnym kolorze</li>
         <li>Wałek do ubrań i drobne przybory na ostatnie poprawki</li>
-        <li>To, w czym czujesz się najpewniej, komfort widać na twarzy</li>
+        <li>To, w czym czujesz się najpewniej: komfort widać na twarzy</li>
       </ul>
 
       <h2>Najczęstsze błędy</h2>
-      <p>Zbyt nowy, jeszcze „sztywny" garnitur. Logo na pół klatki piersiowej. Stylizacja kompletnie oderwana od branży (smoking do firmy technologicznej). I najważniejsze, strój, w którym jest Ci niewygodnie. Jeśli ciągle poprawiasz kołnierzyk, widać to na każdym ujęciu.</p>
-      <p>Resztę przygotowań znajdziesz w poradniku <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>. Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">headshot pracuje na konwersję na LinkedIn</a>, i przejrzyj <a href="/portfolio/sesja-wizerunkowa">przykładowe realizacje</a>. Gotowy? <a href="/kontakt">Napisz, umówimy termin</a>.</p>
+      <p>Zbyt nowy, jeszcze „sztywny" garnitur. Logo na pół klatki piersiowej. Stylizacja kompletnie oderwana od branży (smoking do firmy technologicznej). I najważniejszy błąd: strój, w którym jest Ci niewygodnie. Jeśli ciągle poprawiasz kołnierzyk, widać to na każdym ujęciu.</p>
+      <p>Resztę przygotowań znajdziesz w poradniku <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>. Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">headshot pracuje na konwersję na LinkedIn</a>, i przejrzyj <a href="/portfolio/sesja-wizerunkowa">przykładowe realizacje</a>. Gotowy? <a href="/kontakt">Napisz do mnie</a>, umówimy termin.</p>
     `,
     seo: {
       title: "Co założyć na sesję biznesową: przewodnik po stylizacji | Marcin Szabunia",
@@ -574,19 +574,19 @@ export const blogPosts: BlogPost[] = [
     readTime: 7,
     thumbnail: "/images/blog/zdjecia-na-strone-firmowa-2.jpg",
     content: `
-      <p class="lead">Strona internetowa to często pierwszy kontakt klienta z Twoją firmą, i ocenia ją w kilka sekund. Zdjęcia decydują o tym pierwszym wrażeniu bardziej niż tekst. Oto kompletna lista zdjęć, których realnie potrzebuje strona firmowa, sekcja po sekcji.</p>
+      <p class="lead">Strona internetowa to często pierwszy kontakt klienta z Twoją firmą, a ocena zapada w kilka sekund. Zdjęcia decydują o tym pierwszym wrażeniu bardziej niż tekst. Oto kompletna lista zdjęć, których realnie potrzebuje strona firmowa, sekcja po sekcji.</p>
 
       <h2>Zdjęcie główne (hero)</h2>
       <p>Pierwszy ekran, który widzi odwiedzający. Powinno jednym kadrem komunikować, czym się zajmujesz i jaki masz styl. To nie miejsce na przypadkowy stock, tu warto zainwestować w mocne, autorskie ujęcie, bo pracuje na każdą wizytę.</p>
 
       <h2>Zespół i sekcja „o nas"</h2>
-      <p>Ludzie kupują od ludzi. Spójne <a href="/uslugi/sesje-zespolowe">portrety zespołu</a>, jedno tło, jedno światło, jeden styl, budują zaufanie i pomagają w rekrutacji. Najczęstsze potknięcia w tym obszarze opisałem w tekście o <a href="/blog/bledy-zdjecia-zespolu">błędach przy zdjęciach zespołu</a>.</p>
+      <p>Ludzie kupują od ludzi. Spójne <a href="/uslugi/sesje-zespolowe">portrety zespołu</a> (jedno tło, jedno światło, jeden styl) budują zaufanie i pomagają w rekrutacji. Najczęstsze potknięcia w tym obszarze opisałem w tekście o <a href="/blog/bledy-zdjecia-zespolu">błędach przy zdjęciach zespołu</a>.</p>
 
       <h2>Biuro i przestrzeń firmy</h2>
       <p>Zdjęcia realnej przestrzeni, biura, sali konferencyjnej, hali, pokazują skalę i charakter firmy oraz uwiarygadniają markę. To naturalna część <a href="/portfolio/sesja-korporacyjna">sesji korporacyjnej</a>, którą można zrealizować przy okazji portretów zespołu.</p>
 
       <h2>Produkty i usługi</h2>
-      <p>Jeśli sprzedajesz produkty, potrzebujesz spójnego zestawu zdjęć, packshot na białym tle plus ujęcia w kontekście. Jak to przekłada się na sprzedaż, rozkładam w tekście o <a href="/blog/fotografia-produktowa-ecommerce">fotografii produktowej dla e-commerce</a>. Usługi też da się pokazać obrazem: proces, efekt, ludzie przy pracy.</p>
+      <p>Jeśli sprzedajesz produkty, potrzebujesz spójnego zestawu zdjęć: packshot na białym tle plus ujęcia w kontekście. Jak to przekłada się na sprzedaż, rozkładam w tekście o <a href="/blog/fotografia-produktowa-ecommerce">fotografii produktowej dla e-commerce</a>. Usługi też da się pokazać obrazem: proces, efekt, ludzie przy pracy.</p>
 
       <h2>Realizacje i portfolio</h2>
       <p>Sekcja „co już zrobiliśmy" to dowód kompetencji. Zdjęcia z wdrożeń, eventów czy gotowych projektów działają mocniej niż deklaracje. Jeśli organizujesz wydarzenia, warto mieć materiał z <a href="/uslugi/eventy-reportaze">reportażu</a>.</p>

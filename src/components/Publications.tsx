@@ -19,7 +19,7 @@ export default function Publications() {
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-            Materiały, które tworzę dla marek klienckich, trafiają nie tylko do internetu. Licencjonuję je do reklam drukowanych, outdoor, katalogów i międzynarodowej prasy branżowej.
+            Zdjęcia, które robię dla moich klientów, trafiają nie tylko do internetu. Licencjonuję je do reklam drukowanych, outdooru, katalogów i międzynarodowej prasy branżowej.
           </p>
         </AnimatedSection>
 
