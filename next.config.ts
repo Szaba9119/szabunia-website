@@ -33,7 +33,30 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
+    // Host-based 301 ze starej domeny marcinszabunia.pl (Adobe Portfolio) na szabunia.pl.
+    // Mapa ścieżek wg Brief A (PLAN-POPRAWEK-2026-06-09). Aktywne dopiero, gdy DNS
+    // starej domeny wskaże na Vercel i domena będzie dodana do projektu.
+    const oldHost = [
+      { type: "host" as const, value: "(www\\.)?marcinszabunia\\.pl" },
+    ];
+    const oldDomainMap: { source: string; destination: string }[] = [
+      { source: "/strona-glowna", destination: "https://szabunia.pl/" },
+      { source: "/portrety-biznesowe", destination: "https://szabunia.pl/uslugi/wizerunek-portrety" },
+      { source: "/fotografia-eventowa", destination: "https://szabunia.pl/uslugi/eventy-reportaze" },
+      { source: "/zdjecia-produktowe", destination: "https://szabunia.pl/uslugi/fotografia-produktowa" },
+      { source: "/video", destination: "https://szabunia.pl/uslugi/wideo-marketing" },
+      { source: "/o-mnie", destination: "https://szabunia.pl/#o-mnie" },
+      { source: "/contact", destination: "https://szabunia.pl/kontakt" },
+    ];
     return [
+      ...oldDomainMap.map((r) => ({ ...r, has: oldHost, permanent: true })),
+      {
+        // Catch-all reszty starej domeny (w tym /) na stronę główną
+        source: "/:path*",
+        has: oldHost,
+        destination: "https://szabunia.pl/",
+        permanent: true,
+      },
       {
         // Stara strona sesji prywatnych usunięta — kierujemy na kalkulator (ceny brutto)
         source: "/sesje-prywatne",
