@@ -74,7 +74,7 @@ export default function Hero() {
           <Parallax distance={PARALLAX.subtle} direction="up">
             <div className="w-full aspect-[3/4] rounded-3xl overflow-hidden bg-border dark:bg-dark-card relative">
               <Image
-                src="/images/marcin-hero-light-2.jpg"
+                src="/images/marcin-hero-light-3.jpg"
                 alt="Marcin Szabunia, fotograf biznesowy i twórca wideo, Poznań"
                 fill
                 className="object-cover object-top"
