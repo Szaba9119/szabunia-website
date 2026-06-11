@@ -39,7 +39,7 @@ export default function CookieConsent() {
         <div className="flex-1 min-w-0">
           <p className="text-[13px] text-text-body dark:text-dark-text leading-relaxed">
             Ta strona korzysta z plików cookie w celu zapewnienia prawidłowego
-            działania i analizy ruchu.{" "}
+            działania, analizy ruchu i pomiaru skuteczności reklam.{" "}
             <a
               href="/polityka-prywatnosci"
               className="text-blue dark:text-blue-light underline hover:no-underline"

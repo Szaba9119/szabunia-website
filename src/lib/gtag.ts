@@ -17,10 +17,16 @@ export function gtagEvent(name: string, params?: Record<string, unknown>): void 
   window.gtag?.("event", name, params ?? {});
 }
 
-/** Zaktualizuj zgodę analityczną (wołane z banera cookie). */
+/** Zaktualizuj zgodę analityczną i reklamową (wołane z banera cookie).
+ *  ad_storage/ad_user_data/ad_personalization są potrzebne do atrybucji
+ *  konwersji Google Ads (GCLID) — bez nich Ads nie połączy leada z kliknięciem. */
 export function updateAnalyticsConsent(granted: boolean): void {
   if (typeof window === "undefined") return;
+  const value = granted ? "granted" : "denied";
   window.gtag?.("consent", "update", {
-    analytics_storage: granted ? "granted" : "denied",
+    analytics_storage: value,
+    ad_storage: value,
+    ad_user_data: value,
+    ad_personalization: value,
   });
 }
