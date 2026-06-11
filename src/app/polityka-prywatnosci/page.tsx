@@ -121,10 +121,14 @@ export default function PrivacyPolicy() {
                 7. Pliki cookies
               </h2>
               <p>
-                Strona wykorzystuje jedynie niezbędne pliki cookies techniczne
-                (np. zapamiętanie preferencji trybu ciemnego). Nie stosujemy
-                cookies analitycznych ani reklamowych. Ustawienia cookies możesz
-                zmienić w swojej przeglądarce.
+                Strona wykorzystuje niezbędne pliki cookies techniczne (np.
+                zapamiętanie preferencji trybu ciemnego) oraz — wyłącznie po
+                wyrażeniu zgody w banerze cookie — pliki cookies analityczne
+                (Google Analytics 4) i reklamowe (Google Ads), służące do
+                analizy ruchu oraz pomiaru skuteczności reklam. Odbiorcą danych
+                zbieranych przez te pliki jest Google Ireland Ltd. Zgodę możesz
+                odrzucić — strona działa wtedy w pełni, bez pomiaru — a wyrażoną
+                zgodę wycofać, usuwając pliki cookies w swojej przeglądarce.
               </p>
             </section>
 
@@ -135,7 +139,7 @@ export default function PrivacyPolicy() {
               <p>
                 Zastrzegam sobie prawo do wprowadzania zmian w niniejszej
                 polityce prywatności. Aktualna wersja jest zawsze dostępna na tej
-                stronie. Ostatnia aktualizacja: luty 2026.
+                stronie. Ostatnia aktualizacja: czerwiec 2026.
               </p>
             </section>
           </div>

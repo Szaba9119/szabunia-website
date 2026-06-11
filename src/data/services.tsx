@@ -285,7 +285,7 @@ export const serviceCategories: ServiceData[] = [
     subtitle:
       "Reelsy, filmy promocyjne, relacje z eventów. Formaty pionowe i poziome dopasowane do platformy.",
     description:
-      "Wideo to najskuteczniejsza forma komunikacji w Social Media. Tworzę krótkie formy (Reels, TikTok, YouTube Shorts), filmy promocyjne, relacje z eventów i materiały szkoleniowe. Od nagrania po montaż — dostajesz gotowy materiał do publikacji.",
+      "Wideo to najskuteczniejsza forma komunikacji w Social Media. Tworzę krótkie formy (Reels, TikTok, YouTube Shorts), filmy promocyjne i reklamowe, relacje z eventów i materiały szkoleniowe. Wideo reklamowe przygotowuję pod konkretne miejsce emisji — od spotów do Social Media po materiały do kampanii online. Od nagrania po montaż — dostajesz gotowy materiał do publikacji.",
     forWhom: [
       "Firmy budujące obecność w Social Media",
       "Marki e-commerce (wideo produktowe)",
@@ -336,10 +336,11 @@ export const serviceCategories: ServiceData[] = [
       { q: "Czy montujesz też materiał z telefonu?", a: "Tak — jeśli masz surowe nagrania z telefonu, mogę je zmontować profesjonalnie (cięcie, kolor, napisy, muzyka)." },
       { q: "W jakich formatach dostarczasz wideo?", a: "MP4 w rozdzielczości do 4K. Formaty: 9:16 (Reels/TikTok), 16:9 (YouTube/strona), 1:1 (feed). Dowolna kombinacja." },
       { q: "Czy mogę zamówić sam montaż bez nagrywania?", a: "Tak — wystarczy przesłać surowe pliki. Wycena według cennika pakietów montażowych." },
+      { q: "Czy realizujesz wideo reklamowe i spoty?", a: "Tak — krótkie filmy reklamowe pod kampanie w Social Media i online (15-60 s). Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii. Wycena według pakietów montażowych plus praca operatora." },
     ],
     seo: {
       title: "Wideo marketing & produkcja wideo — Marcin Szabunia | Poznań",
-      description: "Reelsy, filmy promocyjne, relacje z eventów. Profesjonalna produkcja wideo od nagrania po montaż. Poznań i cała Polska.",
+      description: "Reelsy, filmy promocyjne i reklamowe, relacje z eventów. Profesjonalna produkcja wideo od nagrania po montaż. Poznań i cała Polska.",
     },
   },
   {
@@ -349,7 +350,7 @@ export const serviceCategories: ServiceData[] = [
     subtitle:
       "Packshoty na białym tle, zdjęcia kreatywne i aranżacje na e-commerce, katalogi i Social Media.",
     description:
-      "Profesjonalne zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Pracuję w studiu z pełnym zapleczem oświetleniowym.",
+      "Profesjonalne zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową — kreatywne ujęcia z aranżacją i rekwizytami, przygotowane pod konkretną kampanię: od internetu i Social Media po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym.",
     forWhom: [
       "Sklepy internetowe i marketplace'y",
       "Marki kosmetyczne i modowe",
@@ -398,11 +399,12 @@ export const serviceCategories: ServiceData[] = [
       { q: "Czy mogę przysłać produkty kurierem?", a: "Tak — przyjmuję przesyłki do studia. Po sesji odsyłam na mój koszt (przy zamówieniach powyżej 1 000 zł)." },
       { q: "Jakie formaty plików otrzymam?", a: "JPEG w pełnej rozdzielczości + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku." },
       { q: "Ile produktów dziennie jesteś w stanie zrealizować?", a: "Packshoty na białym tle: 30-50 produktów/dzień. Zdjęcia kreatywne: 8-15 ujęć/dzień." },
+      { q: "Czym różni się fotografia produktowa od fotografii reklamowej?", a: "Fotografia produktowa pokazuje produkt wprost — packshot na białym tle do sklepu czy katalogu. Fotografia reklamowa buduje wokół produktu historię: aranżacja, rekwizyty, światło pod konkretną kampanię. Zdjęcia reklamowe wyceniam według pola eksploatacji — inaczej na Social Media, inaczej do druku i na outdoor." },
     ],
     portfolioSlug: "packshoty-produktowe",
     seo: {
       title: "Fotografia produktowa & packshoty — Marcin Szabunia | Poznań",
-      description: "Profesjonalne packshoty na białym tle i zdjęcia kreatywne produktów. E-commerce, katalogi, Social Media. Studio w Poznaniu.",
+      description: "Packshoty na białym tle, zdjęcia kreatywne i fotografia reklamowa produktów. E-commerce, katalogi, Social Media, kampanie. Studio w Poznaniu.",
     },
   },
 ];
