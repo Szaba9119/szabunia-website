@@ -14,7 +14,7 @@ export default function YouTubeFacade({ id, title }: { id: string; title: string
       {play ? (
         <iframe
           className="absolute inset-0 w-full h-full"
-          src={`https://www.youtube.com/embed/${id}?autoplay=1`}
+          src={`https://www.youtube.com/embed/${id}?autoplay=1&vq=hd1080`}
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen

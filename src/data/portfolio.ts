@@ -163,7 +163,6 @@ export const portfolioCategories: PortfolioCategory[] = [
       { src: "/images/portfolio/artech/1.jpg", alt: "Packshot — przezroczysta płyta z tworzywa sztucznego na białym tle (Artech Group)" },
       { src: "/images/portfolio/artech/15.jpg", alt: "Packshot — niebieski wałek z tworzywa sztucznego na białym tle, zdjęcie do katalogu" },
       { src: "/images/portfolio/artech/_F2A8937.jpg", alt: "Packshot — dwie ażurowe kule z tworzywa sztucznego na białym tle, fotografia produktowa" },
-      { src: "/images/portfolio/artech/2.jpg", alt: "Packshot — szara matowa płyta z tworzywa sztucznego na białym tle, fotografia produktowa" },
       { src: "/images/portfolio/artech/33.jpg", alt: "Packshot — wałek z laminatu technicznego na białym tle, zdjęcie katalogowe dla przemysłu" },
       { src: "/images/portfolio/artech/17.jpg", alt: "Packshot — biała płyta i wałek z tworzywa sztucznego na białym tle (Artech Group)" },
     ],
@@ -262,6 +261,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       { src: "/images/portfolio/yes-butcher/yes-butcher-44.jpg", alt: "Stek ribeye nagrodzony w World Steak Challenge 2025 w firmowym pudełku Yes Butcher! — fotografia produktowa dla gastronomii" },
       { src: "/images/portfolio/yes-butcher/yes-butcher-15.jpg", alt: "Sala restauracji z ceglaną ścianą i łukowym oknem — fotografia wnętrz, Stare Koszary Poznań" },
       { src: "/images/portfolio/yes-butcher/yes-butcher-39.jpg", alt: "Wnętrze steakhouse'u z pikowanymi sofami i barem — sesja zdjęciowa dla restauracji" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-31.jpg", alt: "Lada mięsna i gabloty butcher shopu Yes Butcher! z neonem na podłodze — fotografia wnętrz dla gastronomii" },
     ],
     gallerySubtitle:
       "Kadry z sesji dla Yes Butcher! — od ujęcia z drona, przez wnętrza bistro, po nagrodzony stek. Kliknij, żeby zobaczyć pełne kadry.",
