@@ -183,9 +183,8 @@ export const portfolioCategories: PortfolioCategory[] = [
       solution:
         "Packshoty na białym tle w powtarzalnym setupie — płyty, wałki i detale z różnych tworzyw — oraz film z hali produkcyjnej do prezentacji oferty. Spójna stylistyka pozwala rozbudowywać katalog o kolejne produkty.",
       results: [
-        { label: "packshotów w tym case study", value: "10" },
         { label: "film z produkcji na YouTube", value: "1" },
-        { label: "sesje zdjęciowe (2023 i 2024)", value: "2" },
+        { label: "zastosowania: strona WWW i katalog produktowy", value: "2" },
       ],
     },
     seo: {
@@ -202,7 +201,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       "Sesja wizerunkowa zespołu poznańskiego software house'u — portrety na stronę internetową i do materiałów firmowych.",
     description:
       "IDcom Group tworzy rozwiązania IT dla samorządów i biznesu. Zespół potrzebował portretów, które zadziałają w kilku miejscach naraz — na stronie internetowej i w materiałach firmowych. Zamiast jednej wersji zdjęć: jedna sesja, trzy tła. Białe — czyste i uniwersalne, czarne z niebieskim światłem — bardziej technologiczne, kremowe — cieplejsze i swobodniejsze. Każda osoba ma komplet kadrów w spójnym standardzie światła i retuszu, więc firma dobiera klimat do kontekstu zamiast wracać do studia.",
-    thumbnail: "/images/portfolio/idcom/_F2A9229-Edit-2.jpg",
+    thumbnail: "/images/portfolio/idcom/_F2A9376-Edit-2.jpg",
     gallery: [
       { src: "/images/portfolio/idcom/_F2A9424-Edit-2.jpg", alt: "Portret członkini zespołu na białym tle — sesja wizerunkowa zespołu IDcom Group" },
       { src: "/images/portfolio/idcom/_F2A9229-Edit-2.jpg", alt: "Portret biznesowy na czarnym tle z niebieskim światłem — sesja zespołowa IDcom Group" },
@@ -227,8 +226,7 @@ export const portfolioCategories: PortfolioCategory[] = [
         "Jedna sesja, trzy tła: białe, czarne z niebieskim światłem i kremowe. Każda osoba otrzymała kadry w trzech klimatach — uniwersalnym, technologicznym i cieplejszym — przy zachowaniu tego samego światła, kadrowania i retuszu.",
       results: [
         { label: "tła zdjęciowe w jednej sesji", value: "3" },
-        { label: "osób z zespołu w pokazanych kadrach", value: "5" },
-        { label: "konteksty użycia: strona WWW i materiały firmowe", value: "2" },
+        { label: "zastosowania: strona WWW i materiały firmowe", value: "2" },
       ],
     },
     seo: {

@@ -120,11 +120,6 @@ export default async function PortfolioPage({ params }: PageProps) {
             <ErrorBoundary>
               <PortfolioVideoShowcase category={category} />
             </ErrorBoundary>
-            {category.caseStudy && (
-              <ErrorBoundary>
-                <PortfolioCaseStudy data={category.caseStudy} />
-              </ErrorBoundary>
-            )}
             {category.gallery.length > 0 && (
               <ErrorBoundary>
                 <PortfolioGallery
@@ -133,6 +128,11 @@ export default async function PortfolioPage({ params }: PageProps) {
                   subtitle={category.gallerySubtitle}
                   aspect={category.galleryAspect}
                 />
+              </ErrorBoundary>
+            )}
+            {category.caseStudy && (
+              <ErrorBoundary>
+                <PortfolioCaseStudy data={category.caseStudy} />
               </ErrorBoundary>
             )}
           </>
