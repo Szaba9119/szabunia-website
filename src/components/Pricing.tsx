@@ -482,7 +482,7 @@ export default function Pricing() {
                         <span className="font-barlow font-extrabold text-xl text-blue dark:text-blue-light">{formatPriceLabel(4900)} / m-c</span>
                       </div>
                       <p className="text-[11px] text-steel dark:text-dark-text-muted">
-                        1 dzień zdjęciowy + montaż 4 rolek (min. 3 miesiące umowy)
+                        1 dzień zdjęciowy + montaż 4 reelsów (min. 3 miesiące umowy)
                       </p>
                     </div>
                   </div>

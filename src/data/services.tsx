@@ -146,7 +146,7 @@ export const serviceCategories: ServiceData[] = [
     ],
     faqs: [
       { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Tak, pracuję w modelu one-man-band. Dzięki temu materiał jest spójny wizualnie, a Ty masz jedną osobę kontaktową zamiast dwóch ekip." },
-      { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak, przy serii eventów koryguję zakres do realnych potrzeb projektu. Monthly Content: 4 900 zł/m-c (1 dzień zdjęciowy + montaż 4 rolek, min. 3 miesiące umowy)." },
+      { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak, przy serii eventów koryguję zakres do realnych potrzeb projektu. Monthly Content: 4 900 zł/m-c (1 dzień zdjęciowy + montaż 4 reelsów, min. 3 miesiące umowy)." },
       { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Każda dodatkowa godzina powyżej pakietu: 350 zł. Dogrywamy szczegóły przed eventem." },
     ],
     seo: {
@@ -333,7 +333,7 @@ export const serviceCategories: ServiceData[] = [
         ],
       },
     ],
-    pricingNote: "Monthly Content: 4 900 zł / m-c (1 dzień zdjęciowy + montaż 4 rolek, min. 3 miesiące umowy)",
+    pricingNote: "Monthly Content: 4 900 zł / m-c (1 dzień zdjęciowy + montaż 4 reelsów, min. 3 miesiące umowy)",
     faqs: [
       { q: "Czy montujesz też materiał z telefonu?", a: "Tak, jeśli masz surowe nagrania z telefonu, mogę je zmontować profesjonalnie (cięcie, kolor, napisy, muzyka)." },
       { q: "W jakich formatach dostarczasz wideo?", a: "MP4 w rozdzielczości do 4K. Formaty: 9:16 (Reels/TikTok), 16:9 (YouTube/strona), 1:1 (feed). Dowolna kombinacja." },
