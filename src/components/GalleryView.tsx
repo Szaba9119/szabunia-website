@@ -151,7 +151,11 @@ export default function GalleryView({
       {/* Wideo — odtwarzanie na miejscu (fasada), bez wyrzucania na YouTube */}
       {active === "wideo" ? (
         <div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div
+            className={`grid grid-cols-1 gap-5 ${
+              videos.filter((v) => !v.vertical).length >= 3 ? "md:grid-cols-3" : "md:grid-cols-2"
+            }`}
+          >
             {videos
               .filter((v) => !v.vertical)
               .map((v) => (
