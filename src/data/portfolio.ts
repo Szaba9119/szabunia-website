@@ -53,6 +53,10 @@ export interface PortfolioCategory {
   gallerySubtitle?: string;
   /** Proporcje kafli galerii: poziome 4:3 (domyślne) lub pionowe 3:4 (portrety) */
   galleryAspect?: "landscape" | "portrait";
+  /** Proporcje zdjęcia w hero — gdy inne niż kafle galerii (domyślnie: galleryAspect) */
+  heroAspect?: "landscape" | "portrait";
+  /** Zewnętrzny dowód realizacji (np. publikacja) — link pod CTA w hero */
+  proofLink?: { label: string; url: string };
   process: ProcessStep[];
   pricingType: "tiers" | "table";
   tiers?: PricingTier[];
@@ -201,6 +205,54 @@ export const portfolioCategories: PortfolioCategory[] = [
       title: "IDcom — headshoty zespołu na 3 tłach | Marcin Szabunia",
       description:
         "Case study sesji wizerunkowej zespołu IDcom Group (Poznań): portrety na trzech tłach — białym, czarnym z niebieskim światłem i kremowym — na stronę WWW i materiały firmowe.",
+    },
+  },
+  {
+    slug: "yes-butcher-przewodnik-michelin",
+    label: "Yes Butcher! — sesja Michelin",
+    heroTitle: "Yes Butcher! — sesja do przewodnika Michelin",
+    heroSubtitle:
+      "Wnętrza, nagrodzony stek i portrety szefa kuchni dla steakhouse'u w poznańskich Starych Koszarach. Zdjęcia trafiły na profil restauracji w przewodniku Michelin.",
+    description:
+      "Yes Butcher! Shop & Bistro to steakhouse i sklep mięsny w Starych Koszarach — poznański oddział warszawskiej marki, obecny w przewodniku Michelin. Brief obejmował komplet materiału w jeden dzień zdjęciowy, w działającym lokalu: budynek z drona, wnętrza obu sal — od baru i otwartej kuchni po szafę do sezonowania mięsa — portrety szefa kuchni oraz bohatera karty: stek ribeye nagrodzony w World Steak Challenge 2025, w firmowym pudełku z certyfikatem. Jedna sesja pokryła cztery rodzaje fotografii, a zdjęcia pracują na profilu Michelin i w reklamach restauracji.",
+    thumbnail: "/images/portfolio/yes-butcher/yes-butcher-43.jpg",
+    heroAspect: "portrait",
+    proofLink: {
+      label: "Zobacz profil Yes Butcher! w przewodniku Michelin",
+      url: "https://guide.michelin.com/en/wielkopolskie/poznan_2395985/restaurant/yes-butcher",
+    },
+    gallery: [
+      { src: "/images/portfolio/yes-butcher/yes-butcher-02.jpg", alt: "Budynek Yes Butcher! w Starych Koszarach z drona — ceglana fasada i rzeźba byka przed wejściem, Poznań" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-34.jpg", alt: "Otwarta kuchnia i bar bistro Yes Butcher! — fotografia wnętrz restauracji, Poznań" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-37.jpg", alt: "Sala główna bistro ze złotymi żyrandolami i ladą mięsną — zdjęcia wnętrz dla gastronomii" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-14.jpg", alt: "Zielona sala restauracji Yes Butcher! z drewnianymi belkami — fotografia wnętrz dla przewodnika Michelin" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-27.jpg", alt: "Bar i szafa do sezonowania mięsa w steakhousie Yes Butcher! — fotografia restauracji" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-44.jpg", alt: "Stek ribeye nagrodzony w World Steak Challenge 2025 w firmowym pudełku Yes Butcher! — fotografia produktowa dla gastronomii" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-15.jpg", alt: "Sala restauracji z ceglaną ścianą i łukowym oknem — fotografia wnętrz, Stare Koszary Poznań" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-39.jpg", alt: "Wnętrze steakhouse'u z pikowanymi sofami i barem — sesja zdjęciowa dla restauracji" },
+    ],
+    gallerySubtitle:
+      "Kadry z sesji dla Yes Butcher! — od ujęcia z drona, przez wnętrza bistro, po nagrodzony stek. Kliknij, żeby zobaczyć pełne kadry.",
+    process: [],
+    pricingType: "tiers",
+    faqs: [],
+    caseStudy: {
+      client: "Yes Butcher! Shop & Bistro",
+      industry: "Gastronomia — steakhouse i butcher shop, Poznań (Stare Koszary)",
+      challenge:
+        "Komplet zdjęć pod profil w przewodniku Michelin i materiały promocyjne: budynek, wnętrza, danie popisowe i ludzie — wszystko w jeden dzień, w działającym lokalu.",
+      solution:
+        "Jedna sesja, cztery rodzaje fotografii: ujęcie budynku z drona, wnętrza obu sal w naturalnym klimacie lokalu, portrety szefa kuchni oraz zdjęcia produktowe steka ribeye nagrodzonego w World Steak Challenge 2025.",
+      results: [
+        { label: "rodzaje zdjęć: dron, wnętrza, portrety, produkt", value: "4" },
+        { label: "dzień zdjęciowy w działającym lokalu", value: "1" },
+        { label: "zdjęcia na profilu restauracji w przewodniku", value: "Michelin" },
+      ],
+    },
+    seo: {
+      title: "Yes Butcher — sesja do przewodnika Michelin | Marcin Szabunia",
+      description:
+        "Case study sesji dla Yes Butcher! Shop & Bistro (Poznań): zdjęcie z drona, wnętrza, portrety szefa kuchni i nagrodzony stek. Zdjęcia trafiły na profil restauracji w przewodniku Michelin.",
     },
   },
   {

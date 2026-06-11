@@ -17,7 +17,9 @@ const blurPlaceholder =
 export default function PortfolioHero({ category }: Props) {
   const hasPricing = Boolean(category.tiers?.length || category.tables?.length);
   const heroAspect =
-    category.galleryAspect === "portrait" ? "aspect-[3/4] max-w-md mx-auto md:mx-0" : "aspect-[4/3]";
+    (category.heroAspect ?? category.galleryAspect) === "portrait"
+      ? "aspect-[3/4] max-w-md mx-auto md:mx-0"
+      : "aspect-[4/3]";
   return (
     <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4">
       <div className="max-w-5xl mx-auto">
@@ -70,6 +72,17 @@ export default function PortfolioHero({ category }: Props) {
                 Zapytaj o termin
               </a>
             </div>
+            {category.proofLink && (
+              <a
+                href={category.proofLink.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 mt-5 text-[13px] font-barlow font-semibold text-blue dark:text-blue-light hover:gap-2.5 transition-all"
+              >
+                {category.proofLink.label}
+                <span aria-hidden="true">↗</span>
+              </a>
+            )}
           </AnimatedSection>
 
           {/* Image */}
