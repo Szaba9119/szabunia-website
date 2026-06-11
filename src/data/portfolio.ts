@@ -81,7 +81,7 @@ export interface PortfolioCategory {
 export const portfolioCategories: PortfolioCategory[] = [
   {
     slug: "woohoo-autopay",
-    label: "E-commerce All-in",
+    label: "E-commerce All-in — film z eventu i reelsy",
     heroTitle: "E-commerce All-in",
     heroSubtitle:
       "Podsumowanie wideo wydarzenia E-commerce All In na Enea Stadion w Poznaniu: poziomy film i trzy pionowe reelsy z wywiadami.",
@@ -137,7 +137,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       "Zdjęcia pod stronę i katalog",
       "Montaż i postprodukcja",
     ],
-    thumbnail: "/images/portfolio/artech/_F2A8912.jpg",
+    thumbnail: "/images/portfolio/artech/_F2A8937.jpg",
     gallery: [
       { src: "/images/portfolio/artech/_F2A8912.jpg", alt: "Packshot na białym tle — niebieski detal z tworzywa sztucznego o skręconym kształcie (Artech Group)" },
       { src: "/images/portfolio/artech/3.jpg", alt: "Packshot — zielona płyta z tworzywa sztucznego na białym tle, fotografia produktowa dla przemysłu" },

@@ -12,7 +12,12 @@ const blurPlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
 
 // Na home pokazujemy dopracowane case studies (podstrony realizacji gotowe).
-const FEATURED_SLUGS = ["woohoo-autopay", "artech-fotografia-produktowa"];
+const FEATURED_SLUGS = [
+  "woohoo-autopay",
+  "artech-fotografia-produktowa",
+  "idcom-headshoty-zespolu",
+  "yes-butcher-przewodnik-michelin",
+];
 
 export default function Portfolio() {
   const featured = FEATURED_SLUGS.map((slug) =>
