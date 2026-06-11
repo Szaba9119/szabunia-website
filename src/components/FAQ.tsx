@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     q: "Jak szybko otrzymam gotowe materiały?",
-    a: "Standardowy czas oddania zdjęć to 14 dni roboczych, a materiałów wideo do 21 dni. Oferuję również usługę ekspresową (24-48h) za dodatkową opłatą (+50% wartości zlecenia).",
+    a: "Standardowy czas oddania zdjęć to 14 dni roboczych, a materiałów wideo do 21 dni. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50% wartości zlecenia).",
   },
   {
     q: "Jak wygląda sesja zdjęciowa krok po kroku?",
@@ -49,10 +49,6 @@ const faqs = [
   {
     q: "Ile tur poprawek otrzymuję w cenie?",
     a: "Zdjęcia: 2 tury poprawek w cenie. Wideo: 3 tury poprawek montażowych w cenie. Każda dodatkowa godzina pracy nad zmianami: 200 zł netto. W praktyce pierwsza tura prawie zawsze wystarcza, bo zależy mi, żeby finalny materiał w 100% odpowiadał Twoim oczekiwaniom.",
-  },
-  {
-    q: "Jakiego sprzętu używasz do zdjęć i wideo?",
-    a: "Pracuję na dwóch aparatach Canon R6. Obiektywy: Sigma 20mm f/1.4, Sigma 35mm f/1.4, Sigma 50mm f/1.4, Sigma 70-200mm f/2.8, Tamron 24-70mm f/2.8, Tokina 16-28mm. Oświetlenie studyjne Godox wraz z różnymi modyfikatorami. Dron DJI Mini 5 Pro. Rejestracja dźwięku: Zoom Recorder, Rode Wireless PRO oraz Rode VideoMicro II.",
   },
   {
     q: "Czy pracujesz z AI w zdjęciach i wideo?",

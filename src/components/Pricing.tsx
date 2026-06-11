@@ -178,7 +178,6 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> 1 osoba, 2-3 stylizacje</li>
                 <li className="flex items-start gap-2"><CheckIcon /> 2 godziny sesji</li>
                 <li className="flex items-start gap-2"><CheckIcon /> 8 wyretuszowanych zdjęć (wybór ze 150+ ujęć)</li>
-                <li className="flex items-start gap-2"><CheckIcon /> Światło i kadry dopasowane do Twojego stylu</li>
                 <li className="flex items-start gap-2"><CheckIcon /> GRATIS: Poseboard przed sesją</li>
               </ul>
               <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
@@ -202,7 +201,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Do 3 godzin sesji</li>
                 <li className="flex items-start gap-2"><CheckIcon /> 15 wyretuszowanych zdjęć (wybór z 200+ ujęć)</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Pełna kontrola nad stylem i klimatem</li>
-                <li className="flex items-start gap-2"><CheckIcon /> GRATIS: Konsultacja wizerunkowa PDF + Poseboard</li>
+                <li className="flex items-start gap-2"><CheckIcon /> GRATIS: Poseboard przed sesją</li>
               </ul>
               <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
                 Dodatkowe ujęcie: {formatPriceLabel(80)}
@@ -229,8 +228,9 @@ export default function Pricing() {
               </div>
               <ul className="space-y-3 text-[13px] text-steel dark:text-dark-text-muted">
                 <li className="flex items-start gap-2"><CheckIcon /> 3 godziny obecności</li>
-                <li className="flex items-start gap-2"><CheckIcon /> 50+ wyselekcjonowanych zdjęć</li>
+                <li className="flex items-start gap-2"><CheckIcon /> 50+ zdjęć po selekcji i pełnej obróbce</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Wideo w formacie Reels (30s)</li>
+                <li className="flex items-start gap-2"><CheckIcon /> Pełny montaż i postprodukcja wideo</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
               <AskButton slug="pakiety-foto-wideo" label="EVENT ESSENTIALS" />
@@ -250,9 +250,10 @@ export default function Pricing() {
               </div>
               <ul className="space-y-3 text-[13px] text-navy dark:text-white">
                 <li className="flex items-start gap-2"><CheckIcon /> 6 godzin obecności</li>
-                <li className="flex items-start gap-2"><CheckIcon /> 150+ wyselekcjonowanych zdjęć</li>
+                <li className="flex items-start gap-2"><CheckIcon /> 150+ zdjęć po selekcji i pełnej obróbce</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Główne wideo podsumowujące (60s)</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Krótki teaser do Social Media (15s)</li>
+                <li className="flex items-start gap-2"><CheckIcon /> Pełny montaż i postprodukcja wideo</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
               <AskButton slug="pakiety-foto-wideo" label="EVENT PRO" />
@@ -309,7 +310,7 @@ export default function Pricing() {
                       Reportaż & Eventy
                     </h3>
                     <p className="text-[13px] text-steel dark:text-dark-text-muted">
-                      od {formatPriceLabel(600)} / h
+                      od {formatPriceLabel(600)}
                     </p>
                   </div>
                 </div>
@@ -345,7 +346,7 @@ export default function Pricing() {
                       <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Opcje dodatkowe:</p>
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
                         <div className="flex justify-between"><span>Live editing (Social Media)</span><span>{formatPriceLabel(20)} / zdjęcie</span></div>
-                        <div className="flex justify-between"><span>Ekspresowa dostawa (24-48h)</span><span>+50% ceny</span></div>
+                        <div className="flex justify-between"><span>Ekspresowa dostawa (do 48h po evencie)</span><span>+50% ceny</span></div>
                         <div className="flex justify-between"><span>Ujęcia z drona</span><span>+{formatPriceLabel(500)}</span></div>
                       </div>
                     </div>
@@ -377,7 +378,7 @@ export default function Pricing() {
                       Zespoły i Biura
                     </h3>
                     <p className="text-[13px] text-steel dark:text-dark-text-muted">
-                      od {formatPriceLabel(150)} / os.
+                      od {formatPriceLabel(150)}
                     </p>
                   </div>
                 </div>
@@ -399,9 +400,9 @@ export default function Pricing() {
                     <div className="pt-3">
                       <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Stawka za osobę (1 retusz):</p>
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
-                        <div className="flex justify-between"><span>1-10 osób</span><span>{formatPriceLabel(150)} / os.</span></div>
-                        <div className="flex justify-between"><span>11-30 osób</span><span>{formatPriceLabel(120)} / os.</span></div>
-                        <div className="flex justify-between"><span>30+ osób</span><span>{formatPriceLabel(100)} / os.</span></div>
+                        <div className="flex justify-between"><span>1-10 osób</span><span>{formatPriceLabel(150)}</span></div>
+                        <div className="flex justify-between"><span>11-30 osób</span><span>{formatPriceLabel(120)}</span></div>
+                        <div className="flex justify-between"><span>30+ osób</span><span>{formatPriceLabel(100)}</span></div>
                       </div>
                     </div>
                     <div className="flex justify-between items-center pt-3 border-t border-border dark:border-dark-border">
@@ -512,7 +513,7 @@ export default function Pricing() {
                       Fotografia Produktowa
                     </h3>
                     <p className="text-[13px] text-steel dark:text-dark-text-muted">
-                      od {formatPriceLabel(55)} / szt.
+                      od {formatPriceLabel(55)}
                     </p>
                   </div>
                 </div>
@@ -533,16 +534,16 @@ export default function Pricing() {
                     <div className="pt-2">
                       <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Packshot (białe tło):</p>
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
-                        <div className="flex justify-between"><span>1-20 sztuk</span><span>{formatPriceLabel(90)} / szt.</span></div>
-                        <div className="flex justify-between"><span>21-50 sztuk</span><span>{formatPriceLabel(70)} / szt.</span></div>
-                        <div className="flex justify-between"><span>50+ sztuk</span><span>{formatPriceLabel(55)} / szt.</span></div>
+                        <div className="flex justify-between"><span>1-20 sztuk</span><span>{formatPriceLabel(90)}</span></div>
+                        <div className="flex justify-between"><span>21-50 sztuk</span><span>{formatPriceLabel(70)}</span></div>
+                        <div className="flex justify-between"><span>50+ sztuk</span><span>{formatPriceLabel(55)}</span></div>
                       </div>
                     </div>
                     <div className="pt-3 border-t border-border dark:border-dark-border">
                       <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Zdjęcia kreatywne / reklamowe:</p>
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
-                        <div className="flex justify-between"><span>Internet / Social Media</span><span>od {formatPriceLabel(200)} / szt.</span></div>
-                        <div className="flex justify-between"><span>Druk / Outdoor</span><span>od {formatPriceLabel(600)} / szt.</span></div>
+                        <div className="flex justify-between"><span>Internet / Social Media</span><span>od {formatPriceLabel(200)}</span></div>
+                        <div className="flex justify-between"><span>Druk / Outdoor</span><span>od {formatPriceLabel(600)}</span></div>
                       </div>
                     </div>
                   </div>

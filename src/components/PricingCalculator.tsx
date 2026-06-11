@@ -317,7 +317,7 @@ function ServiceOptions({
               className="w-4 h-4 rounded border-border text-blue"
             />
             <label htmlFor="event-express" className="text-[13px] text-navy dark:text-dark-text">
-              Ekspresowa dostawa 24-48h (+50%)
+              Ekspresowa dostawa do 48h po evencie (+50%)
             </label>
           </div>
         </div>
@@ -415,7 +415,7 @@ function ConfigSummary({ slug, config }: { slug: ServiceSlug; config: CalcConfig
       items.push(`Godzin: ${config.eventHours ?? 4}`);
       if ((config.liveEditCount ?? 0) > 0) items.push(`Live editing: ${config.liveEditCount} zdjęć`);
       if (config.eventDrone) items.push("Ujęcia z drona");
-      if (config.eventExpress) items.push("Ekspresowa dostawa 24-48h");
+      if (config.eventExpress) items.push("Ekspresowa dostawa do 48h po evencie");
       break;
     case "wideo-marketing": {
       items.push(`Operator: ${config.operatorHours ?? 2}h`);

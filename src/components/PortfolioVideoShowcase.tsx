@@ -23,7 +23,12 @@ export default function PortfolioVideoShowcase({
   if (!video) return null;
 
   return (
-    <section className="pt-28 pb-12 md:pb-16 px-4">
+    <section className="relative pt-28 pb-12 md:pb-16 px-4 overflow-hidden">
+      {/* Poświaty tła — spójne z hero strony głównej */}
+      <div className="absolute inset-0 -z-10" aria-hidden="true">
+        <div className="absolute top-[12%] left-[8%] w-[480px] h-[480px] bg-[radial-gradient(circle,rgba(37,99,235,0.07)_0%,transparent_70%)] dark:bg-[radial-gradient(circle,rgba(37,99,235,0.14)_0%,transparent_70%)]" />
+        <div className="absolute bottom-[5%] right-[8%] w-[380px] h-[380px] bg-[radial-gradient(circle,rgba(37,99,235,0.05)_0%,transparent_70%)] dark:bg-[radial-gradient(circle,rgba(37,99,235,0.10)_0%,transparent_70%)]" />
+      </div>
       <div className="max-w-5xl mx-auto">
         {/* Breadcrumb */}
         <AnimatedSection>
@@ -58,21 +63,52 @@ export default function PortfolioVideoShowcase({
           <YouTubeFacade id={video.youtubeId} title={video.title} />
         </AnimatedSection>
 
-        {/* Opis + zakres */}
+        {/* Opis + karta zakresu + CTA */}
         <AnimatedSection>
-          <div className="mt-8 max-w-3xl">
-            <p className="text-text-body dark:text-dark-text-muted text-[15px] leading-relaxed">
-              {category.description}
-            </p>
-            <div className="flex flex-wrap gap-2 mt-5">
-              {scope.map((s) => (
-                <span
-                  key={s}
-                  className="text-[12px] font-barlow font-semibold text-blue dark:text-blue-light bg-blue-pale dark:bg-blue/10 border border-blue/15 dark:border-blue-light/20 rounded-full px-3 py-1"
+          <div className="mt-10 grid md:grid-cols-[1.6fr_1fr] gap-6 md:gap-8 items-start">
+            <div>
+              <p className="text-text-body dark:text-dark-text-muted text-[15px] leading-relaxed">
+                {category.description}
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a
+                  href="#kontakt"
+                  className="bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
                 >
-                  {s}
-                </span>
-              ))}
+                  Zapytaj o podobną realizację
+                </a>
+                <Link
+                  href="/#cennik"
+                  className="border border-border dark:border-dark-border text-navy dark:text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:border-blue hover:text-blue dark:hover:border-blue-light dark:hover:text-blue-light transition-colors"
+                >
+                  Zobacz cennik
+                </Link>
+              </div>
+            </div>
+            <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6">
+              <p className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-steel dark:text-dark-text-muted mb-4">
+                Zakres realizacji
+              </p>
+              <ul className="space-y-2.5">
+                {scope.map((s) => (
+                  <li
+                    key={s}
+                    className="flex items-start gap-2 text-[13px] font-barlow font-semibold text-navy dark:text-white"
+                  >
+                    <svg
+                      className="w-4 h-4 text-blue dark:text-blue-light flex-shrink-0 mt-0.5"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2.5}
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                    </svg>
+                    {s}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </AnimatedSection>

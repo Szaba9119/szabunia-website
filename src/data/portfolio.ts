@@ -90,7 +90,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Podsumowanie wideo wydarzenia E-commerce All In na Enea Stadion w Poznaniu: poziomy film i trzy pionowe reelsy z wywiadami.",
     description:
-      "E-commerce All In to wydarzenie zorganizowane przez ICEA i Autopay na Enea Stadion w Poznaniu. Odpowiadałem za komplet materiału wideo: poziomy film podsumowujący z publikacją na YouTube oraz trzy pionowe reelsy z wywiadami pod Social Media. Na sali eventowej stanęło mobilne studio filmowe do wywiadów, a między rozmowami powstawała relacja z wydarzenia i ujęcia z drona, również w środku stadionu. Jeden twórca, spójny materiał: od planu zdjęciowego, przez realizację, po montaż i postprodukcję.",
+      "E-commerce All In to wydarzenie zorganizowane przez ICEA i Autopay na Enea Stadion w Poznaniu. Odpowiadałem za komplet materiału wideo: poziomy film podsumowujący z publikacją na YouTube oraz trzy pionowe reelsy z wywiadami pod Social Media. Na sali eventowej stanęło mobilne studio do filmowania wywiadów, a między rozmowami powstawała relacja z wydarzenia i ujęcia z drona, również w środku stadionu. Jeden twórca, spójny materiał: od planu zdjęciowego, przez realizację, po montaż i postprodukcję.",
     scope: [
       "Poziomy film (YouTube)",
       "3 pionowe reelsy",
@@ -131,9 +131,9 @@ export const portfolioCategories: PortfolioCategory[] = [
       client: "E-commerce All In (ICEA × Autopay)",
       industry: "Wydarzenie branżowe e-commerce, Enea Stadion w Poznaniu",
       challenge:
-        "Jeden dzień i trzy zadania naprzemiennie: relacja z wydarzenia, wywiady z ekspertami i ujęcia z drona, w tym loty wewnątrz stadionu. Do tego studio filmowe na sali eventowej: rozstawione tak, żeby nie przeszkadzało gościom, a tło kadru wyglądało jak w studiu.",
+        "Jeden wieczór i trzy zadania naprzemiennie: relacja z wydarzenia, wywiady z ekspertami i ujęcia z drona, w tym loty wewnątrz stadionu. Do tego mobilne studio do filmowania na sali eventowej: rozstawione tak, żeby nie przeszkadzało gościom, a tło kadru wyglądało jak w studiu.",
       solution:
-        "Mobilne studio wywiadów zbudowane na evencie i praca w rytmie: relacja, wywiad, dron i znów relacja. Z jednego dnia zdjęciowego powstał poziomy film podsumowujący na YouTube oraz trzy pionowe reelsy z wywiadami, spójne od planu po postprodukcję.",
+        "Zacząłem od ujęć z drona, później kręciłem relację z eventu, a w przerwach nagrywaliśmy wywiady w mobilnym studiu. Z jednego wieczoru powstał poziomy film podsumowujący na YouTube oraz trzy pionowe reelsy z wywiadami, spójne od planu po postprodukcję.",
       results: [
         { label: "film podsumowujący na YouTube", value: "1" },
         { label: "pionowe reelsy z wywiadami", value: "3" },
@@ -259,7 +259,6 @@ export const portfolioCategories: PortfolioCategory[] = [
       url: "https://guide.michelin.com/en/wielkopolskie/poznan_2395985/restaurant/yes-butcher",
     },
     gallery: [
-      { src: "/images/portfolio/yes-butcher/yes-butcher-02.jpg", alt: "Budynek Yes Butcher! w Starych Koszarach z drona, ceglana fasada i rzeźba byka przed wejściem, Poznań" },
       { src: "/images/portfolio/yes-butcher/yes-butcher-34.jpg", alt: "Otwarta kuchnia i bar bistro Yes Butcher!, fotografia wnętrz restauracji, Poznań" },
       { src: "/images/portfolio/yes-butcher/yes-butcher-37.jpg", alt: "Sala główna bistro ze złotymi żyrandolami i ladą mięsną, zdjęcia wnętrz dla gastronomii" },
       { src: "/images/portfolio/yes-butcher/yes-butcher-14.jpg", alt: "Zielona sala restauracji Yes Butcher! z drewnianymi belkami, fotografia wnętrz dla przewodnika Michelin" },
@@ -268,6 +267,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       { src: "/images/portfolio/yes-butcher/yes-butcher-15.jpg", alt: "Sala restauracji z ceglaną ścianą i łukowym oknem, fotografia wnętrz, Stare Koszary Poznań" },
       { src: "/images/portfolio/yes-butcher/yes-butcher-39.jpg", alt: "Wnętrze steakhouse'u z pikowanymi sofami i barem, sesja zdjęciowa dla restauracji" },
       { src: "/images/portfolio/yes-butcher/yes-butcher-31.jpg", alt: "Lada mięsna i gabloty butcher shopu Yes Butcher! z neonem na podłodze, fotografia wnętrz dla gastronomii" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-02.jpg", alt: "Budynek Yes Butcher! w Starych Koszarach z drona, ceglana fasada i rzeźba byka przed wejściem, Poznań" },
     ],
     gallerySubtitle:
       "Kadry z sesji dla Yes Butcher! Od ujęcia z drona, przez wnętrza bistro i butcher shopu, po nagrodzony stek. Kliknij, żeby zobaczyć pełne kadry.",
@@ -331,7 +331,6 @@ export const portfolioCategories: PortfolioCategory[] = [
           "1 osoba, 2-3 stylizacje",
           "2 godziny sesji",
           "8 wyretuszowanych zdjęć (wybór ze 150+ ujęć)",
-          "Światło i kadry dopasowane do Twojego stylu",
           "GRATIS: Poseboard przed sesją",
         ],
         recommended: true,
@@ -345,7 +344,7 @@ export const portfolioCategories: PortfolioCategory[] = [
           "Do 3 godzin sesji",
           "15 wyretuszowanych zdjęć (wybór z 200+ ujęć)",
           "Pełna kontrola nad stylem i klimatem",
-          "GRATIS: Konsultacja wizerunkowa PDF + Poseboard",
+          "GRATIS: Poseboard przed sesją",
         ],
         extra: "Dodatkowe ujęcie: 80 zł",
       },
@@ -365,7 +364,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Jak szybko otrzymam gotowe zdjęcia?",
-        a: "Standardowy czas to 14 dni roboczych. Oferuję również usługę ekspresową (24-48h) za dodatkową opłatą (+50%).",
+        a: "Standardowy czas to 14 dni roboczych. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50%).",
       },
     ],
     seo: {
@@ -406,7 +405,7 @@ export const portfolioCategories: PortfolioCategory[] = [
             label: "Opcje dodatkowe",
             items: [
               { label: "Live editing (Social Media)", value: "20 zł / zdjęcie" },
-              { label: "Ekspresowa dostawa (24-48h)", value: "+50% ceny" },
+              { label: "Ekspresowa dostawa (do 48h po evencie)", value: "+50% ceny" },
               { label: "Ujęcia z drona", value: "+500 zł" },
             ],
           },
@@ -464,16 +463,16 @@ export const portfolioCategories: PortfolioCategory[] = [
           {
             label: "Packshot (białe tło)",
             items: [
-              { label: "1-20 sztuk", value: "90 zł / szt." },
-              { label: "21-50 sztuk", value: "70 zł / szt." },
-              { label: "50+ sztuk", value: "55 zł / szt." },
+              { label: "1-20 sztuk", value: "90 zł" },
+              { label: "21-50 sztuk", value: "70 zł" },
+              { label: "50+ sztuk", value: "55 zł" },
             ],
           },
           {
             label: "Zdjęcia kreatywne / reklamowe",
             items: [
-              { label: "Internet / Social Media", value: "od 200 zł / szt." },
-              { label: "Druk / Outdoor", value: "od 600 zł / szt." },
+              { label: "Internet / Social Media", value: "od 200 zł" },
+              { label: "Druk / Outdoor", value: "od 600 zł" },
             ],
           },
         ],
@@ -534,9 +533,9 @@ export const portfolioCategories: PortfolioCategory[] = [
           {
             label: "Stawka za osobę (1 retusz)",
             items: [
-              { label: "1-10 osób", value: "150 zł / os." },
-              { label: "11-30 osób", value: "120 zł / os." },
-              { label: "30+ osób", value: "100 zł / os." },
+              { label: "1-10 osób", value: "150 zł" },
+              { label: "11-30 osób", value: "120 zł" },
+              { label: "30+ osób", value: "100 zł" },
             ],
           },
           {

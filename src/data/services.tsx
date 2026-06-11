@@ -33,7 +33,7 @@ export const serviceCategories: ServiceData[] = [
     subtitle:
       "Profesjonalne portrety biznesowe, headshoty i zdjęcia personal branding, które budują zaufanie.",
     description:
-      "Portret biznesowy to Twoja wizytówka w cyfrowym świecie. Tworzę zdjęcia, które oddają charakter i kompetencje — na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Każdą sesję poprzedza konsultacja wizerunkowa, dzięki której dobieramy styl, oświetlenie i klimat dopasowany do Twojej branży.",
+      "Portret biznesowy to Twoja wizytówka w cyfrowym świecie. Tworzę zdjęcia, które oddają charakter i kompetencje, na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Każdą sesję poprzedza konsultacja wizerunkowa, dzięki której dobieramy styl, oświetlenie i klimat dopasowany do Twojej branży.",
     forWhom: [
       "CEO i kadra zarządzająca",
       "Eksperci i konsultanci",
@@ -64,21 +64,21 @@ export const serviceCategories: ServiceData[] = [
       {
         name: "PROFESSIONAL",
         price: "1 300 zł",
-        features: ["1 osoba, 2-3 stylizacje", "2 godziny sesji", "8 wyretuszowanych zdjęć (wybór ze 150+ ujęć)", "Światło i kadry dopasowane do Twojego stylu", "GRATIS: Poseboard przed sesją"],
+        features: ["1 osoba, 2-3 stylizacje", "2 godziny sesji", "8 wyretuszowanych zdjęć (wybór ze 150+ ujęć)", "GRATIS: Poseboard przed sesją"],
         recommended: true,
         extra: "Dodatkowe ujęcie: 100 zł",
       },
       {
         name: "PRO BRANDING",
         price: "1 800 zł",
-        features: ["1 osoba, 3-4 stylizacje", "Do 3 godzin sesji", "15 wyretuszowanych zdjęć (wybór z 200+ ujęć)", "Pełna kontrola nad stylem i klimatem", "GRATIS: Konsultacja wizerunkowa PDF + Poseboard"],
+        features: ["1 osoba, 3-4 stylizacje", "Do 3 godzin sesji", "15 wyretuszowanych zdjęć (wybór z 200+ ujęć)", "Pełna kontrola nad stylem i klimatem", "GRATIS: Poseboard przed sesją"],
         extra: "Dodatkowe ujęcie: 80 zł",
       },
     ],
     faqs: [
-      { q: "Ile trwa sesja wizerunkowa?", a: "W zależności od pakietu — od 90 minut (Essential) do 3 godzin (Pro Branding). Czas obejmuje przygotowanie oświetlenia, sesję oraz ewentualne zmiany stylizacji." },
-      { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem — potrzebuję ok. 3m² wolnej przestrzeni i dostępu do gniazdka." },
-      { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni roboczych. Ekspres 24-48h za dodatkową opłatą (+50%)." },
+      { q: "Ile trwa sesja wizerunkowa?", a: "W zależności od pakietu, od 90 minut (Essential) do 3 godzin (Pro Branding). Czas obejmuje przygotowanie oświetlenia, sesję oraz ewentualne zmiany stylizacji." },
+      { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3m² wolnej przestrzeni i dostępu do gniazdka." },
+      { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni roboczych. Ekspres do 48h za dodatkową opłatą (+50%)." },
       { q: "Czy mogę użyć zdjęć na LinkedIn i stronie?", a: "Tak. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
     ],
     portfolioSlug: "sesja-wizerunkowa",
@@ -94,7 +94,7 @@ export const serviceCategories: ServiceData[] = [
     subtitle:
       "Jeden twórca, spójny materiał, mniej logistyki. Bestseller wśród klientów korporacyjnych.",
     description:
-      "Pakiet hybrydowy to najefektywniejsze rozwiązanie — jedno wejście, dwa formaty. Podczas jednego wydarzenia lub sesji tworzę zarówno profesjonalne zdjęcia jak i materiał wideo. Rezultat: spójny wizualnie content na wszystkie kanały, bez koordynowania dwóch ekip.",
+      "Pakiet hybrydowy to najefektywniejsze rozwiązanie, jedno wejście, dwa formaty. Podczas jednego wydarzenia lub sesji tworzę zarówno profesjonalne zdjęcia jak i materiał wideo. Rezultat: spójny wizualnie content na wszystkie kanały, bez koordynowania dwóch ekip.",
     forWhom: [
       "Firmy organizujące eventy (konferencje, gale)",
       "Marki potrzebujące contentu na Social Media",
@@ -120,12 +120,12 @@ export const serviceCategories: ServiceData[] = [
       {
         name: "EVENT ESSENTIALS",
         price: "1 800 zł",
-        features: ["3 godziny obecności", "50+ wyselekcjonowanych zdjęć", "Wideo w formacie Reels (30s)", "Ujęcia z drona w cenie pakietu"],
+        features: ["3 godziny obecności", "50+ zdjęć po selekcji i pełnej obróbce", "Wideo w formacie Reels (30s)", "Pełny montaż i postprodukcja wideo", "Ujęcia z drona w cenie pakietu"],
       },
       {
         name: "EVENT PRO",
         price: "3 200 zł",
-        features: ["6 godzin obecności", "150+ wyselekcjonowanych zdjęć", "Główne wideo podsumowujące (60s)", "Krótki teaser do Social Media (15s)", "Ujęcia z drona w cenie pakietu"],
+        features: ["6 godzin obecności", "150+ zdjęć po selekcji i pełnej obróbce", "Główne wideo podsumowujące (60s)", "Krótki teaser do Social Media (15s)", "Pełny montaż i postprodukcja wideo", "Ujęcia z drona w cenie pakietu"],
         recommended: true,
       },
       {
@@ -133,7 +133,7 @@ export const serviceCategories: ServiceData[] = [
         price: "4 500 zł",
         features: [
           "Do 8 godzin na miejscu",
-          "Kompletny reportaż — min. 200 zdjęć",
+          "Kompletny reportaż, min. 200 zdjęć",
           "Główny film z wydarzenia (do 90s)",
           "Dynamiczny teaser Social Media (15s)",
           "2–3 mini-wywiady z uczestnikami",
@@ -144,8 +144,8 @@ export const serviceCategories: ServiceData[] = [
       },
     ],
     faqs: [
-      { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Tak — pracuję w modelu one-man-band. Dzięki temu materiał jest spójny wizualnie, a Ty masz jedną osobę kontaktową zamiast dwóch ekip." },
-      { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak — przy serii eventów koryguję zakres do realnych potrzeb projektu. Monthly Content: 4 900 zł/m-c (1 dzień zdjęciowy + montaż 4 rolek, min. 3 miesiące umowy)." },
+      { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Tak, pracuję w modelu one-man-band. Dzięki temu materiał jest spójny wizualnie, a Ty masz jedną osobę kontaktową zamiast dwóch ekip." },
+      { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak, przy serii eventów koryguję zakres do realnych potrzeb projektu. Monthly Content: 4 900 zł/m-c (1 dzień zdjęciowy + montaż 4 rolek, min. 3 miesiące umowy)." },
       { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Każda dodatkowa godzina powyżej pakietu: 350 zł. Dogrywamy szczegóły przed eventem." },
     ],
     seo: {
@@ -160,7 +160,7 @@ export const serviceCategories: ServiceData[] = [
     subtitle:
       "Profesjonalna dokumentacja konferencji, targów, gal i wydarzeń firmowych. Opcja live editing.",
     description:
-      "Każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing — zdjęcia gotowe do publikacji na Social Media jeszcze w trakcie eventu.",
+      "Każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing, zdjęcia gotowe do publikacji na Social Media jeszcze w trakcie eventu.",
     forWhom: [
       "Organizatorzy konferencji i targów",
       "Firmy organizujące wydarzenia firmowe",
@@ -173,7 +173,7 @@ export const serviceCategories: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
       </svg>
     ),
-    price: "od 600 zł / h",
+    price: "od 600 zł",
     process: [
       { num: 1, title: "Brief", desc: "Agenda, kluczowe momenty, VIP-y" },
       { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
@@ -194,7 +194,7 @@ export const serviceCategories: ServiceData[] = [
             label: "Opcje dodatkowe",
             items: [
               { label: "Live editing (Social Media)", value: "20 zł / zdjęcie" },
-              { label: "Ekspresowa dostawa (24-48h)", value: "+50% ceny" },
+              { label: "Ekspresowa dostawa (do 48h po evencie)", value: "+50% ceny" },
               { label: "Ujęcia z drona", value: "+500 zł" },
             ],
           },
@@ -202,14 +202,14 @@ export const serviceCategories: ServiceData[] = [
       },
     ],
     faqs: [
-      { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak — usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media." },
+      { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media." },
       { q: "Ile zdjęć otrzymam?", a: "Średnio 50-100 zdjęć na godzinę. Wszystkie wyselekcjonowane i poddane postprodukcji." },
-      { q: "Czy pakiet całodniowy się opłaca?", a: "Przy 8h standardowo byłoby 3 400 zł. Pakiet to 2 800 zł — oszczędzasz 600 zł." },
+      { q: "Czy pakiet całodniowy się opłaca?", a: "Przy 8h standardowo byłoby 3 400 zł. Pakiet to 2 800 zł, oszczędzasz 600 zł." },
     ],
     portfolioSlug: "fotografia-eventowa",
     seo: {
       title: "Fotografia eventowa & reportaże — Marcin Szabunia | Poznań",
-      description: "Profesjonalna fotografia eventowa — konferencje, targi, gale. Reportaż + live editing na Social Media. Poznań i cała Polska.",
+      description: "Profesjonalna fotografia eventowa, konferencje, targi, gale. Reportaż + live editing na Social Media. Poznań i cała Polska.",
     },
   },
   {
@@ -217,9 +217,9 @@ export const serviceCategories: ServiceData[] = [
     galleryCategory: "portrety",
     title: "Sesje zespołowe",
     subtitle:
-      "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze — bez logistyki.",
+      "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze, bez logistyki.",
     description:
-      "Spójne headshoty zespołu to fundament employer branding. Przyjeżdżam z mobilnym studiem do Twojego biura — rozstawienie zajmuje 20 minut, a każda osoba potrzebuje zaledwie 10-15 minut na sesję. Rezultat: profesjonalne, spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
+      "Spójne headshoty zespołu to fundament employer branding. Przyjeżdżam z mobilnym studiem do Twojego biura, rozstawienie zajmuje 20 minut, a każda osoba potrzebuje zaledwie 10-15 minut na sesję. Rezultat: profesjonalne, spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
     forWhom: [
       "Zespoły korporacyjne i działy HR",
       "Kancelarie prawne i firmy doradcze",
@@ -232,7 +232,7 @@ export const serviceCategories: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
       </svg>
     ),
-    price: "od 150 zł / os.",
+    price: "od 150 zł",
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram i liczbę osób" },
       { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio w biurze (20 min)" },
@@ -251,9 +251,9 @@ export const serviceCategories: ServiceData[] = [
           {
             label: "Stawka za osobę (1 retusz)",
             items: [
-              { label: "1-10 osób", value: "150 zł / os." },
-              { label: "11-30 osób", value: "120 zł / os." },
-              { label: "30+ osób", value: "100 zł / os." },
+              { label: "1-10 osób", value: "150 zł" },
+              { label: "11-30 osób", value: "120 zł" },
+              { label: "30+ osób", value: "100 zł" },
             ],
           },
           {
@@ -269,8 +269,8 @@ export const serviceCategories: ServiceData[] = [
     ],
     faqs: [
       { q: "Ile osób mogę sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studio. Każda osoba potrzebuje ok. 10-15 minut." },
-      { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 3m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz — wszystko się sprawdzi." },
-      { q: "Czy zdjęcia będą spójne dla całego zespołu?", a: "Tak — identyczne oświetlenie i tło. Spójne headshoty na stronie i w materiałach firmowych." },
+      { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 3m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
+      { q: "Czy zdjęcia będą spójne dla całego zespołu?", a: "Tak, identyczne oświetlenie i tło. Spójne headshoty na stronie i w materiałach firmowych." },
     ],
     portfolioSlug: "sesja-korporacyjna",
     seo: {
@@ -285,7 +285,7 @@ export const serviceCategories: ServiceData[] = [
     subtitle:
       "Reelsy, filmy promocyjne, relacje z eventów. Formaty pionowe i poziome dopasowane do platformy.",
     description:
-      "Wideo to najskuteczniejsza forma komunikacji w Social Media. Tworzę krótkie formy (Reels, TikTok, YouTube Shorts), filmy promocyjne i reklamowe, relacje z eventów i materiały szkoleniowe. Wideo reklamowe przygotowuję pod konkretne miejsce emisji — od spotów do Social Media po materiały do kampanii online. Od nagrania po montaż — dostajesz gotowy materiał do publikacji.",
+      "Wideo to najskuteczniejsza forma komunikacji w Social Media. Tworzę krótkie formy (Reels, TikTok, YouTube Shorts), filmy promocyjne i reklamowe, relacje z eventów i materiały szkoleniowe. Wideo reklamowe przygotowuję pod konkretne miejsce emisji, od spotów do Social Media po materiały do kampanii online. Od nagrania po montaż, dostajesz gotowy materiał do publikacji.",
     forWhom: [
       "Firmy budujące obecność w Social Media",
       "Marki e-commerce (wideo produktowe)",
@@ -333,10 +333,10 @@ export const serviceCategories: ServiceData[] = [
     ],
     pricingNote: "Monthly Content: 4 900 zł / m-c (1 dzień zdjęciowy + montaż 4 rolek, min. 3 miesiące umowy)",
     faqs: [
-      { q: "Czy montujesz też materiał z telefonu?", a: "Tak — jeśli masz surowe nagrania z telefonu, mogę je zmontować profesjonalnie (cięcie, kolor, napisy, muzyka)." },
+      { q: "Czy montujesz też materiał z telefonu?", a: "Tak, jeśli masz surowe nagrania z telefonu, mogę je zmontować profesjonalnie (cięcie, kolor, napisy, muzyka)." },
       { q: "W jakich formatach dostarczasz wideo?", a: "MP4 w rozdzielczości do 4K. Formaty: 9:16 (Reels/TikTok), 16:9 (YouTube/strona), 1:1 (feed). Dowolna kombinacja." },
-      { q: "Czy mogę zamówić sam montaż bez nagrywania?", a: "Tak — wystarczy przesłać surowe pliki. Wycena według cennika pakietów montażowych." },
-      { q: "Czy realizujesz wideo reklamowe i spoty?", a: "Tak — krótkie filmy reklamowe pod kampanie w Social Media i online (15-60 s). Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii. Wycena według pakietów montażowych plus praca operatora." },
+      { q: "Czy mogę zamówić sam montaż bez nagrywania?", a: "Tak, wystarczy przesłać surowe pliki. Wycena według cennika pakietów montażowych." },
+      { q: "Czy realizujesz wideo reklamowe i spoty?", a: "Tak, krótkie filmy reklamowe pod kampanie w Social Media i online (15-60 s). Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii. Wycena według pakietów montażowych plus praca operatora." },
     ],
     seo: {
       title: "Wideo marketing & produkcja wideo — Marcin Szabunia | Poznań",
@@ -350,7 +350,7 @@ export const serviceCategories: ServiceData[] = [
     subtitle:
       "Packshoty na białym tle, zdjęcia kreatywne i aranżacje na e-commerce, katalogi i Social Media.",
     description:
-      "Profesjonalne zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową — kreatywne ujęcia z aranżacją i rekwizytami, przygotowane pod konkretną kampanię: od internetu i Social Media po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym.",
+      "Profesjonalne zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową, kreatywne ujęcia z aranżacją i rekwizytami, przygotowane pod konkretną kampanię: od internetu i Social Media po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym.",
     forWhom: [
       "Sklepy internetowe i marketplace'y",
       "Marki kosmetyczne i modowe",
@@ -363,7 +363,7 @@ export const serviceCategories: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
       </svg>
     ),
-    price: "od 55 zł / szt.",
+    price: "od 55 zł",
     process: [
       { num: 1, title: "Brief", desc: "Cel, platforma sprzedaży, wytyczne marki" },
       { num: 2, title: "Sesja", desc: "Fotografowanie w studiu z kontrolą światła" },
@@ -379,16 +379,16 @@ export const serviceCategories: ServiceData[] = [
           {
             label: "Packshot (białe tło)",
             items: [
-              { label: "1-20 sztuk", value: "90 zł / szt." },
-              { label: "21-50 sztuk", value: "70 zł / szt." },
-              { label: "50+ sztuk", value: "55 zł / szt." },
+              { label: "1-20 sztuk", value: "90 zł" },
+              { label: "21-50 sztuk", value: "70 zł" },
+              { label: "50+ sztuk", value: "55 zł" },
             ],
           },
           {
             label: "Zdjęcia kreatywne / reklamowe",
             items: [
-              { label: "Internet / Social Media", value: "od 200 zł / szt." },
-              { label: "Druk / Outdoor", value: "od 600 zł / szt." },
+              { label: "Internet / Social Media", value: "od 200 zł" },
+              { label: "Druk / Outdoor", value: "od 600 zł" },
             ],
           },
         ],
@@ -396,10 +396,10 @@ export const serviceCategories: ServiceData[] = [
       },
     ],
     faqs: [
-      { q: "Czy mogę przysłać produkty kurierem?", a: "Tak — przyjmuję przesyłki do studia. Po sesji odsyłam na mój koszt (przy zamówieniach powyżej 1 000 zł)." },
+      { q: "Czy mogę przysłać produkty kurierem?", a: "Tak, przyjmuję przesyłki do studia. Po sesji odsyłam na mój koszt (przy zamówieniach powyżej 1 000 zł)." },
       { q: "Jakie formaty plików otrzymam?", a: "JPEG w pełnej rozdzielczości + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku." },
       { q: "Ile produktów dziennie jesteś w stanie zrealizować?", a: "Packshoty na białym tle: 30-50 produktów/dzień. Zdjęcia kreatywne: 8-15 ujęć/dzień." },
-      { q: "Czym różni się fotografia produktowa od fotografii reklamowej?", a: "Fotografia produktowa pokazuje produkt wprost — packshot na białym tle do sklepu czy katalogu. Fotografia reklamowa buduje wokół produktu historię: aranżacja, rekwizyty, światło pod konkretną kampanię. Zdjęcia reklamowe wyceniam według pola eksploatacji — inaczej na Social Media, inaczej do druku i na outdoor." },
+      { q: "Czym różni się fotografia produktowa od fotografii reklamowej?", a: "Fotografia produktowa pokazuje produkt wprost, packshot na białym tle do sklepu czy katalogu. Fotografia reklamowa buduje wokół produktu historię: aranżacja, rekwizyty, światło pod konkretną kampanię. Zdjęcia reklamowe wyceniam według pola eksploatacji, inaczej na Social Media, inaczej do druku i na outdoor." },
     ],
     portfolioSlug: "packshoty-produktowe",
     seo: {
