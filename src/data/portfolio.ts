@@ -90,7 +90,14 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Podsumowanie wideo wydarzenia E-commerce All In na Enea Stadion w Poznaniu: poziomy film i trzy pionowe reelsy z wywiadami.",
     description:
-      "E-commerce All In to wydarzenie zorganizowane przez ICEA i Autopay na Enea Stadion w Poznaniu. Odpowiadałem za komplet materiału wideo: poziomy film podsumowujący całe wydarzenie z publikacją na YouTube oraz trzy pionowe reelsy z wywiadami, skrojone pod Social Media. Jeden twórca, spójny materiał: od planu zdjęciowego, przez realizację, po montaż i postprodukcję.",
+      "E-commerce All In to wydarzenie zorganizowane przez ICEA i Autopay na Enea Stadion w Poznaniu. Odpowiadałem za komplet materiału wideo: poziomy film podsumowujący z publikacją na YouTube oraz trzy pionowe reelsy z wywiadami pod Social Media. Na sali eventowej stanęło mobilne studio filmowe do wywiadów, a między rozmowami powstawała relacja z wydarzenia i ujęcia z drona, również w środku stadionu. Jeden twórca, spójny materiał: od planu zdjęciowego, przez realizację, po montaż i postprodukcję.",
+    scope: [
+      "Poziomy film (YouTube)",
+      "3 pionowe reelsy",
+      "Studio wywiadów na evencie",
+      "Dron wewnątrz stadionu",
+      "Montaż i postprodukcja",
+    ],
     thumbnail: "/images/portfolio/woohoo-autopay.jpg",
     gallery: [],
     process: [],
@@ -121,12 +128,12 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     ],
     caseStudy: {
-      client: "E-commerce All In — ICEA × Autopay",
+      client: "E-commerce All In (ICEA × Autopay)",
       industry: "Wydarzenie branżowe e-commerce, Enea Stadion w Poznaniu",
       challenge:
-        "Jedno wydarzenie, dwa światy dystrybucji: poziomy film podsumowujący na YouTube i pionowe reelsy z wywiadami pod Social Media — od jednego twórcy, w spójnym stylu.",
+        "Jeden dzień i trzy zadania naprzemiennie: relacja z wydarzenia, wywiady z ekspertami i ujęcia z drona, w tym loty wewnątrz stadionu. Do tego studio filmowe na sali eventowej: rozstawione tak, żeby nie przeszkadzało gościom, a tło kadru wyglądało jak w studiu.",
       solution:
-        "Pełna realizacja wideo: plan zdjęciowy, nagrania na miejscu, wywiady z ekspertami, montaż i postprodukcja. Efekt: film podsumowujący całe wydarzenie oraz trzy pionowe reelsy skrojone pod Instagram.",
+        "Mobilne studio wywiadów zbudowane na evencie i praca w rytmie: relacja, wywiad, dron i znów relacja. Z jednego dnia zdjęciowego powstał poziomy film podsumowujący na YouTube oraz trzy pionowe reelsy z wywiadami, spójne od planu po postprodukcję.",
       results: [
         { label: "film podsumowujący na YouTube", value: "1" },
         { label: "pionowe reelsy z wywiadami", value: "3" },
@@ -146,7 +153,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Fotografia produktowa półfabrykatów i detali z tworzyw sztucznych na stronę i do katalogu oraz film z hali produkcyjnej do prezentacji oferty klientom.",
     description:
-      "Artech Group to poznańskie centrum obróbki tworzyw sztucznych — frezowanie, toczenie i cięcie CNC płyt, wałków i detali dla przemysłu. Dla Artech zrealizowałem dwa rodzaje materiału: packshoty na białym tle — półfabrykaty i detale z różnych tworzyw, przygotowane pod stronę internetową i katalog produktowy — oraz film z hali produkcyjnej, który pokazuje park maszynowy i sposób pracy firmy. Wideo pracuje na stronie i w rozmowach handlowych: zamiast opisywać możliwości produkcyjne, Artech po prostu je pokazuje. Materiał powstał w dwóch sesjach, a spójna stylistyka zdjęć pozwala rozbudowywać katalog o kolejne produkty.",
+      "Artech Group to poznańskie centrum obróbki tworzyw sztucznych: frezowanie, toczenie i cięcie CNC płyt, wałków i detali dla przemysłu. Dla Artech zrealizowałem dwa rodzaje materiału. Pierwszy to packshoty na białym tle, czyli półfabrykaty i detale z różnych tworzyw przygotowane pod stronę internetową, katalog i sklep internetowy. Drugi to film z hali produkcyjnej, który pokazuje park maszynowy i sposób pracy firmy. Wideo pracuje na stronie i w rozmowach handlowych: zamiast opisywać możliwości produkcyjne, Artech po prostu je pokazuje.",
     badge: "Realizacja foto + wideo",
     scope: [
       "Packshoty na białym tle",
@@ -156,18 +163,18 @@ export const portfolioCategories: PortfolioCategory[] = [
     ],
     thumbnail: "/images/portfolio/artech/_F2A8937.jpg",
     gallery: [
-      { src: "/images/portfolio/artech/_F2A8912.jpg", alt: "Packshot na białym tle — niebieski detal z tworzywa sztucznego o skręconym kształcie (Artech Group)" },
-      { src: "/images/portfolio/artech/3.jpg", alt: "Packshot — zielona płyta z tworzywa sztucznego na białym tle, fotografia produktowa dla przemysłu" },
-      { src: "/images/portfolio/artech/8.jpg", alt: "Packshot — czerwony wałek z tworzywa sztucznego na białym tle, zdjęcie katalogowe" },
-      { src: "/images/portfolio/artech/_F2A8935.jpg", alt: "Packshot — niebieski pierścień z tworzywa o ażurowej strukturze, fotografia produktowa na białym tle" },
-      { src: "/images/portfolio/artech/1.jpg", alt: "Packshot — przezroczysta płyta z tworzywa sztucznego na białym tle (Artech Group)" },
-      { src: "/images/portfolio/artech/15.jpg", alt: "Packshot — niebieski wałek z tworzywa sztucznego na białym tle, zdjęcie do katalogu" },
-      { src: "/images/portfolio/artech/_F2A8937.jpg", alt: "Packshot — dwie ażurowe kule z tworzywa sztucznego na białym tle, fotografia produktowa" },
-      { src: "/images/portfolio/artech/33.jpg", alt: "Packshot — wałek z laminatu technicznego na białym tle, zdjęcie katalogowe dla przemysłu" },
-      { src: "/images/portfolio/artech/17.jpg", alt: "Packshot — biała płyta i wałek z tworzywa sztucznego na białym tle (Artech Group)" },
+      { src: "/images/portfolio/artech/_F2A8912.jpg", alt: "Packshot na białym tle, niebieski detal z tworzywa sztucznego o skręconym kształcie (Artech Group)" },
+      { src: "/images/portfolio/artech/3.jpg", alt: "Packshot, zielona płyta z tworzywa sztucznego na białym tle, fotografia produktowa dla przemysłu" },
+      { src: "/images/portfolio/artech/8.jpg", alt: "Packshot, czerwony wałek z tworzywa sztucznego na białym tle, zdjęcie katalogowe" },
+      { src: "/images/portfolio/artech/_F2A8935.jpg", alt: "Packshot, niebieski pierścień z tworzywa o ażurowej strukturze, fotografia produktowa na białym tle" },
+      { src: "/images/portfolio/artech/1.jpg", alt: "Packshot, przezroczysta płyta z tworzywa sztucznego na białym tle (Artech Group)" },
+      { src: "/images/portfolio/artech/15.jpg", alt: "Packshot, niebieski wałek z tworzywa sztucznego na białym tle, zdjęcie do katalogu" },
+      { src: "/images/portfolio/artech/_F2A8937.jpg", alt: "Packshot, dwie ażurowe kule z tworzywa sztucznego na białym tle, fotografia produktowa" },
+      { src: "/images/portfolio/artech/33.jpg", alt: "Packshot, wałek z laminatu technicznego na białym tle, zdjęcie katalogowe dla przemysłu" },
+      { src: "/images/portfolio/artech/17.jpg", alt: "Packshot, biała płyta i wałek z tworzywa sztucznego na białym tle (Artech Group)" },
     ],
     gallerySubtitle:
-      "Packshoty zrealizowane dla Artech Group — półfabrykaty i detale z tworzyw sztucznych na białym tle, pod stronę i katalog.",
+      "Packshoty zrealizowane dla Artech Group: półfabrykaty i detale z tworzyw sztucznych na białym tle, pod stronę, katalog i sklep.",
     process: [],
     pricingType: "tiers",
     faqs: [],
@@ -179,12 +186,13 @@ export const portfolioCategories: PortfolioCategory[] = [
       client: "Artech Group",
       industry: "Centrum obróbki tworzyw sztucznych CNC, Poznań",
       challenge:
-        "Spójne packshoty półfabrykatów i detali z tworzyw pod stronę internetową i katalog oraz film, który pokaże park maszynowy i sposób pracy firmom z przemysłu.",
+        "Spójne packshoty półfabrykatów i detali z tworzyw pod stronę internetową, katalog i sklep internetowy oraz film, który pokaże park maszynowy i sposób pracy firmom z przemysłu.",
       solution:
-        "Packshoty na białym tle w powtarzalnym setupie — płyty, wałki i detale z różnych tworzyw — oraz film z hali produkcyjnej do prezentacji oferty. Spójna stylistyka pozwala rozbudowywać katalog o kolejne produkty.",
+        "Packshoty płyt, wałków i detali z różnych tworzyw na białym tle, w powtarzalnym setupie, oraz film z hali produkcyjnej do prezentacji oferty. Spójna stylistyka pozwala rozbudowywać katalog o kolejne produkty.",
       results: [
+        { label: "packshotów produktów i półfabrykatów", value: "20" },
         { label: "film z produkcji na YouTube", value: "1" },
-        { label: "zastosowania: strona WWW i katalog produktowy", value: "2" },
+        { label: "zastosowania: strona WWW, katalog, sklep internetowy", value: "3" },
       ],
     },
     seo: {
@@ -198,20 +206,20 @@ export const portfolioCategories: PortfolioCategory[] = [
     label: "IDcom — headshoty zespołu",
     heroTitle: "IDcom — headshoty zespołu na trzech tłach",
     heroSubtitle:
-      "Sesja wizerunkowa zespołu poznańskiego software house'u — portrety na stronę internetową i do materiałów firmowych.",
+      "Sesja wizerunkowa zespołu poznańskiego software house'u: portrety na stronę internetową i do materiałów firmowych.",
     description:
-      "IDcom Group tworzy rozwiązania IT dla samorządów i biznesu. Zespół potrzebował portretów, które zadziałają w kilku miejscach naraz — na stronie internetowej i w materiałach firmowych. Zamiast jednej wersji zdjęć: jedna sesja, trzy tła. Białe — czyste i uniwersalne, czarne z niebieskim światłem — bardziej technologiczne, kremowe — cieplejsze i swobodniejsze. Każda osoba ma komplet kadrów w spójnym standardzie światła i retuszu, więc firma dobiera klimat do kontekstu zamiast wracać do studia.",
+      "IDcom Group tworzy rozwiązania IT dla samorządów i biznesu. Zespół potrzebował portretów, które zadziałają w kilku miejscach naraz: na stronie internetowej i w materiałach firmowych. Zamiast jednej wersji zdjęć powstała jedna sesja na trzech tłach. Białe jest czyste i uniwersalne, czarne z niebieskim światłem bardziej technologiczne, a kremowe cieplejsze i swobodniejsze. Każda osoba ma komplet kadrów w spójnym standardzie światła i retuszu, więc firma dobiera klimat do kontekstu zamiast wracać do studia.",
     thumbnail: "/images/portfolio/idcom/_F2A9376-Edit-2.jpg",
     gallery: [
-      { src: "/images/portfolio/idcom/_F2A9424-Edit-2.jpg", alt: "Portret członkini zespołu na białym tle — sesja wizerunkowa zespołu IDcom Group" },
-      { src: "/images/portfolio/idcom/_F2A9229-Edit-2.jpg", alt: "Portret biznesowy na czarnym tle z niebieskim światłem — sesja zespołowa IDcom Group" },
-      { src: "/images/portfolio/idcom/_F0I9883-Edit-2.jpg", alt: "Portret członkini zespołu na kremowym tle — zdjęcia zespołu na stronę firmową" },
-      { src: "/images/portfolio/idcom/_F2A9433-Edit-2.jpg", alt: "Headshot członka zespołu na białym tle — spójne portrety pracowników firmy IT" },
-      { src: "/images/portfolio/idcom/_F2A9264-Edit-2.jpg", alt: "Headshot na czarnym tle z niebieskim akcentem światła — portrety zespołu software house'u" },
-      { src: "/images/portfolio/idcom/_F2A9376-Edit-2.jpg", alt: "Naturalny, uśmiechnięty portret na kremowym tle — sesja wizerunkowa zespołu IT" },
+      { src: "/images/portfolio/idcom/_F2A9424-Edit-2.jpg", alt: "Portret członkini zespołu na białym tle, sesja wizerunkowa zespołu IDcom Group" },
+      { src: "/images/portfolio/idcom/_F2A9229-Edit-2.jpg", alt: "Portret biznesowy na czarnym tle z niebieskim światłem, sesja zespołowa IDcom Group" },
+      { src: "/images/portfolio/idcom/_F0I9883-Edit-2.jpg", alt: "Portret członkini zespołu na kremowym tle, zdjęcia zespołu na stronę firmową" },
+      { src: "/images/portfolio/idcom/_F2A9433-Edit-2.jpg", alt: "Headshot członka zespołu na białym tle, spójne portrety pracowników firmy IT" },
+      { src: "/images/portfolio/idcom/_F2A9264-Edit-2.jpg", alt: "Headshot na czarnym tle z niebieskim akcentem światła, portrety zespołu software house'u" },
+      { src: "/images/portfolio/idcom/_F2A9376-Edit-2.jpg", alt: "Naturalny, uśmiechnięty portret na kremowym tle, sesja wizerunkowa zespołu IT" },
     ],
     gallerySubtitle:
-      "Sześć kadrów z sesji dla IDcom Group — ten sam zespół na trzech tłach: białym, czarnym z niebieskim światłem i kremowym.",
+      "Sześć kadrów z sesji dla IDcom Group: ten sam zespół na trzech tłach, białym, czarnym z niebieskim światłem i kremowym.",
     galleryAspect: "portrait",
     tileImagePosition: "top",
     process: [],
@@ -219,11 +227,11 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [],
     caseStudy: {
       client: "IDcom Group",
-      industry: "Software house — IT dla samorządów i biznesu, Poznań",
+      industry: "Software house, IT dla samorządów i biznesu (Poznań)",
       challenge:
-        "Portrety zespołu, które muszą działać w kilku kontekstach naraz — na stronie internetowej i w materiałach firmowych — i utrzymać jeden standard dla wszystkich osób.",
+        "Portrety zespołu, które muszą działać w kilku kontekstach naraz, na stronie internetowej i w materiałach firmowych, i utrzymać jeden standard dla wszystkich osób.",
       solution:
-        "Jedna sesja, trzy tła: białe, czarne z niebieskim światłem i kremowe. Każda osoba otrzymała kadry w trzech klimatach — uniwersalnym, technologicznym i cieplejszym — przy zachowaniu tego samego światła, kadrowania i retuszu.",
+        "Jedna sesja, trzy tła: białe, czarne z niebieskim światłem i kremowe. Każda osoba otrzymała kadry w trzech klimatach, od uniwersalnego po cieplejszy, przy zachowaniu tego samego światła, kadrowania i retuszu.",
       results: [
         { label: "tła zdjęciowe w jednej sesji", value: "3" },
         { label: "zastosowania: strona WWW i materiały firmowe", value: "2" },
@@ -232,7 +240,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     seo: {
       title: "IDcom — headshoty zespołu na 3 tłach | Marcin Szabunia",
       description:
-        "Case study sesji wizerunkowej zespołu IDcom Group (Poznań): portrety na trzech tłach — białym, czarnym z niebieskim światłem i kremowym — na stronę WWW i materiały firmowe.",
+        "Case study sesji wizerunkowej zespołu IDcom Group (Poznań): portrety na trzech tłach (białym, czarnym z niebieskim światłem i kremowym) na stronę WWW i materiały firmowe.",
     },
   },
   {
@@ -242,35 +250,35 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Wnętrza, nagrodzony stek i portrety szefa kuchni dla steakhouse'u w poznańskich Starych Koszarach. Zdjęcia trafiły na profil restauracji w przewodniku Michelin.",
     description:
-      "Yes Butcher! Shop & Bistro to steakhouse i sklep mięsny w Starych Koszarach — poznański oddział warszawskiej marki, obecny w przewodniku Michelin. Brief obejmował komplet materiału w jeden dzień zdjęciowy, w działającym lokalu: budynek z drona, wnętrza obu sal — od baru i otwartej kuchni po szafę do sezonowania mięsa — portrety szefa kuchni oraz bohatera karty: stek ribeye nagrodzony w World Steak Challenge 2025, w firmowym pudełku z certyfikatem. Jedna sesja pokryła cztery rodzaje fotografii, a zdjęcia pracują na profilu Michelin i w reklamach restauracji.",
+      "Yes Butcher! Shop & Bistro to steakhouse i sklep mięsny w Starych Koszarach, poznański oddział warszawskiej marki, obecny w przewodniku Michelin. Brief obejmował komplet materiału w jeden dzień zdjęciowy, w działającym lokalu: budynek z drona, wnętrza obu sal (od baru i otwartej kuchni po szafę do sezonowania mięsa), portrety szefa kuchni oraz bohatera karty, czyli stek ribeye nagrodzony w World Steak Challenge 2025, w firmowym pudełku z certyfikatem. Jedna sesja pokryła cztery rodzaje fotografii, a zdjęcia pracują na profilu Michelin i w reklamach restauracji.",
     thumbnail: "/images/portfolio/yes-butcher/yes-butcher-43.jpg",
     heroAspect: "portrait",
-    tileImage: "/images/portfolio/yes-butcher/yes-butcher-37.jpg",
+    tileImage: "/images/portfolio/yes-butcher/yes-butcher-tile.jpg",
     proofLink: {
       label: "Zobacz profil Yes Butcher! w przewodniku Michelin",
       url: "https://guide.michelin.com/en/wielkopolskie/poznan_2395985/restaurant/yes-butcher",
     },
     gallery: [
-      { src: "/images/portfolio/yes-butcher/yes-butcher-02.jpg", alt: "Budynek Yes Butcher! w Starych Koszarach z drona — ceglana fasada i rzeźba byka przed wejściem, Poznań" },
-      { src: "/images/portfolio/yes-butcher/yes-butcher-34.jpg", alt: "Otwarta kuchnia i bar bistro Yes Butcher! — fotografia wnętrz restauracji, Poznań" },
-      { src: "/images/portfolio/yes-butcher/yes-butcher-37.jpg", alt: "Sala główna bistro ze złotymi żyrandolami i ladą mięsną — zdjęcia wnętrz dla gastronomii" },
-      { src: "/images/portfolio/yes-butcher/yes-butcher-14.jpg", alt: "Zielona sala restauracji Yes Butcher! z drewnianymi belkami — fotografia wnętrz dla przewodnika Michelin" },
-      { src: "/images/portfolio/yes-butcher/yes-butcher-27.jpg", alt: "Bar i szafa do sezonowania mięsa w steakhousie Yes Butcher! — fotografia restauracji" },
-      { src: "/images/portfolio/yes-butcher/yes-butcher-44.jpg", alt: "Stek ribeye nagrodzony w World Steak Challenge 2025 w firmowym pudełku Yes Butcher! — fotografia produktowa dla gastronomii" },
-      { src: "/images/portfolio/yes-butcher/yes-butcher-15.jpg", alt: "Sala restauracji z ceglaną ścianą i łukowym oknem — fotografia wnętrz, Stare Koszary Poznań" },
-      { src: "/images/portfolio/yes-butcher/yes-butcher-39.jpg", alt: "Wnętrze steakhouse'u z pikowanymi sofami i barem — sesja zdjęciowa dla restauracji" },
-      { src: "/images/portfolio/yes-butcher/yes-butcher-31.jpg", alt: "Lada mięsna i gabloty butcher shopu Yes Butcher! z neonem na podłodze — fotografia wnętrz dla gastronomii" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-02.jpg", alt: "Budynek Yes Butcher! w Starych Koszarach z drona, ceglana fasada i rzeźba byka przed wejściem, Poznań" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-34.jpg", alt: "Otwarta kuchnia i bar bistro Yes Butcher!, fotografia wnętrz restauracji, Poznań" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-37.jpg", alt: "Sala główna bistro ze złotymi żyrandolami i ladą mięsną, zdjęcia wnętrz dla gastronomii" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-14.jpg", alt: "Zielona sala restauracji Yes Butcher! z drewnianymi belkami, fotografia wnętrz dla przewodnika Michelin" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-27.jpg", alt: "Bar i szafa do sezonowania mięsa w steakhousie Yes Butcher!, fotografia restauracji" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-44.jpg", alt: "Stek ribeye nagrodzony w World Steak Challenge 2025 w firmowym pudełku Yes Butcher!, fotografia produktowa dla gastronomii" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-15.jpg", alt: "Sala restauracji z ceglaną ścianą i łukowym oknem, fotografia wnętrz, Stare Koszary Poznań" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-39.jpg", alt: "Wnętrze steakhouse'u z pikowanymi sofami i barem, sesja zdjęciowa dla restauracji" },
+      { src: "/images/portfolio/yes-butcher/yes-butcher-31.jpg", alt: "Lada mięsna i gabloty butcher shopu Yes Butcher! z neonem na podłodze, fotografia wnętrz dla gastronomii" },
     ],
     gallerySubtitle:
-      "Kadry z sesji dla Yes Butcher! — od ujęcia z drona, przez wnętrza bistro, po nagrodzony stek. Kliknij, żeby zobaczyć pełne kadry.",
+      "Kadry z sesji dla Yes Butcher! Od ujęcia z drona, przez wnętrza bistro i butcher shopu, po nagrodzony stek. Kliknij, żeby zobaczyć pełne kadry.",
     process: [],
     pricingType: "tiers",
     faqs: [],
     caseStudy: {
       client: "Yes Butcher! Shop & Bistro",
-      industry: "Gastronomia — steakhouse i butcher shop, Poznań (Stare Koszary)",
+      industry: "Gastronomia: steakhouse i butcher shop, Poznań (Stare Koszary)",
       challenge:
-        "Komplet zdjęć pod profil w przewodniku Michelin i materiały promocyjne: budynek, wnętrza, danie popisowe i ludzie — wszystko w jeden dzień, w działającym lokalu.",
+        "Komplet zdjęć pod profil w przewodniku Michelin i materiały promocyjne: budynek, wnętrza, danie popisowe i ludzie. Wszystko w jeden dzień, w działającym lokalu.",
       solution:
         "Jedna sesja, cztery rodzaje fotografii: ujęcie budynku z drona, wnętrza obu sal w naturalnym klimacie lokalu, portrety szefa kuchni oraz zdjęcia produktowe steka ribeye nagrodzonego w World Steak Challenge 2025.",
       results: [
