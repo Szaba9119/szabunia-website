@@ -168,7 +168,11 @@ export default function GalleryView({
               ))}
           </div>
 
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-5">
+          <div
+            className={`mt-8 grid grid-cols-2 gap-5 ${
+              videos.filter((v) => v.vertical).length >= 5 ? "md:grid-cols-5" : "md:grid-cols-4"
+            }`}
+          >
             {videos
               .filter((v) => v.vertical)
               .map((v) => (
