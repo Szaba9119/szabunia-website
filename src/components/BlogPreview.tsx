@@ -5,10 +5,24 @@ import { PARALLAX } from "@/lib/motion";
 import BlogCard from "./BlogCard";
 import { blogPosts } from "@/data/blog";
 
+// Na home pokazujemy wpisy z największym potencjałem kliknięć
+// (cena = intencja zakupowa, AI = ciekawość, przygotowanie = praktyczny evergreen).
+const FEATURED_BLOG_SLUGS = [
+  "ile-kosztuje-sesja-wizerunkowa-dla-firmy",
+  "zdjecia-ai-vs-profesjonalna-sesja",
+  "jak-przygotowac-sie-do-sesji-biznesowej",
+];
+
 export default function BlogPreview() {
-  const latest = [...blogPosts]
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-    .slice(0, 3);
+  const featured = FEATURED_BLOG_SLUGS.map((slug) =>
+    blogPosts.find((p) => p.slug === slug)
+  ).filter((p): p is (typeof blogPosts)[number] => Boolean(p));
+  const latest =
+    featured.length === 3
+      ? featured
+      : [...blogPosts]
+          .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+          .slice(0, 3);
 
   return (
     <section id="blog" className="py-12 md:py-16 px-4">

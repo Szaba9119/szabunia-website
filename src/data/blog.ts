@@ -607,6 +607,72 @@ export const blogPosts: BlogPost[] = [
     },
   },
   {
+    slug: "slownik-pojec-wideo",
+    title: "Co to jest b-roll? Słownik pojęć wideo, które warto znać",
+    excerpt:
+      "Reels, b-roll, color grading, teaser, setka. Krótki słownik pojęć, które padają przy zamawianiu wideo dla firmy, wyjaśniony prostym językiem, bez branżowego żargonu.",
+    category: "poradnik",
+    date: "2026-06-12",
+    readTime: 7,
+    thumbnail: "/images/blog/slownik-pojec-wideo.jpg",
+    content: `
+      <p class="lead">Zamawiasz wideo dla firmy i nagle z oferty wyskakują słowa: b-roll, color grading, setka, recap. Branża wideo ma swój żargon, ale Ty nie musisz go znać, żeby dobrze zamówić. Oto słownik pojęć, które najczęściej padają w rozmowach o filmach dla firm, wyjaśniony prostym językiem.</p>
+
+      <h2>Reels (rolka)</h2>
+      <p>Krótkie pionowe wideo pod Instagram, TikTok i YouTube Shorts, zwykle do 30 sekund. Najszybciej rosnący format w social media i podstawa większości firmowych strategii wideo. Przykład: trzy pionowe reelsy z wywiadami, które zrealizowałem dla wydarzenia <a href="/portfolio/woohoo-autopay">E-commerce All In</a>.</p>
+
+      <h2>Format pionowy i poziomy (9:16 i 16:9)</h2>
+      <p>Proporcje kadru. Pionowy 9:16 to standard telefonu: reelsy, stories, Shorts. Poziomy 16:9 to YouTube, strona internetowa i prezentacje. Ten sam materiał rzadko działa dobrze w obu naraz, dlatego formaty planuje się przed zdjęciami, a nie po nich. Więcej w tekście o <a href="/blog/wideo-marketing-dla-firm-formaty">formatach wideo dla firm</a>.</p>
+
+      <h2>B-roll</h2>
+      <p>Ujęcia uzupełniające: detale biura, dłonie przy pracy, maszyny w ruchu, przebitki z eventu. Same w sobie nie opowiadają historii, ale to one sprawiają, że film nie jest jedną gadającą głową. Im lepszy b-roll, tym dynamiczniejszy montaż.</p>
+
+      <h2>Setka (talking head)</h2>
+      <p>Wypowiedź wprost do kamery: ekspert, prezes, uczestnik eventu. Nazwa pochodzi z żargonu telewizyjnego, po angielsku mówi się talking head. Setki najlepiej nagrywać w kontrolowanych warunkach, dlatego na eventach buduję mobilne studio do filmowania z porządnym światłem i dźwiękiem.</p>
+
+      <h2>Teaser</h2>
+      <p>Bardzo krótka zapowiedź, do 15 sekund. Pojedyncze najmocniejsze ujęcia, dynamiczny montaż, logo i data. Idealny do podgrzania atmosfery przed wydarzeniem albo jako szybka reklama. W moim cenniku to najtańszy pakiet montażowy.</p>
+
+      <h2>Event recap (aftermovie)</h2>
+      <p>Film podsumowujący wydarzenie, zwykle do 60-90 sekund: najlepsze momenty, emocje, skala. Pokazuje sponsorom i przyszłym uczestnikom, dlaczego warto być na kolejnej edycji. Przykład znajdziesz w <a href="/portfolio/woohoo-autopay">realizacji dla E-commerce All In</a>.</p>
+
+      <h2>Film wizerunkowy</h2>
+      <p>Dłuższa forma o firmie: kim jesteście, jak pracujecie, dlaczego warto Wam zaufać. Działa na stronie internetowej i w rozmowach handlowych. Dobry przykład to <a href="/portfolio/artech-fotografia-produktowa">film z hali produkcyjnej dla Artech Group</a>: zamiast opisywać park maszynowy, firma po prostu go pokazuje.</p>
+
+      <h2>Montaż</h2>
+      <p>Składanie nagranego materiału w gotowy film: wybór ujęć, rytm, muzyka, napisy, dźwięk. To na montażu film zyskuje tempo i sens, dlatego w moich pakietach wideo montaż i postprodukcja są zawsze w cenie, z ustalonymi turami poprawek.</p>
+
+      <h2>Color grading</h2>
+      <p>Nadawanie filmowi spójnego charakteru kolorystycznego: cieplejszy i bardziej kinowy albo chłodny i technologiczny. To ostatni etap postprodukcji, dzięki któremu materiał wygląda profesjonalnie i spójnie z marką.</p>
+
+      <h2>Gimbal (stabilizacja)</h2>
+      <p>Urządzenie, które utrzymuje kamerę w idealnie płynnym ruchu. Dzięki niemu ujęcia z przejść po biurze czy evencie wyglądają filmowo, a nie jak z ręki. Standard przy każdej mojej realizacji wideo.</p>
+
+      <h2>Ujęcia z drona</h2>
+      <p>Zdjęcia i wideo z powietrza: budynek firmy, teren zakładu, skala wydarzenia. Latam dronem DJI z certyfikatem A1/A3 i ubezpieczeniem OC operatora, więc strona formalna jest po mojej stronie. Przy odpowiednich zgodach da się latać nawet w środku obiektu, jak przy <a href="/portfolio/woohoo-autopay">evencie na Enea Stadion</a>, gdzie dron latał wewnątrz stadionu.</p>
+
+      <h2>Mikroport</h2>
+      <p>Mały bezprzewodowy mikrofon przypinany do ubrania osoby mówiącej. To różnica między dźwiękiem, którego da się słuchać, a takim, który ginie w echu sali. Przy wywiadach i setkach to pozycja obowiązkowa.</p>
+
+      <h2>Voice-over (lektor)</h2>
+      <p>Głos czytający tekst poza kadrem. Prowadzi widza przez film, kiedy nie ma wypowiedzi do kamery albo trzeba połączyć różne wątki w jedną historię.</p>
+
+      <h2>Napisy</h2>
+      <p>Większość ludzi ogląda wideo w social media bez dźwięku, dlatego napisy to nie dodatek, tylko standard. Dobre napisy są zsynchronizowane, czytelne na telefonie i spójne z identyfikacją marki.</p>
+
+      <h2>Tury poprawek</h2>
+      <p>Liczba rund uwag, które możesz zgłosić do montażu w cenie. U mnie wideo ma 3 tury poprawek w cenie, a w praktyce pierwsza prawie zawsze wystarcza, bo zakres i styl ustalamy przed realizacją.</p>
+
+      <h2>Nie musisz znać żargonu</h2>
+      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan realizacji. Zobacz <a href="/uslugi/wideo-marketing">ofertę wideo marketingu</a> i <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, oszacuj koszt w <a href="/kalkulator">kalkulatorze wyceny</a> albo po prostu <a href="/kontakt">napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
+    `,
+    seo: {
+      title: "Co to jest b-roll? Słownik pojęć wideo | Marcin Szabunia",
+      description:
+        "Reels, b-roll, color grading, teaser, setka, recap, gimbal. Słownik pojęć wideo marketingu dla firm wyjaśniony prostym językiem, bez żargonu.",
+    },
+  },
+  {
     slug: "co-to-jest-packshot",
     title: "Co to jest packshot? Słownik pojęć fotografii, które warto znać",
     excerpt:
@@ -689,6 +755,7 @@ export const blogServiceMap: Record<string, string> = {
   "co-zalozyc-na-sesje-biznesowa": "wizerunek-portrety",
   "zdjecia-na-strone-firmowa": "wizerunek-portrety",
   "co-to-jest-packshot": "fotografia-produktowa",
+  "slownik-pojec-wideo": "wideo-marketing",
 };
 
 /** Slug usługi powiązanej z danym wpisem (lub undefined). */

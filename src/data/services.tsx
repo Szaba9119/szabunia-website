@@ -81,7 +81,7 @@ export const serviceCategories: ServiceData[] = [
       { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni roboczych. Ekspres do 48h za dodatkową opłatą (+50%)." },
       { q: "Czy mogę użyć zdjęć na LinkedIn i stronie?", a: "Tak. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
     ],
-    portfolioSlug: "sesja-wizerunkowa",
+    portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
       title: "Wizerunek & Portrety biznesowe — Marcin Szabunia | Poznań",
       description: "Profesjonalne portrety biznesowe, headshoty i personal branding. Sesje w studiu lub mobilnym studio w biurze. Poznań i cała Polska.",
@@ -89,6 +89,7 @@ export const serviceCategories: ServiceData[] = [
   },
   {
     slug: "pakiety-foto-wideo",
+    portfolioSlug: "woohoo-autopay",
     galleryCategory: "eventy",
     title: "Pakiety Foto + Wideo",
     subtitle:
@@ -206,7 +207,7 @@ export const serviceCategories: ServiceData[] = [
       { q: "Ile zdjęć otrzymam?", a: "Średnio 50-100 zdjęć na godzinę. Wszystkie wyselekcjonowane i poddane postprodukcji." },
       { q: "Czy pakiet całodniowy się opłaca?", a: "Przy 8h standardowo byłoby 3 400 zł. Pakiet to 2 800 zł, oszczędzasz 600 zł." },
     ],
-    portfolioSlug: "fotografia-eventowa",
+    portfolioSlug: "woohoo-autopay",
     seo: {
       title: "Fotografia eventowa & reportaże — Marcin Szabunia | Poznań",
       description: "Profesjonalna fotografia eventowa, konferencje, targi, gale. Reportaż + live editing na Social Media. Poznań i cała Polska.",
@@ -272,7 +273,7 @@ export const serviceCategories: ServiceData[] = [
       { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 3m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
       { q: "Czy zdjęcia będą spójne dla całego zespołu?", a: "Tak, identyczne oświetlenie i tło. Spójne headshoty na stronie i w materiałach firmowych." },
     ],
-    portfolioSlug: "sesja-korporacyjna",
+    portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
       title: "Sesje zespołowe & headshoty firmowe — Marcin Szabunia | Poznań",
       description: "Profesjonalne headshoty zespołu w Twoim biurze. Mobilne studio, spójne zdjęcia, 10-15 min na osobę. Poznań i cała Polska.",
@@ -280,6 +281,7 @@ export const serviceCategories: ServiceData[] = [
   },
   {
     slug: "wideo-marketing",
+    portfolioSlug: "woohoo-autopay",
     galleryCategory: "wideo",
     title: "Wideo marketing",
     subtitle:
@@ -401,7 +403,7 @@ export const serviceCategories: ServiceData[] = [
       { q: "Ile produktów dziennie jesteś w stanie zrealizować?", a: "Packshoty na białym tle: 30-50 produktów/dzień. Zdjęcia kreatywne: 8-15 ujęć/dzień." },
       { q: "Czym różni się fotografia produktowa od fotografii reklamowej?", a: "Fotografia produktowa pokazuje produkt wprost, packshot na białym tle do sklepu czy katalogu. Fotografia reklamowa buduje wokół produktu historię: aranżacja, rekwizyty, światło pod konkretną kampanię. Zdjęcia reklamowe wyceniam według pola eksploatacji, inaczej na Social Media, inaczej do druku i na outdoor." },
     ],
-    portfolioSlug: "packshoty-produktowe",
+    portfolioSlug: "artech-fotografia-produktowa",
     seo: {
       title: "Fotografia produktowa & packshoty — Marcin Szabunia | Poznań",
       description: "Packshoty na białym tle, zdjęcia kreatywne i fotografia reklamowa produktów. E-commerce, katalogi, Social Media, kampanie. Studio w Poznaniu.",
