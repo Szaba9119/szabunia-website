@@ -6,29 +6,30 @@ import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
 import { portfolioItems } from "@/data/portfolio";
+import type { PortfolioItem } from "@/data/portfolio";
 
 const blurPlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
 
-// Na home pokazujemy na razie tylko jedno, dopracowane case study.
-// Kolejne kafelki wrócą, gdy podstrony realizacji będą gotowe.
-const FEATURED_SLUG = "woohoo-autopay";
+// Na home pokazujemy dopracowane case studies (podstrony realizacji gotowe).
+const FEATURED_SLUGS = ["woohoo-autopay", "artech-fotografia-produktowa"];
 
 export default function Portfolio() {
-  const featured =
-    portfolioItems.find((item) => item.slug === FEATURED_SLUG) ?? portfolioItems[0];
-  if (!featured) return null;
+  const featured = FEATURED_SLUGS.map((slug) =>
+    portfolioItems.find((item) => item.slug === slug)
+  ).filter((item): item is PortfolioItem => Boolean(item));
+  if (featured.length === 0) return null;
 
-  const tile = (
+  const tile = (item: PortfolioItem) => (
     <>
       <Parallax distance={PARALLAX.accent} direction="up" className="absolute inset-0">
         <div className="absolute inset-0 scale-[1.15]">
           <Image
-            src={featured.image}
-            alt={featured.label}
+            src={item.image}
+            alt={item.label}
             fill
             className="object-cover transition-transform duration-500 group-hover:scale-105"
-            sizes="(max-width: 1200px) 100vw, 1152px"
+            sizes="(max-width: 768px) 100vw, 576px"
             quality={85}
             placeholder="blur"
             blurDataURL={blurPlaceholder}
@@ -36,7 +37,7 @@ export default function Portfolio() {
         </div>
       </Parallax>
       <div className="absolute bottom-0 left-0 right-0 bg-navy/85 backdrop-blur-sm text-white px-4 py-3 text-[13px] font-barlow font-semibold flex items-center justify-between gap-3">
-        <span>{featured.label}</span>
+        <span>{item.label}</span>
         <span className="text-white/70 text-xs shrink-0">Zobacz case study →</span>
       </div>
     </>
@@ -56,23 +57,35 @@ export default function Portfolio() {
           </Parallax>
         </AnimatedSection>
 
-        <AnimatedSection className="group relative overflow-hidden rounded-2xl bg-border dark:bg-dark-card h-[260px] md:h-[420px]">
-          {featured.externalUrl ? (
-            <a
-              href={featured.externalUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full h-full"
-              aria-label={`${featured.label} (otwiera się w nowej karcie)`}
+        <div
+          className={`grid grid-cols-1 gap-3 ${
+            featured.length > 1 ? "md:grid-cols-2" : ""
+          }`}
+        >
+          {featured.map((item, i) => (
+            <AnimatedSection
+              key={item.slug}
+              delay={i * 0.1}
+              className="group relative overflow-hidden rounded-2xl bg-border dark:bg-dark-card h-[260px] md:h-[340px]"
             >
-              {tile}
-            </a>
-          ) : (
-            <Link href={`/portfolio/${featured.slug}`} className="block w-full h-full">
-              {tile}
-            </Link>
-          )}
-        </AnimatedSection>
+              {item.externalUrl ? (
+                <a
+                  href={item.externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full h-full"
+                  aria-label={`${item.label} (otwiera się w nowej karcie)`}
+                >
+                  {tile(item)}
+                </a>
+              ) : (
+                <Link href={`/portfolio/${item.slug}`} className="block w-full h-full">
+                  {tile(item)}
+                </Link>
+              )}
+            </AnimatedSection>
+          ))}
+        </div>
 
         <AnimatedSection
           delay={0.15}
