@@ -606,6 +606,63 @@ export const blogPosts: BlogPost[] = [
         "Jakich zdjęć potrzebuje strona internetowa firmy: hero, zespół, biuro, produkty, realizacje. Lista sekcja po sekcji i dlaczego warto zrezygnować ze stocków.",
     },
   },
+  {
+    slug: "co-to-jest-packshot",
+    title: "Co to jest packshot? Słownik pojęć fotografii, które warto znać",
+    excerpt:
+      "Packshot, lifestyle, headshot, brief, RAW, retusz. Krótki słownik pojęć, które padają przy zamawianiu zdjęć dla firmy, wyjaśniony prostym językiem, bez branżowego żargonu.",
+    category: "poradnik",
+    date: "2026-06-11",
+    readTime: 7,
+    thumbnail: "/images/blog/co-to-jest-packshot.jpg",
+    content: `
+      <p class="lead">Zamawiasz zdjęcia dla firmy i nagle z oferty wyskakują słowa: packshot, lifestyle, poseboard, live editing. Branża fotograficzna lubi swój żargon, ale Ty nie musisz go znać, żeby dobrze zamówić. Oto słownik pojęć, które najczęściej padają w rozmowach z klientami, wyjaśniony prostym językiem.</p>
+
+      <h2>Packshot</h2>
+      <p>Zdjęcie produktu na jednolitym, najczęściej białym tle. Czyste, powtarzalne, bez rozpraszaczy: sam produkt, idealnie oświetlony. To podstawa karty produktu w sklepie internetowym i standard wymagany przez większość marketplace'ów. Packshot odpowiada na pytanie „jak dokładnie wygląda ta rzecz". W mojej ofercie znajdziesz go w <a href="/uslugi/fotografia-produktowa">fotografii produktowej</a>, od 55 zł za sztukę przy większych seriach.</p>
+
+      <h2>Zdjęcie lifestyle</h2>
+      <p>Przeciwieństwo packshota: produkt pokazany w użyciu, w realnej scenerii. Kubek na stole przy porannej kawie, kosmetyk w dłoni, butelka na evencie. Lifestyle buduje emocje i kontekst, packshot podaje fakty. Dobry sklep potrzebuje obu, o czym piszę więcej w tekście o <a href="/blog/fotografia-produktowa-ecommerce">fotografii produktowej dla e-commerce</a>.</p>
+
+      <h2>Headshot</h2>
+      <p>Portret od ramion w górę, z twarzą zajmującą większość kadru. Standard na LinkedIn, stronę firmową i materiały prasowe. Dobry headshot buduje zaufanie zanim ktokolwiek przeczyta Twoje CV czy ofertę. Sprawdź, <a href="/blog/headshoty-linkedin-konwersja">jak headshot wpływa na konwersję na LinkedIn</a>.</p>
+
+      <h2>Sesja wizerunkowa i personal branding</h2>
+      <p>Szersza wersja sesji portretowej: nie tylko twarz, ale cały wizerunek eksperta lub marki osobistej. Różne kadry, stylizacje i scenerie do wykorzystania na stronie, w social media i materiałach sprzedażowych. Więcej w opisie <a href="/uslugi/wizerunek-portrety">sesji wizerunkowych</a>.</p>
+
+      <h2>Brief</h2>
+      <p>Krótki opis tego, czego potrzebujesz: cel zdjęć, gdzie będą używane, termin, lokalizacja, liczba osób lub produktów. Nie musi być formalnym dokumentem, wystarczy kilka zdań w mailu. Dobry brief to połowa udanej sesji, bo fotograf od początku wie, na czym Ci zależy.</p>
+
+      <h2>Poseboard</h2>
+      <p>Zestaw przykładowych póz i kadrów, który przygotowuję przed sesją portretową. Dzięki niemu nie musisz zastanawiać się, co zrobić z rękami: na planie po prostu odtwarzamy sprawdzone ustawienia dopasowane do Twojego celu. Dostajesz go gratis przy każdej sesji portretowej.</p>
+
+      <h2>Reportaż (fotoreportaż)</h2>
+      <p>Styl fotografowania wydarzeń, w którym fotograf dokumentuje to, co dzieje się naprawdę, bez ustawiania i pozowania. Naturalne emocje, networking, przemówienia, kuluary. Standard na konferencjach i galach. Porównanie z sesją eventową znajdziesz <a href="/blog/fotografia-eventowa-vs-reportaz">w osobnym wpisie</a>.</p>
+
+      <h2>Live editing</h2>
+      <p>Obróbka i dostarczanie zdjęć jeszcze w trakcie wydarzenia. Organizator dostaje gotowe kadry do publikacji w social media, zanim event się skończy. Opcja dodatkowa przy <a href="/uslugi/eventy-reportaze">reportażach eventowych</a>, wyceniana za zdjęcie.</p>
+
+      <h2>Mobilne studio</h2>
+      <p>Pełny zestaw studyjny (tło, oświetlenie, stanowisko), który przywożę do Twojego biura. Rozstawienie zajmuje około 30 minut, a zespół fotografuje się na miejscu, bez wysyłania ludzi przez pół miasta. Podstawa <a href="/uslugi/sesje-zespolowe">sesji zespołowych</a>.</p>
+
+      <h2>RAW</h2>
+      <p>Surowy plik z aparatu, cyfrowy odpowiednik negatywu. Zawiera pełne dane obrazu, ale wymaga obróbki i nie nadaje się do bezpośredniej publikacji. Fotografowie standardowo nie przekazują RAW-ów, tak jak drukarnia nie oddaje projektów otwartych: oddaję gotowy, spójny materiał po autorskiej postprodukcji.</p>
+
+      <h2>Retusz i postprodukcja</h2>
+      <p>Postprodukcja to cała obróbka po sesji: selekcja, kolory, kontrast, kadrowanie. Retusz to jej precyzyjna część dotycząca detali: niedoskonałości skóry, refleksy na okularach, drobne poprawki tła. W moich pakietach każde finalne zdjęcie przechodzi oba etapy, a w cenie masz ustalone tury poprawek.</p>
+
+      <h2>Licencja</h2>
+      <p>Określa, gdzie i jak możesz używać zdjęć. W moim standardzie licencja obejmuje pełny użytek komercyjny: strona www, social media, druk, reklama online, bez limitów czasowych. Szerszy zakres (np. ogólnopolska kampania outdoor) ustalamy indywidualnie przy wycenie.</p>
+
+      <h2>Nie musisz znać żargonu</h2>
+      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan sesji. Oszacuj koszt w <a href="/kalkulator">kalkulatorze wyceny</a> albo po prostu <a href="/kontakt">napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
+    `,
+    seo: {
+      title: "Co to jest packshot? Słownik pojęć fotografii | Marcin Szabunia",
+      description:
+        "Packshot, lifestyle, headshot, brief, RAW, retusz, licencja. Słownik pojęć fotografii biznesowej i produktowej wyjaśniony prostym językiem, bez żargonu.",
+    },
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
@@ -631,6 +688,7 @@ export const blogServiceMap: Record<string, string> = {
   "zdjecia-ai-vs-profesjonalna-sesja": "wizerunek-portrety",
   "co-zalozyc-na-sesje-biznesowa": "wizerunek-portrety",
   "zdjecia-na-strone-firmowa": "wizerunek-portrety",
+  "co-to-jest-packshot": "fotografia-produktowa",
 };
 
 /** Slug usługi powiązanej z danym wpisem (lub undefined). */
