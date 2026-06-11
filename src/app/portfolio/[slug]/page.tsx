@@ -95,15 +95,19 @@ export default async function PortfolioPage({ params }: PageProps) {
           image: `https://szabunia.pl${category.thumbnail}`,
         },
         breadcrumb,
-        {
-          "@context": "https://schema.org",
-          "@type": "FAQPage",
-          mainEntity: category.faqs.map((f) => ({
-            "@type": "Question",
-            name: f.q,
-            acceptedAnswer: { "@type": "Answer", text: f.a },
-          })),
-        },
+        ...(category.faqs.length > 0
+          ? [
+              {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                mainEntity: category.faqs.map((f) => ({
+                  "@type": "Question",
+                  name: f.q,
+                  acceptedAnswer: { "@type": "Answer", text: f.a },
+                })),
+              },
+            ]
+          : []),
       ];
 
   return (
@@ -122,6 +126,7 @@ export default async function PortfolioPage({ params }: PageProps) {
                   images={category.gallery}
                   title={category.label}
                   subtitle={category.gallerySubtitle}
+                  aspect={category.galleryAspect}
                 />
               </ErrorBoundary>
             )}
@@ -132,7 +137,12 @@ export default async function PortfolioPage({ params }: PageProps) {
               <PortfolioHero category={category} />
             </ErrorBoundary>
             <ErrorBoundary>
-              <PortfolioGallery images={category.gallery} title={category.label} />
+              <PortfolioGallery
+                images={category.gallery}
+                title={category.label}
+                subtitle={category.gallerySubtitle}
+                aspect={category.galleryAspect}
+              />
             </ErrorBoundary>
             {category.caseStudy && (
               <ErrorBoundary>

@@ -15,6 +15,9 @@ const blurPlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
 
 export default function PortfolioHero({ category }: Props) {
+  const hasPricing = Boolean(category.tiers?.length || category.tables?.length);
+  const heroAspect =
+    category.galleryAspect === "portrait" ? "aspect-[3/4] max-w-md mx-auto md:mx-0" : "aspect-[4/3]";
   return (
     <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4">
       <div className="max-w-5xl mx-auto">
@@ -55,7 +58,7 @@ export default function PortfolioHero({ category }: Props) {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="#cennik"
+                href={hasPricing ? "#cennik" : "/#cennik"}
                 className="bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
               >
                 Zobacz cennik
@@ -72,7 +75,7 @@ export default function PortfolioHero({ category }: Props) {
           {/* Image */}
           <AnimatedSection delay={0.15}>
             <Parallax distance={PARALLAX.subtle} direction="up">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-border dark:bg-dark-card">
+              <div className={`relative ${heroAspect} rounded-2xl overflow-hidden bg-border dark:bg-dark-card`}>
                 <Image
                   src={category.thumbnail}
                   alt={category.label}

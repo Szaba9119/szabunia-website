@@ -51,6 +51,8 @@ export interface PortfolioCategory {
   gallery: GalleryImage[];
   /** Podtytuł sekcji galerii (domyślnie: „Wybrane realizacje z kategorii: …") */
   gallerySubtitle?: string;
+  /** Proporcje kafli galerii: poziome 4:3 (domyślne) lub pionowe 3:4 (portrety) */
+  galleryAspect?: "landscape" | "portrait";
   process: ProcessStep[];
   pricingType: "tiers" | "table";
   tiers?: PricingTier[];
@@ -157,6 +159,48 @@ export const portfolioCategories: PortfolioCategory[] = [
       title: "Artech — packshoty i film z produkcji | Marcin Szabunia",
       description:
         "Case study dla Artech Group (Poznań): packshoty półfabrykatów i detali z tworzyw sztucznych na stronę WWW i do katalogu oraz film z hali produkcyjnej.",
+    },
+  },
+  {
+    slug: "idcom-headshoty-zespolu",
+    label: "IDcom — headshoty zespołu",
+    heroTitle: "IDcom — headshoty zespołu na trzech tłach",
+    heroSubtitle:
+      "Sesja wizerunkowa zespołu poznańskiego software house'u — portrety na stronę internetową i do materiałów firmowych.",
+    description:
+      "IDcom Group tworzy rozwiązania IT dla samorządów i biznesu. Zespół potrzebował portretów, które zadziałają w kilku miejscach naraz — na stronie internetowej i w materiałach firmowych. Zamiast jednej wersji zdjęć: jedna sesja, trzy tła. Białe — czyste i uniwersalne, czarne z niebieskim światłem — bardziej technologiczne, kremowe — cieplejsze i swobodniejsze. Każda osoba ma komplet kadrów w spójnym standardzie światła i retuszu, więc firma dobiera klimat do kontekstu zamiast wracać do studia.",
+    thumbnail: "/images/portfolio/idcom/_F2A9229-Edit-2.jpg",
+    gallery: [
+      { src: "/images/portfolio/idcom/_F2A9424-Edit-2.jpg", alt: "Portret członkini zespołu na białym tle — sesja wizerunkowa zespołu IDcom Group" },
+      { src: "/images/portfolio/idcom/_F2A9229-Edit-2.jpg", alt: "Portret biznesowy na czarnym tle z niebieskim światłem — sesja zespołowa IDcom Group" },
+      { src: "/images/portfolio/idcom/_F0I9883-Edit-2.jpg", alt: "Portret członkini zespołu na kremowym tle — zdjęcia zespołu na stronę firmową" },
+      { src: "/images/portfolio/idcom/_F2A9433-Edit-2.jpg", alt: "Headshot członka zespołu na białym tle — spójne portrety pracowników firmy IT" },
+      { src: "/images/portfolio/idcom/_F2A9264-Edit-2.jpg", alt: "Headshot na czarnym tle z niebieskim akcentem światła — portrety zespołu software house'u" },
+      { src: "/images/portfolio/idcom/_F2A9376-Edit-2.jpg", alt: "Naturalny, uśmiechnięty portret na kremowym tle — sesja wizerunkowa zespołu IT" },
+    ],
+    gallerySubtitle:
+      "Sześć kadrów z sesji dla IDcom Group — ten sam zespół na trzech tłach: białym, czarnym z niebieskim światłem i kremowym.",
+    galleryAspect: "portrait",
+    process: [],
+    pricingType: "tiers",
+    faqs: [],
+    caseStudy: {
+      client: "IDcom Group",
+      industry: "Software house — IT dla samorządów i biznesu, Poznań",
+      challenge:
+        "Portrety zespołu, które muszą działać w kilku kontekstach naraz — na stronie internetowej i w materiałach firmowych — i utrzymać jeden standard dla wszystkich osób.",
+      solution:
+        "Jedna sesja, trzy tła: białe, czarne z niebieskim światłem i kremowe. Każda osoba otrzymała kadry w trzech klimatach — uniwersalnym, technologicznym i cieplejszym — przy zachowaniu tego samego światła, kadrowania i retuszu.",
+      results: [
+        { label: "tła zdjęciowe w jednej sesji", value: "3" },
+        { label: "osób z zespołu w pokazanych kadrach", value: "5" },
+        { label: "konteksty użycia: strona WWW i materiały firmowe", value: "2" },
+      ],
+    },
+    seo: {
+      title: "IDcom — headshoty zespołu na 3 tłach | Marcin Szabunia",
+      description:
+        "Case study sesji wizerunkowej zespołu IDcom Group (Poznań): portrety na trzech tłach — białym, czarnym z niebieskim światłem i kremowym — na stronę WWW i materiały firmowe.",
     },
   },
   {

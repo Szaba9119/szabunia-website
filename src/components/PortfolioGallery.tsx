@@ -13,12 +13,15 @@ interface Props {
   title: string;
   /** Własny podtytuł sekcji; domyślnie „Wybrane realizacje z kategorii: …" */
   subtitle?: string;
+  /** Proporcje kafli: poziome 4:3 (domyślne) lub pionowe 3:4 (portrety) */
+  aspect?: "landscape" | "portrait";
 }
 
 const blurPlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
 
-export default function PortfolioGallery({ images, title, subtitle }: Props) {
+export default function PortfolioGallery({ images, title, subtitle, aspect = "landscape" }: Props) {
+  const tileAspect = aspect === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]";
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
@@ -67,7 +70,7 @@ export default function PortfolioGallery({ images, title, subtitle }: Props) {
             <AnimatedSection key={img.src} delay={0.08 * i}>
               <button
                 onClick={() => setLightboxIndex(i)}
-                className="group relative aspect-[4/3] rounded-2xl overflow-hidden bg-border dark:bg-dark-card w-full cursor-pointer"
+                className={`group relative ${tileAspect} rounded-2xl overflow-hidden bg-border dark:bg-dark-card w-full cursor-pointer`}
                 aria-label={`Otwórz zdjęcie: ${img.alt}`}
               >
                 <Image
@@ -88,7 +91,7 @@ export default function PortfolioGallery({ images, title, subtitle }: Props) {
           {/* Placeholder tile when few images */}
           {images.length < 3 && (
             <AnimatedSection delay={0.08 * images.length}>
-              <div className="aspect-[4/3] rounded-2xl bg-navy/5 dark:bg-dark-card border border-dashed border-border dark:border-dark-border flex flex-col items-center justify-center text-center px-4">
+              <div className={`${tileAspect} rounded-2xl bg-navy/5 dark:bg-dark-card border border-dashed border-border dark:border-dark-border flex flex-col items-center justify-center text-center px-4`}>
                 <span className="text-steel dark:text-dark-text-muted text-2xl mb-2">+</span>
                 <span className="text-steel dark:text-dark-text-muted text-[13px] font-barlow font-semibold">
                   Więcej zdjęć wkrótce

@@ -13,6 +13,8 @@ interface Props {
 export default function PortfolioFAQ({ faqs }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  if (faqs.length === 0) return null;
+
   return (
     <section className="py-12 md:py-24 px-4">
       <div className="max-w-2xl mx-auto">
