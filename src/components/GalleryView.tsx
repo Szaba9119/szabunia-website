@@ -2,6 +2,8 @@
 
 import { useState, useCallback, useEffect, useRef, useSyncExternalStore } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import YouTubeFacade from "./YouTubeFacade";
 import type { GalleryVideo } from "@/data/galeria";
 
 export interface SizedImage {
@@ -146,36 +148,52 @@ export default function GalleryView({
         ))}
       </div>
 
-      {/* Wideo */}
+      {/* Wideo — odtwarzanie na miejscu (fasada), bez wyrzucania na YouTube */}
       {active === "wideo" ? (
-        <div className="flex flex-wrap justify-center gap-4">
-          {videos.map((v) => (
-            <a
-              key={v.youtubeId}
-              href={`https://www.youtube.com/watch?v=${v.youtubeId}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${v.title} (otwiera na YouTube w nowej karcie)`}
-              className={`group relative block rounded-2xl overflow-hidden border border-border dark:border-dark-border bg-navy ${
-                v.vertical ? "aspect-[9/16] w-[220px]" : "aspect-video w-full sm:w-[460px]"
-              }`}
+        <div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            {videos
+              .filter((v) => !v.vertical)
+              .map((v) => (
+                <div key={v.youtubeId}>
+                  <YouTubeFacade id={v.youtubeId} title={v.title} className="mt-0" />
+                  <p className="mt-2.5 text-[13px] font-barlow font-semibold text-navy dark:text-white">
+                    {v.title}
+                  </p>
+                </div>
+              ))}
+          </div>
+
+          <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-5">
+            {videos
+              .filter((v) => v.vertical)
+              .map((v) => (
+                <div key={v.youtubeId}>
+                  <YouTubeFacade id={v.youtubeId} title={v.title} vertical className="mt-0" />
+                  <p className="mt-2.5 text-[13px] font-barlow font-semibold text-navy dark:text-white">
+                    {v.title}
+                  </p>
+                </div>
+              ))}
+          </div>
+
+          <p className="mt-10 text-center text-[14px] text-steel dark:text-dark-text-muted">
+            Zobacz pełne realizacje wideo:{" "}
+            <Link
+              href="/portfolio/woohoo-autopay"
+              className="text-blue dark:text-blue-light font-barlow font-semibold hover:underline"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`}
-                alt={v.title}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/15 flex items-center justify-center">
-                <span className="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm border border-white/40 flex items-center justify-center text-white group-hover:bg-blue group-hover:border-blue transition-colors">
-                  <svg className="w-6 h-6 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </span>
-              </div>
-            </a>
-          ))}
+              E-commerce All-in
+            </Link>{" "}
+            i{" "}
+            <Link
+              href="/portfolio/artech-fotografia-produktowa"
+              className="text-blue dark:text-blue-light font-barlow font-semibold hover:underline"
+            >
+              Artech
+            </Link>
+            .
+          </p>
         </div>
       ) : (
         /* Zdjęcia — masonry z kolejnością rzędami */

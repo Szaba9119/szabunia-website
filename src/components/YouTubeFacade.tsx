@@ -6,11 +6,25 @@ import { useState } from "react";
  * Lekka „fasada" osadzenia YouTube: do kliknięcia pokazuje tylko miniaturę + przycisk play.
  * Ciężki player YouTube (i jego cookies) ładuje się dopiero po kliknięciu — szybsze wejście na stronę i lepsza prywatność.
  */
-export default function YouTubeFacade({ id, title }: { id: string; title: string }) {
+export default function YouTubeFacade({
+  id,
+  title,
+  vertical = false,
+  className = "mt-8",
+}: {
+  id: string;
+  title: string;
+  /** Format pionowy 9:16 (reelsy) zamiast domyślnego 16:9 */
+  vertical?: boolean;
+  /** Nadpisanie zewnętrznych klas (domyślnie mt-8) */
+  className?: string;
+}) {
   const [play, setPlay] = useState(false);
 
   return (
-    <div className="relative aspect-video rounded-2xl overflow-hidden bg-navy ring-1 ring-border dark:ring-dark-border shadow-xl mt-8">
+    <div
+      className={`relative ${vertical ? "aspect-[9/16]" : "aspect-video"} rounded-2xl overflow-hidden bg-navy ring-1 ring-border dark:ring-dark-border shadow-xl ${className}`}
+    >
       {play ? (
         <iframe
           className="absolute inset-0 w-full h-full"
