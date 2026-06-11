@@ -57,6 +57,10 @@ export interface PortfolioCategory {
   heroAspect?: "landscape" | "portrait";
   /** Zewnętrzny dowód realizacji (np. publikacja) — link pod CTA w hero */
   proofLink?: { label: string; url: string };
+  /** Osobna miniatura dla kafli (home, /portfolio) — domyślnie thumbnail */
+  tileImage?: string;
+  /** Kotwiczenie kadru w kaflach: "top" dla pionowych portretów (głowa zostaje w kadrze) */
+  tileImagePosition?: "top" | "center";
   process: ProcessStep[];
   pricingType: "tiers" | "table";
   tiers?: PricingTier[];
@@ -116,6 +120,19 @@ export const portfolioCategories: PortfolioCategory[] = [
         desc: "Realne hamulce wzrostu wg liderów branży: rosnące koszty pozyskania klienta, trudniejsze skalowanie, spadająca konwersja, dużo danych i mało decyzji, operacje, które nie nadążają.",
       },
     ],
+    caseStudy: {
+      client: "E-commerce All In — ICEA × Autopay",
+      industry: "Wydarzenie branżowe e-commerce, Enea Stadion w Poznaniu",
+      challenge:
+        "Jedno wydarzenie, dwa światy dystrybucji: poziomy film podsumowujący na YouTube i pionowe reelsy z wywiadami pod Social Media — od jednego twórcy, w spójnym stylu.",
+      solution:
+        "Pełna realizacja wideo: plan zdjęciowy, nagrania na miejscu, wywiady z ekspertami, montaż i postprodukcja. Efekt: film podsumowujący całe wydarzenie oraz trzy pionowe reelsy skrojone pod Instagram.",
+      results: [
+        { label: "film podsumowujący na YouTube", value: "1" },
+        { label: "pionowe reelsy z wywiadami", value: "3" },
+        { label: "formaty dystrybucji: YouTube i Instagram", value: "2" },
+      ],
+    },
     seo: {
       title: "E-commerce All-in (ICEA × Autopay) — realizacja wideo | Marcin Szabunia",
       description:
@@ -159,6 +176,19 @@ export const portfolioCategories: PortfolioCategory[] = [
       youtubeId: "ivvZQ5lQ7FE",
       title: "Artech — film z hali produkcyjnej (obróbka tworzyw sztucznych)",
     },
+    caseStudy: {
+      client: "Artech Group",
+      industry: "Centrum obróbki tworzyw sztucznych CNC, Poznań",
+      challenge:
+        "Spójne packshoty półfabrykatów i detali z tworzyw pod stronę internetową i katalog oraz film, który pokaże park maszynowy i sposób pracy firmom z przemysłu.",
+      solution:
+        "Packshoty na białym tle w powtarzalnym setupie — płyty, wałki i detale z różnych tworzyw — oraz film z hali produkcyjnej do prezentacji oferty. Spójna stylistyka pozwala rozbudowywać katalog o kolejne produkty.",
+      results: [
+        { label: "packshotów w tym case study", value: "10" },
+        { label: "film z produkcji na YouTube", value: "1" },
+        { label: "sesje zdjęciowe (2023 i 2024)", value: "2" },
+      ],
+    },
     seo: {
       title: "Artech — packshoty i film z produkcji | Marcin Szabunia",
       description:
@@ -185,6 +215,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     gallerySubtitle:
       "Sześć kadrów z sesji dla IDcom Group — ten sam zespół na trzech tłach: białym, czarnym z niebieskim światłem i kremowym.",
     galleryAspect: "portrait",
+    tileImagePosition: "top",
     process: [],
     pricingType: "tiers",
     faqs: [],
@@ -217,6 +248,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       "Yes Butcher! Shop & Bistro to steakhouse i sklep mięsny w Starych Koszarach — poznański oddział warszawskiej marki, obecny w przewodniku Michelin. Brief obejmował komplet materiału w jeden dzień zdjęciowy, w działającym lokalu: budynek z drona, wnętrza obu sal — od baru i otwartej kuchni po szafę do sezonowania mięsa — portrety szefa kuchni oraz bohatera karty: stek ribeye nagrodzony w World Steak Challenge 2025, w firmowym pudełku z certyfikatem. Jedna sesja pokryła cztery rodzaje fotografii, a zdjęcia pracują na profilu Michelin i w reklamach restauracji.",
     thumbnail: "/images/portfolio/yes-butcher/yes-butcher-43.jpg",
     heroAspect: "portrait",
+    tileImage: "/images/portfolio/yes-butcher/yes-butcher-37.jpg",
     proofLink: {
       label: "Zobacz profil Yes Butcher! w przewodniku Michelin",
       url: "https://guide.michelin.com/en/wielkopolskie/poznan_2395985/restaurant/yes-butcher",
@@ -547,13 +579,15 @@ export function getCategoryBySlug(slug: string): PortfolioCategory | undefined {
 export interface PortfolioItem {
   label: string;
   image: string;
+  imagePosition?: "top" | "center";
   slug: string;
   externalUrl?: string;
 }
 
 export const portfolioItems: PortfolioItem[] = portfolioCategories.map((c) => ({
   label: c.label,
-  image: c.thumbnail,
+  image: c.tileImage ?? c.thumbnail,
+  imagePosition: c.tileImagePosition,
   slug: c.slug,
   externalUrl: c.externalUrl,
 }));

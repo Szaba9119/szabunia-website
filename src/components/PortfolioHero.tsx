@@ -16,10 +16,10 @@ const blurPlaceholder =
 
 export default function PortfolioHero({ category }: Props) {
   const hasPricing = Boolean(category.tiers?.length || category.tables?.length);
-  const heroAspect =
-    (category.heroAspect ?? category.galleryAspect) === "portrait"
-      ? "aspect-[3/4] max-w-md mx-auto md:mx-0"
-      : "aspect-[4/3]";
+  const isPortrait = (category.heroAspect ?? category.galleryAspect) === "portrait";
+  const heroAspect = isPortrait ? "aspect-[3/4] max-w-md mx-auto md:mx-0" : "aspect-[4/3]";
+  // Pionowe kadry kotwiczymy do góry, żeby nie ucinać głów.
+  const heroObjectPosition = isPortrait ? "object-top" : "";
   return (
     <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4">
       <div className="max-w-5xl mx-auto">
@@ -94,7 +94,7 @@ export default function PortfolioHero({ category }: Props) {
                   alt={category.label}
                   fill
                   priority
-                  className="object-cover"
+                  className={`object-cover ${heroObjectPosition}`}
                   sizes="(max-width: 768px) 100vw, 50vw"
                   placeholder="blur"
                   blurDataURL={blurPlaceholder}

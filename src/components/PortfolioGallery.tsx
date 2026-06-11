@@ -22,6 +22,8 @@ const blurPlaceholder =
 
 export default function PortfolioGallery({ images, title, subtitle, aspect = "landscape" }: Props) {
   const tileAspect = aspect === "portrait" ? "aspect-[3/4]" : "aspect-[4/3]";
+  // Pionowe kadry kotwiczymy do góry — przy przycięciu gubimy stopy, nie głowy.
+  const objectPosition = aspect === "portrait" ? "object-top" : "";
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
@@ -77,7 +79,7 @@ export default function PortfolioGallery({ images, title, subtitle, aspect = "la
                   src={img.src}
                   alt={img.alt}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className={`object-cover ${objectPosition} transition-transform duration-500 group-hover:scale-105`}
                   sizes="(max-width: 768px) 50vw, 33vw"
                   quality={85}
                   placeholder="blur"

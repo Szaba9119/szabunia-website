@@ -33,7 +33,7 @@ export default function Portfolio() {
             src={item.image}
             alt={item.label}
             fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            className={`object-cover ${item.imagePosition === "top" ? "object-top" : ""} transition-transform duration-500 group-hover:scale-105`}
             sizes="(max-width: 768px) 100vw, 576px"
             quality={85}
             placeholder="blur"
