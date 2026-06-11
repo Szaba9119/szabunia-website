@@ -11,12 +11,14 @@ import type { GalleryImage } from "@/data/portfolio";
 interface Props {
   images: GalleryImage[];
   title: string;
+  /** Własny podtytuł sekcji; domyślnie „Wybrane realizacje z kategorii: …" */
+  subtitle?: string;
 }
 
 const blurPlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
 
-export default function PortfolioGallery({ images, title }: Props) {
+export default function PortfolioGallery({ images, title, subtitle }: Props) {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
@@ -56,7 +58,7 @@ export default function PortfolioGallery({ images, title }: Props) {
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
-            Wybrane realizacje z kategorii: {title.toLowerCase()}.
+            {subtitle ?? `Wybrane realizacje z kategorii: ${title.toLowerCase()}.`}
           </p>
         </AnimatedSection>
 

@@ -112,9 +112,20 @@ export default async function PortfolioPage({ params }: PageProps) {
       <Navigation />
       <main id="main">
         {category.video ? (
-          <ErrorBoundary>
-            <PortfolioVideoShowcase category={category} />
-          </ErrorBoundary>
+          <>
+            <ErrorBoundary>
+              <PortfolioVideoShowcase category={category} />
+            </ErrorBoundary>
+            {category.gallery.length > 0 && (
+              <ErrorBoundary>
+                <PortfolioGallery
+                  images={category.gallery}
+                  title={category.label}
+                  subtitle={category.gallerySubtitle}
+                />
+              </ErrorBoundary>
+            )}
+          </>
         ) : (
           <>
             <ErrorBoundary>

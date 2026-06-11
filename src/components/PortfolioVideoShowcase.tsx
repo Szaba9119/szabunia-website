@@ -4,7 +4,7 @@ import AnimatedSection from "./AnimatedSection";
 import YouTubeFacade from "./YouTubeFacade";
 import type { PortfolioCategory } from "@/data/portfolio";
 
-const scope = [
+const defaultScope = [
   "Poziomy film (YouTube)",
   "3 pionowe reelsy",
   "Wywiady",
@@ -18,6 +18,8 @@ export default function PortfolioVideoShowcase({
 }) {
   const video = category.video;
   const reels = category.reels ?? [];
+  const badge = category.badge ?? "Realizacja wideo";
+  const scope = category.scope ?? defaultScope;
   if (!video) return null;
 
   return (
@@ -41,7 +43,7 @@ export default function PortfolioVideoShowcase({
         {/* Header */}
         <AnimatedSection>
           <p className="text-[12px] font-barlow font-semibold uppercase tracking-[0.16em] text-blue dark:text-blue-light mb-3">
-            Realizacja wideo
+            {badge}
           </p>
           <h1 className="font-barlow font-extrabold text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-4">
             {category.heroTitle}

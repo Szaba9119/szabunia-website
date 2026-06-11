@@ -49,6 +49,8 @@ export interface PortfolioCategory {
   description: string;
   thumbnail: string;
   gallery: GalleryImage[];
+  /** Podtytuł sekcji galerii (domyślnie: „Wybrane realizacje z kategorii: …") */
+  gallerySubtitle?: string;
   process: ProcessStep[];
   pricingType: "tiers" | "table";
   tiers?: PricingTier[];
@@ -57,6 +59,10 @@ export interface PortfolioCategory {
   faqs: FAQItem[];
   caseStudy?: CaseStudy;
   video?: { youtubeId: string; title: string };
+  /** Nadtytuł nad H1 w widoku wideo (domyślnie: „Realizacja wideo") */
+  badge?: string;
+  /** Chipy zakresu w widoku wideo (domyślnie: zakres E-commerce All-in) */
+  scope?: string[];
   reels?: { url: string; title: string; cover: string; desc: string }[];
   seo: {
     title: string;
@@ -108,6 +114,49 @@ export const portfolioCategories: PortfolioCategory[] = [
       title: "E-commerce All-in (ICEA × Autopay) — realizacja wideo | Marcin Szabunia",
       description:
         "Case study realizacji wideo z wydarzenia E-commerce All-in (ICEA × Autopay) na Enea Stadion: poziomy film podsumowujący i trzy pionowe reelsy z wywiadami.",
+    },
+  },
+  {
+    slug: "artech-fotografia-produktowa",
+    label: "Artech — packshoty i film z produkcji",
+    heroTitle: "Artech — packshoty i film z produkcji",
+    heroSubtitle:
+      "Fotografia produktowa półfabrykatów i detali z tworzyw sztucznych na stronę i do katalogu oraz film z hali produkcyjnej do prezentacji oferty klientom.",
+    description:
+      "Artech Group to poznańskie centrum obróbki tworzyw sztucznych — frezowanie, toczenie i cięcie CNC płyt, wałków i detali dla przemysłu. Dla Artech zrealizowałem dwa rodzaje materiału: packshoty na białym tle — półfabrykaty i detale z różnych tworzyw, przygotowane pod stronę internetową i katalog produktowy — oraz film z hali produkcyjnej, który pokazuje park maszynowy i sposób pracy firmy. Wideo pracuje na stronie i w rozmowach handlowych: zamiast opisywać możliwości produkcyjne, Artech po prostu je pokazuje. Materiał powstał w dwóch sesjach, a spójna stylistyka zdjęć pozwala rozbudowywać katalog o kolejne produkty.",
+    badge: "Realizacja foto + wideo",
+    scope: [
+      "Packshoty na białym tle",
+      "Film z produkcji (YouTube)",
+      "Zdjęcia pod stronę i katalog",
+      "Montaż i postprodukcja",
+    ],
+    thumbnail: "/images/portfolio/artech/_F2A8912.jpg",
+    gallery: [
+      { src: "/images/portfolio/artech/_F2A8912.jpg", alt: "Packshot na białym tle — niebieski detal z tworzywa sztucznego o skręconym kształcie (Artech Group)" },
+      { src: "/images/portfolio/artech/3.jpg", alt: "Packshot — zielona płyta z tworzywa sztucznego na białym tle, fotografia produktowa dla przemysłu" },
+      { src: "/images/portfolio/artech/8.jpg", alt: "Packshot — czerwony wałek z tworzywa sztucznego na białym tle, zdjęcie katalogowe" },
+      { src: "/images/portfolio/artech/_F2A8935.jpg", alt: "Packshot — niebieski pierścień z tworzywa o ażurowej strukturze, fotografia produktowa na białym tle" },
+      { src: "/images/portfolio/artech/1.jpg", alt: "Packshot — przezroczysta płyta z tworzywa sztucznego na białym tle (Artech Group)" },
+      { src: "/images/portfolio/artech/15.jpg", alt: "Packshot — niebieski wałek z tworzywa sztucznego na białym tle, zdjęcie do katalogu" },
+      { src: "/images/portfolio/artech/_F2A8937.jpg", alt: "Packshot — dwie ażurowe kule z tworzywa sztucznego na białym tle, fotografia produktowa" },
+      { src: "/images/portfolio/artech/2.jpg", alt: "Packshot — szara matowa płyta z tworzywa sztucznego na białym tle, fotografia produktowa" },
+      { src: "/images/portfolio/artech/33.jpg", alt: "Packshot — wałek z laminatu technicznego na białym tle, zdjęcie katalogowe dla przemysłu" },
+      { src: "/images/portfolio/artech/17.jpg", alt: "Packshot — biała płyta i wałek z tworzywa sztucznego na białym tle (Artech Group)" },
+    ],
+    gallerySubtitle:
+      "Packshoty zrealizowane dla Artech Group — półfabrykaty i detale z tworzyw sztucznych na białym tle, pod stronę i katalog.",
+    process: [],
+    pricingType: "tiers",
+    faqs: [],
+    video: {
+      youtubeId: "ivvZQ5lQ7FE",
+      title: "Artech — film z hali produkcyjnej (obróbka tworzyw sztucznych)",
+    },
+    seo: {
+      title: "Artech — packshoty i film z produkcji | Marcin Szabunia",
+      description:
+        "Case study dla Artech Group (Poznań): packshoty półfabrykatów i detali z tworzyw sztucznych na stronę WWW i do katalogu oraz film z hali produkcyjnej.",
     },
   },
   {
