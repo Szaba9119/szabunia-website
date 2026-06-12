@@ -124,7 +124,7 @@ export default function Testimonials() {
           {/* Link do opinii Google — wspólny dla obu widoków (desktop) */}
           <div className="hidden md:block mt-6 text-center">
             <a
-              href="https://www.google.com/search?q=Marcin+Szabunia+fotograf+Pozna%C5%84+opinie"
+              href="https://g.page/r/CcGxT8A_KfJREBM/review"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-[13px] text-steel dark:text-dark-text-muted hover:text-blue dark:hover:text-blue-light transition-colors font-barlow font-semibold"
@@ -198,7 +198,7 @@ export default function Testimonials() {
             {/* Google Reviews link */}
             <div className="mt-6 text-center">
               <a
-                href="https://www.google.com/search?q=Marcin+Szabunia+fotograf+Pozna%C5%84+opinie"
+                href="https://g.page/r/CcGxT8A_KfJREBM/review"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-[13px] text-steel dark:text-dark-text-muted hover:text-blue dark:hover:text-blue-light transition-colors font-barlow font-semibold"
