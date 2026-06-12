@@ -57,6 +57,8 @@ export interface PortfolioCategory {
   heroAspect?: "landscape" | "portrait";
   /** Zewnętrzny dowód realizacji (np. publikacja) — link pod CTA w hero */
   proofLink?: { label: string; url: string };
+  /** Linki klienta (wizytówka, social, strona) — wiersz pod proofLink w hero */
+  clientLinks?: { label: string; url: string }[];
   /** Osobna miniatura dla kafli (home, /portfolio) — domyślnie thumbnail */
   tileImage?: string;
   /** Kotwiczenie kadru w kaflach: "top" dla pionowych portretów (głowa zostaje w kadrze) */
@@ -264,6 +266,11 @@ export const portfolioCategories: PortfolioCategory[] = [
       label: "Zobacz profil Yes Butcher! w przewodniku Michelin",
       url: "https://guide.michelin.com/en/wielkopolskie/poznan_2395985/restaurant/yes-butcher",
     },
+    clientLinks: [
+      { label: "Yes Butcher! Stare Koszary", url: "https://yesbutcher.pl/poznan-stare-koszary/" },
+      { label: "Instagram @yes.butcher.poznan", url: "https://www.instagram.com/yes.butcher.poznan/" },
+      { label: "Wizytówka Google", url: "https://share.google/FZ1wpt0vymfTgDuuO" },
+    ],
     gallery: [
       { src: "/images/portfolio/yes-butcher/yes-butcher-34.jpg", alt: "Otwarta kuchnia i bar bistro Yes Butcher!, fotografia wnętrz restauracji, Poznań" },
       { src: "/images/portfolio/yes-butcher/yes-butcher-37.jpg", alt: "Sala główna bistro ze złotymi żyrandolami i ladą mięsną, zdjęcia wnętrz dla gastronomii" },

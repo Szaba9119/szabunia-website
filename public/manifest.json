@@ -6,8 +6,8 @@
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
-  "background_color": "#0F172A",
-  "theme_color": "#0F172A",
+  "background_color": "#F9FAFB",
+  "theme_color": "#F9FAFB",
   "lang": "pl",
   "prefer_related_applications": false,
   "icons": [
@@ -29,5 +29,8 @@
       "purpose": "any"
     }
   ],
-  "categories": ["photography", "business"]
+  "categories": [
+    "photography",
+    "business"
+  ]
 }

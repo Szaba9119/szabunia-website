@@ -83,6 +83,23 @@ export default function PortfolioHero({ category }: Props) {
                 <span aria-hidden="true">↗</span>
               </a>
             )}
+            {category.clientLinks && category.clientLinks.length > 0 && (
+              <p className="mt-3 text-[13px] text-steel dark:text-dark-text-muted">
+                {category.clientLinks.map((link, i) => (
+                  <span key={link.url}>
+                    {i > 0 && <span aria-hidden="true"> · </span>}
+                    <a
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-2 hover:text-navy dark:hover:text-white transition-colors"
+                    >
+                      {link.label}
+                    </a>
+                  </span>
+                ))}
+              </p>
+            )}
           </AnimatedSection>
 
           {/* Image */}
