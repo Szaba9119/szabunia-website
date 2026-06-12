@@ -221,7 +221,7 @@ export const blogPosts: BlogPost[] = [
     category: "branża",
     date: "2025-05-05",
     readTime: 6,
-    thumbnail: "/images/blog/fotografia-przemyslowa-fabryka-2.jpg",
+    thumbnail: "/images/blog/fotografia-przemyslowa-fabryka-3.jpg",
     content: `
       <p class="lead">Fotografia przemysłowa to nie zdjęcia maszyn, to opowieść o ludziach, procesach i innowacji. Dobrze wykonane zdjęcia fabryki mogą odmienić stronę internetową, raport roczny czy materiały rekrutacyjne. Oto jak to robię.</p>
 
@@ -252,7 +252,6 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Jak się przygotować?</h2>
       <p>Przed sesją ustalam z klientem listę kluczowych ujęć: procesy produkcyjne, które chcemy pokazać, kluczowi pracownicy do portretów, produkty finalne. Dobry plan pozwala wykorzystać czas na hali maksymalnie efektywnie, bo produkcja nie czeka.</p>
-      <p>Zobacz też moje <a href="/portfolio/sesja-korporacyjna">realizacje sesji korporacyjnych</a> w przestrzeniach firmowych.</p>
     `,
     seo: {
       title: "Fotografia przemysłowa: jak pokazać fabrykę | Marcin Szabunia",
