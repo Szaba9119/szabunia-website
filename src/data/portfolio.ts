@@ -268,7 +268,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     },
     clientLinks: [
       { label: "Yes Butcher! Stare Koszary", url: "https://yesbutcher.pl/poznan-stare-koszary/" },
-      { label: "Instagram @yes.butcher.poznan", url: "https://www.instagram.com/yes.butcher.poznan/" },
+      { label: "@yes.butcher.poznan", url: "https://www.instagram.com/yes.butcher.poznan/" },
       { label: "Wizytówka Google", url: "https://share.google/FZ1wpt0vymfTgDuuO" },
     ],
     gallery: [

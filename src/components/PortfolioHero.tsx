@@ -14,6 +14,41 @@ interface Props {
 const blurPlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
 
+/** Ikona chipu linku klienta dobierana po adresie (Instagram / mapa / globus). */
+function ClientLinkIcon({ url }: { url: string }) {
+  const cls = "w-3.5 h-3.5 shrink-0";
+  const common = {
+    fill: "none",
+    viewBox: "0 0 24 24",
+    stroke: "currentColor",
+    strokeWidth: 1.8,
+    "aria-hidden": true as const,
+  };
+  if (url.includes("instagram.com")) {
+    return (
+      <svg className={cls} {...common}>
+        <rect x="3" y="3" width="18" height="18" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+  if (url.includes("share.google") || url.includes("maps.")) {
+    return (
+      <svg className={cls} {...common}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+      </svg>
+    );
+  }
+  return (
+    <svg className={cls} {...common}>
+      <circle cx="12" cy="12" r="9" />
+      <path strokeLinecap="round" d="M3 12h18M12 3c2.5 2.6 3.75 5.7 3.75 9S14.5 18.4 12 21c-2.5-2.6-3.75-5.7-3.75-9S9.5 5.6 12 3z" />
+    </svg>
+  );
+}
+
 export default function PortfolioHero({ category }: Props) {
   const hasPricing = Boolean(category.tiers?.length || category.tables?.length);
   const isPortrait = (category.heroAspect ?? category.galleryAspect) === "portrait";
@@ -84,21 +119,20 @@ export default function PortfolioHero({ category }: Props) {
               </a>
             )}
             {category.clientLinks && category.clientLinks.length > 0 && (
-              <p className="mt-3 text-[13px] text-steel dark:text-dark-text-muted">
-                {category.clientLinks.map((link, i) => (
-                  <span key={link.url}>
-                    {i > 0 && <span aria-hidden="true"> · </span>}
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline underline-offset-2 hover:text-navy dark:hover:text-white transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  </span>
+              <div className="mt-4 flex flex-wrap gap-2">
+                {category.clientLinks.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-border dark:border-dark-border bg-white dark:bg-dark-card text-[12px] font-barlow font-semibold text-steel dark:text-dark-text-muted hover:border-blue hover:text-blue dark:hover:border-blue-light dark:hover:text-blue-light transition-colors"
+                  >
+                    <ClientLinkIcon url={link.url} />
+                    {link.label}
+                  </a>
                 ))}
-              </p>
+              </div>
             )}
           </AnimatedSection>
 
