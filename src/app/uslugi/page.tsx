@@ -9,7 +9,7 @@ import Footer from "@/components/Footer";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 export const metadata: Metadata = {
-  title: "Usługi — fotografia biznesowa i wideo marketing | Marcin Szabunia Poznań",
+  title: "Usługi — fotografia biznesowa i wideo | Marcin Szabunia Poznań",
   description:
     "Pełna oferta dla firm: portrety biznesowe, sesje zespołowe, fotografia eventowa i produktowa, pakiety foto + wideo oraz wideo marketing. Poznań, cała Polska i Europa.",
   alternates: { canonical: "/uslugi" },

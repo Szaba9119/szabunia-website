@@ -559,7 +559,7 @@ export const blogPosts: BlogPost[] = [
       <p>Resztę przygotowań znajdziesz w poradniku <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>. Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">headshot pracuje na konwersję na LinkedIn</a>, i przejrzyj <a href="/portfolio/sesja-wizerunkowa">przykładowe realizacje</a>. Gotowy? <a href="/kontakt">Napisz do mnie</a>, umówimy termin.</p>
     `,
     seo: {
-      title: "Co założyć na sesję biznesową: przewodnik po stylizacji | Marcin Szabunia",
+      title: "Co założyć na sesję biznesową: stylizacje | Marcin Szabunia",
       description:
         "Jak ubrać się na sesję wizerunkową: kolory, które dobrze wyglądają na zdjęciach, fasony, materiały i błędy do uniknięcia. Praktyczny przewodnik krok po kroku.",
     },

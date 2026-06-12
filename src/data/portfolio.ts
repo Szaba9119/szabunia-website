@@ -141,7 +141,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       ],
     },
     seo: {
-      title: "E-commerce All-in (ICEA × Autopay) — realizacja wideo | Marcin Szabunia",
+      title: "E-commerce All-in — realizacja wideo | Marcin Szabunia",
       description:
         "Case study realizacji wideo dla Woohoo z wydarzenia E-commerce All-in (ICEA × Autopay) na Enea Stadion: poziomy film podsumowujący i trzy pionowe reelsy z wywiadami.",
     },
