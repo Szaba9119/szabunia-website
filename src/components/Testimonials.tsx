@@ -22,10 +22,10 @@ const testimonials = [
   },
   {
     quote:
-      "Marcin to bardzo pozytywny i utalentowany fotograf, miałam przyjemność współpracować z nim wiele razy. Liczę na więcej wspólnych sesji!",
-    author: "Natalia Tomczak",
-    meta: "Trenerka personalna i influencerka · Opinia Google",
-    initials: "NT",
+      "Miałam przyjemność współpracować z Marcinem już kilkukrotnie i sesje studyjne są pełne profesjonalizmu i zaangażowania. Marcin daje z siebie 100% i bardzo szybko przełamuje lody — nawet jeśli ktoś staje przed obiektywem po raz pierwszy. Polecam z pełnym przekonaniem!",
+    author: "Zuzanna Fortuniak",
+    meta: "Menedżerka ds. marketingu, Weranda · Opinia Google",
+    initials: "ZF",
   },
 ];
 

@@ -169,10 +169,10 @@ gtag('js',new Date());gtag('config','G-MD8FJ0CZG3');`,
                 },
                 {
                   "@type": "Review",
-                  author: { "@type": "Person", name: "Natalia Tomczak" },
+                  author: { "@type": "Person", name: "Zuzanna Fortuniak" },
                   reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
                   reviewBody:
-                    "Marcin to bardzo pozytywny i utalentowany fotograf, miałam przyjemność współpracować z nim wiele razy. Liczę na więcej wspólnych sesji!",
+                    "Miałam przyjemność współpracować z Marcinem już kilkukrotnie i sesje studyjne są pełne profesjonalizmu i zaangażowania. Marcin daje z siebie 100% i bardzo szybko przełamuje lody — nawet jeśli ktoś staje przed obiektywem po raz pierwszy. Polecam z pełnym przekonaniem!",
                 },
                 {
                   "@type": "Review",

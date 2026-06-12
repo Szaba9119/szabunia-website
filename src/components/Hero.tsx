@@ -58,7 +58,7 @@ export default function Hero() {
 
           <div className="flex items-center gap-3 mt-5">
             <div className="flex -space-x-2" aria-hidden="true">
-              {["MC", "NT", "MW"].map((initials) => (
+              {["MC", "ZF", "MW"].map((initials) => (
                 <div
                   key={initials}
                   className="w-7 h-7 rounded-full bg-border dark:bg-dark-border border-2 border-gray-bg dark:border-dark-bg flex items-center justify-center text-[9px] font-semibold text-steel dark:text-dark-text-muted"

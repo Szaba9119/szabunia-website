@@ -18,6 +18,20 @@ function escapeHtml(value: string): string {
     .replace(/"/g, "&quot;");
 }
 
+// Best-effort zapis leada do CRM (Google Sheets, Apps Script webhook).
+// Wymaga: CRM_WEBHOOK_URL + CRM_WEBHOOK_SECRET. Brak zmiennych = no-op.
+async function pushToCrm(lead: Record<string, string>): Promise<void> {
+  const url = process.env.CRM_WEBHOOK_URL;
+  const secret = process.env.CRM_WEBHOOK_SECRET;
+  if (!url || !secret) return;
+  await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify({ ...lead, secret }),
+    signal: AbortSignal.timeout(5000),
+  });
+}
+
 export async function POST(req: Request) {
   let data: Record<string, unknown>;
   try {
@@ -79,6 +93,13 @@ export async function POST(req: Request) {
       const detail = await res.text();
       console.error("Resend error:", res.status, detail);
       return NextResponse.json({ error: "Nie udało się wysłać" }, { status: 502 });
+    }
+
+    // Zapis do CRM — best-effort, nie blokuje sukcesu formularza.
+    try {
+      await pushToCrm({ name, email, phone, service, message, source: "contact" });
+    } catch (crmErr) {
+      console.error("CRM webhook error:", crmErr);
     }
 
     return NextResponse.json({ ok: true });

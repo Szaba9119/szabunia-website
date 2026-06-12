@@ -24,6 +24,20 @@ function isEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
+// Best-effort zapis leada do CRM (Google Sheets, Apps Script webhook).
+// Wymaga: CRM_WEBHOOK_URL + CRM_WEBHOOK_SECRET. Brak zmiennych = no-op.
+async function pushToCrm(lead: Record<string, string>): Promise<void> {
+  const url = process.env.CRM_WEBHOOK_URL;
+  const secret = process.env.CRM_WEBHOOK_SECRET;
+  if (!url || !secret) return;
+  await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "text/plain;charset=utf-8" },
+    body: JSON.stringify({ ...lead, secret }),
+    signal: AbortSignal.timeout(5000),
+  });
+}
+
 async function sendEmail(
   apiKey: string,
   payload: Record<string, unknown>
@@ -114,6 +128,13 @@ export async function POST(req: Request) {
       });
     } catch (notifyErr) {
       console.error("Resend notify error:", notifyErr);
+    }
+
+    // Zapis do CRM — best-effort, nie blokuje sukcesu.
+    try {
+      await pushToCrm({ name: "", email, source: "lead-magnet" });
+    } catch (crmErr) {
+      console.error("CRM webhook error:", crmErr);
     }
 
     return NextResponse.json({ ok: true });

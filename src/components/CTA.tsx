@@ -266,7 +266,7 @@ export default function CTA() {
                 {/* Social proof */}
                 <div className="flex items-center gap-3">
                   <div className="flex -space-x-2" aria-hidden="true">
-                    {["MC", "NT", "MW"].map((initials) => (
+                    {["MC", "ZF", "MW"].map((initials) => (
                       <div
                         key={initials}
                         className="w-8 h-8 rounded-full bg-border dark:bg-dark-border border-2 border-white dark:border-dark-card flex items-center justify-center text-[10px] text-steel dark:text-steel-light font-semibold"
