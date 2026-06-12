@@ -194,6 +194,12 @@ export const portfolioCategories: PortfolioCategory[] = [
         { label: "film z produkcji na YouTube", value: "1" },
         { label: "zastosowania: strona WWW, katalog, sklep internetowy", value: "3" },
       ],
+      testimonial: {
+        quote:
+          "Zdjęcia były robione na stronę internetową dla firmy. Profesjonalne podejście i ładne zdjęcia.",
+        author: "Małgorzata Wagner",
+        role: "CEO Artech Group — opinia Google",
+      },
     },
     seo: {
       title: "Artech — packshoty i film z produkcji | Marcin Szabunia",
