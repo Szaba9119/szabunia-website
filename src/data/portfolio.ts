@@ -198,7 +198,7 @@ export const portfolioCategories: PortfolioCategory[] = [
         quote:
           "Zdjęcia były robione na stronę internetową dla firmy. Profesjonalne podejście i ładne zdjęcia.",
         author: "Małgorzata Wagner",
-        role: "CEO Artech Group — opinia Google",
+        role: "Prezes Artech Group · opinia Google",
       },
     },
     seo: {

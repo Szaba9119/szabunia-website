@@ -10,21 +10,21 @@ const testimonials = [
     quote:
       "Jak zwykle profesjonalizm w każdym calu. Z Marcinem współpracuję od wielu lat. Serdecznie polecam.",
     author: "Maksymilian Chodziak",
-    meta: "Opinia Google",
+    meta: "Specjalista ds. marketingu · Opinia Google",
     initials: "MC",
   },
   {
     quote:
       "Zdjęcia były robione na stronę internetową dla firmy. Profesjonalne podejście i ładne zdjęcia.",
     author: "Małgorzata Wagner",
-    meta: "Opinia Google",
+    meta: "Prezes Artech Group · Opinia Google",
     initials: "MW",
   },
   {
     quote:
       "Marcin to bardzo pozytywny i utalentowany fotograf, miałam przyjemność współpracować z nim wiele razy. Liczę na więcej wspólnych sesji!",
     author: "Natalia Tomczak",
-    meta: "Opinia Google",
+    meta: "Trenerka personalna i influencerka · Opinia Google",
     initials: "NT",
   },
 ];
