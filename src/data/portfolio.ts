@@ -88,9 +88,9 @@ export const portfolioCategories: PortfolioCategory[] = [
     label: "E-commerce All-in — film z eventu i reelsy",
     heroTitle: "E-commerce All-in",
     heroSubtitle:
-      "Podsumowanie wideo wydarzenia E-commerce All In na Enea Stadion w Poznaniu: poziomy film i trzy pionowe reelsy z wywiadami.",
+      "Podsumowanie wideo wydarzenia E-commerce All In na Enea Stadion w Poznaniu: poziomy film i trzy pionowe reelsy z wywiadami. Realizacja dla Woohoo, partnera wydarzenia.",
     description:
-      "E-commerce All In to wydarzenie zorganizowane przez ICEA i Autopay na Enea Stadion w Poznaniu. Odpowiadałem za komplet materiału wideo: poziomy film podsumowujący z publikacją na YouTube oraz trzy pionowe reelsy z wywiadami pod Social Media. Na sali eventowej stanęło mobilne studio do filmowania wywiadów, a między rozmowami powstawała relacja z wydarzenia i ujęcia z drona, również w środku stadionu. Jeden twórca, spójny materiał: od planu zdjęciowego, przez realizację, po montaż i postprodukcję.",
+      "E-commerce All In to wydarzenie zorganizowane przez ICEA i Autopay na Enea Stadion w Poznaniu. Na zlecenie Woohoo, partnera wydarzenia, odpowiadałem za komplet materiału wideo: poziomy film podsumowujący z publikacją na YouTube oraz trzy pionowe reelsy z wywiadami na profil Woohoo. Na sali eventowej stanęło mobilne studio do filmowania wywiadów, a między rozmowami powstawała relacja z wydarzenia i ujęcia z drona, również w środku stadionu. Jeden twórca, spójny materiał: od planu zdjęciowego, przez realizację, po montaż i postprodukcję.",
     scope: [
       "Poziomy film (YouTube)",
       "3 pionowe reelsy",
@@ -128,8 +128,8 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     ],
     caseStudy: {
-      client: "E-commerce All In (ICEA × Autopay)",
-      industry: "Wydarzenie branżowe e-commerce, Enea Stadion w Poznaniu",
+      client: "Woohoo — partner wydarzenia E-commerce All In",
+      industry: "Wydarzenie branżowe e-commerce (org. ICEA i Autopay), Enea Stadion w Poznaniu",
       challenge:
         "Jeden wieczór i trzy zadania naprzemiennie: relacja z wydarzenia, wywiady z ekspertami i ujęcia z drona, w tym loty wewnątrz stadionu. Do tego mobilne studio do filmowania na sali eventowej: rozstawione tak, żeby nie przeszkadzało gościom, a tło kadru wyglądało jak w studiu.",
       solution:
@@ -143,7 +143,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     seo: {
       title: "E-commerce All-in (ICEA × Autopay) — realizacja wideo | Marcin Szabunia",
       description:
-        "Case study realizacji wideo z wydarzenia E-commerce All-in (ICEA × Autopay) na Enea Stadion: poziomy film podsumowujący i trzy pionowe reelsy z wywiadami.",
+        "Case study realizacji wideo dla Woohoo z wydarzenia E-commerce All-in (ICEA × Autopay) na Enea Stadion: poziomy film podsumowujący i trzy pionowe reelsy z wywiadami.",
     },
   },
   {
