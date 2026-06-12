@@ -54,7 +54,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Podsumowanie</h2>
       <p>Przygotowanie do sesji biznesowej nie wymaga godzin planowania. Wystarczy checklista powyżej i 30 minut na dobór stylizacji. Reszta to moja robota: zadbam o światło, kompozycję i klimat, który odda Twój profesjonalizm.</p>
-      <p>Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">profesjonalne headshoty zwiększają konwersję na LinkedIn</a>, albo przejrzyj moje <a href="/portfolio/sesja-wizerunkowa">realizacje sesji wizerunkowych</a>.</p>
+      <p>Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">profesjonalne headshoty zwiększają konwersję na LinkedIn</a>, albo przejrzyj moje <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a>.</p>
     `,
     seo: {
       title: "Jak przygotować się do sesji biznesowej: 7 wskazówek | Marcin Szabunia",
@@ -102,7 +102,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>ROI profesjonalnego headshota</h2>
       <p><a href="/uslugi/wizerunek-portrety">Sesja portretowa</a> kosztuje od 1 000 zł. Jeden nowy klient pozyskany dzięki lepszemu profilowi na LinkedIn zwraca tę inwestycję wielokrotnie. To jedna z najtańszych i najskuteczniejszych inwestycji w personal branding.</p>
-      <p>Zanim umówisz sesję, sprawdź, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, i zobacz <a href="/portfolio/sesja-wizerunkowa">przykładowe realizacje sesji wizerunkowych</a>.</p>
+      <p>Zanim umówisz sesję, sprawdź, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, i zobacz <a href="/galeria?kat=portrety">przykładowe realizacje sesji wizerunkowych</a>.</p>
     `,
     seo: {
       title: "Headshoty na LinkedIn: jak zwiększają konwersję | Marcin Szabunia",
@@ -131,7 +131,7 @@ export const blogPosts: BlogPost[] = [
         <li>Gale i bankiety</li>
         <li>Imprezy firmowe i team-buildingi</li>
       </ul>
-      <p><strong>Efekt:</strong> Naturalne, emocjonalne zdjęcia oddające atmosferę wydarzenia. Świetne na Social Media i <a href="/portfolio/fotografia-eventowa">relacje z eventów</a>.</p>
+      <p><strong>Efekt:</strong> Naturalne, emocjonalne zdjęcia oddające atmosferę wydarzenia. Świetne na Social Media i <a href="/galeria?kat=eventy">relacje z eventów</a>.</p>
 
       <h2>Sesja eventowa: kontrolowany kadr</h2>
       <p>Sesja eventowa to bardziej zaaranżowane podejście. Fotograf pracuje z uczestnikami, ustawia grupowe zdjęcia, robi portrety prelegentów, dokumentuje kluczowe momenty z najlepszej perspektywy.</p>
@@ -288,7 +288,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Bonus: jak zorganizować sesję zespołową?</h2>
       <p>Mogę przyjechać do Waszego biura z <a href="/uslugi/sesje-zespolowe">mobilnym studio</a>. Setup zajmuje ok. 30 minut, a potem fotografuję osoby jedna po drugiej. Zero stresu, zero logistyki po Waszej stronie. Gotowe zdjęcia w 14 dni.</p>
-      <p>Przejrzyj <a href="/portfolio/sesja-korporacyjna">realizacje sesji korporacyjnych</a> i daj znać, kiedy zaplanować sesję u Was.</p>
+      <p>Przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje sesji korporacyjnych</a> i daj znać, kiedy zaplanować sesję u Was.</p>
     `,
     seo: {
       title: "5 błędów przy zdjęciach zespołu: jak ich uniknąć | Marcin Szabunia",
@@ -347,7 +347,7 @@ export const blogPosts: BlogPost[] = [
     category: "branża",
     date: "2026-04-14",
     readTime: 6,
-    thumbnail: "/images/blog/fotografia-produktowa-ecommerce-2.jpg",
+    thumbnail: "/images/blog/fotografia-produktowa-ecommerce-3.jpg",
     content: `
       <p class="lead">W e-commerce klient nie weźmie produktu do ręki, ogląda go wyłącznie na zdjęciu. Dlatego <a href="/uslugi/fotografia-produktowa">fotografia produktowa</a> to nie koszt, lecz część maszyny sprzedażowej. Oto, co realnie robi dobre zdjęcie produktu i jak je zaplanować.</p>
 
@@ -370,7 +370,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Jak przygotować sesję produktową</h2>
       <p>Przed sesją ustalamy listę produktów, liczbę ujęć na produkt (front, tył, detale, w użyciu) i docelowe proporcje kadru pod Twój sklep. Dobry plan pozwala odfotografować większą partię sprawnie i bez chaosu.</p>
-      <p>Zobacz <a href="/portfolio/packshoty-produktowe">realizacje packshotów produktowych</a>, policz zakres w <a href="/kalkulator">kalkulatorze</a> i <a href="/kontakt">napisz, co chcesz sfotografować</a>.</p>
+      <p>Zobacz <a href="/portfolio/artech-fotografia-produktowa">realizacje packshotów produktowych</a>, policz zakres w <a href="/kalkulator">kalkulatorze</a> i <a href="/kontakt">napisz, co chcesz sfotografować</a>.</p>
     `,
     seo: {
       title: "Fotografia produktowa dla e-commerce a sprzedaż | Marcin Szabunia",
@@ -455,7 +455,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Logistyka i dojazd w Poznaniu</h2>
       <p>Bazuję w Poznaniu, więc dojazd na terenie miasta jest wliczony w cenę, niezależnie od tego, czy to studio, Twoje biuro, czy plener. Realizacje poza Poznaniem ustalamy indywidualnie. Przed sesją zawsze omawiamy lokalizację, żeby światło i tło grały na Twoją korzyść.</p>
-      <p>Zobacz <a href="/portfolio/sesja-wizerunkowa">realizacje sesji wizerunkowych</a> i <a href="/portfolio/sesja-korporacyjna">sesji korporacyjnych</a>, oszacuj zakres w <a href="/kalkulator">kalkulatorze</a>, a potem <a href="/kontakt">napisz, co chcesz osiągnąć</a>. Dobiorę miejsce pod Twój cel.</p>
+      <p>Zobacz <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> i <a href="/portfolio/idcom-headshoty-zespolu">sesji korporacyjnych</a>, oszacuj zakres w <a href="/kalkulator">kalkulatorze</a>, a potem <a href="/kontakt">napisz, co chcesz osiągnąć</a>. Dobiorę miejsce pod Twój cel.</p>
     `,
     seo: {
       title: "Sesja wizerunkowa Poznań: studio, biuro czy plener | Marcin Szabunia",
@@ -500,7 +500,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Werdykt</h2>
       <p>AI to narzędzie, nie zamiennik. Świetne do szkiców i zastosowań pomocniczych, słabe wszędzie tam, gdzie liczy się, że to naprawdę Ty. Twarz, która ma reprezentować Ciebie i Twoją firmę, warta jest jednej dobrej sesji.</p>
-      <p>Zobacz <a href="/portfolio/sesja-wizerunkowa">realizacje sesji wizerunkowych</a> albo od razu <a href="/kontakt">napisz, czego potrzebujesz</a>. Podpowiem, ile ujęć i wariantów realnie wystarczy.</p>
+      <p>Zobacz <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> albo od razu <a href="/kontakt">napisz, czego potrzebujesz</a>. Podpowiem, ile ujęć i wariantów realnie wystarczy.</p>
     `,
     seo: {
       title: "Zdjęcia AI vs profesjonalna sesja: co wybrać | Marcin Szabunia",
@@ -555,7 +555,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Najczęstsze błędy</h2>
       <p>Zbyt nowy, jeszcze „sztywny" garnitur. Logo na pół klatki piersiowej. Stylizacja kompletnie oderwana od branży (smoking do firmy technologicznej). I najważniejszy błąd: strój, w którym jest Ci niewygodnie. Jeśli ciągle poprawiasz kołnierzyk, widać to na każdym ujęciu.</p>
-      <p>Resztę przygotowań znajdziesz w poradniku <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>. Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">headshot pracuje na konwersję na LinkedIn</a>, i przejrzyj <a href="/portfolio/sesja-wizerunkowa">przykładowe realizacje</a>. Gotowy? <a href="/kontakt">Napisz do mnie</a>, umówimy termin.</p>
+      <p>Resztę przygotowań znajdziesz w poradniku <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>. Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">headshot pracuje na konwersję na LinkedIn</a>, i przejrzyj <a href="/galeria?kat=portrety">przykładowe realizacje</a>. Gotowy? <a href="/kontakt">Napisz do mnie</a>, umówimy termin.</p>
     `,
     seo: {
       title: "Co założyć na sesję biznesową: stylizacje | Marcin Szabunia",
@@ -582,7 +582,7 @@ export const blogPosts: BlogPost[] = [
       <p>Ludzie kupują od ludzi. Spójne <a href="/uslugi/sesje-zespolowe">portrety zespołu</a> (jedno tło, jedno światło, jeden styl) budują zaufanie i pomagają w rekrutacji. Najczęstsze potknięcia w tym obszarze opisałem w tekście o <a href="/blog/bledy-zdjecia-zespolu">błędach przy zdjęciach zespołu</a>.</p>
 
       <h2>Biuro i przestrzeń firmy</h2>
-      <p>Zdjęcia realnej przestrzeni, biura, sali konferencyjnej, hali, pokazują skalę i charakter firmy oraz uwiarygadniają markę. To naturalna część <a href="/portfolio/sesja-korporacyjna">sesji korporacyjnej</a>, którą można zrealizować przy okazji portretów zespołu.</p>
+      <p>Zdjęcia realnej przestrzeni, biura, sali konferencyjnej, hali, pokazują skalę i charakter firmy oraz uwiarygadniają markę. To naturalna część <a href="/portfolio/idcom-headshoty-zespolu">sesji korporacyjnej</a>, którą można zrealizować przy okazji portretów zespołu.</p>
 
       <h2>Produkty i usługi</h2>
       <p>Jeśli sprzedajesz produkty, potrzebujesz spójnego zestawu zdjęć: packshot na białym tle plus ujęcia w kontekście. Jak to przekłada się na sprzedaż, rozkładam w tekście o <a href="/blog/fotografia-produktowa-ecommerce">fotografii produktowej dla e-commerce</a>. Usługi też da się pokazać obrazem: proces, efekt, ludzie przy pracy.</p>
@@ -597,7 +597,7 @@ export const blogPosts: BlogPost[] = [
       <p>Stocki są wygodne, ale mają trzy wady: każdy ma do nich dostęp (Twój konkurent może użyć tego samego zdjęcia), nie pokazują Twojej realnej firmy i często widać w nich „sztuczność". Autentyczne, autorskie zdjęcia odróżniają markę, stock ją upodabnia do innych.</p>
 
       <h2>Jak to zaplanować</h2>
-      <p>Najtaniej i najspójniej jest zebrać potrzeby z całej strony i zrealizować je w jednej, dobrze zaplanowanej sesji (albo serii). Zaczynamy od listy sekcji i ujęć, dobieramy lokalizację i styl, a Ty dostajesz komplet spójnego materiału. Oszacuj zakres w <a href="/kalkulator">kalkulatorze</a>, przejrzyj <a href="/portfolio/sesja-korporacyjna">realizacje</a> i <a href="/kontakt">napisz, co jest na Twojej stronie</a>, ułożymy plan zdjęć pod nią.</p>
+      <p>Najtaniej i najspójniej jest zebrać potrzeby z całej strony i zrealizować je w jednej, dobrze zaplanowanej sesji (albo serii). Zaczynamy od listy sekcji i ujęć, dobieramy lokalizację i styl, a Ty dostajesz komplet spójnego materiału. Oszacuj zakres w <a href="/kalkulator">kalkulatorze</a>, przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje</a> i <a href="/kontakt">napisz, co jest na Twojej stronie</a>, ułożymy plan zdjęć pod nią.</p>
     `,
     seo: {
       title: "Jakie zdjęcia na stronę firmową: kompletna lista | Marcin Szabunia",
