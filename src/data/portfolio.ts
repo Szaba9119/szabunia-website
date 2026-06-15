@@ -253,7 +253,7 @@ export const portfolioCategories: PortfolioCategory[] = [
   },
   {
     slug: "yes-butcher-przewodnik-michelin",
-    label: "Yes Butcher! — sesja Michelin",
+    label: "Yes Butcher! — sesja do przewodnika Michelin ★",
     heroTitle: "Yes Butcher! — sesja do przewodnika Michelin",
     heroSubtitle:
       "Wnętrza, nagrodzony stek i portrety szefa kuchni dla steakhouse'u w poznańskich Starych Koszarach. Zdjęcia trafiły na profil restauracji w przewodniku Michelin.",
