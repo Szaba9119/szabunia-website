@@ -8,10 +8,10 @@ import { PARALLAX } from "@/lib/motion";
 const testimonials = [
   {
     quote:
-      "Jak zwykle profesjonalizm w każdym calu. Z Marcinem współpracuję od wielu lat. Serdecznie polecam.",
-    author: "Maksymilian Chodziak",
-    meta: "Specjalista ds. marketingu · Opinia Google",
-    initials: "MC",
+      "Z pełnym przekonaniem polecamy współpracę z Marcinem! Realizował dla naszego biura sesję biznesową i od samego początku współpraca przebiegała na najwyższym poziomie. Zdjęcia wyszły bardzo estetyczne, naturalne i w pełni spełniły nasze oczekiwania. Podczas sesji panowała swobodna atmosfera, a Marcin zadbał o to, aby każdy czuł się komfortowo przed obiektywem. Dodatkowo mogliśmy liczyć na wiele cennych wskazówek oraz bardzo sprawny kontakt na każdym etapie realizacji. Z pewnością wrócimy przy kolejnych projektach i serdecznie polecamy jego usługi. :)",
+    author: "Aleksandra Burzyńska",
+    meta: "Poznańskie Nieruchomości · Opinia Google",
+    initials: "AB",
   },
   {
     quote:

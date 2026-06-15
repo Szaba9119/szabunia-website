@@ -162,10 +162,10 @@ gtag('js',new Date());gtag('config','G-MD8FJ0CZG3');`,
               review: [
                 {
                   "@type": "Review",
-                  author: { "@type": "Person", name: "Maksymilian Chodziak" },
+                  author: { "@type": "Person", name: "Aleksandra Burzyńska" },
                   reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
                   reviewBody:
-                    "Jak zwykle profesjonalizm w każdym calu. Z Marcinem współpracuję od wielu lat. Serdecznie polecam.",
+                    "Z pełnym przekonaniem polecamy współpracę z Marcinem! Realizował dla naszego biura sesję biznesową i od samego początku współpraca przebiegała na najwyższym poziomie. Zdjęcia wyszły bardzo estetyczne, naturalne i w pełni spełniły nasze oczekiwania. Podczas sesji panowała swobodna atmosfera, a Marcin zadbał o to, aby każdy czuł się komfortowo przed obiektywem. Dodatkowo mogliśmy liczyć na wiele cennych wskazówek oraz bardzo sprawny kontakt na każdym etapie realizacji. Z pewnością wrócimy przy kolejnych projektach i serdecznie polecamy jego usługi. :)",
                 },
                 {
                   "@type": "Review",
