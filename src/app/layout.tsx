@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Marcin Szabunia — Fotograf biznesowy & twórca wideo",
     description:
-      "Fotografia i wideo, które budują zaufanie, przyciągają klientów i wzmacniają Twój autorytet na rynku.",
+      "Fotografia i wideo, które budują zaufanie, przyciągają klientów i wzmacniają autorytet na rynku.",
     url: "https://szabunia.pl",
     siteName: "Marcin Szabunia",
     locale: "pl_PL",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Marcin Szabunia — Fotograf biznesowy & twórca wideo",
     description:
-      "Fotografia i wideo, które budują zaufanie, przyciągają klientów i wzmacniają Twój autorytet na rynku.",
+      "Fotografia i wideo, które budują zaufanie, przyciągają klientów i wzmacniają autorytet na rynku.",
     images: ["/images/marcin-hero.jpg"],
   },
   robots: {

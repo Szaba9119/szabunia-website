@@ -44,10 +44,9 @@ export default function About() {
 
               <div className="space-y-5 text-steel dark:text-dark-text-muted text-[15px] leading-relaxed">
                 <p>
-                  Cześć, jestem Marcin. Od 2018 roku buduję wizerunek firm, które
-                  traktują swój obraz poważnie. Robię to poprzez fotografię biznesową
-                  i wideo marketing. Bazuję w Poznaniu, pracuję w całej Polsce
-                  i Europie.
+                  Cześć, jestem Marcin. Od 2018 roku buduję wizerunek firm poprzez
+                  fotografię biznesową i wideo marketing. Bazuję w Poznaniu,
+                  pracuję w całej Polsce i Europie.
                 </p>
                 <p>
                   Ukończyłem studia z zarządzania, więc rozumiem nie tylko kadr,

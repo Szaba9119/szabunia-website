@@ -153,6 +153,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> 1 osoba, do 2 stylizacji</li>
                 <li className="flex items-start gap-2"><CheckIcon /> 90 min sesji</li>
                 <li className="flex items-start gap-2"><CheckIcon /> 3 wyretuszowane zdjęcia (wybór ze 100+ ujęć)</li>
+                <li className="flex items-start gap-2"><CheckIcon /> Studio w cenie pakietu, indywidualnie dopasowane do Twojego projektu</li>
                 <li className="flex items-start gap-2"><CheckIcon /> GRATIS: Poseboard przed sesją</li>
               </ul>
               <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
@@ -178,6 +179,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> 1 osoba, 2-3 stylizacje</li>
                 <li className="flex items-start gap-2"><CheckIcon /> 2 godziny sesji</li>
                 <li className="flex items-start gap-2"><CheckIcon /> 8 wyretuszowanych zdjęć (wybór ze 150+ ujęć)</li>
+                <li className="flex items-start gap-2"><CheckIcon /> Studio w cenie pakietu, indywidualnie dopasowane do Twojego projektu</li>
                 <li className="flex items-start gap-2"><CheckIcon /> GRATIS: Poseboard przed sesją</li>
               </ul>
               <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
@@ -201,6 +203,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Do 3 godzin sesji</li>
                 <li className="flex items-start gap-2"><CheckIcon /> 15 wyretuszowanych zdjęć (wybór z 200+ ujęć)</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Pełna kontrola nad stylem i klimatem</li>
+                <li className="flex items-start gap-2"><CheckIcon /> Studio w cenie pakietu, indywidualnie dopasowane do Twojego projektu</li>
                 <li className="flex items-start gap-2"><CheckIcon /> GRATIS: Poseboard przed sesją</li>
               </ul>
               <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
@@ -393,11 +396,7 @@ export default function Pricing() {
               >
                 <div className="overflow-hidden">
                   <div className="px-6 md:px-8 pb-6 pt-2 border-t border-border/50 dark:border-dark-border space-y-4 text-[13px] text-steel dark:text-dark-text-muted">
-                    <div className="flex justify-between items-center">
-                      <span>Rozstawienie mobilnego studia</span>
-                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light">{formatPriceLabel(450)}</span>
-                    </div>
-                    <div className="pt-3">
+                    <div>
                       <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Stawka za osobę (1 retusz):</p>
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
                         <div className="flex justify-between"><span>1-10 osób</span><span>{formatPriceLabel(150)}</span></div>
@@ -415,6 +414,10 @@ export default function Pricing() {
                         <div className="flex justify-between"><span>Do 4h</span><span>{formatPriceLabel(400)}</span></div>
                         <div className="flex justify-between"><span>Bez limitu</span><span>{formatPriceLabel(800)}</span></div>
                       </div>
+                    </div>
+                    <div className="flex justify-between items-center pt-3 border-t border-border dark:border-dark-border">
+                      <span>lub rozstawienie mobilnego studia w Twoim biurze</span>
+                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light">{formatPriceLabel(450)}</span>
                     </div>
                   </div>
                 </div>

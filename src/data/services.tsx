@@ -58,20 +58,20 @@ export const serviceCategories: ServiceData[] = [
       {
         name: "ESSENTIAL",
         price: "1 000 zł",
-        features: ["1 osoba, do 2 stylizacji", "90 min sesji", "3 wyretuszowane zdjęcia (wybór ze 100+ ujęć)", "GRATIS: Poseboard przed sesją"],
+        features: ["1 osoba, do 2 stylizacji", "90 min sesji", "3 wyretuszowane zdjęcia (wybór ze 100+ ujęć)", "Studio w cenie pakietu, indywidualnie dopasowane do Twojego projektu", "GRATIS: Poseboard przed sesją"],
         extra: "Dodatkowe ujęcie: 120 zł",
       },
       {
         name: "PROFESSIONAL",
         price: "1 300 zł",
-        features: ["1 osoba, 2-3 stylizacje", "2 godziny sesji", "8 wyretuszowanych zdjęć (wybór ze 150+ ujęć)", "GRATIS: Poseboard przed sesją"],
+        features: ["1 osoba, 2-3 stylizacje", "2 godziny sesji", "8 wyretuszowanych zdjęć (wybór ze 150+ ujęć)", "Studio w cenie pakietu, indywidualnie dopasowane do Twojego projektu", "GRATIS: Poseboard przed sesją"],
         recommended: true,
         extra: "Dodatkowe ujęcie: 100 zł",
       },
       {
         name: "PRO BRANDING",
         price: "1 800 zł",
-        features: ["1 osoba, 3-4 stylizacje", "Do 3 godzin sesji", "15 wyretuszowanych zdjęć (wybór z 200+ ujęć)", "Pełna kontrola nad stylem i klimatem", "GRATIS: Poseboard przed sesją"],
+        features: ["1 osoba, 3-4 stylizacje", "Do 3 godzin sesji", "15 wyretuszowanych zdjęć (wybór z 200+ ujęć)", "Pełna kontrola nad stylem i klimatem", "Studio w cenie pakietu, indywidualnie dopasowane do Twojego projektu", "GRATIS: Poseboard przed sesją"],
         extra: "Dodatkowe ujęcie: 80 zł",
       },
     ],

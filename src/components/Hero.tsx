@@ -38,7 +38,7 @@ export default function Hero() {
           </h1>
           <p className="font-inter text-[15px] md:text-base text-steel dark:text-dark-text-muted leading-relaxed max-w-md mb-7">
             Fotografia i wideo, które budują zaufanie, przyciągają klientów
-            i&nbsp;wzmacniają Twój autorytet na rynku.
+            i&nbsp;wzmacniają autorytet na rynku.
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <a
