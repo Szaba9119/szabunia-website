@@ -415,9 +415,14 @@ export default function Pricing() {
                         <div className="flex justify-between"><span>Bez limitu</span><span>{formatPriceLabel(800)}</span></div>
                       </div>
                     </div>
-                    <div className="flex justify-between items-center pt-3 border-t border-border dark:border-dark-border">
-                      <span>lub rozstawienie mobilnego studia w Twoim biurze</span>
-                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light">{formatPriceLabel(450)}</span>
+                    <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10">
+                      <div className="flex justify-between items-start mb-1 gap-3">
+                        <span className="text-navy dark:text-white font-semibold">lub rozstawienie mobilnego studia w Twoim biurze</span>
+                        <span className="font-barlow font-extrabold text-xl text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(450)}</span>
+                      </div>
+                      <p className="text-[11px] text-steel dark:text-dark-text-muted">
+                        Mobilne studio u Ciebie w biurze — rozstawienie ok. 20 min, wystarczy ~3 m².
+                      </p>
                     </div>
                   </div>
                 </div>

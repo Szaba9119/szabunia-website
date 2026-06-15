@@ -118,11 +118,16 @@ function PricingTables({ tables }: TableProps) {
                 </div>
               ))}
               {table.footerRows?.map((row) => (
-                <div key={row.label} className="flex justify-between items-center pt-3 border-t border-border dark:border-dark-border">
-                  <span>{row.label}</span>
-                  <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light">
-                    {row.value}
-                  </span>
+                <div key={row.label} className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10">
+                  <div className="flex justify-between items-start gap-3">
+                    <span className="text-navy dark:text-white font-semibold">{row.label}</span>
+                    <span className="font-barlow font-extrabold text-xl text-blue dark:text-blue-light whitespace-nowrap">
+                      {row.value}
+                    </span>
+                  </div>
+                  {row.note && (
+                    <p className="text-[11px] text-steel dark:text-dark-text-muted mt-1">{row.note}</p>
+                  )}
                 </div>
               ))}
             </div>
