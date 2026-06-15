@@ -39,13 +39,15 @@ const nextConfig: NextConfig = {
     const oldHost = [
       { type: "host" as const, value: "(www\\.)?marcinszabunia\\.pl" },
     ];
+    // Ruch ze starej domeny kierujemy na stronę główną (lejek sprzedażowy),
+    // a nie na podstrony usług. Wyjątek: /contact → /kontakt (intencja kontaktowa).
     const oldDomainMap: { source: string; destination: string }[] = [
       { source: "/strona-glowna", destination: "https://szabunia.pl/" },
-      { source: "/portrety-biznesowe", destination: "https://szabunia.pl/uslugi/wizerunek-portrety" },
-      { source: "/fotografia-eventowa", destination: "https://szabunia.pl/uslugi/eventy-reportaze" },
-      { source: "/zdjecia-produktowe", destination: "https://szabunia.pl/uslugi/fotografia-produktowa" },
-      { source: "/video", destination: "https://szabunia.pl/uslugi/wideo-marketing" },
-      { source: "/o-mnie", destination: "https://szabunia.pl/#o-mnie" },
+      { source: "/portrety-biznesowe", destination: "https://szabunia.pl/" },
+      { source: "/fotografia-eventowa", destination: "https://szabunia.pl/" },
+      { source: "/zdjecia-produktowe", destination: "https://szabunia.pl/" },
+      { source: "/video", destination: "https://szabunia.pl/" },
+      { source: "/o-mnie", destination: "https://szabunia.pl/" },
       { source: "/contact", destination: "https://szabunia.pl/kontakt" },
     ];
     return [
