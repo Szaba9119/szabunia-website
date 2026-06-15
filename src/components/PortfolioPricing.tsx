@@ -117,6 +117,14 @@ function PricingTables({ tables }: TableProps) {
                   </div>
                 </div>
               ))}
+              {table.footerRows?.map((row) => (
+                <div key={row.label} className="flex justify-between items-center pt-3 border-t border-border dark:border-dark-border">
+                  <span>{row.label}</span>
+                  <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light">
+                    {row.value}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </AnimatedSection>

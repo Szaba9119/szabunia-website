@@ -245,7 +245,6 @@ export const serviceCategories: ServiceData[] = [
       {
         title: "Zespoły i Biura",
         rows: [
-          { label: "Rozstawienie mobilnego studia", value: "450 zł" },
           { label: "Dodatkowe ujęcie", value: "80 zł" },
         ],
         groups: [
@@ -265,6 +264,9 @@ export const serviceCategories: ServiceData[] = [
               { label: "Bez limitu", value: "800 zł" },
             ],
           },
+        ],
+        footerRows: [
+          { label: "lub rozstawienie mobilnego studia w Twoim biurze", value: "450 zł" },
         ],
       },
     ],

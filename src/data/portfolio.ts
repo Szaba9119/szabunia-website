@@ -28,6 +28,7 @@ export interface PricingTable {
   title: string;
   rows: { label: string; value: string }[];
   groups?: { label: string; items: { label: string; value: string }[] }[];
+  footerRows?: { label: string; value: string }[];
   note?: string;
 }
 
