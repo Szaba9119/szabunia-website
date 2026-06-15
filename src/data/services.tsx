@@ -269,7 +269,7 @@ export const serviceCategories: ServiceData[] = [
           {
             label: "lub rozstawienie mobilnego studia w Twoim biurze",
             value: "450 zł",
-            note: "Mobilne studio u Ciebie w biurze — rozstawienie ok. 20 min, wystarczy ~3 m².",
+            note: "Mobilne studio u Ciebie w biurze, rozstawienie ok. 20 min, wystarczy ~3 m².",
           },
         ],
       },

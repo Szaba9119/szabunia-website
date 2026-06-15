@@ -421,7 +421,7 @@ export default function Pricing() {
                         <span className="font-barlow font-extrabold text-xl text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(450)}</span>
                       </div>
                       <p className="text-[11px] text-steel dark:text-dark-text-muted">
-                        Mobilne studio u Ciebie w biurze — rozstawienie ok. 20 min, wystarczy ~3 m².
+                        Mobilne studio u Ciebie w biurze, rozstawienie ok. 20 min, wystarczy ~3 m².
                       </p>
                     </div>
                   </div>
