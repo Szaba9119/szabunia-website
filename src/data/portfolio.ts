@@ -142,6 +142,12 @@ export const portfolioCategories: PortfolioCategory[] = [
         { label: "pionowe reelsy z wywiadami", value: "3" },
         { label: "formaty dystrybucji: YouTube i Instagram", value: "2" },
       ],
+      testimonial: {
+        quote:
+          "Mieliśmy przyjemność współpracować z Marcinem przy realizacji materiałów foto i wideo z eventu biznesowego oraz przygotowaniu treści na potrzeby social media. Współpraca od początku do końca przebiegała wzorowo. Marcin wyróżnia się nie tylko wysokimi kompetencjami technicznymi, ale również doskonałym wyczuciem biznesowym i marketingowym. Potrafi uchwycić najważniejsze momenty wydarzenia, a jednocześnie przygotować materiały, które świetnie sprawdzają się w komunikacji marki i działaniach promocyjnych. Ogromnie doceniamy sprawną komunikację, elastyczność oraz ekspresowe tempo realizacji. Na każdym etapie mogliśmy liczyć na profesjonalne wsparcie, zaangażowanie i proaktywne podejście. To współpraca, do której z przyjemnością będziemy wracać przy kolejnych projektach.",
+        author: "Maja Formalik",
+        role: "Growth & Partnerships Manager, Woohoo · opinia Google",
+      },
     },
     seo: {
       title: "E-commerce All-in — realizacja wideo | Marcin Szabunia",
