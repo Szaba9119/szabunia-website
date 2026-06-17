@@ -60,7 +60,7 @@ export default function Testimonials() {
 
   useEffect(() => {
     if (!isPaused) {
-      timerRef.current = setInterval(() => nextRef.current(), 9000);
+      timerRef.current = setInterval(() => nextRef.current(), 15000);
     }
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
