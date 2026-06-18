@@ -106,11 +106,16 @@ export default function RootLayout({
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
 try{if(localStorage.getItem('cookie-consent')==='accepted'){gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}}catch(e){}
-gtag('js',new Date());gtag('config','G-MD8FJ0CZG3');`,
+gtag('js',new Date());gtag('config','G-MD8FJ0CZG3');
+/* gtag.js (~175 KiB) doładowywany dopiero gdy watek glowny jest wolny lub przy
+   pierwszej interakcji — uwalnia main thread i skraca render delay LCP na mobile.
+   Consent default + config wyzej wykonuja sie od razu i kolejkuja sie w dataLayer. */
+(function(){var loaded=false;function load(){if(loaded)return;loaded=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-MD8FJ0CZG3';document.head.appendChild(s);}
+var evs=['scroll','pointerdown','keydown','touchstart','mousemove'];function onev(){evs.forEach(function(e){window.removeEventListener(e,onev);});load();}
+evs.forEach(function(e){window.addEventListener(e,onev,{once:true,passive:true});});
+if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}else{setTimeout(load,5000);}})();`,
           }}
         />
-        {/* eslint-disable-next-line @next/next/next-script-for-ga -- patrz komentarz wyżej */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-MD8FJ0CZG3" />
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(){var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark'}})();`,
