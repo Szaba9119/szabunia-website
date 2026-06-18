@@ -25,7 +25,7 @@ export interface ServiceData {
   };
 }
 
-export const serviceCategories: ServiceData[] = [
+const serviceCategoriesRaw: ServiceData[] = [
   {
     slug: "wizerunek-portrety",
     galleryCategory: "portrety",
@@ -416,6 +416,21 @@ export const serviceCategories: ServiceData[] = [
     },
   },
 ];
+
+// Kolejność wyświetlania usług (kafelki na stronie głównej, lista /uslugi,
+// kalkulator wyceny). Zmiana tutaj zmienia kolejność wszędzie naraz.
+const SERVICE_DISPLAY_ORDER: string[] = [
+  "eventy-reportaze",
+  "wizerunek-portrety",
+  "pakiety-foto-wideo",
+  "fotografia-produktowa",
+  "sesje-zespolowe",
+  "wideo-marketing",
+];
+
+export const serviceCategories: ServiceData[] = [...serviceCategoriesRaw].sort(
+  (a, b) => SERVICE_DISPLAY_ORDER.indexOf(a.slug) - SERVICE_DISPLAY_ORDER.indexOf(b.slug)
+);
 
 /* ── Helpers ── */
 

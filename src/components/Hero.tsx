@@ -43,25 +43,9 @@ export default function Hero() {
               Wyślij brief, odezwę się w 24h
               <span className="text-white/80">→</span>
             </a>
-            <a
-              href="#cennik"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-border dark:border-dark-border text-navy dark:text-white font-barlow font-bold text-[15px] hover:border-blue hover:text-blue dark:hover:border-blue-light dark:hover:text-blue-light transition-colors"
-            >
-              Zobacz cennik
-            </a>
           </div>
 
           <div className="flex items-center gap-3 mt-5">
-            <div className="flex -space-x-2" aria-hidden="true">
-              {["MC", "ZF", "MW"].map((initials) => (
-                <div
-                  key={initials}
-                  className="w-7 h-7 rounded-full bg-border dark:bg-dark-border border-2 border-gray-bg dark:border-dark-bg flex items-center justify-center text-[9px] font-semibold text-steel dark:text-dark-text-muted"
-                >
-                  {initials}
-                </div>
-              ))}
-            </div>
             <p className="text-xs text-steel dark:text-dark-text-muted">
               Zaufało mi{" "}
               <span className="font-semibold text-steel dark:text-dark-text">100+ firm</span>{" "}

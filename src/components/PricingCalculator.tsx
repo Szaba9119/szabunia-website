@@ -21,6 +21,7 @@ interface CalcConfig {
   extraPhotos?: number;
   // sesje-zespolowe
   teamSize?: number;
+  teamExtraPhotosPerPerson?: number;
   studioSetup?: boolean;
   externalStudio?: "" | "2h" | "4h" | "unlimited";
   // fotografia-produktowa
@@ -43,6 +44,7 @@ const defaultConfig: CalcConfig = {
   portraitPackage: "professional",
   extraPhotos: 0,
   teamSize: 10,
+  teamExtraPhotosPerPerson: 0,
   studioSetup: true,
   externalStudio: "",
   productCount: 20,
@@ -68,6 +70,8 @@ function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
       const size = config.teamSize ?? 10;
       const perPerson = size <= 10 ? 150 : size <= 30 ? 120 : 100;
       let total = size * perPerson;
+      // Dodatkowe ujęcia na osobę: 80 zł/szt. (poza 1 retuszem w stawce os.)
+      total += (config.teamExtraPhotosPerPerson ?? 0) * 80 * size;
       if (config.studioSetup) total += 450;
       if (config.externalStudio === "2h") total += 300;
       else if (config.externalStudio === "4h") total += 400;
@@ -213,6 +217,22 @@ function ServiceOptions({
               value={config.teamSize ?? 10}
               onChange={(e) => onChange({ ...config, teamSize: Math.max(1, parseInt(e.target.value) || 1) })}
             />
+          </div>
+          <div>
+            <label className={labelClass}>
+              Dodatkowe zdjęcia na osobę ({fmtPrice(80, mode)} zł/szt.)
+            </label>
+            <input
+              type="number"
+              min={0}
+              max={20}
+              className={inputClass}
+              value={config.teamExtraPhotosPerPerson ?? 0}
+              onChange={(e) => onChange({ ...config, teamExtraPhotosPerPerson: Math.max(0, parseInt(e.target.value) || 0) })}
+            />
+            <p className="text-[12px] text-steel dark:text-dark-text-muted mt-1.5">
+              W stawce za osobę jest 1 wyretuszowane zdjęcie. Każde kolejne: {fmtPrice(80, mode)} zł.
+            </p>
           </div>
           <div className="flex items-center gap-3">
             <input
@@ -399,6 +419,8 @@ function ConfigSummary({ slug, config }: { slug: ServiceSlug; config: CalcConfig
     }
     case "sesje-zespolowe":
       items.push(`Osób: ${config.teamSize ?? 10}`);
+      if ((config.teamExtraPhotosPerPerson ?? 0) > 0)
+        items.push(`Dodatkowe zdjęcia na osobę: ${config.teamExtraPhotosPerPerson}`);
       if (config.studioSetup) items.push("Mobilne studio w biurze");
       if (config.externalStudio) {
         const labels = { "2h": "Studio do 2h", "4h": "Studio do 4h", unlimited: "Studio bez limitu" };
