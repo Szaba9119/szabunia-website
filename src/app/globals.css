@@ -165,3 +165,64 @@ input:focus, textarea:focus, select:focus {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* === Animacje na czystym CSS (zastępują framer-motion na stronie głównej) ===
+   AnimatedSection, Hero, PageTransition i BackToTopButton używały framer-motion.
+   Przeniesienie na CSS usuwa ~50 KB JS z bundla strony głównej i — co
+   najważniejsze — pozwala renderować treść (w tym element LCP) natychmiast,
+   bez czekania na hydratację. */
+
+/* Wjazd sekcji przy scrollu — klasę .is-visible dodaje IntersectionObserver. */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Wjazd nagłówka Hero — odpala się od razu (animacja kompozytora). */
+@keyframes heroIntro {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-intro {
+  animation: heroIntro 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* Przejście strony — odpala się od razu na pierwszej klatce, bez JS. */
+@keyframes pageIntro {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+.page-transition {
+  animation: pageIntro 0.3s ease-out both;
+}
+
+/* Przycisk „do góry" — pojawia się/znika płynnie przez toggle klasy. */
+.back-to-top {
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition:
+    opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.back-to-top.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+/* Reduced motion: pokaż treść od razu, bez ruchu (uzupełnia globalną regułę). */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .back-to-top.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

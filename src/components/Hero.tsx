@@ -1,9 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Parallax from "./Parallax";
-import { DURATION, EASE, PARALLAX } from "@/lib/motion";
+import { PARALLAX } from "@/lib/motion";
 
 export default function Hero() {
   return (
@@ -24,11 +23,7 @@ export default function Hero() {
       </div>
 
       <div className="max-w-6xl mx-auto grid md:grid-cols-[1.2fr_0.8fr] gap-8 md:gap-12 items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: DURATION.slow, ease: EASE }}
-        >
+        <div className="hero-intro">
           <h1 className="font-barlow font-black text-[clamp(40px,7vw,80px)] leading-[0.95] tracking-[-2px] text-navy dark:text-white mb-5">
             REALIZUJĘ
             <br />
@@ -73,7 +68,7 @@ export default function Hero() {
               z&nbsp;całej Polski
             </p>
           </div>
-        </motion.div>
+        </div>
 
         {/* Bez animacji wejściowej: to element LCP — animacja opóźniała
             wyrenderowanie zdjęcia o ~1,8 s (PageSpeed "render delay"). */}
