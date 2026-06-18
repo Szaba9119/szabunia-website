@@ -83,7 +83,7 @@ export default function Hero() {
                 priority
                 fetchPriority="high"
                 sizes="(max-width: 768px) 100vw, 40vw"
-                quality={85}
+                quality={72}
                 placeholder="blur"
                 blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0YxRjVGOSIvPjwvc3ZnPg=="
               />

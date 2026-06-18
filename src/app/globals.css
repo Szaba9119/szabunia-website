@@ -185,23 +185,18 @@ input:focus, textarea:focus, select:focus {
   transform: none;
 }
 
-/* Wjazd nagłówka Hero — odpala się od razu (animacja kompozytora). */
+/* Wjazd nagłówka Hero — tylko transform, BEZ fade opacity. Element LCP musi być
+   "pomalowany" od razu; animowanie opacity od 0 opóźniałoby pomiar LCP. */
 @keyframes heroIntro {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: none; }
+  from { transform: translateY(30px); }
+  to { transform: none; }
 }
 .hero-intro {
   animation: heroIntro 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
-/* Przejście strony — odpala się od razu na pierwszej klatce, bez JS. */
-@keyframes pageIntro {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: none; }
-}
-.page-transition {
-  animation: pageIntro 0.3s ease-out both;
-}
+/* Przejście strony: bez animacji opacity na pierwszym wczytaniu — wcześniej
+   osłaniało zdjęcie LCP i opóźniało jego pomiar. (Polish wjazdów dają sekcje.) */
 
 /* Przycisk „do góry" — pojawia się/znika płynnie przez toggle klasy. */
 .back-to-top {
