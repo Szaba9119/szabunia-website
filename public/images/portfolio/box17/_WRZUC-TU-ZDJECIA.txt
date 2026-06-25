@@ -1,0 +1,12 @@
+Box17 — zdjęcia do case study
+==============================
+
+1) MINIATURA (wymagana, bez niej kafel na /portfolio będzie pusty):
+   nazwa pliku:  box17.jpg
+   proporcje:    poziome ~4:3 (np. 1600x1200), najlepszy kadr budki
+
+2) GALERIA (opcjonalnie — wpis działa też bez niej):
+   wrzuć pliki tutaj, a potem dodamy je w polu "gallery" w src/data/portfolio.ts
+   (slug: box17-budki-akustyczne). Sugerowane: 6-10 najlepszych kadrów.
+
+Po wrzuceniu plików daj znać — podepnę je w danych i opiszę alt-teksty pod SEO.

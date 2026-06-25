@@ -350,7 +350,7 @@ export default function Pricing() {
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
                         <div className="flex justify-between"><span>Live editing (Social Media)</span><span>{formatPriceLabel(20)} / zdjęcie</span></div>
                         <div className="flex justify-between"><span>Ekspresowa dostawa (do 48h po evencie)</span><span>+50% ceny</span></div>
-                        <div className="flex justify-between"><span>Ujęcia z drona</span><span>+{formatPriceLabel(500)}</span></div>
+                        <div className="flex justify-between"><span>Ujęcia z drona</span><span>+{formatPriceLabel(200)}</span></div>
                       </div>
                     </div>
                   </div>

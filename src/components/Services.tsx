@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
@@ -27,21 +28,36 @@ export default function Services() {
             {serviceItems.map((s) => (
               <div
                 key={s.title}
-                className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5 group"
+                className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5 group overflow-hidden"
               >
-                <Link href={`/uslugi/${s.slug}`} className="block p-6">
-                  <div className="w-10 h-10 rounded-xl bg-blue-pale dark:bg-blue/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">
-                    {s.icon}
+                <Link href={`/uslugi/${s.slug}`} className="block">
+                  {s.image && (
+                    <div className="relative aspect-[4/3] overflow-hidden bg-border dark:bg-dark-border">
+                      <Image
+                        src={s.image}
+                        alt={`${s.title} — przykładowa realizacja`}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <div className="flex items-center gap-2.5 mb-2">
+                      <div className="w-9 h-9 rounded-lg bg-blue-pale dark:bg-blue/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform" aria-hidden="true">
+                        {s.icon}
+                      </div>
+                      <h3 className="font-barlow font-bold text-base text-navy dark:text-white">
+                        {s.title}
+                      </h3>
+                    </div>
+                    <p className="text-steel dark:text-dark-text-muted text-[13px] leading-relaxed mb-3">
+                      {s.desc}
+                    </p>
+                    <p className="text-blue dark:text-blue-light text-[12px] font-barlow font-semibold">
+                      {s.price}
+                    </p>
                   </div>
-                  <h3 className="font-barlow font-bold text-base text-navy dark:text-white mb-1.5">
-                    {s.title}
-                  </h3>
-                  <p className="text-steel dark:text-dark-text-muted text-[13px] leading-relaxed mb-3">
-                    {s.desc}
-                  </p>
-                  <p className="text-blue dark:text-blue-light text-[12px] font-barlow font-semibold">
-                    {s.price}
-                  </p>
                 </Link>
               </div>
             ))}

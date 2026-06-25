@@ -196,7 +196,7 @@ const serviceCategoriesRaw: ServiceData[] = [
             items: [
               { label: "Live editing (Social Media)", value: "20 zł / zdjęcie" },
               { label: "Ekspresowa dostawa (do 48h po evencie)", value: "+50% ceny" },
-              { label: "Ujęcia z drona", value: "+500 zł" },
+              { label: "Ujęcia z drona", value: "+200 zł" },
             ],
           },
         ],
@@ -438,10 +438,22 @@ export function getServiceBySlug(slug: string): ServiceData | undefined {
   return serviceCategories.find((s) => s.slug === slug);
 }
 
+// Reprezentacyjne zdjęcie pokazywane na kafelku usługi (sekcja „Czym mogę Ci
+// pomóc"). Łatwo podmienić ścieżkę, jeśli chcesz inne ujęcie.
+const SERVICE_TILE_IMAGES: Record<string, string> = {
+  "eventy-reportaze": "/images/galeria/eventy/event-01.jpg",
+  "wizerunek-portrety": "/images/galeria/portrety/portret-01.jpg",
+  "pakiety-foto-wideo": "/images/portfolio/woohoo-autopay.jpg",
+  "fotografia-produktowa": "/images/galeria/produktowe/produkt-01.jpg",
+  "sesje-zespolowe": "/images/portfolio/idcom/_F2A9376-Edit-2.jpg",
+  "wideo-marketing": "/images/portfolio/reel-1.jpg",
+};
+
 export const serviceItems = serviceCategories.map((s) => ({
   slug: s.slug,
   title: s.title,
   icon: s.icon,
   desc: s.subtitle,
   price: s.price,
+  image: SERVICE_TILE_IMAGES[s.slug],
 }));

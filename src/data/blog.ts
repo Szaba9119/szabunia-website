@@ -153,7 +153,7 @@ export const blogPosts: BlogPost[] = [
         <li><strong>Stawka godzinowa:</strong> 600 zł (pierwsza godzina), 400 zł (kolejne)</li>
         <li><strong>Pakiet całodniowy (8h):</strong> 2 800 zł</li>
         <li><strong>Live editing:</strong> +20 zł/zdjęcie (zdjęcia na Social Media w trakcie eventu)</li>
-        <li><strong>Ujęcia z drona:</strong> +500 zł</li>
+        <li><strong>Ujęcia z drona:</strong> +200 zł</li>
       </ul>
 
       <h2>Jak wybrać?</h2>

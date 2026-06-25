@@ -92,7 +92,7 @@ function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
       let total = hours <= 1 ? 600 : 600 + (hours - 1) * 400;
       if (hours >= 8) total = Math.min(total, 2800);
       total += (config.liveEditCount ?? 0) * 20;
-      if (config.eventDrone) total += 500;
+      if (config.eventDrone) total += 200;
       if (config.eventExpress) total *= 1.5;
       return Math.round(total);
     }
@@ -325,7 +325,7 @@ function ServiceOptions({
               className="w-4 h-4 rounded border-border text-blue"
             />
             <label htmlFor="event-drone" className="text-[13px] text-navy dark:text-dark-text">
-              Ujęcia z drona (+{fmtPrice(500, mode)} zł)
+              Ujęcia z drona (+{fmtPrice(200, mode)} zł)
             </label>
           </div>
           <div className="flex items-center gap-3">

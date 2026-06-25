@@ -156,6 +156,53 @@ export const portfolioCategories: PortfolioCategory[] = [
     },
   },
   {
+    slug: "box17-budki-akustyczne",
+    label: "Box17 — packshoty budek akustycznych + film",
+    heroTitle: "Box17 — packshoty budek akustycznych i film produktowy",
+    heroSubtitle:
+      "Jednodniowa sesja produktowa rodziny budek akustycznych Box17: zdjęcia na cykloramie i w showroomie oraz dwa filmy produktowe — pod stronę, sklep i social media.",
+    description:
+      "Box17 (marka firmy Tim Petzold z Tarnowa Podgórnego) produkuje budki akustyczne i pody do biur. W jeden dzień zdjęciowy zrealizowałem komplet materiału dla pięciu modeli: dużej Box XL ustawionej na cykloramie oraz czterech budek w showroomie — Box 1 Flex, Box 1 Stand, Box 2 Work i Box 2 Flex. Powstały zdjęcia pustych budek, kadry z meblami i ludźmi oraz detale (światło, wentylacja, regulacje), a do tego dwa filmy produktowe do prezentacji oferty. Z całości klient wybrał 10 zdjęć, które przeszły pełny retusz. Spójna stylistyka pozwala rozbudowywać materiał o kolejne produkty, a wideo pracuje na stronie i w rozmowach handlowych.",
+    badge: "Realizacja foto + wideo",
+    scope: [
+      "Packshoty budki na cykloramie (Box XL)",
+      "Zdjęcia budek w showroomie",
+      "Ujęcia detali: światło, wentylacja, regulacje",
+      "Dwa filmy produktowe",
+      "Montaż i postprodukcja",
+    ],
+    thumbnail: "/images/portfolio/box17/box17.jpg",
+    gallery: [],
+    gallerySubtitle:
+      "Wybrane kadry z sesji dla Box17: budki akustyczne na cykloramie i w showroomie, ujęcia całości i detali.",
+    process: [],
+    pricingType: "tiers",
+    faqs: [],
+    video: {
+      youtubeId: "vjpUby-NZsY",
+      title: "Box17 — film produktowy budki akustycznej (Box XL)",
+    },
+    caseStudy: {
+      client: "Box17 (Tim Petzold)",
+      industry: "Producent budek akustycznych i podów do biur, Tarnowo Podgórne",
+      challenge:
+        "Spójne materiały produktowe całej rodziny budek akustycznych — od dużej Box XL po modele jednoosobowe — pod stronę internetową, sklep i social media, zrealizowane w jeden dzień mimo różnej dostępności budek (Box XL gotowa dopiero po południu).",
+      solution:
+        "Jednodniowa sesja pięciu modeli: Box XL na cykloramie oraz Box 1 Flex, Box 1 Stand, Box 2 Work i Box 2 Flex w showroomie. Zdjęcia pustych budek, kadry z meblami i ludźmi oraz detale (światło, wentylacja, regulacje), uzupełnione dwoma filmami produktowymi do prezentacji oferty.",
+      results: [
+        { label: "modeli budek w jednej sesji", value: "5" },
+        { label: "wyselekcjonowanych i wyretuszowanych zdjęć", value: "10" },
+        { label: "filmy produktowe", value: "2" },
+        { label: "zastosowania: strona WWW, sklep, social media", value: "3" },
+      ],
+    },
+    seo: {
+      title: "Box17 — packshoty budek akustycznych i film | Marcin Szabunia",
+      description:
+        "Case study dla Box17 (Tim Petzold, Tarnowo Podgórne): jednodniowa sesja produktowa pięciu budek akustycznych — zdjęcia na cykloramie i w showroomie oraz dwa filmy produktowe.",
+    },
+  },
+  {
     slug: "artech-fotografia-produktowa",
     label: "Artech — packshoty i film z produkcji",
     heroTitle: "Artech — packshoty i film z produkcji",
@@ -426,7 +473,7 @@ export const portfolioCategories: PortfolioCategory[] = [
             items: [
               { label: "Live editing (Social Media)", value: "20 zł / zdjęcie" },
               { label: "Ekspresowa dostawa (do 48h po evencie)", value: "+50% ceny" },
-              { label: "Ujęcia z drona", value: "+500 zł" },
+              { label: "Ujęcia z drona", value: "+200 zł" },
             ],
           },
         ],
