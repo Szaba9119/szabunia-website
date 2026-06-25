@@ -442,18 +442,17 @@ export function getServiceBySlug(slug: string): ServiceData | undefined {
 // pomóc"). Łatwo podmienić ścieżkę, jeśli chcesz inne ujęcie.
 const SERVICE_TILE_IMAGES: Record<string, string> = {
   "eventy-reportaze": "/images/galeria/eventy/event-05.jpg",
-  "wizerunek-portrety": "/images/galeria/portrety/portret-12.jpg",
-  "pakiety-foto-wideo": "/images/portfolio/woohoo-autopay.jpg",
+  "wizerunek-portrety": "/images/galeria/portrety/portret-05.jpg",
+  "pakiety-foto-wideo": "/images/galeria/eventy/event-17.jpg",
   "fotografia-produktowa": "/images/galeria/produktowe/produkt-13.jpg",
-  "sesje-zespolowe": "/images/portfolio/idcom/_F2A9376-Edit-2.jpg",
-  "wideo-marketing": "/images/portfolio/reel-1.jpg",
+  "sesje-zespolowe": "/images/galeria/portrety/portret-06.jpg",
+  "wideo-marketing": "/images/portfolio/woohoo-autopay.jpg",
 };
 
-// Punkt kadrowania miniatury (object-position). Portrety, którym przy kadrze 4:3
-// środek ucinał głowę, kadrujemy od góry; reszta zostaje wyśrodkowana.
+// Punkt kadrowania miniatury (object-position). Portret dwójki przy kadrze 4:3
+// w środku ucinał głowę kobiety — kadrujemy od góry; reszta wyśrodkowana.
 const SERVICE_TILE_POS: Record<string, string> = {
   "sesje-zespolowe": "center top",
-  "wideo-marketing": "center top",
 };
 
 export const serviceItems = serviceCategories.map((s) => ({
