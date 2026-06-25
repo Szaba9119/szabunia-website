@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { updateAnalyticsConsent } from "@/lib/gtag";
 
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
@@ -14,6 +15,18 @@ export default function CookieConsent() {
       return () => clearTimeout(timer);
     }
   }, []);
+
+  // Zgłaszaj wysokość banera, żeby mobilny pasek akcji (MobileFAB) uniósł się nad niego.
+  useEffect(() => {
+    const emit = () => {
+      const height = visible && ref.current ? ref.current.offsetHeight : 0;
+      window.dispatchEvent(new CustomEvent("cookie-banner-change", { detail: { height } }));
+    };
+    emit();
+    if (!visible) return;
+    window.addEventListener("resize", emit);
+    return () => window.removeEventListener("resize", emit);
+  }, [visible]);
 
   const accept = () => {
     localStorage.setItem("cookie-consent", "accepted");
@@ -31,6 +44,7 @@ export default function CookieConsent() {
 
   return (
     <div
+      ref={ref}
       role="dialog"
       aria-label="Informacja o plikach cookie"
       className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"

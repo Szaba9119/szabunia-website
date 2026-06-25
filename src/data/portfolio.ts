@@ -486,11 +486,11 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Ile zdjęć otrzymam z eventu?",
-        a: "To zależy od długości wydarzenia. Średnio 15-30 gotowych zdjęć na każdą godzinę fotografowania — wyselekcjonowanych i poddanych postprodukcji (autorska selekcja najlepszych momentów).",
+        a: "To zależy od długości wydarzenia. Średnio 15-30 gotowych zdjęć na każdą godzinę fotografowania, wyselekcjonowanych i poddanych postprodukcji (autorska selekcja najlepszych momentów).",
       },
       {
         q: "Czy realizujesz eventy poza Poznaniem?",
-        a: "Tak, realizuję zlecenia na terenie całej Polski i Europy. Koszty dojazdu doliczane indywidualnie (2,50 zł/km lub bilety).",
+        a: "Tak, realizuję zlecenia na terenie całej Polski i Europy. Koszty dojazdu doliczane indywidualnie (1,25 zł/km w obie strony lub bilety).",
       },
       {
         q: "Czy pakiet całodniowy się opłaca?",

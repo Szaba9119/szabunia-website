@@ -64,7 +64,7 @@ const faqStructuredData = {
       name: "Czy dojeżdżasz poza Poznań?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Tak, realizuję zlecenia na terenie całej Polski oraz Europy. Dojazd w Poznaniu: 0 zł. Poza Poznaniem: 2,50 zł netto za kilometr, liczony od granicy miasta w obie strony według Google Maps. Przy dłuższych wyjazdach (powyżej jednego dnia pracy) doliczany jest również nocleg.",
+        text: "Tak, realizuję zlecenia na terenie całej Polski oraz Europy. Dojazd w Poznaniu: 0 zł. Poza Poznaniem: 1,25 zł netto za kilometr, liczone w obie strony od granicy miasta według Google Maps. Przy dłuższych wyjazdach (powyżej jednego dnia pracy) doliczany jest również nocleg.",
       },
     },
     {
