@@ -182,9 +182,6 @@ export default async function ServicePage({ params }: PageProps) {
         <ErrorBoundary>
           <PortfolioFAQ faqs={service.faqs} />
         </ErrorBoundary>
-        <ErrorBoundary>
-          <CTA />
-        </ErrorBoundary>
         {relatedPosts.length > 0 && (
           <ErrorBoundary>
             <section className="py-12 md:py-16 px-4">
@@ -204,6 +201,9 @@ export default async function ServicePage({ params }: PageProps) {
             </section>
           </ErrorBoundary>
         )}
+        <ErrorBoundary>
+          <CTA />
+        </ErrorBoundary>
       </main>
       <Footer />
       <MobileFAB />

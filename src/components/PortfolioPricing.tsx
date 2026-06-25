@@ -171,6 +171,12 @@ export default function PortfolioPricing({ pricingType, tiers, tables, note }: P
             </p>
           </AnimatedSection>
         )}
+
+        <AnimatedSection>
+          <p className="text-center text-[12px] text-steel dark:text-dark-text-muted mt-6">
+            Dojazd: Poznań i okolice 0 zł. Poza Poznaniem: 2,50 zł/km netto, liczone od granicy miasta w obie strony.
+          </p>
+        </AnimatedSection>
       </div>
     </section>
   );

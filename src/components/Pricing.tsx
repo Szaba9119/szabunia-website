@@ -97,7 +97,7 @@ export default function Pricing() {
         {/* === CENY NETTO (B2B) === */}
         <AnimatedSection>
           <p className="text-center text-[12px] text-steel dark:text-dark-text-muted mb-6">
-            Wszystkie ceny są kwotami netto (+23% VAT). Faktura VAT.
+            Wszystkie ceny są kwotami netto (+23% VAT). Faktura VAT. Dojazd: Poznań i okolice 0 zł, poza Poznaniem 2,50 zł/km (od granicy miasta).
           </p>
         </AnimatedSection>
 

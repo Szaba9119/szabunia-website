@@ -192,13 +192,19 @@ export default function Navigation() {
             }
           }}
         >
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col divide-y divide-border dark:divide-white/10">
             {navLinks.map((link) => {
-              const cls = `text-sm font-barlow font-semibold ${
-                isActive(link)
+              const active = isActive(link);
+              const cls = `flex items-center justify-between py-3.5 text-[15px] font-barlow font-semibold transition-colors ${
+                active
                   ? "text-blue dark:text-blue-light"
-                  : "text-navy dark:text-white"
+                  : "text-navy dark:text-white hover:text-blue dark:hover:text-blue-light"
               }`;
+              const chevron = (
+                <svg className="w-4 h-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              );
               return link.page === null ? (
                 <a
                   key={link.label}
@@ -208,6 +214,7 @@ export default function Navigation() {
                   className={cls}
                 >
                   {link.label}
+                  {chevron}
                 </a>
               ) : (
                 <Link
@@ -218,18 +225,19 @@ export default function Navigation() {
                   className={cls}
                 >
                   {link.label}
+                  {chevron}
                 </Link>
               );
             })}
-            <Link
-              href="/kontakt"
-              role="menuitem"
-              onClick={() => closeMobileMenu()}
-              className="bg-gradient-to-br from-blue to-blue-light text-white px-5 py-3 rounded-xl font-barlow font-semibold text-sm text-center btn-glow"
-            >
-              Zapytaj o wycenę
-            </Link>
           </div>
+          <Link
+            href="/kontakt"
+            role="menuitem"
+            onClick={() => closeMobileMenu()}
+            className="mt-5 block bg-gradient-to-br from-blue to-blue-light text-white px-5 py-3.5 rounded-xl font-barlow font-semibold text-[15px] text-center btn-glow"
+          >
+            Zapytaj o wycenę
+          </Link>
         </div>
       )}
     </nav>

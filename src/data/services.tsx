@@ -429,7 +429,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Ujęcia z powietrza: budynki i obiekty firmowe, tereny, eventy i architektura. Foto i wideo w 4K.",
     description:
-      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, tereny i place, inwestycje budowlane, architektura oraz ujęcia eventowe. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona łączę też z sesją naziemną, dzięki czemu z jednego wejścia powstaje spójny komplet foto i wideo.",
+      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, tereny i place, inwestycje budowlane, architektura oraz ujęcia eventowe. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego wejścia powstaje spójny komplet foto i wideo.",
     forWhom: [
       "Deweloperzy i firmy budowlane (postęp prac, inwestycje)",
       "Hotele, ośrodki i obiekty turystyczne",
