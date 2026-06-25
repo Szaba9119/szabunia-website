@@ -446,14 +446,17 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
   "pakiety-foto-wideo": "/images/galeria/eventy/event-17.jpg",
   "fotografia-produktowa": "/images/galeria/produktowe/produkt-13.jpg",
   "sesje-zespolowe": "/images/galeria/portrety/portret-06.jpg",
-  "wideo-marketing": "/images/portfolio/woohoo-autopay.jpg",
+  // Wersja 4:3 z rozmytym wypełnieniem — pełny napis „E-COMMERCE All in"
+  // widoczny, bez ucinania i bez pustych marginesów (oryginał 16:9).
+  "wideo-marketing": "/images/portfolio/woohoo-ecommerce-4x3.jpg",
 };
 
-// Punkt kadrowania miniatury (object-position). Wizerunek kadrujemy wyżej
-// (twarz w górnej części), zespołowy portret zostawiamy na środku (obie twarze
-// widoczne — dół ucinał głowy). Reszta domyślnie wyśrodkowana.
+// Punkt kadrowania miniatury (object-position). Wizerunek kadrujemy nieco wyżej
+// (sylwetka w górnej części), zespołowy portret nieco niżej (więcej kontekstu,
+// obie twarze wciąż widoczne). Reszta domyślnie wyśrodkowana.
 const SERVICE_TILE_POS: Record<string, string> = {
-  "wizerunek-portrety": "center top",
+  "wizerunek-portrety": "center 40%",
+  "sesje-zespolowe": "center 65%",
 };
 
 export const serviceItems = serviceCategories.map((s) => ({
