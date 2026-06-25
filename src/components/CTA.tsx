@@ -143,10 +143,22 @@ export default function CTA() {
                   <br />
                   Twój wizerunek
                 </h2>
-                <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mb-8">
+                <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mb-4">
                   Odpowiadam w ciągu 24h ze spersonalizowaną ofertą dopasowaną
                   do Twojego budżetu.
                 </p>
+
+                {/* Zbijanie ryzyka */}
+                <ul className="flex flex-wrap gap-x-4 gap-y-1.5 mb-8">
+                  {["Faktura VAT", "2 tury poprawek w cenie", "Licencja komercyjna bez limitu", "Bez zobowiązań"].map((t) => (
+                    <li key={t} className="flex items-center gap-1.5 text-[13px] text-steel dark:text-dark-text-muted">
+                      <svg className="w-4 h-4 text-blue dark:text-blue-light flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      </svg>
+                      {t}
+                    </li>
+                  ))}
+                </ul>
 
                 {/* Contact info */}
                 <div className="space-y-4 mb-8">

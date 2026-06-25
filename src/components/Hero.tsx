@@ -38,6 +38,7 @@ export default function Hero() {
           <div className="flex flex-wrap items-center gap-3">
             <a
               href="#kontakt"
+              data-cta="wycena_home_hero"
               className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]"
             >
               Wyślij brief, odezwę się w 24h

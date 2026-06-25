@@ -5,6 +5,7 @@ import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import ServiceHero from "@/components/ServiceHero";
 import ServiceGalleryStrip from "@/components/ServiceGalleryStrip";
+import LogoBar from "@/components/LogoBar";
 import PortfolioProcess from "@/components/PortfolioProcess";
 import PortfolioPricing from "@/components/PortfolioPricing";
 import PortfolioFAQ from "@/components/PortfolioFAQ";
@@ -106,6 +107,9 @@ export default async function ServicePage({ params }: PageProps) {
           </ErrorBoundary>
         )}
         <ErrorBoundary>
+          <LogoBar />
+        </ErrorBoundary>
+        <ErrorBoundary>
           <PortfolioProcess steps={service.process} />
         </ErrorBoundary>
         <ErrorBoundary>
@@ -151,6 +155,7 @@ export default async function ServicePage({ params }: PageProps) {
               </p>
               <a
                 href="#kontakt"
+                data-cta="wycena_srodek"
                 className="inline-block bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
               >
                 Zapytaj o wycenę

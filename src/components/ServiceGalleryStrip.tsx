@@ -27,6 +27,20 @@ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string
   },
 };
 
+// Wyselekcjonowane najlepsze 6 kadrów per kategoria (zamiast pierwszych z
+// brzegu). Dobrane pod B2B: różnorodność i jakość. Reszta kategorii → fallback.
+const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
+  portrety: ["portret-12", "portret-03", "portret-07", "portret-11", "portret-05", "portret-08"].map(
+    (n) => `/images/galeria/portrety/${n}.jpg`
+  ),
+  eventy: ["event-04", "event-05", "event-17", "event-18", "event-14", "event-13"].map(
+    (n) => `/images/galeria/eventy/${n}.jpg`
+  ),
+  produktowe: ["produkt-13", "produkt-05", "produkt-11", "produkt-21", "produkt-12", "produkt-08"].map(
+    (n) => `/images/galeria/produktowe/${n}.jpg`
+  ),
+};
+
 export default function ServiceGalleryStrip({ category }: { category: GalleryCategoryKey }) {
   const meta = META[category];
   const href = `/galeria?kat=${category}`;
@@ -65,7 +79,7 @@ export default function ServiceGalleryStrip({ category }: { category: GalleryCat
     );
   }
 
-  const images = listGalleryImages(category).slice(0, 6);
+  const images = (CURATED[category] ?? listGalleryImages(category)).slice(0, 6);
   if (images.length === 0) return null;
 
   return (

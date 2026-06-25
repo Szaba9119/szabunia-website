@@ -19,6 +19,12 @@ export default function ContactClickTracker() {
       } else if (href.startsWith("mailto:")) {
         gtagEvent("email_click", { link_url: href });
       }
+      // Kliknięcia CTA lejka (atrybut data-cta) — działa też na linkach
+      // renderowanych po stronie serwera, bez onClick w każdym komponencie.
+      const cta = anchor.getAttribute("data-cta");
+      if (cta) {
+        gtagEvent("cta_click", { cta, link_url: href });
+      }
     };
     document.addEventListener("click", handler, { capture: true, passive: true });
     return () => document.removeEventListener("click", handler, { capture: true });

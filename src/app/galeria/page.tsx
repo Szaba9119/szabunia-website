@@ -7,6 +7,8 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import AnimatedSection from "@/components/AnimatedSection";
 import GalleryView, { type GalleryCategory } from "@/components/GalleryView";
 import Services from "@/components/Services";
+import LogoBar from "@/components/LogoBar";
+import Testimonials from "@/components/Testimonials";
 import MobileFAB from "@/components/MobileFAB";
 import { galleryVideos } from "@/data/galeria";
 import { listGalleryImagesSized } from "@/lib/galleryImages";
@@ -131,6 +133,7 @@ export default async function GaleriaPage({
             <div className="flex justify-center mb-10">
               <a
                 href="#kontakt"
+                data-cta="wycena_galeria"
                 className="inline-block bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
               >
                 Wyceń swój projekt
@@ -148,6 +151,14 @@ export default async function GaleriaPage({
             <Services />
           </ErrorBoundary>
         </div>
+
+        <ErrorBoundary>
+          <LogoBar />
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <Testimonials />
+        </ErrorBoundary>
 
         <div className="mt-6">
           <ErrorBoundary>

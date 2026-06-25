@@ -449,10 +449,11 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
   "wideo-marketing": "/images/portfolio/woohoo-autopay.jpg",
 };
 
-// Punkt kadrowania miniatury (object-position). Portret dwójki przy kadrze 4:3
-// w środku ucinał głowę kobiety — kadrujemy od góry; reszta wyśrodkowana.
+// Punkt kadrowania miniatury (object-position). Wizerunek kadrujemy wyżej
+// (twarz w górnej części), zespołowy portret zostawiamy na środku (obie twarze
+// widoczne — dół ucinał głowy). Reszta domyślnie wyśrodkowana.
 const SERVICE_TILE_POS: Record<string, string> = {
-  "sesje-zespolowe": "center top",
+  "wizerunek-portrety": "center top",
 };
 
 export const serviceItems = serviceCategories.map((s) => ({

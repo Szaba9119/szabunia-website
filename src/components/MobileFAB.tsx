@@ -35,6 +35,7 @@ export default function MobileFAB() {
       </a>
       <a
         href="#kontakt"
+        data-cta="wycena_sticky"
         aria-label="Wyślij brief — przejdź do formularza"
         className="flex items-center gap-2 pl-4 pr-5 py-3 bg-gradient-to-br from-blue to-blue-light text-white rounded-full btn-glow shadow-lg shadow-blue/30 font-barlow font-bold text-sm"
       >

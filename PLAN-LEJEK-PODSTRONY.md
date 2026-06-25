@@ -83,3 +83,29 @@ Obecnie: H1 + intro + przeglądarka kategorii (lightbox) + formularz na dole.
 4. **Sticky CTA na mobile** — wchodzi?
 5. **Kolejność wdrożenia** — wszystko naraz czy etapami (najpierw zatkanie
    wycieków + CTA + opinia, potem reszta)?
+
+---
+
+## STATUS WDROŻENIA
+
+### Zrobione
+- **Podstrony usług:** główne CTA „Zapytaj o wycenę" + pasek zaufania w hero,
+  opinia dopasowana do usługi, powtórzone CTA po cenniku, blog przeniesiony pod
+  formularz, logotypy klientów, sticky mobilny przycisk (tel / mail / wyceń).
+- **Galeria jako lejek:** CTA „Wyceń swój projekt" w hero, kafelki usług
+  (kierują na podstrony), logotypy, opinie, formularz, sticky przycisk.
+- **Miniatury usług + kadrowanie:** dobrane najlepsze ujęcia, poprawione
+  object-position (wizerunek wyżej, zespołowy na środku — twarze widoczne).
+- **Zbijanie ryzyka przy formularzu:** Faktura VAT · 2 tury poprawek ·
+  licencja bez limitu · bez zobowiązań.
+- OG-images podstron — istnieją (udostępnianie w social OK).
+
+### Pozostało (kolejne etapy)
+1. ~~Kuracja zdjęć w paskach galerii na podstronach~~ ✅ — wybrane najlepsze 6
+   per kategoria (portrety / eventy / produktowe) w `ServiceGalleryStrip`.
+2. ~~Analityka konwersji~~ ✅ — `cta_click` (data-cta) na CTA „wycena" w hero,
+   środku strony, galerii i sticky; tel/mail i wysyłka formularza już mierzone.
+3. **(opcjonalnie) Lightbox na podstronie** — podgląd zdjęć na miejscu zamiast
+   przejścia do `/galeria`.
+4. **Pomiar po wdrożeniu i iteracja** — sprawdzić zachowanie (GA4) i dopiąć
+   słabe punkty lejka.
