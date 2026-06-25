@@ -210,7 +210,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     faqs: [
       { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media." },
-      { q: "Ile zdjęć otrzymam?", a: "Średnio 15-30 gotowych zdjęć na każdą godzinę fotografowania, wyselekcjonowanych i poddanych postprodukcji. To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
+      { q: "Ile zdjęć otrzymam?", a: "Średnio 15-30 gotowych zdjęć na każdą godzinę fotografowania, wyselekcjonowanych i poddanych postprodukcji. Dokładna liczba zależy od skali eventu i dodatkowych zadań w trakcie (wideo, dron, obróbka zdjęć na żywo, wydruk zdjęć na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
       { q: "Czy pakiet całodniowy się opłaca?", a: "Przy 8h standardowo byłoby 3 400 zł. Pakiet to 2 800 zł, oszczędzasz 600 zł." },
     ],
     portfolioSlug: "woohoo-autopay",
@@ -250,9 +250,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     tables: [
       {
         title: "Zespoły i Biura",
-        rows: [
-          { label: "Dodatkowe ujęcie", value: "80 zł" },
-        ],
+        rows: [],
         groups: [
           {
             label: "Stawka za osobę (1 retusz)",
@@ -260,6 +258,7 @@ const serviceCategoriesRaw: ServiceData[] = [
               { label: "4-10 osób", value: "150 zł" },
               { label: "11-30 osób", value: "120 zł" },
               { label: "30+ osób", value: "100 zł" },
+              { label: "Dodatkowe ujęcie / os.", value: "80 zł" },
             ],
           },
           {
