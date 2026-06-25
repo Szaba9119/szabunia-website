@@ -162,7 +162,7 @@ export default async function ServicePage({ params }: PageProps) {
                   Masz projekt? Wyceńmy go.
                 </h2>
                 <p className="text-steel dark:text-dark-text-muted text-[14px] mb-6 max-w-md mx-auto">
-                  Napisz krótki brief, odezwę się w 24h z konkretną wyceną. Bez zobowiązań.
+                  Napisz krótki brief, odezwę się w 24h z konkretną wyceną.
                 </p>
                 <a
                   href="#kontakt"
