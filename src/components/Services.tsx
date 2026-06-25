@@ -38,6 +38,7 @@ export default function Services() {
                         alt={`${s.title} — przykładowa realizacja`}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
+                        style={{ objectPosition: s.imagePos }}
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                     </div>

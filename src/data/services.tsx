@@ -449,6 +449,13 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
   "wideo-marketing": "/images/portfolio/reel-1.jpg",
 };
 
+// Punkt kadrowania miniatury (object-position). Portrety, którym przy kadrze 4:3
+// środek ucinał głowę, kadrujemy od góry; reszta zostaje wyśrodkowana.
+const SERVICE_TILE_POS: Record<string, string> = {
+  "sesje-zespolowe": "center top",
+  "wideo-marketing": "center top",
+};
+
 export const serviceItems = serviceCategories.map((s) => ({
   slug: s.slug,
   title: s.title,
@@ -456,6 +463,7 @@ export const serviceItems = serviceCategories.map((s) => ({
   desc: s.subtitle,
   price: s.price,
   image: SERVICE_TILE_IMAGES[s.slug],
+  imagePos: SERVICE_TILE_POS[s.slug] ?? "center",
 }));
 
 // Opinia dopasowana do usługi (dowód społeczny na podstronie). Korzystamy z

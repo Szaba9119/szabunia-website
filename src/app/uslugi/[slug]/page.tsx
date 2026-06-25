@@ -10,6 +10,7 @@ import PortfolioPricing from "@/components/PortfolioPricing";
 import PortfolioFAQ from "@/components/PortfolioFAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import MobileFAB from "@/components/MobileFAB";
 import BlogCard from "@/components/BlogCard";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { getPostsForService } from "@/data/blog";
@@ -184,6 +185,7 @@ export default async function ServicePage({ params }: PageProps) {
         )}
       </main>
       <Footer />
+      <MobileFAB />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

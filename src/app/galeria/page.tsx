@@ -6,6 +6,8 @@ import CTA from "@/components/CTA";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import AnimatedSection from "@/components/AnimatedSection";
 import GalleryView, { type GalleryCategory } from "@/components/GalleryView";
+import Services from "@/components/Services";
+import MobileFAB from "@/components/MobileFAB";
 import { galleryVideos } from "@/data/galeria";
 import { listGalleryImagesSized } from "@/lib/galleryImages";
 
@@ -123,9 +125,17 @@ export default async function GaleriaPage({
             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
               Galeria
             </h1>
-            <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-2xl mx-auto">
+            <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-6 max-w-2xl mx-auto">
               Wybrane kadry z realizacji: portrety biznesowe, eventy, fotografia produktowa oraz wideo.
             </p>
+            <div className="flex justify-center mb-10">
+              <a
+                href="#kontakt"
+                className="inline-block bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
+              >
+                Wyceń swój projekt
+              </a>
+            </div>
           </AnimatedSection>
 
           <ErrorBoundary>
@@ -133,13 +143,20 @@ export default async function GaleriaPage({
           </ErrorBoundary>
         </div>
 
-        <div className="mt-16">
+        <div className="mt-10">
+          <ErrorBoundary>
+            <Services />
+          </ErrorBoundary>
+        </div>
+
+        <div className="mt-6">
           <ErrorBoundary>
             <CTA />
           </ErrorBoundary>
         </div>
       </main>
       <Footer />
+      <MobileFAB />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
