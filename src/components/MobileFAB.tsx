@@ -48,7 +48,7 @@ export default function MobileFAB() {
       style={{ bottom: bannerH ? bannerH + 16 : 20 }}
     >
       {/* Wyśrodkowana „wyspa" — jeden spójny pasek akcji: Wyceń, e-mail, telefon */}
-      <div className="flex items-center gap-1.5 rounded-full p-1.5 bg-white/95 dark:bg-dark-card/95 backdrop-blur-md border border-border dark:border-dark-border shadow-lg shadow-navy/15 dark:shadow-black/30">
+      <div className="glass-strong flex items-center gap-1.5 rounded-full p-1.5">
         <a
           href="#kontakt"
           data-cta="wycena_sticky"
@@ -58,7 +58,7 @@ export default function MobileFAB() {
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125" />
           </svg>
-          Wyceń
+          Wycena
         </a>
         <a href={`mailto:${EMAIL}`} aria-label="Napisz e-mail" className={iconBtn}>
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">

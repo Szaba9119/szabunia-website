@@ -109,9 +109,9 @@ function PricingTables({ tables }: TableProps) {
                   </p>
                   <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
                     {group.items.map((item) => (
-                      <div key={item.label} className="flex justify-between">
+                      <div key={item.label} className="flex justify-between items-baseline gap-3">
                         <span>{item.label}</span>
-                        <span>{item.value}</span>
+                        <span className="font-barlow font-semibold text-blue dark:text-blue-light whitespace-nowrap">{item.value}</span>
                       </div>
                     ))}
                   </div>

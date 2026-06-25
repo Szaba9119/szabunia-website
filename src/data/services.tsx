@@ -127,12 +127,14 @@ const serviceCategoriesRaw: ServiceData[] = [
         name: "EVENT ESSENTIALS",
         price: "1 800 zł",
         features: ["3 godziny obecności", "50+ zdjęć po selekcji i pełnej obróbce", "Wideo w formacie Reels (30s)", "Pełny montaż i postprodukcja wideo", "Ujęcia z drona w cenie pakietu"],
+        extra: "Dodatkowa godzina: 350 zł",
       },
       {
         name: "EVENT PRO",
         price: "3 200 zł",
         features: ["6 godzin obecności", "150+ zdjęć po selekcji i pełnej obróbce", "Główne wideo podsumowujące (60s)", "Krótki teaser do Social Media (15s)", "Pełny montaż i postprodukcja wideo", "Ujęcia z drona w cenie pakietu"],
         recommended: true,
+        extra: "Dodatkowa godzina: 350 zł",
       },
       {
         name: "EVENT PREMIUM",
@@ -147,6 +149,7 @@ const serviceCategoriesRaw: ServiceData[] = [
           "Pełen montaż wideo i post-produkcja wywiadów",
           "Ujęcia z drona w cenie pakietu",
         ],
+        extra: "Dodatkowa godzina: 350 zł",
       },
     ],
     faqs: [
@@ -190,13 +193,17 @@ const serviceCategoriesRaw: ServiceData[] = [
     tables: [
       {
         title: "Reportaż & Eventy",
-        rows: [
-          { label: "Pierwsza godzina pracy", value: "600 zł" },
-          { label: "Każda kolejna godzina", value: "400 zł" },
-          { label: "Pakiet 4h (event)", value: "1 600 zł" },
-          { label: "Pakiet całodniowy (8h)", value: "2 800 zł" },
-        ],
+        rows: [],
         groups: [
+          {
+            label: "Stawki i pakiety",
+            items: [
+              { label: "Pierwsza godzina pracy", value: "600 zł" },
+              { label: "Każda kolejna godzina", value: "400 zł" },
+              { label: "Pakiet 4h (event)", value: "1 600 zł" },
+              { label: "Pakiet całodniowy (8h)", value: "2 800 zł" },
+            ],
+          },
           {
             label: "Opcje dodatkowe",
             items: [
@@ -239,7 +246,7 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
       </svg>
     ),
-    price: "od 150 zł",
+    price: "od 150 zł/os.",
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram i liczbę osób" },
       { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio w biurze (20 min)" },
@@ -258,6 +265,11 @@ const serviceCategoriesRaw: ServiceData[] = [
               { label: "4-10 osób", value: "150 zł" },
               { label: "11-30 osób", value: "120 zł" },
               { label: "30+ osób", value: "100 zł" },
+            ],
+          },
+          {
+            label: "Dopłaty",
+            items: [
               { label: "Dodatkowe ujęcie / os.", value: "80 zł" },
             ],
           },
@@ -464,7 +476,6 @@ const serviceCategoriesRaw: ServiceData[] = [
           "Pełna, autorska obróbka",
           "Pliki: pełna jakość + wersja web",
         ],
-        extra: "Dodatkowe zdjęcie: 80 zł",
       },
       {
         name: "WIDEO Z DRONA 4K",
@@ -476,7 +487,6 @@ const serviceCategoriesRaw: ServiceData[] = [
           "Formaty pod WWW lub social media",
         ],
         recommended: true,
-        extra: "Kolejna godzina lotu: 300 zł",
       },
       {
         name: "FOTO + WIDEO",
@@ -487,11 +497,10 @@ const serviceCategoriesRaw: ServiceData[] = [
           "Komplet z jednego lotu",
           "Pełna obróbka i montaż",
         ],
-        extra: "Dodatek do sesji (do 3 ujęć): 200 zł",
       },
     ],
     pricingNote:
-      "Dron DJI. Mam certyfikat operatora A1/A3 i ubezpieczenie OC. W standardowych lokalizacjach loty bez dopłat; w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.",
+      "Dodatki: kolejna godzina lotu 300 zł · dodatkowe zdjęcie 80 zł · jako dodatek do innej sesji 200 zł (do 3 ujęć). Dron DJI, certyfikat operatora A1/A3 i ubezpieczenie OC; w standardowych lokalizacjach loty bez dopłat, w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.",
     faqs: [
       { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
       { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji bezpłatnie przekładamy termin na najbliższy możliwy." },

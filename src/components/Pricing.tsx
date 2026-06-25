@@ -311,9 +311,6 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Pełna, autorska obróbka</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Pliki: pełna jakość i wersja web</li>
               </ul>
-              <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
-                Dodatkowe zdjęcie: {formatPriceLabel(80)}
-              </p>
               <AskButton slug="zdjecia-wideo-z-drona" label="ZDJĘCIA Z DRONA" />
             </div>
           </AnimatedSection>
@@ -332,9 +329,6 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Jakość do 4K</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Formaty pod WWW lub social media</li>
               </ul>
-              <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
-                Kolejna godzina lotu: {formatPriceLabel(300)}
-              </p>
               <AskButton slug="zdjecia-wideo-z-drona" label="WIDEO Z DRONA 4K" />
             </div>
           </AnimatedSection>
@@ -350,16 +344,13 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Komplet z jednego lotu</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Pełna obróbka i montaż</li>
               </ul>
-              <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
-                Dodatek do sesji (do 3 ujęć): {formatPriceLabel(200)}
-              </p>
               <AskButton slug="zdjecia-wideo-z-drona" label="FOTO + WIDEO" />
             </div>
           </AnimatedSection>
         </div>
         <AnimatedSection>
           <p className="text-steel dark:text-dark-text-muted text-[12px] text-center mb-16 max-w-2xl mx-auto">
-            Dron DJI. Mam certyfikat operatora A1/A3 i ubezpieczenie OC. W standardowych lokalizacjach loty bez dopłat; w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.
+            Dodatki: kolejna godzina lotu {formatPriceLabel(300)} · dodatkowe zdjęcie {formatPriceLabel(80)} · jako dodatek do innej sesji {formatPriceLabel(200)} (do 3 ujęć). Dron DJI, certyfikat operatora A1/A3 i ubezpieczenie OC; w standardowych lokalizacjach loty bez dopłat, w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.
           </p>
         </AnimatedSection>
 

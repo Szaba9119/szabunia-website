@@ -122,6 +122,21 @@ html.dark {
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+/* Mocniejszy „liquid glass" — większy blur, podbita saturacja i wewnętrzny
+   refleks, dla elementów które mają wyglądać jak szkło (np. mobilna wyspa akcji). */
+.glass-strong {
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.18), inset 0 1px 0 rgba(255, 255, 255, 0.65);
+}
+.dark .glass-strong {
+  background: rgba(17, 23, 38, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
 .glass-dark {
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(16px);
