@@ -8,7 +8,7 @@ const steps = [
   {
     num: 1,
     title: "Brief",
-    desc: "Omawiamy cel, wizję i oczekiwania wobec projektu",
+    desc: "Krótka rozmowa o celu, terminie i budżecie. Wycenę dostajesz w ciągu 24h.",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -18,7 +18,7 @@ const steps = [
   {
     num: 2,
     title: "Sesja",
-    desc: "Profesjonalna sesja w studio lub w Twojej firmie",
+    desc: "Przyjeżdżam do Twojej firmy lub umawiamy studio. Prowadzę Cię przez pozowanie.",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
@@ -29,7 +29,7 @@ const steps = [
   {
     num: 3,
     title: "Selekcja",
-    desc: "Wybierasz najlepsze ujęcia z galerii online",
+    desc: "W 48h dostajesz galerię online. Sam zaznaczasz ujęcia do retuszu — pełna kontrola.",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -39,7 +39,7 @@ const steps = [
   {
     num: 4,
     title: "Dostawa",
-    desc: "Gotowe, wyretuszowane materiały w ciągu 14 dni",
+    desc: "Wyretuszowane materiały w 14 dni (wideo 21). Express do 48h dostępny.",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -81,7 +81,7 @@ export default function Process() {
                     <div className="relative z-10 w-14 h-14 rounded-full bg-gradient-to-br from-blue to-blue-light text-white flex items-center justify-center font-barlow font-extrabold text-xl shadow-lg shadow-blue/25 mb-5">
                       {step.num}
                     </div>
-                    <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border w-full hover:border-blue dark:hover:border-blue hover:-translate-y-0.5 transition-all">
+                    <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border w-full flex-1 hover:border-blue dark:hover:border-blue hover:-translate-y-0.5 transition-all">
                       <div className="w-9 h-9 rounded-lg bg-blue-pale dark:bg-blue/15 flex items-center justify-center text-blue mx-auto mb-3" aria-hidden="true">
                         {step.icon}
                       </div>

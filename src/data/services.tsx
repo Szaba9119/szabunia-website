@@ -448,33 +448,45 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 3, title: "Postprodukcja", desc: "Obróbka zdjęć lub montaż wideo" },
       { num: 4, title: "Dostawa", desc: "Zdjęcia w 14 dni, wideo do 21 dni" },
     ],
-    pricingType: "table",
-    tables: [
+    pricingType: "tiers",
+    tiers: [
       {
-        title: "Zdjęcia i wideo z drona",
-        rows: [],
-        groups: [
-          {
-            label: "Pakiety (1h lotu w cenie)",
-            items: [
-              { label: "Zdjęcia z drona — do 10 wyretuszowanych zdjęć", value: "500 zł" },
-              { label: "Wideo z drona 4K — zmontowany materiał do 60 s", value: "800 zł" },
-              { label: "Foto + wideo — do 10 zdjęć + wideo do 60 s", value: "1 100 zł" },
-            ],
-          },
-          {
-            label: "Opcje dodatkowe",
-            items: [
-              { label: "Każda kolejna godzina lotu (≈10 zdjęć lub +60 s)", value: "300 zł" },
-              { label: "Dodatkowe wyretuszowane zdjęcie", value: "60 zł" },
-              { label: "Dodatek do innej sesji (event, produkt, wizerunek)", value: "200 zł" },
-              { label: "Loty w strefie kontrolowanej (zgody PAŻP)", value: "wycena indyw." },
-            ],
-          },
+        name: "ZDJĘCIA Z DRONA",
+        price: "500 zł",
+        features: [
+          "1h lotu w cenie",
+          "Do 10 wyretuszowanych zdjęć z powietrza",
+          "Pełna, autorska obróbka",
+          "Pliki: pełna jakość + wersja web",
         ],
-        note: "Dron DJI z certyfikatem A1/A3 i ubezpieczeniem OC operatora. W standardowych lokalizacjach loty bez dopłat. W strefach kontrolowanych (np. centrum miasta) załatwiam zgody PAŻP — wyceniane indywidualnie ze względu na czas i formalności.",
+        extra: "Dodatkowe zdjęcie: 60 zł",
+      },
+      {
+        name: "WIDEO Z DRONA 4K",
+        price: "800 zł",
+        features: [
+          "1h lotu w cenie",
+          "Zmontowany materiał do 60 s",
+          "Jakość do 4K",
+          "Formaty pod WWW i social media",
+        ],
+        recommended: true,
+        extra: "Kolejna godzina lotu: 300 zł",
+      },
+      {
+        name: "FOTO + WIDEO",
+        price: "1 100 zł",
+        features: [
+          "1h lotu w cenie",
+          "Do 10 zdjęć + wideo do 60 s",
+          "Komplet z jednego lotu",
+          "Pełna obróbka i montaż",
+        ],
+        extra: "Dodatek do innej sesji: 200 zł",
       },
     ],
+    pricingNote:
+      "Dron DJI z certyfikatem A1/A3 i ubezpieczeniem OC operatora. W standardowych lokalizacjach loty bez dopłat; w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.",
     faqs: [
       { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
       { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji bezpłatnie przekładamy termin na najbliższy możliwy." },
