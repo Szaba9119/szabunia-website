@@ -6,11 +6,20 @@ import { useCallback, useEffect, useState } from "react";
 interface Props {
   images: string[];
   altBase: string;
+  /** object-position miniatur (np. "center 25%" dla portretów, by nie ucinać twarzy). */
+  thumbPosition?: string;
+  /** Proporcja miniatur (np. "aspect-[3/4]" dla portretów, "aspect-[4/3]" dla eventów). */
+  aspectClass?: string;
 }
 
 // Siatka miniatur z podglądem (lightbox) otwieranym na miejscu — bez wychodzenia
 // z lejka do /galeria. Bez framer-motion: czysty CSS + obsługa klawiatury.
-export default function ServiceGalleryLightbox({ images, altBase }: Props) {
+export default function ServiceGalleryLightbox({
+  images,
+  altBase,
+  thumbPosition = "center",
+  aspectClass = "aspect-square",
+}: Props) {
   const [open, setOpen] = useState<number | null>(null);
 
   const close = useCallback(() => setOpen(null), []);
@@ -45,13 +54,14 @@ export default function ServiceGalleryLightbox({ images, altBase }: Props) {
             type="button"
             onClick={() => setOpen(i)}
             aria-label={`Powiększ zdjęcie ${i + 1}`}
-            className="group relative aspect-square rounded-xl overflow-hidden bg-border dark:bg-dark-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
+            className={`group relative ${aspectClass} rounded-xl overflow-hidden bg-border dark:bg-dark-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue`}
           >
             <Image
               src={src}
               alt={`${altBase} ${i + 1}`}
               fill
               sizes="(max-width: 640px) 33vw, 16vw"
+              style={{ objectPosition: thumbPosition }}
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </button>

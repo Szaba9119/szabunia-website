@@ -84,7 +84,18 @@ export default function ServiceGalleryStrip({ category }: { category: GalleryCat
 
   return (
     <Shell label={meta.label} sub={meta.sub} href={href}>
-      <ServiceGalleryLightbox images={images} altBase={meta.alt} />
+      <ServiceGalleryLightbox
+        images={images}
+        altBase={meta.alt}
+        aspectClass={
+          category === "portrety"
+            ? "aspect-[3/4]"
+            : category === "eventy"
+            ? "aspect-[4/3]"
+            : "aspect-square"
+        }
+        thumbPosition={category === "portrety" ? "center 20%" : "center"}
+      />
     </Shell>
   );
 }

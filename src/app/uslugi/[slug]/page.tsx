@@ -6,6 +6,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import ServiceHero from "@/components/ServiceHero";
 import ServiceGalleryStrip from "@/components/ServiceGalleryStrip";
 import LogoBar from "@/components/LogoBar";
+import YouTubeFacade from "@/components/YouTubeFacade";
 import PortfolioProcess from "@/components/PortfolioProcess";
 import PortfolioPricing from "@/components/PortfolioPricing";
 import PortfolioFAQ from "@/components/PortfolioFAQ";
@@ -106,6 +107,21 @@ export default async function ServicePage({ params }: PageProps) {
             <ServiceGalleryStrip category={service.galleryCategory} />
           </ErrorBoundary>
         )}
+        {service.videoId && (
+          <ErrorBoundary>
+            <section className="py-12 md:py-16 px-4">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="font-barlow font-extrabold text-2xl md:text-[32px] leading-tight tracking-tight text-navy dark:text-white mb-2 text-center">
+                  Przykładowa realizacja wideo
+                </h2>
+                <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-8">
+                  Tak wygląda materiał wideo z jednego wejścia foto + wideo.
+                </p>
+                <YouTubeFacade id={service.videoId} title={service.videoTitle ?? service.title} className="" />
+              </div>
+            </section>
+          </ErrorBoundary>
+        )}
         <ErrorBoundary>
           <LogoBar />
         </ErrorBoundary>
@@ -143,7 +159,7 @@ export default async function ServicePage({ params }: PageProps) {
               )}
               <div className="text-center bg-blue-pale dark:bg-blue/10 rounded-2xl border border-blue/15 dark:border-blue/20 p-8 md:p-10">
                 <h2 className="font-barlow font-extrabold text-2xl md:text-[28px] leading-tight tracking-tight text-navy dark:text-white mb-2">
-                  Zróbmy to dobrze za pierwszym razem
+                  Masz projekt? Wyceńmy go.
                 </h2>
                 <p className="text-steel dark:text-dark-text-muted text-[14px] mb-6 max-w-md mx-auto">
                   Napisz krótki brief, odezwę się w 24h z konkretną wyceną. Bez zobowiązań.
@@ -153,7 +169,7 @@ export default async function ServicePage({ params }: PageProps) {
                   data-cta="wycena_srodek"
                   className="inline-block bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
                 >
-                  Zapytaj o wycenę
+                  Wyślij brief
                 </a>
               </div>
             </div>

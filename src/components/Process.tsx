@@ -147,7 +147,7 @@ export default function Process() {
                   Rozliczenia
                 </p>
                 <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                  Płatność przez platformę Useme: proforma, po opłacie automatyczna faktura VAT. Termin: 7 dni.
+                  Po pierwszym retuszu wysyłam proformę z podglądem materiału. Masz 7 dni na akceptację (foto lub wideo), brak odpowiedzi oznacza akceptację. Po opłacie dostajesz pełne pliki (social media i druk) oraz fakturę VAT przez Useme.
                 </p>
               </div>
               <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">

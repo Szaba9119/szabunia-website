@@ -648,7 +648,7 @@ export const blogPosts: BlogPost[] = [
       <p>Urządzenie, które utrzymuje kamerę w idealnie płynnym ruchu. Dzięki niemu ujęcia z przejść po biurze czy evencie wyglądają filmowo, a nie jak z ręki. Standard przy każdej mojej realizacji wideo.</p>
 
       <h2>Ujęcia z drona</h2>
-      <p>Zdjęcia i wideo z powietrza: budynek firmy, teren zakładu, skala wydarzenia. Latam dronem DJI z certyfikatem A1/A3 i ubezpieczeniem OC operatora, więc strona formalna jest po mojej stronie. Przy odpowiednich zgodach da się latać nawet w środku obiektu, jak przy <a href="/portfolio/woohoo-autopay">evencie na Enea Stadion</a>, gdzie dron latał wewnątrz stadionu.</p>
+      <p>Zdjęcia i wideo z powietrza: budynek firmy, teren zakładu, skala wydarzenia. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Przy odpowiednich zgodach da się latać nawet w środku obiektu, jak przy <a href="/portfolio/woohoo-autopay">evencie na Enea Stadion</a>, gdzie dron latał wewnątrz stadionu.</p>
 
       <h2>Mikroport</h2>
       <p>Mały bezprzewodowy mikrofon przypinany do ubrania osoby mówiącej. To różnica między dźwiękiem, którego da się słuchać, a takim, który ginie w echu sali. Przy wywiadach i setkach to pozycja obowiązkowa.</p>

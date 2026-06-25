@@ -312,7 +312,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Pliki: pełna jakość i wersja web</li>
               </ul>
               <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
-                Dodatkowe zdjęcie: {formatPriceLabel(60)}
+                Dodatkowe zdjęcie: {formatPriceLabel(80)}
               </p>
               <AskButton slug="zdjecia-wideo-z-drona" label="ZDJĘCIA Z DRONA" />
             </div>
@@ -330,7 +330,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> 1h lotu w cenie</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Zmontowany materiał do 60 s</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Jakość do 4K</li>
-                <li className="flex items-start gap-2"><CheckIcon /> Formaty pod WWW i social media</li>
+                <li className="flex items-start gap-2"><CheckIcon /> Formaty pod WWW lub social media</li>
               </ul>
               <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
                 Kolejna godzina lotu: {formatPriceLabel(300)}
@@ -359,7 +359,7 @@ export default function Pricing() {
         </div>
         <AnimatedSection>
           <p className="text-steel dark:text-dark-text-muted text-[12px] text-center mb-16 max-w-2xl mx-auto">
-            Dron DJI z certyfikatem A1/A3 i ubezpieczeniem OC operatora. W standardowych lokalizacjach loty bez dopłat; w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.
+            Dron DJI. Mam certyfikat operatora A1/A3 i ubezpieczenie OC. W standardowych lokalizacjach loty bez dopłat; w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.
           </p>
         </AnimatedSection>
 

@@ -19,6 +19,9 @@ export interface ServiceData {
   faqs: FAQItem[];
   portfolioSlug?: string;
   galleryCategory?: "portrety" | "eventy" | "produktowe" | "wideo";
+  /** YouTube ID przykładowego filmu pokazywanego na podstronie usługi. */
+  videoId?: string;
+  videoTitle?: string;
   seo: {
     title: string;
     description: string;
@@ -50,8 +53,8 @@ const serviceCategoriesRaw: ServiceData[] = [
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
       { num: 2, title: "Poseboard", desc: "Przygotowuję moodboard z referencjami" },
-      { num: 3, title: "Sesja", desc: "Profesjonalna sesja w studiu lub biurze" },
-      { num: 4, title: "Dostawa", desc: "Wyselekcjonowane zdjęcia w 14 dni" },
+      { num: 3, title: "Sesja", desc: "Prowadzę Cię przez pozowanie, w studiu lub Twoim biurze. Nie musisz nic umieć." },
+      { num: 4, title: "Dostawa", desc: "Wybrane, wyretuszowane zdjęcia w 14 dni roboczych." },
     ],
     pricingType: "tiers",
     tiers: [
@@ -91,6 +94,8 @@ const serviceCategoriesRaw: ServiceData[] = [
     slug: "pakiety-foto-wideo",
     portfolioSlug: "woohoo-autopay",
     galleryCategory: "eventy",
+    videoId: "4INLtKcKcZk",
+    videoTitle: "E-commerce All-in, film z eventu dla Woohoo",
     title: "Pakiety Foto + Wideo",
     subtitle:
       "Jeden twórca, spójny materiał, mniej logistyki. Bestseller wśród klientów korporacyjnych.",
@@ -358,9 +363,9 @@ const serviceCategoriesRaw: ServiceData[] = [
     galleryCategory: "produktowe",
     title: "Fotografia produktowa",
     subtitle:
-      "Packshoty na białym tle, zdjęcia kreatywne i aranżacje na e-commerce, katalogi i Social Media.",
+      "Packshoty na białym tle z retuszem w cenie, zdjęcia typu duch (ghost mannequin), flat lay i aranżacje pod e-commerce, katalogi i Social Media.",
     description:
-      "Profesjonalne zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową, kreatywne ujęcia z aranżacją i rekwizytami, przygotowane pod konkretną kampanię: od internetu i Social Media po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym.",
+      "Profesjonalne zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową, kreatywne ujęcia z aranżacją i rekwizytami, przygotowane pod konkretną kampanię: od internetu i Social Media po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym. Każde zdjęcie dostajesz z retuszem i przyciętą ścieżką (clipping path) w cenie, na białym tle zgodnym z wymogami Allegro i Amazon, a na życzenie z przezroczystym tłem (PNG). Robię też packshoty typu duch (ghost mannequin) dla odzieży oraz ujęcia flat lay.",
     forWhom: [
       "Sklepy internetowe i marketplace'y",
       "Marki kosmetyczne i modowe",
@@ -373,7 +378,7 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
       </svg>
     ),
-    price: "od 55 zł",
+    price: "od 55 zł/szt.",
     process: [
       { num: 1, title: "Brief", desc: "Cel, platforma sprzedaży, wytyczne marki" },
       { num: 2, title: "Sesja", desc: "Fotografowanie w studiu z kontrolą światła" },
@@ -402,7 +407,7 @@ const serviceCategoriesRaw: ServiceData[] = [
             ],
           },
         ],
-        note: "Minimalne zamówienie: 500 zł lub 6 zdjęć",
+        note: "Retusz i clipping path w cenie każdego zdjęcia. Minimalne zamówienie: 500 zł lub 6 zdjęć",
       },
     ],
     faqs: [
@@ -410,6 +415,8 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Jakie formaty plików otrzymam?", a: "JPEG w pełnej rozdzielczości + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku." },
       { q: "Ile produktów dziennie jesteś w stanie zrealizować?", a: "Packshoty na białym tle: 30-50 produktów/dzień. Zdjęcia kreatywne: 8-15 ujęć/dzień." },
       { q: "Czym różni się fotografia produktowa od fotografii reklamowej?", a: "Fotografia produktowa pokazuje produkt wprost, packshot na białym tle do sklepu czy katalogu. Fotografia reklamowa buduje wokół produktu historię: aranżacja, rekwizyty, światło pod konkretną kampanię. Zdjęcia reklamowe wyceniam według pola eksploatacji, inaczej na Social Media, inaczej do druku i na outdoor." },
+      { q: "Czy robisz packshoty typu duch (ghost mannequin) i flat lay?", a: "Tak. Dla odzieży realizuję ujęcia typu duch (ghost mannequin), gdzie produkt trzyma formę bez widocznego manekina, a także ujęcia flat lay (produkt na płasko, z góry). Oba style wyceniam jak packshot, retusz jest w cenie." },
+      { q: "Czy retusz jest wliczony w cenę zdjęcia?", a: "Tak. Każdy packshot dostajesz wyretuszowany: czyste białe tło, przycięta ścieżka (clipping path), korekta kolorów i usunięcie drobnych skaz. Nie dopłacasz za obróbkę osobno, w przeciwieństwie do wielu studiów, gdzie retusz to dodatkowy koszt." },
     ],
     portfolioSlug: "artech-fotografia-produktowa",
     seo: {
@@ -423,7 +430,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Ujęcia z powietrza: budynki i obiekty firmowe, tereny, eventy i architektura. Foto i wideo w 4K.",
     description:
-      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, tereny i place, inwestycje budowlane, architektura oraz ujęcia eventowe. Latam dronem DJI z certyfikatem A1/A3 i ubezpieczeniem OC operatora, więc strona formalna jest po mojej stronie. Materiał z drona łączę też z sesją naziemną, dzięki czemu z jednego wejścia powstaje spójny komplet foto i wideo.",
+      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, tereny i place, inwestycje budowlane, architektura oraz ujęcia eventowe. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona łączę też z sesją naziemną, dzięki czemu z jednego wejścia powstaje spójny komplet foto i wideo.",
     forWhom: [
       "Deweloperzy i firmy budowlane (postęp prac, inwestycje)",
       "Hotele, ośrodki i obiekty turystyczne",
@@ -459,7 +466,7 @@ const serviceCategoriesRaw: ServiceData[] = [
           "Pełna, autorska obróbka",
           "Pliki: pełna jakość + wersja web",
         ],
-        extra: "Dodatkowe zdjęcie: 60 zł",
+        extra: "Dodatkowe zdjęcie: 80 zł",
       },
       {
         name: "WIDEO Z DRONA 4K",
@@ -468,7 +475,7 @@ const serviceCategoriesRaw: ServiceData[] = [
           "1h lotu w cenie",
           "Zmontowany materiał do 60 s",
           "Jakość do 4K",
-          "Formaty pod WWW i social media",
+          "Formaty pod WWW lub social media",
         ],
         recommended: true,
         extra: "Kolejna godzina lotu: 300 zł",
@@ -486,7 +493,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       },
     ],
     pricingNote:
-      "Dron DJI z certyfikatem A1/A3 i ubezpieczeniem OC operatora. W standardowych lokalizacjach loty bez dopłat; w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.",
+      "Dron DJI. Mam certyfikat operatora A1/A3 i ubezpieczenie OC. W standardowych lokalizacjach loty bez dopłat; w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.",
     faqs: [
       { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
       { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji bezpłatnie przekładamy termin na najbliższy możliwy." },

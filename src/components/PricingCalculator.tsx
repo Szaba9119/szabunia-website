@@ -200,9 +200,9 @@ function ServiceOptions({
               value={config.portraitPackage}
               onChange={(e) => onChange({ ...config, portraitPackage: e.target.value as CalcConfig["portraitPackage"] })}
             >
-              <option value="essential">Essential — {fmtPrice(1000, mode)} zł</option>
-              <option value="professional">Professional — {fmtPrice(1300, mode)} zł</option>
-              <option value="pro-branding">Pro Branding — {fmtPrice(1800, mode)} zł</option>
+              <option value="essential">Essential ({fmtPrice(1000, mode)} zł)</option>
+              <option value="professional">Professional ({fmtPrice(1300, mode)} zł)</option>
+              <option value="pro-branding">Pro Branding ({fmtPrice(1800, mode)} zł)</option>
             </select>
           </div>
           <div>
@@ -272,9 +272,9 @@ function ServiceOptions({
               onChange={(e) => onChange({ ...config, externalStudio: e.target.value as CalcConfig["externalStudio"] })}
             >
               <option value="">Nie potrzebuję</option>
-              <option value="2h">Do 2h — {fmtPrice(300, mode)} zł</option>
-              <option value="4h">Do 4h — {fmtPrice(400, mode)} zł</option>
-              <option value="unlimited">Bez limitu — {fmtPrice(800, mode)} zł</option>
+              <option value="2h">Do 2h ({fmtPrice(300, mode)} zł)</option>
+              <option value="4h">Do 4h ({fmtPrice(400, mode)} zł)</option>
+              <option value="unlimited">Bez limitu ({fmtPrice(800, mode)} zł)</option>
             </select>
           </div>
         </div>
@@ -291,8 +291,8 @@ function ServiceOptions({
               onChange={(e) => onChange({ ...config, productType: e.target.value as CalcConfig["productType"] })}
             >
               <option value="packshot">Packshot (białe tło)</option>
-              <option value="creative-web">Kreatywne — Internet / Social Media</option>
-              <option value="creative-print">Kreatywne — Druk / Outdoor</option>
+              <option value="creative-web">Kreatywne, Internet / Social Media</option>
+              <option value="creative-print">Kreatywne, Druk / Outdoor</option>
             </select>
           </div>
           <div>
@@ -324,7 +324,7 @@ function ServiceOptions({
             />
           </div>
           <div>
-            <label className={labelClass}>Live editing — liczba zdjęć</label>
+            <label className={labelClass}>Live editing, liczba zdjęć</label>
             <input
               type="number"
               min={0}
@@ -382,11 +382,11 @@ function ServiceOptions({
               value={config.videoPackage ?? "s"}
               onChange={(e) => onChange({ ...config, videoPackage: e.target.value as CalcConfig["videoPackage"] })}
             >
-              <option value="xs">XS Teaser &lt;15s — {fmtPrice(300, mode)} zł</option>
-              <option value="s">S Reels &lt;30s — {fmtPrice(600, mode)} zł</option>
-              <option value="m">M Event recap &lt;60s — {fmtPrice(900, mode)} zł</option>
-              <option value="l">L Promo 1-2min — {fmtPrice(1400, mode)} zł</option>
-              <option value="xl">XL Dokument ~3min — {fmtPrice(1800, mode)} zł</option>
+              <option value="xs">XS Teaser &lt;15s ({fmtPrice(300, mode)} zł)</option>
+              <option value="s">S Reels &lt;30s ({fmtPrice(600, mode)} zł)</option>
+              <option value="m">M Event recap &lt;60s ({fmtPrice(900, mode)} zł)</option>
+              <option value="l">L Promo 1-2min ({fmtPrice(1400, mode)} zł)</option>
+              <option value="xl">XL Dokument ~3min ({fmtPrice(1800, mode)} zł)</option>
             </select>
           </div>
         </div>
@@ -402,9 +402,9 @@ function ServiceOptions({
               value={config.comboPackage ?? "essentials"}
               onChange={(e) => onChange({ ...config, comboPackage: e.target.value as CalcConfig["comboPackage"] })}
             >
-              <option value="essentials">Event Essentials — {fmtPrice(1800, mode)} zł</option>
-              <option value="pro">Event Pro — {fmtPrice(3200, mode)} zł</option>
-              <option value="premium">Event Premium — {fmtPrice(4500, mode)} zł</option>
+              <option value="essentials">Event Essentials ({fmtPrice(1800, mode)} zł)</option>
+              <option value="pro">Event Pro ({fmtPrice(3200, mode)} zł)</option>
+              <option value="premium">Event Premium ({fmtPrice(4500, mode)} zł)</option>
             </select>
           </div>
           <div>
@@ -431,9 +431,9 @@ function ServiceOptions({
               value={config.dronePackage ?? "foto-wideo"}
               onChange={(e) => onChange({ ...config, dronePackage: e.target.value as CalcConfig["dronePackage"] })}
             >
-              <option value="foto">Zdjęcia z drona — {fmtPrice(600, mode)} zł</option>
-              <option value="wideo">Wideo z drona 4K — {fmtPrice(900, mode)} zł</option>
-              <option value="foto-wideo">Foto + wideo z drona — {fmtPrice(1200, mode)} zł</option>
+              <option value="foto">Zdjęcia z drona ({fmtPrice(600, mode)} zł)</option>
+              <option value="wideo">Wideo z drona 4K ({fmtPrice(900, mode)} zł)</option>
+              <option value="foto-wideo">Foto + wideo z drona ({fmtPrice(1200, mode)} zł)</option>
             </select>
           </div>
           <div>
