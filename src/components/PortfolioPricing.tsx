@@ -148,7 +148,7 @@ interface Props {
 export default function PortfolioPricing({ pricingType, tiers, tables, note }: Props) {
   if (!tiers?.length && !tables?.length) return null;
   return (
-    <section id="cennik" className="py-12 md:py-24 px-4 bg-gray-bg dark:bg-dark-bg">
+    <section id="cennik" className="py-12 md:py-16 px-4 bg-gray-bg dark:bg-dark-bg">
       <div className="max-w-5xl mx-auto">
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">

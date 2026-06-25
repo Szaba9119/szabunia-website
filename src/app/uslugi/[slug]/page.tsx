@@ -120,10 +120,10 @@ export default async function ServicePage({ params }: PageProps) {
             note={service.pricingNote}
           />
         </ErrorBoundary>
-        {testimonial && (
-          <ErrorBoundary>
-            <section className="py-12 md:py-16 px-4">
-              <div className="max-w-3xl mx-auto">
+        <ErrorBoundary>
+          <section className="py-12 md:py-16 px-4">
+            <div className="max-w-3xl mx-auto space-y-6">
+              {testimonial && (
                 <figure className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-8 md:p-10 text-center">
                   <div className="text-blue dark:text-blue-light text-sm mb-4" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
                     ★★★★★
@@ -140,26 +140,22 @@ export default async function ServicePage({ params }: PageProps) {
                     </div>
                   </figcaption>
                 </figure>
+              )}
+              <div className="text-center bg-blue-pale dark:bg-blue/10 rounded-2xl border border-blue/15 dark:border-blue/20 p-8 md:p-10">
+                <h2 className="font-barlow font-extrabold text-2xl md:text-[28px] leading-tight tracking-tight text-navy dark:text-white mb-2">
+                  Zróbmy to dobrze za pierwszym razem
+                </h2>
+                <p className="text-steel dark:text-dark-text-muted text-[14px] mb-6 max-w-md mx-auto">
+                  Napisz krótki brief, odezwę się w 24h z konkretną wyceną. Bez zobowiązań.
+                </p>
+                <a
+                  href="#kontakt"
+                  data-cta="wycena_srodek"
+                  className="inline-block bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
+                >
+                  Zapytaj o wycenę
+                </a>
               </div>
-            </section>
-          </ErrorBoundary>
-        )}
-        <ErrorBoundary>
-          <section className="px-4 pb-4">
-            <div className="max-w-3xl mx-auto text-center bg-blue-pale dark:bg-blue/10 rounded-2xl border border-blue/15 dark:border-blue/20 p-8 md:p-10">
-              <h2 className="font-barlow font-extrabold text-2xl md:text-[28px] leading-tight tracking-tight text-navy dark:text-white mb-2">
-                Zróbmy to dobrze za pierwszym razem
-              </h2>
-              <p className="text-steel dark:text-dark-text-muted text-[14px] mb-6 max-w-md mx-auto">
-                Napisz krótki brief, odezwę się w 24h z konkretną wyceną. Bez zobowiązań.
-              </p>
-              <a
-                href="#kontakt"
-                data-cta="wycena_srodek"
-                className="inline-block bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
-              >
-                Zapytaj o wycenę
-              </a>
             </div>
           </section>
         </ErrorBoundary>

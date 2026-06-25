@@ -12,7 +12,7 @@ interface Props {
 export default function PortfolioProcess({ steps }: Props) {
   if (steps.length === 0) return null;
   return (
-    <section className="py-12 md:py-24 px-4">
+    <section className="py-12 md:py-16 px-4">
       <div className="max-w-5xl mx-auto">
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">

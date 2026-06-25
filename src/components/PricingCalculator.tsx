@@ -119,7 +119,7 @@ function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
       return base + (config.extraComboHours ?? 0) * 350;
     }
     case "zdjecia-wideo-z-drona": {
-      const base = config.dronePackage === "wideo" ? 800 : config.dronePackage === "foto-wideo" ? 1100 : 500;
+      const base = config.dronePackage === "wideo" ? 900 : config.dronePackage === "foto-wideo" ? 1200 : 600;
       return base + (config.droneExtraHours ?? 0) * 300;
     }
     default:
@@ -431,9 +431,9 @@ function ServiceOptions({
               value={config.dronePackage ?? "foto-wideo"}
               onChange={(e) => onChange({ ...config, dronePackage: e.target.value as CalcConfig["dronePackage"] })}
             >
-              <option value="foto">Zdjęcia z drona — {fmtPrice(500, mode)} zł</option>
-              <option value="wideo">Wideo z drona 4K — {fmtPrice(800, mode)} zł</option>
-              <option value="foto-wideo">Foto + wideo z drona — {fmtPrice(1100, mode)} zł</option>
+              <option value="foto">Zdjęcia z drona — {fmtPrice(600, mode)} zł</option>
+              <option value="wideo">Wideo z drona 4K — {fmtPrice(900, mode)} zł</option>
+              <option value="foto-wideo">Foto + wideo z drona — {fmtPrice(1200, mode)} zł</option>
             </select>
           </div>
           <div>

@@ -441,7 +441,7 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" d="M7.8 7.8l1.7 1.7M16.2 7.8l-1.7 1.7M7.8 16.2l1.7-1.7M16.2 16.2l-1.7-1.7" />
       </svg>
     ),
-    price: "od 500 zł",
+    price: "od 600 zł",
     process: [
       { num: 1, title: "Brief i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
       { num: 2, title: "Lot", desc: "Zdjęcia i wideo 4K z powietrza" },
@@ -452,7 +452,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     tiers: [
       {
         name: "ZDJĘCIA Z DRONA",
-        price: "500 zł",
+        price: "600 zł",
         features: [
           "1h lotu w cenie",
           "Do 10 wyretuszowanych zdjęć z powietrza",
@@ -463,7 +463,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       },
       {
         name: "WIDEO Z DRONA 4K",
-        price: "800 zł",
+        price: "900 zł",
         features: [
           "1h lotu w cenie",
           "Zmontowany materiał do 60 s",
@@ -475,7 +475,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       },
       {
         name: "FOTO + WIDEO",
-        price: "1 100 zł",
+        price: "1 200 zł",
         features: [
           "1h lotu w cenie",
           "Do 10 zdjęć + wideo do 60 s",
@@ -530,7 +530,7 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
   "wizerunek-portrety": "/images/galeria/portrety/portret-05.jpg",
   "pakiety-foto-wideo": "/images/galeria/eventy/event-17.jpg",
   "fotografia-produktowa": "/images/galeria/produktowe/produkt-13.jpg",
-  "sesje-zespolowe": "/images/galeria/portrety/portret-06.jpg",
+  "sesje-zespolowe": "/images/portfolio/sesje-zespolowe-cover.jpg",
   // Wersja 4:3 z rozmytym wypełnieniem — pełny napis „E-COMMERCE All in"
   // widoczny, bez ucinania i bez pustych marginesów (oryginał 16:9).
   "wideo-marketing": "/images/portfolio/woohoo-ecommerce-4x3.jpg",
@@ -542,7 +542,6 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
 // obie twarze wciąż widoczne). Reszta domyślnie wyśrodkowana.
 const SERVICE_TILE_POS: Record<string, string> = {
   "wizerunek-portrety": "center 29%",
-  "sesje-zespolowe": "center 60%",
 };
 
 export const serviceItems = serviceCategories.map((s) => ({

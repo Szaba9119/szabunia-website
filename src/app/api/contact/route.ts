@@ -51,6 +51,19 @@ export async function POST(req: Request) {
   const service = String(data.service ?? "").trim();
   const message = String(data.message ?? "").trim();
 
+  // Kod usługi z dropdowna → czytelna nazwa w mailu (żeby lead był jasny).
+  const SERVICE_LABELS: Record<string, string> = {
+    wizerunek: "Portrety biznesowe / Headshoty",
+    zespol: "Sesje zespołowe",
+    produkt: "Fotografia produktowa / przemysłowa",
+    event: "Reportaż z eventu",
+    wideo: "Wideo marketing",
+    pakiet: "Pakiet foto + wideo",
+    dron: "Zdjęcia i wideo z drona",
+    inne: "Inne zapytanie",
+  };
+  const serviceLabel = SERVICE_LABELS[service] ?? service;
+
   if (!name || !email) {
     return NextResponse.json({ error: "Brak wymaganych pól" }, { status: 400 });
   }
@@ -69,7 +82,7 @@ export async function POST(req: Request) {
     <p><strong>Imię / firma:</strong> ${escapeHtml(name)}</p>
     <p><strong>E-mail:</strong> ${escapeHtml(email)}</p>
     <p><strong>Telefon:</strong> ${escapeHtml(phone) || "—"}</p>
-    <p><strong>Usługa:</strong> ${escapeHtml(service) || "—"}</p>
+    <p><strong>Usługa:</strong> ${escapeHtml(serviceLabel) || "—"}</p>
     <p><strong>Wiadomość:</strong><br>${escapeHtml(message).replace(/\n/g, "<br>") || "—"}</p>
   `;
 

@@ -112,6 +112,7 @@ export default function CTA() {
         "eventy-reportaze": "event",
         "wideo-marketing": "wideo",
         "pakiety-foto-wideo": "pakiet",
+        "zdjecia-wideo-z-drona": "dron",
       };
       setFormData((prev) => ({
         ...prev,
@@ -425,6 +426,9 @@ export default function CTA() {
                           </option>
                           <option value="pakiet" className="bg-white dark:bg-navy">
                             Pakiet foto + wideo
+                          </option>
+                          <option value="dron" className="bg-white dark:bg-navy">
+                            Zdjęcia i wideo z drona
                           </option>
                           <option value="inne" className="bg-white dark:bg-navy">
                             Inne zapytanie
