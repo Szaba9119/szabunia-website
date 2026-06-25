@@ -2,7 +2,6 @@ import dynamic from "next/dynamic";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import LogoBar from "@/components/LogoBar";
-import TrustStats from "@/components/TrustStats";
 import About from "@/components/About";
 import Services from "@/components/Services";
 import Footer from "@/components/Footer";
@@ -135,7 +134,6 @@ export default function Home() {
       <main id="main">
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><LogoBar /></ErrorBoundary>
-        <ErrorBoundary><TrustStats /></ErrorBoundary>
         <ErrorBoundary><About /></ErrorBoundary>
         <ErrorBoundary><Services /></ErrorBoundary>
         <ErrorBoundary><Portfolio /></ErrorBoundary>

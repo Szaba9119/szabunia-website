@@ -6,6 +6,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import ServiceHero from "@/components/ServiceHero";
 import ServiceGalleryStrip from "@/components/ServiceGalleryStrip";
 import LogoBar from "@/components/LogoBar";
+import TrustStats from "@/components/TrustStats";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import PortfolioProcess from "@/components/PortfolioProcess";
 import PortfolioPricing from "@/components/PortfolioPricing";
@@ -124,6 +125,9 @@ export default async function ServicePage({ params }: PageProps) {
         )}
         <ErrorBoundary>
           <LogoBar />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <TrustStats />
         </ErrorBoundary>
         <ErrorBoundary>
           <PortfolioProcess steps={service.process} />
