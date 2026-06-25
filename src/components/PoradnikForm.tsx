@@ -137,7 +137,7 @@ export default function PoradnikForm() {
           />
           <span className="text-[11px] text-steel leading-relaxed">
             Wyrażam zgodę na otrzymanie poradnika i przetwarzanie mojego adresu e-mail zgodnie z{" "}
-            <a href="/polityka-prywatnosci" target="_blank" className="text-blue hover:text-white underline transition-colors">
+            <a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer" className="text-blue hover:text-white underline transition-colors">
               polityką prywatności
             </a>.
           </span>

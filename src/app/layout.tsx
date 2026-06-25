@@ -184,10 +184,10 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                 },
                 {
                   "@type": "Review",
-                  author: { "@type": "Person", name: "Małgorzata Wagner" },
+                  author: { "@type": "Person", name: "Maja Formalik" },
                   reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
                   reviewBody:
-                    "Zdjęcia były robione na stronę internetową dla firmy. Profesjonalne podejście i ładne zdjęcia.",
+                    "Mieliśmy przyjemność współpracować z Marcinem przy realizacji materiałów foto i wideo z eventu biznesowego oraz przygotowaniu treści na potrzeby social media. Współpraca od początku do końca przebiegała wzorowo. Marcin wyróżnia się nie tylko wysokimi kompetencjami technicznymi, ale również doskonałym wyczuciem biznesowym i marketingowym. Ogromnie doceniamy sprawną komunikację, elastyczność oraz ekspresowe tempo realizacji. To współpraca, do której z przyjemnością będziemy wracać przy kolejnych projektach.",
                 },
               ],
               sameAs: [

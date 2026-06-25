@@ -482,7 +482,7 @@ export default function Pricing() {
                     <div>
                       <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Stawka za osobę (1 retusz):</p>
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
-                        <div className="flex justify-between"><span>1-10 osób</span><span>{formatPriceLabel(150)}</span></div>
+                        <div className="flex justify-between"><span>4-10 osób</span><span>{formatPriceLabel(150)}</span></div>
                         <div className="flex justify-between"><span>11-30 osób</span><span>{formatPriceLabel(120)}</span></div>
                         <div className="flex justify-between"><span>30+ osób</span><span>{formatPriceLabel(100)}</span></div>
                       </div>

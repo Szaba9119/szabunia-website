@@ -486,7 +486,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Ile zdjęć otrzymam z eventu?",
-        a: "To zależy od długości wydarzenia. Średnio 50-100 zdjęć na godzinę fotografowania. Wszystkie są starannie wyselekcjonowane i poddane postprodukcji.",
+        a: "To zależy od długości wydarzenia. Średnio 15-30 gotowych zdjęć na każdą godzinę fotografowania — wyselekcjonowanych i poddanych postprodukcji (autorska selekcja najlepszych momentów).",
       },
       {
         q: "Czy realizujesz eventy poza Poznaniem?",

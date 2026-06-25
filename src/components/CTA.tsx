@@ -151,7 +151,7 @@ export default function CTA() {
 
                 {/* Zbijanie ryzyka */}
                 <ul className="flex flex-wrap gap-x-4 gap-y-1.5 mb-8">
-                  {["Faktura VAT", "2 tury poprawek w cenie", "Licencja komercyjna bez limitu", "Bez zobowiązań"].map((t) => (
+                  {["Faktura VAT", "2 tury poprawek w cenie", "Licencja komercyjna bez limitu", "Wolne terminy zwykle w 1-2 tyg.", "Bez zobowiązań"].map((t) => (
                     <li key={t} className="flex items-center gap-1.5 text-[13px] text-steel dark:text-dark-text-muted">
                       <svg className="w-4 h-4 text-blue dark:text-blue-light flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -475,7 +475,7 @@ export default function CTA() {
                       />
                       <span className="text-[11px] text-steel dark:text-dark-text-muted leading-relaxed">
                         Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z{" "}
-                        <a href="/polityka-prywatnosci" target="_blank" className="text-blue hover:text-navy dark:hover:text-white underline transition-colors">
+                        <a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer" className="text-blue hover:text-navy dark:hover:text-white underline transition-colors">
                           polityką prywatności
                         </a>.
                       </span>

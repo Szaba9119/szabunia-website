@@ -166,7 +166,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Profesjonalna dokumentacja konferencji, targów, gal i wydarzeń firmowych. Opcja live editing.",
     description:
-      "Każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing, zdjęcia gotowe do publikacji na Social Media jeszcze w trakcie eventu.",
+      "Każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing, zdjęcia gotowe do publikacji na Social Media jeszcze w trakcie eventu. Fotografię eventową robię od początku działalności — przez sześć lat dokumentowałem wydarzenia w Poznaniu, nierzadko kilka różnych miejsc jednego wieczoru. Sprawne tempo i logistyka dużych eventów to dla mnie naturalny grunt.",
     forWhom: [
       "Organizatorzy konferencji i targów",
       "Firmy organizujące wydarzenia firmowe",
@@ -210,7 +210,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     faqs: [
       { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media." },
-      { q: "Ile zdjęć otrzymam?", a: "Średnio 50-100 zdjęć na godzinę. Wszystkie wyselekcjonowane i poddane postprodukcji." },
+      { q: "Ile zdjęć otrzymam?", a: "Średnio 15-30 gotowych zdjęć na każdą godzinę fotografowania, wyselekcjonowanych i poddanych postprodukcji. To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
       { q: "Czy pakiet całodniowy się opłaca?", a: "Przy 8h standardowo byłoby 3 400 zł. Pakiet to 2 800 zł, oszczędzasz 600 zł." },
     ],
     portfolioSlug: "woohoo-autopay",
@@ -257,7 +257,7 @@ const serviceCategoriesRaw: ServiceData[] = [
           {
             label: "Stawka za osobę (1 retusz)",
             items: [
-              { label: "1-10 osób", value: "150 zł" },
+              { label: "4-10 osób", value: "150 zł" },
               { label: "11-30 osób", value: "120 zł" },
               { label: "30+ osób", value: "100 zł" },
             ],

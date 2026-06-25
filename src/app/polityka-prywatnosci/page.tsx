@@ -142,7 +142,22 @@ export default function PrivacyPolicy() {
 
             <section>
               <h2 className="font-barlow font-bold text-lg text-navy dark:text-white mb-3">
-                8. Zmiany polityki
+                8. Zdjęcia i wideo z realizacji
+              </h2>
+              <p>
+                Przy zleceniach fotograficznych i wideo administratorem danych
+                osobowych osób uwidocznionych w wykonanych materiałach jest
+                Zamawiający (klient). Te dane przetwarzam wyłącznie w celu
+                realizacji umowy i usuwam po zakończeniu współpracy, z wyjątkiem
+                wybranych materiałów wykorzystywanych w moim portfolio i
+                działaniach marketingowych na podstawie ustaleń z klientem.
+                Sprawy dotyczące wizerunku i danych na materiałach: marcin@szabunia.pl.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="font-barlow font-bold text-lg text-navy dark:text-white mb-3">
+                9. Zmiany polityki
               </h2>
               <p>
                 Zastrzegam sobie prawo do wprowadzania zmian w niniejszej
