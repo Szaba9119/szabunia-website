@@ -6,22 +6,22 @@ import { galleryVideos } from "@/data/galeria";
 
 const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string }> = {
   portrety: {
-    label: "Przykłady z galerii — portrety",
+    label: "Przykłady z galerii: portrety",
     sub: "Wybrane portrety biznesowe i headshoty z moich realizacji.",
     alt: "Portret biznesowy, Marcin Szabunia, Poznań",
   },
   eventy: {
-    label: "Przykłady z galerii — eventy",
+    label: "Przykłady z galerii: eventy",
     sub: "Wybrane kadry z konferencji, targów i gal firmowych.",
     alt: "Fotografia eventowa, Marcin Szabunia, Poznań",
   },
   produktowe: {
-    label: "Przykłady z galerii — produktowe",
+    label: "Przykłady z galerii: produktowe",
     sub: "Wybrane packshoty i zdjęcia produktów z realizacji e-commerce.",
     alt: "Fotografia produktowa, packshot, Marcin Szabunia",
   },
   wideo: {
-    label: "Przykłady z galerii — wideo",
+    label: "Przykłady z galerii: wideo",
     sub: "Wybrane realizacje wideo i reelsy.",
     alt: "Realizacja wideo, Marcin Szabunia",
   },

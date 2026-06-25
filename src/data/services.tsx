@@ -273,7 +273,7 @@ const serviceCategoriesRaw: ServiceData[] = [
             note: "Mobilne studio u Ciebie w biurze, rozstawienie ok. 20 min, wystarczy ~3 m².",
           },
         ],
-        note: "Sesje zespołowe realizuję od 4 osób. Dla 1–3 osób — pakiety indywidualne (Wizerunek & Portrety).",
+        note: "Sesje zespołowe realizuję od 4 osób. Dla 1 do 3 osób polecam pakiety indywidualne (Wizerunek & Portrety).",
       },
     ],
     faqs: [
@@ -482,7 +482,7 @@ const serviceCategoriesRaw: ServiceData[] = [
           "Komplet z jednego lotu",
           "Pełna obróbka i montaż",
         ],
-        extra: "Dodatek do innej sesji: 200 zł",
+        extra: "Dodatek do sesji (do 3 ujęć): 200 zł",
       },
     ],
     pricingNote:
@@ -491,7 +491,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
       { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji bezpłatnie przekładamy termin na najbliższy możliwy." },
       { q: "W jakiej jakości dostarczasz materiał?", a: "Wideo do 4K, zdjęcia w pełnej rozdzielczości. Formaty dobieram pod stronę WWW i social media (poziome i pionowe)." },
-      { q: "Czy mogę połączyć drona z sesją naziemną?", a: "Tak. Dron działa jako dodatek do eventu, sesji produktowej lub wizerunkowej za 200 zł — z jednego wejścia powstaje spójny komplet." },
+      { q: "Czy mogę połączyć drona z sesją naziemną?", a: "Tak. Dron działa jako dodatek do eventu, sesji produktowej lub wizerunkowej za 200 zł (do 3 zdjęć lub ujęć wideo z powietrza). Z jednego wejścia powstaje spójny komplet." },
     ],
     portfolioSlug: "woohoo-autopay",
     seo: {
@@ -542,7 +542,7 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
 // obie twarze wciąż widoczne). Reszta domyślnie wyśrodkowana.
 const SERVICE_TILE_POS: Record<string, string> = {
   "wizerunek-portrety": "center 29%",
-  "sesje-zespolowe": "center 54%",
+  "sesje-zespolowe": "center 60%",
 };
 
 export const serviceItems = serviceCategories.map((s) => ({

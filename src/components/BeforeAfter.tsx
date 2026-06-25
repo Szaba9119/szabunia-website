@@ -33,7 +33,7 @@ export default function BeforeAfter() {
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
-            Przesuń suwak, żeby zobaczyć różnicę. Naturalny retusz, który nie zmienia osoby — poprawia jakość.
+            Przesuń suwak, żeby zobaczyć różnicę. Naturalny retusz, który nie zmienia osoby, a poprawia jakość.
           </p>
         </AnimatedSection>
 
