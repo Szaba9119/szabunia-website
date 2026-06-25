@@ -96,9 +96,9 @@ const serviceCategoriesRaw: ServiceData[] = [
     galleryCategory: "eventy",
     videoId: "4INLtKcKcZk",
     videoTitle: "E-commerce All-in, film z eventu dla Woohoo",
-    title: "Pakiety Foto + Wideo",
+    title: "Pakiety Foto + Wideo + Dron",
     subtitle:
-      "Jeden twórca, spójny materiał, mniej logistyki. Bestseller wśród klientów korporacyjnych.",
+      "Foto, wideo i ujęcia z drona z jednego wejścia. Jeden twórca, spójny materiał, mniej logistyki. Bestseller wśród klientów korporacyjnych.",
     description:
       "Pakiet hybrydowy to najefektywniejsze rozwiązanie, jedno wejście, dwa formaty. Podczas jednego wydarzenia lub sesji tworzę zarówno profesjonalne zdjęcia jak i materiał wideo. Rezultat: spójny wizualnie content na wszystkie kanały, bez koordynowania dwóch ekip.",
     forWhom: [
@@ -155,7 +155,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Każda dodatkowa godzina powyżej pakietu: 350 zł. Dogrywamy szczegóły przed eventem." },
     ],
     seo: {
-      title: "Pakiety Foto + Wideo — Marcin Szabunia | Poznań",
+      title: "Pakiety Foto + Wideo + Dron — Marcin Szabunia | Poznań",
       description: "Pakiety hybrydowe foto + wideo. Jeden twórca, spójny materiał, mniej logistyki. Eventy, konferencje, content marketing. Poznań.",
     },
   },
@@ -363,9 +363,9 @@ const serviceCategoriesRaw: ServiceData[] = [
     galleryCategory: "produktowe",
     title: "Fotografia produktowa",
     subtitle:
-      "Packshoty na białym tle z retuszem w cenie, zdjęcia typu duch (ghost mannequin), flat lay i aranżacje pod e-commerce, katalogi i Social Media.",
+      "Packshoty na białym tle z retuszem w cenie, zdjęcia kreatywne i aranżacje pod e-commerce, katalogi i Social Media.",
     description:
-      "Profesjonalne zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową, kreatywne ujęcia z aranżacją i rekwizytami, przygotowane pod konkretną kampanię: od internetu i Social Media po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym. Każde zdjęcie dostajesz z retuszem i przyciętą ścieżką (clipping path) w cenie, na białym tle zgodnym z wymogami Allegro i Amazon, a na życzenie z przezroczystym tłem (PNG). Robię też packshoty typu duch (ghost mannequin) dla odzieży oraz ujęcia flat lay.",
+      "Profesjonalne zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową, kreatywne ujęcia z aranżacją i rekwizytami, przygotowane pod konkretną kampanię: od internetu i Social Media po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym. Każde zdjęcie dostajesz z retuszem w cenie: produkt precyzyjnie wycięty z tła, czyste białe tło zgodne z wymogami Allegro i Amazon, a na życzenie przezroczyste tło (PNG).",
     forWhom: [
       "Sklepy internetowe i marketplace'y",
       "Marki kosmetyczne i modowe",
@@ -382,7 +382,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     process: [
       { num: 1, title: "Brief", desc: "Cel, platforma sprzedaży, wytyczne marki" },
       { num: 2, title: "Sesja", desc: "Fotografowanie w studiu z kontrolą światła" },
-      { num: 3, title: "Retusz", desc: "Clipping path, korekta kolorów, białe tło" },
+      { num: 3, title: "Retusz", desc: "Wycięcie z tła, korekta kolorów, białe tło" },
       { num: 4, title: "Dostawa", desc: "Pliki gotowe do użycia w 14 dni" },
     ],
     pricingType: "table",
@@ -407,7 +407,7 @@ const serviceCategoriesRaw: ServiceData[] = [
             ],
           },
         ],
-        note: "Retusz i clipping path w cenie każdego zdjęcia. Minimalne zamówienie: 500 zł lub 6 zdjęć",
+        note: "Retusz i wycięcie produktu z tła w cenie każdego zdjęcia. Minimalne zamówienie: 500 zł lub 6 zdjęć",
       },
     ],
     faqs: [
@@ -415,8 +415,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Jakie formaty plików otrzymam?", a: "JPEG w pełnej rozdzielczości + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku." },
       { q: "Ile produktów dziennie jesteś w stanie zrealizować?", a: "Packshoty na białym tle: 30-50 produktów/dzień. Zdjęcia kreatywne: 8-15 ujęć/dzień." },
       { q: "Czym różni się fotografia produktowa od fotografii reklamowej?", a: "Fotografia produktowa pokazuje produkt wprost, packshot na białym tle do sklepu czy katalogu. Fotografia reklamowa buduje wokół produktu historię: aranżacja, rekwizyty, światło pod konkretną kampanię. Zdjęcia reklamowe wyceniam według pola eksploatacji, inaczej na Social Media, inaczej do druku i na outdoor." },
-      { q: "Czy robisz packshoty typu duch (ghost mannequin) i flat lay?", a: "Tak. Dla odzieży realizuję ujęcia typu duch (ghost mannequin), gdzie produkt trzyma formę bez widocznego manekina, a także ujęcia flat lay (produkt na płasko, z góry). Oba style wyceniam jak packshot, retusz jest w cenie." },
-      { q: "Czy retusz jest wliczony w cenę zdjęcia?", a: "Tak. Każdy packshot dostajesz wyretuszowany: czyste białe tło, przycięta ścieżka (clipping path), korekta kolorów i usunięcie drobnych skaz. Nie dopłacasz za obróbkę osobno, w przeciwieństwie do wielu studiów, gdzie retusz to dodatkowy koszt." },
+      { q: "Czy retusz jest wliczony w cenę zdjęcia?", a: "Tak. Każdy packshot dostajesz wyretuszowany: czyste białe tło, produkt precyzyjnie wycięty z tła, korekta kolorów i usunięcie drobnych skaz. Nie dopłacasz za obróbkę osobno, w przeciwieństwie do wielu studiów, gdzie retusz to dodatkowy koszt." },
     ],
     portfolioSlug: "artech-fotografia-produktowa",
     seo: {

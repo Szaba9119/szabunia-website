@@ -218,7 +218,7 @@ export default function Pricing() {
         {/* === PAKIETY HYBRYDOWE (DRUGIE) === */}
         <AnimatedSection>
           <h3 id="cennik-hybrydy" className="scroll-mt-24 font-barlow font-bold text-xl text-blue dark:text-blue-light mb-8 text-center">
-            Pakiety Hybrydowe (Foto + Wideo)
+            Pakiety Hybrydowe (Foto + Wideo + Dron)
           </h3>
         </AnimatedSection>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">

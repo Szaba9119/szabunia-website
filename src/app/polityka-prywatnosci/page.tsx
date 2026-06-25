@@ -49,9 +49,10 @@ export default function PrivacyPolicy() {
                 1. Administrator danych
               </h2>
               <p>
-                Administratorem Twoich danych osobowych jest Marcin Szabunia,
-                prowadzący działalność pod adresem: Poznań, Polska (NIP:
-                7822913664). Kontakt: marcin@szabunia.pl.
+                Administratorem Twoich danych osobowych jest Marcin Szabunia
+                (osoba fizyczna), Poznań, Polska. We wszystkich sprawach
+                dotyczących Twoich danych skontaktuj się pod adresem:
+                marcin@szabunia.pl.
               </p>
             </section>
 
@@ -73,10 +74,12 @@ export default function PrivacyPolicy() {
               </h2>
               <p>
                 Twoje dane przetwarzam w celu odpowiedzi na Twoje zapytanie i
-                przygotowania oferty (art. 6 ust. 1 lit. b RODO — podjęcie
-                działań przed zawarciem umowy) oraz w celach kontaktowych i
-                marketingu bezpośredniego własnych usług (art. 6 ust. 1 lit. f
-                RODO — prawnie uzasadniony interes administratora).
+                przygotowania oferty (art. 6 ust. 1 lit. b RODO, podjęcie działań
+                przed zawarciem umowy) oraz w celach kontaktowych i marketingu
+                bezpośredniego własnych usług (art. 6 ust. 1 lit. f RODO, prawnie
+                uzasadniony interes administratora). Jeśli dojdzie do zlecenia,
+                przetwarzam dane także w celu wykonania umowy oraz rozliczenia i
+                wystawienia faktury (art. 6 ust. 1 lit. b i c RODO).
               </p>
             </section>
 
@@ -86,9 +89,14 @@ export default function PrivacyPolicy() {
               </h2>
               <p>
                 Formularz kontaktowy obsługiwany jest przez usługę Resend
-                (Resend, Inc., USA). Dane mogą być przekazywane do podmiotów
-                świadczących usługi hostingowe, e-mailowe i informatyczne na
-                podstawie umów powierzenia przetwarzania danych.
+                (Resend, Inc., USA), a strona hostowana jest na platformie Vercel
+                (Vercel, Inc., USA). Jeśli dojdzie do zlecenia, rozliczenie i
+                wystawienie faktury odbywa się przez serwis Useme (useme.com) —
+                w tym celu przekazuję do Useme dane niezbędne do wystawienia
+                faktury (np. dane do faktury, których potrzebujesz jako nabywca).
+                Dane mogą być przekazywane także innym podmiotom świadczącym
+                usługi hostingowe, e-mailowe i informatyczne na podstawie umów
+                powierzenia przetwarzania danych.
               </p>
             </section>
 
