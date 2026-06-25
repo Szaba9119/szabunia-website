@@ -490,7 +490,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Czy realizujesz eventy poza Poznaniem?",
-        a: "Tak, realizuję zlecenia na terenie całej Polski i Europy. Koszty dojazdu doliczane indywidualnie (1,25 zł/km w obie strony lub bilety).",
+        a: "Tak, realizuję zlecenia na terenie całej Polski i Europy. Koszty dojazdu doliczane indywidualnie (2,50 zł/km lub bilety).",
       },
       {
         q: "Czy pakiet całodniowy się opłaca?",

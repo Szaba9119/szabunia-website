@@ -203,7 +203,7 @@ export default function Process() {
                   Dojazd
                 </p>
                 <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                  Poznań i okolice: 0 zł. Poza Poznaniem: 1,25 zł/km (w obie strony). Cała Polska i Europa: koszty ustalane indywidualnie.
+                  Poznań i okolice: 0 zł. Poza Poznaniem: 2,50 zł/km (w obie strony). Cała Polska i Europa: koszty ustalane indywidualnie.
                 </p>
               </div>
             </div>
