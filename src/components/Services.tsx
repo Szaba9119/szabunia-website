@@ -14,7 +14,7 @@ export default function Services() {
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">
             <h2 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
-              Czym mogę Ci pomóc
+              Czym mogę pomóc Twojej firmie
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
