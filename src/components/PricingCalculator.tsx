@@ -11,7 +11,8 @@ type ServiceSlug =
   | "fotografia-produktowa"
   | "eventy-reportaze"
   | "wideo-marketing"
-  | "pakiety-foto-wideo";
+  | "pakiety-foto-wideo"
+  | "zdjecia-wideo-z-drona";
 
 type PriceMode = "netto" | "brutto";
 
@@ -38,6 +39,9 @@ interface CalcConfig {
   // pakiety-foto-wideo
   comboPackage?: "essentials" | "pro" | "premium";
   extraComboHours?: number;
+  // zdjecia-wideo-z-drona
+  dronePackage?: "foto" | "wideo" | "foto-wideo";
+  droneExtraHours?: number;
 }
 
 const defaultConfig: CalcConfig = {
@@ -57,6 +61,8 @@ const defaultConfig: CalcConfig = {
   videoPackage: "s",
   comboPackage: "essentials",
   extraComboHours: 0,
+  dronePackage: "foto-wideo",
+  droneExtraHours: 0,
 };
 
 function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
@@ -89,8 +95,13 @@ function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
     }
     case "eventy-reportaze": {
       const hours = config.eventHours ?? 4;
-      let total = hours <= 1 ? 600 : 600 + (hours - 1) * 400;
-      if (hours >= 8) total = Math.min(total, 2800);
+      // Stawka godzinowa z pakietami: 4h = 1600 (taniej niż 4×godz. = 1800),
+      // pakiet całodniowy 8h = 2800.
+      let total: number;
+      if (hours <= 1) total = 600;
+      else if (hours <= 3) total = 600 + (hours - 1) * 400;
+      else total = 1600 + (hours - 4) * 400;
+      if (hours >= 8) total = 2800;
       total += (config.liveEditCount ?? 0) * 20;
       if (config.eventDrone) total += 200;
       if (config.eventExpress) total *= 1.5;
@@ -106,6 +117,10 @@ function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
     case "pakiety-foto-wideo": {
       const base = config.comboPackage === "essentials" ? 1800 : config.comboPackage === "pro" ? 3200 : 4500;
       return base + (config.extraComboHours ?? 0) * 350;
+    }
+    case "zdjecia-wideo-z-drona": {
+      const base = config.dronePackage === "wideo" ? 800 : config.dronePackage === "foto-wideo" ? 1100 : 500;
+      return base + (config.droneExtraHours ?? 0) * 300;
     }
     default:
       return 0;
@@ -211,12 +226,15 @@ function ServiceOptions({
             <label className={labelClass}>Liczba osób</label>
             <input
               type="number"
-              min={1}
+              min={4}
               max={100}
               className={inputClass}
               value={config.teamSize ?? 10}
-              onChange={(e) => onChange({ ...config, teamSize: Math.max(1, parseInt(e.target.value) || 1) })}
+              onChange={(e) => onChange({ ...config, teamSize: Math.max(4, parseInt(e.target.value) || 4) })}
             />
+            <p className="text-[12px] text-steel dark:text-dark-text-muted mt-1.5">
+              Sesje zespołowe realizuję od 4 osób. Dla 1–3 osób → pakiety indywidualne (Wizerunek &amp; Portrety).
+            </p>
           </div>
           <div>
             <label className={labelClass}>
@@ -403,6 +421,35 @@ function ServiceOptions({
         </div>
       );
 
+    case "zdjecia-wideo-z-drona":
+      return (
+        <div className="space-y-4">
+          <div>
+            <label className={labelClass}>Pakiet</label>
+            <select
+              className={selectClass}
+              value={config.dronePackage ?? "foto-wideo"}
+              onChange={(e) => onChange({ ...config, dronePackage: e.target.value as CalcConfig["dronePackage"] })}
+            >
+              <option value="foto">Zdjęcia z drona — {fmtPrice(500, mode)} zł</option>
+              <option value="wideo">Wideo z drona 4K — {fmtPrice(800, mode)} zł</option>
+              <option value="foto-wideo">Foto + wideo z drona — {fmtPrice(1100, mode)} zł</option>
+            </select>
+          </div>
+          <div>
+            <label className={labelClass}>Dodatkowe godziny lotu ({fmtPrice(300, mode)} zł/h)</label>
+            <input
+              type="number"
+              min={0}
+              max={8}
+              className={inputClass}
+              value={config.droneExtraHours ?? 0}
+              onChange={(e) => onChange({ ...config, droneExtraHours: Math.max(0, parseInt(e.target.value) || 0) })}
+            />
+          </div>
+        </div>
+      );
+
     default:
       return null;
   }
@@ -448,6 +495,12 @@ function ConfigSummary({ slug, config }: { slug: ServiceSlug; config: CalcConfig
     case "pakiety-foto-wideo": {
       items.push(`Pakiet: ${config.comboPackage === "premium" ? "Event Premium" : config.comboPackage === "pro" ? "Event Pro" : "Event Essentials"}`);
       if ((config.extraComboHours ?? 0) > 0) items.push(`Dodatkowe godziny: ${config.extraComboHours}`);
+      break;
+    }
+    case "zdjecia-wideo-z-drona": {
+      const names = { foto: "Zdjęcia z drona", wideo: "Wideo z drona", "foto-wideo": "Foto + wideo z drona" };
+      items.push(`Pakiet: ${names[config.dronePackage ?? "foto-wideo"]}`);
+      if ((config.droneExtraHours ?? 0) > 0) items.push(`Dodatkowe godziny lotu: ${config.droneExtraHours}`);
       break;
     }
   }

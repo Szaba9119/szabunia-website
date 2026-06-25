@@ -136,7 +136,7 @@ export default async function GaleriaPage({
                 data-cta="wycena_galeria"
                 className="inline-block bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
               >
-                Wyceń swój projekt
+                Zapytaj o wycenę
               </a>
             </div>
           </AnimatedSection>

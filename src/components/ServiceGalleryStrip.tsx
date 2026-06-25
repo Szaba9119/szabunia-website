@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
+import ServiceGalleryLightbox from "./ServiceGalleryLightbox";
 import { listGalleryImages, type GalleryCategoryKey } from "@/lib/galleryImages";
 import { galleryVideos } from "@/data/galeria";
 
@@ -84,24 +84,7 @@ export default function ServiceGalleryStrip({ category }: { category: GalleryCat
 
   return (
     <Shell label={meta.label} sub={meta.sub} href={href}>
-      <div className="grid grid-cols-3 sm:grid-cols-6 gap-2.5">
-        {images.map((src, i) => (
-          <Link
-            key={src}
-            href={href}
-            aria-label={meta.label}
-            className="group relative aspect-square rounded-xl overflow-hidden bg-border dark:bg-dark-card"
-          >
-            <Image
-              src={src}
-              alt={`${meta.alt} ${i + 1}`}
-              fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
-              sizes="(max-width: 640px) 33vw, 16vw"
-            />
-          </Link>
-        ))}
-      </div>
+      <ServiceGalleryLightbox images={images} altBase={meta.alt} />
     </Shell>
   );
 }

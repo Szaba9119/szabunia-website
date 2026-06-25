@@ -338,6 +338,15 @@ export default function Pricing() {
                     </div>
                     <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10 flex justify-between items-center">
                       <div>
+                        <span className="text-navy dark:text-white font-semibold">Pakiet 4h (event)</span>
+                      </div>
+                      <div className="text-right">
+                        <span className="font-barlow font-extrabold text-2xl text-blue dark:text-blue-light block">{formatPriceLabel(1600)}</span>
+                        <span className="text-[10px] text-blue/70 dark:text-blue-light/70 font-semibold">Oszczędzasz {formatPriceLabel(200)}</span>
+                      </div>
+                    </div>
+                    <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10 flex justify-between items-center">
+                      <div>
                         <span className="text-navy dark:text-white font-semibold">Pakiet całodniowy (8h)</span>
                       </div>
                       <div className="text-right">

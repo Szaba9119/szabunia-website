@@ -137,12 +137,14 @@ export default function Home() {
         <ErrorBoundary><About /></ErrorBoundary>
         <ErrorBoundary><Services /></ErrorBoundary>
         <ErrorBoundary><Portfolio /></ErrorBoundary>
+        {/* Proces nad cennikiem: klient rozumie prosty przebieg (4 kroki) zanim
+            zobaczy cenę — mniejszy „szok ceną" i jaśniejsza ścieżka decyzji. */}
+        <ErrorBoundary><Process /></ErrorBoundary>
         <ErrorBoundary><Pricing /></ErrorBoundary>
         <ErrorBoundary><Testimonials /></ErrorBoundary>
         <ErrorBoundary><Publications /></ErrorBoundary>
-        <ErrorBoundary><Process /></ErrorBoundary>
         {/* Sprzęt nisko: buduje zaufanie techniczne, ale nie może przerywać
-            ścieżki Usługi → Portfolio → Cennik (klient B2B kupuje efekt). */}
+            ścieżki Usługi → Portfolio → Proces → Cennik (klient B2B kupuje efekt). */}
         <ErrorBoundary><Equipment /></ErrorBoundary>
         <ErrorBoundary><BlogPreview /></ErrorBoundary>
         <ErrorBoundary><PoradnikTeaser /></ErrorBoundary>

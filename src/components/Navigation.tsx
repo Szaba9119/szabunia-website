@@ -121,12 +121,22 @@ export default function Navigation() {
               </Link>
             );
           })}
+          <a
+            href="tel:+48514900688"
+            aria-label="Zadzwoń: +48 514 900 688"
+            title="+48 514 900 688"
+            className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-border dark:border-dark-border text-steel hover:text-blue hover:border-blue dark:text-dark-text-muted dark:hover:text-blue-light transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+            </svg>
+          </a>
           <ThemeToggle />
           <Link
             href="/kontakt"
-            className="bg-gradient-to-br from-blue to-blue-light text-white px-5 py-2 rounded-full font-barlow font-semibold text-xs btn-glow"
+            className="bg-gradient-to-br from-blue to-blue-light text-white px-5 py-2 rounded-full font-barlow font-semibold text-xs btn-glow whitespace-nowrap"
           >
-            Kontakt
+            Zapytaj o wycenę
           </Link>
         </div>
 
@@ -217,7 +227,7 @@ export default function Navigation() {
               onClick={() => closeMobileMenu()}
               className="bg-gradient-to-br from-blue to-blue-light text-white px-5 py-3 rounded-xl font-barlow font-semibold text-sm text-center btn-glow"
             >
-              Kontakt
+              Zapytaj o wycenę
             </Link>
           </div>
         </div>

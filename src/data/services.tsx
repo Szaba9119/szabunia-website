@@ -188,6 +188,7 @@ const serviceCategoriesRaw: ServiceData[] = [
         rows: [
           { label: "Pierwsza godzina pracy", value: "600 zł" },
           { label: "Każda kolejna godzina", value: "400 zł" },
+          { label: "Pakiet 4h (event)", value: "1 600 zł" },
           { label: "Pakiet całodniowy (8h)", value: "2 800 zł" },
         ],
         groups: [
@@ -272,6 +273,7 @@ const serviceCategoriesRaw: ServiceData[] = [
             note: "Mobilne studio u Ciebie w biurze, rozstawienie ok. 20 min, wystarczy ~3 m².",
           },
         ],
+        note: "Sesje zespołowe realizuję od 4 osób. Dla 1–3 osób — pakiety indywidualne (Wizerunek & Portrety).",
       },
     ],
     faqs: [
@@ -415,6 +417,74 @@ const serviceCategoriesRaw: ServiceData[] = [
       description: "Packshoty na białym tle, zdjęcia kreatywne i fotografia reklamowa produktów. E-commerce, katalogi, Social Media, kampanie. Studio w Poznaniu.",
     },
   },
+  {
+    slug: "zdjecia-wideo-z-drona",
+    title: "Zdjęcia i wideo z drona",
+    subtitle:
+      "Ujęcia z powietrza: budynki i obiekty firmowe, tereny, eventy i architektura. Foto i wideo w 4K.",
+    description:
+      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, tereny i place, inwestycje budowlane, architektura oraz ujęcia eventowe. Latam dronem DJI z certyfikatem A1/A3 i ubezpieczeniem OC operatora, więc strona formalna jest po mojej stronie. Materiał z drona łączę też z sesją naziemną, dzięki czemu z jednego wejścia powstaje spójny komplet foto i wideo.",
+    forWhom: [
+      "Deweloperzy i firmy budowlane (postęp prac, inwestycje)",
+      "Hotele, ośrodki i obiekty turystyczne",
+      "Firmy przemysłowe i logistyczne (tereny, hale, place)",
+      "Organizatorzy eventów (skala wydarzenia)",
+      "Agencje nieruchomości i marketingu",
+    ],
+    icon: (
+      <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <circle cx="6" cy="6" r="2.5" />
+        <circle cx="18" cy="6" r="2.5" />
+        <circle cx="6" cy="18" r="2.5" />
+        <circle cx="18" cy="18" r="2.5" />
+        <rect x="9.5" y="9.5" width="5" height="5" rx="1" />
+        <path strokeLinecap="round" d="M7.8 7.8l1.7 1.7M16.2 7.8l-1.7 1.7M7.8 16.2l1.7-1.7M16.2 16.2l-1.7-1.7" />
+      </svg>
+    ),
+    price: "od 500 zł",
+    process: [
+      { num: 1, title: "Brief i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
+      { num: 2, title: "Lot", desc: "Zdjęcia i wideo 4K z powietrza" },
+      { num: 3, title: "Postprodukcja", desc: "Obróbka zdjęć lub montaż wideo" },
+      { num: 4, title: "Dostawa", desc: "Zdjęcia w 14 dni, wideo do 21 dni" },
+    ],
+    pricingType: "table",
+    tables: [
+      {
+        title: "Zdjęcia i wideo z drona",
+        rows: [],
+        groups: [
+          {
+            label: "Pakiety",
+            items: [
+              { label: "Zdjęcia z drona (do 1h lotu + obróbka)", value: "500 zł" },
+              { label: "Wideo z drona 4K (do 1h + montaż 30–60 s)", value: "800 zł" },
+              { label: "Foto + wideo z drona", value: "1 100 zł" },
+            ],
+          },
+          {
+            label: "Opcje dodatkowe",
+            items: [
+              { label: "Każda kolejna rozpoczęta godzina lotu", value: "300 zł" },
+              { label: "Dodatek do innej sesji (event, produkt, wizerunek)", value: "200 zł" },
+            ],
+          },
+        ],
+        note: "Dron DJI z certyfikatem A1/A3 i ubezpieczeniem OC operatora. Loty zgodne z przepisami; zgody w strefach kontrolowanych po mojej stronie.",
+      },
+    ],
+    faqs: [
+      { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
+      { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji bezpłatnie przekładamy termin na najbliższy możliwy." },
+      { q: "W jakiej jakości dostarczasz materiał?", a: "Wideo do 4K, zdjęcia w pełnej rozdzielczości. Formaty dobieram pod stronę WWW i social media (poziome i pionowe)." },
+      { q: "Czy mogę połączyć drona z sesją naziemną?", a: "Tak. Dron działa jako dodatek do eventu, sesji produktowej lub wizerunkowej za 200 zł — z jednego wejścia powstaje spójny komplet." },
+    ],
+    portfolioSlug: "woohoo-autopay",
+    seo: {
+      title: "Zdjęcia i wideo z drona — Marcin Szabunia | Poznań",
+      description: "Zdjęcia i wideo z drona (4K): budynki i obiekty firmowe, tereny, inwestycje, eventy i architektura. Certyfikat A1/A3 i OC operatora. Poznań i cała Polska.",
+    },
+  },
 ];
 
 // Kolejność wyświetlania usług (kafelki na stronie głównej, lista /uslugi,
@@ -426,6 +496,7 @@ const SERVICE_DISPLAY_ORDER: string[] = [
   "fotografia-produktowa",
   "sesje-zespolowe",
   "wideo-marketing",
+  "zdjecia-wideo-z-drona",
 ];
 
 export const serviceCategories: ServiceData[] = [...serviceCategoriesRaw].sort(
@@ -449,14 +520,15 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
   // Wersja 4:3 z rozmytym wypełnieniem — pełny napis „E-COMMERCE All in"
   // widoczny, bez ucinania i bez pustych marginesów (oryginał 16:9).
   "wideo-marketing": "/images/portfolio/woohoo-ecommerce-4x3.jpg",
+  "zdjecia-wideo-z-drona": "/images/portfolio/yes-butcher/yes-butcher-02.jpg",
 };
 
 // Punkt kadrowania miniatury (object-position). Wizerunek kadrujemy nieco wyżej
 // (sylwetka w górnej części), zespołowy portret nieco niżej (więcej kontekstu,
 // obie twarze wciąż widoczne). Reszta domyślnie wyśrodkowana.
 const SERVICE_TILE_POS: Record<string, string> = {
-  "wizerunek-portrety": "center 40%",
-  "sesje-zespolowe": "center 65%",
+  "wizerunek-portrety": "center 33%",
+  "sesje-zespolowe": "center 40%",
 };
 
 export const serviceItems = serviceCategories.map((s) => ({
@@ -512,4 +584,5 @@ export const SERVICE_TESTIMONIALS: Record<string, ServiceTestimonial> = {
   "fotografia-produktowa": T.wagner,
   "wizerunek-portrety": T.burzynska,
   "sesje-zespolowe": T.fortuniak,
+  "zdjecia-wideo-z-drona": T.maja,
 };

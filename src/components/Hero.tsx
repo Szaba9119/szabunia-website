@@ -41,10 +41,14 @@ export default function Hero() {
               data-cta="wycena_home_hero"
               className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]"
             >
-              Wyślij brief, odezwę się w 24h
+              Zapytaj o wycenę
               <span className="text-white/80">→</span>
             </a>
           </div>
+
+          <p className="mt-4 text-[12.5px] text-steel dark:text-dark-text-muted">
+            Odpowiadam w 24h · Faktura VAT · Bez zobowiązań
+          </p>
 
           <div className="flex items-center gap-3 mt-5">
             <p className="text-xs text-steel dark:text-dark-text-muted">

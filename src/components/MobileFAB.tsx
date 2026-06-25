@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 
 const PHONE = "+48514900688";
@@ -7,9 +8,24 @@ const EMAIL = "marcin@szabunia.pl";
 
 // Przyklejony, mobilny pasek akcji (pojawia się przy scrollu). Szybkie kontakty:
 // telefon, e-mail oraz główny przycisk prowadzący do formularza (wycena).
+// Ukrywa się, gdy sekcja kontaktu jest na ekranie — wtedy formularz jest już
+// widoczny, więc przycisk nie zasłania pól i nie jest redundantny.
 export default function MobileFAB() {
   const scrollY = useScrollPosition();
-  const visible = scrollY > 600;
+  const [contactInView, setContactInView] = useState(false);
+
+  useEffect(() => {
+    const el = document.getElementById("kontakt");
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      (entries) => setContactInView(entries[0].isIntersecting),
+      { rootMargin: "0px 0px -35% 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  const visible = scrollY > 600 && !contactInView;
 
   if (!visible) return null;
 
