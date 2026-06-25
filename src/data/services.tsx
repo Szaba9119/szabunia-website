@@ -441,10 +441,10 @@ export function getServiceBySlug(slug: string): ServiceData | undefined {
 // Reprezentacyjne zdjęcie pokazywane na kafelku usługi (sekcja „Czym mogę Ci
 // pomóc"). Łatwo podmienić ścieżkę, jeśli chcesz inne ujęcie.
 const SERVICE_TILE_IMAGES: Record<string, string> = {
-  "eventy-reportaze": "/images/galeria/eventy/event-01.jpg",
-  "wizerunek-portrety": "/images/galeria/portrety/portret-01.jpg",
+  "eventy-reportaze": "/images/galeria/eventy/event-05.jpg",
+  "wizerunek-portrety": "/images/galeria/portrety/portret-12.jpg",
   "pakiety-foto-wideo": "/images/portfolio/woohoo-autopay.jpg",
-  "fotografia-produktowa": "/images/galeria/produktowe/produkt-01.jpg",
+  "fotografia-produktowa": "/images/galeria/produktowe/produkt-13.jpg",
   "sesje-zespolowe": "/images/portfolio/idcom/_F2A9376-Edit-2.jpg",
   "wideo-marketing": "/images/portfolio/reel-1.jpg",
 };
@@ -457,3 +457,48 @@ export const serviceItems = serviceCategories.map((s) => ({
   price: s.price,
   image: SERVICE_TILE_IMAGES[s.slug],
 }));
+
+// Opinia dopasowana do usługi (dowód społeczny na podstronie). Korzystamy z
+// istniejących opinii Google. Maja/Woohoo → eventy, pakiety, wideo;
+// Wagner/Artech → produktowa; Burzyńska → wizerunek; Fortuniak → zespołowe.
+export interface ServiceTestimonial {
+  quote: string;
+  author: string;
+  role: string;
+}
+
+const T = {
+  maja: {
+    quote:
+      "Mieliśmy przyjemność współpracować z Marcinem przy realizacji materiałów foto i wideo z eventu biznesowego oraz przygotowaniu treści na potrzeby social media. Marcin wyróżnia się nie tylko wysokimi kompetencjami technicznymi, ale również doskonałym wyczuciem biznesowym i marketingowym. Ogromnie doceniamy sprawną komunikację, elastyczność oraz ekspresowe tempo realizacji. To współpraca, do której z przyjemnością będziemy wracać.",
+    author: "Maja Formalik",
+    role: "Growth & Partnerships Manager, Woohoo · opinia Google",
+  },
+  wagner: {
+    quote:
+      "Zdjęcia były robione na stronę internetową dla firmy. Profesjonalne podejście i ładne zdjęcia.",
+    author: "Małgorzata Wagner",
+    role: "Prezes Artech Group · opinia Google",
+  },
+  burzynska: {
+    quote:
+      "Z pełnym przekonaniem polecamy współpracę z Marcinem! Realizował dla naszego biura sesję biznesową i od samego początku współpraca przebiegała na najwyższym poziomie. Zdjęcia wyszły bardzo estetyczne, naturalne i w pełni spełniły nasze oczekiwania, a Marcin zadbał, aby każdy czuł się komfortowo przed obiektywem.",
+    author: "Aleksandra Burzyńska",
+    role: "Poznańskie Nieruchomości · opinia Google",
+  },
+  fortuniak: {
+    quote:
+      "Miałam przyjemność współpracować z Marcinem już kilkukrotnie i sesje studyjne są pełne profesjonalizmu i zaangażowania. Marcin daje z siebie 100% i bardzo szybko przełamuje lody — nawet jeśli ktoś staje przed obiektywem po raz pierwszy. Polecam z pełnym przekonaniem!",
+    author: "Zuzanna Fortuniak",
+    role: "Menedżerka ds. marketingu, Weranda · opinia Google",
+  },
+} satisfies Record<string, ServiceTestimonial>;
+
+export const SERVICE_TESTIMONIALS: Record<string, ServiceTestimonial> = {
+  "eventy-reportaze": T.maja,
+  "pakiety-foto-wideo": T.maja,
+  "wideo-marketing": T.maja,
+  "fotografia-produktowa": T.wagner,
+  "wizerunek-portrety": T.burzynska,
+  "sesje-zespolowe": T.fortuniak,
+};

@@ -52,18 +52,21 @@ export default function ServiceHero({ service }: Props) {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href="#cennik"
-                className="bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
-              >
-                Zobacz cennik
-              </a>
-              <a
                 href="#kontakt"
-                className="border border-border dark:border-dark-border text-navy dark:text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:border-blue dark:hover:border-blue-light transition-colors"
+                className="bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
               >
                 Zapytaj o wycenę
               </a>
+              <a
+                href="#cennik"
+                className="border border-border dark:border-dark-border text-navy dark:text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:border-blue dark:hover:border-blue-light transition-colors"
+              >
+                Zobacz cennik
+              </a>
             </div>
+            <p className="mt-4 text-[12.5px] text-steel dark:text-dark-text-muted">
+              Odpowiadam w 24h · Faktura VAT · 2 tury poprawek w cenie
+            </p>
           </AnimatedSection>
 
           {/* Dla kogo */}

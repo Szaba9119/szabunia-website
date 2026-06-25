@@ -14,7 +14,6 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 // na mobile i skraca LCP).
 const Equipment = dynamic(() => import("@/components/Equipment"));
 const Portfolio = dynamic(() => import("@/components/Portfolio"));
-const GaleriaTeaser = dynamic(() => import("@/components/GaleriaTeaser"));
 const Pricing = dynamic(() => import("@/components/Pricing"));
 const Process = dynamic(() => import("@/components/Process"));
 const Testimonials = dynamic(() => import("@/components/Testimonials"));
@@ -138,7 +137,6 @@ export default function Home() {
         <ErrorBoundary><About /></ErrorBoundary>
         <ErrorBoundary><Services /></ErrorBoundary>
         <ErrorBoundary><Portfolio /></ErrorBoundary>
-        <ErrorBoundary><GaleriaTeaser /></ErrorBoundary>
         <ErrorBoundary><Pricing /></ErrorBoundary>
         <ErrorBoundary><Testimonials /></ErrorBoundary>
         <ErrorBoundary><Publications /></ErrorBoundary>

@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { serviceCategories, getServiceBySlug } from "@/data/services";
+import { serviceCategories, getServiceBySlug, SERVICE_TESTIMONIALS } from "@/data/services";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import ServiceHero from "@/components/ServiceHero";
@@ -56,6 +56,7 @@ export default async function ServicePage({ params }: PageProps) {
   if (!service) notFound();
 
   const relatedPosts = getPostsForService(service.slug, 3);
+  const testimonial = SERVICE_TESTIMONIALS[service.slug];
 
   const structuredData = [
     {
@@ -114,8 +115,53 @@ export default async function ServicePage({ params }: PageProps) {
             note={service.pricingNote}
           />
         </ErrorBoundary>
+        {testimonial && (
+          <ErrorBoundary>
+            <section className="py-12 md:py-16 px-4">
+              <div className="max-w-3xl mx-auto">
+                <figure className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-8 md:p-10 text-center">
+                  <div className="text-blue dark:text-blue-light text-sm mb-4" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
+                    ★★★★★
+                  </div>
+                  <blockquote className="text-navy dark:text-white text-lg md:text-xl leading-relaxed font-inter italic mb-6">
+                    &bdquo;{testimonial.quote}&rdquo;
+                  </blockquote>
+                  <figcaption>
+                    <div className="font-barlow font-bold text-[14px] text-navy dark:text-white">
+                      {testimonial.author}
+                    </div>
+                    <div className="text-[12px] text-steel dark:text-dark-text-muted">
+                      {testimonial.role}
+                    </div>
+                  </figcaption>
+                </figure>
+              </div>
+            </section>
+          </ErrorBoundary>
+        )}
+        <ErrorBoundary>
+          <section className="px-4 pb-4">
+            <div className="max-w-3xl mx-auto text-center bg-blue-pale dark:bg-blue/10 rounded-2xl border border-blue/15 dark:border-blue/20 p-8 md:p-10">
+              <h2 className="font-barlow font-extrabold text-2xl md:text-[28px] leading-tight tracking-tight text-navy dark:text-white mb-2">
+                Zróbmy to dobrze za pierwszym razem
+              </h2>
+              <p className="text-steel dark:text-dark-text-muted text-[14px] mb-6 max-w-md mx-auto">
+                Napisz krótki brief — odezwę się w 24h z konkretną wyceną. Bez zobowiązań.
+              </p>
+              <a
+                href="#kontakt"
+                className="inline-block bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
+              >
+                Zapytaj o wycenę
+              </a>
+            </div>
+          </section>
+        </ErrorBoundary>
         <ErrorBoundary>
           <PortfolioFAQ faqs={service.faqs} />
+        </ErrorBoundary>
+        <ErrorBoundary>
+          <CTA />
         </ErrorBoundary>
         {relatedPosts.length > 0 && (
           <ErrorBoundary>
@@ -136,9 +182,6 @@ export default async function ServicePage({ params }: PageProps) {
             </section>
           </ErrorBoundary>
         )}
-        <ErrorBoundary>
-          <CTA />
-        </ErrorBoundary>
       </main>
       <Footer />
       <script
