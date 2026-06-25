@@ -184,7 +184,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     pricingType: "table",
     tables: [
       {
-        title: "Reportaż Tech & Eventy",
+        title: "Reportaż & Eventy",
         rows: [
           { label: "Pierwsza godzina pracy", value: "600 zł" },
           { label: "Każda kolejna godzina", value: "400 zł" },
@@ -455,22 +455,24 @@ const serviceCategoriesRaw: ServiceData[] = [
         rows: [],
         groups: [
           {
-            label: "Pakiety",
+            label: "Pakiety (1h lotu w cenie)",
             items: [
-              { label: "Zdjęcia z drona (do 1h lotu + obróbka)", value: "500 zł" },
-              { label: "Wideo z drona 4K (do 1h + montaż 30–60 s)", value: "800 zł" },
-              { label: "Foto + wideo z drona", value: "1 100 zł" },
+              { label: "Zdjęcia z drona — do 10 wyretuszowanych zdjęć", value: "500 zł" },
+              { label: "Wideo z drona 4K — zmontowany materiał do 60 s", value: "800 zł" },
+              { label: "Foto + wideo — do 10 zdjęć + wideo do 60 s", value: "1 100 zł" },
             ],
           },
           {
             label: "Opcje dodatkowe",
             items: [
-              { label: "Każda kolejna rozpoczęta godzina lotu", value: "300 zł" },
+              { label: "Każda kolejna godzina lotu (≈10 zdjęć lub +60 s)", value: "300 zł" },
+              { label: "Dodatkowe wyretuszowane zdjęcie", value: "60 zł" },
               { label: "Dodatek do innej sesji (event, produkt, wizerunek)", value: "200 zł" },
+              { label: "Loty w strefie kontrolowanej (zgody PAŻP)", value: "wycena indyw." },
             ],
           },
         ],
-        note: "Dron DJI z certyfikatem A1/A3 i ubezpieczeniem OC operatora. Loty zgodne z przepisami; zgody w strefach kontrolowanych po mojej stronie.",
+        note: "Dron DJI z certyfikatem A1/A3 i ubezpieczeniem OC operatora. W standardowych lokalizacjach loty bez dopłat. W strefach kontrolowanych (np. centrum miasta) załatwiam zgody PAŻP — wyceniane indywidualnie ze względu na czas i formalności.",
       },
     ],
     faqs: [
@@ -527,8 +529,8 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
 // (sylwetka w górnej części), zespołowy portret nieco niżej (więcej kontekstu,
 // obie twarze wciąż widoczne). Reszta domyślnie wyśrodkowana.
 const SERVICE_TILE_POS: Record<string, string> = {
-  "wizerunek-portrety": "center 33%",
-  "sesje-zespolowe": "center 40%",
+  "wizerunek-portrety": "center 29%",
+  "sesje-zespolowe": "center 54%",
 };
 
 export const serviceItems = serviceCategories.map((s) => ({

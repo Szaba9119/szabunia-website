@@ -461,7 +461,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     pricingType: "table",
     tables: [
       {
-        title: "Reportaż Tech & Eventy",
+        title: "Reportaż & Eventy",
         rows: [
           { label: "Pierwsza godzina pracy", value: "600 zł" },
           { label: "Każda kolejna godzina", value: "400 zł" },
