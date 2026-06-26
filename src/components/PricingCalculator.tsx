@@ -40,7 +40,7 @@ interface CalcConfig {
   comboPackage?: "essentials" | "pro" | "premium";
   extraComboHours?: number;
   // zdjecia-wideo-z-drona
-  dronePackage?: "foto" | "wideo" | "foto-wideo";
+  dronePackage?: "foto" | "przebitki" | "wideo" | "foto-przebitki" | "foto-wideo";
   droneExtraHours?: number;
 }
 
@@ -119,7 +119,8 @@ function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
       return base + (config.extraComboHours ?? 0) * 350;
     }
     case "zdjecia-wideo-z-drona": {
-      const base = config.dronePackage === "wideo" ? 900 : config.dronePackage === "foto-wideo" ? 1200 : 600;
+      const dronePrices: Record<string, number> = { foto: 600, przebitki: 700, wideo: 900, "foto-przebitki": 1000, "foto-wideo": 1200 };
+      const base = dronePrices[config.dronePackage ?? "foto-wideo"] ?? 600;
       return base + (config.droneExtraHours ?? 0) * 300;
     }
     default:
@@ -432,7 +433,9 @@ function ServiceOptions({
               onChange={(e) => onChange({ ...config, dronePackage: e.target.value as CalcConfig["dronePackage"] })}
             >
               <option value="foto">Zdjęcia z drona ({fmtPrice(600, mode)} zł)</option>
+              <option value="przebitki">Przebitki 4K do montażu własnego ({fmtPrice(700, mode)} zł)</option>
               <option value="wideo">Wideo z drona 4K ({fmtPrice(900, mode)} zł)</option>
+              <option value="foto-przebitki">Zdjęcia + przebitki 4K ({fmtPrice(1000, mode)} zł)</option>
               <option value="foto-wideo">Foto + wideo z drona ({fmtPrice(1200, mode)} zł)</option>
             </select>
           </div>
@@ -498,7 +501,7 @@ function ConfigSummary({ slug, config }: { slug: ServiceSlug; config: CalcConfig
       break;
     }
     case "zdjecia-wideo-z-drona": {
-      const names = { foto: "Zdjęcia z drona", wideo: "Wideo z drona", "foto-wideo": "Foto + wideo z drona" };
+      const names = { foto: "Zdjęcia z drona", przebitki: "Przebitki 4K do montażu własnego", wideo: "Wideo z drona", "foto-przebitki": "Zdjęcia + przebitki 4K", "foto-wideo": "Foto + wideo z drona" };
       items.push(`Pakiet: ${names[config.dronePackage ?? "foto-wideo"]}`);
       if ((config.droneExtraHours ?? 0) > 0) items.push(`Dodatkowe godziny lotu: ${config.droneExtraHours}`);
       break;

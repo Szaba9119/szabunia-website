@@ -344,6 +344,13 @@ export default function Pricing() {
                       </div>
                       <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(600)}</span>
                     </div>
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <span className="text-navy dark:text-white font-semibold">Przebitki 4K do montażu własnego</span>
+                        <span className="block text-[11px]">Wyselekcjonowane ujęcia 4K, korekcja barwna, bez montażu</span>
+                      </div>
+                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(700)}</span>
+                    </div>
                     <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10 flex justify-between items-center">
                       <div>
                         <span className="text-navy dark:text-white font-semibold">Wideo z drona 4K</span>
@@ -351,12 +358,12 @@ export default function Pricing() {
                       </div>
                       <span className="font-barlow font-extrabold text-2xl text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(900)}</span>
                     </div>
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <span className="text-navy dark:text-white font-semibold">Foto + wideo</span>
-                        <span className="block text-[11px]">Do 10 zdjęć i wideo do 60 s z jednego lotu</span>
+                    <div className="pt-3 border-t border-border dark:border-dark-border">
+                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Komplet z jednego lotu:</p>
+                      <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
+                        <div className="flex justify-between"><span>Zdjęcia + przebitki 4K</span><span>{formatPriceLabel(1000)}</span></div>
+                        <div className="flex justify-between"><span>Zdjęcia + wideo (montaż)</span><span>{formatPriceLabel(1200)}</span></div>
                       </div>
-                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(1200)}</span>
                     </div>
                     <div className="pt-3 border-t border-border dark:border-dark-border">
                       <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Opcje dodatkowe:</p>

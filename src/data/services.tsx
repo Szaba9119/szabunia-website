@@ -465,42 +465,37 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 3, title: "Postprodukcja", desc: "Obróbka zdjęć lub montaż wideo" },
       { num: 4, title: "Dostawa", desc: "Zdjęcia w 14 dni, wideo do 21 dni" },
     ],
-    pricingType: "tiers",
-    tiers: [
+    pricingType: "table",
+    tables: [
       {
-        name: "ZDJĘCIA Z DRONA",
-        price: "600 zł",
-        features: [
-          "1h lotu w cenie",
-          "Do 10 wyretuszowanych zdjęć z powietrza",
-          "Pełna, autorska obróbka",
-          "Pliki: pełna jakość + wersja web",
+        title: "Zdjęcia i wideo z drona",
+        note: "1h lotu w cenie każdego wariantu. Materiał 4K, eksport gotowy do montażu. Nie udostępniam plików RAW.",
+        rows: [
+          { label: "Zdjęcia z drona (do 10 wyretuszowanych)", value: "600 zł" },
+          { label: "Przebitki 4K do montażu własnego", value: "700 zł" },
+          { label: "Wideo z drona 4K (montaż do 60 s)", value: "900 zł" },
         ],
-      },
-      {
-        name: "WIDEO Z DRONA 4K",
-        price: "900 zł",
-        features: [
-          "1h lotu w cenie",
-          "Zmontowany materiał do 60 s",
-          "Jakość do 4K",
-          "Formaty pod WWW lub social media",
-        ],
-        recommended: true,
-      },
-      {
-        name: "FOTO + WIDEO",
-        price: "1 200 zł",
-        features: [
-          "1h lotu w cenie",
-          "Do 10 zdjęć + wideo do 60 s",
-          "Komplet z jednego lotu",
-          "Pełna obróbka i montaż",
+        groups: [
+          {
+            label: "Komplet z jednego lotu",
+            items: [
+              { label: "Zdjęcia + przebitki 4K", value: "1 000 zł" },
+              { label: "Zdjęcia + wideo (montaż)", value: "1 200 zł" },
+            ],
+          },
+          {
+            label: "Opcje dodatkowe",
+            items: [
+              { label: "Kolejna godzina lotu", value: "300 zł" },
+              { label: "Dodatkowe zdjęcie", value: "80 zł" },
+              { label: "Jako dodatek do innej sesji (do 3 ujęć)", value: "200 zł" },
+            ],
+          },
         ],
       },
     ],
     pricingNote:
-      "Dodatki: kolejna godzina lotu 300 zł · dodatkowe zdjęcie 80 zł · jako dodatek do innej sesji 200 zł (do 3 ujęć). Dron DJI, certyfikat operatora A1/A3 i ubezpieczenie OC; w standardowych lokalizacjach loty bez dopłat, w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.",
+      "Dron DJI, certyfikat operatora A1/A3 i ubezpieczenie OC. W standardowych lokalizacjach loty bez dopłat, w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.",
     faqs: [
       { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
       { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji bezpłatnie przekładamy termin na najbliższy możliwy." },
