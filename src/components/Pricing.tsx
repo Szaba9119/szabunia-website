@@ -107,7 +107,7 @@ export default function Pricing() {
             {[
               { id: "cennik-portrety", label: "Portrety" },
               { id: "cennik-hybrydy", label: "Foto + Wideo" },
-              { id: "cennik-dron", label: "Dron" },
+              { id: "pricing-card-dron", label: "Dron", open: "dron" },
               { id: "pricing-card-eventy", label: "Eventy", open: "eventy" },
               { id: "pricing-card-zespoly", label: "Zespoły", open: "zespoly" },
               { id: "pricing-card-wideo", label: "Wideo", open: "wideo" },
@@ -290,72 +290,91 @@ export default function Pricing() {
           </AnimatedSection>
         </div>
 
-        {/* === ZDJĘCIA I WIDEO Z DRONA === */}
-        <AnimatedSection>
-          <h3 id="cennik-dron" className="scroll-mt-24 font-barlow font-bold text-xl text-blue dark:text-blue-light mb-2 text-center">
-            Zdjęcia i wideo z drona
-          </h3>
-          <p className="text-steel dark:text-dark-text-muted text-[13px] text-center mb-8 max-w-xl mx-auto">
-            1h lotu w cenie. W godzinę wykonuję do 10 wyretuszowanych zdjęć lub do 60 s zmontowanego materiału.
-          </p>
-        </AnimatedSection>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
-          {/* Zdjęcia z drona */}
-          <AnimatedSection delay={0}>
-            <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full flex flex-col">
-              <h4 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1">ZDJĘCIA Z DRONA</h4>
-              <div className="font-barlow font-extrabold text-3xl text-blue dark:text-blue-light mb-6">{formatPriceLabel(600)}</div>
-              <ul className="space-y-3 text-[13px] text-steel dark:text-dark-text-muted mb-6 flex-grow">
-                <li className="flex items-start gap-2"><CheckIcon /> 1h lotu w cenie</li>
-                <li className="flex items-start gap-2"><CheckIcon /> Do 10 wyretuszowanych zdjęć z powietrza</li>
-                <li className="flex items-start gap-2"><CheckIcon /> Pełna, autorska obróbka</li>
-                <li className="flex items-start gap-2"><CheckIcon /> Pliki: pełna jakość i wersja web</li>
-              </ul>
-              <AskButton slug="zdjecia-wideo-z-drona" label="ZDJĘCIA Z DRONA" />
-            </div>
-          </AnimatedSection>
-
-          {/* Wideo z drona — recommended */}
-          <AnimatedSection delay={0.1}>
-            <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border-2 border-blue dark:border-blue-light h-full flex flex-col relative shadow-lg shadow-blue/5">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue text-white px-3 py-0.5 rounded-full text-[10px] font-barlow font-bold uppercase tracking-wider" role="note">
-                Rekomendowany
-              </div>
-              <h4 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1">WIDEO Z DRONA 4K</h4>
-              <div className="font-barlow font-extrabold text-4xl text-blue dark:text-blue-light mb-6">{formatPriceLabel(900)}</div>
-              <ul className="space-y-3 text-[13px] text-navy dark:text-white mb-6 flex-grow">
-                <li className="flex items-start gap-2"><CheckIcon /> 1h lotu w cenie</li>
-                <li className="flex items-start gap-2"><CheckIcon /> Zmontowany materiał do 60 s</li>
-                <li className="flex items-start gap-2"><CheckIcon /> Jakość do 4K</li>
-                <li className="flex items-start gap-2"><CheckIcon /> Formaty pod WWW lub social media</li>
-              </ul>
-              <AskButton slug="zdjecia-wideo-z-drona" label="WIDEO Z DRONA 4K" />
-            </div>
-          </AnimatedSection>
-
-          {/* Foto + wideo z drona */}
-          <AnimatedSection delay={0.2}>
-            <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full flex flex-col">
-              <h4 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1">FOTO + WIDEO</h4>
-              <div className="font-barlow font-extrabold text-3xl text-blue dark:text-blue-light mb-6">{formatPriceLabel(1200)}</div>
-              <ul className="space-y-3 text-[13px] text-steel dark:text-dark-text-muted mb-6 flex-grow">
-                <li className="flex items-start gap-2"><CheckIcon /> 1h lotu w cenie</li>
-                <li className="flex items-start gap-2"><CheckIcon /> Do 10 zdjęć i wideo do 60 s</li>
-                <li className="flex items-start gap-2"><CheckIcon /> Komplet z jednego lotu</li>
-                <li className="flex items-start gap-2"><CheckIcon /> Pełna obróbka i montaż</li>
-              </ul>
-              <AskButton slug="zdjecia-wideo-z-drona" label="FOTO + WIDEO" />
-            </div>
-          </AnimatedSection>
-        </div>
-        <AnimatedSection>
-          <p className="text-steel dark:text-dark-text-muted text-[12px] text-center mb-16 max-w-2xl mx-auto">
-            Dodatki: kolejna godzina lotu {formatPriceLabel(300)} · dodatkowe zdjęcie {formatPriceLabel(80)} · jako dodatek do innej sesji {formatPriceLabel(200)} (do 3 ujęć). Dron DJI, certyfikat operatora A1/A3 i ubezpieczenie OC; w standardowych lokalizacjach loty bez dopłat, w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.
-          </p>
-        </AnimatedSection>
-
         {/* === SEKCJE ZWIJANE === */}
         <div className="space-y-3">
+          {/* --- Zdjęcia i wideo z drona --- */}
+          <AnimatedSection>
+            <div id="pricing-card-dron" className={`scroll-mt-24 bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
+              isOpen("dron") ? "border-blue dark:border-blue-light shadow-sm shadow-blue/5" : "border-border dark:border-dark-border hover:border-blue/50 dark:hover:border-blue-light/30"
+            }`}>
+              <button
+                onClick={() => toggleSection("dron")}
+                aria-expanded={isOpen("dron")}
+                aria-controls="pricing-dron"
+                className="w-full px-6 md:px-8 py-5 flex items-center justify-between text-left group"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-pale dark:bg-blue/15 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <circle cx="6" cy="6" r="2.5" />
+                      <circle cx="18" cy="6" r="2.5" />
+                      <circle cx="6" cy="18" r="2.5" />
+                      <circle cx="18" cy="18" r="2.5" />
+                      <rect x="9.5" y="9.5" width="5" height="5" rx="1" />
+                      <path strokeLinecap="round" d="M7.8 7.8l1.7 1.7M16.2 7.8l-1.7 1.7M7.8 16.2l1.7-1.7M16.2 16.2l-1.7-1.7" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className={`font-barlow font-bold text-lg transition-colors ${isOpen("dron") ? "text-blue dark:text-blue-light" : "text-navy dark:text-white group-hover:text-blue dark:group-hover:text-blue-light"}`}>
+                      Zdjęcia i wideo z drona
+                    </h3>
+                    <p className="text-[13px] text-steel dark:text-dark-text-muted">
+                      od {formatPriceLabel(600)}
+                    </p>
+                  </div>
+                </div>
+                <ChevronIcon open={isOpen("dron")} />
+              </button>
+
+              <div
+                id="pricing-dron"
+                className={`grid transition-all duration-300 ease-in-out ${
+                  isOpen("dron") ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div className="px-6 md:px-8 pb-6 pt-2 border-t border-border/50 dark:border-dark-border space-y-4 text-[13px] text-steel dark:text-dark-text-muted">
+                    <p className="text-[12px]">
+                      1h lotu w cenie. W godzinę wykonuję do 10 wyretuszowanych zdjęć lub do 60 s zmontowanego materiału 4K.
+                    </p>
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <span className="text-navy dark:text-white font-semibold">Zdjęcia z drona</span>
+                        <span className="block text-[11px]">Do 10 wyretuszowanych zdjęć z powietrza</span>
+                      </div>
+                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(600)}</span>
+                    </div>
+                    <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10 flex justify-between items-center">
+                      <div>
+                        <span className="text-navy dark:text-white font-semibold">Wideo z drona 4K</span>
+                        <span className="block text-[11px] text-blue/70 dark:text-blue-light/70 font-semibold">Rekomendowane · zmontowany materiał do 60 s</span>
+                      </div>
+                      <span className="font-barlow font-extrabold text-2xl text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(900)}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <span className="text-navy dark:text-white font-semibold">Foto + wideo</span>
+                        <span className="block text-[11px]">Do 10 zdjęć i wideo do 60 s z jednego lotu</span>
+                      </div>
+                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(1200)}</span>
+                    </div>
+                    <div className="pt-3 border-t border-border dark:border-dark-border">
+                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Opcje dodatkowe:</p>
+                      <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
+                        <div className="flex justify-between"><span>Kolejna godzina lotu</span><span>{formatPriceLabel(300)}</span></div>
+                        <div className="flex justify-between"><span>Dodatkowe zdjęcie</span><span>{formatPriceLabel(80)}</span></div>
+                        <div className="flex justify-between"><span>Jako dodatek do innej sesji (do 3 ujęć)</span><span>{formatPriceLabel(200)}</span></div>
+                      </div>
+                    </div>
+                    <p className="text-[11px]">
+                      Dron DJI, certyfikat operatora A1/A3 i ubezpieczenie OC. W standardowych lokalizacjach loty bez dopłat, w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+
           {/* --- Reportaż & Eventy --- */}
           <AnimatedSection>
             <div id="pricing-card-eventy" className={`scroll-mt-24 bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
