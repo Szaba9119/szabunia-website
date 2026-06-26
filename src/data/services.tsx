@@ -169,7 +169,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Profesjonalna dokumentacja konferencji, targów, gal i wydarzeń firmowych. Opcja live editing.",
     description:
-      "Każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing, zdjęcia gotowe do publikacji na Social Media jeszcze w trakcie eventu. Fotografię eventową robię od początku działalności. Przez sześć lat dokumentowałem wydarzenia w Poznaniu, nierzadko kilka różnych miejsc jednego wieczoru. Sprawne tempo i logistyka dużych eventów to dla mnie naturalny grunt.",
+      "Każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing, zdjęcia gotowe do publikacji na Social Media jeszcze w trakcie eventu. Fotografię eventową robię od początku działalności. Przez ponad osiem lat dokumentowałem wydarzenia w Poznaniu, nierzadko kilka różnych miejsc jednego wieczoru. Sprawne tempo i logistyka dużych eventów to dla mnie naturalny grunt.",
     forWhom: [
       "Organizatorzy konferencji i targów",
       "Firmy organizujące wydarzenia firmowe",

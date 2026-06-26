@@ -16,6 +16,14 @@ export default function CookieConsent() {
     }
   }, []);
 
+  // Ponowne otwarcie banera z linku „Ustawienia cookies" w stopce — pozwala
+  // w każdej chwili zmienić/wycofać zgodę (równie łatwo jak ją wyrazić).
+  useEffect(() => {
+    const reopen = () => setVisible(true);
+    window.addEventListener("open-cookie-settings", reopen);
+    return () => window.removeEventListener("open-cookie-settings", reopen);
+  }, []);
+
   // Zgłaszaj wysokość banera, żeby mobilny pasek akcji (MobileFAB) uniósł się nad niego.
   useEffect(() => {
     const emit = () => {

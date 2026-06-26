@@ -8,6 +8,7 @@ import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import BackToTopButton from "@/components/BackToTopButton";
 import Footer from "@/components/Footer";
+import MobileFAB from "@/components/MobileFAB";
 import BlogContent from "@/components/BlogContent";
 import BlogCard from "@/components/BlogCard";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -227,6 +228,7 @@ export default async function BlogPostPage({ params }: PageProps) {
         </article>
       </main>
       <Footer />
+      <MobileFAB />
       <BackToTopButton />
       <script
         type="application/ld+json"

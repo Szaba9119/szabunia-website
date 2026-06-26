@@ -7,6 +7,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import MobileFAB from "@/components/MobileFAB";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 const blurPlaceholder =
@@ -128,6 +129,7 @@ export default function PortfolioPage() {
         </div>
       </main>
       <Footer />
+      <MobileFAB />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

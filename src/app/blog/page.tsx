@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import Footer from "@/components/Footer";
+import MobileFAB from "@/components/MobileFAB";
 import AnimatedSection from "@/components/AnimatedSection";
 import BlogCard from "@/components/BlogCard";
 import { blogPosts } from "@/data/blog";
@@ -62,6 +63,7 @@ export default function BlogPage() {
         </div>
       </main>
       <Footer />
+      <MobileFAB />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

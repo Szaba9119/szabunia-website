@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type MouseEvent as ReactMouseEvent } from "react";
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 
 const PHONE = "+48514900688";
@@ -39,6 +39,16 @@ export default function MobileFAB() {
   const visible = scrollY > 600 && !contactInView;
   if (!visible) return null;
 
+  // Strona z formularzem (#kontakt) → przewijamy do niego. Strona bez niego
+  // (blog, poradnik) → href="/kontakt" prowadzi na stronę kontaktu (nigdy martwy link).
+  const handleCtaClick = (e: ReactMouseEvent<HTMLAnchorElement>) => {
+    const el = document.getElementById("kontakt");
+    if (el) {
+      e.preventDefault();
+      el.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const iconBtn =
     "w-11 h-11 rounded-full flex items-center justify-center text-navy dark:text-white hover:bg-blue-pale dark:hover:bg-blue/15 transition-colors";
 
@@ -50,7 +60,8 @@ export default function MobileFAB() {
       {/* Wyśrodkowana „wyspa" — jeden spójny pasek akcji: Wyceń, e-mail, telefon */}
       <div className="glass-strong flex items-center gap-1.5 rounded-full p-1.5">
         <a
-          href="#kontakt"
+          href="/kontakt"
+          onClick={handleCtaClick}
           data-cta="wycena_sticky"
           aria-label="Wyślij brief, przejdź do formularza"
           className="flex items-center gap-2 pl-4 pr-5 py-2.5 bg-gradient-to-br from-blue to-blue-light text-white rounded-full btn-glow font-barlow font-bold text-sm"

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { portfolioCategories } from "@/data/portfolio";
+import { portfolioCategories, isPortfolioDraft } from "@/data/portfolio";
 import { serviceCategories } from "@/data/services";
 import { blogPosts } from "@/data/blog";
 
@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://szabunia.pl";
 
   const portfolioPages = portfolioCategories
-    .filter((c) => !c.externalUrl)
+    .filter((c) => !c.externalUrl && !isPortfolioDraft(c.slug))
     .map((c) => ({
       url: `${baseUrl}/portfolio/${c.slug}`,
       lastModified: new Date(),

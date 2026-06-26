@@ -3,6 +3,7 @@ import Image from "next/image";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import Footer from "@/components/Footer";
+import MobileFAB from "@/components/MobileFAB";
 import AnimatedSection from "@/components/AnimatedSection";
 import PoradnikForm from "@/components/PoradnikForm";
 
@@ -113,6 +114,7 @@ export default function PoradnikPage() {
         </div>
       </main>
       <Footer />
+      <MobileFAB />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

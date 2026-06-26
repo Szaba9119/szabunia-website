@@ -96,7 +96,11 @@ export default function PrivacyPolicy() {
                 faktury (np. dane do faktury, których potrzebujesz jako nabywca).
                 Dane mogą być przekazywane także innym podmiotom świadczącym
                 usługi hostingowe, e-mailowe i informatyczne na podstawie umów
-                powierzenia przetwarzania danych.
+                powierzenia przetwarzania danych. Przekazanie danych do USA
+                (Resend, Vercel) następuje na podstawie mechanizmów
+                zapewniających odpowiedni stopień ochrony — standardowych
+                klauzul umownych (SCC) lub udziału tych podmiotów w programie
+                EU-US Data Privacy Framework.
               </p>
             </section>
 
@@ -136,7 +140,9 @@ export default function PrivacyPolicy() {
                 analizy ruchu oraz pomiaru skuteczności reklam. Odbiorcą danych
                 zbieranych przez te pliki jest Google Ireland Ltd. Zgodę możesz
                 odrzucić — strona działa wtedy w pełni, bez pomiaru — a wyrażoną
-                zgodę wycofać, usuwając pliki cookies w swojej przeglądarce.
+                zgodę zmienić lub wycofać w każdej chwili, klikając „Ustawienia
+                cookies” w stopce strony albo usuwając pliki cookies w swojej
+                przeglądarce.
               </p>
             </section>
 

@@ -4,6 +4,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import PricingCalculator from "@/components/PricingCalculator";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import MobileFAB from "@/components/MobileFAB";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import AnimatedSection from "@/components/AnimatedSection";
 
@@ -67,6 +68,7 @@ export default function KalkulatorPage() {
         </div>
       </main>
       <Footer />
+      <MobileFAB />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

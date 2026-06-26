@@ -136,7 +136,7 @@ export default function PoradnikForm() {
             className="mt-0.5 w-4 h-4 rounded border-navy-light accent-blue flex-shrink-0"
           />
           <span className="text-[11px] text-steel leading-relaxed">
-            Wyrażam zgodę na otrzymanie poradnika i przetwarzanie mojego adresu e-mail zgodnie z{" "}
+            Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu wysłania poradnika oraz okazjonalnych wskazówek związanych z sesją (zgodę mogę wycofać, pisząc na marcin@szabunia.pl), zgodnie z{" "}
             <a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer" className="text-blue hover:text-white underline transition-colors">
               polityką prywatności
             </a>.

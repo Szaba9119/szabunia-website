@@ -656,10 +656,26 @@ export interface PortfolioItem {
   externalUrl?: string;
 }
 
-export const portfolioItems: PortfolioItem[] = portfolioCategories.map((c) => ({
-  label: c.label,
-  image: c.tileImage ?? c.thumbnail,
-  imagePosition: c.tileImagePosition,
-  slug: c.slug,
-  externalUrl: c.externalUrl,
-}));
+// Realizacje w przygotowaniu (na razie 1 zdjęcie + placeholder „Więcej zdjęć
+// wkrótce"). Ukryte z indeksu /portfolio, z sitemap i z indeksacji do czasu
+// uzupełnienia galerii. Aby pokazać realizację — usuń jej slug z tego zbioru.
+const DRAFT_SLUGS = new Set<string>([
+  "sesja-wizerunkowa",
+  "fotografia-eventowa",
+  "packshoty-produktowe",
+  "sesja-korporacyjna",
+]);
+
+export function isPortfolioDraft(slug: string): boolean {
+  return DRAFT_SLUGS.has(slug);
+}
+
+export const portfolioItems: PortfolioItem[] = portfolioCategories
+  .filter((c) => !DRAFT_SLUGS.has(c.slug))
+  .map((c) => ({
+    label: c.label,
+    image: c.tileImage ?? c.thumbnail,
+    imagePosition: c.tileImagePosition,
+    slug: c.slug,
+    externalUrl: c.externalUrl,
+  }));

@@ -99,12 +99,21 @@ export default function Footer() {
             © {new Date().getFullYear()} Marcin Szabunia. Wszelkie prawa
             zastrzeżone.
           </span>
-          <a
-            href="/polityka-prywatnosci"
-            className="py-1 hover:text-navy dark:hover:text-white transition-colors"
-          >
-            Polityka prywatności
-          </a>
+          <div className="flex items-center gap-4">
+            <button
+              type="button"
+              onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}
+              className="py-1 hover:text-navy dark:hover:text-white transition-colors"
+            >
+              Ustawienia cookies
+            </button>
+            <a
+              href="/polityka-prywatnosci"
+              className="py-1 hover:text-navy dark:hover:text-white transition-colors"
+            >
+              Polityka prywatności
+            </a>
+          </div>
         </div>
       </div>
     </footer>

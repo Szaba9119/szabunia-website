@@ -157,7 +157,7 @@ export default function PortfolioPricing({ pricingType, tiers, tables, note }: P
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
-            Wszystkie ceny są kwotami netto (+23% VAT).
+            Wszystkie ceny są kwotami netto (+23% VAT), faktura VAT przez Useme.
           </p>
         </AnimatedSection>
 

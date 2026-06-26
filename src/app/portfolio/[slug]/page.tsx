@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { portfolioCategories, getCategoryBySlug } from "@/data/portfolio";
+import { portfolioCategories, getCategoryBySlug, isPortfolioDraft } from "@/data/portfolio";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import PortfolioHero from "@/components/PortfolioHero";
@@ -30,6 +30,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: category.seo.title,
     description: category.seo.description,
     alternates: { canonical: `/portfolio/${category.slug}` },
+    ...(isPortfolioDraft(slug) ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       title: category.seo.title,
       description: category.seo.description,
