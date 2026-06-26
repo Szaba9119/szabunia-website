@@ -319,7 +319,7 @@ export default function Pricing() {
                       Zdjęcia i wideo z drona
                     </h3>
                     <p className="text-[13px] text-steel dark:text-dark-text-muted">
-                      od {formatPriceLabel(600)}
+                      od {formatPriceLabel(500)}
                     </p>
                   </div>
                 </div>
@@ -349,7 +349,7 @@ export default function Pricing() {
                         <span className="text-navy dark:text-white font-semibold">Przebitki 4K do montażu własnego</span>
                         <span className="block text-[11px]">Wyselekcjonowane ujęcia 4K, korekcja barwna, bez montażu</span>
                       </div>
-                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(700)}</span>
+                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(500)}</span>
                     </div>
                     <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10 flex justify-between items-center">
                       <div>
@@ -361,8 +361,8 @@ export default function Pricing() {
                     <div className="pt-3 border-t border-border dark:border-dark-border">
                       <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Komplet z jednego lotu:</p>
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
-                        <div className="flex justify-between"><span>Zdjęcia + przebitki 4K</span><span>{formatPriceLabel(1000)}</span></div>
-                        <div className="flex justify-between"><span>Zdjęcia + wideo (montaż)</span><span>{formatPriceLabel(1200)}</span></div>
+                        <div className="flex justify-between"><span>Zdjęcia + przebitki 4K</span><span>{formatPriceLabel(700)}</span></div>
+                        <div className="flex justify-between"><span>Zdjęcia + wideo (montaż)</span><span>{formatPriceLabel(1100)}</span></div>
                       </div>
                     </div>
                     <div className="pt-3 border-t border-border dark:border-dark-border">

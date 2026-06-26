@@ -458,7 +458,7 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" d="M7.8 7.8l1.7 1.7M16.2 7.8l-1.7 1.7M7.8 16.2l1.7-1.7M16.2 16.2l-1.7-1.7" />
       </svg>
     ),
-    price: "od 600 zł",
+    price: "od 500 zł",
     process: [
       { num: 1, title: "Brief i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
       { num: 2, title: "Lot", desc: "Zdjęcia i wideo 4K z powietrza" },
@@ -472,15 +472,15 @@ const serviceCategoriesRaw: ServiceData[] = [
         note: "1h lotu w cenie każdego wariantu. Materiał 4K, eksport gotowy do montażu. Nie udostępniam plików RAW.",
         rows: [
           { label: "Zdjęcia z drona (do 10 wyretuszowanych)", value: "600 zł" },
-          { label: "Przebitki 4K do montażu własnego", value: "700 zł" },
+          { label: "Przebitki 4K do montażu własnego", value: "500 zł" },
           { label: "Wideo z drona 4K (montaż do 60 s)", value: "900 zł" },
         ],
         groups: [
           {
             label: "Komplet z jednego lotu",
             items: [
-              { label: "Zdjęcia + przebitki 4K", value: "1 000 zł" },
-              { label: "Zdjęcia + wideo (montaż)", value: "1 200 zł" },
+              { label: "Zdjęcia + przebitki 4K", value: "700 zł" },
+              { label: "Zdjęcia + wideo (montaż)", value: "1 100 zł" },
             ],
           },
           {
