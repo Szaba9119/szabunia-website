@@ -728,6 +728,74 @@ export const blogPosts: BlogPost[] = [
         "Packshot, lifestyle, headshot, brief, RAW, retusz, licencja. Słownik pojęć fotografii biznesowej i produktowej wyjaśniony prostym językiem, bez żargonu.",
     },
   },
+  {
+    slug: "zdjecia-film-z-drona-dla-firm",
+    title: "Zdjęcia i film z drona dla firm: zastosowania, legalność i koszt",
+    excerpt:
+      "Do czego firmie zdjęcia i film z drona, jak wygląda realizacja, co z legalnością lotów i ile to kosztuje. Praktyczny przewodnik B2B z Poznania.",
+    category: "poradnik",
+    date: "2026-06-27",
+    readTime: 7,
+    thumbnail: "/images/blog/zdjecia-film-z-drona-dla-firm.jpg",
+    content: `
+      <p class="lead">Perspektywa z lotu ptaka pokazuje to, czego nie odda żadne zdjęcie z poziomu ziemi: skalę inwestycji, układ terenu, sąsiedztwo i kontekst całego obiektu. Dla firmy to nie efekt „wow" dla samego efektu, tylko konkretne narzędzie sprzedaży i dokumentacji. Poniżej tłumaczę, do czego realnie przydają się zdjęcia i film z drona, jak wygląda realizacja, co z legalnością lotów i od czego zależy koszt.</p>
+
+      <h2>Do czego firmie zdjęcia i film z drona</h2>
+      <p>Dron to jedno wejście, a kilka zupełnie różnych zastosowań. Najczęściej realizuję materiał dla:</p>
+      <ul>
+        <li><strong>Deweloperów i firm budowlanych:</strong> postęp prac, dokumentacja etapów, inwestycja pokazana w otoczeniu.</li>
+        <li><strong>Przemysłu i logistyki:</strong> hale, place, tereny i infrastruktura w prawdziwej skali.</li>
+        <li><strong>Hoteli i obiektów turystycznych:</strong> lokalizacja, otoczenie i atuty, których nie widać z ziemi.</li>
+        <li><strong>Agencji nieruchomości:</strong> nieruchomości komercyjne i grunty z czytelnym kontekstem działki.</li>
+        <li><strong>Organizatorów eventów:</strong> skala wydarzenia, scena i teren w jednym kadrze.</li>
+        <li><strong>Marketingu i social mediów:</strong> dynamiczne ujęcia otwierające film firmowy albo reels.</li>
+      </ul>
+      <p>Wspólny mianownik jest prosty: dron sprzedaje <strong>skalę i kontekst</strong>. Odbiorca od razu rozumie, gdzie obiekt leży, jak duży jest i co ma wokół.</p>
+
+      <h2>Co dostajesz: zdjęcia, film 4K albo przebitki do montażu</h2>
+      <p>W zależności od celu materiał z drona dostarczam w trzech formach:</p>
+      <ul>
+        <li><strong>Zdjęcia z drona:</strong> wyretuszowane kadry do oferty, na stronę, do prospektu inwestycji.</li>
+        <li><strong>Film z drona 4K:</strong> zmontowany, gotowy materiał na stronę i social media.</li>
+        <li><strong>Przebitki 4K do montażu własnego:</strong> wyselekcjonowane ujęcia z korekcją barwną, bez montażu, gotowe do cięcia, jeśli masz własny zespół wideo.</li>
+      </ul>
+      <p>To rozróżnienie ma realne znaczenie dla budżetu. Jeśli nie potrzebujesz gotowego filmu, a tylko surowca do swojego montażu, płacisz mniej. Jeśli nie wiesz, czym różni się ujęcie od przebitki, zajrzyj do <a href="/blog/slownik-pojec-wideo">słownika pojęć wideo</a>.</p>
+
+      <h2>Jak wygląda realizacja krok po kroku</h2>
+      <p>Przebieg jest powtarzalny i bez niespodzianek:</p>
+      <ul>
+        <li><strong>Brief i zgody:</strong> ustalamy ujęcia, lokalizację i sprawdzam, czy teren leży w strefie wymagającej zgody.</li>
+        <li><strong>Lot:</strong> zdjęcia i wideo w 4K. Zwykle godzina w powietrzu wystarcza na komplet ujęć jednego obiektu.</li>
+        <li><strong>Postprodukcja:</strong> retusz zdjęć albo montaż filmu i korekcja barwna.</li>
+        <li><strong>Dostawa:</strong> zdjęcia do 14 dni, wideo do 21 dni roboczych. Jest też tryb ekspresowy.</li>
+      </ul>
+
+      <h2>Legalność i bezpieczeństwo lotów</h2>
+      <p>To pytanie pada najczęściej i słusznie. Loty komercyjne dronem są w Polsce uregulowane i wymagają uprawnień. Po mojej stronie jest komplet formalności:</p>
+      <ul>
+        <li><strong>Certyfikat operatora A1/A3</strong> zgodny z przepisami unijnymi.</li>
+        <li><strong>Ubezpieczenie OC</strong> operatora drona.</li>
+        <li><strong>Zgody w strefach kontrolowanych:</strong> w obszarach, które tego wymagają, uzyskuję zgodę przed lotem.</li>
+      </ul>
+      <p>W standardowych lokalizacjach latam bez dopłat, a w strefach kontrolowanych zgody wyceniam indywidualnie. Dla Ciebie oznacza to jedno: strona formalna nie jest Twoim problemem.</p>
+
+      <h2>Ile kosztuje zdjęcie i film z drona</h2>
+      <p>Cena zależy od tego, co zabierasz z lotu. Orientacyjnie, netto: przebitki 4K do montażu własnego od <strong>500 zł</strong>, zdjęcia z drona od <strong>600 zł</strong>, zmontowany film 4K od <strong>900 zł</strong>. Dłuższy lot, większy obiekt albo strefa kontrolowana zmieniają wycenę. Pełny, aktualny cennik z kompletami z jednego lotu jest na stronie usługi: <a href="/uslugi/zdjecia-wideo-z-drona">zdjęcia i wideo z drona</a>.</p>
+      <p>Najczęściej najbardziej opłaca się <strong>komplet z jednego lotu</strong>. Skoro dron i tak jest w powietrzu, zdjęcia i film z tego samego wejścia wychodzą taniej niż zamawiane osobno.</p>
+
+      <h2>Dron jako dodatek, nie tylko osobna usługa</h2>
+      <p>Materiał z drona świetnie łączy się z sesją naziemną. Na <a href="/uslugi/eventy-reportaze">evencie</a> kilka ujęć z góry pokazuje skalę wydarzenia, a w filmie firmowym otwierają one całość i nadają jej rozmach. Z jednego wejścia powstaje wtedy spójny komplet foto i wideo, bez logistyki dwóch ekip.</p>
+
+      <h2>Podsumowanie</h2>
+      <p>Zdjęcia i film z drona to dla firmy narzędzie, które sprzedaje skalę i kontekst, a przy okazji wyróżnia materiał na tle konkurencji. Najważniejsze: ustal cel (zdjęcia, gotowy film czy przebitki), a resztę, łącznie z formalnościami, zostaw operatorowi.</p>
+      <p>Zobacz <a href="/galeria?kat=dron">przykładowe kadry z drona</a> albo od razu <a href="/uslugi/zdjecia-wideo-z-drona">zapytaj o wycenę</a> swojego obiektu.</p>
+    `,
+    seo: {
+      title: "Zdjęcia i film z drona dla firm: zastosowania i koszt | Marcin Szabunia",
+      description:
+        "Zastosowania zdjęć i filmów z drona w B2B, przebieg realizacji, legalność (A1/A3, OC, PAŻP) i koszt. Fotografia z drona dla firm, Poznań i cała Polska.",
+    },
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
@@ -755,6 +823,7 @@ export const blogServiceMap: Record<string, string> = {
   "zdjecia-na-strone-firmowa": "wizerunek-portrety",
   "co-to-jest-packshot": "fotografia-produktowa",
   "slownik-pojec-wideo": "wideo-marketing",
+  "zdjecia-film-z-drona-dla-firm": "zdjecia-wideo-z-drona",
 };
 
 /** Slug usługi powiązanej z danym wpisem (lub undefined). */

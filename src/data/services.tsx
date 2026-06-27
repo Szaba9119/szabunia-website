@@ -22,6 +22,8 @@ export interface ServiceData {
   /** YouTube ID przykładowego filmu pokazywanego na podstronie usługi. */
   videoId?: string;
   videoTitle?: string;
+  /** Opcjonalny podpis pod sekcją wideo (domyślnie tekst o foto + wideo). */
+  videoNote?: string;
   seo: {
     title: string;
     description: string;
@@ -437,6 +439,9 @@ const serviceCategoriesRaw: ServiceData[] = [
   {
     slug: "zdjecia-wideo-z-drona",
     galleryCategory: "dron",
+    videoId: "4INLtKcKcZk",
+    videoTitle: "Film z eventu dla Woohoo z ujęciami z drona",
+    videoNote: "Film z eventu dla Woohoo. Ujęcia z drona łączą się tu z materiałem z poziomu ziemi w jeden spójny film.",
     title: "Zdjęcia i wideo z drona",
     subtitle:
       "Ujęcia z powietrza: budynki i obiekty firmowe, tereny, eventy i architektura. Foto i wideo w 4K.",

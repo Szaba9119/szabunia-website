@@ -44,6 +44,15 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
   produktowe: ["produkt-13", "produkt-05", "produkt-11", "produkt-21", "produkt-12", "produkt-08"].map(
     (n) => `/images/galeria/produktowe/${n}.jpg`
   ),
+  // 6 różnych obiektów (bez powtórki tego samego budynku, np. Bałtyk z dwóch stron).
+  dron: [
+    "dron-01-centrum-poznania-biurowce",
+    "dron-03-nowoczesny-budynek-poznan",
+    "dron-09-nowoczesne-osiedle-poznan",
+    "dron-06-apartamenty-nad-rzeka-poznan",
+    "dron-08-inwestycja-tereny-zielone-poznan",
+    "dron-05-panorama-poznania-zachod-slonca",
+  ].map((n) => `/images/galeria/dron/${n}.jpg`),
 };
 
 export default function ServiceGalleryStrip({ category }: { category: GalleryCategoryKey }) {
