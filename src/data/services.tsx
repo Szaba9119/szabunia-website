@@ -538,13 +538,13 @@ export function getServiceBySlug(slug: string): ServiceData | undefined {
 const SERVICE_TILE_IMAGES: Record<string, string> = {
   "eventy-reportaze": "/images/galeria/eventy/event-05.jpg",
   "wizerunek-portrety": "/images/galeria/portrety/portret-05.jpg",
-  "pakiety-foto-wideo": "/images/galeria/eventy/event-17.jpg",
+  "pakiety-foto-wideo": "/images/galeria/eventy/event-02.jpg",
   "fotografia-produktowa": "/images/galeria/produktowe/produkt-13.jpg",
   "sesje-zespolowe": "/images/portfolio/sesje-zespolowe-cover.jpg",
   // Wersja 4:3 z rozmytym wypełnieniem — pełny napis „E-COMMERCE All in"
   // widoczny, bez ucinania i bez pustych marginesów (oryginał 16:9).
   "wideo-marketing": "/images/portfolio/woohoo-ecommerce-4x3.jpg",
-  "zdjecia-wideo-z-drona": "/images/galeria/dron/dron-02-wiezowiec-biurowy-poznan.jpg",
+  "zdjecia-wideo-z-drona": "/images/galeria/dron/dron-04-biurowiec-poznan.jpg",
 };
 
 // Punkt kadrowania miniatury (object-position). Wizerunek kadrujemy nieco wyżej
