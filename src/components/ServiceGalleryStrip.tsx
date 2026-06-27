@@ -50,7 +50,7 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
     "dron-03-nowoczesny-budynek-poznan",
     "dron-09-nowoczesne-osiedle-poznan",
     "dron-06-apartamenty-nad-rzeka-poznan",
-    "dron-08-inwestycja-tereny-zielone-poznan",
+    "dron-07-osiedle-mieszkaniowe-poznan",
     "dron-05-panorama-poznania-zachod-slonca",
   ].map((n) => `/images/galeria/dron/${n}.jpg`),
 };
