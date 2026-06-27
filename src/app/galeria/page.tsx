@@ -16,12 +16,12 @@ import { listGalleryImagesSized } from "@/lib/galleryImages";
 export const metadata: Metadata = {
   title: "Galeria zdjęć i wideo | Marcin Szabunia, fotograf biznesowy Poznań",
   description:
-    "Wybrane kadry z realizacji: portrety biznesowe, fotografia eventowa, produktowa oraz wideo. Marcin Szabunia, Poznań i cała Polska.",
+    "Wybrane kadry z realizacji: portrety biznesowe, fotografia eventowa, produktowa, wideo oraz zdjęcia z drona. Marcin Szabunia, Poznań i cała Polska.",
   alternates: { canonical: "/galeria" },
   openGraph: {
     title: "Galeria zdjęć i wideo | Marcin Szabunia",
     description:
-      "Portrety biznesowe, fotografia eventowa, produktowa i wideo. Wybrane kadry z realizacji.",
+      "Portrety biznesowe, fotografia eventowa, produktowa, wideo i zdjęcia z drona. Wybrane kadry z realizacji.",
     url: "https://szabunia.pl/galeria",
     images: [
       {
@@ -82,6 +82,20 @@ export default async function GaleriaPage({
         "Zdjęcie katalogowe produktu, studio, Poznań",
       ],
     },
+    {
+      key: "dron",
+      label: "Dron",
+      folder: "dron",
+      alt: "Zdjęcia z drona, Poznań, Marcin Szabunia",
+      altVariants: [
+        "Zdjęcia z drona, biurowce w centrum Poznania z lotu ptaka",
+        "Wideo i zdjęcia z drona, wieżowiec biurowy w Poznaniu",
+        "Fotografia z drona dla firm, nowoczesny budynek komercyjny, Poznań",
+        "Zdjęcia z drona nieruchomości, osiedle mieszkaniowe, Poznań",
+        "Panorama Poznania z drona o zachodzie słońca",
+        "Zdjęcia z drona inwestycji i terenów, Poznań i okolice",
+      ],
+    },
   ];
 
   const categories: GalleryCategory[] = defs
@@ -103,7 +117,7 @@ export default async function GaleriaPage({
       "@type": "ImageGallery",
       name: "Galeria — Marcin Szabunia",
       description:
-        "Portrety biznesowe, fotografia eventowa, produktowa oraz wideo. Wybrane kadry z realizacji.",
+        "Portrety biznesowe, fotografia eventowa, produktowa, wideo oraz zdjęcia z drona. Wybrane kadry z realizacji.",
       url: "https://szabunia.pl/galeria",
       author: { "@type": "Person", name: "Marcin Szabunia", url: "https://szabunia.pl" },
     },
@@ -128,7 +142,7 @@ export default async function GaleriaPage({
               Galeria
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-6 max-w-2xl mx-auto">
-              Wybrane kadry z realizacji: portrety biznesowe, eventy, fotografia produktowa oraz wideo.
+              Wybrane kadry z realizacji: portrety biznesowe, eventy, fotografia produktowa, wideo oraz zdjęcia z drona.
             </p>
             <div className="flex justify-center mb-10">
               <a

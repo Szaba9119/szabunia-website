@@ -25,6 +25,11 @@ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string
     sub: "Wybrane realizacje wideo i reelsy.",
     alt: "Realizacja wideo, Marcin Szabunia",
   },
+  dron: {
+    label: "Przykłady z galerii: zdjęcia z drona",
+    sub: "Wybrane kadry z powietrza: biurowce, osiedla i inwestycje w Poznaniu.",
+    alt: "Zdjęcia z drona, Poznań, Marcin Szabunia",
+  },
 };
 
 // Wyselekcjonowane najlepsze 6 kadrów per kategoria (zamiast pierwszych z
@@ -90,7 +95,7 @@ export default function ServiceGalleryStrip({ category }: { category: GalleryCat
         aspectClass={
           category === "portrety"
             ? "aspect-[3/4]"
-            : category === "eventy"
+            : category === "eventy" || category === "dron"
             ? "aspect-[4/3]"
             : "aspect-square"
         }

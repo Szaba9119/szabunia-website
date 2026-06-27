@@ -18,7 +18,7 @@ export interface ServiceData {
   pricingNote?: string;
   faqs: FAQItem[];
   portfolioSlug?: string;
-  galleryCategory?: "portrety" | "eventy" | "produktowe" | "wideo";
+  galleryCategory?: "portrety" | "eventy" | "produktowe" | "wideo" | "dron";
   /** YouTube ID przykładowego filmu pokazywanego na podstronie usługi. */
   videoId?: string;
   videoTitle?: string;
@@ -436,6 +436,7 @@ const serviceCategoriesRaw: ServiceData[] = [
   },
   {
     slug: "zdjecia-wideo-z-drona",
+    galleryCategory: "dron",
     title: "Zdjęcia i wideo z drona",
     subtitle:
       "Ujęcia z powietrza: budynki i obiekty firmowe, tereny, eventy i architektura. Foto i wideo w 4K.",
@@ -543,7 +544,7 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
   // Wersja 4:3 z rozmytym wypełnieniem — pełny napis „E-COMMERCE All in"
   // widoczny, bez ucinania i bez pustych marginesów (oryginał 16:9).
   "wideo-marketing": "/images/portfolio/woohoo-ecommerce-4x3.jpg",
-  "zdjecia-wideo-z-drona": "/images/portfolio/yes-butcher/yes-butcher-02.jpg",
+  "zdjecia-wideo-z-drona": "/images/galeria/dron/dron-02-wiezowiec-biurowy-poznan.jpg",
 };
 
 // Punkt kadrowania miniatury (object-position). Wizerunek kadrujemy nieco wyżej
