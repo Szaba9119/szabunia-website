@@ -24,7 +24,6 @@ import { getPostsForService } from "@/data/blog";
 const SHOW_PORADNIK = new Set<string>([
   "wizerunek-portrety",
   "sesje-zespolowe",
-  "eventy-reportaze",
   "pakiety-foto-wideo",
 ]);
 
@@ -142,6 +141,28 @@ export default async function ServicePage({ params }: PageProps) {
         <ErrorBoundary>
           <PortfolioProcess steps={service.process} />
         </ErrorBoundary>
+        {testimonial && (
+          <ErrorBoundary>
+            <section className="py-12 md:py-16 px-4">
+              <figure className="max-w-3xl mx-auto bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-8 md:p-10 text-center">
+                <div className="text-blue dark:text-blue-light text-sm mb-4" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
+                  ★★★★★
+                </div>
+                <blockquote className="text-navy dark:text-white text-lg md:text-xl leading-relaxed font-inter italic mb-6">
+                  &bdquo;{testimonial.quote}&rdquo;
+                </blockquote>
+                <figcaption>
+                  <div className="font-barlow font-bold text-[14px] text-navy dark:text-white">
+                    {testimonial.author}
+                  </div>
+                  <div className="text-[12px] text-steel dark:text-dark-text-muted">
+                    {testimonial.role}
+                  </div>
+                </figcaption>
+              </figure>
+            </section>
+          </ErrorBoundary>
+        )}
         <ErrorBoundary>
           <PortfolioPricing
             pricingType={service.pricingType}
@@ -150,45 +171,16 @@ export default async function ServicePage({ params }: PageProps) {
             note={service.pricingNote}
           />
         </ErrorBoundary>
-        <ErrorBoundary>
-          <section className="py-12 md:py-16 px-4">
-            <div className="max-w-3xl mx-auto space-y-6">
-              {testimonial && (
-                <figure className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-8 md:p-10 text-center">
-                  <div className="text-blue dark:text-blue-light text-sm mb-4" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
-                    ★★★★★
-                  </div>
-                  <blockquote className="text-navy dark:text-white text-lg md:text-xl leading-relaxed font-inter italic mb-6">
-                    &bdquo;{testimonial.quote}&rdquo;
-                  </blockquote>
-                  <figcaption>
-                    <div className="font-barlow font-bold text-[14px] text-navy dark:text-white">
-                      {testimonial.author}
-                    </div>
-                    <div className="text-[12px] text-steel dark:text-dark-text-muted">
-                      {testimonial.role}
-                    </div>
-                  </figcaption>
-                </figure>
-              )}
-              <div className="text-center bg-blue-pale dark:bg-blue/10 rounded-2xl border border-blue/15 dark:border-blue/20 p-8 md:p-10">
-                <h2 className="font-barlow font-extrabold text-2xl md:text-[28px] leading-tight tracking-tight text-navy dark:text-white mb-2">
-                  Masz projekt? Wyceńmy go.
-                </h2>
-                <p className="text-steel dark:text-dark-text-muted text-[14px] mb-6 max-w-md mx-auto">
-                  Napisz krótki brief, odezwę się w 24h z konkretną wyceną.
-                </p>
-                <a
-                  href="#kontakt"
-                  data-cta="wycena_srodek"
-                  className="inline-block bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
-                >
-                  Wyślij brief
-                </a>
-              </div>
-            </div>
-          </section>
-        </ErrorBoundary>
+        <div className="px-4 -mt-4 md:-mt-8 pb-12 text-center">
+          <a
+            href="#kontakt"
+            data-cta="wycena_uslugi"
+            className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
+          >
+            Zapytaj o wycenę
+            <span className="text-white/80">→</span>
+          </a>
+        </div>
         <ErrorBoundary>
           <PortfolioFAQ faqs={service.faqs} />
         </ErrorBoundary>

@@ -15,11 +15,11 @@ export interface CaseStudyData {
 
 export default function PortfolioCaseStudy({ data }: { data: CaseStudyData }) {
   return (
-    <section className="py-12 md:py-20 px-4">
+    <section className="py-12 md:py-16 px-4">
       <div className="max-w-4xl mx-auto">
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">
-            <h2 className="font-barlow font-extrabold text-2xl md:text-[36px] leading-tight tracking-tight text-navy dark:text-white mb-8 text-center">
+            <h2 className="font-barlow font-extrabold text-3xl md:text-[40px] leading-tight tracking-tight text-navy dark:text-white mb-8 text-center">
               Case Study
             </h2>
           </Parallax>

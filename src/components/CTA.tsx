@@ -125,7 +125,7 @@ export default function CTA() {
   }, []);
 
   return (
-    <section id="kontakt" className="py-12 md:py-24 px-4">
+    <section id="kontakt" className="py-12 md:py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <div className="relative rounded-[20px] overflow-hidden bg-white border border-border dark:bg-dark-card dark:border-dark-border px-6 py-12 md:px-10 md:py-16">

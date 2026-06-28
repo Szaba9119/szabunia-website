@@ -39,7 +39,7 @@ export default function PrivacyPolicy() {
             ← Wróć na stronę główną
           </Link>
 
-          <h1 className="font-barlow font-extrabold text-3xl md:text-[42px] leading-tight tracking-tight text-navy dark:text-white mb-8">
+          <h1 className="font-barlow font-extrabold text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-8">
             Polityka prywatności
           </h1>
 

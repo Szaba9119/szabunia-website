@@ -41,6 +41,15 @@ export default function Services() {
                         style={{ objectPosition: s.imagePos }}
                         className="object-cover transition-transform duration-500 group-hover:scale-105"
                       />
+                      {s.slug === "wideo-marketing" && (
+                        <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                          <span className="w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm border border-white/50 flex items-center justify-center text-white shadow-lg">
+                            <svg className="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                          </span>
+                        </span>
+                      )}
                     </div>
                   )}
                   <div className="p-6">

@@ -54,7 +54,7 @@ export default function PortfolioGallery({ images, title, subtitle, aspect = "la
   }, [lightboxIndex, closeLightbox, goNext, goPrev]);
 
   return (
-    <section id="galeria" className="py-12 md:py-24 px-4">
+    <section id="galeria" className="py-12 md:py-16 px-4">
       <div className="max-w-5xl mx-auto">
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">

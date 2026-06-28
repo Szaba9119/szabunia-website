@@ -8,7 +8,7 @@ import { PARALLAX } from "@/lib/motion";
 
 export default function About() {
   return (
-    <section id="o-mnie" className="py-12 md:py-24 px-4">
+    <section id="o-mnie" className="py-12 md:py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Zdjęcie — tylko na desktopie. Na telefonie sekcja jest tekstowa
@@ -44,17 +44,17 @@ export default function About() {
 
               <div className="space-y-5 text-steel dark:text-dark-text-muted text-[15px] leading-relaxed">
                 <p>
-                  Cześć, jestem Marcin. Od 2018 roku buduję wizerunek firm poprzez
+                  Cześć, jestem Marcin. <strong>Od 2018 roku</strong> buduję wizerunek firm poprzez
                   fotografię biznesową i wideo marketing. Bazuję w Poznaniu,
                   pracuję w całej Polsce i Europie.
                 </p>
                 <p>
                   Ukończyłem studia z zarządzania, więc rozumiem nie tylko kadr,
                   ale i biznesowy cel, któremu zdjęcia mają służyć.
-                  Specjalizuję się w obsłudze marek B2B i korporacji, które
+                  Specjalizuję się w obsłudze <strong>marek B2B i korporacji</strong>, które
                   potrzebują powtarzalnego standardu wizerunkowego między sesjami.
                   Portrety biznesowe, reportaże z eventów, fotografia produktowa,
-                  wideo marketingowe. Jeden twórca, spójny materiał i krótka droga
+                  wideo marketingowe. <strong>Jeden twórca</strong>, spójny materiał i krótka droga
                   od briefu do dostawy.
                 </p>
                 <p>

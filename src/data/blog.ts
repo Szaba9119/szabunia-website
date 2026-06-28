@@ -845,6 +845,112 @@ export const blogPosts: BlogPost[] = [
         "Dlaczego jeden twórca foto, wideo i dron to mniej logistyki, spójny materiał i niższy koszt niż dwie ekipy. Kompleksowa obsługa eventów i contentu, Poznań.",
     },
   },
+  {
+    slug: "obsluga-foto-wideo-eventu-firmowego",
+    title: "Jak zaplanować kompleksową obsługę foto-wideo eventu firmowego",
+    excerpt:
+      "Event firmowy zdarza się raz. Jak zaplanować obsługę foto-wideo, żeby wyjść z kompletem materiału: brief, harmonogram, must-have ujęcia, dron i live editing.",
+    category: "poradnik",
+    date: "2026-06-28",
+    readTime: 6,
+    thumbnail: "/images/blog/obsluga-foto-wideo-eventu-firmowego.jpg",
+    content: `
+      <p class="lead">Event firmowy zdarza się raz. Nie ma drugiego podejścia, nie ma poprawek następnego dnia. Dlatego o materiale foto i wideo warto pomyśleć zanim zacznie się wydarzenie, a nie w jego trakcie. Oto praktyczny przewodnik, jak zaplanować kompleksową obsługę foto-wideo eventu, żeby wyjść z niego z kompletem materiału gotowym do publikacji.</p>
+
+      <h2>Po co firmie foto i wideo z jednego eventu</h2>
+      <p>Z jednego dobrze obfotografowanego i nagranego wydarzenia powstaje materiał, który pracuje przez kolejne miesiące: relacja na stronie, film podsumowujący do prezentacji handlowych, krótkie reelsy do social mediów, zdjęcia do materiałów prasowych. Jeden dzień, kilka formatów, długi okres użycia. Warunek jest jeden: trzeba to zaplanować.</p>
+
+      <h2>Zacznij od briefu i celów</h2>
+      <p>Zanim ustalimy godziny i ujęcia, odpowiadamy na pytanie, do czego materiał ma służyć. Inaczej fotografuje się event, z którego ma powstać prasowa relacja, a inaczej taki, który ma napędzić social media. Na briefie ustalamy:</p>
+      <ul>
+        <li>Cel: relacja, employer branding, sprzedaż, prasa.</li>
+        <li>Kluczowe momenty, których nie można przegapić (wystąpienia, wręczenia, panel, networking).</li>
+        <li>Najważniejsze osoby i goście, którzy muszą znaleźć się w kadrze.</li>
+        <li>Formaty na wyjściu: zdjęcia, film, teaser, reelsy, ujęcia z drona.</li>
+      </ul>
+
+      <h2>Harmonogram dnia</h2>
+      <p>Dobry plan to nie sztywny scenariusz, tylko mapa kluczowych momentów. Najważniejsze, żeby foto i wideo nie wchodziły sobie w drogę, a dron złapał właściwe światło, najlepiej przed zmrokiem. Przy całodniowym evencie zwykle wygląda to tak: ujęcia pustej sali i przygotowań, rejestracja gości, część oficjalna, przerwy i networking, część wieczorna. Z dronem planujemy okno na ujęcia z góry, gdy pozwala na to pogoda i przepisy.</p>
+
+      <h2>Must-have ujęcia</h2>
+      <p>Niezależnie od skali, kilka rzeczy powinno znaleźć się zawsze:</p>
+      <ul>
+        <li><strong>Scena i prelegenci:</strong> wystąpienia, slajdy, wręczenia, panel.</li>
+        <li><strong>Ludzie:</strong> reakcje sali, rozmowy, networking, emocje.</li>
+        <li><strong>Detale:</strong> branding, identyfikacja wizualna, catering, gadżety.</li>
+        <li><strong>Skala:</strong> szerokie kadry sali i ujęcia z drona, jeśli event jest plenerowy lub duży.</li>
+      </ul>
+      <p>To te ujęcia budują później spójną relację i dają z czego montować film.</p>
+
+      <h2>Co dostajesz po evencie</h2>
+      <ul>
+        <li><strong>Reportaż zdjęciowy</strong> po selekcji i pełnej obróbce.</li>
+        <li><strong>Film podsumowujący</strong> (recap) i krótszy teaser do social mediów.</li>
+        <li><strong>Reelsy pionowe</strong>, jeśli content ma trafić na Instagram czy TikTok.</li>
+        <li><strong>Live editing:</strong> wybrane zdjęcia obrobione na bieżąco, jeszcze w trakcie eventu, gotowe do publikacji tego samego dnia.</li>
+      </ul>
+
+      <h2>Podsumowanie</h2>
+      <p>Kompleksowa obsługa foto-wideo eventu zaczyna się od briefu, a nie od pierwszego zdjęcia. Ustal cel, kluczowe momenty i formaty, a resztę, łącznie z dronem i live editingiem, zaplanuj z wyprzedzeniem. Wtedy z jednego dnia wychodzi materiał na miesiące.</p>
+      <p>Zobacz <a href="/uslugi/pakiety-foto-wideo">pakiety foto, wideo i dron</a> oraz <a href="/uslugi/eventy-reportaze">reportaż z eventów</a>, a przykładowe kadry znajdziesz w <a href="/galeria?kat=eventy">galerii eventowej</a>.</p>
+    `,
+    seo: {
+      title: "Obsługa foto-wideo eventu firmowego: jak zaplanować | Marcin Szabunia",
+      description:
+        "Praktyczny przewodnik: brief, harmonogram, must-have ujęcia, dron i live editing. Jak zaplanować kompleksową obsługę foto-wideo eventu firmowego. Poznań.",
+    },
+  },
+  {
+    slug: "pakiet-foto-wideo-czy-osobno",
+    title: "Pakiet foto + wideo + dron czy usługi osobno: co się bardziej opłaca firmie",
+    excerpt:
+      "Gotowy pakiet foto, wideo i dron u jednej osoby czy ekipa z osobnych specjalistów? Kiedy opłaca się pakiet, kiedy usługi osobno i na co patrzeć poza ceną.",
+    category: "branża",
+    date: "2026-06-28",
+    readTime: 5,
+    thumbnail: "/images/blog/pakiet-foto-wideo-czy-osobno.jpg",
+    content: `
+      <p class="lead">Firma, która potrzebuje zdjęć i filmu z jednego wydarzenia, staje przed wyborem: zamówić gotowy pakiet foto, wideo i dron u jednej osoby, czy złożyć ekipę z osobnych specjalistów. Obie drogi mają sens, ale w różnych sytuacjach. Poniżej tłumaczę, kiedy bardziej opłaca się pakiet, a kiedy usługi osobno, i na co realnie patrzeć poza ceną.</p>
+
+      <h2>Co zwykle wchodzi w pakiet</h2>
+      <p>Pakiet foto + wideo + dron z jednego wejścia to jeden twórca, który w jednym standardzie realizuje zdjęcia, film i ujęcia z powietrza. Z jednego dnia dostajesz reportaż zdjęciowy, film podsumowujący, krótki teaser do social mediów i ujęcia z drona, a wszystko spięte jednym briefem, jedną fakturą i jednym terminem.</p>
+
+      <h2>Kiedy pakiet się opłaca</h2>
+      <p>Pakiet wygrywa wtedy, gdy z jednego wydarzenia ma powstać kilka rodzajów materiału:</p>
+      <ul>
+        <li><strong>Eventy i konferencje:</strong> potrzebujesz i zdjęć, i filmu, i ujęć pokazujących skalę. Jedna osoba ogarnia to taniej niż dwie ekipy za ten sam dzień.</li>
+        <li><strong>Spójność jest ważna:</strong> zdjęcia i wideo mają wyglądać jak z jednej produkcji, bo trafią obok siebie na stronę i do social mediów.</li>
+        <li><strong>Zależy Ci na prostocie:</strong> jeden kontakt zamiast koordynowania kilku osób na miejscu.</li>
+      </ul>
+
+      <h2>Kiedy lepiej osobno</h2>
+      <p>Usługi osobno mają sens, gdy:</p>
+      <ul>
+        <li><strong>Potrzebujesz tylko jednej rzeczy:</strong> sam reportaż zdjęciowy albo sam film. Wtedy pakiet to przepłacanie za coś, czego nie wykorzystasz.</li>
+        <li><strong>Produkcja jest duża:</strong> wielokamerowy film ze scenariuszem i filmowym oświetleniem, a do tego osobna ekipa fotograficzna jednocześnie. Przy takiej skali jeden twórca to za mało i lepiej złożyć dedykowany zespół.</li>
+      </ul>
+
+      <h2>Na co patrzeć poza ceną</h2>
+      <ul>
+        <li><strong>Spójność:</strong> czy foto i wideo będą wyglądać jak komplet, czy jak dwa różne style.</li>
+        <li><strong>Logistyka:</strong> ile osób musisz koordynować w dniu wydarzenia.</li>
+        <li><strong>Czas dostawy:</strong> jeden twórca pracuje na jednym harmonogramie postprodukcji, nie czekasz na dwie ekipy.</li>
+        <li><strong>Formalności:</strong> jedna umowa i faktura zamiast kilku.</li>
+      </ul>
+
+      <h2>Jak to policzyć dla siebie</h2>
+      <p>Najprościej porównać konkretne liczby dla Twojego wydarzenia. Skoro dron i tak jest na miejscu, a foto i wideo powstają z jednego wejścia, komplet w pakiecie wychodzi taniej niż te same usługi zamawiane osobno. Dokładne kwoty dla Twojej skali policzysz w <a href="/kalkulator">kalkulatorze wyceny</a> albo dostaniesz po krótkim briefie.</p>
+
+      <h2>Podsumowanie</h2>
+      <p>Pakiet foto + wideo + dron opłaca się tam, gdzie z jednego wydarzenia ma powstać kilka spójnych formatów, a Ty chcesz prostej logistyki i niższego kosztu niż dwie osobne ekipy. Usługi osobno mają sens przy pojedynczej potrzebie albo bardzo dużej produkcji.</p>
+      <p>Zobacz <a href="/uslugi/pakiety-foto-wideo">pakiety foto, wideo i dron</a> albo policz swój wariant w <a href="/kalkulator">kalkulatorze</a>.</p>
+    `,
+    seo: {
+      title: "Pakiet foto, wideo i dron czy usługi osobno | Marcin Szabunia",
+      description:
+        "Kiedy opłaca się pakiet foto + wideo + dron, a kiedy usługi osobno. Porównanie kosztu, spójności i logistyki obsługi eventu firmowego. Poznań.",
+    },
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
@@ -874,6 +980,8 @@ export const blogServiceMap: Record<string, string> = {
   "slownik-pojec-wideo": "wideo-marketing",
   "zdjecia-film-z-drona-dla-firm": "zdjecia-wideo-z-drona",
   "foto-wideo-dron-z-jednego-wejscia": "pakiety-foto-wideo",
+  "obsluga-foto-wideo-eventu-firmowego": "pakiety-foto-wideo",
+  "pakiet-foto-wideo-czy-osobno": "pakiety-foto-wideo",
 };
 
 /** Slug usługi powiązanej z danym wpisem (lub undefined). */
