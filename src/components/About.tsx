@@ -49,7 +49,7 @@ export default function About() {
                   pracuję w całej Polsce i Europie.
                 </p>
                 <p>
-                  Ukończyłem studia z zarządzania, więc rozumiem nie tylko kadr,
+                  Ukończyłem <strong>studia z zarządzania</strong>, więc rozumiem nie tylko kadr,
                   ale i biznesowy cel, któremu zdjęcia mają służyć.
                   Specjalizuję się w obsłudze <strong>marek B2B i korporacji</strong>, które
                   potrzebują powtarzalnego standardu wizerunkowego między sesjami.

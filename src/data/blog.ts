@@ -1043,7 +1043,7 @@ export const blogPosts: BlogPost[] = [
         <li>Zdjęcia z drona: od 600 zł.</li>
         <li>Gotowy film 4K: od 900 zł.</li>
         <li>Komplet zdjęcia plus przebitki: od 700 zł.</li>
-        <li>Komplet zdjęcia plus film: od 1100 zł.</li>
+        <li>Komplet zdjęcia plus film: od 1 100 zł.</li>
       </ul>
       <p>To punkty wyjścia. Dokładną kwotę dla Twojego obiektu i lokalizacji policzysz w <a href="/kalkulator">kalkulatorze</a> albo dostaniesz po krótkim opisie zlecenia.</p>
 
@@ -1086,7 +1086,7 @@ export const blogPosts: BlogPost[] = [
         <li>Czy pokażesz portfolio z eventów podobnych do mojego?</li>
         <li>Jak zabezpieczasz pliki w trakcie i po wydarzeniu?</li>
         <li>Co się dzieje, jeśli sprzęt zawiedzie?</li>
-        <li>W jakim czasie i ilu kadrów mogę się spodziewać?</li>
+        <li>Ile zdjęć dostanę i w jakim czasie?</li>
         <li>Czy dostanę wybrane zdjęcia na bieżąco, do social mediów?</li>
       </ul>
 
