@@ -951,6 +951,370 @@ export const blogPosts: BlogPost[] = [
         "Kiedy opłaca się pakiet foto + wideo + dron, a kiedy usługi osobno. Porównanie kosztu, spójności i logistyki obsługi eventu firmowego. Poznań.",
     },
   },
+  {
+    slug: "zdjecia-z-drona-dla-deweloperow",
+    title: "Zdjęcia z drona dla deweloperów i nieruchomości: jak pokazać inwestycję z lotu ptaka",
+    excerpt:
+      "Zdjęcia i film z drona pokazują inwestycję tak, jak nie zrobi tego ujęcie z ziemi: lokalizację, skalę i postęp budowy. Zastosowania, legalność i koszt dla deweloperów.",
+    category: "branża",
+    date: "2026-06-28",
+    readTime: 5,
+    thumbnail: "/images/blog/zdjecia-z-drona-dla-deweloperow.jpg",
+    content: `
+      <p class="lead">Deweloperzy i agencje nieruchomości sprzedają nie tylko metry, ale i lokalizację, otoczenie oraz postęp inwestycji. Zdjęcia z drona pokazują to, czego nie widać z poziomu chodnika: skalę osiedla, dojazd, zieleń wokół i widok z górnych pięter. Poniżej tłumaczę, jak wykorzystać fotografię i wideo z powietrza w sprzedaży inwestycji oraz ile to kosztuje.</p>
+
+      <h2>Dlaczego widok z góry sprzedaje</h2>
+      <p>Klient kupujący mieszkanie albo powierzchnię biurową podejmuje decyzję na podstawie wyobrażenia. Ujęcie z drona daje mu to wyobrażenie od razu: pokazuje położenie inwestycji względem miasta, bliskość parku czy głównej arterii, układ budynków i to, jak wygląda okolica z perspektywy przyszłego balkonu. Z poziomu ziemi tego po prostu nie sfotografujesz.</p>
+
+      <h2>Najczęstsze zastosowania</h2>
+      <ul>
+        <li><strong>Postęp budowy:</strong> regularna dokumentacja z tego samego ujęcia pokazuje inwestorom i klientom, że prace idą zgodnie z planem.</li>
+        <li><strong>Lokalizacja i otoczenie:</strong> jedno szerokie ujęcie tłumaczy więcej niż akapit o „dogodnym położeniu".</li>
+        <li><strong>Materiały sprzedażowe:</strong> zdjęcia i film do prospektu, na stronę inwestycji, do kampanii i na portale ogłoszeniowe.</li>
+        <li><strong>Realność zamiast renderu:</strong> ujęcie gotowego etapu obok wizualizacji buduje zaufanie do dewelopera.</li>
+      </ul>
+
+      <h2>Co dostajesz z jednego lotu</h2>
+      <p>Z jednego wejścia powstaje komplet materiału, który od razu trafia do sprzedaży:</p>
+      <ul>
+        <li><strong>Zdjęcia w wysokiej rozdzielczości:</strong> kadry poziome i pionowe pod stronę, social media i druk.</li>
+        <li><strong>Film z drona:</strong> płynny oblot inwestycji i okolicy, gotowy montaż albo surowe przebitki 4K.</li>
+        <li><strong>Przebitki do montażu:</strong> jeśli masz własnego montażystę, dostajesz same ujęcia 4K i składasz je z resztą materiału.</li>
+      </ul>
+
+      <h2>Legalność: na to zwróć uwagę</h2>
+      <p>Loty nad inwestycją to nie tylko kwestia sprzętu. Latam zgodnie z przepisami EASA, mam numer operatora i uprawnienia w kategorii otwartej (A1/A3), a loty w strefach kontrolowanych zgłaszam i uzyskuję na nie zgodę przez system PAŻP. Nad terenem budowy ustalamy wcześniej dostęp i zasady bezpieczeństwa. Dla Ciebie to oznacza materiał zrobiony legalnie, bez ryzyka i formalnych przestojów.</p>
+
+      <h2>Ile to kosztuje</h2>
+      <p>Cena zależy od tego, co ma powstać. Orientacyjnie, ceny netto: same przebitki 4K do własnego montażu od 500 zł, zdjęcia z drona od 600 zł, gotowy film 4K od 900 zł. Komplet zdjęcia plus przebitki albo zdjęcia plus film z jednego lotu wychodzi taniej niż zamawianie tego osobno. Dokładną wycenę policzysz w <a href="/kalkulator">kalkulatorze</a> albo dostaniesz po krótkim briefie o inwestycji.</p>
+
+      <h2>Podsumowanie</h2>
+      <p>Dla dewelopera zdjęcia i film z drona to nie ozdoba, tylko argument sprzedażowy. Pokazują lokalizację, skalę i postęp inwestycji tak, jak nie zrobi tego żadne ujęcie z ziemi. Najwięcej zyskujesz, biorąc z jednego lotu komplet foto i wideo gotowy do kampanii.</p>
+      <p>Zobacz <a href="/uslugi/zdjecia-wideo-z-drona">zdjęcia i wideo z drona</a> albo przykłady w <a href="/galeria?kat=dron">galerii z drona</a>.</p>
+    `,
+    seo: {
+      title: "Zdjęcia z drona dla deweloperów i nieruchomości | Marcin Szabunia",
+      description:
+        "Zdjęcia i film z drona w sprzedaży inwestycji: postęp budowy, lokalizacja, materiały sprzedażowe, legalność i koszt. Fotografia z drona dla deweloperów, Poznań.",
+    },
+  },
+  {
+    slug: "ile-kosztuje-film-z-drona",
+    title: "Ile kosztuje film z drona dla firmy i od czego zależy cena",
+    excerpt:
+      "Ile kosztuje film z drona dla firmy i od czego zależy cena. Warianty, czas lotu, strefy PAŻP i orientacyjne ceny netto, żebyś wiedział, czego się spodziewać.",
+    category: "poradnik",
+    date: "2026-06-28",
+    readTime: 5,
+    thumbnail: "/images/blog/ile-kosztuje-film-z-drona.jpg",
+    content: `
+      <p class="lead">„Ile kosztuje film z drona" to pytanie, na które najuczciwsza odpowiedź brzmi: zależy. Poniżej rozkładam cenę na czynniki, pokazuję warianty i podaję orientacyjne kwoty netto, żebyś wiedział, czego się spodziewać jeszcze przed wysłaniem zapytania.</p>
+
+      <h2>Od czego zależy cena</h2>
+      <ul>
+        <li><strong>Co ma powstać:</strong> same zdjęcia, gotowy zmontowany film czy surowe przebitki 4K do Twojego montażu. To największa różnica w cenie.</li>
+        <li><strong>Zakres lotu:</strong> krótki oblot jednego budynku to co innego niż dokumentacja całego terenu z kilku ujęć.</li>
+        <li><strong>Lokalizacja:</strong> dojazd poza Poznań dolicza koszt kilometrów.</li>
+        <li><strong>Strefa powietrzna:</strong> loty w strefie kontrolowanej wymagają zgody i czasu na formalności.</li>
+        <li><strong>Postprodukcja:</strong> gotowy film z muzyką i kolorystyką kosztuje więcej niż same surowe ujęcia.</li>
+      </ul>
+
+      <h2>Warianty: za co właściwie płacisz</h2>
+      <p>W praktyce wybierasz jeden z trzech wariantów:</p>
+      <ul>
+        <li><strong>Przebitki 4K do własnego montażu:</strong> dostajesz surowe, ustabilizowane ujęcia i składasz je z resztą materiału. Najtaniej, jeśli masz montażystę.</li>
+        <li><strong>Zdjęcia z drona:</strong> gotowe, wyretuszowane kadry do druku i internetu.</li>
+        <li><strong>Gotowy film z drona:</strong> zmontowany materiał z muzyką, gotowy do publikacji.</li>
+      </ul>
+
+      <h2>Czas lotu i lokalizacja</h2>
+      <p>Wycena rośnie razem z zakresem. Jeden budynek z kilku ujęć zrobię w trakcie krótkiego wejścia. Większy teren, kilka lokalizacji albo dokumentacja postępu budowy w paru terminach to więcej czasu w powietrzu i przy komputerze. Do tego dochodzi dojazd: w Poznaniu bez dopłaty, poza miastem liczony za kilometry.</p>
+
+      <h2>Strefy PAŻP i formalności</h2>
+      <p>Spora część Poznania leży w zasięgu stref kontrolowanych wokół lotniska. Loty w takich strefach są legalne, ale wymagają zgłoszenia i zgody przez system PAŻP, a czasem ograniczają pułap. Mam numer operatora i uprawnienia w kategorii otwartej (A1/A3), więc formalności biorę na siebie. Dla Ciebie znika to z listy zmartwień, warto tylko wiedzieć, że w części lokalizacji lot trzeba zaplanować z wyprzedzeniem.</p>
+
+      <h2>Komplet z jednego lotu wychodzi taniej</h2>
+      <p>Skoro dron i tak jest na miejscu, najwięcej zyskujesz, biorąc komplet. Zdjęcia plus przebitki albo zdjęcia plus film z jednego wejścia kosztują mniej niż te same usługi osobno, bo płacisz za jeden dojazd, jedno przygotowanie i jedną sesję w powietrzu.</p>
+
+      <h2>Orientacyjne ceny</h2>
+      <p>Ceny netto, od których zaczynamy:</p>
+      <ul>
+        <li>Przebitki 4K do własnego montażu: od 500 zł.</li>
+        <li>Zdjęcia z drona: od 600 zł.</li>
+        <li>Gotowy film 4K: od 900 zł.</li>
+        <li>Komplet zdjęcia plus przebitki: od 700 zł.</li>
+        <li>Komplet zdjęcia plus film: od 1100 zł.</li>
+      </ul>
+      <p>To punkty wyjścia. Dokładną kwotę dla Twojego obiektu i lokalizacji policzysz w <a href="/kalkulator">kalkulatorze</a> albo dostaniesz po krótkim opisie zlecenia.</p>
+
+      <h2>Podsumowanie</h2>
+      <p>Cena filmu z drona zależy głównie od tego, co ma powstać, ile czasu zajmie lot i gdzie się odbywa. Najtaniej wychodzą przebitki do własnego montażu, najwięcej daje gotowy komplet foto i wideo z jednego wejścia.</p>
+      <p>Zobacz <a href="/uslugi/zdjecia-wideo-z-drona">zdjęcia i wideo z drona</a> albo policz swój wariant w <a href="/kalkulator">kalkulatorze</a>.</p>
+    `,
+    seo: {
+      title: "Ile kosztuje film z drona dla firmy | Marcin Szabunia",
+      description:
+        "Ile kosztuje film z drona i od czego zależy cena: warianty, czas lotu, strefy PAŻP, komplet z jednego lotu. Orientacyjne ceny netto. Poznań.",
+    },
+  },
+  {
+    slug: "jak-wybrac-fotografa-na-event",
+    title: "Jak wybrać fotografa na event firmowy: checklista przed konferencją lub galą",
+    excerpt:
+      "Checklista wyboru fotografa na event firmowy: czego wymagać, jakie pytania zadać i jakie czerwone flagi powinny Cię zaniepokoić przed konferencją lub galą.",
+    category: "poradnik",
+    date: "2026-06-28",
+    readTime: 5,
+    thumbnail: "/images/blog/jak-wybrac-fotografa-na-event.jpg",
+    content: `
+      <p class="lead">Event firmowy zdarza się raz. Konferencji, gali czy jubileuszu nie powtórzysz, więc fotograf musi dowieźć materiał za pierwszym razem. Poniżej checklista, która pomoże Ci wybrać dobrze i uniknąć rozczarowania po fakcie.</p>
+
+      <h2>Dlaczego wybór fotografa ma znaczenie</h2>
+      <p>Zdjęcia z eventu pracują długo po wydarzeniu: trafiają do relacji, na stronę, do social mediów, do podsumowań rocznych i materiałów sprzedażowych. Słabe zdjęcia z ważnej gali to stracona okazja wizerunkowa, której nie odrobisz. Dlatego warto wybierać nie po najniższej cenie, tylko po pewności, że materiał będzie.</p>
+
+      <h2>Czego wymagać</h2>
+      <ul>
+        <li><strong>Doświadczenie w eventach:</strong> reportaż rządzi się swoimi prawami, liczy się timing, dyskrecja i wyłapywanie momentów. Poproś o portfolio z podobnych realizacji.</li>
+        <li><strong>Sprzęt i zapas:</strong> jasne obiektywy do trudnego światła sal, dwa korpusy na wypadek awarii, zapis na dwie karty jednocześnie.</li>
+        <li><strong>Backup:</strong> profesjonalista zabezpiecza pliki na bieżąco, nie ryzykuje jedną kartą.</li>
+        <li><strong>Live editing:</strong> jeśli zależy Ci na publikacji jeszcze w trakcie wydarzenia, upewnij się, że fotograf to oferuje.</li>
+        <li><strong>Termin dostawy:</strong> ustal konkretną datę oddania zdjęć, nie „kiedyś po evencie".</li>
+      </ul>
+
+      <h2>Pytania, które warto zadać</h2>
+      <ul>
+        <li>Czy pokażesz portfolio z eventów podobnych do mojego?</li>
+        <li>Jak zabezpieczasz pliki w trakcie i po wydarzeniu?</li>
+        <li>Co się dzieje, jeśli sprzęt zawiedzie?</li>
+        <li>W jakim czasie i ilu kadrów mogę się spodziewać?</li>
+        <li>Czy dostanę wybrane zdjęcia na bieżąco, do social mediów?</li>
+      </ul>
+
+      <h2>Czerwone flagi</h2>
+      <ul>
+        <li>Brak portfolio eventowego albo same zdjęcia pozowane, bez reportażu.</li>
+        <li>Jeden aparat, jedna karta, ani słowa o backupie.</li>
+        <li>Wycena bez pytania o program i charakter wydarzenia.</li>
+        <li>Niejasny termin dostawy i brak umowy.</li>
+      </ul>
+
+      <h2>Przygotuj krótki brief</h2>
+      <p>Dobry fotograf i tak o to zapyta, ale warto mieć to pod ręką: program i godziny wydarzenia, kluczowe momenty (wystąpienia, wręczenia, networking), liczbę gości, miejsce i światło, oczekiwane formaty (poziome i pionowe pod social media) oraz to, czy potrzebujesz zdjęć na bieżąco. Im konkretniej, tym trafniejsza wycena i lepszy materiał.</p>
+
+      <h2>Podsumowanie</h2>
+      <p>Fotografa na event wybieraj po doświadczeniu, zabezpieczeniu pracy i jasnych warunkach dostawy, nie po najniższej cenie. Jedno dobrze obsłużone wydarzenie daje materiał, który pracuje na wizerunek firmy przez cały rok.</p>
+      <p>Zobacz <a href="/uslugi/eventy-reportaze">obsługę fotograficzną eventów</a> albo przykłady w <a href="/galeria?kat=eventy">galerii eventowej</a>.</p>
+    `,
+    seo: {
+      title: "Jak wybrać fotografa na event firmowy: checklista | Marcin Szabunia",
+      description:
+        "Checklista wyboru fotografa na event firmowy: czego wymagać, jakie pytania zadać, czerwone flagi i brief. Fotograf eventowy Poznań.",
+    },
+  },
+  {
+    slug: "live-editing-na-evencie",
+    title: "Live editing na evencie: zdjęcia w social mediach jeszcze tego samego dnia",
+    excerpt:
+      "Live editing to obróbka i przekazywanie zdjęć z eventu na bieżąco, jeszcze tego samego dnia. Jak to działa, co przygotować i dlaczego daje firmie przewagę w social mediach.",
+    category: "branża",
+    date: "2026-06-28",
+    readTime: 5,
+    thumbnail: "/images/blog/live-editing-na-evencie.jpg",
+    content: `
+      <p class="lead">Najlepszy moment na publikację zdjęć z eventu to nie tydzień później, tylko w trakcie wydarzenia. Live editing to obróbka i przekazywanie wybranych kadrów na bieżąco, jeszcze zanim goście wrócą do domu. Poniżej tłumaczę, jak to działa i dlaczego daje firmie realną przewagę.</p>
+
+      <h2>Co to jest live editing</h2>
+      <p>Live editing to wybór, obróbka i dostarczanie zdjęć w trakcie trwania eventu, a nie po nim. W praktyce co jakiś czas przekazuję paczkę gotowych, wyretuszowanych kadrów, które od razu trafiają na firmowe social media, do działu marketingu albo na ekran w sali. Pełny reportaż dostajesz później, ale to, co najważniejsze, jest dostępne od ręki.</p>
+
+      <h2>Dlaczego „tego samego dnia" działa</h2>
+      <p>Treść z wydarzenia ma największe zasięgi wtedy, gdy event żyje. Relacja na bieżąco buduje zaangażowanie, zachęca gości do udostępniania i pokazuje firmę jako sprawnie działającą. Zdjęcia wrzucone tydzień później to już archiwum, które ogląda garstka osób.</p>
+      <ul>
+        <li>Goście udostępniają posty, w których są oznaczeni, jeszcze w trakcie eventu.</li>
+        <li>Marketing publikuje relację, gdy temat jest gorący, nie po fakcie.</li>
+        <li>Zarząd i partnerzy widzą efekt wydarzenia od razu.</li>
+      </ul>
+
+      <h2>Jak to wygląda technicznie</h2>
+      <p>Pracuję z zapisem na dwie karty, a wybrane kadry zgrywam i obrabiam na miejscu, na bieżąco. Gotowe zdjęcia przekazuję ustaloną drogą: przez wspólny folder w chmurze, bezpośrednio do osoby od social mediów albo na dedykowany adres. Tempo ustalamy wcześniej, na przykład paczka co godzinę albo po każdym kluczowym punkcie programu.</p>
+
+      <h2>Co przygotować po swojej stronie</h2>
+      <ul>
+        <li><strong>Osoba od publikacji:</strong> ktoś, kto odbiera zdjęcia i wrzuca je na kanały firmy.</li>
+        <li><strong>Kanał przekazywania:</strong> folder w chmurze albo kontakt do konkretnej osoby.</li>
+        <li><strong>Lista priorytetów:</strong> które momenty muszą pójść w świat najszybciej (wystąpienie prezesa, wręczenie nagrody, zdjęcie grupowe).</li>
+        <li><strong>Format:</strong> czy potrzebujesz kadrów pionowych pod relacje i stories.</li>
+      </ul>
+
+      <h2>Live editing a wideo</h2>
+      <p>Ten sam mechanizm działa przy wideo. Krótki teaser albo kilka ujęć zmontowanych jeszcze w trakcie wydarzenia podbija relację tak samo jak zdjęcia. Jeśli planujesz i foto, i wideo, warto połączyć je w jednym wejściu, żeby relacja na żywo miała oba formaty.</p>
+
+      <h2>Ile to kosztuje</h2>
+      <p>Live editing to dodatkowa praca na miejscu, więc wyceniam ją jako opcję do obsługi eventu, zależnie od długości wydarzenia i tempa przekazywania zdjęć. Najprościej podać mi program i oczekiwania, a dostaniesz konkretną wycenę. Przy większych wydarzeniach ten koszt zwykle zwraca się samym zasięgiem relacji na żywo.</p>
+
+      <h2>Podsumowanie</h2>
+      <p>Live editing zamienia zdjęcia z eventu z archiwum w narzędzie marketingowe, które pracuje, gdy wydarzenie jeszcze trwa. Dla firmy to większe zasięgi, więcej udostępnień i wizerunek marki, która działa sprawnie.</p>
+      <p>Zobacz <a href="/uslugi/eventy-reportaze">obsługę eventów</a> albo połącz ją z <a href="/uslugi/wideo-marketing">wideo marketingiem</a>.</p>
+    `,
+    seo: {
+      title: "Live editing na evencie: zdjęcia tego samego dnia | Marcin Szabunia",
+      description:
+        "Live editing na evencie: obróbka i przekazywanie zdjęć na bieżąco, jeszcze w trakcie wydarzenia. Większe zasięgi relacji w social mediach. Poznań.",
+    },
+  },
+  {
+    slug: "headshoty-zespolu-w-jeden-dzien",
+    title: "Headshoty całego zespołu w jeden dzień: jak to zorganizować bez chaosu",
+    excerpt:
+      "Jak zorganizować headshoty całego zespołu w jeden dzień bez chaosu: mobilne studio w biurze, harmonogram 10-15 minut na osobę, przygotowanie zespołu i spójność.",
+    category: "poradnik",
+    date: "2026-06-28",
+    readTime: 5,
+    thumbnail: "/images/blog/headshoty-zespolu-w-jeden-dzien.jpg",
+    content: `
+      <p class="lead">Zrobienie spójnych portretów całemu zespołowi brzmi jak logistyczny koszmar: kilkadziesiąt osób, jeden dzień, normalna praca w tle. W praktyce da się to ogarnąć bez chaosu, jeśli dobrze zaplanujesz harmonogram. Poniżej tłumaczę, jak zorganizować to krok po kroku.</p>
+
+      <h2>Wyzwanie: cały zespół, jeden dzień</h2>
+      <p>Headshoty całego zespołu w jeden dzień to najczęstszy scenariusz w firmach, bo rozbijanie tego na kilka terminów rozciąga sprawę na tygodnie i psuje spójność. Klucz to potraktować sesję jak proces: ustawione stanowisko, gotowe światło i płynny przepływ osób, tak żeby nikt nie tracił czasu, a Ty nie wyrywał ludzi z pracy na pół dnia.</p>
+
+      <h2>Mobilne studio w biurze</h2>
+      <p>Najwygodniej, gdy przyjeżdżam do Was z mobilnym studiem. Potrzebuję około 3 m² wolnej przestrzeni i dostępu do gniazdka, resztę przywożę: tło, światło, statywy. Zespół nie musi nigdzie jechać, a sesja toczy się obok normalnej pracy. Jedna sala albo wydzielony kąt w open space w zupełności wystarczy.</p>
+
+      <h2>Harmonogram: 10-15 minut na osobę</h2>
+      <p>Sekret płynnej sesji to grafik. Na jedną osobę rezerwujemy 10-15 minut, co daje realnie 4-6 osób na godzinę. Ludzie przychodzą według listy, w okienkach, a nie wszyscy naraz. Dzięki temu nikt nie stoi w kolejce, a każdy wie, o której zejść z pracy na swoje zdjęcie.</p>
+      <ul>
+        <li>Lista z imionami i godzinami, rozesłana wcześniej.</li>
+        <li>Okienka co 10-15 minut, z małym buforem na spóźnienia.</li>
+        <li>Priorytet dla osób z napiętym kalendarzem.</li>
+      </ul>
+
+      <h2>Jak przygotować zespół</h2>
+      <p>Kilka prostych wskazówek wysłanych wcześniej robi różnicę:</p>
+      <ul>
+        <li><strong>Strój:</strong> spójny z dress codem firmy, raczej gładkie tkaniny, bez krzykliwych wzorów.</li>
+        <li><strong>Drobiazgi:</strong> grzebień pod ręką, ewentualnie podkład matujący.</li>
+        <li><strong>Nastawienie:</strong> kilka minut przed obiektywem wystarczy, prowadzę przez pozy, nikt nie musi umieć pozować.</li>
+      </ul>
+
+      <h2>Spójność: o to chodzi najbardziej</h2>
+      <p>Cała wartość sesji zespołowej leży w tym, że zdjęcia wyglądają jak komplet: ten sam system światła, ten sam kadr i jednolity retusz. Dlatego robimy je za jednym razem, na jednym ustawieniu. Efekt to galeria zespołu na stronie, która wygląda profesjonalnie, a nie jak zlepek przypadkowych zdjęć.</p>
+
+      <h2>Co z osobami nieobecnymi</h2>
+      <p>Zawsze ktoś jest na urlopie albo chory. Rozwiązań jest kilka: dogrywka przy kolejnej wizycie, krótka sesja uzupełniająca albo zachowanie ustawienia i parametrów, żeby dorobić brakujące portrety w tym samym standardzie. Ważne, żeby z góry ustalić, co z nieobecnymi, zanim galeria trafi na stronę.</p>
+
+      <h2>Podsumowanie</h2>
+      <p>Headshoty całego zespołu w jeden dzień to przede wszystkim kwestia harmonogramu i jednego, dobrze ustawionego stanowiska. Mobilne studio w biurze, okienka co kilkanaście minut i wcześniejszy brief sprawiają, że sesja idzie sprawnie, a Wy dostajecie spójną galerię zespołu.</p>
+      <p>Zobacz <a href="/uslugi/sesje-zespolowe">sesje zespołowe</a> albo sprawdź <a href="/poradnik">poradnik przygotowania do sesji</a>.</p>
+    `,
+    seo: {
+      title: "Headshoty zespołu w jeden dzień: jak zorganizować | Marcin Szabunia",
+      description:
+        "Jak zorganizować headshoty całego zespołu w jeden dzień: mobilne studio w biurze, harmonogram 10-15 minut na osobę, przygotowanie zespołu i spójność. Poznań.",
+    },
+  },
+  {
+    slug: "spojne-portrety-zespolu",
+    title: "Spójne portrety zespołu: dlaczego warto fotografować wszystkich w jednym standardzie",
+    excerpt:
+      "Galeria zespołu złożona z przypadkowych zdjęć obniża wiarygodność firmy. Dlaczego warto fotografować wszystkich w jednym standardzie i jak utrzymać spójność przy rotacji.",
+    category: "branża",
+    date: "2026-06-28",
+    readTime: 5,
+    thumbnail: "/images/blog/spojne-portrety-zespolu.jpg",
+    content: `
+      <p class="lead">Strona „Zespół" to często najsłabszy wizualnie element firmowej witryny: zlepek selfie, zdjęć z wesela i kadrów robionych telefonem w różnym świetle. Spójne portrety całego zespołu w jednym standardzie zmieniają to w element, który buduje zaufanie. Poniżej tłumaczę, dlaczego warto i jak to ugryźć.</p>
+
+      <h2>Problem: galeria zespołu z przypadkowych zdjęć</h2>
+      <p>Kiedy każdy dostarcza własne zdjęcie, efekt jest zawsze ten sam: różne tła, różne kadry, raz selfie, raz wycięte zdjęcie ślubne. Taka sekcja „Zespół" wygląda niechlujnie i podświadomie obniża wiarygodność firmy, nawet jeśli ludzie i kompetencje są pierwszej klasy.</p>
+
+      <h2>Co daje spójny standard</h2>
+      <ul>
+        <li><strong>Profesjonalny pierwszy kontakt:</strong> odwiedzający widzą zespół, który wygląda jak jeden, dopracowany podmiot.</li>
+        <li><strong>Wiarygodność:</strong> spójne portrety sygnalizują, że firma dba o szczegóły.</li>
+        <li><strong>Wygoda marketingu:</strong> jednolite zdjęcia łatwiej wpleść w stronę, oferty, LinkedIn i materiały sprzedażowe.</li>
+        <li><strong>Łatwiejsza rozbudowa:</strong> nowe osoby dochodzą w tym samym stylu, bez psucia całości.</li>
+      </ul>
+
+      <h2>Elementy spójności</h2>
+      <p>Spójność nie znaczy, że wszyscy wyglądają identycznie. Znaczy, że portrety powstają w jednym, świadomym systemie:</p>
+      <ul>
+        <li><strong>Światło:</strong> ten sam schemat oświetlenia dla każdej osoby.</li>
+        <li><strong>Kadr i poza:</strong> jednolite kadrowanie i sposób ustawienia sylwetki.</li>
+        <li><strong>Tło:</strong> jeden zestaw teł, czy to wspólne tło, czy świadomie dobrana paleta (na przykład jasne, kremowe i ciemne) używana konsekwentnie.</li>
+        <li><strong>Retusz:</strong> ten sam standard obróbki, naturalnie, bez przesady.</li>
+      </ul>
+
+      <h2>Jak utrzymać spójność przy rotacji</h2>
+      <p>Zespoły się zmieniają, dlatego ważne jest, żeby standard dało się odtworzyć. Po sesji zapisuję parametry: ustawienie świateł, obiektyw, kadr i sposób obróbki. Dzięki temu nową osobę nawet po pół roku sfotografuję dokładnie tak samo, a jej portret wpasuje się w galerię, zamiast z niej wystawać.</p>
+
+      <h2>Przykład: zespół IDcom</h2>
+      <p>Dobrze widać to na headshotach zespołu IDcom. Każda osoba ma własny portret, ale całość trzyma jeden styl: spójne światło i kadr, a tła celowo grają kolorem (jasne, kremowe, ciemne), tworząc galerię, która wygląda jak komplet, nie jak przypadkowy zbiór. Zobacz <a href="/portfolio/idcom-headshoty-zespolu">realizację IDcom</a>.</p>
+
+      <h2>Podsumowanie</h2>
+      <p>Spójne portrety zespołu to jeden z najtańszych sposobów, żeby firmowa strona wyglądała poważnie. Jeden system światła, kadru i retuszu sprawia, że sekcja „Zespół" pracuje na wizerunek marki, a nie przeciw niemu.</p>
+      <p>Zobacz <a href="/uslugi/sesje-zespolowe">sesje zespołowe</a> albo przykład <a href="/portfolio/idcom-headshoty-zespolu">headshotów IDcom</a>.</p>
+    `,
+    seo: {
+      title: "Spójne portrety zespołu: jeden standard | Marcin Szabunia",
+      description:
+        "Dlaczego warto fotografować cały zespół w jednym standardzie: spójne światło, kadr, tło i retusz. Jak utrzymać spójność przy rotacji. Przykład IDcom, Poznań.",
+    },
+  },
+  {
+    slug: "ile-kosztuje-film-promocyjny",
+    title: "Ile kosztuje film promocyjny dla firmy i od czego zależy cena",
+    excerpt:
+      "Ile kosztuje film promocyjny i od czego zależy cena. Jak liczę pracę operatora i montaż, ile kosztują formaty od teasera po film o firmie oraz Monthly Content.",
+    category: "poradnik",
+    date: "2026-06-28",
+    readTime: 5,
+    thumbnail: "/images/blog/ile-kosztuje-film-promocyjny.jpg",
+    content: `
+      <p class="lead">„Ile kosztuje film promocyjny" to pytanie bez jednej odpowiedzi, bo film filmowi nierówny. Inaczej wycenia się 15-sekundowy teaser, a inaczej trzyminutowy materiał o firmie. Poniżej pokazuję, od czego zależy cena, jak liczę pracę i ile kosztują konkretne formaty.</p>
+
+      <h2>Od czego zależy cena</h2>
+      <ul>
+        <li><strong>Długość i typ materiału:</strong> teaser, reels, recap z eventu czy dłuższy film promocyjny to różne nakłady montażu.</li>
+        <li><strong>Czas nagrań:</strong> ile godzin operator spędza na planie.</li>
+        <li><strong>Złożoność:</strong> jedna lokalizacja i prosty montaż czy kilka ujęć, scenariusz, napisy i grafika.</li>
+        <li><strong>Dodatki:</strong> ujęcia z drona, lektor, licencjonowana muzyka, wersje językowe.</li>
+      </ul>
+
+      <h2>Jak liczę: praca operatora plus montaż</h2>
+      <p>Cenę składam z dwóch części, żeby była przejrzysta. Pierwsza to praca operatora na planie: pierwsza godzina 400 zł, każda kolejna 200 zł netto. Druga to pakiet montażowy, czyli obróbka gotowego materiału. Dzięki temu płacisz za realny zakres, a nie za sztywny pakiet, którego nie wykorzystasz.</p>
+
+      <h2>Formaty i ceny montażu</h2>
+      <p>Pakiety montażowe (ceny netto) dobierasz pod cel:</p>
+      <ul>
+        <li><strong>XS Teaser (do 15 s): 300 zł.</strong> Krótka zajawka na social media.</li>
+        <li><strong>S Reels (do 30 s): 600 zł.</strong> Dynamiczny format pionowy pod Reels, TikTok, Shorts.</li>
+        <li><strong>M Event recap (do 60 s): 900 zł.</strong> Podsumowanie wydarzenia.</li>
+        <li><strong>L Promo (1-2 min): 1 400 zł.</strong> Film promocyjny produktu albo usługi.</li>
+        <li><strong>XL Dokument (około 3 min): 1 800 zł.</strong> Dłuższy materiał o firmie, ludziach i sposobie pracy.</li>
+      </ul>
+      <p>Więcej o tym, który format kiedy wybrać, znajdziesz we wpisie o <a href="/blog/wideo-marketing-dla-firm-formaty">formatach wideo dla firm</a>.</p>
+
+      <h2>Monthly Content: wideo w abonamencie</h2>
+      <p>Jeśli potrzebujesz regularnych materiałów do social mediów, taniej wychodzi stała współpraca niż pojedyncze zlecenia. Monthly Content to 4 900 zł netto miesięcznie: jeden dzień zdjęciowy i montaż czterech reelsów, przy minimum trzymiesięcznej umowie. Masz wtedy przewidywalny dopływ materiału i stały koszt w budżecie.</p>
+
+      <h2>Orientacyjnie: ile zapłacisz za konkretny film</h2>
+      <p>Najprościej na przykładach (ceny netto, praca operatora plus montaż):</p>
+      <ul>
+        <li>Reels z jednego, krótkiego nagrania: od około 600 zł plus godzina pracy operatora.</li>
+        <li>Recap z eventu: montaż 900 zł plus czas nagrań na miejscu.</li>
+        <li>Film promocyjny 1-2 min z jednej lokalizacji: pakiet L 1 400 zł plus praca operatora.</li>
+      </ul>
+      <p>Dokładną kwotę dla Twojego projektu policzysz w <a href="/kalkulator">kalkulatorze</a> albo dostaniesz po krótkim opisie pomysłu.</p>
+
+      <h2>Podsumowanie</h2>
+      <p>Cena filmu promocyjnego zależy przede wszystkim od formatu i czasu nagrań. Rozbicie na pracę operatora i pakiet montażowy sprawia, że płacisz za realny zakres, a przy regularnych potrzebach taniej wychodzi Monthly Content.</p>
+      <p>Zobacz <a href="/uslugi/wideo-marketing">wideo marketing</a> albo policz swój film w <a href="/kalkulator">kalkulatorze</a>.</p>
+    `,
+    seo: {
+      title: "Ile kosztuje film promocyjny dla firmy | Marcin Szabunia",
+      description:
+        "Ile kosztuje film promocyjny i od czego zależy cena: praca operatora, pakiety montażowe (teaser, reels, recap, promo), Monthly Content. Ceny netto, Poznań.",
+    },
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
@@ -966,9 +1330,13 @@ export const blogServiceMap: Record<string, string> = {
   "jak-przygotowac-sie-do-sesji-biznesowej": "wizerunek-portrety",
   "headshoty-linkedin-konwersja": "wizerunek-portrety",
   "fotografia-eventowa-vs-reportaz": "eventy-reportaze",
+  "jak-wybrac-fotografa-na-event": "eventy-reportaze",
+  "live-editing-na-evencie": "eventy-reportaze",
   "zdjecie-do-cv-w-domu": "wizerunek-portrety",
   "fotografia-przemyslowa-fabryka": "fotografia-produktowa",
   "bledy-zdjecia-zespolu": "sesje-zespolowe",
+  "headshoty-zespolu-w-jeden-dzien": "sesje-zespolowe",
+  "spojne-portrety-zespolu": "sesje-zespolowe",
   "ile-kosztuje-sesja-wizerunkowa-dla-firmy": "wizerunek-portrety",
   "fotografia-produktowa-ecommerce": "fotografia-produktowa",
   "wideo-marketing-dla-firm-formaty": "wideo-marketing",
@@ -978,7 +1346,10 @@ export const blogServiceMap: Record<string, string> = {
   "zdjecia-na-strone-firmowa": "wizerunek-portrety",
   "co-to-jest-packshot": "fotografia-produktowa",
   "slownik-pojec-wideo": "wideo-marketing",
+  "ile-kosztuje-film-promocyjny": "wideo-marketing",
   "zdjecia-film-z-drona-dla-firm": "zdjecia-wideo-z-drona",
+  "zdjecia-z-drona-dla-deweloperow": "zdjecia-wideo-z-drona",
+  "ile-kosztuje-film-z-drona": "zdjecia-wideo-z-drona",
   "foto-wideo-dron-z-jednego-wejscia": "pakiety-foto-wideo",
   "obsluga-foto-wideo-eventu-firmowego": "pakiety-foto-wideo",
   "pakiet-foto-wideo-czy-osobno": "pakiety-foto-wideo",
