@@ -191,7 +191,7 @@ export default function Process() {
                   Odwołanie
                 </p>
                 <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                  Bezpłatna zmiana terminu min. 48h przed sesją. Odwołanie &lt;48h: 50% wartości. Archiwizacja gotowych plików: 1 rok. Po akceptacji masz jeszcze 7 dni na ewentualne poprawki.
+                  Bezpłatna zmiana terminu min. 48h przed sesją. Odwołanie &lt;48h: 50% wartości. Archiwizacja gotowych plików: 1 rok. Po pełnej akceptacji dzieła masz do 7 dni na dodatkowe poprawki.
                 </p>
               </div>
               <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">

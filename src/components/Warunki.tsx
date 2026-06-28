@@ -23,7 +23,7 @@ const TERMS: { title: string; desc: string }[] = [
   },
   {
     title: "Pliki i archiwizacja",
-    desc: "Gotowe pliki w pełnej jakości i wersji web. Archiwizacja 1 rok, 7 dni na poprawki po akceptacji.",
+    desc: "Gotowe pliki w pełnej jakości i wersji web. Archiwizacja gotowych plików 1 rok. Po pełnej akceptacji dzieła masz do 7 dni na dodatkowe poprawki.",
   },
   {
     title: "Kontakt i terminy",

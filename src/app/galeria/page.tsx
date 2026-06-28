@@ -9,6 +9,11 @@ import GalleryView, { type GalleryCategory } from "@/components/GalleryView";
 import Services from "@/components/Services";
 import LogoBar from "@/components/LogoBar";
 import Testimonials from "@/components/Testimonials";
+import TrustStats from "@/components/TrustStats";
+import Process from "@/components/Process";
+import Pricing from "@/components/Pricing";
+import FAQ from "@/components/FAQ";
+import BlogPreview from "@/components/BlogPreview";
 import MobileFAB from "@/components/MobileFAB";
 import { galleryVideos } from "@/data/galeria";
 import { listGalleryImagesSized } from "@/lib/galleryImages";
@@ -171,7 +176,38 @@ export default async function GaleriaPage({
         </ErrorBoundary>
 
         <ErrorBoundary>
+          <TrustStats />
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <Process />
+        </ErrorBoundary>
+
+        <ErrorBoundary>
           <Testimonials />
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <Pricing />
+        </ErrorBoundary>
+
+        <div className="-mt-4 md:-mt-8 pb-12 text-center">
+          <a
+            href="#kontakt"
+            data-cta="wycena_galeria_dol"
+            className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
+          >
+            Zapytaj o wycenę
+            <span className="text-white/80">→</span>
+          </a>
+        </div>
+
+        <ErrorBoundary>
+          <FAQ />
+        </ErrorBoundary>
+
+        <ErrorBoundary>
+          <BlogPreview />
         </ErrorBoundary>
 
         <div className="mt-6">
