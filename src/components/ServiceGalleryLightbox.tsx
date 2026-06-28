@@ -10,6 +10,8 @@ interface Props {
   thumbPosition?: string;
   /** Proporcja miniatur (np. "aspect-[3/4]" dla portretów, "aspect-[4/3]" dla eventów). */
   aspectClass?: string;
+  /** Klasy siatki miniatur (domyślnie 3 kolumny na mobile, 6 na desktopie). */
+  gridClass?: string;
 }
 
 // Siatka miniatur z podglądem (lightbox) otwieranym na miejscu — bez wychodzenia
@@ -19,6 +21,7 @@ export default function ServiceGalleryLightbox({
   altBase,
   thumbPosition = "center",
   aspectClass = "aspect-square",
+  gridClass = "grid grid-cols-3 sm:grid-cols-6 gap-2.5",
 }: Props) {
   const [open, setOpen] = useState<number | null>(null);
   const touchX = useRef<number | null>(null);
@@ -51,7 +54,7 @@ export default function ServiceGalleryLightbox({
 
   return (
     <>
-      <div className="grid grid-cols-3 sm:grid-cols-6 gap-2.5">
+      <div className={gridClass}>
         {images.map((src, i) => (
           <button
             key={src}

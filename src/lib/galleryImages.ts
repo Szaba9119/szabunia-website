@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-export type GalleryCategoryKey = "portrety" | "eventy" | "produktowe" | "wideo" | "dron";
+export type GalleryCategoryKey = "portrety" | "eventy" | "produktowe" | "wideo" | "dron" | "zespolowe";
 
 /**
  * Listuje zdjęcia z public/images/galeria/<folder> w kolejności alfabetycznej nazw plików.

@@ -201,9 +201,9 @@ function ServiceOptions({
               value={config.portraitPackage}
               onChange={(e) => onChange({ ...config, portraitPackage: e.target.value as CalcConfig["portraitPackage"] })}
             >
-              <option value="essential">Essential ({fmtPrice(1000, mode)} zł)</option>
-              <option value="professional">Professional ({fmtPrice(1300, mode)} zł)</option>
-              <option value="pro-branding">Pro Branding ({fmtPrice(1800, mode)} zł)</option>
+              <option value="essential">Portret Standard ({fmtPrice(1000, mode)} zł)</option>
+              <option value="professional">Portret Professional ({fmtPrice(1300, mode)} zł)</option>
+              <option value="pro-branding">Portret Premium ({fmtPrice(1800, mode)} zł)</option>
             </select>
           </div>
           <div>
@@ -403,8 +403,8 @@ function ServiceOptions({
               value={config.comboPackage ?? "essentials"}
               onChange={(e) => onChange({ ...config, comboPackage: e.target.value as CalcConfig["comboPackage"] })}
             >
-              <option value="essentials">Event Essentials ({fmtPrice(1800, mode)} zł)</option>
-              <option value="pro">Event Pro ({fmtPrice(3200, mode)} zł)</option>
+              <option value="essentials">Event Essential ({fmtPrice(1800, mode)} zł)</option>
+              <option value="pro">Event Professional ({fmtPrice(3200, mode)} zł)</option>
               <option value="premium">Event Premium ({fmtPrice(4500, mode)} zł)</option>
             </select>
           </div>
@@ -462,7 +462,7 @@ function ConfigSummary({ slug, config }: { slug: ServiceSlug; config: CalcConfig
   const items: string[] = [];
   switch (slug) {
     case "wizerunek-portrety": {
-      const names = { essential: "Essential", professional: "Professional", "pro-branding": "Pro Branding" };
+      const names = { essential: "Portret Standard", professional: "Portret Professional", "pro-branding": "Portret Premium" };
       items.push(`Pakiet: ${names[config.portraitPackage ?? "professional"]}`);
       if ((config.extraPhotos ?? 0) > 0) items.push(`Dodatkowe ujęcia: ${config.extraPhotos}`);
       break;
@@ -496,7 +496,7 @@ function ConfigSummary({ slug, config }: { slug: ServiceSlug; config: CalcConfig
       break;
     }
     case "pakiety-foto-wideo": {
-      items.push(`Pakiet: ${config.comboPackage === "premium" ? "Event Premium" : config.comboPackage === "pro" ? "Event Pro" : "Event Essentials"}`);
+      items.push(`Pakiet: ${config.comboPackage === "premium" ? "Event Premium" : config.comboPackage === "pro" ? "Event Professional" : "Event Essential"}`);
       if ((config.extraComboHours ?? 0) > 0) items.push(`Dodatkowe godziny: ${config.extraComboHours}`);
       break;
     }

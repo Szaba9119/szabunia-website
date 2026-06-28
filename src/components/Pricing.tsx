@@ -107,10 +107,10 @@ export default function Pricing() {
             {[
               { id: "cennik-portrety", label: "Portrety" },
               { id: "cennik-hybrydy", label: "Foto + Wideo" },
-              { id: "pricing-card-dron", label: "Dron", open: "dron" },
               { id: "pricing-card-eventy", label: "Eventy", open: "eventy" },
-              { id: "pricing-card-zespoly", label: "Zespoły", open: "zespoly" },
+              { id: "pricing-card-dron", label: "Dron", open: "dron" },
               { id: "pricing-card-wideo", label: "Wideo", open: "wideo" },
+              { id: "pricing-card-zespoly", label: "Zespoły", open: "zespoly" },
               { id: "pricing-card-produkt", label: "Produktowa", open: "produkt" },
               { id: "kalkulator", label: "Kalkulator" },
             ].map((chip) => (
@@ -145,7 +145,7 @@ export default function Pricing() {
           <AnimatedSection delay={0}>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full flex flex-col">
               <h4 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1">
-                ESSENTIAL
+                PORTRET STANDARD
               </h4>
               <div className="font-barlow font-extrabold text-3xl text-blue dark:text-blue-light mb-6">
                 {formatPriceLabel(1000)}
@@ -160,7 +160,7 @@ export default function Pricing() {
               <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
                 Dodatkowe ujęcie: {formatPriceLabel(120)}
               </p>
-              <AskButton slug="wizerunek-portrety" label="ESSENTIAL" />
+              <AskButton slug="wizerunek-portrety" label="PORTRET STANDARD" />
             </div>
           </AnimatedSection>
 
@@ -171,7 +171,7 @@ export default function Pricing() {
                 Rekomendowany
               </div>
               <h4 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1">
-                PROFESSIONAL
+                PORTRET PROFESSIONAL
               </h4>
               <div className="font-barlow font-extrabold text-4xl text-blue dark:text-blue-light mb-6">
                 {formatPriceLabel(1300)}
@@ -186,7 +186,7 @@ export default function Pricing() {
               <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
                 Dodatkowe ujęcie: {formatPriceLabel(100)}
               </p>
-              <AskButton slug="wizerunek-portrety" label="PROFESSIONAL" />
+              <AskButton slug="wizerunek-portrety" label="PORTRET PROFESSIONAL" />
             </div>
           </AnimatedSection>
 
@@ -194,7 +194,7 @@ export default function Pricing() {
           <AnimatedSection delay={0.2}>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full flex flex-col">
               <h4 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1">
-                PRO BRANDING
+                PORTRET PREMIUM
               </h4>
               <div className="font-barlow font-extrabold text-3xl text-blue dark:text-blue-light mb-6">
                 {formatPriceLabel(1800)}
@@ -210,7 +210,7 @@ export default function Pricing() {
               <p className="text-[11px] text-steel dark:text-dark-text-muted pt-4 border-t border-border dark:border-dark-border">
                 Dodatkowe ujęcie: {formatPriceLabel(80)}
               </p>
-              <AskButton slug="wizerunek-portrety" label="PRO BRANDING" />
+              <AskButton slug="wizerunek-portrety" label="PORTRET PREMIUM" />
             </div>
           </AnimatedSection>
         </div>
@@ -225,7 +225,7 @@ export default function Pricing() {
           <AnimatedSection>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full">
               <h4 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1">
-                EVENT ESSENTIALS
+                EVENT ESSENTIAL
               </h4>
               <div className="font-barlow font-extrabold text-3xl text-blue dark:text-blue-light mb-5">
                 {formatPriceLabel(1800)}
@@ -237,7 +237,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Pełny montaż i postprodukcja wideo</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
-              <AskButton slug="pakiety-foto-wideo" label="EVENT ESSENTIALS" />
+              <AskButton slug="pakiety-foto-wideo" label="EVENT ESSENTIAL" />
             </div>
           </AnimatedSection>
 
@@ -247,7 +247,7 @@ export default function Pricing() {
                 Rekomendowany
               </div>
               <h4 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1">
-                EVENT PRO
+                EVENT PROFESSIONAL
               </h4>
               <div className="font-barlow font-extrabold text-4xl text-blue dark:text-blue-light mb-5">
                 {formatPriceLabel(3200)}
@@ -260,7 +260,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Pełny montaż i postprodukcja wideo</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
-              <AskButton slug="pakiety-foto-wideo" label="EVENT PRO" />
+              <AskButton slug="pakiety-foto-wideo" label="EVENT PROFESSIONAL" />
             </div>
           </AnimatedSection>
 
@@ -280,7 +280,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Kompletny reportaż, min. 200 zdjęć</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Główny film z wydarzenia (do 90s)</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Dynamiczny teaser Social Media (15s)</li>
-                <li className="flex items-start gap-2"><CheckIcon /> 2–3 mini-wywiady z uczestnikami</li>
+                <li className="flex items-start gap-2"><CheckIcon /> 3 wywiady do 30 sekund z uczestnikami</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Autorska selekcja + profesjonalna obróbka zdjęć</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Pełen montaż wideo i post-produkcja wywiadów</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
@@ -292,6 +292,83 @@ export default function Pricing() {
 
         {/* === SEKCJE ZWIJANE === */}
         <div className="space-y-3">
+          {/* --- Reportaż & Eventy --- */}
+          <AnimatedSection>
+            <div id="pricing-card-eventy" className={`scroll-mt-24 bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
+              isOpen("eventy") ? "border-blue dark:border-blue-light shadow-sm shadow-blue/5" : "border-border dark:border-dark-border hover:border-blue/50 dark:hover:border-blue-light/30"
+            }`}>
+              <button
+                onClick={() => toggleSection("eventy")}
+                aria-expanded={isOpen("eventy")}
+                aria-controls="pricing-eventy"
+                className="w-full px-6 md:px-8 py-5 flex items-center justify-between text-left group"
+              >
+                <div className="flex items-center gap-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-pale dark:bg-blue/15 flex items-center justify-center flex-shrink-0">
+                    <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h3 className={`font-barlow font-bold text-lg transition-colors ${isOpen("eventy") ? "text-blue dark:text-blue-light" : "text-navy dark:text-white group-hover:text-blue dark:group-hover:text-blue-light"}`}>
+                      Reportaż & Eventy
+                    </h3>
+                    <p className="text-[13px] text-steel dark:text-dark-text-muted">
+                      od {formatPriceLabel(600)}
+                    </p>
+                  </div>
+                </div>
+                <ChevronIcon open={isOpen("eventy")} />
+              </button>
+
+              <div
+                id="pricing-eventy"
+                className={`grid transition-all duration-300 ease-in-out ${
+                  isOpen("eventy") ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                }`}
+              >
+                <div className="overflow-hidden">
+                  <div className="px-6 md:px-8 pb-6 pt-2 border-t border-border/50 dark:border-dark-border space-y-4 text-[13px] text-steel dark:text-dark-text-muted">
+                    <div className="flex justify-between items-center">
+                      <span>Pierwsza godzina pracy</span>
+                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light">{formatPriceLabel(600)}</span>
+                    </div>
+                    <div className="flex justify-between items-center">
+                      <span>Każda kolejna godzina</span>
+                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light">{formatPriceLabel(400)}</span>
+                    </div>
+                    <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10 flex justify-between items-center">
+                      <div>
+                        <span className="text-navy dark:text-white font-semibold">Pakiet 4h (event)</span>
+                      </div>
+                      <div className="text-right">
+                        <span className="font-barlow font-extrabold text-2xl text-blue dark:text-blue-light block">{formatPriceLabel(1600)}</span>
+                        <span className="text-[10px] text-blue/70 dark:text-blue-light/70 font-semibold">Oszczędzasz {formatPriceLabel(200)}</span>
+                      </div>
+                    </div>
+                    <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10 flex justify-between items-center">
+                      <div>
+                        <span className="text-navy dark:text-white font-semibold">Pakiet całodniowy (8h)</span>
+                      </div>
+                      <div className="text-right">
+                        <span className="font-barlow font-extrabold text-2xl text-blue dark:text-blue-light block">{formatPriceLabel(2800)}</span>
+                        <span className="text-[10px] text-blue/70 dark:text-blue-light/70 font-semibold">Oszczędzasz {formatPriceLabel(600)}</span>
+                      </div>
+                    </div>
+                    <div className="pt-3 border-t border-border dark:border-dark-border">
+                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Opcje dodatkowe:</p>
+                      <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
+                        <div className="flex justify-between"><span>Live editing (Social Media)</span><span>{formatPriceLabel(20)} / zdjęcie</span></div>
+                        <div className="flex justify-between"><span>Ekspresowa dostawa (do 48h po evencie)</span><span>+50% ceny</span></div>
+                        <div className="flex justify-between"><span>Ujęcia z drona</span><span>+{formatPriceLabel(200)}</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
+
           {/* --- Zdjęcia i wideo z drona --- */}
           <AnimatedSection>
             <div id="pricing-card-dron" className={`scroll-mt-24 bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
@@ -382,76 +459,68 @@ export default function Pricing() {
             </div>
           </AnimatedSection>
 
-          {/* --- Reportaż & Eventy --- */}
+          {/* --- Wideo Marketing --- */}
           <AnimatedSection>
-            <div id="pricing-card-eventy" className={`scroll-mt-24 bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
-              isOpen("eventy") ? "border-blue dark:border-blue-light shadow-sm shadow-blue/5" : "border-border dark:border-dark-border hover:border-blue/50 dark:hover:border-blue-light/30"
+            <div id="pricing-card-wideo" className={`scroll-mt-24 bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
+              isOpen("wideo") ? "border-blue dark:border-blue-light shadow-sm shadow-blue/5" : "border-border dark:border-dark-border hover:border-blue/50 dark:hover:border-blue-light/30"
             }`}>
               <button
-                onClick={() => toggleSection("eventy")}
-                aria-expanded={isOpen("eventy")}
-                aria-controls="pricing-eventy"
+                onClick={() => toggleSection("wideo")}
+                aria-expanded={isOpen("wideo")}
+                aria-controls="pricing-wideo"
                 className="w-full px-6 md:px-8 py-5 flex items-center justify-between text-left group"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-xl bg-blue-pale dark:bg-blue/15 flex items-center justify-center flex-shrink-0">
                     <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
                     </svg>
                   </div>
                   <div>
-                    <h3 className={`font-barlow font-bold text-lg transition-colors ${isOpen("eventy") ? "text-blue dark:text-blue-light" : "text-navy dark:text-white group-hover:text-blue dark:group-hover:text-blue-light"}`}>
-                      Reportaż & Eventy
+                    <h3 className={`font-barlow font-bold text-lg transition-colors ${isOpen("wideo") ? "text-blue dark:text-blue-light" : "text-navy dark:text-white group-hover:text-blue dark:group-hover:text-blue-light"}`}>
+                      Wideo Marketing
                     </h3>
                     <p className="text-[13px] text-steel dark:text-dark-text-muted">
-                      od {formatPriceLabel(600)}
+                      od {formatPriceLabel(300)}
                     </p>
                   </div>
                 </div>
-                <ChevronIcon open={isOpen("eventy")} />
+                <ChevronIcon open={isOpen("wideo")} />
               </button>
 
               <div
-                id="pricing-eventy"
+                id="pricing-wideo"
                 className={`grid transition-all duration-300 ease-in-out ${
-                  isOpen("eventy") ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                  isOpen("wideo") ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                 }`}
               >
                 <div className="overflow-hidden">
                   <div className="px-6 md:px-8 pb-6 pt-2 border-t border-border/50 dark:border-dark-border space-y-4 text-[13px] text-steel dark:text-dark-text-muted">
-                    <div className="flex justify-between items-center">
-                      <span>Pierwsza godzina pracy</span>
-                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light">{formatPriceLabel(600)}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span>Każda kolejna godzina</span>
-                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light">{formatPriceLabel(400)}</span>
-                    </div>
-                    <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10 flex justify-between items-center">
-                      <div>
-                        <span className="text-navy dark:text-white font-semibold">Pakiet 4h (event)</span>
-                      </div>
-                      <div className="text-right">
-                        <span className="font-barlow font-extrabold text-2xl text-blue dark:text-blue-light block">{formatPriceLabel(1600)}</span>
-                        <span className="text-[10px] text-blue/70 dark:text-blue-light/70 font-semibold">Oszczędzasz {formatPriceLabel(200)}</span>
-                      </div>
-                    </div>
-                    <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10 flex justify-between items-center">
-                      <div>
-                        <span className="text-navy dark:text-white font-semibold">Pakiet całodniowy (8h)</span>
-                      </div>
-                      <div className="text-right">
-                        <span className="font-barlow font-extrabold text-2xl text-blue dark:text-blue-light block">{formatPriceLabel(2800)}</span>
-                        <span className="text-[10px] text-blue/70 dark:text-blue-light/70 font-semibold">Oszczędzasz {formatPriceLabel(600)}</span>
+                    <div className="pt-1">
+                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Praca operatora:</p>
+                      <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
+                        <div className="flex justify-between"><span>Pierwsza godzina</span><span>{formatPriceLabel(400)}</span></div>
+                        <div className="flex justify-between"><span>Każda kolejna godzina</span><span>{formatPriceLabel(200)}</span></div>
                       </div>
                     </div>
                     <div className="pt-3 border-t border-border dark:border-dark-border">
-                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Opcje dodatkowe:</p>
+                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Pakiety montażowe:</p>
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
-                        <div className="flex justify-between"><span>Live editing (Social Media)</span><span>{formatPriceLabel(20)} / zdjęcie</span></div>
-                        <div className="flex justify-between"><span>Ekspresowa dostawa (do 48h po evencie)</span><span>+50% ceny</span></div>
-                        <div className="flex justify-between"><span>Ujęcia z drona</span><span>+{formatPriceLabel(200)}</span></div>
+                        <div className="flex justify-between"><span>XS Teaser (&lt;15s)</span><span>{formatPriceLabel(300)}</span></div>
+                        <div className="flex justify-between"><span>S Reels (&lt;30s)</span><span>{formatPriceLabel(600)}</span></div>
+                        <div className="flex justify-between"><span>M Event recap (&lt;60s)</span><span>{formatPriceLabel(900)}</span></div>
+                        <div className="flex justify-between"><span>L Promo (1-2min)</span><span>{formatPriceLabel(1400)}</span></div>
+                        <div className="flex justify-between"><span>XL Dokument (~3min)</span><span>{formatPriceLabel(1800)}</span></div>
                       </div>
+                    </div>
+                    <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10">
+                      <div className="flex justify-between items-start mb-1">
+                        <span className="text-navy dark:text-white font-semibold">Monthly Content</span>
+                        <span className="font-barlow font-extrabold text-xl text-blue dark:text-blue-light">{formatPriceLabel(4900)} / m-c</span>
+                      </div>
+                      <p className="text-[11px] text-steel dark:text-dark-text-muted">
+                        1 dzień zdjęciowy + montaż 4 reelsów (min. 3 miesiące umowy)
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -522,75 +591,6 @@ export default function Pricing() {
                       </div>
                       <p className="text-[11px] text-steel dark:text-dark-text-muted">
                         Mobilne studio u Ciebie w biurze, rozstawienie ok. 20 min, wystarczy ~3 m².
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* --- Wideo Marketing --- */}
-          <AnimatedSection>
-            <div id="pricing-card-wideo" className={`scroll-mt-24 bg-white dark:bg-dark-card rounded-2xl border transition-all duration-300 overflow-hidden ${
-              isOpen("wideo") ? "border-blue dark:border-blue-light shadow-sm shadow-blue/5" : "border-border dark:border-dark-border hover:border-blue/50 dark:hover:border-blue-light/30"
-            }`}>
-              <button
-                onClick={() => toggleSection("wideo")}
-                aria-expanded={isOpen("wideo")}
-                aria-controls="pricing-wideo"
-                className="w-full px-6 md:px-8 py-5 flex items-center justify-between text-left group"
-              >
-                <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-xl bg-blue-pale dark:bg-blue/15 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h3 className={`font-barlow font-bold text-lg transition-colors ${isOpen("wideo") ? "text-blue dark:text-blue-light" : "text-navy dark:text-white group-hover:text-blue dark:group-hover:text-blue-light"}`}>
-                      Wideo Marketing
-                    </h3>
-                    <p className="text-[13px] text-steel dark:text-dark-text-muted">
-                      od {formatPriceLabel(300)}
-                    </p>
-                  </div>
-                </div>
-                <ChevronIcon open={isOpen("wideo")} />
-              </button>
-
-              <div
-                id="pricing-wideo"
-                className={`grid transition-all duration-300 ease-in-out ${
-                  isOpen("wideo") ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                }`}
-              >
-                <div className="overflow-hidden">
-                  <div className="px-6 md:px-8 pb-6 pt-2 border-t border-border/50 dark:border-dark-border space-y-4 text-[13px] text-steel dark:text-dark-text-muted">
-                    <div className="pt-1">
-                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Praca operatora:</p>
-                      <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
-                        <div className="flex justify-between"><span>Pierwsza godzina</span><span>{formatPriceLabel(400)}</span></div>
-                        <div className="flex justify-between"><span>Każda kolejna godzina</span><span>{formatPriceLabel(200)}</span></div>
-                      </div>
-                    </div>
-                    <div className="pt-3 border-t border-border dark:border-dark-border">
-                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Pakiety montażowe:</p>
-                      <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
-                        <div className="flex justify-between"><span>XS Teaser (&lt;15s)</span><span>{formatPriceLabel(300)}</span></div>
-                        <div className="flex justify-between"><span>S Reels (&lt;30s)</span><span>{formatPriceLabel(600)}</span></div>
-                        <div className="flex justify-between"><span>M Event recap (&lt;60s)</span><span>{formatPriceLabel(900)}</span></div>
-                        <div className="flex justify-between"><span>L Promo (1-2min)</span><span>{formatPriceLabel(1400)}</span></div>
-                        <div className="flex justify-between"><span>XL Dokument (~3min)</span><span>{formatPriceLabel(1800)}</span></div>
-                      </div>
-                    </div>
-                    <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10">
-                      <div className="flex justify-between items-start mb-1">
-                        <span className="text-navy dark:text-white font-semibold">Monthly Content</span>
-                        <span className="font-barlow font-extrabold text-xl text-blue dark:text-blue-light">{formatPriceLabel(4900)} / m-c</span>
-                      </div>
-                      <p className="text-[11px] text-steel dark:text-dark-text-muted">
-                        1 dzień zdjęciowy + montaż 4 reelsów (min. 3 miesiące umowy)
                       </p>
                     </div>
                   </div>

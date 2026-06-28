@@ -41,6 +41,15 @@ export default function Portfolio() {
           />
         </div>
       </Parallax>
+      {item.hasVideo && (
+        <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span className="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm border border-white/50 flex items-center justify-center text-white shadow-lg">
+            <svg className="w-6 h-6 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </span>
+        </span>
+      )}
       <div className="absolute bottom-0 left-0 right-0 bg-navy/85 backdrop-blur-sm text-white px-4 py-3 text-[13px] font-barlow font-semibold flex items-center justify-between gap-3">
         <span>{item.label}</span>
         <span className="text-white/70 text-xs shrink-0">Zobacz case study →</span>

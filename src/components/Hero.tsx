@@ -47,7 +47,7 @@ export default function Hero() {
           </div>
 
           <p className="mt-4 text-[12.5px] text-steel dark:text-dark-text-muted">
-            Odpowiadam w 24h · Wolne terminy w 1-2 tyg. · Faktura VAT
+            Odpowiadam w 24h · Wolne terminy zwykle w 1-3 tyg. · Faktura VAT
           </p>
 
           <div className="flex items-center gap-3 mt-5">

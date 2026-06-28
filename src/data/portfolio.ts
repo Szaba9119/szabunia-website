@@ -102,6 +102,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       "Montaż i postprodukcja",
     ],
     thumbnail: "/images/portfolio/woohoo-autopay.jpg",
+    tileImage: "/images/portfolio/woohoo-ecommerce-4x3.jpg",
     gallery: [],
     process: [],
     pricingType: "tiers",
@@ -218,6 +219,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       "Montaż i postprodukcja",
     ],
     thumbnail: "/images/portfolio/artech/_F2A8937.jpg",
+    tileImage: "/images/portfolio/artech/artech-film-cover.jpg",
     gallery: [
       { src: "/images/portfolio/artech/_F2A8912.jpg", alt: "Packshot na białym tle, niebieski detal z tworzywa sztucznego o skręconym kształcie (Artech Group)" },
       { src: "/images/portfolio/artech/3.jpg", alt: "Packshot, zielona płyta z tworzywa sztucznego na białym tle, fotografia produktowa dla przemysłu" },
@@ -654,6 +656,7 @@ export interface PortfolioItem {
   imagePosition?: "top" | "center";
   slug: string;
   externalUrl?: string;
+  hasVideo?: boolean;
 }
 
 // Realizacje w przygotowaniu (na razie 1 zdjęcie + placeholder „Więcej zdjęć
@@ -678,4 +681,5 @@ export const portfolioItems: PortfolioItem[] = portfolioCategories
     imagePosition: c.tileImagePosition,
     slug: c.slug,
     externalUrl: c.externalUrl,
+    hasVideo: !!c.video,
   }));

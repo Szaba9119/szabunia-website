@@ -18,7 +18,7 @@ export interface ServiceData {
   pricingNote?: string;
   faqs: FAQItem[];
   portfolioSlug?: string;
-  galleryCategory?: "portrety" | "eventy" | "produktowe" | "wideo" | "dron";
+  galleryCategory?: "portrety" | "eventy" | "produktowe" | "wideo" | "dron" | "zespolowe";
   /** YouTube ID przykładowego filmu pokazywanego na podstronie usługi. */
   videoId?: string;
   videoTitle?: string;
@@ -61,27 +61,27 @@ const serviceCategoriesRaw: ServiceData[] = [
     pricingType: "tiers",
     tiers: [
       {
-        name: "ESSENTIAL",
+        name: "PORTRET STANDARD",
         price: "1 000 zł",
         features: ["1 osoba, do 2 stylizacji", "90 min sesji", "3 wyretuszowane zdjęcia (wybór ze 100+ ujęć)", "Studio w cenie pakietu, indywidualnie dopasowane do Twojego projektu", "GRATIS: Poseboard przed sesją"],
         extra: "Dodatkowe ujęcie: 120 zł",
       },
       {
-        name: "PROFESSIONAL",
+        name: "PORTRET PROFESSIONAL",
         price: "1 300 zł",
         features: ["1 osoba, 2-3 stylizacje", "2 godziny sesji", "8 wyretuszowanych zdjęć (wybór ze 150+ ujęć)", "Studio w cenie pakietu, indywidualnie dopasowane do Twojego projektu", "GRATIS: Poseboard przed sesją"],
         recommended: true,
         extra: "Dodatkowe ujęcie: 100 zł",
       },
       {
-        name: "PRO BRANDING",
+        name: "PORTRET PREMIUM",
         price: "1 800 zł",
         features: ["1 osoba, 3-4 stylizacje", "Do 3 godzin sesji", "15 wyretuszowanych zdjęć (wybór z 200+ ujęć)", "Pełna kontrola nad stylem i klimatem", "Studio w cenie pakietu, indywidualnie dopasowane do Twojego projektu", "GRATIS: Poseboard przed sesją"],
         extra: "Dodatkowe ujęcie: 80 zł",
       },
     ],
     faqs: [
-      { q: "Ile trwa sesja wizerunkowa?", a: "W zależności od pakietu, od 90 minut (Essential) do 3 godzin (Pro Branding). Czas obejmuje przygotowanie oświetlenia, sesję oraz ewentualne zmiany stylizacji." },
+      { q: "Ile trwa sesja wizerunkowa?", a: "W zależności od pakietu, od 90 minut (Portret Standard) do 3 godzin (Portret Premium). Czas obejmuje przygotowanie oświetlenia, sesję oraz ewentualne zmiany stylizacji." },
       { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3m² wolnej przestrzeni i dostępu do gniazdka." },
       { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni roboczych. Ekspres do 48h za dodatkową opłatą (+50%)." },
       { q: "Czy mogę użyć zdjęć na LinkedIn i stronie?", a: "Tak. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
@@ -126,13 +126,13 @@ const serviceCategoriesRaw: ServiceData[] = [
     pricingType: "tiers",
     tiers: [
       {
-        name: "EVENT ESSENTIALS",
+        name: "EVENT ESSENTIAL",
         price: "1 800 zł",
         features: ["3 godziny obecności", "50+ zdjęć po selekcji i pełnej obróbce", "Wideo w formacie Reels (30s)", "Pełny montaż i postprodukcja wideo", "Ujęcia z drona w cenie pakietu"],
         extra: "Dodatkowa godzina: 350 zł",
       },
       {
-        name: "EVENT PRO",
+        name: "EVENT PROFESSIONAL",
         price: "3 200 zł",
         features: ["6 godzin obecności", "150+ zdjęć po selekcji i pełnej obróbce", "Główne wideo podsumowujące (60s)", "Krótki teaser do Social Media (15s)", "Pełny montaż i postprodukcja wideo", "Ujęcia z drona w cenie pakietu"],
         recommended: true,
@@ -146,7 +146,7 @@ const serviceCategoriesRaw: ServiceData[] = [
           "Kompletny reportaż, min. 200 zdjęć",
           "Główny film z wydarzenia (do 90s)",
           "Dynamiczny teaser Social Media (15s)",
-          "2–3 mini-wywiady z uczestnikami",
+          "3 wywiady do 30 sekund z uczestnikami",
           "Autorska selekcja + profesjonalna obróbka zdjęć",
           "Pełen montaż wideo i post-produkcja wywiadów",
           "Ujęcia z drona w cenie pakietu",
@@ -230,7 +230,7 @@ const serviceCategoriesRaw: ServiceData[] = [
   },
   {
     slug: "sesje-zespolowe",
-    galleryCategory: "portrety",
+    galleryCategory: "zespolowe",
     title: "Sesje zespołowe",
     subtitle:
       "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze, bez logistyki.",
@@ -520,12 +520,12 @@ const serviceCategoriesRaw: ServiceData[] = [
 // kalkulator wyceny). Zmiana tutaj zmienia kolejność wszędzie naraz.
 const SERVICE_DISPLAY_ORDER: string[] = [
   "eventy-reportaze",
-  "wizerunek-portrety",
-  "pakiety-foto-wideo",
-  "fotografia-produktowa",
-  "sesje-zespolowe",
-  "wideo-marketing",
   "zdjecia-wideo-z-drona",
+  "wideo-marketing",
+  "sesje-zespolowe",
+  "fotografia-produktowa",
+  "pakiety-foto-wideo",
+  "wizerunek-portrety",
 ];
 
 export const serviceCategories: ServiceData[] = [...serviceCategoriesRaw].sort(

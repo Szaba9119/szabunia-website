@@ -30,6 +30,11 @@ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string
     sub: "Wybrane kadry z powietrza: biurowce, osiedla i inwestycje w Poznaniu.",
     alt: "Zdjęcia z drona, Poznań, Marcin Szabunia",
   },
+  zespolowe: {
+    label: "Przykłady z sesji zespołowej",
+    sub: "Ten sam standard światła i retuszu, trzy tła: białe, czarne z niebieskim światłem i kremowe. Realizacja dla IDcom Group.",
+    alt: "Headshot z sesji zespołowej dla IDcom Group, Marcin Szabunia",
+  },
 };
 
 // Wyselekcjonowane najlepsze 6 kadrów per kategoria (zamiast pierwszych z
@@ -41,9 +46,16 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
   eventy: ["event-04", "event-05", "event-15", "event-14", "event-09", "event-17"].map(
     (n) => `/images/galeria/eventy/${n}.jpg`
   ),
-  produktowe: ["produkt-13", "produkt-05", "produkt-11", "produkt-21", "produkt-12", "produkt-08"].map(
-    (n) => `/images/galeria/produktowe/${n}.jpg`
-  ),
+  produktowe: [
+    "produkt-00b-kieliszki", // toast kieliszkami wódki
+    "produkt-03", // auto w środku lasu
+    "produkt-06", // danie z fasolką na białym talerzu
+    "produkt-08", // bransoletka na dłoni
+    "produkt-14", // kobieta w żółtej sukience
+    "produkt-18", // koszulka na ciemnym tle
+    "produkt-20", // patyczek do makijażu
+    "produkt-11", // grejfrutowy koktajl / alkohol
+  ].map((n) => `/images/galeria/produktowe/${n}.jpg`),
   // 6 różnych obiektów (bez powtórki tego samego budynku, np. Bałtyk z dwóch stron).
   dron: [
     "dron-01-centrum-poznania-biurowce",
@@ -53,11 +65,20 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
     "dron-07-osiedle-mieszkaniowe-poznan",
     "dron-05-panorama-poznania-zachod-slonca",
   ].map((n) => `/images/galeria/dron/${n}.jpg`),
+  // Sesja dla IDcom: po kolei trzy tła (białe, czarne z niebieskim, kremowe), jedna osoba na kadr.
+  zespolowe: [
+    "/images/portfolio/idcom/_F2A9424-Edit-2.jpg", // 1. białe tło
+    "/images/portfolio/idcom/_F0I9883-Edit-2.jpg", // 2. kremowe tło
+    "/images/portfolio/idcom/_F2A9229-Edit-2.jpg", // 3. czarne tło, niebieskie światło
+    "/images/portfolio/idcom/_F2A9433-Edit-2.jpg", // 4. białe tło
+    "/images/portfolio/idcom/_F2A9376-Edit-2.jpg", // 5. kremowe tło
+    "/images/portfolio/idcom/_F2A9264-Edit-2.jpg", // 6. czarne tło, niebieskie światło
+  ],
 };
 
 export default function ServiceGalleryStrip({ category }: { category: GalleryCategoryKey }) {
   const meta = META[category];
-  const href = `/galeria?kat=${category}`;
+  const href = category === "zespolowe" ? "/portfolio/idcom-headshoty-zespolu" : `/galeria?kat=${category}`;
 
   if (category === "wideo") {
     const vids = galleryVideos.slice(0, 4);
@@ -93,7 +114,7 @@ export default function ServiceGalleryStrip({ category }: { category: GalleryCat
     );
   }
 
-  const images = (CURATED[category] ?? listGalleryImages(category)).slice(0, 6);
+  const images = (CURATED[category] ?? listGalleryImages(category)).slice(0, category === "produktowe" ? 8 : 6);
   if (images.length === 0) return null;
 
   return (
@@ -102,13 +123,18 @@ export default function ServiceGalleryStrip({ category }: { category: GalleryCat
         images={images}
         altBase={meta.alt}
         aspectClass={
-          category === "portrety"
+          category === "portrety" || category === "zespolowe"
             ? "aspect-[3/4]"
             : category === "eventy" || category === "dron"
             ? "aspect-[4/3]"
             : "aspect-square"
         }
-        thumbPosition={category === "portrety" ? "center 20%" : "center"}
+        thumbPosition={category === "portrety" || category === "zespolowe" ? "center 20%" : "center"}
+        gridClass={
+          category === "produktowe"
+            ? "grid grid-cols-2 sm:grid-cols-4 gap-2.5"
+            : "grid grid-cols-3 sm:grid-cols-6 gap-2.5"
+        }
       />
     </Shell>
   );

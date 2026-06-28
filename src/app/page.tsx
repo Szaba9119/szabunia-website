@@ -21,6 +21,7 @@ const Publications = dynamic(() => import("@/components/Publications"));
 const FAQ = dynamic(() => import("@/components/FAQ"));
 const BlogPreview = dynamic(() => import("@/components/BlogPreview"));
 const PoradnikTeaser = dynamic(() => import("@/components/PoradnikTeaser"));
+const Warunki = dynamic(() => import("@/components/Warunki"));
 const CTA = dynamic(() => import("@/components/CTA"));
 
 const faqStructuredData = {
@@ -137,17 +138,19 @@ export default function Home() {
         <ErrorBoundary><About /></ErrorBoundary>
         <ErrorBoundary><Services /></ErrorBoundary>
         <ErrorBoundary><Portfolio /></ErrorBoundary>
-        {/* Proces nad cennikiem: klient rozumie prosty przebieg (4 kroki) zanim
-            zobaczy cenę — mniejszy „szok ceną" i jaśniejsza ścieżka decyzji. */}
-        <ErrorBoundary><Process /></ErrorBoundary>
-        <ErrorBoundary><Pricing /></ErrorBoundary>
+        {/* Dowód społeczny i autorytet PRZED ceną: opinie + publikacje budują
+            wartość i chęć, zanim klient zobaczy cennik (mniejszy opór cenowy). */}
         <ErrorBoundary><Testimonials /></ErrorBoundary>
         <ErrorBoundary><Publications /></ErrorBoundary>
+        {/* Proces tuż nad cennikiem: prosty przebieg (4 kroki) zmniejsza „szok ceną". */}
+        <ErrorBoundary><Process /></ErrorBoundary>
+        <ErrorBoundary><Pricing /></ErrorBoundary>
         {/* Sprzęt nisko: buduje zaufanie techniczne, ale nie może przerywać
             ścieżki Usługi → Portfolio → Proces → Cennik (klient B2B kupuje efekt). */}
         <ErrorBoundary><Equipment /></ErrorBoundary>
         <ErrorBoundary><BlogPreview /></ErrorBoundary>
         <ErrorBoundary><PoradnikTeaser /></ErrorBoundary>
+        <ErrorBoundary><Warunki /></ErrorBoundary>
         <ErrorBoundary><FAQ /></ErrorBoundary>
         <ErrorBoundary><CTA /></ErrorBoundary>
       </main>
