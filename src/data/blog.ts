@@ -844,10 +844,20 @@ export function getRelatedPosts(slug: string, limit = 3): BlogPost[] {
   return [...sameService, ...sameCategory, ...rest].slice(0, limit);
 }
 
-/** Wpisy bloga powiązane z daną usługą (od najnowszych). */
+/** Wpisy bloga powiązane z daną usługą (od najnowszych). Gdy usługa ma mniej
+    niż `limit` własnych wpisów, dopełniamy tematycznie: najpierw ta sama
+    kategoria, potem najnowsze pozostałe, żeby każda usługa pokazała `limit`. */
 export function getPostsForService(serviceSlug: string, limit = 3): BlogPost[] {
-  return blogPosts
+  const byDate = (a: BlogPost, b: BlogPost) => +new Date(b.date) - +new Date(a.date);
+  const mapped = blogPosts
     .filter((p) => blogServiceMap[p.slug] === serviceSlug)
-    .sort((a, b) => +new Date(b.date) - +new Date(a.date))
-    .slice(0, limit);
+    .sort(byDate);
+  if (mapped.length >= limit) return mapped.slice(0, limit);
+
+  const used = new Set(mapped.map((p) => p.slug));
+  const cats = new Set(mapped.map((p) => p.category));
+  const rest = blogPosts.filter((p) => !used.has(p.slug));
+  const sameCat = rest.filter((p) => cats.has(p.category)).sort(byDate);
+  const others = rest.filter((p) => !cats.has(p.category)).sort(byDate);
+  return [...mapped, ...sameCat, ...others].slice(0, limit);
 }

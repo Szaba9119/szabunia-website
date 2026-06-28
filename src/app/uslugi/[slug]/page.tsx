@@ -15,8 +15,18 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import MobileFAB from "@/components/MobileFAB";
 import BlogCard from "@/components/BlogCard";
+import PoradnikBlogCTA from "@/components/PoradnikBlogCTA";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { getPostsForService } from "@/data/blog";
+
+// Poradnik (lead magnet) pokazujemy tam, gdzie temat „przygotowanie do sesji"
+// pasuje (osoby przed obiektywem), nie przy produktach czy dronie.
+const SHOW_PORADNIK = new Set<string>([
+  "wizerunek-portrety",
+  "sesje-zespolowe",
+  "eventy-reportaze",
+  "pakiety-foto-wideo",
+]);
 
 export function generateStaticParams() {
   return serviceCategories.map((s) => ({ slug: s.slug }));
@@ -197,6 +207,15 @@ export default async function ServicePage({ params }: PageProps) {
                     <BlogCard key={p.slug} post={p} />
                   ))}
                 </div>
+              </div>
+            </section>
+          </ErrorBoundary>
+        )}
+        {SHOW_PORADNIK.has(service.slug) && (
+          <ErrorBoundary>
+            <section className="py-12 md:py-16 px-4">
+              <div className="max-w-3xl mx-auto">
+                <PoradnikBlogCTA />
               </div>
             </section>
           </ErrorBoundary>

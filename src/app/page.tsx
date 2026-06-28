@@ -12,7 +12,6 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 // Sekcje poniżej folda ładowane osobnymi chunkami (SSR zostaje — HTML w pełni
 // renderowany; dzielony jest tylko JS hydratacji, co odchudza krytyczny bundle
 // na mobile i skraca LCP).
-const Equipment = dynamic(() => import("@/components/Equipment"));
 const Portfolio = dynamic(() => import("@/components/Portfolio"));
 const Pricing = dynamic(() => import("@/components/Pricing"));
 const Process = dynamic(() => import("@/components/Process"));
@@ -145,9 +144,6 @@ export default function Home() {
         {/* Proces tuż nad cennikiem: prosty przebieg (4 kroki) zmniejsza „szok ceną". */}
         <ErrorBoundary><Process /></ErrorBoundary>
         <ErrorBoundary><Pricing /></ErrorBoundary>
-        {/* Sprzęt nisko: buduje zaufanie techniczne, ale nie może przerywać
-            ścieżki Usługi → Portfolio → Proces → Cennik (klient B2B kupuje efekt). */}
-        <ErrorBoundary><Equipment /></ErrorBoundary>
         <ErrorBoundary><BlogPreview /></ErrorBoundary>
         <ErrorBoundary><PoradnikTeaser /></ErrorBoundary>
         <ErrorBoundary><Warunki /></ErrorBoundary>

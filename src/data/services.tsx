@@ -81,6 +81,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       },
     ],
     faqs: [
+      { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), jasne obiektywy stałoogniskowe Sigma Art 35 i 50 mm f/1.4 do naturalnych portretów oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
       { q: "Ile trwa sesja wizerunkowa?", a: "W zależności od pakietu, od 90 minut (Portret Standard) do 3 godzin (Portret Premium). Czas obejmuje przygotowanie oświetlenia, sesję oraz ewentualne zmiany stylizacji." },
       { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3m² wolnej przestrzeni i dostępu do gniazdka." },
       { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni roboczych. Ekspres do 48h za dodatkową opłatą (+50%)." },
@@ -155,6 +156,8 @@ const serviceCategoriesRaw: ServiceData[] = [
       },
     ],
     faqs: [
+      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 (foto i wideo równolegle, z zapisem na dwie karty), obiektywy Sigma, Tamron i Tokina od 16 do 200 mm, oświetlenie Godox, dźwięk Rode i Zoom oraz dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC. Jeden zestaw obsługuje całe wejście foto, wideo i dron." },
+      { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Pakiety Event Essential, Professional i Premium to punkt wyjścia. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkim briefie podaję jedną, konkretną wycenę." },
       { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Tak, pracuję w modelu one-man-band. Dzięki temu materiał jest spójny wizualnie, a Ty masz jedną osobę kontaktową zamiast dwóch ekip." },
       { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak, przy serii eventów koryguję zakres do realnych potrzeb projektu. Monthly Content: 4 900 zł/m-c (1 dzień zdjęciowy + montaż 4 reelsów, min. 3 miesiące umowy)." },
       { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Każda dodatkowa godzina powyżej pakietu: 350 zł. Dogrywamy szczegóły przed eventem." },
@@ -167,6 +170,9 @@ const serviceCategoriesRaw: ServiceData[] = [
   {
     slug: "eventy-reportaze",
     galleryCategory: "eventy",
+    videoId: "m42ywMWjthw",
+    videoTitle: "Film z eventu firmowego dla Woohoo",
+    videoNote: "Tak wygląda film z eventu: dynamiczne podsumowanie wydarzenia, gotowe do social mediów.",
     title: "Eventy & Reportaże",
     subtitle:
       "Profesjonalna dokumentacja konferencji, targów, gal i wydarzeń firmowych. Opcja live editing.",
@@ -218,6 +224,8 @@ const serviceCategoriesRaw: ServiceData[] = [
       },
     ],
     faqs: [
+      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
+      { q: "Czy fotografujesz też wieczorne gale przy słabym świetle?", a: "Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają fotografować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie. Reportaż z gali, konferencji czy bankietu wygląda naturalnie." },
       { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media." },
       { q: "Ile zdjęć otrzymam?", a: "Średnio 15-30 gotowych zdjęć na każdą godzinę fotografowania, wyselekcjonowanych i poddanych postprodukcji. Dokładna liczba zależy od skali eventu i dodatkowych zadań w trakcie (wideo, dron, obróbka zdjęć na żywo, wydruk zdjęć na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
       { q: "Czy pakiet całodniowy się opłaca?", a: "Przy 8h standardowo byłoby 3 400 zł. Pakiet to 2 800 zł, oszczędzasz 600 zł." },
@@ -295,6 +303,8 @@ const serviceCategoriesRaw: ServiceData[] = [
       },
     ],
     faqs: [
+      { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 3 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
+      { q: "Co z osobami, których nie ma w dniu sesji?", a: "Brakujące osoby dograć można w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu, żeby portrety całego zespołu były spójne. To częsta sytuacja przy większych zespołach i pracy zdalnej." },
       { q: "Ile osób mogę sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studio. Każda osoba potrzebuje ok. 10-15 minut." },
       { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 3m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
       { q: "Czy zdjęcia będą spójne dla całego zespołu?", a: "Tak, identyczne oświetlenie i tło. Spójne headshoty na stronie i w materiałach firmowych." },
@@ -309,6 +319,9 @@ const serviceCategoriesRaw: ServiceData[] = [
     slug: "wideo-marketing",
     portfolioSlug: "woohoo-autopay",
     galleryCategory: "wideo",
+    videoId: "hLO5iInREaI",
+    videoTitle: "Film firmowy z produkcji dla Artech Group",
+    videoNote: "Przykład filmu firmowego: pokazuje park maszynowy i sposób pracy, zamiast go opisywać.",
     title: "Wideo marketing",
     subtitle:
       "Reelsy, filmy promocyjne, relacje z eventów. Formaty pionowe i poziome dopasowane do platformy.",
@@ -361,6 +374,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     pricingNote: "Monthly Content: 4 900 zł / m-c (1 dzień zdjęciowy + montaż 4 reelsów, min. 3 miesiące umowy)",
     faqs: [
+      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 do nagrań, obiektywy od 16 do 200 mm, oświetlenie ciągłe LED Godox, dźwięk Rode Wireless PRO, VideoMicro II i rejestrator Zoom oraz dron DJI do ujęć z powietrza. Sprzęt pozwala nagrać i zmontować materiał od reelsa po dłuższy film." },
       { q: "Czy montujesz też materiał z telefonu?", a: "Tak, jeśli masz surowe nagrania z telefonu, mogę je zmontować profesjonalnie (cięcie, kolor, napisy, muzyka)." },
       { q: "W jakich formatach dostarczasz wideo?", a: "MP4 w rozdzielczości do 4K. Formaty: 9:16 (Reels/TikTok), 16:9 (YouTube/strona), 1:1 (feed). Dowolna kombinacja." },
       { q: "Czy mogę zamówić sam montaż bez nagrywania?", a: "Tak, wystarczy przesłać surowe pliki. Wycena według cennika pakietów montażowych." },
@@ -424,6 +438,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       },
     ],
     faqs: [
+      { q: "Na jakim sprzęcie pracujesz?", a: "Aparat Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce." },
       { q: "Czy mogę przysłać produkty kurierem?", a: "Tak, przyjmuję przesyłki do studia. Po sesji odsyłam na mój koszt (przy zamówieniach powyżej 1 000 zł)." },
       { q: "Jakie formaty plików otrzymam?", a: "JPEG w pełnej rozdzielczości + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku." },
       { q: "Ile produktów dziennie jesteś w stanie zrealizować?", a: "Packshoty na białym tle: 30-50 produktów/dzień. Zdjęcia kreatywne: 8-15 ujęć/dzień." },
@@ -503,6 +518,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     pricingNote:
       "Dron DJI, certyfikat operatora A1/A3 i ubezpieczenie OC. W standardowych lokalizacjach loty bez dopłat, w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.",
     faqs: [
+      { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro do zdjęć i wideo w 4K. Mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona łączę z naziemnym zestawem Canon, gdy potrzebny jest komplet foto i wideo." },
       { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
       { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji bezpłatnie przekładamy termin na najbliższy możliwy." },
       { q: "W jakiej jakości dostarczasz materiał?", a: "Wideo do 4K, zdjęcia w pełnej rozdzielczości. Formaty dobieram pod stronę WWW i social media (poziome i pionowe)." },
