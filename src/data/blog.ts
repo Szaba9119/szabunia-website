@@ -796,6 +796,55 @@ export const blogPosts: BlogPost[] = [
         "Zastosowania zdjęć i filmów z drona w B2B, przebieg realizacji, legalność (A1/A3, OC, PAŻP) i koszt. Fotografia z drona dla firm, Poznań i cała Polska.",
     },
   },
+  {
+    slug: "foto-wideo-dron-z-jednego-wejscia",
+    title: "Foto, wideo i dron z jednego wejścia: dlaczego jeden twórca to mniej logistyki",
+    excerpt:
+      "Dwie osobne ekipy do zdjęć i wideo to więcej kosztów, koordynacji i ryzyka. Jeden twórca, który ogarnia foto, wideo i dron, daje spójny materiał i prostszą logistykę.",
+    category: "branża",
+    date: "2026-06-28",
+    readTime: 5,
+    thumbnail: "/images/blog/foto-wideo-dron-z-jednego-wejscia.jpg",
+    content: `
+      <p class="lead">Kiedy firma potrzebuje i zdjęć, i wideo, naturalny odruch to zatrudnić fotografa oraz osobno ekipę filmową. W praktyce oznacza to dwa briefy, dwa grafiki, dwie umowy i dwie wizje na jednym planie. Da się prościej. Jeden twórca, który ogarnia foto, wideo i dron z jednego wejścia, to mniej logistyki, spójny materiał i zwykle niższy koszt. Wyjaśniam, na czym to polega i kiedy się sprawdza.</p>
+
+      <h2>Co znaczy „jedno wejście"</h2>
+      <p>„Jedno wejście" to jeden twórca na planie, który tym samym okiem i w jednym standardzie realizuje zdjęcia, wideo, a w razie potrzeby ujęcia z drona. Nie ma przerzucania odpowiedzialnością między ekipami, nie ma dwóch różnych stylów kolorystycznych, nie ma sytuacji, w której fotograf i operator wchodzą sobie w kadr. Jest jeden brief, jeden harmonogram i jeden komplet materiału na koniec.</p>
+
+      <h2>Co realnie zyskujesz</h2>
+      <ul>
+        <li><strong>Spójność materiału.</strong> Zdjęcia i wideo wyglądają, jakby pochodziły z tej samej produkcji, bo pochodzą. To samo światło, ta sama kolorystyka, ten sam klimat. Marka dostaje jednolity zestaw na stronę, do social mediów i materiałów firmowych.</li>
+        <li><strong>Mniej logistyki.</strong> Ustalasz wszystko z jedną osobą: jeden kontakt, jeden brief, jedna faktura, jeden termin. Przy evencie to różnica między spokojnym dniem a żonglerką dwoma ekipami.</li>
+        <li><strong>Niższy koszt.</strong> Nie płacisz dwóm zespołom za ten sam dzień i tę samą logistykę. Pakiet foto, wideo i dron z jednego wejścia wychodzi taniej niż te usługi zamawiane osobno.</li>
+      </ul>
+
+      <h2>Kiedy to się sprawdza</h2>
+      <p>Model „jeden twórca" pasuje tam, gdzie z jednego wydarzenia ma powstać kilka rodzajów materiału:</p>
+      <ul>
+        <li><strong>Eventy i konferencje:</strong> reportaż zdjęciowy, film podsumowujący, krótki teaser do social mediów i ujęcia z drona pokazujące skalę, wszystko z jednego dnia.</li>
+        <li><strong>Premiery i otwarcia:</strong> spójny zestaw foto i wideo do komunikacji i prasy.</li>
+        <li><strong>Stały content:</strong> jeden dzień zdjęciowy, z którego powstaje paczka zdjęć i kilka reelsów do regularnych publikacji.</li>
+      </ul>
+      <p>Jeśli potrzebujesz tylko zdjęć albo tylko filmu, nie ma sensu na siłę łączyć. Siła „jednego wejścia" ujawnia się dopiero wtedy, gdy z jednego wydarzenia ma powstać więcej niż jeden format.</p>
+
+      <h2>Jak wygląda realizacja</h2>
+      <ul>
+        <li><strong>Brief.</strong> Ustalamy cel, kluczowe momenty i to, co ma powstać (zdjęcia, film, teaser, dron).</li>
+        <li><strong>Plan dnia.</strong> Układam kolejność tak, żeby foto i wideo nie wchodziły sobie w drogę, a dron złapał właściwe światło.</li>
+        <li><strong>Realizacja.</strong> Pracuję na dwóch aparatach (foto i wideo równolegle), z dźwiękiem i dronem, jeśli jest w planie.</li>
+        <li><strong>Dostawa.</strong> Zdjęcia do 14 dni, wideo do 21 dni, w jednym spójnym standardzie.</li>
+      </ul>
+
+      <h2>Podsumowanie</h2>
+      <p>Jeden twórca od foto, wideo i drona to dla firmy prostsza logistyka, spójniejszy materiał i niższy koszt niż dwie osobne ekipy. Najwięcej zyskujesz tam, gdzie z jednego wejścia ma powstać kilka formatów: event, premiera, stały content.</p>
+      <p>Zobacz <a href="/uslugi/pakiety-foto-wideo">pakiety foto, wideo i dron</a> albo <a href="/uslugi/eventy-reportaze">obsługę eventów</a>, a po przykłady realizacji zajrzyj do <a href="/galeria">galerii</a>.</p>
+    `,
+    seo: {
+      title: "Foto, wideo i dron z jednego wejścia dla firm | Marcin Szabunia",
+      description:
+        "Dlaczego jeden twórca foto, wideo i dron to mniej logistyki, spójny materiał i niższy koszt niż dwie ekipy. Kompleksowa obsługa eventów i contentu, Poznań.",
+    },
+  },
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
@@ -824,6 +873,7 @@ export const blogServiceMap: Record<string, string> = {
   "co-to-jest-packshot": "fotografia-produktowa",
   "slownik-pojec-wideo": "wideo-marketing",
   "zdjecia-film-z-drona-dla-firm": "zdjecia-wideo-z-drona",
+  "foto-wideo-dron-z-jednego-wejscia": "pakiety-foto-wideo",
 };
 
 /** Slug usługi powiązanej z danym wpisem (lub undefined). */

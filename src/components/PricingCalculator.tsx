@@ -403,7 +403,7 @@ function ServiceOptions({
               value={config.comboPackage ?? "essentials"}
               onChange={(e) => onChange({ ...config, comboPackage: e.target.value as CalcConfig["comboPackage"] })}
             >
-              <option value="essentials">Event Essential ({fmtPrice(1800, mode)} zł)</option>
+              <option value="essentials">Event Standard ({fmtPrice(1800, mode)} zł)</option>
               <option value="pro">Event Professional ({fmtPrice(3200, mode)} zł)</option>
               <option value="premium">Event Premium ({fmtPrice(4500, mode)} zł)</option>
             </select>
@@ -496,7 +496,7 @@ function ConfigSummary({ slug, config }: { slug: ServiceSlug; config: CalcConfig
       break;
     }
     case "pakiety-foto-wideo": {
-      items.push(`Pakiet: ${config.comboPackage === "premium" ? "Event Premium" : config.comboPackage === "pro" ? "Event Professional" : "Event Essential"}`);
+      items.push(`Pakiet: ${config.comboPackage === "premium" ? "Event Premium" : config.comboPackage === "pro" ? "Event Professional" : "Event Standard"}`);
       if ((config.extraComboHours ?? 0) > 0) items.push(`Dodatkowe godziny: ${config.extraComboHours}`);
       break;
     }

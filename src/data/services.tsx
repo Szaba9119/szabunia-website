@@ -127,7 +127,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     pricingType: "tiers",
     tiers: [
       {
-        name: "EVENT ESSENTIAL",
+        name: "EVENT STANDARD",
         price: "1 800 zł",
         features: ["3 godziny obecności", "50+ zdjęć po selekcji i pełnej obróbce", "Wideo w formacie Reels (30s)", "Pełny montaż i postprodukcja wideo", "Ujęcia z drona w cenie pakietu"],
         extra: "Dodatkowa godzina: 350 zł",
@@ -157,7 +157,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 (foto i wideo równolegle, z zapisem na dwie karty), obiektywy Sigma, Tamron i Tokina od 16 do 200 mm, oświetlenie Godox, dźwięk Rode i Zoom oraz dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC. Jeden zestaw obsługuje całe wejście foto, wideo i dron." },
-      { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Pakiety Event Essential, Professional i Premium to punkt wyjścia. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkim briefie podaję jedną, konkretną wycenę." },
+      { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Pakiety Event Standard, Professional i Premium to punkt wyjścia. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkim briefie podaję jedną, konkretną wycenę." },
       { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Tak, pracuję w modelu one-man-band. Dzięki temu materiał jest spójny wizualnie, a Ty masz jedną osobę kontaktową zamiast dwóch ekip." },
       { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak, przy serii eventów koryguję zakres do realnych potrzeb projektu. Monthly Content: 4 900 zł/m-c (1 dzień zdjęciowy + montaż 4 reelsów, min. 3 miesiące umowy)." },
       { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Każda dodatkowa godzina powyżej pakietu: 350 zł. Dogrywamy szczegóły przed eventem." },

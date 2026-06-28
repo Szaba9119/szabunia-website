@@ -225,7 +225,7 @@ export default function Pricing() {
           <AnimatedSection>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full">
               <h4 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1">
-                EVENT ESSENTIAL
+                EVENT STANDARD
               </h4>
               <div className="font-barlow font-extrabold text-3xl text-blue dark:text-blue-light mb-5">
                 {formatPriceLabel(1800)}
@@ -237,7 +237,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Pełny montaż i postprodukcja wideo</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
-              <AskButton slug="pakiety-foto-wideo" label="EVENT ESSENTIAL" />
+              <AskButton slug="pakiety-foto-wideo" label="EVENT STANDARD" />
             </div>
           </AnimatedSection>
 
