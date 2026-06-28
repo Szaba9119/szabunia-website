@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import MobileFAB from "@/components/MobileFAB";
 import AnimatedSection from "@/components/AnimatedSection";
 import BlogCard from "@/components/BlogCard";
+import CTA from "@/components/CTA";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import { blogPosts } from "@/data/blog";
 
 export const metadata: Metadata = {
@@ -42,8 +44,8 @@ export default function BlogPage() {
     <>
       <ScrollProgress />
       <Navigation />
-      <main id="main" className="pt-28 pb-16 px-4">
-        <div className="max-w-6xl mx-auto">
+      <main id="main" className="pt-28 pb-16">
+        <div className="max-w-6xl mx-auto px-4">
           <AnimatedSection>
             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
               Blog
@@ -61,6 +63,10 @@ export default function BlogPage() {
             ))}
           </div>
         </div>
+
+        <ErrorBoundary>
+          <CTA />
+        </ErrorBoundary>
       </main>
       <Footer />
       <MobileFAB />

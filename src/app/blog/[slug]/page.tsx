@@ -213,6 +213,25 @@ export default async function BlogPostPage({ params }: PageProps) {
             </AnimatedSection>
           )}
 
+          {/* Kontakt CTA — prowadzi do końca lejka */}
+          <AnimatedSection className="mt-12">
+            <div className="rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card p-6 md:p-8 text-center">
+              <h2 className="font-barlow font-extrabold text-xl md:text-2xl text-navy dark:text-white mb-2">
+                Potrzebujesz zdjęć lub wideo dla firmy?
+              </h2>
+              <p className="text-steel dark:text-dark-text-muted text-[14px] mb-5 max-w-md mx-auto">
+                Napisz, co chcesz pokazać. Wycenę dostaniesz w 24h.
+              </p>
+              <Link
+                href="/kontakt"
+                data-cta="wycena_blog_wpis"
+                className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
+              >
+                Zapytaj o wycenę <span className="text-white/80">→</span>
+              </Link>
+            </div>
+          </AnimatedSection>
+
           {/* Back link */}
           <AnimatedSection className="mt-12 pt-8 border-t border-border dark:border-dark-border">
             <Link

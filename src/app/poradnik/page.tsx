@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import Footer from "@/components/Footer";
@@ -108,6 +109,20 @@ export default function PoradnikPage() {
                 <p className="text-[12px] text-steel dark:text-dark-text-muted/70 mt-4">
                   4 strony A4 · PDF · od Marcina Szabuni, fotografa biznesowego z Poznania.
                 </p>
+
+                <div className="mt-8 pt-6 border-t border-border dark:border-dark-border">
+                  <p className="text-[14px] text-navy dark:text-white font-barlow font-semibold mb-3">
+                    Wolisz od razu umówić sesję?
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    <Link href="/uslugi/wizerunek-portrety" className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-5 py-2.5 rounded-xl font-barlow font-bold text-[13px] btn-glow hover:scale-[1.02] transition-transform">
+                      Zobacz ofertę portretów <span className="text-white/80">→</span>
+                    </Link>
+                    <Link href="/galeria" className="inline-flex items-center gap-2 border border-border dark:border-dark-border text-navy dark:text-white px-5 py-2.5 rounded-xl font-barlow font-semibold text-[13px] hover:border-blue dark:hover:border-blue transition-colors">
+                      Zobacz portfolio
+                    </Link>
+                  </div>
+                </div>
               </div>
             </AnimatedSection>
           </div>
