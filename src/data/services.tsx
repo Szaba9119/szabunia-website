@@ -519,13 +519,13 @@ const serviceCategoriesRaw: ServiceData[] = [
 // Kolejność wyświetlania usług (kafelki na stronie głównej, lista /uslugi,
 // kalkulator wyceny). Zmiana tutaj zmienia kolejność wszędzie naraz.
 const SERVICE_DISPLAY_ORDER: string[] = [
-  "eventy-reportaze",
-  "zdjecia-wideo-z-drona",
-  "wideo-marketing",
-  "sesje-zespolowe",
-  "fotografia-produktowa",
-  "pakiety-foto-wideo",
   "wizerunek-portrety",
+  "eventy-reportaze",
+  "wideo-marketing",
+  "zdjecia-wideo-z-drona",
+  "fotografia-produktowa",
+  "sesje-zespolowe",
+  "pakiety-foto-wideo",
 ];
 
 export const serviceCategories: ServiceData[] = [...serviceCategoriesRaw].sort(
