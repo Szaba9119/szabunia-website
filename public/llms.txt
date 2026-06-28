@@ -14,12 +14,13 @@
 - Sprzęt: 2x Canon R6, obiektywy Sigma / Tamron / Tokina (16-200 mm), oświetlenie Godox, dźwięk Rode i Zoom, dron DJI Mini 5 Pro (certyfikat A1/A3, ubezpieczenie OC operatora)
 
 ## Usługi i cennik (netto)
-- [Wizerunek & Portrety](https://szabunia.pl/uslugi/wizerunek-portrety): pakiety Essential 1 000 zł, Professional 1 300 zł, Pro Branding 1 800 zł
-- [Sesje zespołowe](https://szabunia.pl/uslugi/sesje-zespolowe): rozstawienie mobilnego studia 450 zł + 100-150 zł/os. zależnie od liczby osób
-- [Fotografia produktowa](https://szabunia.pl/uslugi/fotografia-produktowa): packshot od 55 zł/szt. (50+ sztuk), zdjęcia kreatywne od 200 zł/szt., minimalne zamówienie 500 zł
-- [Eventy & Reportaże](https://szabunia.pl/uslugi/eventy-reportaze): 600 zł pierwsza godzina, 400 zł kolejne, pakiet całodniowy 8h: 2 800 zł
-- [Wideo marketing](https://szabunia.pl/uslugi/wideo-marketing): operator od 400 zł, pakiety montażowe 300-1 800 zł, Monthly Content 4 900 zł/m-c
-- [Pakiety foto + wideo](https://szabunia.pl/uslugi/pakiety-foto-wideo): Event Essentials 1 800 zł, Event Pro 3 200 zł, Event Premium 4 500 zł
+- [Wizerunek & Portrety](https://szabunia.pl/uslugi/wizerunek-portrety): Portret Standard 1 000 zł, Portret Professional 1 300 zł, Portret Premium 1 800 zł
+- [Sesje zespołowe](https://szabunia.pl/uslugi/sesje-zespolowe): od 150 zł/os. (150 zł przy 4-10 os., 120 zł przy 11-30 os., 100 zł przy 30+), rozstawienie mobilnego studia w biurze 300-800 zł zależnie od czasu
+- [Fotografia produktowa](https://szabunia.pl/uslugi/fotografia-produktowa): packshot 90 zł/szt. (1-20), 70 zł (21-50), 55 zł (50+ sztuk); zdjęcia kreatywne internet od 200 zł/szt., druk/outdoor od 600 zł/szt.
+- [Eventy & Reportaże](https://szabunia.pl/uslugi/eventy-reportaze): 600 zł pierwsza godzina, 400 zł kolejne, pakiet 4h 1 600 zł, całodniowy 8h 2 800 zł; live editing 20 zł/zdjęcie, ujęcia z drona +200 zł
+- [Wideo marketing](https://szabunia.pl/uslugi/wideo-marketing): operator 400 zł (pierwsza godz.) / 200 zł (kolejne), pakiety montażowe 300-1 800 zł (teaser, reels, recap, promo, dokument), Monthly Content 4 900 zł/m-c
+- [Pakiety foto + wideo](https://szabunia.pl/uslugi/pakiety-foto-wideo): Event Standard 1 800 zł, Event Professional 3 200 zł, Event Premium 4 500 zł
+- [Zdjęcia i wideo z drona](https://szabunia.pl/uslugi/zdjecia-wideo-z-drona): zdjęcia z drona 600 zł, przebitki 4K do montażu własnego 500 zł, gotowy film 4K 900 zł; komplet zdjęcia + przebitki 700 zł lub zdjęcia + wideo 1 100 zł (1h lotu w cenie, certyfikat operatora A1/A3, ubezpieczenie OC)
 
 ## Warunki współpracy
 - Wszystkie ceny netto (+23% VAT), faktura VAT, rozliczenie przez Useme, termin płatności 7 dni
@@ -27,6 +28,7 @@
 - Poprawki w cenie: 2 tury foto, 3 tury wideo
 - Licencja komercyjna w cenie (www, social media, druk, reklama online), bez limitów czasowych
 - Pliki RAW nie są przekazywane (możliwe tylko przy ustaleniach licencyjnych)
+- Archiwizacja gotowych plików 1 rok; po pełnej akceptacji dzieła do 7 dni na dodatkowe poprawki
 - Bezpłatna zmiana terminu do 48h przed sesją
 
 ## Najczęstsze pytania (FAQ)
@@ -50,3 +52,15 @@
 - [Kalkulator wyceny](https://szabunia.pl/kalkulator)
 - [Blog o fotografii biznesowej](https://szabunia.pl/blog)
 - [Kontakt](https://szabunia.pl/kontakt)
+
+## Poradniki i artykuły (blog)
+- [Ile kosztuje film z drona dla firmy](https://szabunia.pl/blog/ile-kosztuje-film-z-drona)
+- [Ile kosztuje film promocyjny dla firmy](https://szabunia.pl/blog/ile-kosztuje-film-promocyjny)
+- [Ile kosztuje sesja wizerunkowa dla firmy](https://szabunia.pl/blog/ile-kosztuje-sesja-wizerunkowa-dla-firmy)
+- [Zdjęcia z drona dla deweloperów i nieruchomości](https://szabunia.pl/blog/zdjecia-z-drona-dla-deweloperow)
+- [Jak wybrać fotografa na event firmowy](https://szabunia.pl/blog/jak-wybrac-fotografa-na-event)
+- [Live editing na evencie: zdjęcia tego samego dnia](https://szabunia.pl/blog/live-editing-na-evencie)
+- [Headshoty całego zespołu w jeden dzień](https://szabunia.pl/blog/headshoty-zespolu-w-jeden-dzien)
+- [Spójne portrety zespołu w jednym standardzie](https://szabunia.pl/blog/spojne-portrety-zespolu)
+- [Jak przygotować się do sesji biznesowej](https://szabunia.pl/blog/jak-przygotowac-sie-do-sesji-biznesowej)
+- [Pakiet foto + wideo + dron czy usługi osobno](https://szabunia.pl/blog/pakiet-foto-wideo-czy-osobno)
