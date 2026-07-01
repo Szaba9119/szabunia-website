@@ -71,9 +71,11 @@ export default function CookieConsent() {
           </p>
         </div>
         <div className="flex gap-2 shrink-0">
+          {/* Odrzuć wizualnie równorzędny z Akceptuję (wytyczne EDPB dot. dark patterns):
+              ta sama waga typograficzna, pełne obramowanie, ten sam efekt hover — różni się tylko kolorem. */}
           <button
             onClick={decline}
-            className="px-4 py-2 text-[13px] font-barlow font-semibold text-steel dark:text-dark-text-muted hover:text-navy dark:hover:text-white border border-border dark:border-dark-border rounded-xl transition-colors"
+            className="px-4 py-2 text-[13px] font-barlow font-semibold text-navy dark:text-white bg-gray-bg dark:bg-dark-card-hover border border-navy/30 dark:border-white/30 rounded-xl hover:scale-[1.02] transition-transform"
           >
             Odrzuć
           </button>

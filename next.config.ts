@@ -1,5 +1,27 @@
 import type { NextConfig } from "next";
 
+// 'unsafe-eval' jest wymagany tylko przez tooling dev (source maps / HMR Next.js).
+// W produkcji zaden uzywany skrypt (gtag, Turnstile, framer-motion, Vercel Analytics)
+// nie potrzebuje eval — usuniecie zaweza powierzchnie XSS.
+const isDev = process.env.NODE_ENV === "development";
+
+const csp = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://*.youtube.com https://www.googletagmanager.com https://challenges.cloudflare.com`,
+  // Fonty sa self-hostowane przez next/font — domeny Google Fonts celowo usuniete z allowlisty.
+  "style-src 'self' 'unsafe-inline'",
+  "font-src 'self'",
+  // Zawezone z "https:": jedyne zewnetrzne obrazy to miniatury YouTube (YouTubeFacade)
+  // + ewentualny pixel-fallback GA4.
+  "img-src 'self' data: blob: https://i.ytimg.com https://*.google-analytics.com",
+  "frame-src https://www.youtube.com https://challenges.cloudflare.com",
+  "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://challenges.cloudflare.com",
+  "media-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join("; ");
+
 const nextConfig: NextConfig = {
   images: {
     dangerouslyAllowSVG: true,
@@ -40,8 +62,12 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Content-Security-Policy",
-            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.youtube.com https://www.googletagmanager.com https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https:; frame-src https://www.youtube.com https://challenges.cloudflare.com; connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://challenges.cloudflare.com; media-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self';",
+            value: csp,
           },
+          // Cross-origin isolation (Spectre / window.opener). CORP: same-site
+          // blokuje hotlinkowanie zasobow w przegladarkach, nie dotyka crawlerow.
+          { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+          { key: "Cross-Origin-Resource-Policy", value: "same-site" },
         ],
       },
     ];

@@ -144,6 +144,16 @@ export default function PrivacyPolicy() {
                 cookies” w stopce strony albo usuwając pliki cookies w swojej
                 przeglądarce.
               </p>
+              <p className="mt-3">
+                Niezależnie od powyższego, platforma hostingowa dostarcza
+                bezcookiesowe, zanonimizowane statystyki ruchu i wydajności
+                strony (Vercel Web Analytics oraz Vercel Speed Insights,
+                dostawca: Vercel, Inc., USA). Narzędzia te nie wykorzystują
+                plików cookies ani nie śledzą użytkowników między witrynami;
+                dane techniczne (m.in. adres IP, typ przeglądarki) przetwarzane
+                są przez Vercel jako podmiot przetwarzający na zasadach
+                opisanych w sekcji 4.
+              </p>
             </section>
 
             <section>
