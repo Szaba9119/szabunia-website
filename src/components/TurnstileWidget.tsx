@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import Script from "next/script";
 
 const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
@@ -26,7 +26,9 @@ declare global {
 export default function TurnstileWidget({ onVerify }: { onVerify: (token: string) => void }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const onVerifyRef = useRef(onVerify);
-  onVerifyRef.current = onVerify;
+  useEffect(() => {
+    onVerifyRef.current = onVerify;
+  }, [onVerify]);
 
   if (!SITE_KEY) return null;
 

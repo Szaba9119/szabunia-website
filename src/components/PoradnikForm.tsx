@@ -41,7 +41,12 @@ export default function PoradnikForm() {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ email: email.trim(), _gotcha: gotcha, ...getUtmParams() }),
+        body: JSON.stringify({
+          email: email.trim(),
+          _gotcha: gotcha,
+          turnstileToken,
+          ...getUtmParams(),
+        }),
       });
       if (res.ok) {
         setSubmitted(true);
@@ -145,6 +150,8 @@ export default function PoradnikForm() {
             </a>.
           </span>
         </label>
+
+        <TurnstileWidget onVerify={setTurnstileToken} />
 
         {error && (
           <p role="alert" className="text-red-400 text-[12px] mb-3 text-center">
