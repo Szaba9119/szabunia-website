@@ -71,6 +71,10 @@ export default async function ServicePage({ params }: PageProps) {
   const relatedPosts = getPostsForService(service.slug, 3);
   const testimonial = SERVICE_TESTIMONIALS[service.slug];
 
+  // Cena startowa usługi (np. "od 1 000 zł") → liczba do JSON-LD Offer.
+  const priceMatch = service.price.match(/\d[\d\s]*\d|\d/);
+  const startingPrice = priceMatch ? priceMatch[0].replace(/\s/g, "") : undefined;
+
   const structuredData = [
     {
       "@context": "https://schema.org",
@@ -82,7 +86,16 @@ export default async function ServicePage({ params }: PageProps) {
         name: "Marcin Szabunia",
         url: "https://szabunia.pl",
       },
-      areaServed: { "@type": "Country", name: "PL" },
+      areaServed: ["Poznań", "Polska", "Europa"],
+      ...(startingPrice && {
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "PLN",
+          price: startingPrice,
+          availability: "https://schema.org/InStock",
+          url: `https://szabunia.pl/uslugi/${service.slug}`,
+        },
+      }),
     },
     {
       "@context": "https://schema.org",

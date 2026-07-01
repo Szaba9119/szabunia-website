@@ -1,4 +1,6 @@
 import { NextResponse } from "next/server";
+import { getClientIp, isRateLimited } from "@/lib/ratelimit";
+import { verifyTurnstile } from "@/lib/turnstile";
 
 // Zapis na lead magnet (darmowy poradnik) — wysyłka maili przez Resend REST API
 // (bez dodatkowej paczki npm). Wymagana zmienna: RESEND_API_KEY.
@@ -53,6 +55,14 @@ async function sendEmail(
 }
 
 export async function POST(req: Request) {
+  const ip = getClientIp(req);
+  if (await isRateLimited(ip)) {
+    return NextResponse.json(
+      { error: "Zbyt wiele prób. Spróbuj ponownie za chwilę." },
+      { status: 429 }
+    );
+  }
+
   let data: Record<string, unknown>;
   try {
     data = await req.json();
@@ -65,12 +75,28 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   }
 
+  const turnstileOk = await verifyTurnstile(String(data.turnstileToken ?? ""), ip);
+  if (!turnstileOk) {
+    return NextResponse.json(
+      { error: "Weryfikacja nie powiodła się. Odśwież stronę i spróbuj ponownie." },
+      { status: 400 }
+    );
+  }
+
   const email = String(data.email ?? "").trim();
   if (!email || !isEmail(email)) {
     return NextResponse.json(
       { error: "Podaj poprawny adres e-mail" },
       { status: 400 }
     );
+  }
+
+  // Źródło ruchu (UTM/gclid) — opcjonalne, przechwycone z URL wejściowego (src/lib/utm.ts).
+  const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"] as const;
+  const utm: Record<string, string> = {};
+  for (const key of UTM_FIELDS) {
+    const value = String(data[key] ?? "").trim();
+    if (value) utm[key] = value;
   }
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -117,6 +143,13 @@ export async function POST(req: Request) {
 
     // 2) Powiadomienie do Marcina — best-effort, nie blokuje sukcesu.
     try {
+      const utmHtml = Object.keys(utm).length
+        ? `<p><strong>Źródło:</strong> ${escapeHtml(
+            Object.entries(utm)
+              .map(([k, v]) => `${k}: ${v}`)
+              .join(" · ")
+          )}</p>`
+        : "";
       await sendEmail(apiKey, {
         from: FROM,
         to: [TO],
@@ -124,7 +157,7 @@ export async function POST(req: Request) {
         subject: `Nowy zapis na poradnik: ${email}`,
         html: `<h2>Nowy zapis na poradnik</h2><p><strong>E-mail:</strong> ${escapeHtml(
           email
-        )}</p>`,
+        )}</p>${utmHtml}`,
       });
     } catch (notifyErr) {
       console.error("Resend notify error:", notifyErr);
@@ -132,7 +165,7 @@ export async function POST(req: Request) {
 
     // Zapis do CRM — best-effort, nie blokuje sukcesu.
     try {
-      await pushToCrm({ name: "", email, source: "lead-magnet" });
+      await pushToCrm({ name: "", email, source: "lead-magnet", ...utm });
     } catch (crmErr) {
       console.error("CRM webhook error:", crmErr);
     }

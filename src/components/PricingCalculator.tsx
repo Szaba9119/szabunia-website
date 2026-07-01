@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import { serviceItems } from "@/data/services";
 import { gtagEvent } from "@/lib/gtag";
 
@@ -159,7 +159,7 @@ function PriceModeToggle({ mode, onChange }: { mode: PriceMode; onChange: (m: Pr
             mode === "netto" ? "text-white" : "text-steel dark:text-dark-text-muted"
           }`}
         >
-          Firma (netto)
+          Netto
         </button>
         <button
           onClick={() => onChange("brutto")}
@@ -167,7 +167,7 @@ function PriceModeToggle({ mode, onChange }: { mode: PriceMode; onChange: (m: Pr
             mode === "brutto" ? "text-white" : "text-steel dark:text-dark-text-muted"
           }`}
         >
-          Osoba prywatna (brutto)
+          Brutto (z VAT)
         </button>
       </div>
     </div>
@@ -557,6 +557,7 @@ export default function PricingCalculator() {
         ))}
       </div>
 
+      <MotionConfig reducedMotion="user">
       <AnimatePresence mode="wait">
         {step === 1 && (
           <motion.div
@@ -683,6 +684,7 @@ export default function PricingCalculator() {
                     });
                   }
                   const summary = `Usługa: ${selectedItem?.title}\nKonfiguracja: ${items.filter(Boolean).join(", ")}\nSzacunkowa kwota: ${displayPrice.toLocaleString("pl-PL")} zł ${mode === "netto" ? "netto" : "brutto"}`;
+                  gtagEvent("calculator_to_form", { service: selectedService ?? "(brak)" });
                   window.dispatchEvent(new CustomEvent("calc-to-form", { detail: { service: selectedService, message: summary } }));
                   document.getElementById("kontakt")?.scrollIntoView({ behavior: "smooth" });
                 }}
@@ -712,6 +714,7 @@ export default function PricingCalculator() {
           </motion.div>
         )}
       </AnimatePresence>
+      </MotionConfig>
     </div>
   );
 }

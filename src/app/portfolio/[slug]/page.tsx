@@ -92,7 +92,7 @@ export default async function PortfolioPage({ params }: PageProps) {
             name: "Marcin Szabunia",
             url: "https://szabunia.pl",
           },
-          areaServed: { "@type": "Country", name: "PL" },
+          areaServed: ["Poznań", "Polska", "Europa"],
           image: `https://szabunia.pl${category.thumbnail}`,
         },
         breadcrumb,

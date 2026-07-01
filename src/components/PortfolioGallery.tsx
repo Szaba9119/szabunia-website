@@ -1,11 +1,12 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
 import { AnimatePresence, motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 import type { GalleryImage } from "@/data/portfolio";
 
 interface Props {
@@ -25,6 +26,7 @@ export default function PortfolioGallery({ images, title, subtitle, aspect = "la
   // Pionowe kadry kotwiczymy do góry — przy przycięciu gubimy stopy, nie głowy.
   const objectPosition = aspect === "portrait" ? "object-top" : "";
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
 
   const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
@@ -52,6 +54,8 @@ export default function PortfolioGallery({ images, title, subtitle, aspect = "la
       document.removeEventListener("keydown", handleKey);
     };
   }, [lightboxIndex, closeLightbox, goNext, goPrev]);
+
+  useFocusTrap(dialogRef, lightboxIndex !== null);
 
   return (
     <section id="galeria" className="py-12 md:py-16 px-4">
@@ -108,11 +112,13 @@ export default function PortfolioGallery({ images, title, subtitle, aspect = "la
       <AnimatePresence>
         {lightboxIndex !== null && (
           <motion.div
+            ref={dialogRef}
+            tabIndex={-1}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[200] bg-black/90 flex items-center justify-center"
+            className="fixed inset-0 z-[200] bg-black/90 flex items-center justify-center outline-none"
             role="dialog"
             aria-modal="true"
             aria-label={`Podgląd zdjęcia: ${images[lightboxIndex!]?.alt ?? ""}`}

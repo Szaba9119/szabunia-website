@@ -20,7 +20,6 @@ const Publications = dynamic(() => import("@/components/Publications"));
 const FAQ = dynamic(() => import("@/components/FAQ"));
 const BlogPreview = dynamic(() => import("@/components/BlogPreview"));
 const PoradnikTeaser = dynamic(() => import("@/components/PoradnikTeaser"));
-const Warunki = dynamic(() => import("@/components/Warunki"));
 const CTA = dynamic(() => import("@/components/CTA"));
 
 const faqStructuredData = {
@@ -146,7 +145,6 @@ export default function Home() {
         <ErrorBoundary><Pricing /></ErrorBoundary>
         <ErrorBoundary><BlogPreview /></ErrorBoundary>
         <ErrorBoundary><PoradnikTeaser /></ErrorBoundary>
-        <ErrorBoundary><Warunki /></ErrorBoundary>
         <ErrorBoundary><FAQ /></ErrorBoundary>
         <ErrorBoundary><CTA /></ErrorBoundary>
       </main>

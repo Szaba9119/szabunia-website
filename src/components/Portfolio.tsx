@@ -31,7 +31,7 @@ export default function Portfolio() {
         <div className="absolute inset-0 scale-[1.15]">
           <Image
             src={item.image}
-            alt={item.label}
+            alt={`Zdjęcie z realizacji: ${item.label}`}
             fill
             className={`object-cover ${item.imagePosition === "top" ? "object-top" : ""} transition-transform duration-500 group-hover:scale-105`}
             sizes="(max-width: 768px) 100vw, 576px"

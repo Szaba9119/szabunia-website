@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
-  <rect width="800" height="600" fill="#1a253a"/>
-  <circle cx="400" cy="250" r="80" fill="#4a8cff" opacity="0.3"/>
-  <rect x="340" y="345" width="120" height="80" rx="12" fill="#4a8cff" opacity="0.2"/>
-  <text x="400" y="490" text-anchor="middle" font-family="system-ui,sans-serif" font-size="18" fill="#4a8cff" font-weight="600">PO</text>
-</svg>

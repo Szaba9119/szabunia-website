@@ -5,6 +5,8 @@ import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
 import { gtagEvent } from "@/lib/gtag";
+import { getUtmParams } from "@/lib/utm";
+import TurnstileWidget from "./TurnstileWidget";
 
 interface FieldErrors {
   name?: string;
@@ -34,6 +36,7 @@ export default function CTA() {
   const [error, setError] = useState(false);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
+  const [turnstileToken, setTurnstileToken] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -64,6 +67,8 @@ export default function CTA() {
           service: formData.service,
           message: formData.message,
           _gotcha: "",
+          turnstileToken,
+          ...getUtmParams(),
         }),
       });
 
@@ -480,6 +485,8 @@ export default function CTA() {
                         </a>.
                       </span>
                     </label>
+
+                    <TurnstileWidget onVerify={setTurnstileToken} />
 
                     {error && (
                       <p role="alert" className="text-red-400 text-[12px] mb-3 text-center">

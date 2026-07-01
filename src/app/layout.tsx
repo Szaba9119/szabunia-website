@@ -28,17 +28,6 @@ export const metadata: Metadata = {
   title: "Marcin Szabunia — Fotograf biznesowy & twórca wideo | Poznań",
   description:
     "Profesjonalna fotografia biznesowa i wideo marketing dla firm. Portrety biznesowe, eventy, fotografia produktowa. Poznań i cała Polska.",
-  keywords: [
-    "fotograf biznesowy poznań",
-    "fotografia korporacyjna",
-    "portrety biznesowe",
-    "wideo marketing",
-    "fotografia eventowa",
-    "fotografia produktowa",
-    "headshoty poznań",
-    "fotograf firmowy",
-    "sesja wizerunkowa",
-  ],
   metadataBase: new URL("https://szabunia.pl"),
   alternates: {
     canonical: "/",
@@ -147,7 +136,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                 longitude: 16.9252,
               },
               image: "https://szabunia.pl/images/marcin-hero.jpg",
-              priceRange: "1 000 zł - 4 500 zł",
+              priceRange: "55 zł - 4 500 zł",
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
                 dayOfWeek: [
@@ -240,6 +229,24 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                       name: "Wideo marketing",
                       description:
                         "Filmy rekrutacyjne, wizerunkowe, reklamowe dla firm",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Pakiety Foto + Wideo + Dron",
+                      description:
+                        "Zdjęcia, wideo i ujęcia z drona z jednego wejścia — spójny materiał bez koordynowania dwóch ekip",
+                    },
+                  },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Zdjęcia i wideo z drona",
+                      description:
+                        "Ujęcia z powietrza: budynki i obiekty firmowe, tereny, eventy i architektura, foto i wideo w 4K",
                     },
                   },
                 ],

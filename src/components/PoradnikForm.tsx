@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import { gtagEvent } from "@/lib/gtag";
+import { getUtmParams } from "@/lib/utm";
+import TurnstileWidget from "./TurnstileWidget";
 
 const PDF_URL = "/poradnik-przygotowanie-do-sesji.pdf";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -14,6 +16,7 @@ export default function PoradnikForm() {
   const [submitted, setSubmitted] = useState(false);
   const [touched, setTouched] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [turnstileToken, setTurnstileToken] = useState("");
 
   const emailErr =
     touched && !EMAIL_RE.test(email.trim()) ? "Podaj poprawny adres e-mail" : null;
@@ -38,7 +41,7 @@ export default function PoradnikForm() {
       const res = await fetch("/api/lead", {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify({ email: email.trim(), _gotcha: gotcha }),
+        body: JSON.stringify({ email: email.trim(), _gotcha: gotcha, ...getUtmParams() }),
       });
       if (res.ok) {
         setSubmitted(true);
@@ -66,11 +69,11 @@ export default function PoradnikForm() {
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <p className="text-white font-barlow font-bold text-lg mb-1">
+        <p className="text-navy dark:text-white font-barlow font-bold text-lg mb-1">
           Gotowe — pobieranie ruszyło!
         </p>
         <p className="text-steel text-sm mb-5">
-          Kopię linku wysłałem też na <span className="text-white">{email.trim()}</span> (sprawdź też spam).
+          Kopię linku wysłałem też na <span className="text-navy dark:text-white">{email.trim()}</span> (sprawdź też spam).
         </p>
         <a
           href={PDF_URL}
@@ -85,7 +88,7 @@ export default function PoradnikForm() {
 
   return (
     <div className="glass-dark rounded-2xl p-6">
-      <p className="text-white font-barlow font-bold text-lg mb-1">
+      <p className="text-navy dark:text-white font-barlow font-bold text-lg mb-1">
         Pobierz poradnik za darmo
       </p>
       <p className="text-steel text-[13px] mb-5">
@@ -119,7 +122,7 @@ export default function PoradnikForm() {
           aria-invalid={!!emailErr}
           aria-describedby={emailErr ? "lead-email-error" : undefined}
           placeholder="jan@firma.pl"
-          className={`w-full bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-white placeholder-steel font-inter transition-colors ${emailErr ? "border-red-400 focus:border-red-400" : "border-navy-light focus:border-blue"}`}
+          className={`w-full bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter transition-colors ${emailErr ? "border-red-400 focus:border-red-400" : "border-navy-light focus:border-blue"}`}
         />
         {emailErr && (
           <p id="lead-email-error" role="alert" className="text-red-400 text-[11px] mt-1">

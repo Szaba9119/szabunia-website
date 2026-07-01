@@ -2,13 +2,21 @@
 
 import { useEffect } from "react";
 import { gtagEvent } from "@/lib/gtag";
+import { captureUtmParams } from "@/lib/utm";
 
 /**
- * Globalny pomiar kliknięć w linki tel: i mailto: (GA4: phone_click / email_click).
+ * Globalny pomiar kliknięć w linki tel: i mailto: (GA4: phone_click / email_click)
+ * oraz jednorazowe przechwycenie parametrów UTM/gclid z URL wejściowego (żeby
+ * dało się je dołączyć do leada niezależnie od tego, na której podstronie
+ * użytkownik ostatecznie wyśle formularz).
  * Jeden listener na document zamiast onClick w każdym komponencie z linkiem
  * kontaktowym (CTA, Footer, /kontakt, podstrony usług).
  */
 export default function ContactClickTracker() {
+  useEffect(() => {
+    captureUtmParams();
+  }, []);
+
   useEffect(() => {
     const handler = (e: MouseEvent) => {
       const anchor = (e.target as HTMLElement).closest?.("a[href]");

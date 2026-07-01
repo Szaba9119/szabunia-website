@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const testimonials = [
   {
@@ -58,14 +59,16 @@ export default function Testimonials() {
     nextRef.current = next;
   }, [next]);
 
+  const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
+
   useEffect(() => {
-    if (!isPaused) {
+    if (!isPaused && !prefersReducedMotion) {
       timerRef.current = setInterval(() => nextRef.current(), 15000);
     }
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [isPaused]);
+  }, [isPaused, prefersReducedMotion]);
 
   const t = testimonials[currentIndex];
 

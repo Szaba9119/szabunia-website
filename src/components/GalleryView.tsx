@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect, useRef, useSyncExternalStore } from "
 import Image from "next/image";
 import Link from "next/link";
 import YouTubeFacade from "./YouTubeFacade";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 import type { GalleryVideo } from "@/data/galeria";
 
 export interface SizedImage {
@@ -109,10 +110,8 @@ export default function GalleryView({
     };
   }, [lightbox, close, prev, next]);
 
-  // Fokus na oknie podglądu po otwarciu (dostępność)
-  useEffect(() => {
-    if (lightbox !== null) dialogRef.current?.focus();
-  }, [lightbox]);
+  // Fokus na oknie podglądu po otwarciu + pułapka fokusu Tab (dostępność)
+  useFocusTrap(dialogRef, lightbox !== null);
 
   // Wstępne wczytanie sąsiednich zdjęć — płynniejsza nawigacja.
   // Zależność od `active` (a nie tablicy `images`) wystarcza: zmiana kategorii odświeża zestaw.

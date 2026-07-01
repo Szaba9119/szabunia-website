@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useFocusTrap } from "@/hooks/useFocusTrap";
 
 interface Props {
   images: string[];
@@ -25,6 +26,7 @@ export default function ServiceGalleryLightbox({
 }: Props) {
   const [open, setOpen] = useState<number | null>(null);
   const touchX = useRef<number | null>(null);
+  const dialogRef = useRef<HTMLDivElement | null>(null);
 
   const close = useCallback(() => setOpen(null), []);
   const move = useCallback(
@@ -48,6 +50,8 @@ export default function ServiceGalleryLightbox({
       document.body.style.overflow = prevOverflow;
     };
   }, [open, close, move]);
+
+  useFocusTrap(dialogRef, open !== null);
 
   const arrowBtn =
     "w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-white/20 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
@@ -77,7 +81,9 @@ export default function ServiceGalleryLightbox({
 
       {open !== null && (
         <div
-          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4"
+          ref={dialogRef}
+          tabIndex={-1}
+          className="fixed inset-0 z-[60] flex items-center justify-center bg-black/85 backdrop-blur-sm p-4 outline-none"
           role="dialog"
           aria-modal="true"
           aria-label="Podgląd zdjęcia"

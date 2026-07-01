@@ -10,7 +10,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 export const metadata: Metadata = {
   title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
   description:
-    "Skontaktuj się w sprawie fotografii i wideo dla firm — portrety biznesowe, sesje zespołowe, eventy, fotografia produktowa, wideo marketing. Poznań, cała Polska i Europa. Odpowiadam w 24h.",
+    "Skontaktuj się w sprawie fotografii i wideo dla firm: portrety biznesowe, eventy, produktowa, wideo. Poznań, cała Polska. Odpowiadam w 24h.",
   alternates: { canonical: "/kontakt" },
   openGraph: {
     title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",

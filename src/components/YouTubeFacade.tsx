@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { gtagEvent } from "@/lib/gtag";
 
 /**
  * Lekka „fasada" osadzenia YouTube: do kliknięcia pokazuje tylko miniaturę + przycisk play.
@@ -37,7 +38,10 @@ export default function YouTubeFacade({
       ) : (
         <button
           type="button"
-          onClick={() => setPlay(true)}
+          onClick={() => {
+            gtagEvent("video_play", { video_id: id, video_title: title });
+            setPlay(true);
+          }}
           aria-label={`Odtwórz film: ${title}`}
           className="group absolute inset-0 w-full h-full cursor-pointer"
         >
