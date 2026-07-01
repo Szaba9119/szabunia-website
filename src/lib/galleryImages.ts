@@ -27,6 +27,27 @@ export interface SizedImage {
   height: number;
 }
 
+// Cache wyników per folder na czas życia procesu. Pliki w public/ są niezmienne
+// w ramach jednego deployu (Vercel lambda), więc odczyt z dysku wystarczy raz —
+// bez tego /galeria czytała nagłówki ~63 plików przy KAŻDYM żądaniu (TTFB 3-5x).
+const sizedCache = new Map<string, SizedImage[]>();
+
+// Wymiary JPEG/PNG siedzą w nagłówku pliku — czytamy tylko pierwsze 256 KB
+// zamiast całego pliku. Zapas na duże segmenty EXIF/XMP/ICC przed markerem SOF
+// (pojedynczy segment APP ma max 64 KB, 256 KB pokrywa kilka takich z rzędu).
+const HEADER_BYTES = 256 * 1024;
+
+function readImageHeader(filePath: string): Buffer {
+  const fd = fs.openSync(filePath, "r");
+  try {
+    const buf = Buffer.alloc(HEADER_BYTES);
+    const bytesRead = fs.readSync(fd, buf, 0, HEADER_BYTES, 0);
+    return buf.subarray(0, bytesRead);
+  } finally {
+    fs.closeSync(fd);
+  }
+}
+
 /** Odczyt wymiarów obrazu z nagłówka pliku — bez zależności (JPEG/PNG). */
 function readImageSize(buf: Buffer): { width: number; height: number } | null {
   // JPEG
@@ -62,20 +83,24 @@ function readImageSize(buf: Buffer): { width: number; height: number } | null {
  * Tylko serwer (fs) — nie importować w komponentach klienckich.
  */
 export function listGalleryImagesSized(folder: string): SizedImage[] {
+  const cached = sizedCache.get(folder);
+  if (cached) return cached;
   try {
     const dir = path.join(process.cwd(), "public", "images", "galeria", folder);
-    return fs
+    const result = fs
       .readdirSync(dir)
       .filter((f) => /\.(jpe?g|png|webp)$/i.test(f))
       .sort()
       .map((f) => {
-        const size = readImageSize(fs.readFileSync(path.join(dir, f)));
+        const size = readImageSize(readImageHeader(path.join(dir, f)));
         return {
           src: `/images/galeria/${folder}/${f}`,
           width: size?.width ?? 1200,
           height: size?.height ?? 1500,
         };
       });
+    sizedCache.set(folder, result);
+    return result;
   } catch {
     return [];
   }

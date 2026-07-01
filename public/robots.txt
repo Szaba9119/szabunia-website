@@ -4,3 +4,6 @@ Disallow: /api/
 Disallow: /_next/
 
 Sitemap: https://szabunia.pl/sitemap.xml
+
+# Podsumowanie oferty dla asystentow AI / LLM
+# https://szabunia.pl/llms.txt

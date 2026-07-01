@@ -7,9 +7,23 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000,
+    // Wartości quality używane w komponentach (Hero 72, About 80, Portfolio/galerie 85, lightbox 90).
+    // Next.js 16 wymaga jawnej listy — bez niej wszystko spada do domyślnego [75] z warningiem.
+    qualities: [72, 75, 80, 85, 90],
   },
   async headers() {
     return [
+      {
+        // Zdjęcia z public/ — długi cache przeglądarki. Pliki podmieniane są zawsze
+        // pod nową nazwą (wersjonowanie nazwą pliku), więc immutable jest bezpieczne.
+        source: "/images/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
       {
         source: "/(.*)",
         headers: [
