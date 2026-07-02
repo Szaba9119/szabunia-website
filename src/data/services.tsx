@@ -311,7 +311,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
-      title: "Sesje zespołowe & headshoty firmowe — Marcin Szabunia | Poznań",
+      title: "Sesje zespołowe & headshoty — Marcin Szabunia | Poznań",
       description: "Profesjonalne headshoty zespołu w Twoim biurze. Mobilne studio, spójne zdjęcia, 10-15 min na osobę. Poznań i cała Polska.",
     },
   },

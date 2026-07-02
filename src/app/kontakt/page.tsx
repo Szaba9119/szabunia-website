@@ -60,7 +60,10 @@ export default function KontaktPage() {
         telephone: "+48514900688",
         image: "https://szabunia.pl/images/marcin-hero.jpg",
         areaServed: ["Poznań", "Polska", "Europa"],
-        sameAs: ["https://instagram.com/szabunia.biz"],
+        sameAs: [
+          "https://instagram.com/szabunia.biz",
+          "https://share.google/2OMRlIblNmEKlthIl",
+        ],
       },
     },
     {

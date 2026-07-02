@@ -92,7 +92,11 @@ export default function RootLayout({
             zgoda nadawana po "Akceptuję" w banerze cookie (CookieConsent.tsx).
             Celowo zwykły <script> w <head>, nie next/script ani @next/third-parties:
             consent default MUSI wykonać się przed załadowaniem gtag.js, a nowych
-            paczek nie dodajemy (CLAUDE.md §11). */}
+            paczek nie dodajemy (CLAUDE.md §11). PRÓBA wydzielenia do public/*.js +
+            next/script strategy="beforeInteractive" (2026-07-02) zweryfikowana jako
+            NIEDZIAŁAJĄCA w tej konfiguracji (Turbopack): plik się fetchuje (200 OK),
+            ale nigdy nie wykonuje — dataLayer i dark mode przestają działać. Wycofane.
+            'unsafe-inline' w script-src pozostaje świadomie z tego powodu. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
@@ -152,7 +156,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
               aggregateRating: {
                 "@type": "AggregateRating",
                 ratingValue: "5.0",
-                reviewCount: "3",
+                reviewCount: "10",
                 bestRating: "5",
                 worstRating: "1",
               },
@@ -181,6 +185,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
               ],
               sameAs: [
                 "https://instagram.com/szabunia.biz",
+                "https://share.google/2OMRlIblNmEKlthIl",
               ],
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
@@ -278,7 +283,10 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                 name: "Marcin Szabunia — Fotografia biznesowa",
                 url: "https://szabunia.pl",
               },
-              sameAs: ["https://instagram.com/szabunia.biz"],
+              sameAs: [
+                "https://instagram.com/szabunia.biz",
+                "https://share.google/2OMRlIblNmEKlthIl",
+              ],
               knowsAbout: [
                 "Fotografia biznesowa",
                 "Portrety wizerunkowe",

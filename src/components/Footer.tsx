@@ -68,6 +68,14 @@ export default function Footer() {
             >
               Instagram
             </a>
+            <a
+              href="https://share.google/2OMRlIblNmEKlthIl"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="py-1 hover:text-navy dark:hover:text-white transition-colors"
+            >
+              Wizytówka Google
+            </a>
           </div>
 
           {/* Scroll to top */}

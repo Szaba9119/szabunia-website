@@ -5,6 +5,13 @@ import type { NextConfig } from "next";
 // nie potrzebuje eval — usuniecie zaweza powierzchnie XSS.
 const isDev = process.env.NODE_ENV === "development";
 
+// 'unsafe-inline' w script-src zostaje SWIADOMIE: proba wydzielenia 2 inline
+// skryptow (consent-mode init, dark-mode flash-prevention) do public/*.js +
+// next/script strategy="beforeInteractive" zweryfikowana 2026-07-02 jako
+// niedzialajaca w tej konfiguracji (Turbopack) — plik sie fetchuje (200 OK),
+// ale nigdy nie wykonuje (dataLayer i dark mode przestaja dzialac). Cofniete.
+// Alternatywa (nonce w middleware) wymagalaby headers() w layout = cala strona
+// traci static rendering — gorszy kompromis niz zostawienie unsafe-inline.
 const csp = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://*.youtube.com https://www.googletagmanager.com https://challenges.cloudflare.com`,
