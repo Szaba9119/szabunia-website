@@ -1,15 +1,13 @@
 import { NextResponse } from "next/server";
-import { getClientIp, isLeadRateLimited } from "@/lib/ratelimit";
+import { getClientIp, isQuoteRateLimited } from "@/lib/ratelimit";
 import { verifyTurnstile } from "@/lib/turnstile";
 
-// Zapis na lead magnet (darmowy poradnik) — wysyłka maili przez Resend REST API
-// (bez dodatkowej paczki npm). Wymagana zmienna: RESEND_API_KEY.
-// Opcjonalne: CONTACT_TO_EMAIL (powiadomienie dla Marcina), CONTACT_FROM_EMAIL (nadawca).
+// "Wyślij wycenę na maila" na /kalkulator — lżejsza alternatywa dla pełnego formularza
+// kontaktowego: wystarczy e-mail, dostaje policzoną cenę + konfigurację, Marcin dostaje
+// powiadomienie. Wysyłka przez Resend REST API. Wymagana zmienna: RESEND_API_KEY.
 export const runtime = "nodejs";
 
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
-const SITE = "https://szabunia.pl";
-const PDF_URL = `${SITE}/poradnik-przygotowanie-do-sesji.pdf`;
 const TO = process.env.CONTACT_TO_EMAIL || "marcin.szabunia@gmail.com";
 const FROM =
   process.env.CONTACT_FROM_EMAIL || "Marcin Szabunia <onboarding@resend.dev>";
@@ -26,8 +24,6 @@ function isEmail(value: string): boolean {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
-// Best-effort zapis leada do CRM (Google Sheets, Apps Script webhook).
-// Wymaga: CRM_WEBHOOK_URL + CRM_WEBHOOK_SECRET. Brak zmiennych = no-op.
 async function pushToCrm(lead: Record<string, string>): Promise<void> {
   const url = process.env.CRM_WEBHOOK_URL;
   const secret = process.env.CRM_WEBHOOK_SECRET;
@@ -56,7 +52,7 @@ async function sendEmail(
 
 export async function POST(req: Request) {
   const ip = getClientIp(req);
-  if (await isLeadRateLimited(ip)) {
+  if (await isQuoteRateLimited(ip)) {
     return NextResponse.json(
       { error: "Zbyt wiele prób. Spróbuj ponownie za chwilę." },
       { status: 429 }
@@ -91,7 +87,10 @@ export async function POST(req: Request) {
     );
   }
 
-  // Źródło ruchu (UTM/gclid) — opcjonalne, przechwycone z URL wejściowego (src/lib/utm.ts).
+  const service = String(data.service ?? "").trim();
+  const configSummary = String(data.configSummary ?? "").trim();
+  const priceLabel = String(data.priceLabel ?? "").trim();
+
   const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"] as const;
   const utm: Record<string, string> = {};
   for (const key of UTM_FIELDS) {
@@ -108,18 +107,19 @@ export async function POST(req: Request) {
     );
   }
 
-  // 1) Mail do subskrybenta — link do poradnika.
-  const guideHtml = `
+  const configLines = configSummary
+    .split("\n")
+    .map((line) => `<p style="margin:2px 0">${escapeHtml(line)}</p>`)
+    .join("");
+
+  const quoteHtml = `
     <div style="font-family:Arial,Helvetica,sans-serif;color:#334155;max-width:520px;line-height:1.55">
-      <h2 style="color:#0F172A;margin:0 0 12px">Twój pakiet przygotowania do sesji</h2>
-      <p>Cześć! Dzięki za pobranie poradnika. Znajdziesz w nim checklisty, planer stylizacji, ściągę kolorów i mini-brief — wszystko, żeby wejść na plan spokojnie i z głową.</p>
-      <p style="margin:22px 0">
-        <a href="${PDF_URL}" style="background:#2563EB;color:#ffffff;text-decoration:none;padding:12px 22px;border-radius:8px;font-weight:bold;display:inline-block">Pobierz poradnik (PDF)</a>
-      </p>
-      <p style="font-size:13px;color:#64748B">Gdyby przycisk nie działał, skopiuj ten link do przeglądarki:<br>
-        <a href="${PDF_URL}" style="color:#2563EB">${PDF_URL}</a>
-      </p>
-      <p>Masz pytanie o przygotowanie albo chcesz umówić sesję? Po prostu odpisz na tego maila — odpowiadam osobiście.</p>
+      <h2 style="color:#0F172A;margin:0 0 12px">Twoja szacunkowa wycena</h2>
+      <div style="background:#F9FAFB;border-radius:8px;padding:16px;margin:16px 0">
+        ${configLines}
+        <p style="font-weight:bold;font-size:18px;color:#0F172A;margin-top:10px">${escapeHtml(priceLabel)}</p>
+      </div>
+      <p>To wycena szacunkowa. Ostateczną cenę potwierdzam po krótkim briefie — wystarczy odpisać na tego maila albo napisać na marcin@szabunia.pl.</p>
       <p style="margin-top:24px">Marcin Szabunia<br>
         <span style="color:#64748B;font-size:13px">Fotograf biznesowy i twórca wideo · szabunia.pl</span>
       </p>
@@ -127,21 +127,20 @@ export async function POST(req: Request) {
   `;
 
   try {
-    const guideRes = await sendEmail(apiKey, {
+    const quoteRes = await sendEmail(apiKey, {
       from: FROM,
       to: [email],
       reply_to: TO,
-      subject: "Twój pakiet przygotowania do sesji — link do pobrania",
-      html: guideHtml,
+      subject: "Twoja szacunkowa wycena — szabunia.pl",
+      html: quoteHtml,
     });
 
-    if (!guideRes.ok) {
-      const detail = await guideRes.text();
-      console.error("Resend error (guide):", guideRes.status, detail);
+    if (!quoteRes.ok) {
+      const detail = await quoteRes.text();
+      console.error("Resend error (quote):", quoteRes.status, detail);
       return NextResponse.json({ error: "Nie udało się wysłać" }, { status: 502 });
     }
 
-    // 2) Powiadomienie do Marcina — best-effort, nie blokuje sukcesu.
     try {
       const utmHtml = Object.keys(utm).length
         ? `<p><strong>Źródło:</strong> ${escapeHtml(
@@ -154,25 +153,24 @@ export async function POST(req: Request) {
         from: FROM,
         to: [TO],
         reply_to: email,
-        subject: `Nowy zapis na poradnik: ${email}`,
-        html: `<h2>Nowy zapis na poradnik</h2><p><strong>E-mail:</strong> ${escapeHtml(
+        subject: `Wycena z kalkulatora wysłana na maila: ${email}`,
+        html: `<h2>Ktoś poprosił o wycenę mailem z kalkulatora</h2><p><strong>E-mail:</strong> ${escapeHtml(
           email
-        )}</p>${utmHtml}`,
+        )}</p><p><strong>Usługa:</strong> ${escapeHtml(service)}</p>${configLines}<p><strong>Kwota:</strong> ${escapeHtml(priceLabel)}</p>${utmHtml}`,
       });
     } catch (notifyErr) {
       console.error("Resend notify error:", notifyErr);
     }
 
-    // Zapis do CRM — best-effort, nie blokuje sukcesu.
     try {
-      await pushToCrm({ name: "", email, source: "lead-magnet", ...utm });
+      await pushToCrm({ name: "", email, source: "calculator-quote", service, ...utm });
     } catch (crmErr) {
       console.error("CRM webhook error:", crmErr);
     }
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error("Błąd /api/lead:", err);
+    console.error("Błąd /api/quote:", err);
     return NextResponse.json({ error: "Błąd serwera" }, { status: 500 });
   }
 }

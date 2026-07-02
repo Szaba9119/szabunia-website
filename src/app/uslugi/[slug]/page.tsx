@@ -20,11 +20,16 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { getPostsForService } from "@/data/blog";
 
 // Poradnik (lead magnet) pokazujemy tam, gdzie temat „przygotowanie do sesji"
-// pasuje (osoby przed obiektywem), nie przy produktach czy dronie.
+// pasuje (osoby przed obiektywem) — rozszerzone na wszystkie usługi z udziałem ludzi
+// na życzenie Marcina (2026-07-02, więcej punktów przechwytywania leada w lejku).
+// Produkty i dron celowo pominięte — poradnik dotyczy stylizacji/pozowania, co nie
+// ma zastosowania do packshotów czy zdjęć z lotu ptaka.
 const SHOW_PORADNIK = new Set<string>([
   "wizerunek-portrety",
   "sesje-zespolowe",
   "pakiety-foto-wideo",
+  "eventy-reportaze",
+  "wideo-marketing",
 ]);
 
 export function generateStaticParams() {
@@ -194,6 +199,15 @@ export default async function ServicePage({ params }: PageProps) {
             <span className="text-white/80">→</span>
           </a>
         </div>
+        {SHOW_PORADNIK.has(service.slug) && (
+          <ErrorBoundary>
+            <section className="pb-12 md:pb-16 px-4">
+              <div className="max-w-3xl mx-auto">
+                <PoradnikBlogCTA />
+              </div>
+            </section>
+          </ErrorBoundary>
+        )}
         <ErrorBoundary>
           <PortfolioFAQ faqs={service.faqs} />
         </ErrorBoundary>
@@ -212,15 +226,6 @@ export default async function ServicePage({ params }: PageProps) {
                     <BlogCard key={p.slug} post={p} />
                   ))}
                 </div>
-              </div>
-            </section>
-          </ErrorBoundary>
-        )}
-        {SHOW_PORADNIK.has(service.slug) && (
-          <ErrorBoundary>
-            <section className="py-12 md:py-16 px-4">
-              <div className="max-w-3xl mx-auto">
-                <PoradnikBlogCTA />
               </div>
             </section>
           </ErrorBoundary>

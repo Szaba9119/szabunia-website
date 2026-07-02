@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence, MotionConfig } from "framer-motion";
 import { serviceItems } from "@/data/services";
 import { gtagEvent } from "@/lib/gtag";
+import QuoteEmailCapture from "./QuoteEmailCapture";
 
 type ServiceSlug =
   | "wizerunek-portrety"
@@ -698,6 +699,17 @@ export default function PricingCalculator() {
               >
                 Wyślij konfigurację w formularzu
               </a>
+
+              <div className="flex items-center gap-3 my-5">
+                <div className="flex-1 h-px bg-border dark:bg-dark-border" />
+                <span className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted">lub</span>
+                <div className="flex-1 h-px bg-border dark:bg-dark-border" />
+              </div>
+
+              <p className="text-[12px] text-steel dark:text-dark-text-muted mb-3">
+                Nie jesteś gotowy na cały brief? Zostaw e-mail, wyślę Ci tę wycenę bez dalszych pytań.
+              </p>
+              <QuoteEmailCapture service={selectedItem?.title ?? ""} priceLabel={`${displayPrice.toLocaleString("pl-PL")} zł ${mode === "netto" ? "netto" : "brutto"}`} />
             </div>
 
             <div className="flex gap-3 mt-6">

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import PricingCalculator from "./PricingCalculator";
+import PoradnikBlogCTA from "./PoradnikBlogCTA";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
 
@@ -681,6 +682,12 @@ export default function Pricing() {
               <div className="px-6 md:px-8 pb-8 pt-4">
                 <PricingCalculator />
               </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection>
+            <div className="max-w-3xl mx-auto">
+              <PoradnikBlogCTA />
             </div>
           </AnimatedSection>
         </div>
