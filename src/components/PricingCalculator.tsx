@@ -707,7 +707,7 @@ export default function PricingCalculator() {
               </div>
 
               <p className="text-[12px] text-steel dark:text-dark-text-muted mb-3">
-                Nie jesteś gotowy na cały brief? Zostaw e-mail, wyślę Ci tę wycenę bez dalszych pytań.
+                Nie jesteś gotowy na cały brief? Zostaw e-mail, wyślę Ci tę szacunkową wycenę na start — resztę dogadamy, jeśli zdecydujesz się iść dalej.
               </p>
               <QuoteEmailCapture service={selectedItem?.title ?? ""} priceLabel={`${displayPrice.toLocaleString("pl-PL")} zł ${mode === "netto" ? "netto" : "brutto"}`} />
             </div>
