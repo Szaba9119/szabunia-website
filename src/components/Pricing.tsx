@@ -567,12 +567,15 @@ export default function Pricing() {
                 <div className="overflow-hidden">
                   <div className="px-6 md:px-8 pb-6 pt-2 border-t border-border/50 dark:border-dark-border space-y-4 text-[13px] text-steel dark:text-dark-text-muted">
                     <div>
-                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Stawka za osobę (1 retusz):</p>
+                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Stawka za osobę (1 retusz, progresywnie):</p>
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
-                        <div className="flex justify-between"><span>4-10 osób</span><span>{formatPriceLabel(150)}</span></div>
-                        <div className="flex justify-between"><span>11-30 osób</span><span>{formatPriceLabel(120)}</span></div>
-                        <div className="flex justify-between"><span>30+ osób</span><span>{formatPriceLabel(100)}</span></div>
+                        <div className="flex justify-between"><span>Osoby 4-10</span><span>{formatPriceLabel(150)}</span></div>
+                        <div className="flex justify-between"><span>Osoby 11-30</span><span>{formatPriceLabel(120)}</span></div>
+                        <div className="flex justify-between"><span>Osoby od 31</span><span>{formatPriceLabel(100)}</span></div>
                       </div>
+                      <p className="text-[11px] text-steel dark:text-dark-text-muted mt-1.5">
+                        Niższa cena dotyczy tylko osób w danym przedziale, nie całej grupy — więcej osób nigdy nie obniża sumy.
+                      </p>
                     </div>
                     <div className="flex justify-between items-center pt-3 border-t border-border dark:border-dark-border">
                       <span>Dodatkowe ujęcie</span><span>{formatPriceLabel(80)}</span>
@@ -641,12 +644,15 @@ export default function Pricing() {
                       Minimalne zamówienie: {formatPriceLabel(500)} lub 6 zdjęć
                     </div>
                     <div className="pt-2">
-                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Packshot (białe tło):</p>
+                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Packshot (białe tło, progresywnie):</p>
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
-                        <div className="flex justify-between"><span>1-20 sztuk</span><span>{formatPriceLabel(90)}</span></div>
-                        <div className="flex justify-between"><span>21-50 sztuk</span><span>{formatPriceLabel(70)}</span></div>
-                        <div className="flex justify-between"><span>50+ sztuk</span><span>{formatPriceLabel(55)}</span></div>
+                        <div className="flex justify-between"><span>Sztuki 1-20</span><span>{formatPriceLabel(90)}</span></div>
+                        <div className="flex justify-between"><span>Sztuki 21-50</span><span>{formatPriceLabel(70)}</span></div>
+                        <div className="flex justify-between"><span>Sztuki od 51</span><span>{formatPriceLabel(55)}</span></div>
                       </div>
+                      <p className="text-[11px] text-steel dark:text-dark-text-muted mt-1.5">
+                        Niższa cena dotyczy tylko sztuk w danym przedziale, nie całego zamówienia — więcej sztuk nigdy nie obniża sumy.
+                      </p>
                     </div>
                     <div className="pt-3 border-t border-border dark:border-dark-border">
                       <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Zdjęcia kreatywne / reklamowe:</p>

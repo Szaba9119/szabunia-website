@@ -270,11 +270,11 @@ const serviceCategoriesRaw: ServiceData[] = [
         rows: [],
         groups: [
           {
-            label: "Stawka za osobę (1 retusz)",
+            label: "Stawka za osobę (1 retusz, progresywnie)",
             items: [
-              { label: "4-10 osób", value: "150 zł" },
-              { label: "11-30 osób", value: "120 zł" },
-              { label: "30+ osób", value: "100 zł" },
+              { label: "Osoby 4-10", value: "150 zł" },
+              { label: "Osoby 11-30", value: "120 zł" },
+              { label: "Osoby od 31", value: "100 zł" },
             ],
           },
           {
@@ -299,7 +299,7 @@ const serviceCategoriesRaw: ServiceData[] = [
             note: "Mobilne studio u Ciebie w biurze, rozstawienie ok. 20 min, wystarczy ~3 m².",
           },
         ],
-        note: "Sesje zespołowe realizuję od 4 osób. Dla 1 do 3 osób polecam pakiety indywidualne (Wizerunek & Portrety).",
+        note: "Sesje zespołowe realizuję od 4 osób. Dla 1 do 3 osób polecam pakiety indywidualne (Wizerunek & Portrety). Stawka progresywna: niższa cena dotyczy tylko osób w danym przedziale, nie całej grupy — więcej osób nigdy nie obniża sumy.",
       },
     ],
     faqs: [
@@ -419,11 +419,11 @@ const serviceCategoriesRaw: ServiceData[] = [
         rows: [],
         groups: [
           {
-            label: "Packshot (białe tło)",
+            label: "Packshot (białe tło, progresywnie)",
             items: [
-              { label: "1-20 sztuk", value: "90 zł" },
-              { label: "21-50 sztuk", value: "70 zł" },
-              { label: "50+ sztuk", value: "55 zł" },
+              { label: "Sztuki 1-20", value: "90 zł" },
+              { label: "Sztuki 21-50", value: "70 zł" },
+              { label: "Sztuki od 51", value: "55 zł" },
             ],
           },
           {
@@ -434,7 +434,7 @@ const serviceCategoriesRaw: ServiceData[] = [
             ],
           },
         ],
-        note: "Retusz i wycięcie produktu z tła w cenie każdego zdjęcia. Minimalne zamówienie: 500 zł lub 6 zdjęć",
+        note: "Retusz i wycięcie produktu z tła w cenie każdego zdjęcia. Minimalne zamówienie: 500 zł lub 6 zdjęć. Stawka progresywna: niższa cena dotyczy tylko sztuk w danym przedziale, nie całego zamówienia — więcej sztuk nigdy nie obniża sumy.",
       },
     ],
     faqs: [

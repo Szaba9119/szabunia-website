@@ -66,6 +66,27 @@ const defaultConfig: CalcConfig = {
   droneExtraHours: 0,
 };
 
+/**
+ * Nalicza cenę progresywnie po progach (jak w podatku): każdy próg płaci swoją
+ * stawkę tylko za jednostki w tym przedziale, nie za całość. Eliminuje "urwisko",
+ * przy którym dodanie jednej jednostki obniżało łączną sumę (np. 11 osób taniej
+ * niż 10, bo cała grupa wpadała w niższy próg zamiast tylko nadwyżki).
+ */
+function tieredTotal(units: number, tiers: { upTo: number; rate: number }[]): number {
+  let remaining = units;
+  let total = 0;
+  let prevCap = 0;
+  for (const tier of tiers) {
+    if (remaining <= 0) break;
+    const unitsInTier = Math.min(remaining, tier.upTo - prevCap);
+    if (unitsInTier <= 0) continue;
+    total += unitsInTier * tier.rate;
+    remaining -= unitsInTier;
+    prevCap = tier.upTo;
+  }
+  return total;
+}
+
 function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
   switch (slug) {
     case "wizerunek-portrety": {
@@ -75,8 +96,11 @@ function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
     }
     case "sesje-zespolowe": {
       const size = config.teamSize ?? 10;
-      const perPerson = size <= 10 ? 150 : size <= 30 ? 120 : 100;
-      let total = size * perPerson;
+      let total = tieredTotal(size, [
+        { upTo: 10, rate: 150 },
+        { upTo: 30, rate: 120 },
+        { upTo: Infinity, rate: 100 },
+      ]);
       // Dodatkowe ujęcia na osobę: 80 zł/szt. (poza 1 retuszem w stawce os.)
       total += (config.teamExtraPhotosPerPerson ?? 0) * 80 * size;
       if (config.studioSetup) total += 450;
@@ -88,8 +112,12 @@ function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
     case "fotografia-produktowa": {
       const count = config.productCount ?? 20;
       if (config.productType === "packshot") {
-        const perItem = count <= 20 ? 90 : count <= 50 ? 70 : 55;
-        return Math.max(500, count * perItem);
+        const total = tieredTotal(count, [
+          { upTo: 20, rate: 90 },
+          { upTo: 50, rate: 70 },
+          { upTo: Infinity, rate: 55 },
+        ]);
+        return Math.max(500, total);
       }
       if (config.productType === "creative-web") return count * 200;
       return count * 600; // creative-print
