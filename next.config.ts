@@ -18,9 +18,9 @@ const csp = [
   // Fonty sa self-hostowane przez next/font — domeny Google Fonts celowo usuniete z allowlisty.
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self'",
-  // Zawezone z "https:": jedyne zewnetrzne obrazy to miniatury YouTube (YouTubeFacade)
-  // + ewentualny pixel-fallback GA4.
-  "img-src 'self' data: blob: https://i.ytimg.com https://*.google-analytics.com",
+  // Zawezone z "https:": jedyne zewnetrzne obrazy to miniatury YouTube (YouTubeFacade),
+  // ewentualny pixel-fallback GA4, i zasoby widgetu Turnstile.
+  "img-src 'self' data: blob: https://i.ytimg.com https://*.google-analytics.com https://challenges.cloudflare.com",
   "frame-src https://www.youtube.com https://challenges.cloudflare.com",
   "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://challenges.cloudflare.com",
   "media-src 'self'",
