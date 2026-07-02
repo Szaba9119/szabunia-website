@@ -136,7 +136,7 @@ function fmtPrice(netto: number, mode: PriceMode): string {
 
 /** Przelicza "od X zł / ..." na netto/brutto, zachowując prefiks i sufiks (/ h, / os., / szt.). */
 function formatCardPrice(priceStr: string, mode: PriceMode): string {
-  const match = priceStr.match(/\d[\d\s]*\d/);
+  const match = priceStr.match(/\d[\d\s]*/);
   if (!match) return priceStr;
   const netto = parseInt(match[0].replace(/\s/g, ""), 10);
   if (!netto) return priceStr;
@@ -578,6 +578,7 @@ export default function PricingCalculator() {
                     setSelectedService(s.slug as ServiceSlug);
                     setConfig(defaultConfig);
                     setStep(2);
+                    gtagEvent("calculator_service_selected", { service: s.slug });
                   }}
                   className={`p-4 rounded-2xl border text-left transition-all hover:-translate-y-0.5 ${
                     selectedService === s.slug
@@ -674,8 +675,9 @@ export default function PricingCalculator() {
                 <ConfigSummary slug={selectedService} config={config} />
               </div>
 
-              <button
-                onClick={() => {
+              <a
+                href="#kontakt"
+                onClick={(e) => {
                   const items: string[] = [];
                   const summaryEl = document.querySelector("[data-config-summary]");
                   if (summaryEl) {
@@ -686,12 +688,16 @@ export default function PricingCalculator() {
                   const summary = `Usługa: ${selectedItem?.title}\nKonfiguracja: ${items.filter(Boolean).join(", ")}\nSzacunkowa kwota: ${displayPrice.toLocaleString("pl-PL")} zł ${mode === "netto" ? "netto" : "brutto"}`;
                   gtagEvent("calculator_to_form", { service: selectedService ?? "(brak)" });
                   window.dispatchEvent(new CustomEvent("calc-to-form", { detail: { service: selectedService, message: summary } }));
-                  document.getElementById("kontakt")?.scrollIntoView({ behavior: "smooth" });
+                  const target = document.getElementById("kontakt");
+                  if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: "smooth" });
+                  }
                 }}
                 className="inline-block bg-gradient-to-br from-blue to-blue-light text-white px-8 py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.02] transition-transform"
               >
                 Wyślij konfigurację w formularzu
-              </button>
+              </a>
             </div>
 
             <div className="flex gap-3 mt-6">

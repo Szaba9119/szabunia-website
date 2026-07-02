@@ -13,6 +13,7 @@ const TURNSTILE_ENABLED = !!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 interface FieldErrors {
   name?: string;
   email?: string;
+  consent?: string;
 }
 
 function validateField(name: string, value: string): string | undefined {
@@ -35,12 +36,16 @@ export default function CTA() {
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileBlocked, setTurnstileBlocked] = useState(false);
   const formRef = useRef<HTMLFormElement>(null);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+  const formStartedRef = useRef(false);
+
+  const GENERIC_ERROR = "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na marcin@szabunia.pl";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -51,13 +56,14 @@ export default function CTA() {
     const errors: FieldErrors = {};
     if (nameErr) errors.name = nameErr;
     if (emailErr) errors.email = emailErr;
+    if (!consent) errors.consent = "Zaznacz zgodę powyżej, aby wysłać";
     setFieldErrors(errors);
     setTouched({ name: true, email: true });
 
     if (Object.keys(errors).length > 0) return;
 
     setSending(true);
-    setError(false);
+    setError(null);
 
     try {
       const res = await fetch(`/api/contact`, {
@@ -79,11 +85,12 @@ export default function CTA() {
         setSubmitted(true);
         gtagEvent("contact_submit", { service: formData.service || "(brak)" });
       } else {
-        setError(true);
+        const body: { error?: string } | null = await res.json().catch(() => null);
+        setError(body?.error || GENERIC_ERROR);
         turnstileRef.current?.reset();
       }
     } catch {
-      setError(true);
+      setError(GENERIC_ERROR);
       turnstileRef.current?.reset();
     } finally {
       setSending(false);
@@ -96,6 +103,10 @@ export default function CTA() {
     >
   ) => {
     const { name, value } = e.target;
+    if (!formStartedRef.current) {
+      formStartedRef.current = true;
+      gtagEvent("contact_form_started", { field: name });
+    }
     setFormData((prev) => ({ ...prev, [name]: value }));
     // Clear error on change if field was touched
     if (touched[name]) {
@@ -475,12 +486,16 @@ export default function CTA() {
                       />
                     </div>
 
-                    <label className="flex items-start gap-2.5 mb-4 cursor-pointer">
+                    <label className="flex items-start gap-2.5 mb-1.5 cursor-pointer">
                       <input
                         type="checkbox"
                         checked={consent}
-                        onChange={(e) => setConsent(e.target.checked)}
-                        required
+                        onChange={(e) => {
+                          setConsent(e.target.checked);
+                          if (e.target.checked) setFieldErrors((prev) => ({ ...prev, consent: undefined }));
+                        }}
+                        aria-invalid={!!fieldErrors.consent}
+                        aria-describedby={fieldErrors.consent ? "consent-error" : undefined}
                         className="mt-0.5 w-4 h-4 rounded border-border dark:border-navy-light accent-blue flex-shrink-0"
                       />
                       <span className="text-[11px] text-steel dark:text-dark-text-muted leading-relaxed">
@@ -490,24 +505,41 @@ export default function CTA() {
                         </a>.
                       </span>
                     </label>
+                    {fieldErrors.consent && (
+                      <p id="consent-error" role="alert" className="text-red-600 dark:text-red-400 text-[11px] mb-3">
+                        {fieldErrors.consent}
+                      </p>
+                    )}
+                    {!fieldErrors.consent && <div className="mb-4" />}
 
-                    <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
+                    <TurnstileWidget
+                      ref={turnstileRef}
+                      onVerify={setTurnstileToken}
+                      onBlocked={() => setTurnstileBlocked(true)}
+                    />
 
                     {error && (
                       <p role="alert" className="text-red-600 dark:text-red-400 text-[12px] mb-3 text-center">
-                        Wystąpił błąd. Spróbuj ponownie lub napisz bezpośrednio na marcin@szabunia.pl
+                        {error}
                       </p>
                     )}
 
-                    {TURNSTILE_ENABLED && consent && !turnstileToken && !sending && (
-                      <p className="text-center text-[11px] text-steel dark:text-dark-text-muted mb-3">
-                        Ładowanie zabezpieczenia antybotowego...
-                      </p>
+                    {TURNSTILE_ENABLED && !turnstileToken && !sending && (
+                      turnstileBlocked ? (
+                        <p role="alert" className="text-center text-[12px] text-red-600 dark:text-red-400 mb-3">
+                          Zabezpieczenie antybotowe nie załadowało się (możliwa blokada przez AdBlock lub rozszerzenie przeglądarki). Napisz bezpośrednio:{" "}
+                          <a href="mailto:marcin@szabunia.pl" className="underline">marcin@szabunia.pl</a>
+                        </p>
+                      ) : (
+                        <p className="text-center text-[11px] text-steel dark:text-dark-text-muted mb-3">
+                          Ładowanie zabezpieczenia antybotowego...
+                        </p>
+                      )
                     )}
 
                     <button
                       type="submit"
-                      disabled={sending || !consent || (TURNSTILE_ENABLED && !turnstileToken)}
+                      disabled={sending || (TURNSTILE_ENABLED && !turnstileToken)}
                       className={`w-full bg-gradient-to-br from-blue to-blue-light text-white py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:shadow-blue/40 hover:brightness-110 active:scale-[0.98] disabled:opacity-80 disabled:hover:scale-100 disabled:hover:shadow-none disabled:hover:brightness-100 ${sending ? "disabled:cursor-wait" : "disabled:cursor-not-allowed"}`}
                     >
                       {sending ? (

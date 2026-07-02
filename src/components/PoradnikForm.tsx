@@ -18,10 +18,15 @@ export default function PoradnikForm() {
   const [touched, setTouched] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileBlocked, setTurnstileBlocked] = useState(false);
+  const [consentTouched, setConsentTouched] = useState(false);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+
+  const GENERIC_ERROR = "Coś poszło nie tak. Spróbuj ponownie lub napisz na marcin@szabunia.pl";
 
   const emailErr =
     touched && !EMAIL_RE.test(email.trim()) ? "Podaj poprawny adres e-mail" : null;
+  const consentErr = consentTouched && !consent ? "Zaznacz zgodę powyżej, aby wysłać" : null;
 
   function triggerDownload() {
     const a = document.createElement("a");
@@ -35,6 +40,7 @@ export default function PoradnikForm() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setTouched(true);
+    setConsentTouched(true);
     if (!EMAIL_RE.test(email.trim()) || !consent) return;
 
     setSending(true);
@@ -55,15 +61,12 @@ export default function PoradnikForm() {
         gtagEvent("generate_lead", { source: "poradnik" });
         triggerDownload();
       } else {
-        setError(
-          "Coś poszło nie tak. Spróbuj ponownie lub napisz na marcin@szabunia.pl"
-        );
+        const body: { error?: string } | null = await res.json().catch(() => null);
+        setError(body?.error || GENERIC_ERROR);
         turnstileRef.current?.reset();
       }
     } catch {
-      setError(
-        "Coś poszło nie tak. Spróbuj ponownie lub napisz na marcin@szabunia.pl"
-      );
+      setError(GENERIC_ERROR);
       turnstileRef.current?.reset();
     } finally {
       setSending(false);
@@ -139,12 +142,17 @@ export default function PoradnikForm() {
           </p>
         )}
 
-        <label className="flex items-start gap-2.5 mt-4 mb-4 cursor-pointer">
+        <label className="flex items-start gap-2.5 mt-4 mb-1.5 cursor-pointer">
           <input
             type="checkbox"
             checked={consent}
-            onChange={(e) => setConsent(e.target.checked)}
-            required
+            onChange={(e) => {
+              setConsent(e.target.checked);
+              if (e.target.checked) setConsentTouched(false);
+            }}
+            onBlur={() => setConsentTouched(true)}
+            aria-invalid={!!consentErr}
+            aria-describedby={consentErr ? "consent-error" : undefined}
             className="mt-0.5 w-4 h-4 rounded border-border dark:border-navy-light accent-blue flex-shrink-0"
           />
           <span className="text-[11px] text-steel dark:text-dark-text-muted leading-relaxed">
@@ -154,8 +162,18 @@ export default function PoradnikForm() {
             </a>.
           </span>
         </label>
+        {consentErr && (
+          <p id="consent-error" role="alert" className="text-red-600 dark:text-red-400 text-[11px] mb-3">
+            {consentErr}
+          </p>
+        )}
+        {!consentErr && <div className="mb-4" />}
 
-        <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
+        <TurnstileWidget
+          ref={turnstileRef}
+          onVerify={setTurnstileToken}
+          onBlocked={() => setTurnstileBlocked(true)}
+        />
 
         {error && (
           <p role="alert" className="text-red-600 dark:text-red-400 text-[12px] mb-3 text-center">
@@ -163,15 +181,22 @@ export default function PoradnikForm() {
           </p>
         )}
 
-        {TURNSTILE_ENABLED && consent && !turnstileToken && !sending && (
-          <p className="text-center text-[11px] text-steel dark:text-dark-text-muted mb-3">
-            Ładowanie zabezpieczenia antybotowego...
-          </p>
+        {TURNSTILE_ENABLED && !turnstileToken && !sending && (
+          turnstileBlocked ? (
+            <p role="alert" className="text-center text-[12px] text-red-600 dark:text-red-400 mb-3">
+              Zabezpieczenie antybotowe nie załadowało się (możliwa blokada przez AdBlock lub rozszerzenie przeglądarki). Napisz na:{" "}
+              <a href="mailto:marcin@szabunia.pl" className="underline">marcin@szabunia.pl</a>
+            </p>
+          ) : (
+            <p className="text-center text-[11px] text-steel dark:text-dark-text-muted mb-3">
+              Ładowanie zabezpieczenia antybotowego...
+            </p>
+          )
         )}
 
         <button
           type="submit"
-          disabled={sending || !consent || (TURNSTILE_ENABLED && !turnstileToken)}
+          disabled={sending || (TURNSTILE_ENABLED && !turnstileToken)}
           className={`w-full bg-gradient-to-br from-blue to-blue-light text-white py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform disabled:opacity-70 ${sending ? "disabled:cursor-wait" : "disabled:cursor-not-allowed"}`}
         >
           {sending ? (
