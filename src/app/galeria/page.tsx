@@ -14,7 +14,6 @@ import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import BlogPreview from "@/components/BlogPreview";
 import PoradnikTeaser from "@/components/PoradnikTeaser";
-import Warunki from "@/components/Warunki";
 import MobileFAB from "@/components/MobileFAB";
 import { galleryVideos } from "@/data/galeria";
 import { listGalleryImagesSized } from "@/lib/galleryImages";
@@ -192,10 +191,6 @@ export default async function GaleriaPage({
 
         <ErrorBoundary>
           <PoradnikTeaser />
-        </ErrorBoundary>
-
-        <ErrorBoundary>
-          <Warunki />
         </ErrorBoundary>
 
         <ErrorBoundary>
