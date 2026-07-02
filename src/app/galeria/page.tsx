@@ -6,10 +6,8 @@ import CTA from "@/components/CTA";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import AnimatedSection from "@/components/AnimatedSection";
 import GalleryView, { type GalleryCategory } from "@/components/GalleryView";
-import Services from "@/components/Services";
 import LogoBar from "@/components/LogoBar";
 import Testimonials from "@/components/Testimonials";
-import About from "@/components/About";
 import Publications from "@/components/Publications";
 import Process from "@/components/Process";
 import Pricing from "@/components/Pricing";
@@ -170,14 +168,6 @@ export default async function GaleriaPage({
 
         <ErrorBoundary>
           <LogoBar />
-        </ErrorBoundary>
-
-        <ErrorBoundary>
-          <About />
-        </ErrorBoundary>
-
-        <ErrorBoundary>
-          <Services />
         </ErrorBoundary>
 
         <ErrorBoundary>
