@@ -19,17 +19,12 @@ import PoradnikBlogCTA from "@/components/PoradnikBlogCTA";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { getPostsForService } from "@/data/blog";
 
-// Poradnik (lead magnet) pokazujemy tam, gdzie temat „przygotowanie do sesji"
-// pasuje (osoby przed obiektywem) — rozszerzone na wszystkie usługi z udziałem ludzi
-// na życzenie Marcina (2026-07-02, więcej punktów przechwytywania leada w lejku).
-// Produkty i dron celowo pominięte — poradnik dotyczy stylizacji/pozowania, co nie
-// ma zastosowania do packshotów czy zdjęć z lotu ptaka.
+// Poradnik (lead magnet) dotyczy wyłącznie stylizacji/pozowania do pojedynczego
+// portretu — pokazujemy go tylko na stronie portretów i na stronie głównej
+// (potwierdzone przez Marcina 2026-07-02, wcześniejsze rozszerzenie na zespoły/
+// eventy/wideo było błędne — treść poradnika tego nie obejmuje).
 const SHOW_PORADNIK = new Set<string>([
   "wizerunek-portrety",
-  "sesje-zespolowe",
-  "pakiety-foto-wideo",
-  "eventy-reportaze",
-  "wideo-marketing",
 ]);
 
 export function generateStaticParams() {

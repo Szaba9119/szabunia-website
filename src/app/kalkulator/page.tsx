@@ -7,7 +7,6 @@ import Footer from "@/components/Footer";
 import MobileFAB from "@/components/MobileFAB";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import AnimatedSection from "@/components/AnimatedSection";
-import PoradnikBlogCTA from "@/components/PoradnikBlogCTA";
 
 export const metadata: Metadata = {
   title: "Kalkulator wyceny sesji foto i wideo | Marcin Szabunia Poznań",
@@ -60,12 +59,6 @@ export default function KalkulatorPage() {
           <ErrorBoundary>
             <PricingCalculator />
           </ErrorBoundary>
-
-          <div className="max-w-3xl mx-auto mt-8">
-            <ErrorBoundary>
-              <PoradnikBlogCTA />
-            </ErrorBoundary>
-          </div>
         </div>
 
         <div className="mt-16">
