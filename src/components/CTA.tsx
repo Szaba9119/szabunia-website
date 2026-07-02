@@ -6,7 +6,9 @@ import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
 import { gtagEvent } from "@/lib/gtag";
 import { getUtmParams } from "@/lib/utm";
-import TurnstileWidget from "./TurnstileWidget";
+import TurnstileWidget, { type TurnstileWidgetHandle } from "./TurnstileWidget";
+
+const TURNSTILE_ENABLED = !!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 interface FieldErrors {
   name?: string;
@@ -38,6 +40,7 @@ export default function CTA() {
   const [touched, setTouched] = useState<Record<string, boolean>>({});
   const [turnstileToken, setTurnstileToken] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
+  const turnstileRef = useRef<TurnstileWidgetHandle>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,9 +80,11 @@ export default function CTA() {
         gtagEvent("contact_submit", { service: formData.service || "(brak)" });
       } else {
         setError(true);
+        turnstileRef.current?.reset();
       }
     } catch {
       setError(true);
+      turnstileRef.current?.reset();
     } finally {
       setSending(false);
     }
@@ -354,7 +359,7 @@ export default function CTA() {
                         className={`w-full bg-white dark:bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter transition-colors ${fieldErrors.name ? "border-red-400 focus:border-red-400" : "border-border dark:border-navy-light focus:border-blue"}`}
                       />
                       {fieldErrors.name && (
-                        <p id="name-error" role="alert" className="text-red-400 text-[11px] mt-1">{fieldErrors.name}</p>
+                        <p id="name-error" role="alert" className="text-red-600 dark:text-red-400 text-[11px] mt-1">{fieldErrors.name}</p>
                       )}
                     </div>
 
@@ -378,7 +383,7 @@ export default function CTA() {
                           className={`w-full bg-white dark:bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter transition-colors ${fieldErrors.email ? "border-red-400 focus:border-red-400" : "border-border dark:border-navy-light focus:border-blue"}`}
                         />
                         {fieldErrors.email && (
-                          <p id="email-error" role="alert" className="text-red-400 text-[11px] mt-1">{fieldErrors.email}</p>
+                          <p id="email-error" role="alert" className="text-red-600 dark:text-red-400 text-[11px] mt-1">{fieldErrors.email}</p>
                         )}
                       </div>
                       <div>
@@ -476,7 +481,7 @@ export default function CTA() {
                         checked={consent}
                         onChange={(e) => setConsent(e.target.checked)}
                         required
-                        className="mt-0.5 w-4 h-4 rounded border-navy-light accent-blue flex-shrink-0"
+                        className="mt-0.5 w-4 h-4 rounded border-border dark:border-navy-light accent-blue flex-shrink-0"
                       />
                       <span className="text-[11px] text-steel dark:text-dark-text-muted leading-relaxed">
                         Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z{" "}
@@ -486,17 +491,23 @@ export default function CTA() {
                       </span>
                     </label>
 
-                    <TurnstileWidget onVerify={setTurnstileToken} />
+                    <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
 
                     {error && (
-                      <p role="alert" className="text-red-400 text-[12px] mb-3 text-center">
+                      <p role="alert" className="text-red-600 dark:text-red-400 text-[12px] mb-3 text-center">
                         Wystąpił błąd. Spróbuj ponownie lub napisz bezpośrednio na marcin@szabunia.pl
+                      </p>
+                    )}
+
+                    {TURNSTILE_ENABLED && consent && !turnstileToken && !sending && (
+                      <p className="text-center text-[11px] text-steel dark:text-dark-text-muted mb-3">
+                        Ładowanie zabezpieczenia antybotowego...
                       </p>
                     )}
 
                     <button
                       type="submit"
-                      disabled={sending || !consent}
+                      disabled={sending || !consent || (TURNSTILE_ENABLED && !turnstileToken)}
                       className={`w-full bg-gradient-to-br from-blue to-blue-light text-white py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:shadow-blue/40 hover:brightness-110 active:scale-[0.98] disabled:opacity-80 disabled:hover:scale-100 disabled:hover:shadow-none disabled:hover:brightness-100 ${sending ? "disabled:cursor-wait" : "disabled:cursor-not-allowed"}`}
                     >
                       {sending ? (

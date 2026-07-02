@@ -174,7 +174,6 @@ export default function Navigation() {
         <div
           id="mobile-menu"
           className="absolute top-full mt-2 left-4 right-4 rounded-2xl p-6 md:hidden shadow-xl shadow-navy/10 dark:shadow-black/30 bg-white/95 dark:bg-[rgba(11,15,26,0.96)] backdrop-blur-xl border border-white/25 dark:border-white/[0.08]"
-          role="menu"
           onKeyDown={(e: ReactKeyboardEvent<HTMLDivElement>) => {
             if (e.key === "Tab") {
               const focusable = e.currentTarget.querySelectorAll<HTMLElement>(
@@ -210,7 +209,6 @@ export default function Navigation() {
                 <a
                   key={link.label}
                   href={`${linkPrefix}${link.href}`}
-                  role="menuitem"
                   onClick={() => closeMobileMenu()}
                   className={cls}
                 >
@@ -221,7 +219,6 @@ export default function Navigation() {
                 <Link
                   key={link.label}
                   href={link.href}
-                  role="menuitem"
                   onClick={() => closeMobileMenu()}
                   className={cls}
                 >
@@ -234,7 +231,6 @@ export default function Navigation() {
           <Link
             href="/kontakt"
             data-cta="wycena_navbar"
-            role="menuitem"
             onClick={() => closeMobileMenu()}
             className="mt-5 block bg-gradient-to-br from-blue to-blue-light text-white px-5 py-3.5 rounded-xl font-barlow font-semibold text-[15px] text-center btn-glow"
           >

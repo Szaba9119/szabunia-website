@@ -10,14 +10,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter((c) => !c.externalUrl && !isPortfolioDraft(c.slug))
     .map((c) => ({
       url: `${baseUrl}/portfolio/${c.slug}`,
-      lastModified: new Date(),
       changeFrequency: "monthly" as const,
       priority: 0.8,
     }));
 
   const servicePages = serviceCategories.map((s) => ({
     url: `${baseUrl}/uslugi/${s.slug}`,
-    lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
@@ -32,58 +30,49 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: baseUrl,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
       url: `${baseUrl}/uslugi`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     ...servicePages,
     {
       url: `${baseUrl}/kontakt`,
-      lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.8,
     },
     {
       url: `${baseUrl}/portfolio`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
       url: `${baseUrl}/galeria`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     ...portfolioPages,
     {
       url: `${baseUrl}/blog`,
-      lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.7,
     },
     ...blogPages,
     {
       url: `${baseUrl}/kalkulator`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${baseUrl}/poradnik`,
-      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
     },
     {
       url: `${baseUrl}/polityka-prywatnosci`,
-      lastModified: new Date(),
       changeFrequency: "yearly",
       priority: 0.3,
     },

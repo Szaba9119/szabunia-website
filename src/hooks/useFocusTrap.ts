@@ -22,7 +22,9 @@ export function useFocusTrap(
 
     const previouslyFocused = document.activeElement as HTMLElement | null;
     const getFocusable = () =>
-      Array.from(container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR));
+      Array.from(
+        container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+      ).filter((el) => el.offsetParent !== null);
 
     if (!container.contains(document.activeElement)) {
       const first = getFocusable()[0];

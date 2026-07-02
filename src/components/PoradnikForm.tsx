@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { gtagEvent } from "@/lib/gtag";
 import { getUtmParams } from "@/lib/utm";
-import TurnstileWidget from "./TurnstileWidget";
+import TurnstileWidget, { type TurnstileWidgetHandle } from "./TurnstileWidget";
 
 const PDF_URL = "/poradnik-przygotowanie-do-sesji.pdf";
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const TURNSTILE_ENABLED = !!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
 export default function PoradnikForm() {
   const [email, setEmail] = useState("");
@@ -17,6 +18,7 @@ export default function PoradnikForm() {
   const [touched, setTouched] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileRef = useRef<TurnstileWidgetHandle>(null);
 
   const emailErr =
     touched && !EMAIL_RE.test(email.trim()) ? "Podaj poprawny adres e-mail" : null;
@@ -56,11 +58,13 @@ export default function PoradnikForm() {
         setError(
           "Coś poszło nie tak. Spróbuj ponownie lub napisz na marcin@szabunia.pl"
         );
+        turnstileRef.current?.reset();
       }
     } catch {
       setError(
         "Coś poszło nie tak. Spróbuj ponownie lub napisz na marcin@szabunia.pl"
       );
+      turnstileRef.current?.reset();
     } finally {
       setSending(false);
     }
@@ -68,7 +72,7 @@ export default function PoradnikForm() {
 
   if (submitted) {
     return (
-      <div className="glass-dark rounded-2xl p-6 text-center" role="status" aria-live="polite">
+      <div className="bg-gray-bg dark:bg-white/[0.04] border border-border dark:border-white/10 rounded-2xl p-6 text-center" role="status" aria-live="polite">
         <div className="w-16 h-16 rounded-full bg-blue/20 flex items-center justify-center mx-auto mb-4">
           <svg className="w-8 h-8 text-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -77,7 +81,7 @@ export default function PoradnikForm() {
         <p className="text-navy dark:text-white font-barlow font-bold text-lg mb-1">
           Gotowe — pobieranie ruszyło!
         </p>
-        <p className="text-steel text-sm mb-5">
+        <p className="text-steel dark:text-dark-text-muted text-sm mb-5">
           Kopię linku wysłałem też na <span className="text-navy dark:text-white">{email.trim()}</span> (sprawdź też spam).
         </p>
         <a
@@ -92,11 +96,11 @@ export default function PoradnikForm() {
   }
 
   return (
-    <div className="glass-dark rounded-2xl p-6">
+    <div className="bg-gray-bg dark:bg-white/[0.04] border border-border dark:border-white/10 rounded-2xl p-6">
       <p className="text-navy dark:text-white font-barlow font-bold text-lg mb-1">
         Pobierz poradnik za darmo
       </p>
-      <p className="text-steel text-[13px] mb-5">
+      <p className="text-steel dark:text-dark-text-muted text-[13px] mb-5">
         Zostaw e-mail, a wyślę Ci plik PDF i od razu uruchomię pobieranie.
       </p>
       <form onSubmit={handleSubmit} noValidate>
@@ -112,7 +116,7 @@ export default function PoradnikForm() {
           className="hidden"
         />
 
-        <label htmlFor="lead-email" className="block text-[11px] text-steel font-barlow font-semibold uppercase tracking-wide mb-1.5">
+        <label htmlFor="lead-email" className="block text-[11px] text-steel dark:text-dark-text-muted font-barlow font-semibold uppercase tracking-wide mb-1.5">
           Twój e-mail
         </label>
         <input
@@ -127,10 +131,10 @@ export default function PoradnikForm() {
           aria-invalid={!!emailErr}
           aria-describedby={emailErr ? "lead-email-error" : undefined}
           placeholder="jan@firma.pl"
-          className={`w-full bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter transition-colors ${emailErr ? "border-red-400 focus:border-red-400" : "border-navy-light focus:border-blue"}`}
+          className={`w-full bg-white dark:bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter transition-colors ${emailErr ? "border-red-400 focus:border-red-400" : "border-border dark:border-navy-light focus:border-blue"}`}
         />
         {emailErr && (
-          <p id="lead-email-error" role="alert" className="text-red-400 text-[11px] mt-1">
+          <p id="lead-email-error" role="alert" className="text-red-600 dark:text-red-400 text-[11px] mt-1">
             {emailErr}
           </p>
         )}
@@ -141,9 +145,9 @@ export default function PoradnikForm() {
             checked={consent}
             onChange={(e) => setConsent(e.target.checked)}
             required
-            className="mt-0.5 w-4 h-4 rounded border-navy-light accent-blue flex-shrink-0"
+            className="mt-0.5 w-4 h-4 rounded border-border dark:border-navy-light accent-blue flex-shrink-0"
           />
-          <span className="text-[11px] text-steel leading-relaxed">
+          <span className="text-[11px] text-steel dark:text-dark-text-muted leading-relaxed">
             Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu wysłania poradnika oraz okazjonalnych wskazówek związanych z sesją (zgodę mogę wycofać, pisząc na marcin@szabunia.pl), zgodnie z{" "}
             <a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer" className="text-blue hover:text-white underline transition-colors">
               polityką prywatności
@@ -151,17 +155,23 @@ export default function PoradnikForm() {
           </span>
         </label>
 
-        <TurnstileWidget onVerify={setTurnstileToken} />
+        <TurnstileWidget ref={turnstileRef} onVerify={setTurnstileToken} />
 
         {error && (
-          <p role="alert" className="text-red-400 text-[12px] mb-3 text-center">
+          <p role="alert" className="text-red-600 dark:text-red-400 text-[12px] mb-3 text-center">
             {error}
+          </p>
+        )}
+
+        {TURNSTILE_ENABLED && consent && !turnstileToken && !sending && (
+          <p className="text-center text-[11px] text-steel dark:text-dark-text-muted mb-3">
+            Ładowanie zabezpieczenia antybotowego...
           </p>
         )}
 
         <button
           type="submit"
-          disabled={sending || !consent}
+          disabled={sending || !consent || (TURNSTILE_ENABLED && !turnstileToken)}
           className={`w-full bg-gradient-to-br from-blue to-blue-light text-white py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform disabled:opacity-70 ${sending ? "disabled:cursor-wait" : "disabled:cursor-not-allowed"}`}
         >
           {sending ? (
@@ -174,7 +184,7 @@ export default function PoradnikForm() {
             </span>
           ) : "Wyślij i pobierz poradnik"}
         </button>
-        <p className="text-center text-[11px] text-steel mt-2.5">
+        <p className="text-center text-[11px] text-steel dark:text-dark-text-muted mt-2.5">
           Bez spamu. Sam plik i ewentualnie pojedyncze wskazówki.
         </p>
       </form>

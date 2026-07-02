@@ -28,6 +28,14 @@ const faqStructuredData = {
   mainEntity: [
     {
       "@type": "Question",
+      name: "Na jakim sprzęcie pracujesz?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Pracuję na dwóch aparatach Canon R6, każdy zapisuje materiał równolegle na dwóch kartach, więc zdjęcia z sesji są bezpieczne. Obiektywy: Sigma 20, 35 i 50 mm f/1.4 Art, Sigma 70-200 mm f/2.8 Sport, Tamron 24-70 mm f/2.8 i Tokina 16-28 mm f/2.8, czyli pełne pokrycie ogniskowych od 16 do 200 mm. Oświetlenie Godox: mobilny system lamp błyskowych z modyfikatorami oraz studyjne światło ciągłe LED. Dźwięk: Rode Wireless PRO, Rode VideoMicro II i rejestrator Zoom. Do tego dron DJI Mini 5 Pro z certyfikatem operatora A1/A3 i ubezpieczeniem OC.",
+      },
+    },
+    {
+      "@type": "Question",
       name: "Ile kosztuje sesja?",
       acceptedAnswer: {
         "@type": "Answer",
