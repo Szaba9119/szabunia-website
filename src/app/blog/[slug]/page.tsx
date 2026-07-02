@@ -95,6 +95,20 @@ export default async function BlogPostPage({ params }: PageProps) {
         { "@type": "ListItem", position: 3, name: post.title },
       ],
     },
+    // FAQPage tylko dla wpisów z sekcją Q&A (featured snippets / AEO)
+    ...(post.faq && post.faq.length > 0
+      ? [
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: post.faq.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          },
+        ]
+      : []),
   ];
 
   const serviceSlug = getServiceSlugForPost(post.slug);
@@ -165,6 +179,30 @@ export default async function BlogPostPage({ params }: PageProps) {
           <AnimatedSection>
             <BlogContent html={post.content} />
           </AnimatedSection>
+
+          {/* FAQ wpisu — widoczna treść odpowiadająca znacznikom FAQPage JSON-LD */}
+          {post.faq && post.faq.length > 0 && (
+            <AnimatedSection className="mt-12">
+              <h2 className="font-barlow font-bold text-xl text-navy dark:text-white mb-5">
+                Najczęstsze pytania
+              </h2>
+              <div className="flex flex-col gap-3">
+                {post.faq.map((f) => (
+                  <div
+                    key={f.q}
+                    className="rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card p-5"
+                  >
+                    <h3 className="font-barlow font-bold text-[15px] text-navy dark:text-white mb-1.5">
+                      {f.q}
+                    </h3>
+                    <p className="text-[13px] text-steel dark:text-dark-text-muted leading-relaxed">
+                      {f.a}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </AnimatedSection>
+          )}
 
           {/* Lead magnet CTA — tylko przy wpisach o przygotowaniu / stylizacji */}
           {["jak-przygotowac-sie-do-sesji-biznesowej", "co-zalozyc-na-sesje-biznesowa"].includes(post.slug) && (
