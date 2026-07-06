@@ -38,9 +38,11 @@ export default function BlogPreview() {
           </p>
         </AnimatedSection>
 
+        {/* Na mobile tylko pierwszy wpis — sekcja zajmowała ~2,6 ekranu telefonu
+            (audyt UX 2026-07-06); pozostałe wpisy dostępne przez „Zobacz wszystkie artykuły". */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {latest.map((post, i) => (
-            <AnimatedSection key={post.slug} delay={0.1 * i}>
+            <AnimatedSection key={post.slug} delay={0.1 * i} className={i > 0 ? "hidden md:block" : undefined}>
               <BlogCard post={post} />
             </AnimatedSection>
           ))}

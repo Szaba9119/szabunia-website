@@ -381,7 +381,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Czy realizujesz wideo reklamowe i spoty?", a: "Tak, krótkie filmy reklamowe pod kampanie w Social Media i online (15-60 s). Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii. Wycena według pakietów montażowych plus praca operatora." },
     ],
     seo: {
-      title: "Wideo marketing i filmy korporacyjne — Marcin Szabunia | Poznań",
+      title: "Wideo marketing i filmy korporacyjne | Marcin Szabunia",
       description: "Filmy korporacyjne, reelsy, filmy promocyjne i reklamowe, relacje z eventów. Profesjonalna produkcja wideo od nagrania po montaż. Poznań i cała Polska.",
     },
   },
@@ -447,8 +447,8 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     portfolioSlug: "artech-fotografia-produktowa",
     seo: {
-      title: "Fotografia produktowa & packshoty — Marcin Szabunia | Poznań",
-      description: "Packshoty na białym tle, zdjęcia kreatywne i fotografia reklamowa produktów. E-commerce, katalogi, Social Media, kampanie. Studio w Poznaniu.",
+      title: "Packshot i fotografia produktowa — Poznań | Marcin Szabunia",
+      description: "Packshoty na białym tle i zdjęcia produktowe w studiu w Poznaniu. E-commerce, katalogi, Social Media. Retusz w cenie zdjęcia.",
     },
   },
   {

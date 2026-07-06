@@ -626,6 +626,9 @@ export default function PricingCalculator() {
                     gtagEvent("calculator_service_selected", { service: s.slug });
                   }}
                   className={`p-4 rounded-2xl border text-left transition-all hover:-translate-y-0.5 ${
+                    // Pakiety (7. pozycja) na pełną szerokość — bez „sieroty" w gridzie (audyt UX 2026-07-06).
+                    s.slug === "pakiety-foto-wideo" ? "sm:col-span-2 " : ""
+                  }${
                     selectedService === s.slug
                       ? "border-blue bg-blue-pale dark:bg-blue/15 dark:border-blue"
                       : "border-border dark:border-dark-border bg-white dark:bg-dark-card hover:border-blue dark:hover:border-blue"

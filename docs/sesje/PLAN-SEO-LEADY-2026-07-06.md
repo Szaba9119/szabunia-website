@@ -19,7 +19,7 @@ Plan naprawczy po sesji diagnostycznej 2026-07-06 (GSC, GA4, Google Ads, Gmail, 
 
 ### Wymaga Twojego "tak" — bez tego nie ruszam dalej
 
-1. **P3.1 — wybór wariantu title/meta** dla `/uslugi/fotografia-produktowa` (A/B/C w sekcji P3.1, albo własna wersja). To zmiana treści widocznej publicznie w Google — stop-condition, nie zgaduję za Ciebie.
+1. ~~**P3.1 — wybór wariantu title/meta**~~ **ZROBIONE 2026-07-06 (wieczór):** Marcin delegował wybór („zrób tak żeby było dobrze") → wdrożony **wariant A** w `services.tsx` (title 60 zn. z „packshot" l.poj. + Poznań; opis z Poznaniem i „retusz w cenie"). Wariant B odrzucony świadomie: cena „od 55 zł" w title bez kontekstu progów przyciągałaby łowców najniższej ceny.
 2. **P2.3 — publikacja 2 nowych wpisów GBP** (IDcom, Box17). Treść gotowa (sekcja P2.3), ale to nowa publiczna treść na Twojej wizytówce — czekam na "publikuj".
 3. **P2.2 — rejestracja w katalogach firm** (yellowpages.pl, panoramafirm.pl, oferteo.pl). Wymaga założenia konta — nie mogę tego zrobić za Ciebie z żadnego powodu, nawet gdybyś się zgodził (zakładanie kont jest poza tym, co mogę robić). Dane do wklejenia gotowe w P2.2.
 4. **P1.2 — wizualna weryfikacja** nowych linków na home (już wdrożone w kodzie) — nie decyzja, ale potrzebuję Twoich oczu, bo nie mam jak tego zobaczyć sam w tej sesji.

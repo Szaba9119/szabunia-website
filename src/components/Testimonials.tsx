@@ -105,7 +105,10 @@ export default function Testimonials() {
                 <div className="text-blue dark:text-blue-light text-sm mb-3" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
                   ★★★★★
                 </div>
-                <blockquote className="text-navy dark:text-white text-[15px] leading-relaxed mb-6 font-inter italic relative z-10 flex-grow">
+                {/* line-clamp: cytat Woohoo jest ~3× dłuższy od pozostałych — bez przycięcia
+                    dwie sąsiednie karty świecą pustką (audyt UX 2026-07-06). Pełna treść
+                    opinii pozostaje w case studies i w Google. */}
+                <blockquote className="text-navy dark:text-white text-[15px] leading-relaxed mb-6 font-inter italic relative z-10 flex-grow line-clamp-[9]">
                   &bdquo;{item.quote}&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-3">
@@ -179,7 +182,7 @@ export default function Testimonials() {
                 <div className="text-blue dark:text-blue-light text-sm mb-4" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
                   ★★★★★
                 </div>
-                <blockquote className="text-navy dark:text-white text-lg md:text-xl leading-relaxed mb-8 font-inter italic relative z-10">
+                <blockquote className="text-navy dark:text-white text-lg md:text-xl leading-relaxed mb-8 font-inter italic relative z-10 line-clamp-[10]">
                   &bdquo;{t.quote}&rdquo;
                 </blockquote>
                 <div className="flex items-center gap-3">

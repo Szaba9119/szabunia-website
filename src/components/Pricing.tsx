@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
-import PricingCalculator from "./PricingCalculator";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
 import { gtagEvent } from "@/lib/gtag";
@@ -226,21 +226,23 @@ export default function Pricing() {
         </AnimatedSection>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
           <AnimatedSection>
-            <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full">
+            {/* flex-col + flex-grow + mt-auto: stopki i przyciski 3 kart EVENT w jednej
+                linii niezależnie od liczby ficzerów (audyt UX 2026-07-06). */}
+            <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full flex flex-col">
               <h4 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1">
                 EVENT STANDARD
               </h4>
               <div className="font-barlow font-extrabold text-3xl text-blue dark:text-blue-light mb-5">
                 {formatPriceLabel(1800)}
               </div>
-              <ul className="space-y-3 text-[13px] text-steel dark:text-dark-text-muted">
+              <ul className="space-y-3 text-[13px] text-steel dark:text-dark-text-muted flex-grow mb-2">
                 <li className="flex items-start gap-2"><CheckIcon /> 3 godziny obecności</li>
                 <li className="flex items-start gap-2"><CheckIcon /> 50+ zdjęć po selekcji i pełnej obróbce</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Wideo w formacie Reels (30s)</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Pełny montaż i postprodukcja wideo</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
-              <p className="text-[11px] text-steel dark:text-dark-text-muted mt-6 pt-4 border-t border-border dark:border-dark-border">
+              <p className="text-[11px] text-steel dark:text-dark-text-muted mt-auto pt-4 border-t border-border dark:border-dark-border">
                 Dodatkowa godzina: {formatPriceLabel(400)}
               </p>
               <AskButton slug="pakiety-foto-wideo" label="EVENT STANDARD" />
@@ -248,7 +250,7 @@ export default function Pricing() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.1}>
-            <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border-2 border-blue dark:border-blue-light h-full relative shadow-lg shadow-blue/5">
+            <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border-2 border-blue dark:border-blue-light h-full relative shadow-lg shadow-blue/5 flex flex-col">
               <div className="absolute -top-3 right-4 bg-blue text-white px-3 py-0.5 rounded-full text-[10px] font-barlow font-bold uppercase tracking-wider">
                 Rekomendowany
               </div>
@@ -258,7 +260,7 @@ export default function Pricing() {
               <div className="font-barlow font-extrabold text-4xl text-blue dark:text-blue-light mb-5">
                 {formatPriceLabel(3200)}
               </div>
-              <ul className="space-y-3 text-[13px] text-navy dark:text-white">
+              <ul className="space-y-3 text-[13px] text-navy dark:text-white flex-grow mb-2">
                 <li className="flex items-start gap-2"><CheckIcon /> 6 godzin obecności</li>
                 <li className="flex items-start gap-2"><CheckIcon /> 150+ zdjęć po selekcji i pełnej obróbce</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Główne wideo podsumowujące (60s)</li>
@@ -266,7 +268,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Pełny montaż i postprodukcja wideo</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
-              <p className="text-[11px] text-steel dark:text-dark-text-muted mt-6 pt-4 border-t border-border dark:border-dark-border">
+              <p className="text-[11px] text-steel dark:text-dark-text-muted mt-auto pt-4 border-t border-border dark:border-dark-border">
                 Dodatkowa godzina: {formatPriceLabel(400)}
               </p>
               <AskButton slug="pakiety-foto-wideo" label="EVENT PROFESSIONAL" />
@@ -274,7 +276,7 @@ export default function Pricing() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full relative">
+            <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full relative flex flex-col">
               <div className="absolute -top-3 right-4 bg-blue text-white px-3 py-0.5 rounded-full text-[10px] font-barlow font-bold uppercase tracking-wider">
                 NOWOŚĆ
               </div>
@@ -284,7 +286,7 @@ export default function Pricing() {
               <div className="font-barlow font-extrabold text-3xl text-blue dark:text-blue-light mb-5">
                 {formatPriceLabel(4500)}
               </div>
-              <ul className="space-y-3 text-[13px] text-steel dark:text-dark-text-muted">
+              <ul className="space-y-3 text-[13px] text-steel dark:text-dark-text-muted flex-grow mb-2">
                 <li className="flex items-start gap-2"><CheckIcon /> Do 8 godzin na miejscu</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Kompletny reportaż, min. 200 zdjęć</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Główny film z wydarzenia (do 90s)</li>
@@ -294,7 +296,7 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Pełen montaż wideo i post-produkcja wywiadów</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
-              <p className="text-[11px] text-steel dark:text-dark-text-muted mt-6 pt-4 border-t border-border dark:border-dark-border">
+              <p className="text-[11px] text-steel dark:text-dark-text-muted mt-auto pt-4 border-t border-border dark:border-dark-border">
                 Dodatkowa godzina: {formatPriceLabel(400)}
               </p>
               <AskButton slug="pakiety-foto-wideo" label="EVENT PREMIUM" />
@@ -696,8 +698,23 @@ export default function Pricing() {
                   </p>
                 </div>
               </div>
+              {/* Teaser zamiast osadzonego kalkulatora (audyt UX 2026-07-06):
+                  pełny kalkulator dokładał ~2,5 ekranu na telefonie, a ma własną
+                  stronę /kalkulator z formularzem i wysyłką wyceny na maila. */}
               <div className="px-6 md:px-8 pb-8 pt-4">
-                <PricingCalculator />
+                <p className="text-[14px] text-steel dark:text-dark-text-muted max-w-xl leading-relaxed">
+                  Wybierz usługę, skonfiguruj zakres i od razu zobacz szacunkową
+                  cenę. Policzoną wycenę wyślesz do mnie jednym kliknięciem — w
+                  formularzu albo na maila.
+                </p>
+                <Link
+                  href="/kalkulator"
+                  data-cta="kalkulator_home_teaser"
+                  className="mt-5 inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
+                >
+                  Otwórz kalkulator wyceny
+                  <span aria-hidden="true">→</span>
+                </Link>
               </div>
             </div>
           </AnimatedSection>

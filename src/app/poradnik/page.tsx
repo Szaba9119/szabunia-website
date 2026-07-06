@@ -11,7 +11,7 @@ import PoradnikForm from "@/components/PoradnikForm";
 export const metadata: Metadata = {
   title: "Darmowy poradnik: przygotowanie do sesji | Marcin Szabunia",
   description:
-    "Pobierz darmowy pakiet przygotowania do sesji biznesowej: checklisty, planer stylizacji, ściąga kolorów i mini-brief. Wszystko, żeby wyjść na zdjęciach pewnie i naturalnie.",
+    "Pobierz darmowy pakiet przygotowania do sesji biznesowej: checklisty, planer stylizacji, ściąga kolorów i mini-brief. Wyjdź na zdjęciach pewnie i naturalnie.",
   alternates: { canonical: "/poradnik" },
   openGraph: {
     title: "Darmowy poradnik: przygotowanie do sesji biznesowej",

@@ -12,7 +12,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 export const metadata: Metadata = {
   title: "Usługi foto i wideo dla firm | Marcin Szabunia Poznań",
   description:
-    "Pełna oferta dla firm: portrety biznesowe, sesje zespołowe, fotografia eventowa i produktowa, pakiety foto + wideo oraz wideo marketing. Poznań, cała Polska i Europa.",
+    "Pełna oferta dla firm: portrety biznesowe, sesje zespołowe, fotografia eventowa i produktowa, pakiety foto + wideo oraz wideo marketing. Poznań i cała Polska.",
   alternates: { canonical: "/uslugi" },
   openGraph: {
     title: "Usługi — fotografia biznesowa i wideo marketing | Marcin Szabunia",

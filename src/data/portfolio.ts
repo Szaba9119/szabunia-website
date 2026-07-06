@@ -198,9 +198,9 @@ export const portfolioCategories: PortfolioCategory[] = [
       ],
     },
     seo: {
-      title: "Box17 — packshoty budek akustycznych i film | Marcin Szabunia",
+      title: "Box17 — packshoty budek akustycznych | Marcin Szabunia",
       description:
-        "Case study dla Box17 (Tim Petzold, Tarnowo Podgórne): jednodniowa sesja produktowa pięciu budek akustycznych — zdjęcia na cykloramie i w showroomie oraz dwa filmy produktowe.",
+        "Case study dla Box17 (Tarnowo Podgórne): jednodniowa sesja pięciu budek akustycznych — packshoty na cykloramie, zdjęcia w showroomie i dwa filmy produktowe.",
     },
   },
   {
@@ -304,7 +304,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     seo: {
       title: "IDcom — headshoty zespołu na 3 tłach | Marcin Szabunia",
       description:
-        "Case study sesji wizerunkowej zespołu IDcom Group (Poznań): portrety na trzech tłach (białym, czarnym z niebieskim światłem i kremowym) na stronę WWW i materiały firmowe.",
+        "Case study sesji wizerunkowej zespołu IDcom Group (Poznań): spójne portrety na trzech tłach — białym, czarnym i kremowym — na stronę WWW i materiały firmowe.",
     },
   },
   {
@@ -359,7 +359,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     seo: {
       title: "Yes Butcher — sesja do przewodnika Michelin | Marcin Szabunia",
       description:
-        "Case study sesji dla Yes Butcher! Shop & Bistro (Poznań): zdjęcie z drona, wnętrza, portrety szefa kuchni i nagrodzony stek. Zdjęcia trafiły na profil restauracji w przewodniku Michelin.",
+        "Case study sesji dla Yes Butcher! Shop & Bistro (Poznań): zdjęcie z drona, wnętrza, portrety szefa kuchni i nagrodzony stek. Zdjęcia trafiły do przewodnika Michelin.",
     },
   },
   {

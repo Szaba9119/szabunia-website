@@ -9,14 +9,14 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import AnimatedSection from "@/components/AnimatedSection";
 
 export const metadata: Metadata = {
-  title: "Kalkulator wyceny sesji foto i wideo | Marcin Szabunia Poznań",
+  title: "Kalkulator wyceny foto i wideo | Marcin Szabunia Poznań",
   description:
-    "Oblicz koszt swojej sesji fotograficznej lub wideo w Poznaniu. Portrety biznesowe, eventy, wideo marketing. Szacunkowa wycena w 1 minutę, ostateczna cena po krótkim briefie.",
+    "Oblicz koszt sesji foto lub wideo w Poznaniu: portrety biznesowe, eventy, wideo marketing. Szacunkowa wycena w 1 minutę, ostateczna po krótkim briefie.",
   alternates: { canonical: "/kalkulator" },
   openGraph: {
-    title: "Kalkulator wyceny sesji foto i wideo | Marcin Szabunia Poznań",
+    title: "Kalkulator wyceny foto i wideo | Marcin Szabunia Poznań",
     description:
-      "Oblicz koszt swojej sesji fotograficznej lub wideo w Poznaniu. Portrety biznesowe, eventy, wideo marketing. Szacunkowa wycena w 1 minutę, ostateczna cena po krótkim briefie.",
+      "Oblicz koszt sesji foto lub wideo w Poznaniu: portrety biznesowe, eventy, wideo marketing. Szacunkowa wycena w 1 minutę, ostateczna po krótkim briefie.",
     url: "https://szabunia.pl/kalkulator",
     images: [
       {
