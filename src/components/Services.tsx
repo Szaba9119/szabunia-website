@@ -30,6 +30,10 @@ export default function Services() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {serviceItems.map((s) => {
               const isPakiet = s.slug === "pakiety-foto-wideo";
+              // UXUI-3 wariant C (audyt UX 2026-07-06): na mobile zdjęcia tylko dla
+              // 3 pierwszych usług i Bestsellera; środkowa trójka kompaktowo
+              // (ikona+tytuł+cena) — sekcja była największym blokiem telefonu (5,3 ekr.).
+              const compactMobile = ["zdjecia-wideo-z-drona", "fotografia-produktowa", "sesje-zespolowe"].includes(s.slug);
               return (
                 <div
                   key={s.title}
@@ -46,7 +50,9 @@ export default function Services() {
                         className={`relative overflow-hidden bg-border dark:bg-dark-border ${
                           isPakiet
                             ? "aspect-video sm:aspect-[21/9] md:aspect-auto md:w-2/5 md:self-stretch"
-                            : "aspect-video sm:aspect-[4/3]"
+                            : compactMobile
+                              ? "hidden sm:block sm:aspect-[4/3]"
+                              : "aspect-video sm:aspect-[4/3]"
                         }`}
                       >
                         <Image
