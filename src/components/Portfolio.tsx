@@ -106,16 +106,9 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <AnimatedSection delay={0.1} className="text-center mt-6">
-          <Link
-            href="/portfolio"
-            className="inline-flex items-center gap-2 font-barlow font-semibold text-blue dark:text-blue-light text-[15px] hover:gap-3 transition-all"
-          >
-            Zobacz pełne portfolio
-            <span aria-hidden="true">→</span>
-          </Link>
-        </AnimatedSection>
-
+        {/* Link „Zobacz pełne portfolio" usunięty (decyzja Marcina, 2026-07-06 noc:
+            lejek bez bocznych wyjść — zostaje kafel „Napisz do mnie"). Link SEO
+            z home do huba /portfolio przeniesiony do stopki (Footer.tsx). */}
         <AnimatedSection
           delay={0.15}
           className="group mt-3 relative overflow-hidden rounded-2xl bg-white dark:bg-dark-card border border-border dark:border-dark-border hover:scale-[1.005] transition-transform duration-300"
