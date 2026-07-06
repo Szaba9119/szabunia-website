@@ -573,6 +573,8 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
 // obie twarze wciąż widoczne). Reszta domyślnie wyśrodkowana.
 const SERVICE_TILE_POS: Record<string, string> = {
   "wizerunek-portrety": "center 29%",
+  // Kadr niżej: esencja zdjęcia (auta + grupa) jest w dolnych 2/3, góra to niebo.
+  "pakiety-foto-wideo": "center 70%",
 };
 
 export const serviceItems = serviceCategories.map((s) => ({

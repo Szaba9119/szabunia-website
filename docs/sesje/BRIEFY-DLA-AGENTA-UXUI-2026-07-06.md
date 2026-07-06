@@ -25,7 +25,7 @@ Sekcje po zmianach: uslugi 3725 · cennik 2379 · portfolio 1426 · kontakt 1407
 
 ## BRIEF UXUI-3 · Usługi mobile — ostatnia gruba rezerwa (~2,5 ekranu)
 
-**Status: WDROŻONE 2026-07-06 (koniec sesji) — WARIANT C.** Marcin delegował („nanieś poprawki i kończymy"); wybrany C jako jedyny bez ryzyka dla „zdjęciowej wizytówki" fotografa: na mobile zdjęcia zostają dla 3 pierwszych usług (wizerunek, eventy, wideo) i Bestsellera; dron/produktowa/zespołowe kompaktowo (`hidden sm:block` na obrazie). Desktop bez zmian. Wariant A/B pozostają w opisie na wypadek, gdyby Marcin po obejrzeniu chciał inaczej.
+**Status: WYCOFANE 2026-07-06 — decyzja Marcina po obejrzeniu na żywo.** Wariant C był wdrożony i cofnięty tego samego wieczora („zgubiłeś zdjęcia"): zdjęcia usług mają być widoczne ZAWSZE, na każdej szerokości — to wizytówka fotografa. **Nie proponować ponownie chowania zdjęć usług (żaden wariant A/B/C).** Sekcja usług zostaje przy 16:9 na mobile (UXUI-1). Przy tej okazji poprawione kadrowanie kafla Pakietów: `objectPosition center 70%` (SERVICE_TILE_POS) + `md:aspect-[3/2]` zamiast paska self-stretch — natywna proporcja zdjęcia, zero przycinania na desktopie.
 
 Kontekst: sekcja `#uslugi` to teraz największy blok na mobile — 3 725 px (~5,3 ekranu): 7 kafli, każdy z obrazem 16:9 + opis. Desktop jest OK (grid 3-kol. + Bestseller full-width) — zmiany TYLKO < md.
 
