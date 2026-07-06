@@ -27,7 +27,9 @@ export default function Footer() {
           <div className="flex flex-col gap-0.5 text-xs text-steel dark:text-steel-light">
             {[
               { label: "O mnie", href: "/#o-mnie" },
-              { label: "Usługi", href: "/#uslugi" },
+              // /uslugi (hub), nie kotwica: jedyny link SEO z home do huba po
+              // usunięciu „Zobacz wszystkie usługi" z sekcji (2026-07-07).
+              { label: "Usługi", href: "/uslugi" },
               // /portfolio (hub), nie kotwica: jedyny link SEO z home do huba po
               // usunięciu przycisku z sekcji (lejek bez bocznych wyjść, 2026-07-06).
               { label: "Portfolio", href: "/portfolio" },

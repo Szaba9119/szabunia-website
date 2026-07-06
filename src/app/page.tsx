@@ -46,8 +46,17 @@ export default function Home() {
       <Navigation />
       <main id="main">
         <ErrorBoundary><Hero /></ErrorBoundary>
-        <ErrorBoundary><LogoBar /></ErrorBoundary>
+        {/* Karuzela logotypów: na desktopie zaraz po hero (jak dotąd), na mobile
+            dopiero POD sekcją „O mnie" (decyzja Marcina, 2026-07-07 — „tylko na
+            mobile"). Dwa wystąpienia z hidden/md:hidden zamiast flex-order, żeby
+            nie zależeć od struktury wrapperów ErrorBoundary. */}
+        <div className="hidden md:block">
+          <ErrorBoundary><LogoBar /></ErrorBoundary>
+        </div>
         <ErrorBoundary><About /></ErrorBoundary>
+        <div className="md:hidden">
+          <ErrorBoundary><LogoBar /></ErrorBoundary>
+        </div>
         <ErrorBoundary><Services /></ErrorBoundary>
         <ErrorBoundary><Portfolio /></ErrorBoundary>
         {/* Dowód społeczny i autorytet PRZED ceną: opinie + publikacje budują
