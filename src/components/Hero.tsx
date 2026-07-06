@@ -11,7 +11,7 @@ import { PARALLAX } from "@/lib/motion";
 // osiągnięty przez md:grid-rows — bez duplikowania bloków.
 export default function Hero() {
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-24 px-4 overflow-hidden">
+    <section className="relative pt-28 pb-12 md:pt-36 md:pb-24 px-4 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         {/* Poświaty jako radial-gradient zamiast filter:blur — blur 100px na
             dużych elementach zabijał wydajność GPU na mobile (PageSpeed). */}

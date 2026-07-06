@@ -17,7 +17,9 @@ const clients = [
 export default function LogoBar() {
   return (
     <AnimatedSection>
-      <section className="py-12 md:py-16">
+      {/* Mobile py-8: ~90 px treści nie potrzebuje 2×48 px pustki (rytm odstępów,
+          2026-07-07). Desktop bez zmian. */}
+      <section className="py-8 md:py-16">
         <p className="text-center text-base md:text-lg font-barlow font-semibold uppercase tracking-[1.5px] text-steel dark:text-dark-text-muted mb-6">
           Współpracowałem m.in. z
         </p>

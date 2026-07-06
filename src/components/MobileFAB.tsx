@@ -13,6 +13,7 @@ const EMAIL = "marcin@szabunia.pl";
 export default function MobileFAB() {
   const scrollY = useScrollPosition();
   const [contactInView, setContactInView] = useState(false);
+  const [footerInView, setFooterInView] = useState(false);
   const [bannerH, setBannerH] = useState(0);
 
   useEffect(() => {
@@ -21,6 +22,19 @@ export default function MobileFAB() {
     const io = new IntersectionObserver(
       (entries) => setContactInView(entries[0].isIntersecting),
       { rootMargin: "0px 0px -35% 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
+  // Chowamy pasek także nad stopką — zasłaniał linki prawne i przycisk
+  // „do góry" (audyt mobile 2026-07-07).
+  useEffect(() => {
+    const el = document.querySelector("footer");
+    if (!el || typeof IntersectionObserver === "undefined") return;
+    const io = new IntersectionObserver(
+      (entries) => setFooterInView(entries[0].isIntersecting),
+      { rootMargin: "0px 0px -15% 0px" }
     );
     io.observe(el);
     return () => io.disconnect();
@@ -36,7 +50,7 @@ export default function MobileFAB() {
     return () => window.removeEventListener("cookie-banner-change", onBanner);
   }, []);
 
-  const visible = scrollY > 600 && !contactInView;
+  const visible = scrollY > 600 && !contactInView && !footerInView;
   if (!visible) return null;
 
   // Strona z formularzem (#kontakt) → przewijamy do niego. Strona bez niego

@@ -575,6 +575,9 @@ const SERVICE_TILE_POS: Record<string, string> = {
   "wizerunek-portrety": "center 29%",
   // Kadr niżej: esencja zdjęcia (auta + grupa) jest w dolnych 2/3, góra to niebo.
   "pakiety-foto-wideo": "center 70%",
+  // Pionowy portret pary w kadrze 16:9 (mobile) ciął głowy przy center —
+  // kotwiczymy wyżej (audyt mobile 2026-07-07).
+  "sesje-zespolowe": "center 20%",
 };
 
 export const serviceItems = serviceCategories.map((s) => ({
