@@ -284,10 +284,16 @@ export default function GalleryView({
             </button>
           )}
           <div className="max-h-[88vh] max-w-[92vw]" onClick={(e) => e.stopPropagation()}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            {/* next/image zamiast surowego <img> (audyt 2026-07-06): lightbox
+                serwował nieskompresowane oryginały (do ~800 KB); wzorzec jak
+                w PortfolioGallery. */}
+            <Image
               src={images[lightbox].src}
               alt={altFor(activeCat, lightbox)}
+              width={images[lightbox].width}
+              height={images[lightbox].height}
+              quality={90}
+              priority
               className="max-h-[88vh] max-w-[92vw] w-auto h-auto object-contain rounded-lg"
             />
           </div>

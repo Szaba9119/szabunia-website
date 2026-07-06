@@ -34,6 +34,7 @@ export default function CTA() {
     message: "",
   });
   const [consent, setConsent] = useState(false);
+  const [gotcha, setGotcha] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -75,7 +76,7 @@ export default function CTA() {
           phone: formData.phone,
           service: formData.service,
           message: formData.message,
-          _gotcha: "",
+          _gotcha: gotcha,
           turnstileToken,
           ...getUtmParams(),
         }),
@@ -351,6 +352,18 @@ export default function CTA() {
                   </div>
                 ) : (
                   <form ref={formRef} onSubmit={handleSubmit} noValidate>
+                    {/* Honeypot — ukryte pole dla botów (jak w PoradnikForm);
+                        wcześniej _gotcha szło na sztywno puste, więc nie filtrowało niczego. */}
+                    <input
+                      type="text"
+                      name="_gotcha"
+                      tabIndex={-1}
+                      autoComplete="off"
+                      aria-hidden="true"
+                      value={gotcha}
+                      onChange={(e) => setGotcha(e.target.value)}
+                      className="hidden"
+                    />
                     <div className="mb-3">
                       <label htmlFor="contact-name" className="block text-[11px] text-steel dark:text-dark-text-muted font-barlow font-semibold uppercase tracking-wide mb-1.5">
                         Imię i nazwisko / Firma

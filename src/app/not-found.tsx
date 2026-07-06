@@ -33,9 +33,11 @@ export default function NotFound() {
           </Link>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {[
-              { href: "/blog", label: "Blog" },
+              { href: "/uslugi", label: "Usługi" },
+              { href: "/portfolio", label: "Portfolio" },
               { href: "/kalkulator", label: "Kalkulator wyceny" },
-              { href: "/#kontakt", label: "Kontakt" },
+              { href: "/blog", label: "Blog" },
+              { href: "/kontakt", label: "Kontakt" },
             ].map((link) => (
               <Link
                 key={link.href}

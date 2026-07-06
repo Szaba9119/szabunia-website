@@ -4,14 +4,14 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Polityka prywatności | Marcin Szabunia — Fotograf biznesowy Poznań",
+  title: "Polityka prywatności | Marcin Szabunia",
   description:
     "Polityka prywatności serwisu szabunia.pl. Informacje o przetwarzaniu danych osobowych, plikach cookies i prawach użytkownika zgodnie z RODO.",
   alternates: {
     canonical: "/polityka-prywatnosci",
   },
   openGraph: {
-    title: "Polityka prywatności | Marcin Szabunia — Fotograf biznesowy Poznań",
+    title: "Polityka prywatności | Marcin Szabunia",
     description:
       "Polityka prywatności serwisu szabunia.pl. Informacje o przetwarzaniu danych osobowych, plikach cookies i prawach użytkownika zgodnie z RODO.",
     url: "https://szabunia.pl/polityka-prywatnosci",

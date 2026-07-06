@@ -240,6 +240,9 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Pełny montaż i postprodukcja wideo</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
+              <p className="text-[11px] text-steel dark:text-dark-text-muted mt-6 pt-4 border-t border-border dark:border-dark-border">
+                Dodatkowa godzina: {formatPriceLabel(400)}
+              </p>
               <AskButton slug="pakiety-foto-wideo" label="EVENT STANDARD" />
             </div>
           </AnimatedSection>
@@ -263,6 +266,9 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Pełny montaż i postprodukcja wideo</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
+              <p className="text-[11px] text-steel dark:text-dark-text-muted mt-6 pt-4 border-t border-border dark:border-dark-border">
+                Dodatkowa godzina: {formatPriceLabel(400)}
+              </p>
               <AskButton slug="pakiety-foto-wideo" label="EVENT PROFESSIONAL" />
             </div>
           </AnimatedSection>
@@ -288,6 +294,9 @@ export default function Pricing() {
                 <li className="flex items-start gap-2"><CheckIcon /> Pełen montaż wideo i post-produkcja wywiadów</li>
                 <li className="flex items-start gap-2"><CheckIcon /> Ujęcia z drona w cenie pakietu</li>
               </ul>
+              <p className="text-[11px] text-steel dark:text-dark-text-muted mt-6 pt-4 border-t border-border dark:border-dark-border">
+                Dodatkowa godzina: {formatPriceLabel(400)}
+              </p>
               <AskButton slug="pakiety-foto-wideo" label="EVENT PREMIUM" />
             </div>
           </AnimatedSection>

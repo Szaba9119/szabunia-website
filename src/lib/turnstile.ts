@@ -9,7 +9,12 @@ const VERIFY_ENDPOINT = "https://challenges.cloudflare.com/turnstile/v0/siteveri
 export async function verifyTurnstile(token: string, ip: string): Promise<boolean> {
   const secret = process.env.TURNSTILE_SECRET_KEY;
   if (!secret) {
-    console.error("Turnstile pominięty: TURNSTILE_SECRET_KEY nie jest ustawiony.");
+    // Decyzja (audyt 2026-07-06): świadomie fail-open, żeby nie gubić leadów,
+    // ale log ma być nie do przeoczenia w Vercel Logs — brak klucza w produkcji
+    // (np. literówka w env) oznacza formularze BEZ ochrony antybotowej.
+    console.error(
+      "[ALERT] Turnstile WYŁĄCZONY: brak TURNSTILE_SECRET_KEY — formularze działają bez CAPTCHA. Sprawdź Environment Variables w Vercel."
+    );
     return true;
   }
   if (!token) return false;

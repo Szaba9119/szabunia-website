@@ -319,7 +319,7 @@ export const blogPosts: BlogPost[] = [
       <p>Nowy pracownik dołącza, stary odchodzi, a zdjęcia na stronie mają 3 lata. Ustal harmonogram aktualizacji, np. sesja co rok lub przy każdej większej zmianie w zespole. Regularne sesje utrzymują stronę aktualną i pokazują, że firma się rozwija.</p>
 
       <h2>Bonus: jak zorganizować sesję zespołową?</h2>
-      <p>Mogę przyjechać do Waszego biura z <a href="/uslugi/sesje-zespolowe">mobilnym studio</a> — bazuję w Poznaniu, gdzie dojazd jest bezpłatny, a poza miastem doliczam 2,50 zł netto/km od granic Poznania, w obie strony. Setup zajmuje ok. 30 minut, a potem fotografuję osoby jedna po drugiej. Zero stresu, zero logistyki po Waszej stronie. Gotowe zdjęcia w 14 dni.</p>
+      <p>Mogę przyjechać do Waszego biura z <a href="/uslugi/sesje-zespolowe">mobilnym studiem</a> — bazuję w Poznaniu, gdzie dojazd jest bezpłatny, a poza miastem doliczam 2,50 zł netto/km od granic Poznania, w obie strony. Setup zajmuje ok. 20 minut, a potem fotografuję osoby jedna po drugiej. Zero stresu, zero logistyki po Waszej stronie. Gotowe zdjęcia w 14 dni.</p>
       <p>Przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje sesji korporacyjnych</a> i daj znać, kiedy zaplanować sesję u Was.</p>
     `,
     seo: {
@@ -437,7 +437,7 @@ export const blogPosts: BlogPost[] = [
     content: `
       <p class="lead">„Potrzebujemy wideo" to dopiero początek rozmowy. Bo film wizerunkowy, pionowy reels i materiał z eventu to zupełnie różne formaty, które rozwiązują różne problemy. Oto przegląd formatów <a href="/uslugi/wideo-marketing">wideo marketingu dla firm</a> i tego, gdzie każdy się sprawdza.</p>
 
-      <h2>1. Film wizerunkowy</h2>
+      <h2>1. Film wizerunkowy (film korporacyjny)</h2>
       <p>Wizytówka firmy w 60–120 sekundach: kim jesteście, co robicie, dlaczego warto. Ląduje na stronie głównej, w stopce maila i w prezentacjach sprzedażowych. To format „evergreen": pracuje miesiącami, więc warto zrobić go porządnie.</p>
 
       <h2>2. Pionowe reels i shorty</h2>
@@ -464,7 +464,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "sesja-wizerunkowa-poznan",
     faq: [
-      { q: "Studio czy własne biuro — gdzie zrobić sesję wizerunkową?", a: "Studio daje pełną kontrolę nad światłem i powtarzalny, ponadczasowy portret — idealne na headshoty, portrety zarządu i zdjęcia do mediów. Sesja w biurze pokazuje realną przestrzeń marki i nie wyrywa zespołu z pracy: fotograf przyjeżdża z mobilnym studiem, którego rozłożenie zajmuje około 30 minut." },
+      { q: "Studio czy własne biuro — gdzie zrobić sesję wizerunkową?", a: "Studio daje pełną kontrolę nad światłem i powtarzalny, ponadczasowy portret — idealne na headshoty, portrety zarządu i zdjęcia do mediów. Sesja w biurze pokazuje realną przestrzeń marki i nie wyrywa zespołu z pracy: fotograf przyjeżdża z mobilnym studiem, którego rozłożenie zajmuje około 20 minut." },
       { q: "Czy dojazd na sesję na terenie Poznania jest dodatkowo płatny?", a: "Nie. Fotograf bazuje w Poznaniu, więc dojazd na terenie miasta jest wliczony w cenę — niezależnie od tego, czy sesja odbywa się w studiu, w Twoim biurze, czy w plenerze. Realizacje poza Poznaniem ustalane są indywidualnie." },
       { q: "Dla kogo sprawdzi się sesja wizerunkowa w plenerze?", a: "Plener daje zdjęciom charakter i „oddech\" — świetnie sprawdza się w personal brandingu, u twórców i przy mniej formalnych wizerunkach. Poznań oferuje różnorodne tła: architekturę Starego Miasta, nowoczesne dzielnice biurowe czy zieleń nad Wartą. Minusem jest zależność od pogody i pory dnia." },
     ],
@@ -487,7 +487,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Twoje biuro: autentyczność i wygoda</h2>
-      <p>Sesja u Ciebie w firmie ma dwie wielkie zalety: pokazuje realną przestrzeń marki i nie wyrywa zespołu z pracy na pół dnia. Przyjeżdżam z mobilnym studiem, rozłożenie zajmuje ok. 30 minut, a potem fotografuję w Waszym rytmie. To naturalny wybór dla <a href="/uslugi/sesje-zespolowe">sesji zespołowych</a> i zdjęć pokazujących firmę „od środka".</p>
+      <p>Sesja u Ciebie w firmie ma dwie wielkie zalety: pokazuje realną przestrzeń marki i nie wyrywa zespołu z pracy na pół dnia. Przyjeżdżam z mobilnym studiem, rozłożenie zajmuje ok. 20 minut, a potem fotografuję w Waszym rytmie. To naturalny wybór dla <a href="/uslugi/sesje-zespolowe">sesji zespołowych</a> i zdjęć pokazujących firmę „od środka".</p>
       <ul>
         <li><strong>Dla kogo:</strong> zespoły, działy, zdjęcia pokazujące biuro i kulturę firmy</li>
         <li><strong>Plus:</strong> autentyczna przestrzeń, zero logistyki po Waszej stronie</li>

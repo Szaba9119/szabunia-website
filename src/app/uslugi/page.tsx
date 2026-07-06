@@ -10,7 +10,7 @@ import MobileFAB from "@/components/MobileFAB";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 export const metadata: Metadata = {
-  title: "Usługi — fotografia biznesowa i wideo | Marcin Szabunia Poznań",
+  title: "Usługi foto i wideo dla firm | Marcin Szabunia Poznań",
   description:
     "Pełna oferta dla firm: portrety biznesowe, sesje zespołowe, fotografia eventowa i produktowa, pakiety foto + wideo oraz wideo marketing. Poznań, cała Polska i Europa.",
   alternates: { canonical: "/uslugi" },

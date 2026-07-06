@@ -91,11 +91,18 @@ export async function POST(req: Request) {
   const configSummary = String(data.configSummary ?? "").trim();
   const priceLabel = String(data.priceLabel ?? "").trim();
 
+  // Twarde limity długości — ten route wysyła mail NA ADRES PODANY PRZEZ
+  // UŻYTKOWNIKA, więc bez limitów działałby jak przekaźnik dowolnej treści.
+  // Realne payloady z kalkulatora są o rząd wielkości mniejsze.
+  if (email.length > 320 || service.length > 120 || configSummary.length > 2000 || priceLabel.length > 100) {
+    return NextResponse.json({ error: "Treść pola jest zbyt długa" }, { status: 400 });
+  }
+
   const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"] as const;
   const utm: Record<string, string> = {};
   for (const key of UTM_FIELDS) {
     const value = String(data[key] ?? "").trim();
-    if (value) utm[key] = value;
+    if (value) utm[key] = value.slice(0, 200);
   }
 
   const apiKey = process.env.RESEND_API_KEY;

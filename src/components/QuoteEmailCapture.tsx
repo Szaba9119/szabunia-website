@@ -112,6 +112,8 @@ export default function QuoteEmailCapture({
           onChange={(e) => setEmail(e.target.value)}
           onBlur={() => setTouched(true)}
           aria-invalid={!!emailErr}
+          aria-label="Adres e-mail do wysyłki wyceny"
+          aria-describedby={emailErr ? "quote-email-error" : undefined}
           placeholder="twoj@email.pl"
           className={`flex-1 bg-white dark:bg-white/[0.08] border rounded-xl px-3.5 py-2.5 text-[13px] text-navy dark:text-white placeholder-steel font-inter transition-colors ${emailErr ? "border-red-400 focus:border-red-400" : "border-border dark:border-navy-light focus:border-blue"}`}
         />
@@ -123,7 +125,7 @@ export default function QuoteEmailCapture({
           {sending ? "Wysyłanie..." : "Wyślij wycenę na maila"}
         </button>
       </div>
-      {emailErr && <p role="alert" className="text-red-600 dark:text-red-400 text-[11px] mt-1">{emailErr}</p>}
+      {emailErr && <p id="quote-email-error" role="alert" className="text-red-600 dark:text-red-400 text-[11px] mt-1">{emailErr}</p>}
 
       <label className="flex items-start gap-2 mt-2 cursor-pointer">
         <input

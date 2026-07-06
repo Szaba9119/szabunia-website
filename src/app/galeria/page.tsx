@@ -19,7 +19,7 @@ import { galleryVideos } from "@/data/galeria";
 import { listGalleryImagesSized } from "@/lib/galleryImages";
 
 export const metadata: Metadata = {
-  title: "Galeria zdjęć i wideo | Marcin Szabunia, fotograf biznesowy Poznań",
+  title: "Galeria zdjęć i wideo | Marcin Szabunia — fotograf Poznań",
   description:
     "Wybrane kadry z realizacji: portrety biznesowe, fotografia eventowa, produktowa, wideo oraz zdjęcia z drona. Marcin Szabunia, Poznań i cała Polska.",
   alternates: { canonical: "/galeria" },

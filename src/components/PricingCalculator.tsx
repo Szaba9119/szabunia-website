@@ -145,7 +145,8 @@ function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
     }
     case "pakiety-foto-wideo": {
       const base = config.comboPackage === "essentials" ? 1800 : config.comboPackage === "pro" ? 3200 : 4500;
-      return base + (config.extraComboHours ?? 0) * 350;
+      // 400 zł/h — wyrównane do stawki reportażu (decyzja Marcina, audyt 2026-07-06).
+      return base + (config.extraComboHours ?? 0) * 400;
     }
     case "zdjecia-wideo-z-drona": {
       const dronePrices: Record<string, number> = { foto: 600, przebitki: 500, wideo: 900, "foto-przebitki": 700, "foto-wideo": 1100 };
@@ -224,8 +225,9 @@ function ServiceOptions({
       return (
         <div className="space-y-4">
           <div>
-            <label className={labelClass}>Pakiet</label>
+            <label htmlFor="calc-portrait-package" className={labelClass}>Pakiet</label>
             <select
+              id="calc-portrait-package"
               className={selectClass}
               value={config.portraitPackage}
               onChange={(e) => onChange({ ...config, portraitPackage: e.target.value as CalcConfig["portraitPackage"] })}
@@ -236,14 +238,15 @@ function ServiceOptions({
             </select>
           </div>
           <div>
-            <label className={labelClass}>Dodatkowe ujęcia</label>
+            <label htmlFor="calc-extra-photos" className={labelClass}>Dodatkowe ujęcia</label>
             <input
+              id="calc-extra-photos"
               type="number"
               min={0}
               max={50}
               className={inputClass}
               value={config.extraPhotos ?? 0}
-              onChange={(e) => onChange({ ...config, extraPhotos: Math.max(0, parseInt(e.target.value) || 0) })}
+              onChange={(e) => onChange({ ...config, extraPhotos: Math.min(50, Math.max(0, parseInt(e.target.value) || 0)) })}
             />
           </div>
         </div>
@@ -253,30 +256,32 @@ function ServiceOptions({
       return (
         <div className="space-y-4">
           <div>
-            <label className={labelClass}>Liczba osób</label>
+            <label htmlFor="calc-team-size" className={labelClass}>Liczba osób</label>
             <input
+              id="calc-team-size"
               type="number"
               min={4}
               max={100}
               className={inputClass}
               value={config.teamSize ?? 10}
-              onChange={(e) => onChange({ ...config, teamSize: Math.max(4, parseInt(e.target.value) || 4) })}
+              onChange={(e) => onChange({ ...config, teamSize: Math.min(100, Math.max(4, parseInt(e.target.value) || 4)) })}
             />
             <p className="text-[12px] text-steel dark:text-dark-text-muted mt-1.5">
               Sesje zespołowe realizuję od 4 osób. Dla 1–3 osób → pakiety indywidualne (Wizerunek &amp; Portrety).
             </p>
           </div>
           <div>
-            <label className={labelClass}>
+            <label htmlFor="calc-team-extra" className={labelClass}>
               Dodatkowe zdjęcia na osobę ({fmtPrice(80, mode)} zł/szt.)
             </label>
             <input
+              id="calc-team-extra"
               type="number"
               min={0}
               max={20}
               className={inputClass}
               value={config.teamExtraPhotosPerPerson ?? 0}
-              onChange={(e) => onChange({ ...config, teamExtraPhotosPerPerson: Math.max(0, parseInt(e.target.value) || 0) })}
+              onChange={(e) => onChange({ ...config, teamExtraPhotosPerPerson: Math.min(20, Math.max(0, parseInt(e.target.value) || 0)) })}
             />
             <p className="text-[12px] text-steel dark:text-dark-text-muted mt-1.5">
               W stawce za osobę jest 1 wyretuszowane zdjęcie. Każde kolejne: {fmtPrice(80, mode)} zł.
@@ -295,8 +300,9 @@ function ServiceOptions({
             </label>
           </div>
           <div>
-            <label className={labelClass}>Studio zewnętrzne</label>
+            <label htmlFor="calc-external-studio" className={labelClass}>Studio zewnętrzne</label>
             <select
+              id="calc-external-studio"
               className={selectClass}
               value={config.externalStudio ?? ""}
               onChange={(e) => onChange({ ...config, externalStudio: e.target.value as CalcConfig["externalStudio"] })}
@@ -314,8 +320,9 @@ function ServiceOptions({
       return (
         <div className="space-y-4">
           <div>
-            <label className={labelClass}>Typ zdjęć</label>
+            <label htmlFor="calc-product-type" className={labelClass}>Typ zdjęć</label>
             <select
+              id="calc-product-type"
               className={selectClass}
               value={config.productType ?? "packshot"}
               onChange={(e) => onChange({ ...config, productType: e.target.value as CalcConfig["productType"] })}
@@ -326,14 +333,15 @@ function ServiceOptions({
             </select>
           </div>
           <div>
-            <label className={labelClass}>Liczba produktów / ujęć</label>
+            <label htmlFor="calc-product-count" className={labelClass}>Liczba produktów / ujęć</label>
             <input
+              id="calc-product-count"
               type="number"
               min={1}
               max={200}
               className={inputClass}
               value={config.productCount ?? 20}
-              onChange={(e) => onChange({ ...config, productCount: Math.max(1, parseInt(e.target.value) || 1) })}
+              onChange={(e) => onChange({ ...config, productCount: Math.min(200, Math.max(1, parseInt(e.target.value) || 1)) })}
             />
           </div>
         </div>
@@ -343,25 +351,27 @@ function ServiceOptions({
       return (
         <div className="space-y-4">
           <div>
-            <label className={labelClass}>Liczba godzin</label>
+            <label htmlFor="calc-event-hours" className={labelClass}>Liczba godzin</label>
             <input
+              id="calc-event-hours"
               type="number"
               min={1}
               max={12}
               className={inputClass}
               value={config.eventHours ?? 4}
-              onChange={(e) => onChange({ ...config, eventHours: Math.max(1, parseInt(e.target.value) || 1) })}
+              onChange={(e) => onChange({ ...config, eventHours: Math.min(12, Math.max(1, parseInt(e.target.value) || 1)) })}
             />
           </div>
           <div>
-            <label className={labelClass}>Live editing, liczba zdjęć</label>
+            <label htmlFor="calc-live-edit" className={labelClass}>Live editing, liczba zdjęć</label>
             <input
+              id="calc-live-edit"
               type="number"
               min={0}
               max={100}
               className={inputClass}
               value={config.liveEditCount ?? 0}
-              onChange={(e) => onChange({ ...config, liveEditCount: Math.max(0, parseInt(e.target.value) || 0) })}
+              onChange={(e) => onChange({ ...config, liveEditCount: Math.min(100, Math.max(0, parseInt(e.target.value) || 0)) })}
             />
           </div>
           <div className="flex items-center gap-3">
@@ -395,19 +405,21 @@ function ServiceOptions({
       return (
         <div className="space-y-4">
           <div>
-            <label className={labelClass}>Godziny operatora</label>
+            <label htmlFor="calc-operator-hours" className={labelClass}>Godziny operatora</label>
             <input
+              id="calc-operator-hours"
               type="number"
               min={1}
               max={12}
               className={inputClass}
               value={config.operatorHours ?? 2}
-              onChange={(e) => onChange({ ...config, operatorHours: Math.max(1, parseInt(e.target.value) || 1) })}
+              onChange={(e) => onChange({ ...config, operatorHours: Math.min(12, Math.max(1, parseInt(e.target.value) || 1)) })}
             />
           </div>
           <div>
-            <label className={labelClass}>Pakiet montażowy</label>
+            <label htmlFor="calc-video-package" className={labelClass}>Pakiet montażowy</label>
             <select
+              id="calc-video-package"
               className={selectClass}
               value={config.videoPackage ?? "s"}
               onChange={(e) => onChange({ ...config, videoPackage: e.target.value as CalcConfig["videoPackage"] })}
@@ -426,8 +438,9 @@ function ServiceOptions({
       return (
         <div className="space-y-4">
           <div>
-            <label className={labelClass}>Pakiet</label>
+            <label htmlFor="calc-combo-package" className={labelClass}>Pakiet</label>
             <select
+              id="calc-combo-package"
               className={selectClass}
               value={config.comboPackage ?? "essentials"}
               onChange={(e) => onChange({ ...config, comboPackage: e.target.value as CalcConfig["comboPackage"] })}
@@ -438,14 +451,15 @@ function ServiceOptions({
             </select>
           </div>
           <div>
-            <label className={labelClass}>Dodatkowe godziny ({fmtPrice(350, mode)} zł/h)</label>
+            <label htmlFor="calc-combo-extra" className={labelClass}>Dodatkowe godziny ({fmtPrice(400, mode)} zł/h)</label>
             <input
+              id="calc-combo-extra"
               type="number"
               min={0}
               max={8}
               className={inputClass}
               value={config.extraComboHours ?? 0}
-              onChange={(e) => onChange({ ...config, extraComboHours: Math.max(0, parseInt(e.target.value) || 0) })}
+              onChange={(e) => onChange({ ...config, extraComboHours: Math.min(8, Math.max(0, parseInt(e.target.value) || 0)) })}
             />
           </div>
         </div>
@@ -455,8 +469,9 @@ function ServiceOptions({
       return (
         <div className="space-y-4">
           <div>
-            <label className={labelClass}>Pakiet</label>
+            <label htmlFor="calc-drone-package" className={labelClass}>Pakiet</label>
             <select
+              id="calc-drone-package"
               className={selectClass}
               value={config.dronePackage ?? "foto-wideo"}
               onChange={(e) => onChange({ ...config, dronePackage: e.target.value as CalcConfig["dronePackage"] })}
@@ -469,14 +484,15 @@ function ServiceOptions({
             </select>
           </div>
           <div>
-            <label className={labelClass}>Dodatkowe godziny lotu ({fmtPrice(300, mode)} zł/h)</label>
+            <label htmlFor="calc-drone-extra" className={labelClass}>Dodatkowe godziny lotu ({fmtPrice(300, mode)} zł/h)</label>
             <input
+              id="calc-drone-extra"
               type="number"
               min={0}
               max={8}
               className={inputClass}
               value={config.droneExtraHours ?? 0}
-              onChange={(e) => onChange({ ...config, droneExtraHours: Math.max(0, parseInt(e.target.value) || 0) })}
+              onChange={(e) => onChange({ ...config, droneExtraHours: Math.min(8, Math.max(0, parseInt(e.target.value) || 0)) })}
             />
           </div>
         </div>

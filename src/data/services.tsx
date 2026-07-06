@@ -90,7 +90,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
       title: "Wizerunek & Portrety biznesowe — Marcin Szabunia | Poznań",
-      description: "Profesjonalne portrety biznesowe, headshoty i personal branding. Sesje w studiu lub mobilnym studio w biurze. Poznań i cała Polska.",
+      description: "Profesjonalne portrety biznesowe, headshoty i personal branding. Sesje w studiu lub w mobilnym studiu w biurze. Poznań i cała Polska.",
     },
   },
   {
@@ -130,14 +130,14 @@ const serviceCategoriesRaw: ServiceData[] = [
         name: "EVENT STANDARD",
         price: "1 800 zł",
         features: ["3 godziny obecności", "50+ zdjęć po selekcji i pełnej obróbce", "Wideo w formacie Reels (30s)", "Pełny montaż i postprodukcja wideo", "Ujęcia z drona w cenie pakietu"],
-        extra: "Dodatkowa godzina: 350 zł",
+        extra: "Dodatkowa godzina: 400 zł",
       },
       {
         name: "EVENT PROFESSIONAL",
         price: "3 200 zł",
         features: ["6 godzin obecności", "150+ zdjęć po selekcji i pełnej obróbce", "Główne wideo podsumowujące (60s)", "Krótki teaser do Social Media (15s)", "Pełny montaż i postprodukcja wideo", "Ujęcia z drona w cenie pakietu"],
         recommended: true,
-        extra: "Dodatkowa godzina: 350 zł",
+        extra: "Dodatkowa godzina: 400 zł",
       },
       {
         name: "EVENT PREMIUM",
@@ -152,7 +152,7 @@ const serviceCategoriesRaw: ServiceData[] = [
           "Pełen montaż wideo i post-produkcja wywiadów",
           "Ujęcia z drona w cenie pakietu",
         ],
-        extra: "Dodatkowa godzina: 350 zł",
+        extra: "Dodatkowa godzina: 400 zł",
       },
     ],
     faqs: [
@@ -160,7 +160,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Pakiety Event Standard, Professional i Premium to punkt wyjścia. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkim briefie podaję jedną, konkretną wycenę." },
       { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Tak, pracuję w modelu one-man-band. Dzięki temu materiał jest spójny wizualnie, a Ty masz jedną osobę kontaktową zamiast dwóch ekip." },
       { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak, przy serii eventów koryguję zakres do realnych potrzeb projektu. Monthly Content: 4 900 zł/m-c (1 dzień zdjęciowy + montaż 4 reelsów, min. 3 miesiące umowy)." },
-      { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Każda dodatkowa godzina powyżej pakietu: 350 zł. Dogrywamy szczegóły przed eventem." },
+      { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Każda dodatkowa godzina powyżej pakietu: 400 zł. Dogrywamy szczegóły przed eventem." },
     ],
     seo: {
       title: "Pakiety Foto + Wideo + Dron — Marcin Szabunia | Poznań",
@@ -305,7 +305,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 3 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
       { q: "Co z osobami, których nie ma w dniu sesji?", a: "Brakujące osoby dograć można w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu, żeby portrety całego zespołu były spójne. To częsta sytuacja przy większych zespołach i pracy zdalnej." },
-      { q: "Ile osób mogę sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studio. Każda osoba potrzebuje ok. 10-15 minut." },
+      { q: "Ile osób mogę sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studiu. Każda osoba potrzebuje ok. 10-15 minut." },
       { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 3m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
       { q: "Czy zdjęcia będą spójne dla całego zespołu?", a: "Tak, identyczne oświetlenie i tło. Spójne headshoty na stronie i w materiałach firmowych." },
     ],
@@ -324,7 +324,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     videoNote: "Przykład filmu firmowego: pokazuje park maszynowy i sposób pracy, zamiast go opisywać.",
     title: "Wideo marketing",
     subtitle:
-      "Reelsy, filmy promocyjne, relacje z eventów. Formaty pionowe i poziome dopasowane do platformy.",
+      "Filmy korporacyjne i promocyjne, reelsy, relacje z eventów. Formaty pionowe i poziome dopasowane do platformy.",
     description:
       "Wideo to najskuteczniejsza forma komunikacji w Social Media. Tworzę krótkie formy (Reels, TikTok, YouTube Shorts), filmy promocyjne i reklamowe, relacje z eventów i materiały szkoleniowe. Wideo reklamowe przygotowuję pod konkretne miejsce emisji, od spotów do Social Media po materiały do kampanii online. Od nagrania po montaż, dostajesz gotowy materiał do publikacji.",
     forWhom: [
@@ -381,8 +381,8 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Czy realizujesz wideo reklamowe i spoty?", a: "Tak, krótkie filmy reklamowe pod kampanie w Social Media i online (15-60 s). Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii. Wycena według pakietów montażowych plus praca operatora." },
     ],
     seo: {
-      title: "Wideo marketing & produkcja wideo — Marcin Szabunia | Poznań",
-      description: "Reelsy, filmy promocyjne i reklamowe, relacje z eventów. Profesjonalna produkcja wideo od nagrania po montaż. Poznań i cała Polska.",
+      title: "Wideo marketing i filmy korporacyjne — Marcin Szabunia | Poznań",
+      description: "Filmy korporacyjne, reelsy, filmy promocyjne i reklamowe, relacje z eventów. Profesjonalna produkcja wideo od nagrania po montaż. Poznań i cała Polska.",
     },
   },
   {

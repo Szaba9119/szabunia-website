@@ -37,6 +37,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return {};
+  // OG drona to zdjęcie (JPEG, ~180 KB); pozostałe usługi mają brandowe PNG
+  // ze skryptu generate-og-uslugi.py. Poprzedni PNG-foto ważył 1,5 MB (audyt 2026-07-06).
+  const ogImage = `/images/og/uslugi/${service.slug}.${slug === "zdjecia-wideo-z-drona" ? "jpg" : "png"}`;
   return {
     title: service.seo.title,
     description: service.seo.description,
@@ -47,7 +50,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       url: `https://szabunia.pl/uslugi/${service.slug}`,
       images: [
         {
-          url: `/images/og/uslugi/${service.slug}.png`,
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: `${service.title} — Marcin Szabunia`,
@@ -58,7 +61,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       card: "summary_large_image",
       title: service.seo.title,
       description: service.seo.description,
-      images: [`/images/og/uslugi/${service.slug}.png`],
+      images: [ogImage],
     },
   };
 }

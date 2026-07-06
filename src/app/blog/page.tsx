@@ -10,7 +10,7 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import { blogPosts } from "@/data/blog";
 
 export const metadata: Metadata = {
-  title: "Blog — Fotografia biznesowa i wideo marketing | Marcin Szabunia",
+  title: "Blog o fotografii biznesowej i wideo | Marcin Szabunia",
   description:
     "Artykuły o fotografii biznesowej, sesjach wizerunkowych i wideo marketingu B2B. Porady od fotografa pracującego dla H&M, Warner Music i Santander.",
   alternates: { canonical: "/blog" },

@@ -96,19 +96,22 @@ export default function KontaktPage() {
               brief, a odezwę się w ciągu 24 godzin z wstępną wyceną i terminem.
             </p>
 
-            {/* Quick actions */}
+            {/* Quick actions — telefon jako primary: GA4 pokazuje, że klienci
+                częściej dzwonią (phone_click) niż zaczynają formularz. */}
             <div className="flex flex-wrap justify-center gap-3 mb-14">
               <a
-                href="mailto:marcin@szabunia.pl"
+                href="tel:+48514900688"
+                data-cta="tel_kontakt_hero"
                 className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-5 py-2.5 rounded-full font-barlow font-semibold text-sm btn-glow"
               >
-                Napisz e-mail
+                Zadzwoń: +48 514 900 688
               </a>
               <a
-                href="tel:+48514900688"
+                href="mailto:marcin@szabunia.pl"
+                data-cta="email_kontakt_hero"
                 className="inline-flex items-center gap-2 border border-border dark:border-dark-border text-navy dark:text-white px-5 py-2.5 rounded-full font-barlow font-semibold text-sm hover:border-blue dark:hover:border-blue-light transition-colors"
               >
-                +48 514 900 688
+                Napisz e-mail
               </a>
             </div>
           </AnimatedSection>

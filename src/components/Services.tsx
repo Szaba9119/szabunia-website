@@ -73,6 +73,16 @@ export default function Services() {
             ))}
           </div>
         </AnimatedSection>
+
+        <AnimatedSection className="text-center mt-8">
+          <Link
+            href="/uslugi"
+            className="inline-flex items-center gap-2 font-barlow font-semibold text-blue dark:text-blue-light text-[15px] hover:gap-3 transition-all"
+          >
+            Zobacz wszystkie usługi
+            <span aria-hidden="true">→</span>
+          </Link>
+        </AnimatedSection>
       </div>
     </section>
   );

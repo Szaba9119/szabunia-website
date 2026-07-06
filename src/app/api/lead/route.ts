@@ -84,7 +84,7 @@ export async function POST(req: Request) {
   }
 
   const email = String(data.email ?? "").trim();
-  if (!email || !isEmail(email)) {
+  if (!email || email.length > 320 || !isEmail(email)) {
     return NextResponse.json(
       { error: "Podaj poprawny adres e-mail" },
       { status: 400 }
@@ -92,11 +92,12 @@ export async function POST(req: Request) {
   }
 
   // Źródło ruchu (UTM/gclid) — opcjonalne, przechwycone z URL wejściowego (src/lib/utm.ts).
+  // Limit 200 zn./pole — ochrona przed sztucznie napompowanym payloadem.
   const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"] as const;
   const utm: Record<string, string> = {};
   for (const key of UTM_FIELDS) {
     const value = String(data[key] ?? "").trim();
-    if (value) utm[key] = value;
+    if (value) utm[key] = value.slice(0, 200);
   }
 
   const apiKey = process.env.RESEND_API_KEY;

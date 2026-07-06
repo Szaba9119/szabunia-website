@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
@@ -108,7 +108,9 @@ export default function PortfolioGallery({ images, title, subtitle, aspect = "la
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox. MotionConfig: respektuj prefers-reduced-motion (audyt 2026-07-06)
+          — globalny CSS nie łapie animacji framer-motion. */}
+      <MotionConfig reducedMotion="user">
       <AnimatePresence>
         {lightboxIndex !== null && (
           <motion.div
@@ -187,6 +189,7 @@ export default function PortfolioGallery({ images, title, subtitle, aspect = "la
           </motion.div>
         )}
       </AnimatePresence>
+      </MotionConfig>
     </section>
   );
 }

@@ -87,19 +87,34 @@ export default function Portfolio() {
                   href={item.externalUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-cta={`case_${item.slug}`}
                   className="block w-full h-full"
                   aria-label={`${item.label} (otwiera się w nowej karcie)`}
                 >
                   {tile(item)}
                 </a>
               ) : (
-                <Link href={`/portfolio/${item.slug}`} className="block w-full h-full">
+                <Link
+                  href={`/portfolio/${item.slug}`}
+                  data-cta={`case_${item.slug}`}
+                  className="block w-full h-full"
+                >
                   {tile(item)}
                 </Link>
               )}
             </AnimatedSection>
           ))}
         </div>
+
+        <AnimatedSection delay={0.1} className="text-center mt-6">
+          <Link
+            href="/portfolio"
+            className="inline-flex items-center gap-2 font-barlow font-semibold text-blue dark:text-blue-light text-[15px] hover:gap-3 transition-all"
+          >
+            Zobacz pełne portfolio
+            <span aria-hidden="true">→</span>
+          </Link>
+        </AnimatedSection>
 
         <AnimatedSection
           delay={0.15}

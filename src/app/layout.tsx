@@ -153,36 +153,11 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                 opens: "09:00",
                 closes: "18:00",
               },
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: "5.0",
-                reviewCount: "10",
-                bestRating: "5",
-                worstRating: "1",
-              },
-              review: [
-                {
-                  "@type": "Review",
-                  author: { "@type": "Person", name: "Aleksandra Burzyńska" },
-                  reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-                  reviewBody:
-                    "Z pełnym przekonaniem polecamy współpracę z Marcinem! Realizował dla naszego biura sesję biznesową i od samego początku współpraca przebiegała na najwyższym poziomie. Zdjęcia wyszły bardzo estetyczne, naturalne i w pełni spełniły nasze oczekiwania. Podczas sesji panowała swobodna atmosfera, a Marcin zadbał o to, aby każdy czuł się komfortowo przed obiektywem. Dodatkowo mogliśmy liczyć na wiele cennych wskazówek oraz bardzo sprawny kontakt na każdym etapie realizacji. Z pewnością wrócimy przy kolejnych projektach i serdecznie polecamy jego usługi. :)",
-                },
-                {
-                  "@type": "Review",
-                  author: { "@type": "Person", name: "Zuzanna Fortuniak" },
-                  reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-                  reviewBody:
-                    "Miałam przyjemność współpracować z Marcinem już kilkukrotnie i sesje studyjne są pełne profesjonalizmu i zaangażowania. Marcin daje z siebie 100% i bardzo szybko przełamuje lody — nawet jeśli ktoś staje przed obiektywem po raz pierwszy. Polecam z pełnym przekonaniem!",
-                },
-                {
-                  "@type": "Review",
-                  author: { "@type": "Person", name: "Maja Formalik" },
-                  reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-                  reviewBody:
-                    "Mieliśmy przyjemność współpracować z Marcinem przy realizacji materiałów foto i wideo z eventu biznesowego oraz przygotowaniu treści na potrzeby social media. Współpraca od początku do końca przebiegała wzorowo. Marcin wyróżnia się nie tylko wysokimi kompetencjami technicznymi, ale również doskonałym wyczuciem biznesowym i marketingowym. Ogromnie doceniamy sprawną komunikację, elastyczność oraz ekspresowe tempo realizacji. To współpraca, do której z przyjemnością będziemy wracać przy kolejnych projektach.",
-                },
-              ],
+              // aggregateRating + review[] usunięte świadomie (audyt 2026-07-06,
+              // decyzja Marcina): wytyczne Google zabraniają markupu opinii
+              // dodawanego przez samą firmę (self-serving reviews) — gwiazdek
+              // w SERP i tak by nie było, a markup tworzył ryzyko flagi.
+              // Opinie pozostają w widocznej treści strony (Testimonials.tsx).
               sameAs: [
                 "https://instagram.com/szabunia.biz",
                 "https://share.google/2OMRlIblNmEKlthIl",

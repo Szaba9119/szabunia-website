@@ -73,12 +73,25 @@ export async function POST(req: Request) {
   const service = String(data.service ?? "").trim();
   const message = String(data.message ?? "").trim();
 
+  // Twarde limity długości pól — chronią przed wielomegabajtowym payloadem
+  // i nadużyciem maila jako przekaźnika treści (realne dane nigdy ich nie tkną).
+  const LIMITS = { name: 200, email: 320, phone: 50, service: 100, message: 5000 } as const;
+  if (
+    name.length > LIMITS.name ||
+    email.length > LIMITS.email ||
+    phone.length > LIMITS.phone ||
+    service.length > LIMITS.service ||
+    message.length > LIMITS.message
+  ) {
+    return NextResponse.json({ error: "Treść pola jest zbyt długa" }, { status: 400 });
+  }
+
   // Źródło ruchu (UTM/gclid) — opcjonalne, przechwycone z URL wejściowego (src/lib/utm.ts).
   const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"] as const;
   const utm: Record<string, string> = {};
   for (const key of UTM_FIELDS) {
     const value = String(data[key] ?? "").trim();
-    if (value) utm[key] = value;
+    if (value) utm[key] = value.slice(0, 200);
   }
 
   // Kod usługi z dropdowna → czytelna nazwa w mailu (żeby lead był jasny).

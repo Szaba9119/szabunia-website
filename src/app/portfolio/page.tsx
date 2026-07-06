@@ -14,7 +14,7 @@ const blurPlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
 
 export const metadata: Metadata = {
-  title: "Portfolio — realizacje fotograficzne i wideo | Marcin Szabunia Poznań",
+  title: "Portfolio — realizacje foto i wideo | Marcin Szabunia",
   description:
     "Wybrane realizacje: sesje wizerunkowe, fotografia eventowa, sesje korporacyjne i packshoty produktowe dla firm B2B. Poznań, cała Polska i Europa.",
   alternates: { canonical: "/portfolio" },

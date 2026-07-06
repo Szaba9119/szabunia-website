@@ -380,48 +380,13 @@ export const portfolioCategories: PortfolioCategory[] = [
       { num: 3, title: "Sesja", desc: "Profesjonalna sesja w studiu lub biurze" },
       { num: 4, title: "Dostawa", desc: "Wyselekcjonowane zdjęcia w 14 dni" },
     ],
+    // Cennik celowo usunięty z draftu (audyt 2026-07-06): trzymał przestarzałe
+    // kopie cen. Kanon cen: src/data/services.tsx + Pricing.tsx.
     pricingType: "tiers",
-    tiers: [
-      {
-        name: "ESSENTIAL",
-        price: "1 000 zł",
-        features: [
-          "1 osoba, do 2 stylizacji",
-          "90 min sesji",
-          "3 wyretuszowane zdjęcia (wybór ze 100+ ujęć)",
-          "GRATIS: Poseboard przed sesją",
-        ],
-        extra: "Dodatkowe ujęcie: 120 zł",
-      },
-      {
-        name: "PROFESSIONAL",
-        price: "1 300 zł",
-        features: [
-          "1 osoba, 2-3 stylizacje",
-          "2 godziny sesji",
-          "8 wyretuszowanych zdjęć (wybór ze 150+ ujęć)",
-          "GRATIS: Poseboard przed sesją",
-        ],
-        recommended: true,
-        extra: "Dodatkowe ujęcie: 100 zł",
-      },
-      {
-        name: "PRO BRANDING",
-        price: "1 800 zł",
-        features: [
-          "1 osoba, 3-4 stylizacje",
-          "Do 3 godzin sesji",
-          "15 wyretuszowanych zdjęć (wybór z 200+ ujęć)",
-          "Pełna kontrola nad stylem i klimatem",
-          "GRATIS: Poseboard przed sesją",
-        ],
-        extra: "Dodatkowe ujęcie: 80 zł",
-      },
-    ],
     faqs: [
       {
         q: "Ile trwa sesja wizerunkowa?",
-        a: "W zależności od pakietu — od 90 minut (Essential) do 3 godzin (Pro Branding). Czas obejmuje przygotowanie oświetlenia, sesję oraz ewentualne zmiany stylizacji.",
+        a: "W zależności od pakietu — od 90 minut do 3 godzin. Czas obejmuje przygotowanie oświetlenia, sesję oraz ewentualne zmiany stylizacji.",
       },
       {
         q: "Czy mogę mieć sesję w swoim biurze?",
@@ -460,27 +425,8 @@ export const portfolioCategories: PortfolioCategory[] = [
       { num: 3, title: "Live edit", desc: "Zdjęcia na Social Media w trakcie eventu" },
       { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni roboczych" },
     ],
+    // Cennik celowo usunięty z draftu (audyt 2026-07-06) — kanon: services.tsx.
     pricingType: "table",
-    tables: [
-      {
-        title: "Reportaż & Eventy",
-        rows: [
-          { label: "Pierwsza godzina pracy", value: "600 zł" },
-          { label: "Każda kolejna godzina", value: "400 zł" },
-          { label: "Pakiet całodniowy (8h)", value: "2 800 zł" },
-        ],
-        groups: [
-          {
-            label: "Opcje dodatkowe",
-            items: [
-              { label: "Live editing (Social Media)", value: "20 zł / zdjęcie" },
-              { label: "Ekspresowa dostawa (do 48h po evencie)", value: "+50% ceny" },
-              { label: "Ujęcia z drona", value: "+200 zł" },
-            ],
-          },
-        ],
-      },
-    ],
     faqs: [
       {
         q: "Czy mogę otrzymać zdjęcia jeszcze w trakcie eventu?",
@@ -523,31 +469,8 @@ export const portfolioCategories: PortfolioCategory[] = [
       { num: 3, title: "Retusz", desc: "Clipping path, korekta kolorów, białe tło" },
       { num: 4, title: "Dostawa", desc: "Pliki gotowe do użycia w 14 dni" },
     ],
+    // Cennik celowo usunięty z draftu (audyt 2026-07-06) — kanon: services.tsx.
     pricingType: "table",
-    tables: [
-      {
-        title: "Fotografia produktowa",
-        rows: [],
-        groups: [
-          {
-            label: "Packshot (białe tło)",
-            items: [
-              { label: "1-20 sztuk", value: "90 zł" },
-              { label: "21-50 sztuk", value: "70 zł" },
-              { label: "50+ sztuk", value: "55 zł" },
-            ],
-          },
-          {
-            label: "Zdjęcia kreatywne / reklamowe",
-            items: [
-              { label: "Internet / Social Media", value: "od 200 zł" },
-              { label: "Druk / Outdoor", value: "od 600 zł" },
-            ],
-          },
-        ],
-        note: "Minimalne zamówienie: 500 zł lub 6 zdjęć",
-      },
-    ],
     faqs: [
       {
         q: "Czy mogę przysłać produkty kurierem?",
@@ -590,34 +513,8 @@ export const portfolioCategories: PortfolioCategory[] = [
       { num: 3, title: "Sesja", desc: "10-15 min na osobę, headshoty + opcja team" },
       { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
     ],
+    // Cennik celowo usunięty z draftu (audyt 2026-07-06) — kanon: services.tsx.
     pricingType: "table",
-    tables: [
-      {
-        title: "Zespoły i Biura",
-        rows: [
-          { label: "Rozstawienie mobilnego studia", value: "450 zł" },
-          { label: "Dodatkowe ujęcie", value: "80 zł" },
-        ],
-        groups: [
-          {
-            label: "Stawka za osobę (1 retusz)",
-            items: [
-              { label: "1-10 osób", value: "150 zł" },
-              { label: "11-30 osób", value: "120 zł" },
-              { label: "30+ osób", value: "100 zł" },
-            ],
-          },
-          {
-            label: "Wynajem studia zewnętrznego",
-            items: [
-              { label: "Do 2h", value: "300 zł" },
-              { label: "Do 4h", value: "400 zł" },
-              { label: "Bez limitu", value: "800 zł" },
-            ],
-          },
-        ],
-      },
-    ],
     faqs: [
       {
         q: "Ile osób mogę sfotografować w jeden dzień?",

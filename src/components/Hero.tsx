@@ -56,7 +56,15 @@ export default function Hero() {
           </div>
 
           <p className="mt-4 text-[12.5px] text-steel dark:text-dark-text-muted">
-            Odpowiadam w 24h · Wolne terminy zwykle w 1-3 tyg. · Faktura VAT
+            Odpowiadam w 24h · Wolne terminy zwykle w 1-3 tyg. · Faktura VAT ·{" "}
+            {/* Numer klikalny nad foldem: GA4 pokazuje, że klienci częściej dzwonią niż piszą. */}
+            <a
+              href="tel:+48514900688"
+              data-cta="tel_hero"
+              className="font-semibold text-navy dark:text-white hover:text-blue dark:hover:text-blue-light transition-colors whitespace-nowrap"
+            >
+              514 900 688
+            </a>
           </p>
 
           <div className="flex items-center gap-3 mt-5">
