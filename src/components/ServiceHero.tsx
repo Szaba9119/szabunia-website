@@ -65,9 +65,35 @@ export default function ServiceHero({ service }: Props) {
                 Zobacz cennik
               </a>
             </div>
-            <p className="mt-4 text-[12.5px] text-steel dark:text-dark-text-muted">
-              Odpowiadam w 24h · Faktura VAT · 2 tury poprawek w cenie
-            </p>
+            {/* Chipy zaufania — spójne z hero strony głównej (audyt podstron
+                2026-07-07). Poprzedni zlepek z kropkami łamał się przypadkowo,
+                a „2 tury poprawek" było nieścisłe dla usług wideo (3 tury). */}
+            <ul className="mt-4 flex flex-wrap gap-2" aria-label="Najważniejsze warunki współpracy">
+              <li className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border dark:border-dark-border text-[12px] text-steel dark:text-dark-text-muted">
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Odpowiedź w 24h
+              </li>
+              <li className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border dark:border-dark-border text-[12px] text-steel dark:text-dark-text-muted">
+                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Faktura VAT
+              </li>
+              <li>
+                <a
+                  href="tel:+48514900688"
+                  data-cta="tel_service_hero"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-blue/40 dark:border-blue-light/40 text-[12px] font-barlow font-semibold text-blue dark:text-blue-light hover:bg-blue hover:text-white dark:hover:bg-blue-light dark:hover:text-navy transition-colors"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                  </svg>
+                  514 900 688
+                </a>
+              </li>
+            </ul>
           </AnimatedSection>
 
           {/* Dla kogo */}
