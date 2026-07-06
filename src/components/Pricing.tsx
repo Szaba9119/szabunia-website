@@ -5,6 +5,7 @@ import AnimatedSection from "./AnimatedSection";
 import PricingCalculator from "./PricingCalculator";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
+import { gtagEvent } from "@/lib/gtag";
 
 function CheckIcon() {
   return (
@@ -43,6 +44,8 @@ function formatPriceLabel(netto: number): string {
 
 /** Prefill formularza kontaktowego (ten sam most co kalkulator) i przewinięcie do #kontakt. */
 function askAboutPackage(serviceSlug: string, packageLabel: string) {
+  // ContactClickTracker śledzi tylko <a data-cta>; to <button>, więc event jawnie.
+  gtagEvent("cta_click", { cta: "pakiet_ask", service: serviceSlug, package: packageLabel });
   window.dispatchEvent(
     new CustomEvent("calc-to-form", {
       detail: {

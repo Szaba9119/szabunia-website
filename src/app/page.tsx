@@ -151,10 +151,12 @@ export default function Home() {
         {/* Proces tuż nad cennikiem: prosty przebieg (4 kroki) zmniejsza „szok ceną". */}
         <ErrorBoundary><Process /></ErrorBoundary>
         <ErrorBoundary><Pricing /></ErrorBoundary>
-        <ErrorBoundary><BlogPreview /></ErrorBoundary>
-        <ErrorBoundary><PoradnikTeaser /></ErrorBoundary>
+        {/* FAQ i formularz zaraz po cenniku: obsługa obiekcji → kontakt, bez
+            przerywania ścieżki treściami nurture (blog/poradnik idą na koniec). */}
         <ErrorBoundary><FAQ /></ErrorBoundary>
         <ErrorBoundary><CTA /></ErrorBoundary>
+        <ErrorBoundary><BlogPreview /></ErrorBoundary>
+        <ErrorBoundary><PoradnikTeaser /></ErrorBoundary>
       </main>
       <Footer />
       <MobileFAB />

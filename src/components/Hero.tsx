@@ -44,6 +44,15 @@ export default function Hero() {
               Zapytaj o wycenę
               <span className="text-white/80">→</span>
             </a>
+            {/* Drugorzędna ścieżka dla szukających ceny — bez konkurowania z głównym CTA. */}
+            <a
+              href="#cennik"
+              data-cta="cennik_home_hero"
+              className="inline-flex items-center gap-1.5 px-3 py-3.5 font-barlow font-semibold text-[15px] text-steel dark:text-dark-text-muted hover:text-blue dark:hover:text-blue-light transition-colors"
+            >
+              Zobacz pakiety i ceny
+              <span aria-hidden="true">↓</span>
+            </a>
           </div>
 
           <p className="mt-4 text-[12.5px] text-steel dark:text-dark-text-muted">
