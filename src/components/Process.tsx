@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
@@ -49,6 +50,9 @@ const steps = [
 ];
 
 export default function Process() {
+  // Mobile (audyt UX 2026-07-06): 6 kart warunków zwiniętych za przyciskiem
+  // (~1 ekran telefonu mniej); na md+ zawsze rozwinięte.
+  const [warunkiOpen, setWarunkiOpen] = useState(false);
   return (
     <section className="py-12 md:py-16 px-4">
       <div className="max-w-6xl mx-auto">
@@ -138,7 +142,30 @@ export default function Process() {
             <h3 className="font-barlow font-bold text-xl text-navy dark:text-white mb-8 text-center">
               Warunki Współpracy
             </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <div className="md:hidden mb-4">
+              <button
+                onClick={() => setWarunkiOpen((v) => !v)}
+                aria-expanded={warunkiOpen}
+                aria-controls="warunki-grid"
+                className="w-full max-w-md mx-auto flex items-center justify-center gap-2 py-3 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-card text-blue dark:text-blue-light font-barlow font-bold text-[13px]"
+              >
+                {warunkiOpen ? "Zwiń warunki" : "Rozwiń warunki (6)"}
+                <svg
+                  className={`w-4 h-4 transition-transform duration-300 ${warunkiOpen ? "rotate-180" : ""}`}
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+            </div>
+            <div
+              id="warunki-grid"
+              className={`${warunkiOpen ? "grid" : "hidden"} md:grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4`}
+            >
               <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">
                 <p className="text-navy dark:text-white text-[11px] uppercase tracking-widest mb-2 font-barlow font-semibold flex items-center gap-2">
                   <svg className="w-4 h-4 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>

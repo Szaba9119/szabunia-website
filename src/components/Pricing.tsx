@@ -70,6 +70,10 @@ function AskButton({ slug, label }: { slug: string; label: string }) {
 
 export default function Pricing() {
   const [openSections, setOpenSections] = useState<Set<string>>(new Set());
+  // Mobile (audyt UX 2026-07-06): domyślnie widoczny tylko pakiet Rekomendowany
+  // w każdej grupie — pozostałe za przyciskiem. Desktop: zawsze wszystkie.
+  const [showAllPortraits, setShowAllPortraits] = useState(false);
+  const [showAllEvents, setShowAllEvents] = useState(false);
 
   const toggleSection = (id: string) => {
     setOpenSections((prev) => {
@@ -143,9 +147,9 @@ export default function Pricing() {
             Portrety Biznesowe & Headshoty
           </h3>
         </AnimatedSection>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 md:mb-16">
           {/* Essential */}
-          <AnimatedSection delay={0}>
+          <AnimatedSection delay={0} className={showAllPortraits ? undefined : "hidden md:block"}>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full flex flex-col">
               <h4 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1">
                 PORTRET STANDARD
@@ -194,7 +198,7 @@ export default function Pricing() {
           </AnimatedSection>
 
           {/* Pro Branding */}
-          <AnimatedSection delay={0.2}>
+          <AnimatedSection delay={0.2} className={showAllPortraits ? undefined : "hidden md:block"}>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full flex flex-col">
               <h4 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1">
                 PORTRET PREMIUM
@@ -218,14 +222,26 @@ export default function Pricing() {
           </AnimatedSection>
         </div>
 
+        {/* Mobile: przełącznik pozostałych pakietów portretowych */}
+        <div className="md:hidden mb-16">
+          <button
+            onClick={() => setShowAllPortraits((v) => !v)}
+            aria-expanded={showAllPortraits}
+            className="w-full max-w-md mx-auto flex items-center justify-center gap-2 py-3 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-card text-blue dark:text-blue-light font-barlow font-bold text-[13px]"
+          >
+            {showAllPortraits ? "Zwiń pakiety portretowe" : "Pokaż wszystkie pakiety portretowe (3)"}
+            <ChevronIcon open={showAllPortraits} />
+          </button>
+        </div>
+
         {/* === PAKIETY HYBRYDOWE (DRUGIE) === */}
         <AnimatedSection>
           <h3 id="cennik-hybrydy" className="scroll-mt-24 font-barlow font-bold text-xl text-blue dark:text-blue-light mb-8 text-center">
             Pakiety Hybrydowe (Foto + Wideo + Dron)
           </h3>
         </AnimatedSection>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto mb-16">
-          <AnimatedSection>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-5xl mx-auto mb-6 md:mb-16">
+          <AnimatedSection className={showAllEvents ? undefined : "hidden md:block"}>
             {/* flex-col + flex-grow + mt-auto: stopki i przyciski 3 kart EVENT w jednej
                 linii niezależnie od liczby ficzerów (audyt UX 2026-07-06). */}
             <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full flex flex-col">
@@ -275,7 +291,7 @@ export default function Pricing() {
             </div>
           </AnimatedSection>
 
-          <AnimatedSection delay={0.2}>
+          <AnimatedSection delay={0.2} className={showAllEvents ? undefined : "hidden md:block"}>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border border-border dark:border-dark-border h-full relative flex flex-col">
               <div className="absolute -top-3 right-4 bg-blue text-white px-3 py-0.5 rounded-full text-[10px] font-barlow font-bold uppercase tracking-wider">
                 NOWOŚĆ
@@ -302,6 +318,18 @@ export default function Pricing() {
               <AskButton slug="pakiety-foto-wideo" label="EVENT PREMIUM" />
             </div>
           </AnimatedSection>
+        </div>
+
+        {/* Mobile: przełącznik pozostałych pakietów eventowych */}
+        <div className="md:hidden mb-16">
+          <button
+            onClick={() => setShowAllEvents((v) => !v)}
+            aria-expanded={showAllEvents}
+            className="w-full max-w-md mx-auto flex items-center justify-center gap-2 py-3 rounded-xl border border-border dark:border-dark-border bg-white dark:bg-dark-card text-blue dark:text-blue-light font-barlow font-bold text-[13px]"
+          >
+            {showAllEvents ? "Zwiń pakiety eventowe" : "Pokaż wszystkie pakiety eventowe (3)"}
+            <ChevronIcon open={showAllEvents} />
+          </button>
         </div>
 
         {/* === SEKCJE ZWIJANE === */}
