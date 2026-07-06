@@ -10,6 +10,7 @@ import LogoBar from "@/components/LogoBar";
 import Testimonials from "@/components/Testimonials";
 import Publications from "@/components/Publications";
 import Process from "@/components/Process";
+import Warunki from "@/components/Warunki";
 import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import BlogPreview from "@/components/BlogPreview";
@@ -183,6 +184,12 @@ export default async function GaleriaPage({
 
         <ErrorBoundary>
           <Pricing />
+        </ErrorBoundary>
+
+        {/* Warunki po cenniku (wydzielone z Process.tsx, 2026-07-06) —
+            bez tego /galeria straciłaby je razem z wydzieleniem. */}
+        <ErrorBoundary>
+          <Warunki />
         </ErrorBoundary>
 
         <ErrorBoundary>

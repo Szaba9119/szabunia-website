@@ -19,6 +19,7 @@ const Process = dynamic(() => import("@/components/Process"));
 const Testimonials = dynamic(() => import("@/components/Testimonials"));
 const Publications = dynamic(() => import("@/components/Publications"));
 const FAQ = dynamic(() => import("@/components/FAQ"));
+const Warunki = dynamic(() => import("@/components/Warunki"));
 const BlogPreview = dynamic(() => import("@/components/BlogPreview"));
 const PoradnikTeaser = dynamic(() => import("@/components/PoradnikTeaser"));
 const CTA = dynamic(() => import("@/components/CTA"));
@@ -58,8 +59,10 @@ export default function Home() {
         <ErrorBoundary><Process /></ErrorBoundary>
         <ErrorBoundary><Pricing /></ErrorBoundary>
         {/* FAQ i formularz zaraz po cenniku: obsługa obiekcji → kontakt, bez
-            przerywania ścieżki treściami nurture (blog/poradnik idą na koniec). */}
+            przerywania ścieżki treściami nurture (blog/poradnik idą na koniec).
+            Warunki („drobny druk") między FAQ a formularzem — decyzja Marcina 2026-07-06. */}
         <ErrorBoundary><FAQ /></ErrorBoundary>
+        <ErrorBoundary><Warunki /></ErrorBoundary>
         <ErrorBoundary><CTA /></ErrorBoundary>
         <ErrorBoundary><BlogPreview /></ErrorBoundary>
         <ErrorBoundary><PoradnikTeaser /></ErrorBoundary>
