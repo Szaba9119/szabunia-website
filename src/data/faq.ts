@@ -20,6 +20,10 @@ export const homeFaqs: HomeFaqItem[] = [
     a: "Standardowy czas oddania zdjęć to 14 dni roboczych, a materiałów wideo do 21 dni. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50% wartości zlecenia).",
   },
   {
+    q: "Co jeśli muszę przełożyć albo odwołać sesję?",
+    a: "Zmiana terminu minimum 48h przed sesją jest bezpłatna. Odwołanie później niż 48h przed sesją: 50% wartości zlecenia. Gotowe pliki archiwizuję przez 1 rok, a po pełnej akceptacji dzieła masz do 7 dni na dodatkowe poprawki.",
+  },
+  {
     q: "Jak wygląda sesja zdjęciowa krok po kroku?",
     a: "Zaczynamy od krótkiego briefu (telefon lub mail), w którym ustalamy cel, styl i logistykę. Przed sesją przygotowuję poseboard z przykładowymi kadrami. W dniu sesji prowadzę Cię przez pozowanie i dobór ujęć. Po sesji wybierasz zdjęcia z galerii online, a ja zajmuję się retuszem. Gotowe materiały dostajesz w ciągu 14 dni.",
   },
@@ -36,6 +40,10 @@ export const homeFaqs: HomeFaqItem[] = [
     a: "Standardowo nie przekazuję surowych plików RAW. Otrzymujesz starannie wyselekcjonowane i poddane autorskiej postprodukcji materiały, które stanowią gotowy, spójny produkt. Przekazanie plików RAW jest możliwe tylko przy specjalnych ustaleniach licencyjnych.",
   },
   {
+    q: "W jakich formatach otrzymam pliki?",
+    a: "Zdjęcia w pełnej jakości plus wersje zoptymalizowane pod web. Na życzenie przygotuję też PNG z przezroczystym tłem oraz TIFF do druku.",
+  },
+  {
     q: "Czy mogę użyć zdjęć na LinkedIn / stronie / w reklamie?",
     a: "Tak. Wszystkie licencje obejmują użytek komercyjny: strona www, social media, materiały drukowane, reklama online. Bez limitów czasowych.",
   },
@@ -50,6 +58,10 @@ export const homeFaqs: HomeFaqItem[] = [
   {
     q: "Czy wystawiam fakturę VAT?",
     a: "Tak, jestem czynnym płatnikiem VAT. Płatność realizowana przez platformę Useme (faktura VAT). Termin płatności: 7 dni.",
+  },
+  {
+    q: "Jak wygląda rozliczenie krok po kroku?",
+    a: "Po pierwszym retuszu wysyłam proformę z podglądem materiału. Masz 7 dni na akceptację (foto lub wideo), brak odpowiedzi oznacza akceptację. Po opłacie dostajesz pełne pliki (social media i druk) oraz fakturę VAT przez Useme.",
   },
   {
     q: "Ile tur poprawek otrzymuję w cenie?",

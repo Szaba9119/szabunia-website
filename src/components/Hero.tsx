@@ -44,6 +44,9 @@ export default function Hero() {
             Fotografia i wideo, które budują zaufanie, przyciągają klientów
             i&nbsp;wzmacniają autorytet na rynku.
           </p>
+          {/* Jedno CTA — decyzja Marcina (2026-07-06 noc): bez drugorzędnych
+              linków w hero, klient przechodzi przez lejek scrollując stronę.
+              Nie dodawać tu ponownie linków do cennika/portfolio. */}
           <div className="flex flex-wrap items-center gap-3">
             <a
               href="#kontakt"
@@ -53,15 +56,6 @@ export default function Hero() {
               Zapytaj o wycenę
               <span className="text-white/80">→</span>
             </a>
-            {/* Drugorzędna ścieżka dla szukających ceny — bez konkurowania z głównym CTA. */}
-            <a
-              href="#cennik"
-              data-cta="cennik_home_hero"
-              className="inline-flex items-center gap-1.5 px-3 py-3.5 font-barlow font-semibold text-[15px] text-steel dark:text-dark-text-muted hover:text-blue dark:hover:text-blue-light transition-colors"
-            >
-              Zobacz pakiety i ceny
-              <span aria-hidden="true">↓</span>
-            </a>
           </div>
         </div>
 
@@ -70,7 +64,7 @@ export default function Hero() {
             Bez animacji wejściowej: element LCP (PageSpeed "render delay"). */}
         <div className="relative md:col-start-2 md:row-start-1 md:row-span-2">
           <Parallax distance={PARALLAX.subtle} direction="up">
-            <div className="w-full aspect-[4/3] md:aspect-[3/4] rounded-3xl overflow-hidden bg-border dark:bg-dark-card relative">
+            <div className="w-full aspect-square md:aspect-[3/4] rounded-3xl overflow-hidden bg-border dark:bg-dark-card relative">
               <Image
                 src="/images/marcin-hero-light-4.jpg"
                 alt="Marcin Szabunia, fotograf biznesowy i twórca wideo, Poznań"

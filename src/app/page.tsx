@@ -19,7 +19,6 @@ const Process = dynamic(() => import("@/components/Process"));
 const Testimonials = dynamic(() => import("@/components/Testimonials"));
 const Publications = dynamic(() => import("@/components/Publications"));
 const FAQ = dynamic(() => import("@/components/FAQ"));
-const Warunki = dynamic(() => import("@/components/Warunki"));
 const BlogPreview = dynamic(() => import("@/components/BlogPreview"));
 const PoradnikTeaser = dynamic(() => import("@/components/PoradnikTeaser"));
 const CTA = dynamic(() => import("@/components/CTA"));
@@ -60,9 +59,9 @@ export default function Home() {
         <ErrorBoundary><Pricing /></ErrorBoundary>
         {/* FAQ i formularz zaraz po cenniku: obsługa obiekcji → kontakt, bez
             przerywania ścieżki treściami nurture (blog/poradnik idą na koniec).
-            Warunki („drobny druk") między FAQ a formularzem — decyzja Marcina 2026-07-06. */}
+            Warunki współpracy wchłonięte do FAQ jako pytania (decyzja Marcina,
+            2026-07-06 noc) — źródło: src/data/faq.ts; osobna sekcja tylko na /galeria. */}
         <ErrorBoundary><FAQ /></ErrorBoundary>
-        <ErrorBoundary><Warunki /></ErrorBoundary>
         <ErrorBoundary><CTA /></ErrorBoundary>
         <ErrorBoundary><BlogPreview /></ErrorBoundary>
         <ErrorBoundary><PoradnikTeaser /></ErrorBoundary>
