@@ -73,6 +73,9 @@ export default async function PortfolioPage({ params }: PageProps) {
           ],
           embedUrl: `https://www.youtube.com/embed/${category.video.youtubeId}`,
           contentUrl: `https://www.youtube.com/watch?v=${category.video.youtubeId}`,
+          // uploadDate wymagane przez Google (raport GSC „Brakujące pole uploadDate", 2026-07-07)
+          uploadDate: category.video.uploadDate,
+          duration: category.video.duration,
           publisher: {
             "@type": "Person",
             name: "Marcin Szabunia",

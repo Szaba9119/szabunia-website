@@ -71,7 +71,8 @@ export interface PortfolioCategory {
   pricingNote?: string;
   faqs: FAQItem[];
   caseStudy?: CaseStudy;
-  video?: { youtubeId: string; title: string };
+  /** uploadDate/duration: realne wartości z YouTube (wymagane w VideoObject — raport GSC 2026-07-07) */
+  video?: { youtubeId: string; title: string; uploadDate: string; duration: string };
   /** Nadtytuł nad H1 w widoku wideo (domyślnie: „Realizacja wideo") */
   badge?: string;
   /** Chipy zakresu w widoku wideo (domyślnie: zakres E-commerce All-in) */
@@ -110,6 +111,8 @@ export const portfolioCategories: PortfolioCategory[] = [
     video: {
       youtubeId: "4INLtKcKcZk",
       title: "E-commerce All-in — podsumowanie wydarzenia (ICEA × Autopay)",
+      uploadDate: "2026-03-30",
+      duration: "PT2M12S",
     },
     reels: [
       {
@@ -182,6 +185,8 @@ export const portfolioCategories: PortfolioCategory[] = [
     video: {
       youtubeId: "vjpUby-NZsY",
       title: "Box17 — film produktowy budki akustycznej (Box XL)",
+      uploadDate: "2026-02-16",
+      duration: "PT28S",
     },
     caseStudy: {
       client: "Box17 (Tim Petzold)",
@@ -239,6 +244,8 @@ export const portfolioCategories: PortfolioCategory[] = [
     video: {
       youtubeId: "ivvZQ5lQ7FE",
       title: "Artech — film z hali produkcyjnej (obróbka tworzyw sztucznych)",
+      uploadDate: "2025-03-21",
+      duration: "PT33S",
     },
     caseStudy: {
       client: "Artech Group",
