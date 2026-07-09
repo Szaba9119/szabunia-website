@@ -494,7 +494,7 @@ const serviceCategoriesRaw: ServiceData[] = [
         title: "Zdjęcia i wideo z drona",
         note: "Cena obejmuje dojazd w obrębie Poznania, dobór ujęć, retusz i korekcję barwną. Pliki RAW udostępniam, gdy przewiduje to umowa.",
         rows: [
-          { label: "Zdjęcia z drona (do 8 wyretuszowanych ujęć, do 50 Mpix)", value: "900 zł" },
+          { label: "Zdjęcia z drona (do 8 wyretuszowanych ujęć, 50 Mpix)", value: "900 zł" },
           { label: "Przebitki 4K do montażu własnego (korekcja barwna, bez montażu)", value: "700 zł" },
           { label: "Wideo z drona 4K (zmontowany materiał do 60 s)", value: "1 200 zł" },
         ],

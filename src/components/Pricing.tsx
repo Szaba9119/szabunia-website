@@ -459,7 +459,7 @@ export default function Pricing() {
                     <div className="flex justify-between items-center">
                       <div>
                         <span className="text-navy dark:text-white font-semibold">Zdjęcia z drona</span>
-                        <span className="block text-[11px]">Do 8 wyretuszowanych ujęć z powietrza (do 50 Mpix)</span>
+                        <span className="block text-[11px]">Do 8 wyretuszowanych ujęć z powietrza (50 Mpix)</span>
                       </div>
                       <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(900)}</span>
                     </div>

@@ -504,63 +504,194 @@ function ServiceOptions({
   }
 }
 
-function ConfigSummary({ slug, config }: { slug: ServiceSlug; config: CalcConfig }) {
-  const items: string[] = [];
+type BreakdownLine = { label: string; amount: number };
+
+/**
+ * Rozbicie ceny na pozycje (baza + dodatki). Suma pozycji równa się wynikowi
+ * calculatePrice() — dla eventu z ekspresem dokładamy pozycję mnożnika, żeby
+ * suma się zgadzała z ceną całkowitą.
+ */
+function priceBreakdown(slug: ServiceSlug, config: CalcConfig): BreakdownLine[] {
+  const lines: BreakdownLine[] = [];
   switch (slug) {
     case "wizerunek-portrety": {
-      const names = { essential: "Portret Standard", professional: "Portret Professional", "pro-branding": "Portret Premium" };
-      items.push(`Pakiet: ${names[config.portraitPackage ?? "professional"]}`);
-      if ((config.extraPhotos ?? 0) > 0) items.push(`Dodatkowe ujęcia: ${config.extraPhotos}`);
-      break;
-    }
-    case "sesje-zespolowe":
-      items.push(`Osób: ${config.teamSize ?? 10}`);
-      if ((config.teamExtraPhotosPerPerson ?? 0) > 0)
-        items.push(`Dodatkowe zdjęcia na osobę: ${config.teamExtraPhotosPerPerson}`);
-      if (config.studioSetup) items.push("Mobilne studio w biurze");
-      if (config.externalStudio) {
-        const labels = { "2h": "Studio do 2h", "4h": "Studio do 4h", unlimited: "Studio bez limitu" };
-        items.push(labels[config.externalStudio] ?? "");
+      const names = { essential: "Portret Standard", professional: "Portret Professional", "pro-branding": "Portret Premium" } as const;
+      const pkg = config.portraitPackage ?? "professional";
+      lines.push({ label: names[pkg], amount: pkg === "essential" ? 1000 : pkg === "professional" ? 1300 : 1800 });
+      const extra = config.extraPhotos ?? 0;
+      if (extra > 0) {
+        const rate = pkg === "essential" ? 120 : pkg === "professional" ? 100 : 80;
+        lines.push({ label: `Dodatkowe ujęcia (${extra} × ${rate} zł)`, amount: extra * rate });
       }
       break;
-    case "fotografia-produktowa": {
-      const types = { packshot: "Packshot", "creative-web": "Kreatywne (web)", "creative-print": "Kreatywne (druk)" };
-      items.push(`Typ: ${types[config.productType ?? "packshot"]}`);
-      items.push(`Produktów: ${config.productCount ?? 20}`);
+    }
+    case "sesje-zespolowe": {
+      const size = config.teamSize ?? 10;
+      const tiers = [
+        { from: 4, upTo: 10, rate: 150 },
+        { from: 11, upTo: 30, rate: 120 },
+        { from: 31, upTo: Infinity, rate: 100 },
+      ];
+      let remaining = size;
+      let prevCap = 0;
+      for (const t of tiers) {
+        if (remaining <= 0) break;
+        const inTier = Math.min(remaining, t.upTo - prevCap);
+        if (inTier > 0) {
+          const label = t.upTo === Infinity ? `Osoby 31+ (${inTier} × ${t.rate} zł)` : `Osoby ${t.from}–${t.upTo} (${inTier} × ${t.rate} zł)`;
+          lines.push({ label, amount: inTier * t.rate });
+          remaining -= inTier;
+          prevCap = t.upTo;
+        }
+      }
+      const extraPer = config.teamExtraPhotosPerPerson ?? 0;
+      if (extraPer > 0) lines.push({ label: `Dodatkowe zdjęcia (${extraPer}/os. × ${size} os.)`, amount: extraPer * 80 * size });
+      if (config.studioSetup) lines.push({ label: "Mobilne studio w biurze", amount: 450 });
+      if (config.externalStudio === "2h") lines.push({ label: "Studio zewnętrzne (do 2h)", amount: 300 });
+      else if (config.externalStudio === "4h") lines.push({ label: "Studio zewnętrzne (do 4h)", amount: 400 });
+      else if (config.externalStudio === "unlimited") lines.push({ label: "Studio zewnętrzne (bez limitu)", amount: 800 });
       break;
     }
-    case "eventy-reportaze":
-      items.push(`Godzin: ${config.eventHours ?? 4}`);
-      if ((config.liveEditCount ?? 0) > 0) items.push(`Live editing: ${config.liveEditCount} zdjęć`);
-      if (config.eventDrone) items.push("Ujęcia z drona");
-      if (config.eventExpress) items.push("Ekspresowa dostawa do 48h po evencie");
+    case "fotografia-produktowa": {
+      const count = config.productCount ?? 20;
+      if (config.productType === "packshot") {
+        const tiers = [
+          { from: 1, upTo: 20, rate: 90 },
+          { from: 21, upTo: 50, rate: 70 },
+          { from: 51, upTo: Infinity, rate: 55 },
+        ];
+        let remaining = count;
+        let prevCap = 0;
+        let sum = 0;
+        for (const t of tiers) {
+          if (remaining <= 0) break;
+          const inTier = Math.min(remaining, t.upTo - prevCap);
+          if (inTier > 0) {
+            const label = t.upTo === Infinity ? `Packshot 51+ (${inTier} × ${t.rate} zł)` : `Packshot ${t.from}–${t.upTo} (${inTier} × ${t.rate} zł)`;
+            lines.push({ label, amount: inTier * t.rate });
+            sum += inTier * t.rate;
+            remaining -= inTier;
+            prevCap = t.upTo;
+          }
+        }
+        if (sum < 500) {
+          lines.length = 0;
+          lines.push({ label: `Packshot (${count} szt., minimalne zamówienie)`, amount: 500 });
+        }
+      } else if (config.productType === "creative-web") {
+        lines.push({ label: `Zdjęcia kreatywne, web (${count} × 200 zł)`, amount: count * 200 });
+      } else {
+        lines.push({ label: `Zdjęcia kreatywne, druk (${count} × 600 zł)`, amount: count * 600 });
+      }
       break;
+    }
+    case "eventy-reportaze": {
+      const hours = config.eventHours ?? 4;
+      let base: number;
+      if (hours <= 1) base = 600;
+      else if (hours <= 3) base = 600 + (hours - 1) * 400;
+      else base = 1600 + (hours - 4) * 400;
+      if (hours >= 8) base = 2800;
+      lines.push({ label: `Reportaż (${hours}h)`, amount: base });
+      const live = config.liveEditCount ?? 0;
+      if (live > 0) lines.push({ label: `Live editing (${live} × 20 zł)`, amount: live * 20 });
+      if (config.eventDrone) lines.push({ label: "Ujęcia z drona", amount: 200 });
+      if (config.eventExpress) {
+        const sub = lines.reduce((a, l) => a + l.amount, 0);
+        lines.push({ label: "Ekspres do 48h (+50%)", amount: Math.round(sub * 1.5) - sub });
+      }
+      break;
+    }
     case "wideo-marketing": {
-      items.push(`Operator: ${config.operatorHours ?? 2}h`);
-      const pkgs = { xs: "XS Teaser", s: "S Reels", m: "M Event recap", l: "L Promo", xl: "XL Dokument" };
-      items.push(`Montaż: ${pkgs[config.videoPackage ?? "s"]}`);
+      const opHours = config.operatorHours ?? 2;
+      lines.push({ label: `Operator (${opHours}h)`, amount: opHours <= 1 ? 400 : 400 + (opHours - 1) * 200 });
+      const pkgs: Record<string, { name: string; price: number }> = {
+        xs: { name: "Montaż: XS Teaser", price: 300 },
+        s: { name: "Montaż: S Reels", price: 600 },
+        m: { name: "Montaż: M Event recap", price: 900 },
+        l: { name: "Montaż: L Promo", price: 1400 },
+        xl: { name: "Montaż: XL Dokument", price: 1800 },
+      };
+      const p = pkgs[config.videoPackage ?? "s"];
+      if (p) lines.push({ label: p.name, amount: p.price });
       break;
     }
     case "pakiety-foto-wideo": {
-      items.push(`Pakiet: ${config.comboPackage === "premium" ? "Event Premium" : config.comboPackage === "pro" ? "Event Professional" : "Event Standard"}`);
-      if ((config.extraComboHours ?? 0) > 0) items.push(`Dodatkowe godziny: ${config.extraComboHours}`);
+      const names = { essentials: "Event Standard", pro: "Event Professional", premium: "Event Premium" } as const;
+      const pkg = config.comboPackage ?? "essentials";
+      lines.push({ label: names[pkg], amount: pkg === "essentials" ? 1800 : pkg === "pro" ? 3200 : 4500 });
+      const extra = config.extraComboHours ?? 0;
+      if (extra > 0) lines.push({ label: `Dodatkowe godziny (${extra} × 400 zł)`, amount: extra * 400 });
       break;
     }
     case "zdjecia-wideo-z-drona": {
-      const names = { foto: "Zdjęcia z drona", przebitki: "Przebitki 4K do montażu własnego", wideo: "Wideo z drona", "foto-przebitki": "Zdjęcia + przebitki 4K", "foto-wideo": "Foto + wideo z drona" };
-      items.push(`Pakiet: ${names[config.dronePackage ?? "foto-wideo"]}`);
-      if ((config.droneExtraHours ?? 0) > 0) items.push(`Kolejne wyloty / dodatkowe godziny: ${config.droneExtraHours}`);
+      const names: Record<string, string> = { foto: "Zdjęcia z drona (do 8 ujęć)", przebitki: "Przebitki 4K", wideo: "Wideo z drona 4K", "foto-przebitki": "Zdjęcia + przebitki 4K", "foto-wideo": "Zdjęcia + wideo z drona" };
+      const prices: Record<string, number> = { foto: 900, przebitki: 700, wideo: 1200, "foto-przebitki": 1300, "foto-wideo": 1700 };
+      const pkg = config.dronePackage ?? "foto-wideo";
+      lines.push({ label: names[pkg] ?? "Dron", amount: prices[pkg] ?? 900 });
+      const extra = config.droneExtraHours ?? 0;
+      if (extra > 0) lines.push({ label: `Kolejne wyloty / godziny (${extra} × 300 zł)`, amount: extra * 300 });
       break;
     }
   }
+  return lines;
+}
+
+/** Krótkie wyjaśnienie „co w pakiecie / jak liczę" dla wybranej usługi (krok 2). */
+function configExplainer(slug: ServiceSlug, config: CalcConfig): string | null {
+  switch (slug) {
+    case "wizerunek-portrety": {
+      const info = {
+        essential: "1 osoba, do 2 stylizacji, 90 min sesji, 3 wyretuszowane zdjęcia (wybór ze 100+ ujęć).",
+        professional: "1 osoba, 2–3 stylizacje, 2 godziny sesji, 8 wyretuszowanych zdjęć (wybór ze 150+ ujęć).",
+        "pro-branding": "1 osoba, 3–4 stylizacje, do 3 godzin sesji, 15 wyretuszowanych zdjęć (wybór z 200+ ujęć).",
+      } as const;
+      return "W pakiecie: " + info[config.portraitPackage ?? "professional"];
+    }
+    case "pakiety-foto-wideo": {
+      const info = {
+        essentials: "3 godziny, 50+ zdjęć, wideo Reels 30 s, dron w cenie.",
+        pro: "6 godzin, 150+ zdjęć, wideo 60 s + teaser 15 s, dron w cenie.",
+        premium: "do 8 godzin, min. 200 zdjęć, film do 90 s + teaser, dron w cenie.",
+      } as const;
+      return "W pakiecie: " + info[config.comboPackage ?? "essentials"];
+    }
+    case "sesje-zespolowe":
+      return "Stawka progresywna: osoby 4–10 po 150 zł, 11–30 po 120 zł, 31+ po 100 zł. Niższą stawkę płacisz tylko za osoby w danym progu. W stawce 1 wyretuszowane zdjęcie na osobę.";
+    case "fotografia-produktowa":
+      return config.productType === "packshot"
+        ? "Packshot progresywnie: 1–20 po 90 zł, 21–50 po 70 zł, 51+ po 55 zł. Minimalne zamówienie 500 zł."
+        : "Zdjęcia kreatywne wyceniam za sztukę; koncepcję i liczbę ujęć ustalamy w briefie.";
+    case "eventy-reportaze":
+      return "1. godzina 600 zł, każda kolejna 400 zł; pakiet 4h = 1 600 zł, całodniowy 8h = 2 800 zł.";
+    case "wideo-marketing":
+      return "Cena = praca operatora na planie + wybrany pakiet montażowy. Wielokamerowe produkcje ze scenariuszem wyceniam indywidualnie.";
+    case "zdjecia-wideo-z-drona":
+      return "Dron DJI Mini 5 Pro (50 Mpix, 4K), operator z certyfikatem A1/A3 i OC. Koordynację w strefach kontrolowanych biorę na siebie.";
+    default:
+      return null;
+  }
+}
+
+function PriceBreakdown({ slug, config, mode }: { slug: ServiceSlug; config: CalcConfig; mode: PriceMode }) {
+  const lines = priceBreakdown(slug, config);
+  const total = calculatePrice(slug, config);
   return (
-    <ul className="space-y-1">
-      {items.filter(Boolean).map((item) => (
-        <li key={item} className="text-[13px] text-steel dark:text-dark-text-muted flex items-center gap-2">
-          <span className="text-blue">&#10003;</span> {item}
-        </li>
-      ))}
-    </ul>
+    <div className="text-left">
+      <p className="text-[11px] uppercase tracking-widest text-steel font-barlow font-semibold mb-2">Rozbicie wyceny</p>
+      <ul className="space-y-1.5">
+        {lines.map((line, i) => (
+          <li key={i} className="flex items-baseline justify-between gap-3 text-[13px] text-steel dark:text-dark-text-muted">
+            <span className="flex items-center gap-2"><span className="text-blue">&#10003;</span> {line.label}</span>
+            <span className="whitespace-nowrap tabular-nums">{" "}{fmtPrice(line.amount, mode)} zł</span>
+          </li>
+        ))}
+      </ul>
+      <div className="flex items-baseline justify-between gap-3 mt-2.5 pt-2.5 border-t border-border dark:border-dark-border">
+        <span className="text-[13px] font-barlow font-bold text-navy dark:text-white">Razem ({mode === "netto" ? "netto" : "brutto z VAT"})</span>
+        <span className="text-[15px] font-barlow font-extrabold text-navy dark:text-white whitespace-nowrap tabular-nums">{fmtPrice(total, mode)} zł</span>
+      </div>
+    </div>
   );
 }
 
@@ -673,6 +804,17 @@ export default function PricingCalculator() {
               <ServiceOptions slug={selectedService} config={config} onChange={setConfig} mode={mode} />
             </div>
 
+            {configExplainer(selectedService, config) && (
+              <p className="mt-4 text-[12px] leading-relaxed text-steel dark:text-dark-text-muted bg-gray-bg dark:bg-dark-bg rounded-xl px-4 py-3 border border-border dark:border-dark-border">
+                {configExplainer(selectedService, config)}
+              </p>
+            )}
+
+            <div className="mt-4 flex items-center justify-between rounded-xl bg-blue-pale dark:bg-blue/15 px-4 py-3">
+              <span className="text-[12px] font-barlow font-semibold text-navy dark:text-white">Szacunkowo teraz</span>
+              <span className="font-barlow font-extrabold text-2xl text-blue dark:text-blue-light tabular-nums">{displayPrice.toLocaleString("pl-PL")} zł</span>
+            </div>
+
             <div className="flex gap-3 mt-6">
               <button
                 onClick={() => setStep(1)}
@@ -715,26 +857,23 @@ export default function PricingCalculator() {
               <div className="font-barlow font-black text-5xl md:text-6xl text-navy dark:text-white mb-1">
                 {displayPrice.toLocaleString("pl-PL")} zł
               </div>
-              <p className="text-steel dark:text-dark-text-muted text-[12px] mb-4">
-                {mode === "netto" ? "netto" : "brutto (z VAT)"} • ostateczna cena po indywidualnej wycenie
+              <p className="text-steel dark:text-dark-text-muted text-[12px] mb-5">
+                {mode === "netto" ? "netto" : "brutto (z VAT)"} • to orientacyjny koszt, nie zobowiązanie
               </p>
 
-              <div className="bg-gray-bg dark:bg-dark-bg rounded-xl p-4 mb-6 text-left" data-config-summary>
-                <p className="text-[11px] uppercase tracking-widest text-steel font-barlow font-semibold mb-2">Twoja konfiguracja</p>
-                <ConfigSummary slug={selectedService} config={config} />
+              <div className="bg-gray-bg dark:bg-dark-bg rounded-xl p-4 mb-5" data-config-summary>
+                <PriceBreakdown slug={selectedService} config={config} mode={mode} />
               </div>
+
+              <p className="text-[12px] leading-relaxed text-steel dark:text-dark-text-muted mb-5">
+                Po krótkim briefie wracam z jedną, konkretną wyceną, zwykle w ciągu 24h. Faktura VAT, rozliczenie przez Useme, bez zobowiązań.
+              </p>
 
               <a
                 href="#kontakt"
                 onClick={(e) => {
-                  const items: string[] = [];
-                  const summaryEl = document.querySelector("[data-config-summary]");
-                  if (summaryEl) {
-                    summaryEl.querySelectorAll("li").forEach((li) => {
-                      items.push(li.textContent?.replace("✓", "").trim() ?? "");
-                    });
-                  }
-                  const summary = `Usługa: ${selectedItem?.title}\nKonfiguracja: ${items.filter(Boolean).join(", ")}\nSzacunkowa kwota: ${displayPrice.toLocaleString("pl-PL")} zł ${mode === "netto" ? "netto" : "brutto"}`;
+                  const parts = priceBreakdown(selectedService, config).map((l) => `${l.label}: ${fmtPrice(l.amount, mode)} zł`);
+                  const summary = `Usługa: ${selectedItem?.title}\nKonfiguracja: ${parts.join("; ")}\nSzacunkowa kwota: ${displayPrice.toLocaleString("pl-PL")} zł ${mode === "netto" ? "netto" : "brutto"}`;
                   gtagEvent("calculator_to_form", { service: selectedService ?? "(brak)" });
                   window.dispatchEvent(new CustomEvent("calc-to-form", { detail: { service: selectedService, message: summary } }));
                   const target = document.getElementById("kontakt");
@@ -747,15 +886,18 @@ export default function PricingCalculator() {
               >
                 Wyślij konfigurację w formularzu
               </a>
+              <p className="text-[11px] text-steel dark:text-dark-text-muted mt-2">
+                Przeniosę tę konfigurację do formularza, dodasz szczegóły i wyślesz.
+              </p>
 
               <div className="flex items-center gap-3 my-5">
                 <div className="flex-1 h-px bg-border dark:bg-dark-border" />
-                <span className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted">lub</span>
+                <span className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted">lub szybciej</span>
                 <div className="flex-1 h-px bg-border dark:bg-dark-border" />
               </div>
 
               <p className="text-[12px] text-steel dark:text-dark-text-muted mb-3">
-                Nie jesteś gotowy na cały brief? Zostaw e-mail, wyślę Ci tę szacunkową wycenę na start — resztę dogadamy, jeśli zdecydujesz się iść dalej.
+                Nie masz czasu na cały formularz? Zostaw sam e-mail, wyślę Ci tę szacunkową wycenę i odezwę się z pytaniami.
               </p>
               <QuoteEmailCapture service={selectedItem?.title ?? ""} priceLabel={`${displayPrice.toLocaleString("pl-PL")} zł ${mode === "netto" ? "netto" : "brutto"}`} />
             </div>
