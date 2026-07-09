@@ -438,7 +438,7 @@ export default function Pricing() {
                       Zdjęcia i wideo z drona
                     </h3>
                     <p className="text-[13px] text-steel dark:text-dark-text-muted">
-                      od {formatPriceLabel(500)}
+                      od {formatPriceLabel(900)}
                     </p>
                   </div>
                 </div>
@@ -454,46 +454,46 @@ export default function Pricing() {
                 <div className="overflow-hidden">
                   <div className="px-6 md:px-8 pb-6 pt-2 border-t border-border/50 dark:border-dark-border space-y-4 text-[13px] text-steel dark:text-dark-text-muted">
                     <p className="text-[12px]">
-                      1h lotu w cenie. W godzinę wykonuję do 10 wyretuszowanych zdjęć lub do 60 s zmontowanego materiału 4K.
+                      Cena obejmuje dojazd w obrębie Poznania, dobór ujęć, retusz i korekcję barwną.
                     </p>
                     <div className="flex justify-between items-center">
                       <div>
                         <span className="text-navy dark:text-white font-semibold">Zdjęcia z drona</span>
-                        <span className="block text-[11px]">Do 10 wyretuszowanych zdjęć z powietrza</span>
+                        <span className="block text-[11px]">Do 10 wyretuszowanych ujęć z powietrza (do 50 Mpix)</span>
                       </div>
-                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(600)}</span>
+                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(900)}</span>
                     </div>
                     <div className="flex justify-between items-center">
                       <div>
                         <span className="text-navy dark:text-white font-semibold">Przebitki 4K do montażu własnego</span>
                         <span className="block text-[11px]">Wyselekcjonowane ujęcia 4K, korekcja barwna, bez montażu</span>
                       </div>
-                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(500)}</span>
+                      <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(700)}</span>
                     </div>
                     <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10 flex justify-between items-center">
                       <div>
                         <span className="text-navy dark:text-white font-semibold">Wideo z drona 4K</span>
                         <span className="block text-[11px] text-blue/70 dark:text-blue-light/70 font-semibold">Rekomendowane · zmontowany materiał do 60 s</span>
                       </div>
-                      <span className="font-barlow font-extrabold text-2xl text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(900)}</span>
+                      <span className="font-barlow font-extrabold text-2xl text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(1200)}</span>
                     </div>
                     <div className="pt-3 border-t border-border dark:border-dark-border">
-                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Komplet z jednego lotu:</p>
+                      <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Komplet z jednej sesji:</p>
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
-                        <div className="flex justify-between"><span>Zdjęcia + przebitki 4K</span><span>{formatPriceLabel(700)}</span></div>
-                        <div className="flex justify-between"><span>Zdjęcia + wideo (montaż)</span><span>{formatPriceLabel(1100)}</span></div>
+                        <div className="flex justify-between"><span>Zdjęcia + przebitki 4K</span><span>{formatPriceLabel(1300)}</span></div>
+                        <div className="flex justify-between"><span>Zdjęcia + wideo (montaż)</span><span>{formatPriceLabel(1700)}</span></div>
                       </div>
                     </div>
                     <div className="pt-3 border-t border-border dark:border-dark-border">
                       <p className="text-navy dark:text-white text-[13px] font-semibold mb-2">Opcje dodatkowe:</p>
                       <div className="space-y-1.5 pl-3 border-l-2 border-blue/30 dark:border-blue-light/30">
-                        <div className="flex justify-between"><span>Kolejna godzina lotu</span><span>{formatPriceLabel(300)}</span></div>
-                        <div className="flex justify-between"><span>Dodatkowe zdjęcie</span><span>{formatPriceLabel(80)}</span></div>
+                        <div className="flex justify-between"><span>Kolejny wylot / dodatkowa godzina</span><span>{formatPriceLabel(300)}</span></div>
+                        <div className="flex justify-between"><span>Dodatkowe zdjęcie ponad pakiet</span><span>{formatPriceLabel(80)}</span></div>
                         <div className="flex justify-between"><span>Jako dodatek do innej sesji (do 3 ujęć)</span><span>{formatPriceLabel(200)}</span></div>
                       </div>
                     </div>
                     <p className="text-[11px]">
-                      Dron DJI, certyfikat operatora A1/A3 i ubezpieczenie OC. W standardowych lokalizacjach loty bez dopłat, w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.
+                      Dron DJI Mini 5 Pro (sensor 1&Prime; CMOS, 50 Mpix), certyfikat operatora A1/A3 i ubezpieczenie OC. Poza Poznaniem dojazd 2,50 zł/km. W standardowych lokalizacjach loty bez dopłat; w strefach kontrolowanych koordynację lotniczą biorę na siebie — bez ukrytych kosztów.
                     </p>
                   </div>
                 </div>

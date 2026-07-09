@@ -149,8 +149,9 @@ function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
       return base + (config.extraComboHours ?? 0) * 400;
     }
     case "zdjecia-wideo-z-drona": {
-      const dronePrices: Record<string, number> = { foto: 600, przebitki: 500, wideo: 900, "foto-przebitki": 700, "foto-wideo": 1100 };
-      const base = dronePrices[config.dronePackage ?? "foto-wideo"] ?? 600;
+      // Cennik dronowy 2026-07 (samodzielna linia usług od 900 zł)
+      const dronePrices: Record<string, number> = { foto: 900, przebitki: 700, wideo: 1200, "foto-przebitki": 1300, "foto-wideo": 1700 };
+      const base = dronePrices[config.dronePackage ?? "foto-wideo"] ?? 900;
       return base + (config.droneExtraHours ?? 0) * 300;
     }
     default:
@@ -476,15 +477,15 @@ function ServiceOptions({
               value={config.dronePackage ?? "foto-wideo"}
               onChange={(e) => onChange({ ...config, dronePackage: e.target.value as CalcConfig["dronePackage"] })}
             >
-              <option value="foto">Zdjęcia z drona ({fmtPrice(600, mode)} zł)</option>
-              <option value="przebitki">Przebitki 4K do montażu własnego ({fmtPrice(500, mode)} zł)</option>
-              <option value="wideo">Wideo z drona 4K ({fmtPrice(900, mode)} zł)</option>
-              <option value="foto-przebitki">Zdjęcia + przebitki 4K ({fmtPrice(700, mode)} zł)</option>
-              <option value="foto-wideo">Foto + wideo z drona ({fmtPrice(1100, mode)} zł)</option>
+              <option value="foto">Zdjęcia z drona, do 10 ujęć ({fmtPrice(900, mode)} zł)</option>
+              <option value="przebitki">Przebitki 4K do montażu własnego ({fmtPrice(700, mode)} zł)</option>
+              <option value="wideo">Wideo z drona 4K, montaż do 60 s ({fmtPrice(1200, mode)} zł)</option>
+              <option value="foto-przebitki">Zdjęcia + przebitki 4K ({fmtPrice(1300, mode)} zł)</option>
+              <option value="foto-wideo">Zdjęcia + wideo z montażem ({fmtPrice(1700, mode)} zł)</option>
             </select>
           </div>
           <div>
-            <label htmlFor="calc-drone-extra" className={labelClass}>Dodatkowe godziny lotu ({fmtPrice(300, mode)} zł/h)</label>
+            <label htmlFor="calc-drone-extra" className={labelClass}>Kolejne wyloty / dodatkowe godziny ({fmtPrice(300, mode)} zł)</label>
             <input
               id="calc-drone-extra"
               type="number"
@@ -548,7 +549,7 @@ function ConfigSummary({ slug, config }: { slug: ServiceSlug; config: CalcConfig
     case "zdjecia-wideo-z-drona": {
       const names = { foto: "Zdjęcia z drona", przebitki: "Przebitki 4K do montażu własnego", wideo: "Wideo z drona", "foto-przebitki": "Zdjęcia + przebitki 4K", "foto-wideo": "Foto + wideo z drona" };
       items.push(`Pakiet: ${names[config.dronePackage ?? "foto-wideo"]}`);
-      if ((config.droneExtraHours ?? 0) > 0) items.push(`Dodatkowe godziny lotu: ${config.droneExtraHours}`);
+      if ((config.droneExtraHours ?? 0) > 0) items.push(`Kolejne wyloty / dodatkowe godziny: ${config.droneExtraHours}`);
       break;
     }
   }

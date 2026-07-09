@@ -479,7 +479,9 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" d="M7.8 7.8l1.7 1.7M16.2 7.8l-1.7 1.7M7.8 16.2l1.7-1.7M16.2 16.2l-1.7-1.7" />
       </svg>
     ),
-    price: "od 500 zł",
+    // Cennik dronowy 2026-07: samodzielna linia usług od 900 zł (brief 09.07.2026).
+    // Sprzedajemy deliverable, nie czas lotu — bez „1h lotu w cenie".
+    price: "od 900 zł",
     process: [
       { num: 1, title: "Brief i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
       { num: 2, title: "Lot", desc: "Zdjęcia i wideo 4K z powietrza" },
@@ -490,25 +492,25 @@ const serviceCategoriesRaw: ServiceData[] = [
     tables: [
       {
         title: "Zdjęcia i wideo z drona",
-        note: "1h lotu w cenie każdego wariantu. Materiał 4K, eksport gotowy do montażu. Nie udostępniam plików RAW.",
+        note: "Cena obejmuje dojazd w obrębie Poznania, dobór ujęć, retusz i korekcję barwną. Pliki RAW udostępniam, gdy przewiduje to umowa.",
         rows: [
-          { label: "Zdjęcia z drona (do 10 wyretuszowanych)", value: "600 zł" },
-          { label: "Przebitki 4K do montażu własnego", value: "500 zł" },
-          { label: "Wideo z drona 4K (montaż do 60 s)", value: "900 zł" },
+          { label: "Zdjęcia z drona — do 10 wyretuszowanych ujęć (do 50 Mpix)", value: "900 zł" },
+          { label: "Przebitki 4K do montażu własnego (korekcja barwna, bez montażu)", value: "700 zł" },
+          { label: "Wideo z drona 4K ⭐ Rekomendowane (zmontowany materiał do 60 s)", value: "1 200 zł" },
         ],
         groups: [
           {
-            label: "Komplet z jednego lotu",
+            label: "Komplet z jednej sesji",
             items: [
-              { label: "Zdjęcia + przebitki 4K", value: "700 zł" },
-              { label: "Zdjęcia + wideo (montaż)", value: "1 100 zł" },
+              { label: "Zdjęcia + przebitki 4K", value: "1 300 zł" },
+              { label: "Zdjęcia + wideo (montaż)", value: "1 700 zł" },
             ],
           },
           {
             label: "Opcje dodatkowe",
             items: [
-              { label: "Kolejna godzina lotu", value: "300 zł" },
-              { label: "Dodatkowe zdjęcie", value: "80 zł" },
+              { label: "Kolejny wylot / dodatkowa godzina", value: "300 zł" },
+              { label: "Dodatkowe zdjęcie ponad pakiet", value: "80 zł" },
               { label: "Jako dodatek do innej sesji (do 3 ujęć)", value: "200 zł" },
             ],
           },
@@ -516,7 +518,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       },
     ],
     pricingNote:
-      "Dron DJI, certyfikat operatora A1/A3 i ubezpieczenie OC. W standardowych lokalizacjach loty bez dopłat, w strefach kontrolowanych zgody PAŻP wyceniane indywidualnie.",
+      "Dron DJI Mini 5 Pro (sensor 1'' CMOS, 50 Mpix), certyfikat operatora A1/A3 i ubezpieczenie OC. Poza Poznaniem dojazd liczony osobno (2,50 zł/km). W standardowych lokalizacjach loty bez dopłat. W strefach kontrolowanych koordynację lotniczą biorę na siebie — bez ukrytych kosztów; przy strefach wymagających formalnych zgód uprzedzam z wyprzedzeniem.",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro do zdjęć i wideo w 4K. Mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona łączę z naziemnym zestawem Canon, gdy potrzebny jest komplet foto i wideo." },
       { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
