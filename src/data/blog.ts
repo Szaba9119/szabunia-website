@@ -61,7 +61,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Podsumowanie</h2>
       <p>Przygotowanie do sesji biznesowej nie wymaga godzin planowania. Wystarczy checklista powyżej i 30 minut na dobór stylizacji. Reszta to moja robota: zadbam o światło, kompozycję i klimat, który odda Twój profesjonalizm. Sesje realizuję w Poznaniu, gdzie mam bazę, a na życzenie dojeżdżam do klientów w całej Polsce i Europie.</p>
-      <p>Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">profesjonalne headshoty zwiększają konwersję na LinkedIn</a>, albo przejrzyj moje <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a>.</p>
+      <p>Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">profesjonalne headshoty zwiększają konwersję na LinkedIn</a>, przejrzyj moje <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> albo pobierz <a href="/poradnik">darmowy poradnik przygotowania do sesji</a>.</p>
     `,
     seo: {
       title: "Jak przygotować się do sesji biznesowej | Marcin Szabunia",
@@ -114,7 +114,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>ROI profesjonalnego headshota</h2>
       <p><a href="/uslugi/wizerunek-portrety">Sesja portretowa</a> kosztuje od 1 000 zł. Jeden nowy klient pozyskany dzięki lepszemu profilowi na LinkedIn zwraca tę inwestycję wielokrotnie. To jedna z najtańszych i najskuteczniejszych inwestycji w personal branding. Pracuję z bazy w Poznaniu — na terenie miasta dojazd jest wliczony w cenę, a sesje realizuję w całej Polsce i Europie.</p>
-      <p>Zanim umówisz sesję, sprawdź, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, i zobacz <a href="/galeria?kat=portrety">przykładowe realizacje sesji wizerunkowych</a>.</p>
+      <p>Zanim umówisz sesję, sprawdź, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, pobierz <a href="/poradnik">darmowy poradnik przygotowania do sesji</a> i zobacz <a href="/galeria?kat=portrety">przykładowe realizacje sesji wizerunkowych</a>.</p>
     `,
     seo: {
       title: "Headshoty na LinkedIn a konwersja | Marcin Szabunia",
