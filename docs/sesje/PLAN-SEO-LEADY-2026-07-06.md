@@ -68,6 +68,12 @@ P3.1 (title/meta packshoty) ── czeka na wybór wariantu przez Marcina
 
 **Automatyzacja od 2026-07-06:** za zgodą Marcina ("lecisz to, do momentu az nie skonczysz P1.1") utworzone zadanie cykliczne `szabunia-gsc-indexing`, codziennie 9:07, samo zgłasza kolejną turę URL-i (do wyczerpania dziennego limitu GSC), aktualizuje tę sekcję i wyłącza się samo po zgłoszeniu całej listy. Nie wymaga już mojego pytania "dawaj dalej" — postęp będzie widoczny tutaj po każdym uruchomieniu.
 
+**Próba 2026-07-07 (rano, zadanie cykliczne):** rozszerzenie Claude in Chrome było nieosiągalne (3 próby `tabs_context_mcp`, za każdym razem "not connected" — prawdopodobnie Chrome nie był otwarty na komputerze Marcina o tej porze). Zero zgłoszeń w tej turze.
+
+**Próba 2026-07-07 (później, na żywo na prośbę Marcina "spróbuj ponownie"):** Chrome już osiągalny, zalogowany w GSC. Próba zgłoszenia `/blog/headshoty-linkedin-konwersja` trafiła **od razu** na czerwone "Przekroczono limit — spróbuj ponownie jutro" ("Nie udało nam się przetworzyć tego żądania, ponieważ został przekroczony Twój dzienny limit"). Wniosek: dzienny limit z wieczora 2026-07-06 najwyraźniej jeszcze się nie zresetował o tej porze dnia — limit dzienny GSC wygląda na powiązany z konkretną godziną/oknem 24h, nie z kalendarzowym dniem. Zgodnie z instrukcją przerwałem pętlę po pierwszym czerwonym komunikacie, nie próbowałem kolejnych URL-i. Zero nowych zgłoszeń, lista poniżej bez zmian. Zadanie cykliczne spróbuje ponownie jutro o 9:07 — nie wymaga żadnej akcji od Marcina.
+
+**Próba 2026-07-08 (rano, zadanie cykliczne):** rozszerzenie Claude in Chrome nieosiągalne — 3 próby `tabs_context_mcp`, za każdym razem "not connected" (ten sam wzorzec co poranna próba 2026-07-07). Zero zgłoszeń w tej turze, lista poniżej bez zmian. Zadanie spróbuje ponownie jutro o 9:07.
+
 Kolejność priorytetowa (pozostałe URL-e, zaszyta w zadaniu cyklicznym):
 
 1. `/blog/headshoty-linkedin-konwersja` (nie zgłoszona — limit przerwał próbę)
