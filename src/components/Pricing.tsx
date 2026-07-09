@@ -459,7 +459,7 @@ export default function Pricing() {
                     <div className="flex justify-between items-center">
                       <div>
                         <span className="text-navy dark:text-white font-semibold">Zdjęcia z drona</span>
-                        <span className="block text-[11px]">Do 10 wyretuszowanych ujęć z powietrza (do 50 Mpix)</span>
+                        <span className="block text-[11px]">Do 8 wyretuszowanych ujęć z powietrza (do 50 Mpix)</span>
                       </div>
                       <span className="font-barlow font-bold text-lg text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(900)}</span>
                     </div>
@@ -473,7 +473,7 @@ export default function Pricing() {
                     <div className="bg-blue/5 dark:bg-blue-light/5 rounded-xl p-4 border border-blue/10 dark:border-blue-light/10 flex justify-between items-center">
                       <div>
                         <span className="text-navy dark:text-white font-semibold">Wideo z drona 4K</span>
-                        <span className="block text-[11px] text-blue/70 dark:text-blue-light/70 font-semibold">Rekomendowane · zmontowany materiał do 60 s</span>
+                        <span className="block text-[11px] text-blue/70 dark:text-blue-light/70 font-semibold">Zmontowany materiał do 60 s</span>
                       </div>
                       <span className="font-barlow font-extrabold text-2xl text-blue dark:text-blue-light whitespace-nowrap">{formatPriceLabel(1200)}</span>
                     </div>
@@ -493,7 +493,7 @@ export default function Pricing() {
                       </div>
                     </div>
                     <p className="text-[11px]">
-                      Dron DJI Mini 5 Pro (sensor 1&Prime; CMOS, 50 Mpix), certyfikat operatora A1/A3 i ubezpieczenie OC. Poza Poznaniem dojazd 2,50 zł/km. W standardowych lokalizacjach loty bez dopłat; w strefach kontrolowanych koordynację lotniczą biorę na siebie — bez ukrytych kosztów.
+                      Dron DJI Mini 5 Pro (sensor 1&Prime; CMOS, 50 Mpix), certyfikat operatora A1/A3 i ubezpieczenie OC. Poza Poznaniem dojazd 2,50 zł/km. W standardowych lokalizacjach loty bez dopłat, w strefach kontrolowanych koordynację lotniczą biorę na siebie, bez ukrytych kosztów.
                     </p>
                   </div>
                 </div>

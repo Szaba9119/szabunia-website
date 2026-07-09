@@ -477,7 +477,7 @@ function ServiceOptions({
               value={config.dronePackage ?? "foto-wideo"}
               onChange={(e) => onChange({ ...config, dronePackage: e.target.value as CalcConfig["dronePackage"] })}
             >
-              <option value="foto">Zdjęcia z drona, do 10 ujęć ({fmtPrice(900, mode)} zł)</option>
+              <option value="foto">Zdjęcia z drona, do 8 ujęć ({fmtPrice(900, mode)} zł)</option>
               <option value="przebitki">Przebitki 4K do montażu własnego ({fmtPrice(700, mode)} zł)</option>
               <option value="wideo">Wideo z drona 4K, montaż do 60 s ({fmtPrice(1200, mode)} zł)</option>
               <option value="foto-przebitki">Zdjęcia + przebitki 4K ({fmtPrice(1300, mode)} zł)</option>

@@ -859,10 +859,10 @@ export const blogPosts: BlogPost[] = [
         <li><strong>Ubezpieczenie OC</strong> operatora drona.</li>
         <li><strong>Zgody w strefach kontrolowanych:</strong> w obszarach, które tego wymagają, uzyskuję zgodę przed lotem.</li>
       </ul>
-      <p>W standardowych lokalizacjach latam bez dopłat, a w strefach kontrolowanych koordynację lotniczą biorę na siebie — bez ukrytych kosztów. Dla Ciebie oznacza to jedno: strona formalna nie jest Twoim problemem.</p>
+      <p>W standardowych lokalizacjach latam bez dopłat, a w strefach kontrolowanych koordynację lotniczą biorę na siebie, bez ukrytych kosztów. Dla Ciebie oznacza to jedno: strona formalna nie jest Twoim problemem.</p>
 
       <h2>Orientacyjny koszt</h2>
-      <p>Orientacyjnie, netto: przebitki 4K do montażu własnego od <strong>700 zł</strong>, zdjęcia z drona (do 10 wyretuszowanych ujęć) od <strong>900 zł</strong>, zmontowany film 4K od <strong>1 200 zł</strong>, a komplet z jednej sesji wychodzi taniej niż te same usługi zamawiane osobno. Pełne rozbicie ceny na czynniki (warianty, komplety, strefy) znajdziesz we wpisie <a href="/blog/ile-kosztuje-film-z-drona">ile kosztuje film z drona</a>.</p>
+      <p>Orientacyjnie, netto: przebitki 4K do montażu własnego od <strong>700 zł</strong>, zdjęcia z drona (do 8 wyretuszowanych ujęć) od <strong>900 zł</strong>, zmontowany film 4K od <strong>1 200 zł</strong>, a komplet z jednej sesji wychodzi taniej niż te same usługi zamawiane osobno. Pełne rozbicie ceny na czynniki (warianty, komplety, strefy) znajdziesz we wpisie <a href="/blog/ile-kosztuje-film-z-drona">ile kosztuje film z drona</a>.</p>
 
       <h2>Dron jako dodatek, nie tylko osobna usługa</h2>
       <p>Materiał z drona świetnie łączy się z sesją naziemną. Na <a href="/uslugi/eventy-reportaze">evencie</a> kilka ujęć z góry pokazuje skalę wydarzenia, a w filmie firmowym otwierają one całość i nadają jej rozmach. Z jednego wejścia powstaje wtedy spójny komplet foto i wideo, bez logistyki dwóch ekip.</p>
@@ -1051,8 +1051,8 @@ export const blogPosts: BlogPost[] = [
     slug: "zdjecia-z-drona-dla-deweloperow",
     faq: [
       { q: "Po co deweloperowi zdjęcia z drona?", a: "Ujęcia z drona pokazują to, czego nie widać z chodnika: skalę osiedla, położenie względem miasta, dojazd, zieleń wokół i widok z górnych pięter. Służą do dokumentacji postępu budowy, materiałów sprzedażowych oraz budowania zaufania, gdy realne ujęcie stoi obok wizualizacji." },
-      { q: "Czy loty dronem nad inwestycją są legalne?", a: "Tak, pod warunkiem uprawnień: loty odbywają się zgodnie z przepisami EASA, z numerem operatora i uprawnieniami w kategorii otwartej (A1/A3), a w strefach kontrolowanych po wymaganych zgłoszeniach i zgodach — koordynację lotniczą biorę na siebie. Dostęp do terenu budowy i zasady bezpieczeństwa ustalane są wcześniej." },
-      { q: "Ile kosztują zdjęcia z drona dla dewelopera?", a: "Orientacyjnie, ceny netto: same przebitki 4K do własnego montażu od 700 zł, zdjęcia z drona (do 10 wyretuszowanych ujęć) od 900 zł, gotowy film 4K od 1 200 zł. Komplet zdjęć i filmu lub przebitek z jednej sesji wychodzi taniej niż zamawianie tych usług osobno." },
+      { q: "Czy loty dronem nad inwestycją są legalne?", a: "Tak, pod warunkiem uprawnień: loty odbywają się zgodnie z przepisami EASA, z numerem operatora i uprawnieniami w kategorii otwartej (A1/A3), a w strefach kontrolowanych po wymaganych zgłoszeniach i zgodach. Koordynację lotniczą biorę na siebie. Dostęp do terenu budowy i zasady bezpieczeństwa ustalane są wcześniej." },
+      { q: "Ile kosztują zdjęcia z drona dla dewelopera?", a: "Orientacyjnie, ceny netto: same przebitki 4K do własnego montażu od 700 zł, zdjęcia z drona (do 8 wyretuszowanych ujęć) od 900 zł, gotowy film 4K od 1 200 zł. Komplet zdjęć i filmu lub przebitek z jednej sesji wychodzi taniej niż zamawianie tych usług osobno." },
     ],
     title: "Zdjęcia z drona dla deweloperów i nieruchomości: jak pokazać inwestycję z lotu ptaka",
     excerpt:
@@ -1087,7 +1087,7 @@ export const blogPosts: BlogPost[] = [
       <p>Loty nad inwestycją to nie tylko kwestia sprzętu. Latam zgodnie z przepisami EASA, mam numer operatora i uprawnienia w kategorii otwartej (A1/A3), a przy strefach kontrolowanych wymagane zgłoszenia i zgody lotnicze biorę na siebie. Nad terenem budowy ustalamy wcześniej dostęp i zasady bezpieczeństwa. Dla Ciebie to oznacza materiał zrobiony legalnie, bez ryzyka i formalnych przestojów.</p>
 
       <h2>Ile to kosztuje</h2>
-      <p>Cena zależy od tego, co ma powstać. Orientacyjnie, ceny netto: same przebitki 4K do własnego montażu od 700 zł, zdjęcia z drona (do 10 wyretuszowanych ujęć) od 900 zł, gotowy film 4K od 1 200 zł. Komplet zdjęcia plus przebitki (1 300 zł) albo zdjęcia plus film (1 700 zł) z jednej sesji wychodzi taniej niż zamawianie tego osobno. Pracuję z bazą w Poznaniu i realizuję zlecenia w całej Polsce — w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr od granic miasta. Dokładną wycenę policzysz w <a href="/kalkulator">kalkulatorze</a> albo dostaniesz po krótkim briefie o inwestycji.</p>
+      <p>Cena zależy od tego, co ma powstać. Orientacyjnie, ceny netto: same przebitki 4K do własnego montażu od 700 zł, zdjęcia z drona (do 8 wyretuszowanych ujęć) od 900 zł, gotowy film 4K od 1 200 zł. Komplet zdjęcia plus przebitki (1 300 zł) albo zdjęcia plus film (1 700 zł) z jednej sesji wychodzi taniej niż zamawianie tego osobno. Pracuję z bazą w Poznaniu i realizuję zlecenia w całej Polsce, w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr od granic miasta. Dokładną wycenę policzysz w <a href="/kalkulator">kalkulatorze</a> albo dostaniesz po krótkim briefie o inwestycji.</p>
 
       <h2>Podsumowanie</h2>
       <p>Dla dewelopera zdjęcia i film z drona to nie ozdoba, tylko argument sprzedażowy. Pokazują lokalizację, skalę i postęp inwestycji tak, jak nie zrobi tego żadne ujęcie z ziemi. Najwięcej zyskujesz, biorąc z jednego lotu komplet foto i wideo gotowy do kampanii.</p>
@@ -1102,8 +1102,8 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "ile-kosztuje-film-z-drona",
     faq: [
-      { q: "Ile kosztuje film z drona dla firmy?", a: "Orientacyjne ceny netto zaczynają się od 700 zł za przebitki 4K do własnego montażu, 900 zł za zdjęcia z drona (do 10 wyretuszowanych ujęć) i 1 200 zł za gotowy film 4K. Komplet zdjęcia plus przebitki to 1 300 zł, a zdjęcia plus film 1 700 zł. To punkty wyjścia do wyceny." },
-      { q: "Od czego zależy cena filmu z drona?", a: "Głównie od tego, co ma powstać: same zdjęcia, gotowy zmontowany film czy surowe przebitki 4K. Na cenę wpływają też zakres lotu, lokalizacja i dojazd, strefa powietrzna oraz postprodukcja — gotowy film z muzyką i kolorystyką kosztuje więcej niż surowe ujęcia." },
+      { q: "Ile kosztuje film z drona dla firmy?", a: "Orientacyjne ceny netto zaczynają się od 700 zł za przebitki 4K do własnego montażu, 900 zł za zdjęcia z drona (do 8 wyretuszowanych ujęć) i 1 200 zł za gotowy film 4K. Komplet zdjęcia plus przebitki to 1 300 zł, a zdjęcia plus film 1 700 zł. To punkty wyjścia do wyceny." },
+      { q: "Od czego zależy cena filmu z drona?", a: "Głównie od tego, co ma powstać: same zdjęcia, gotowy zmontowany film czy surowe przebitki 4K. Na cenę wpływają też zakres lotu, lokalizacja i dojazd, strefa powietrzna oraz postprodukcja. Gotowy film z muzyką i kolorystyką kosztuje więcej niż surowe ujęcia." },
       { q: "Czy komplet zdjęć i filmu z jednego lotu się opłaca?", a: "Tak. Skoro dron i tak jest na miejscu, zdjęcia plus przebitki albo zdjęcia plus film z jednego wejścia kosztują mniej niż te same usługi zamawiane osobno, bo płacisz za jeden dojazd, jedno przygotowanie i jedną sesję w powietrzu." },
     ],
     title: "Ile kosztuje film z drona dla firmy i od czego zależy cena",
@@ -1137,7 +1137,7 @@ export const blogPosts: BlogPost[] = [
       <p>Wycena rośnie razem z zakresem. Jeden budynek z kilku ujęć zrobię w trakcie krótkiego wejścia. Większy teren, kilka lokalizacji albo dokumentacja postępu budowy w paru terminach to więcej czasu w powietrzu i przy komputerze. Do tego dochodzi dojazd: w Poznaniu bez dopłaty, poza miastem liczony za kilometry.</p>
 
       <h2>Strefy kontrolowane i formalności</h2>
-      <p>Spora część Poznania leży w zasięgu stref kontrolowanych wokół lotniska. Loty w takich strefach są legalne, ale wymagają zgłoszeń i zgód lotniczych, a czasem ograniczają pułap. Mam numer operatora i uprawnienia w kategorii otwartej (A1/A3), więc koordynację lotniczą biorę na siebie — bez ukrytych kosztów. Dla Ciebie znika to z listy zmartwień, warto tylko wiedzieć, że przy strefach wymagających formalnych zgód lot trzeba zaplanować z wyprzedzeniem — uprzedzam o tym na etapie briefu.</p>
+      <p>Spora część Poznania leży w zasięgu stref kontrolowanych wokół lotniska. Loty w takich strefach są legalne, ale wymagają zgłoszeń i zgód lotniczych, a czasem ograniczają pułap. Mam numer operatora i uprawnienia w kategorii otwartej (A1/A3), więc koordynację lotniczą biorę na siebie, bez ukrytych kosztów. Dla Ciebie znika to z listy zmartwień, warto tylko wiedzieć, że przy strefach wymagających formalnych zgód lot trzeba zaplanować z wyprzedzeniem. Uprzedzam o tym na etapie briefu.</p>
 
       <h2>Komplet z jednej sesji wychodzi taniej</h2>
       <p>Skoro dron i tak jest na miejscu, najwięcej zyskujesz, biorąc komplet. Zdjęcia plus przebitki albo zdjęcia plus film z jednego wejścia kosztują mniej niż te same usługi osobno, bo płacisz za jeden dojazd, jedno przygotowanie i jedną sesję w powietrzu.</p>
@@ -1146,7 +1146,7 @@ export const blogPosts: BlogPost[] = [
       <p>Ceny netto, od których zaczynamy:</p>
       <ul>
         <li>Przebitki 4K do własnego montażu: od 700 zł.</li>
-        <li>Zdjęcia z drona (do 10 wyretuszowanych ujęć): od 900 zł.</li>
+        <li>Zdjęcia z drona (do 8 wyretuszowanych ujęć): od 900 zł.</li>
         <li>Gotowy film 4K (montaż do 60 s): od 1 200 zł.</li>
         <li>Komplet zdjęcia plus przebitki: 1 300 zł.</li>
         <li>Komplet zdjęcia plus film: 1 700 zł.</li>
