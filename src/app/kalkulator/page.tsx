@@ -51,8 +51,8 @@ export default function KalkulatorPage() {
             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
               Kalkulator wyceny
             </h1>
-            <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-lg mx-auto">
-              Wybierz usługę, skonfiguruj opcje i poznaj szacunkową cenę. Ostateczną wycenę przygotuję po krótkim briefie.
+            <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-xl mx-auto">
+              W trzech krokach: wybierasz usługę, ustawiasz opcje i od razu widzisz szacunkową cenę. To orientacyjny koszt, nie zobowiązanie. Ostateczną, wiążącą wycenę przygotuję po krótkim briefie, zwykle w ciągu 24h.
             </p>
           </AnimatedSection>
 

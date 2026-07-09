@@ -205,6 +205,28 @@ function PriceModeToggle({ mode, onChange }: { mode: PriceMode; onChange: (m: Pr
   );
 }
 
+function NumberStepper({ id, value, min, max, onChange }: { id: string; value: number; min: number; max: number; onChange: (v: number) => void }) {
+  const clamp = (v: number) => Math.min(max, Math.max(min, Number.isNaN(v) ? min : v));
+  const btn =
+    "w-11 flex-shrink-0 flex items-center justify-center border border-border dark:border-dark-border bg-white dark:bg-dark-bg text-navy dark:text-dark-text text-xl font-barlow leading-none select-none disabled:opacity-40 enabled:hover:border-blue dark:enabled:hover:border-blue-light transition-colors";
+  return (
+    <div className="flex items-stretch">
+      <button type="button" aria-label="Mniej" onClick={() => onChange(clamp(value - 1))} disabled={value <= min} className={`${btn} rounded-l-xl`}>-</button>
+      <input
+        id={id}
+        type="number"
+        inputMode="numeric"
+        min={min}
+        max={max}
+        value={value}
+        onChange={(e) => onChange(clamp(parseInt(e.target.value, 10)))}
+        className="w-full min-w-0 text-center bg-white dark:bg-dark-bg border-y border-border dark:border-dark-border px-2 py-2.5 text-sm text-navy dark:text-dark-text focus:outline-none focus:border-blue dark:focus:border-blue-light [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+      />
+      <button type="button" aria-label="Więcej" onClick={() => onChange(clamp(value + 1))} disabled={value >= max} className={`${btn} rounded-r-xl`}>+</button>
+    </div>
+  );
+}
+
 function ServiceOptions({
   slug,
   config,
@@ -240,15 +262,7 @@ function ServiceOptions({
           </div>
           <div>
             <label htmlFor="calc-extra-photos" className={labelClass}>Dodatkowe ujęcia</label>
-            <input
-              id="calc-extra-photos"
-              type="number"
-              min={0}
-              max={50}
-              className={inputClass}
-              value={config.extraPhotos ?? 0}
-              onChange={(e) => onChange({ ...config, extraPhotos: Math.min(50, Math.max(0, parseInt(e.target.value) || 0)) })}
-            />
+            <NumberStepper id="calc-extra-photos" min={0} max={50} value={config.extraPhotos ?? 0} onChange={(v) => onChange({ ...config, extraPhotos: v })} />
           </div>
         </div>
       );
@@ -258,15 +272,7 @@ function ServiceOptions({
         <div className="space-y-4">
           <div>
             <label htmlFor="calc-team-size" className={labelClass}>Liczba osób</label>
-            <input
-              id="calc-team-size"
-              type="number"
-              min={4}
-              max={100}
-              className={inputClass}
-              value={config.teamSize ?? 10}
-              onChange={(e) => onChange({ ...config, teamSize: Math.min(100, Math.max(4, parseInt(e.target.value) || 4)) })}
-            />
+            <NumberStepper id="calc-team-size" min={4} max={100} value={config.teamSize ?? 10} onChange={(v) => onChange({ ...config, teamSize: v })} />
             <p className="text-[12px] text-steel dark:text-dark-text-muted mt-1.5">
               Sesje zespołowe realizuję od 4 osób. Dla 1–3 osób → pakiety indywidualne (Wizerunek &amp; Portrety).
             </p>
@@ -275,15 +281,7 @@ function ServiceOptions({
             <label htmlFor="calc-team-extra" className={labelClass}>
               Dodatkowe zdjęcia na osobę ({fmtPrice(80, mode)} zł/szt.)
             </label>
-            <input
-              id="calc-team-extra"
-              type="number"
-              min={0}
-              max={20}
-              className={inputClass}
-              value={config.teamExtraPhotosPerPerson ?? 0}
-              onChange={(e) => onChange({ ...config, teamExtraPhotosPerPerson: Math.min(20, Math.max(0, parseInt(e.target.value) || 0)) })}
-            />
+            <NumberStepper id="calc-team-extra" min={0} max={20} value={config.teamExtraPhotosPerPerson ?? 0} onChange={(v) => onChange({ ...config, teamExtraPhotosPerPerson: v })} />
             <p className="text-[12px] text-steel dark:text-dark-text-muted mt-1.5">
               W stawce za osobę jest 1 wyretuszowane zdjęcie. Każde kolejne: {fmtPrice(80, mode)} zł.
             </p>
@@ -335,15 +333,7 @@ function ServiceOptions({
           </div>
           <div>
             <label htmlFor="calc-product-count" className={labelClass}>Liczba produktów / ujęć</label>
-            <input
-              id="calc-product-count"
-              type="number"
-              min={1}
-              max={200}
-              className={inputClass}
-              value={config.productCount ?? 20}
-              onChange={(e) => onChange({ ...config, productCount: Math.min(200, Math.max(1, parseInt(e.target.value) || 1)) })}
-            />
+            <NumberStepper id="calc-product-count" min={1} max={200} value={config.productCount ?? 20} onChange={(v) => onChange({ ...config, productCount: v })} />
           </div>
         </div>
       );
@@ -353,27 +343,11 @@ function ServiceOptions({
         <div className="space-y-4">
           <div>
             <label htmlFor="calc-event-hours" className={labelClass}>Liczba godzin</label>
-            <input
-              id="calc-event-hours"
-              type="number"
-              min={1}
-              max={12}
-              className={inputClass}
-              value={config.eventHours ?? 4}
-              onChange={(e) => onChange({ ...config, eventHours: Math.min(12, Math.max(1, parseInt(e.target.value) || 1)) })}
-            />
+            <NumberStepper id="calc-event-hours" min={1} max={12} value={config.eventHours ?? 4} onChange={(v) => onChange({ ...config, eventHours: v })} />
           </div>
           <div>
             <label htmlFor="calc-live-edit" className={labelClass}>Live editing, liczba zdjęć</label>
-            <input
-              id="calc-live-edit"
-              type="number"
-              min={0}
-              max={100}
-              className={inputClass}
-              value={config.liveEditCount ?? 0}
-              onChange={(e) => onChange({ ...config, liveEditCount: Math.min(100, Math.max(0, parseInt(e.target.value) || 0)) })}
-            />
+            <NumberStepper id="calc-live-edit" min={0} max={100} value={config.liveEditCount ?? 0} onChange={(v) => onChange({ ...config, liveEditCount: v })} />
           </div>
           <div className="flex items-center gap-3">
             <input
@@ -407,15 +381,7 @@ function ServiceOptions({
         <div className="space-y-4">
           <div>
             <label htmlFor="calc-operator-hours" className={labelClass}>Godziny operatora</label>
-            <input
-              id="calc-operator-hours"
-              type="number"
-              min={1}
-              max={12}
-              className={inputClass}
-              value={config.operatorHours ?? 2}
-              onChange={(e) => onChange({ ...config, operatorHours: Math.min(12, Math.max(1, parseInt(e.target.value) || 1)) })}
-            />
+            <NumberStepper id="calc-operator-hours" min={1} max={12} value={config.operatorHours ?? 2} onChange={(v) => onChange({ ...config, operatorHours: v })} />
           </div>
           <div>
             <label htmlFor="calc-video-package" className={labelClass}>Pakiet montażowy</label>
@@ -453,15 +419,7 @@ function ServiceOptions({
           </div>
           <div>
             <label htmlFor="calc-combo-extra" className={labelClass}>Dodatkowe godziny ({fmtPrice(400, mode)} zł/h)</label>
-            <input
-              id="calc-combo-extra"
-              type="number"
-              min={0}
-              max={8}
-              className={inputClass}
-              value={config.extraComboHours ?? 0}
-              onChange={(e) => onChange({ ...config, extraComboHours: Math.min(8, Math.max(0, parseInt(e.target.value) || 0)) })}
-            />
+            <NumberStepper id="calc-combo-extra" min={0} max={8} value={config.extraComboHours ?? 0} onChange={(v) => onChange({ ...config, extraComboHours: v })} />
           </div>
         </div>
       );
@@ -486,15 +444,7 @@ function ServiceOptions({
           </div>
           <div>
             <label htmlFor="calc-drone-extra" className={labelClass}>Kolejne wyloty / dodatkowe godziny ({fmtPrice(300, mode)} zł)</label>
-            <input
-              id="calc-drone-extra"
-              type="number"
-              min={0}
-              max={8}
-              className={inputClass}
-              value={config.droneExtraHours ?? 0}
-              onChange={(e) => onChange({ ...config, droneExtraHours: Math.min(8, Math.max(0, parseInt(e.target.value) || 0)) })}
-            />
+            <NumberStepper id="calc-drone-extra" min={0} max={8} value={config.droneExtraHours ?? 0} onChange={(v) => onChange({ ...config, droneExtraHours: v })} />
           </div>
         </div>
       );
@@ -865,9 +815,14 @@ export default function PricingCalculator() {
                 <PriceBreakdown slug={selectedService} config={config} mode={mode} />
               </div>
 
-              <p className="text-[12px] leading-relaxed text-steel dark:text-dark-text-muted mb-5">
-                Po krótkim briefie wracam z jedną, konkretną wyceną, zwykle w ciągu 24h. Faktura VAT, rozliczenie przez Useme, bez zobowiązań.
+              <p className="text-[12px] leading-relaxed text-steel dark:text-dark-text-muted mb-4">
+                Po krótkim briefie wracam z jedną, konkretną wyceną. Ostateczna cena bywa niższa lub wyższa zależnie od zakresu.
               </p>
+              <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 mb-5 text-[11px] text-steel dark:text-dark-text-muted">
+                <span className="inline-flex items-center gap-1.5"><span className="text-blue">&#10003;</span> Odpowiedź w 24h</span>
+                <span className="inline-flex items-center gap-1.5"><span className="text-blue">&#10003;</span> Faktura VAT</span>
+                <span className="inline-flex items-center gap-1.5"><span className="text-blue">&#10003;</span> Bez zobowiązań</span>
+              </div>
 
               <a
                 href="#kontakt"
