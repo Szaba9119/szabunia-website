@@ -43,6 +43,8 @@ interface CalcConfig {
   // zdjecia-wideo-z-drona
   dronePackage?: "foto" | "przebitki" | "wideo" | "foto-przebitki" | "foto-wideo";
   droneExtraHours?: number;
+  // dodatek: ujęcia z drona do sesji portretowej / zespołowej / produktowej (200 zł)
+  droneAddon?: boolean;
 }
 
 const defaultConfig: CalcConfig = {
@@ -64,6 +66,7 @@ const defaultConfig: CalcConfig = {
   extraComboHours: 0,
   dronePackage: "foto-wideo",
   droneExtraHours: 0,
+  droneAddon: false,
 };
 
 /**
@@ -92,7 +95,9 @@ function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
     case "wizerunek-portrety": {
       const base = config.portraitPackage === "essential" ? 1000 : config.portraitPackage === "professional" ? 1300 : 1800;
       const extraRate = config.portraitPackage === "essential" ? 120 : config.portraitPackage === "professional" ? 100 : 80;
-      return base + (config.extraPhotos ?? 0) * extraRate;
+      let total = base + (config.extraPhotos ?? 0) * extraRate;
+      if (config.droneAddon) total += 200;
+      return total;
     }
     case "sesje-zespolowe": {
       const size = config.teamSize ?? 10;
@@ -107,20 +112,25 @@ function calculatePrice(slug: ServiceSlug, config: CalcConfig): number {
       if (config.externalStudio === "2h") total += 300;
       else if (config.externalStudio === "4h") total += 400;
       else if (config.externalStudio === "unlimited") total += 800;
+      if (config.droneAddon) total += 200;
       return total;
     }
     case "fotografia-produktowa": {
       const count = config.productCount ?? 20;
+      let total: number;
       if (config.productType === "packshot") {
-        const total = tieredTotal(count, [
+        total = Math.max(500, tieredTotal(count, [
           { upTo: 20, rate: 90 },
           { upTo: 50, rate: 70 },
           { upTo: Infinity, rate: 55 },
-        ]);
-        return Math.max(500, total);
+        ]));
+      } else if (config.productType === "creative-web") {
+        total = count * 200;
+      } else {
+        total = count * 600; // creative-print
       }
-      if (config.productType === "creative-web") return count * 200;
-      return count * 600; // creative-print
+      if (config.droneAddon) total += 200;
+      return total;
     }
     case "eventy-reportaze": {
       const hours = config.eventHours ?? 4;
@@ -227,6 +237,24 @@ function NumberStepper({ id, value, min, max, onChange }: { id: string; value: n
   );
 }
 
+function DroneAddonToggle({ config, onChange, mode }: { config: CalcConfig; onChange: (c: CalcConfig) => void; mode: PriceMode }) {
+  return (
+    <div className="flex items-start gap-3">
+      <input
+        type="checkbox"
+        id="calc-drone-addon"
+        checked={config.droneAddon ?? false}
+        onChange={(e) => onChange({ ...config, droneAddon: e.target.checked })}
+        className="mt-0.5 w-4 h-4 rounded border-border text-blue"
+      />
+      <label htmlFor="calc-drone-addon" className="text-[13px] text-navy dark:text-dark-text">
+        Dodaj ujęcia z drona (+{fmtPrice(200, mode)} zł)
+        <span className="block text-[11px] text-steel dark:text-dark-text-muted">Do 3 ujęć z powietrza jako dodatek do sesji.</span>
+      </label>
+    </div>
+  );
+}
+
 function ServiceOptions({
   slug,
   config,
@@ -264,6 +292,7 @@ function ServiceOptions({
             <label htmlFor="calc-extra-photos" className={labelClass}>Dodatkowe ujęcia</label>
             <NumberStepper id="calc-extra-photos" min={0} max={50} value={config.extraPhotos ?? 0} onChange={(v) => onChange({ ...config, extraPhotos: v })} />
           </div>
+          <DroneAddonToggle config={config} onChange={onChange} mode={mode} />
         </div>
       );
 
@@ -312,6 +341,7 @@ function ServiceOptions({
               <option value="unlimited">Bez limitu ({fmtPrice(800, mode)} zł)</option>
             </select>
           </div>
+          <DroneAddonToggle config={config} onChange={onChange} mode={mode} />
         </div>
       );
 
@@ -335,6 +365,7 @@ function ServiceOptions({
             <label htmlFor="calc-product-count" className={labelClass}>Liczba produktów / ujęć</label>
             <NumberStepper id="calc-product-count" min={1} max={200} value={config.productCount ?? 20} onChange={(v) => onChange({ ...config, productCount: v })} />
           </div>
+          <DroneAddonToggle config={config} onChange={onChange} mode={mode} />
         </div>
       );
 
@@ -583,6 +614,9 @@ function priceBreakdown(slug: ServiceSlug, config: CalcConfig): BreakdownLine[] 
       if (extra > 0) lines.push({ label: `Kolejne wyloty / godziny (${extra} × 300 zł)`, amount: extra * 300 });
       break;
     }
+  }
+  if (config.droneAddon && (slug === "wizerunek-portrety" || slug === "sesje-zespolowe" || slug === "fotografia-produktowa")) {
+    lines.push({ label: "Ujęcia z drona (dodatek, do 3)", amount: 200 });
   }
   return lines;
 }
