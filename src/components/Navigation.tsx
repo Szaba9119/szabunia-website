@@ -15,8 +15,7 @@ const navLinks = [
   { label: "Usługi", href: "#uslugi", section: "uslugi", page: null },
   { label: "Portfolio", href: "#portfolio", section: "portfolio", page: null },
   { label: "Galeria", href: "/galeria", section: "galeria", page: "/galeria" },
-  { label: "Cennik", href: "#cennik", section: "cennik", page: null },
-  { label: "Kalkulator", href: "/kalkulator", section: "kalkulator", page: "/kalkulator" },
+  { label: "Wycena", href: "#wycena", section: "wycena", page: null },
   { label: "Blog", href: "/blog", section: "blog", page: "/blog" },
   { label: "Poradnik", href: "/poradnik", section: "poradnik", page: "/poradnik" },
 ];
@@ -138,7 +137,7 @@ export default function Navigation() {
             data-cta="wycena_navbar"
             className="bg-gradient-to-br from-blue to-blue-light text-white px-5 py-2 rounded-full font-barlow font-semibold text-xs btn-glow whitespace-nowrap"
           >
-            Zapytaj o wycenę
+            Zapytaj o ofertę
           </Link>
         </div>
 
@@ -248,7 +247,7 @@ export default function Navigation() {
             onClick={() => closeMobileMenu()}
             className="mt-5 block bg-gradient-to-br from-blue to-blue-light text-white px-5 py-3.5 rounded-xl font-barlow font-semibold text-[15px] text-center btn-glow"
           >
-            Zapytaj o wycenę
+            Zapytaj o ofertę
           </Link>
         </div>
       )}

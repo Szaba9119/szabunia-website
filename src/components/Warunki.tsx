@@ -73,7 +73,7 @@ export default function Warunki() {
                 Poprawki
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Zdjęcia: 2 tury w cenie. Wideo: 3 tury w cenie. Dodatkowe poprawki: 200 zł/h netto.
+                Zdjęcia: 2 tury w cenie. Wideo: 3 tury w cenie. Dodatkowe poprawki: wyceniane indywidualnie.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">

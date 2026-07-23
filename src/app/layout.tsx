@@ -140,7 +140,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                 longitude: 16.9252,
               },
               image: "https://szabunia.pl/images/marcin-hero.jpg",
-              priceRange: "55 zł - 4 500 zł",
+              priceRange: "od 300 zł",
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
                 dayOfWeek: [
@@ -284,7 +284,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
               url: "https://szabunia.pl",
               inLanguage: "pl-PL",
               description:
-                "Strona fotografa biznesowego i twórcy wideo B2B z Poznania. Cennik, portfolio, kalkulator wyceny.",
+                "Strona fotografa biznesowego i twórcy wideo B2B z Poznania. Portfolio, wycena po briefie, oferta w 24h.",
               publisher: {
                 "@type": "Person",
                 name: "Marcin Szabunia",

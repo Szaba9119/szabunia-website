@@ -367,7 +367,7 @@ export const blogPosts: BlogPost[] = [
       <p>Standardowo gotowe zdjęcia dostajesz w ustalonym terminie. Jeśli materiał jest potrzebny „na wczoraj", możliwy jest tryb przyśpieszony. To dodatkowa opcja, a nie ukryty koszt.</p>
 
       <h2>Jak oszacować budżet w 2 minuty</h2>
-      <p>Zamiast zgadywać, policz. W <a href="/kalkulator">kalkulatorze wyceny</a> zaznaczasz zakres i od razu widzisz orientacyjny koszt. Pełne pakiety i ceny znajdziesz też w <a href="/#cennik">cenniku</a>.</p>
+      <p>Zamiast zgadywać, policz. W <a href="/kontakt">kalkulatorze wyceny</a> zaznaczasz zakres i od razu widzisz orientacyjny koszt. Pełne pakiety i ceny znajdziesz też w <a href="/#wycena">cenniku</a>.</p>
       <p>Zanim umówimy sesję, zobacz, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, a gdy będziesz gotowy, <a href="/kontakt">napisz brief</a>, odezwę się w 24h.</p>
     `,
     seo: {
@@ -412,7 +412,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Jak przygotować sesję produktową</h2>
       <p>Przed sesją ustalamy listę produktów, liczbę ujęć na produkt (front, tył, detale, w użyciu) i docelowe proporcje kadru pod Twój sklep. Dobry plan pozwala odfotografować większą partię sprawnie i bez chaosu. Sesję zrealizujemy w moim studiu w Poznaniu albo z dojazdem — pracuję dla klientów w całej Polsce.</p>
-      <p>Zobacz <a href="/portfolio/artech-fotografia-produktowa">realizacje packshotów produktowych</a>, policz zakres w <a href="/kalkulator">kalkulatorze</a> i <a href="/kontakt">napisz, co chcesz sfotografować</a>.</p>
+      <p>Zobacz <a href="/portfolio/artech-fotografia-produktowa">realizacje packshotów produktowych</a>, policz zakres w <a href="/kontakt">kalkulatorze</a> i <a href="/kontakt">napisz, co chcesz sfotografować</a>.</p>
     `,
     seo: {
       title: "Fotografia produktowa dla e-commerce | Marcin Szabunia",
@@ -453,7 +453,7 @@ export const blogPosts: BlogPost[] = [
       <p>Aftermovie z konferencji, targów czy gali firmowej to energia wydarzenia zamknięta w 60–90 sekundach. Działa jako podsumowanie dla uczestników i zaproszenie na kolejną edycję. Jeśli organizujesz event, zaplanuj wideo razem z <a href="/blog/fotografia-eventowa-vs-reportaz">fotografią eventową</a>.</p>
 
       <h2>Foto i wideo w jednym wejściu</h2>
-      <p>Najefektywniej jest łączyć materiał foto i wideo na jednej realizacji: jeden brief, jeden dzień, spójny styl. Bazuję w Poznaniu, a realizacje prowadzę w całej Polsce i Europie. Sprawdź <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, oszacuj zakres w <a href="/kalkulator">kalkulatorze</a> i <a href="/kontakt">opisz swój projekt</a>. Podpowiem, który format da najwięcej przy Twoim budżecie.</p>
+      <p>Najefektywniej jest łączyć materiał foto i wideo na jednej realizacji: jeden brief, jeden dzień, spójny styl. Bazuję w Poznaniu, a realizacje prowadzę w całej Polsce i Europie. Sprawdź <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, oszacuj zakres w <a href="/kontakt">kalkulatorze</a> i <a href="/kontakt">opisz swój projekt</a>. Podpowiem, który format da najwięcej przy Twoim budżecie.</p>
     `,
     seo: {
       title: "Wideo marketing dla firm: jakie formaty | Marcin Szabunia",
@@ -507,7 +507,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Logistyka i dojazd w Poznaniu</h2>
       <p>Bazuję w Poznaniu, więc dojazd na terenie miasta jest wliczony w cenę, niezależnie od tego, czy to studio, Twoje biuro, czy plener. Realizacje poza Poznaniem ustalamy indywidualnie. Przed sesją zawsze omawiamy lokalizację, żeby światło i tło grały na Twoją korzyść.</p>
-      <p>Zobacz <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> i <a href="/portfolio/idcom-headshoty-zespolu">sesji korporacyjnych</a>, oszacuj zakres w <a href="/kalkulator">kalkulatorze</a>, a potem <a href="/kontakt">napisz, co chcesz osiągnąć</a>. Dobiorę miejsce pod Twój cel.</p>
+      <p>Zobacz <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> i <a href="/portfolio/idcom-headshoty-zespolu">sesji korporacyjnych</a>, oszacuj zakres w <a href="/kontakt">kalkulatorze</a>, a potem <a href="/kontakt">napisz, co chcesz osiągnąć</a>. Dobiorę miejsce pod Twój cel.</p>
     `,
     seo: {
       title: "Sesja wizerunkowa Poznań: gdzie ją zrobić | Marcin Szabunia",
@@ -664,7 +664,7 @@ export const blogPosts: BlogPost[] = [
       <p>Stocki są wygodne, ale mają trzy wady: każdy ma do nich dostęp (Twój konkurent może użyć tego samego zdjęcia), nie pokazują Twojej realnej firmy i często widać w nich „sztuczność". Autentyczne, autorskie zdjęcia odróżniają markę, stock ją upodabnia do innych.</p>
 
       <h2>Jak to zaplanować</h2>
-      <p>Najtaniej i najspójniej jest zebrać potrzeby z całej strony i zrealizować je w jednej, dobrze zaplanowanej sesji (albo serii). Zaczynamy od listy sekcji i ujęć, dobieramy lokalizację i styl, a Ty dostajesz komplet spójnego materiału. Działam z Poznania — tu dojazd masz w cenie, a sesje realizuję w całej Polsce i Europie. Oszacuj zakres w <a href="/kalkulator">kalkulatorze</a>, przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje</a> i <a href="/kontakt">napisz, co jest na Twojej stronie</a>, ułożymy plan zdjęć pod nią.</p>
+      <p>Najtaniej i najspójniej jest zebrać potrzeby z całej strony i zrealizować je w jednej, dobrze zaplanowanej sesji (albo serii). Zaczynamy od listy sekcji i ujęć, dobieramy lokalizację i styl, a Ty dostajesz komplet spójnego materiału. Działam z Poznania — tu dojazd masz w cenie, a sesje realizuję w całej Polsce i Europie. Oszacuj zakres w <a href="/kontakt">kalkulatorze</a>, przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje</a> i <a href="/kontakt">napisz, co jest na Twojej stronie</a>, ułożymy plan zdjęć pod nią.</p>
     `,
     seo: {
       title: "Jakie zdjęcia na stronę firmową: lista | Marcin Szabunia",
@@ -735,7 +735,7 @@ export const blogPosts: BlogPost[] = [
       <p>Liczba rund uwag, które możesz zgłosić do montażu w cenie. U mnie wideo ma 3 tury poprawek w cenie, a w praktyce pierwsza prawie zawsze wystarcza, bo zakres i styl ustalamy przed realizacją.</p>
 
       <h2>Nie musisz znać żargonu</h2>
-      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan realizacji. Zobacz <a href="/uslugi/wideo-marketing">ofertę wideo marketingu</a> i <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, oszacuj koszt w <a href="/kalkulator">kalkulatorze wyceny</a> albo po prostu <a href="/kontakt">napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
+      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan realizacji. Zobacz <a href="/uslugi/wideo-marketing">ofertę wideo marketingu</a> i <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, oszacuj koszt w <a href="/kontakt">kalkulatorze wyceny</a> albo po prostu <a href="/kontakt">napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
     `,
     seo: {
       title: "Co to jest b-roll? Słownik pojęć wideo | Marcin Szabunia",
@@ -797,7 +797,7 @@ export const blogPosts: BlogPost[] = [
       <p>Określa, gdzie i jak możesz używać zdjęć. W moim standardzie licencja obejmuje pełny użytek komercyjny: strona www, social media, druk, reklama online, bez limitów czasowych. Szerszy zakres (np. ogólnopolska kampania outdoor) ustalamy indywidualnie przy wycenie.</p>
 
       <h2>Nie musisz znać żargonu</h2>
-      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan sesji. Oszacuj koszt w <a href="/kalkulator">kalkulatorze wyceny</a> albo po prostu <a href="/kontakt">napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
+      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan sesji. Oszacuj koszt w <a href="/kontakt">kalkulatorze wyceny</a> albo po prostu <a href="/kontakt">napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
     `,
     seo: {
       title: "Co to jest packshot? Słownik fotografii | Marcin Szabunia",
@@ -1035,11 +1035,11 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Jak to policzyć dla siebie</h2>
-      <p>Najprościej porównać konkretne liczby dla Twojego wydarzenia. Skoro dron i tak jest na miejscu, a foto i wideo powstają z jednego wejścia, komplet w pakiecie wychodzi taniej niż te same usługi zamawiane osobno. Dokładne kwoty dla Twojej skali policzysz w <a href="/kalkulator">kalkulatorze wyceny</a> albo dostaniesz po krótkim briefie — na zapytania odpowiadam w ciągu 24 godzin. Działam z bazą w Poznaniu, a pakiety realizuję w całej Polsce: w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr.</p>
+      <p>Najprościej porównać konkretne liczby dla Twojego wydarzenia. Skoro dron i tak jest na miejscu, a foto i wideo powstają z jednego wejścia, komplet w pakiecie wychodzi taniej niż te same usługi zamawiane osobno. Dokładne kwoty dla Twojej skali policzysz w <a href="/kontakt">kalkulatorze wyceny</a> albo dostaniesz po krótkim briefie — na zapytania odpowiadam w ciągu 24 godzin. Działam z bazą w Poznaniu, a pakiety realizuję w całej Polsce: w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr.</p>
 
       <h2>Podsumowanie</h2>
       <p>Pakiet foto + wideo + dron opłaca się tam, gdzie z jednego wydarzenia ma powstać kilka spójnych formatów, a Ty chcesz prostej logistyki i niższego kosztu niż dwie osobne ekipy. Usługi osobno mają sens przy pojedynczej potrzebie albo bardzo dużej produkcji.</p>
-      <p>Zobacz <a href="/uslugi/pakiety-foto-wideo">pakiety foto, wideo i dron</a> albo policz swój wariant w <a href="/kalkulator">kalkulatorze</a>.</p>
+      <p>Zobacz <a href="/uslugi/pakiety-foto-wideo">pakiety foto, wideo i dron</a> albo policz swój wariant w <a href="/kontakt">kalkulatorze</a>.</p>
     `,
     seo: {
       title: "Pakiet foto, wideo i dron czy osobno | Marcin Szabunia",
@@ -1087,7 +1087,7 @@ export const blogPosts: BlogPost[] = [
       <p>Loty nad inwestycją to nie tylko kwestia sprzętu. Latam zgodnie z przepisami EASA, mam numer operatora i uprawnienia w kategorii otwartej (A1/A3), a przy strefach kontrolowanych wymagane zgłoszenia i zgody lotnicze biorę na siebie. Nad terenem budowy ustalamy wcześniej dostęp i zasady bezpieczeństwa. Dla Ciebie to oznacza materiał zrobiony legalnie, bez ryzyka i formalnych przestojów.</p>
 
       <h2>Ile to kosztuje</h2>
-      <p>Cena zależy od tego, co ma powstać. Orientacyjnie, ceny netto: same przebitki 4K do własnego montażu od 700 zł, zdjęcia z drona (do 8 wyretuszowanych ujęć) od 900 zł, gotowy film 4K od 1 200 zł. Komplet zdjęcia plus przebitki (1 300 zł) albo zdjęcia plus film (1 700 zł) z jednej sesji wychodzi taniej niż zamawianie tego osobno. Pracuję z bazą w Poznaniu i realizuję zlecenia w całej Polsce, w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr od granic miasta. Dokładną wycenę policzysz w <a href="/kalkulator">kalkulatorze</a> albo dostaniesz po krótkim briefie o inwestycji.</p>
+      <p>Cena zależy od tego, co ma powstać. Orientacyjnie, ceny netto: same przebitki 4K do własnego montażu od 700 zł, zdjęcia z drona (do 8 wyretuszowanych ujęć) od 900 zł, gotowy film 4K od 1 200 zł. Komplet zdjęcia plus przebitki (1 300 zł) albo zdjęcia plus film (1 700 zł) z jednej sesji wychodzi taniej niż zamawianie tego osobno. Pracuję z bazą w Poznaniu i realizuję zlecenia w całej Polsce, w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr od granic miasta. Dokładną wycenę policzysz w <a href="/kontakt">kalkulatorze</a> albo dostaniesz po krótkim briefie o inwestycji.</p>
 
       <h2>Podsumowanie</h2>
       <p>Dla dewelopera zdjęcia i film z drona to nie ozdoba, tylko argument sprzedażowy. Pokazują lokalizację, skalę i postęp inwestycji tak, jak nie zrobi tego żadne ujęcie z ziemi. Najwięcej zyskujesz, biorąc z jednego lotu komplet foto i wideo gotowy do kampanii.</p>
@@ -1151,11 +1151,11 @@ export const blogPosts: BlogPost[] = [
         <li>Komplet zdjęcia plus przebitki: 1 300 zł.</li>
         <li>Komplet zdjęcia plus film: 1 700 zł.</li>
       </ul>
-      <p>To punkty wyjścia. Dokładną kwotę dla Twojego obiektu i lokalizacji policzysz w <a href="/kalkulator">kalkulatorze</a> albo dostaniesz po krótkim opisie zlecenia.</p>
+      <p>To punkty wyjścia. Dokładną kwotę dla Twojego obiektu i lokalizacji policzysz w <a href="/kontakt">kalkulatorze</a> albo dostaniesz po krótkim opisie zlecenia.</p>
 
       <h2>Podsumowanie</h2>
       <p>Cena filmu z drona zależy głównie od tego, co ma powstać, ile czasu zajmie lot i gdzie się odbywa. Najtaniej wychodzą przebitki do własnego montażu, najwięcej daje gotowy komplet foto i wideo z jednego wejścia.</p>
-      <p>Zobacz <a href="/uslugi/zdjecia-wideo-z-drona">zdjęcia i wideo z drona</a> albo policz swój wariant w <a href="/kalkulator">kalkulatorze</a>.</p>
+      <p>Zobacz <a href="/uslugi/zdjecia-wideo-z-drona">zdjęcia i wideo z drona</a> albo policz swój wariant w <a href="/kontakt">kalkulatorze</a>.</p>
     `,
     seo: {
       title: "Ile kosztuje film z drona dla firmy | Marcin Szabunia",
@@ -1434,11 +1434,11 @@ export const blogPosts: BlogPost[] = [
         <li>Recap z eventu: montaż 900 zł plus czas nagrań na miejscu.</li>
         <li>Film promocyjny 1-2 min z jednej lokalizacji: pakiet L 1 400 zł plus praca operatora.</li>
       </ul>
-      <p>Dokładną kwotę dla Twojego projektu policzysz w <a href="/kalkulator">kalkulatorze</a> albo dostaniesz po krótkim opisie pomysłu.</p>
+      <p>Dokładną kwotę dla Twojego projektu policzysz w <a href="/kontakt">kalkulatorze</a> albo dostaniesz po krótkim opisie pomysłu.</p>
 
       <h2>Podsumowanie</h2>
       <p>Cena filmu promocyjnego zależy przede wszystkim od formatu i czasu nagrań. Rozbicie na pracę operatora i pakiet montażowy sprawia, że płacisz za realny zakres, a przy regularnych potrzebach taniej wychodzi Monthly Content.</p>
-      <p>Zobacz <a href="/uslugi/wideo-marketing">wideo marketing</a> albo policz swój film w <a href="/kalkulator">kalkulatorze</a>.</p>
+      <p>Zobacz <a href="/uslugi/wideo-marketing">wideo marketing</a> albo policz swój film w <a href="/kontakt">kalkulatorze</a>.</p>
     `,
     seo: {
       title: "Ile kosztuje film promocyjny dla firmy | Marcin Szabunia",

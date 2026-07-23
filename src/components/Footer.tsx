@@ -34,10 +34,9 @@ export default function Footer() {
               // usunięciu przycisku z sekcji (lejek bez bocznych wyjść, 2026-07-06).
               { label: "Portfolio", href: "/portfolio" },
               { label: "Galeria", href: "/galeria" },
-              { label: "Cennik", href: "/#cennik" },
+              { label: "Wycena", href: "/#wycena" },
               { label: "Kontakt", href: "/kontakt" },
               { label: "Blog", href: "/blog" },
-              { label: "Kalkulator wyceny", href: "/kalkulator" },
               { label: "Poradnik", href: "/poradnik" },
             ].map((link) => (
               <a

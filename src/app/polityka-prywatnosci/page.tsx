@@ -24,6 +24,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Polityka prywatności | Marcin Szabunia",
+    description:
+      "Polityka prywatności serwisu szabunia.pl. Informacje o przetwarzaniu danych osobowych, plikach cookies i prawach użytkownika zgodnie z RODO.",
+    images: ["/images/marcin-hero.jpg"],
+  },
 };
 
 export default function PrivacyPolicy() {

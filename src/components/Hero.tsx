@@ -53,7 +53,7 @@ export default function Hero() {
               data-cta="wycena_home_hero"
               className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]"
             >
-              Zapytaj o wycenę
+              Zapytaj o ofertę
               <span className="text-white/80">→</span>
             </a>
           </div>

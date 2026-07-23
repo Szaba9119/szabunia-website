@@ -65,7 +65,7 @@ export const homeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Ile tur poprawek otrzymuję w cenie?",
-    a: "Zdjęcia: 2 tury poprawek w cenie. Wideo: 3 tury poprawek montażowych w cenie. Każda dodatkowa godzina pracy nad zmianami: 200 zł netto. W praktyce pierwsza tura prawie zawsze wystarcza, bo zależy mi, żeby finalny materiał w 100% odpowiadał Twoim oczekiwaniom.",
+    a: "Zdjęcia: 2 tury poprawek w cenie. Wideo: 3 tury poprawek montażowych w cenie. Dodatkowe zmiany ponad tę liczbę wyceniam indywidualnie. W praktyce pierwsza tura prawie zawsze wystarcza, bo zależy mi, żeby finalny materiał w 100% odpowiadał Twoim oczekiwaniom.",
   },
   {
     q: "Czy pracujesz z AI w zdjęciach i wideo?",

@@ -56,13 +56,13 @@ export default function ServiceHero({ service }: Props) {
                 data-cta="wycena_hero"
                 className="bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
               >
-                Zapytaj o wycenę
+                Zapytaj o ofertę
               </a>
               <a
-                href="#cennik"
+                href="#wycena"
                 className="border border-border dark:border-dark-border text-navy dark:text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:border-blue dark:hover:border-blue-light transition-colors"
               >
-                Zobacz cennik
+                Jak wyceniam →
               </a>
             </div>
             {/* Chipy zaufania — spójne z hero strony głównej (audyt podstron

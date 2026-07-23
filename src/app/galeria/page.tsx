@@ -38,6 +38,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Galeria zdjęć i wideo | Marcin Szabunia",
+    description:
+      "Portrety biznesowe, fotografia eventowa, produktowa, wideo i zdjęcia z drona. Wybrane kadry z realizacji.",
+    images: ["/images/marcin-hero.jpg"],
+  },
 };
 
 export default async function GaleriaPage({
@@ -156,7 +163,7 @@ export default async function GaleriaPage({
                 data-cta="wycena_galeria"
                 className="inline-block bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
               >
-                Zapytaj o wycenę
+                Zapytaj o ofertę
               </a>
             </div>
           </AnimatedSection>

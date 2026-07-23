@@ -27,6 +27,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Darmowy poradnik: przygotowanie do sesji biznesowej",
+    description:
+      "Checklisty, planer stylizacji, ściąga kolorów i mini-brief — wszystko, żeby wejść na plan spokojnie i z głową. Pobierz za darmo.",
+    images: ["/images/marcin-hero.jpg"],
+  },
 };
 
 const inside = [

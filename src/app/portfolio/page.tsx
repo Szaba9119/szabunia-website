@@ -32,6 +32,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Portfolio — realizacje fotograficzne i wideo | Marcin Szabunia",
+    description:
+      "Wybrane realizacje fotograficzne i wideo dla firm B2B. Poznań, cała Polska i Europa.",
+    images: ["/images/marcin-hero.jpg"],
+  },
 };
 
 export default function PortfolioPage() {

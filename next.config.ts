@@ -107,9 +107,16 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
-        // Stara strona sesji prywatnych usunięta — kierujemy na kalkulator (ceny brutto)
+        // Stara strona sesji prywatnych usunięta — kierujemy na kontakt
         source: "/sesje-prywatne",
-        destination: "/kalkulator",
+        destination: "/kontakt",
+        permanent: true,
+      },
+      {
+        // Kalkulator wyceny usunięty (brief-20, depricing): lejek prowadzi
+        // wyłącznie przez formularz kontaktowy.
+        source: "/kalkulator",
+        destination: "/kontakt",
         permanent: true,
       },
     ];

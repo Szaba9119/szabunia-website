@@ -9,7 +9,7 @@ import LogoBar from "@/components/LogoBar";
 import TrustStats from "@/components/TrustStats";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import PortfolioProcess from "@/components/PortfolioProcess";
-import PortfolioPricing from "@/components/PortfolioPricing";
+import ServicePricing from "@/components/ServicePricing";
 import PortfolioFAQ from "@/components/PortfolioFAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -180,12 +180,7 @@ export default async function ServicePage({ params }: PageProps) {
           </ErrorBoundary>
         )}
         <ErrorBoundary>
-          <PortfolioPricing
-            pricingType={service.pricingType}
-            tiers={service.tiers}
-            tables={service.tables}
-            note={service.pricingNote}
-          />
+          <ServicePricing price={service.price} blurb={service.pricingBlurb} />
         </ErrorBoundary>
         <div className="px-4 -mt-4 md:-mt-8 pb-12 text-center">
           <a
@@ -193,7 +188,7 @@ export default async function ServicePage({ params }: PageProps) {
             data-cta="wycena_uslugi"
             className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
           >
-            Zapytaj o wycenę
+            Zapytaj o ofertę
             <span className="text-white/80">→</span>
           </a>
         </div>

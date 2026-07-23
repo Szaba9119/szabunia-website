@@ -35,7 +35,6 @@ export default function NotFound() {
             {[
               { href: "/uslugi", label: "Usługi" },
               { href: "/portfolio", label: "Portfolio" },
-              { href: "/kalkulator", label: "Kalkulator wyceny" },
               { href: "/blog", label: "Blog" },
               { href: "/kontakt", label: "Kontakt" },
             ].map((link) => (

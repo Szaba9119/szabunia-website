@@ -449,7 +449,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Czy pakiet całodniowy się opłaca?",
-        a: "Przy 8h pracy stawka standardowa wynosiłaby 3 400 zł. Pakiet całodniowy to 2 800 zł — oszczędzasz 600 zł.",
+        a: "Przy całodniowej realizacji pakiet dzienny wychodzi korzystniej niż rozliczenie godzinowe.",
       },
     ],
     seo: {
@@ -489,7 +489,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Czy robisz zdjęcia produktów w aranżacji?",
-        a: "Tak — oprócz packshotów na białym tle tworzę zdjęcia kreatywne z rekwizytami i aranżacją dopasowaną do marki. Cena od 200 zł za ujęcie.",
+        a: "Tak — oprócz packshotów na białym tle tworzę zdjęcia kreatywne z rekwizytami i aranżacją dopasowaną do marki. Zdjęcia kreatywne wyceniam indywidualnie w zależności od pola eksploatacji.",
       },
       {
         q: "Ile zdjęć dziennie jesteś w stanie zrealizować?",

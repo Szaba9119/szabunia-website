@@ -50,7 +50,6 @@ function ClientLinkIcon({ url }: { url: string }) {
 }
 
 export default function PortfolioHero({ category }: Props) {
-  const hasPricing = Boolean(category.tiers?.length || category.tables?.length);
   const isPortrait = (category.heroAspect ?? category.galleryAspect) === "portrait";
   const heroAspect = isPortrait ? "aspect-[3/4] max-w-md mx-auto md:mx-0" : "aspect-[4/3]";
   // Pionowe kadry kotwiczymy do góry, żeby nie ucinać głów.
@@ -95,10 +94,10 @@ export default function PortfolioHero({ category }: Props) {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={hasPricing ? "#cennik" : "/#cennik"}
+                href="#kontakt"
                 className="bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
               >
-                Zobacz cennik
+                Zapytaj o ofertę
               </a>
               <a
                 href="#kontakt"

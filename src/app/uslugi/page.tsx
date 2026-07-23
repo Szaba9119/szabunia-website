@@ -28,6 +28,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Usługi — fotografia biznesowa i wideo marketing | Marcin Szabunia",
+    description:
+      "Pełna oferta usług fotograficznych i wideo dla firm B2B. Poznań, cała Polska i Europa.",
+    images: ["/images/marcin-hero.jpg"],
+  },
 };
 
 export default function UslugiPage() {

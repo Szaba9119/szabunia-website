@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
@@ -122,29 +122,6 @@ export default function CTA() {
     const err = validateField(name, value);
     setFieldErrors((prev) => ({ ...prev, [name]: err }));
   };
-
-  // Listen for calculator → form bridge event
-  useEffect(() => {
-    const handler = (e: Event) => {
-      const { service, message } = (e as CustomEvent).detail;
-      const serviceMap: Record<string, string> = {
-        "wizerunek-portrety": "wizerunek",
-        "sesje-zespolowe": "zespol",
-        "fotografia-produktowa": "produkt",
-        "eventy-reportaze": "event",
-        "wideo-marketing": "wideo",
-        "pakiety-foto-wideo": "pakiet",
-        "zdjecia-wideo-z-drona": "dron",
-      };
-      setFormData((prev) => ({
-        ...prev,
-        service: serviceMap[service] ?? "",
-        message: message ?? "",
-      }));
-    };
-    window.addEventListener("calc-to-form", handler);
-    return () => window.removeEventListener("calc-to-form", handler);
-  }, []);
 
   return (
     <section id="kontakt" className="py-12 md:py-16 px-4">
@@ -566,7 +543,7 @@ export default function CTA() {
                       ) : "Wyślij zapytanie, odezwę się w 24h"}
                     </button>
                     <p className="text-center text-[11px] text-steel dark:text-dark-text-muted mt-2.5">
-                      Odpowiadam osobiście.
+                      Bez zobowiązań. Odpowiadam osobiście.
                     </p>
                   </form>
                 )}

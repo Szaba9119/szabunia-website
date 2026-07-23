@@ -28,6 +28,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog — Fotografia biznesowa i wideo marketing | Marcin Szabunia",
+    description:
+      "Artykuły o fotografii biznesowej, sesjach wizerunkowych i wideo marketingu B2B. Porady od fotografa pracującego dla H&M, Warner Music i Santander.",
+    images: ["/images/marcin-hero.jpg"],
+  },
 };
 
 export default function BlogPage() {

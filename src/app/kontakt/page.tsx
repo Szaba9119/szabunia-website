@@ -26,6 +26,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
+    description:
+      "Napisz brief, odezwę się w 24h z wstępną wyceną i terminem. Fotografia i wideo dla firm — Poznań, cała Polska i Europa.",
+    images: ["/images/marcin-hero.jpg"],
+  },
 };
 
 const contactCards = [
@@ -143,8 +150,8 @@ export default function KontaktPage() {
                   Nie wiesz, czego potrzebujesz?
                 </h2>
                 <p className="text-[14px] text-steel dark:text-dark-text-muted leading-relaxed">
-                  Przejrzyj pełną ofertę dla firm albo policz orientacyjny koszt
-                  w kalkulatorze — a potem wróć z gotowym briefem.
+                  Przejrzyj pełną ofertę dla firm i wróć z krótkim briefem —
+                  wycenę przygotuję w 24h.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 shrink-0">
@@ -153,12 +160,6 @@ export default function KontaktPage() {
                   className="bg-gradient-to-br from-blue to-blue-light text-white px-5 py-2.5 rounded-full font-barlow font-semibold text-sm btn-glow"
                 >
                   Oferta dla firm →
-                </Link>
-                <Link
-                  href="/kalkulator"
-                  className="border border-blue/40 dark:border-blue-light/40 text-navy dark:text-white px-5 py-2.5 rounded-full font-barlow font-semibold text-sm hover:bg-white/60 dark:hover:bg-dark-card-hover transition-colors"
-                >
-                  Kalkulator wyceny
                 </Link>
               </div>
             </div>

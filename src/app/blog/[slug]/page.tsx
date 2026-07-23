@@ -265,7 +265,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 data-cta="wycena_blog_wpis"
                 className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
               >
-                Zapytaj o wycenę <span className="text-white/80">→</span>
+                Zapytaj o ofertę <span className="text-white/80">→</span>
               </Link>
             </div>
           </AnimatedSection>

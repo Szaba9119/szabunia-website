@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
-import type { ProcessStep, PricingTier, PricingTable, FAQItem } from "./portfolio";
+import type { ProcessStep, FAQItem } from "./portfolio";
 
-export { type ProcessStep, type PricingTier, type PricingTable, type FAQItem };
+export { type ProcessStep, type FAQItem };
 
 export interface ServiceData {
   slug: string;
@@ -12,10 +12,8 @@ export interface ServiceData {
   icon: ReactNode;
   price: string;
   process: ProcessStep[];
-  pricingType: "tiers" | "table";
-  tiers?: PricingTier[];
-  tables?: PricingTable[];
-  pricingNote?: string;
+  /** 2-3 zdania: co wpływa na wycenę tej usługi. Bez kwot (sekcja Wycena, §4.2 brief-20). */
+  pricingBlurb: string;
   faqs: FAQItem[];
   portfolioSlug?: string;
   galleryCategory?: "portrety" | "eventy" | "produktowe" | "wideo" | "dron" | "zespolowe";
@@ -58,28 +56,8 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 3, title: "Sesja", desc: "Prowadzę Cię przez pozowanie, w studiu lub Twoim biurze. Nie musisz nic umieć." },
       { num: 4, title: "Dostawa", desc: "Wybrane, wyretuszowane zdjęcia w 14 dni roboczych." },
     ],
-    pricingType: "tiers",
-    tiers: [
-      {
-        name: "PORTRET STANDARD",
-        price: "1 000 zł",
-        features: ["1 osoba, do 2 stylizacji", "90 min sesji", "3 wyretuszowane zdjęcia (wybór ze 100+ ujęć)", "Studio w cenie pakietu, indywidualnie dopasowane do Twojego projektu", "GRATIS: Poseboard przed sesją"],
-        extra: "Dodatkowe ujęcie: 120 zł",
-      },
-      {
-        name: "PORTRET PROFESSIONAL",
-        price: "1 300 zł",
-        features: ["1 osoba, 2-3 stylizacje", "2 godziny sesji", "8 wyretuszowanych zdjęć (wybór ze 150+ ujęć)", "Studio w cenie pakietu, indywidualnie dopasowane do Twojego projektu", "GRATIS: Poseboard przed sesją"],
-        recommended: true,
-        extra: "Dodatkowe ujęcie: 100 zł",
-      },
-      {
-        name: "PORTRET PREMIUM",
-        price: "1 800 zł",
-        features: ["1 osoba, 3-4 stylizacje", "Do 3 godzin sesji", "15 wyretuszowanych zdjęć (wybór z 200+ ujęć)", "Pełna kontrola nad stylem i klimatem", "Studio w cenie pakietu, indywidualnie dopasowane do Twojego projektu", "GRATIS: Poseboard przed sesją"],
-        extra: "Dodatkowe ujęcie: 80 zł",
-      },
-    ],
+    pricingBlurb:
+      "Wycenę portretu ustalam na podstawie liczby stylizacji, długości sesji i liczby wyretuszowanych zdjęć do wyboru. Każda sesja obejmuje darmowy poseboard z referencjami przed spotkaniem oraz studio dopasowane do Twojego projektu.",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), jasne obiektywy stałoogniskowe Sigma Art 35 i 50 mm f/1.4 do naturalnych portretów oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
       { q: "Ile trwa sesja wizerunkowa?", a: "Sama sesja może trwać od 30 minut. Najważniejsze, że przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło, więc nie czekasz na moje przygotowania. Dłuższe pakiety dają po prostu więcej czasu na ujęcia i zmiany stylizacji." },
@@ -124,43 +102,14 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 3, title: "Postprodukcja", desc: "Retusz zdjęć + montaż wideo" },
       { num: 4, title: "Dostawa", desc: "Zdjęcia w 14 dni, wideo w 21 dni" },
     ],
-    pricingType: "tiers",
-    tiers: [
-      {
-        name: "EVENT STANDARD",
-        price: "1 800 zł",
-        features: ["3 godziny obecności", "50+ zdjęć po selekcji i pełnej obróbce", "Wideo w formacie Reels (30s)", "Pełny montaż i postprodukcja wideo", "Ujęcia z drona w cenie pakietu"],
-        extra: "Dodatkowa godzina: 400 zł",
-      },
-      {
-        name: "EVENT PROFESSIONAL",
-        price: "3 200 zł",
-        features: ["6 godzin obecności", "150+ zdjęć po selekcji i pełnej obróbce", "Główne wideo podsumowujące (60s)", "Krótki teaser do Social Media (15s)", "Pełny montaż i postprodukcja wideo", "Ujęcia z drona w cenie pakietu"],
-        recommended: true,
-        extra: "Dodatkowa godzina: 400 zł",
-      },
-      {
-        name: "EVENT PREMIUM",
-        price: "4 500 zł",
-        features: [
-          "Do 8 godzin na miejscu",
-          "Kompletny reportaż, min. 200 zdjęć",
-          "Główny film z wydarzenia (do 90s)",
-          "Dynamiczny teaser Social Media (15s)",
-          "3 wywiady do 30 sekund z uczestnikami",
-          "Autorska selekcja + profesjonalna obróbka zdjęć",
-          "Pełen montaż wideo i post-produkcja wywiadów",
-          "Ujęcia z drona w cenie pakietu",
-        ],
-        extra: "Dodatkowa godzina: 400 zł",
-      },
-    ],
+    pricingBlurb:
+      "Wycena pakietu zależy od liczby godzin obecności na wydarzeniu, zakresu wideo (teaser, główny film, wywiady z uczestnikami) i tego, czy potrzebujesz ujęć z drona. Im dłuższa realizacja, tym więcej materiału foto i wideo z jednego wejścia.",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 (foto i wideo równolegle, z zapisem na dwie karty), obiektywy Sigma, Tamron i Tokina od 16 do 200 mm, oświetlenie Godox, dźwięk Rode i Zoom oraz dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC. Jeden zestaw obsługuje całe wejście foto, wideo i dron." },
-      { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Pakiety Event Standard, Professional i Premium to punkt wyjścia. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkim briefie podaję jedną, konkretną wycenę." },
+      { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkim briefie podaję jedną, konkretną wycenę w kilku wariantach." },
       { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Tak, pracuję w modelu one-man-band. Dzięki temu materiał jest spójny wizualnie, a Ty masz jedną osobę kontaktową zamiast dwóch ekip." },
-      { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak, przy serii eventów koryguję zakres do realnych potrzeb projektu. Monthly Content: 4 900 zł/m-c (1 dzień zdjęciowy + montaż 4 reelsów, min. 3 miesiące umowy)." },
-      { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Każda dodatkowa godzina powyżej pakietu: 400 zł. Dogrywamy szczegóły przed eventem." },
+      { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak, przy serii eventów koryguję zakres do realnych potrzeb projektu, np. stałą, comiesięczną współpracę contentową. Wycena po krótkim briefie." },
+      { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Dogrywamy dodatkowe godziny przed eventem — dokładam je do wyceny na etapie briefu." },
     ],
     seo: {
       title: "Pakiety Foto + Wideo + Dron — Marcin Szabunia | Poznań",
@@ -197,38 +146,14 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 3, title: "Live edit", desc: "Zdjęcia na Social Media w trakcie eventu" },
       { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni roboczych" },
     ],
-    pricingType: "table",
-    tables: [
-      {
-        title: "Reportaż & Eventy",
-        rows: [],
-        groups: [
-          {
-            label: "Stawki i pakiety",
-            items: [
-              { label: "Pierwsza godzina pracy", value: "600 zł" },
-              { label: "Każda kolejna godzina", value: "400 zł" },
-              { label: "Pakiet 4h (event)", value: "1 600 zł" },
-              { label: "Pakiet całodniowy (8h)", value: "2 800 zł" },
-            ],
-          },
-          {
-            label: "Opcje dodatkowe",
-            items: [
-              { label: "Live editing (Social Media)", value: "20 zł / zdjęcie" },
-              { label: "Ekspresowa dostawa (do 48h po evencie)", value: "+50% ceny" },
-              { label: "Ujęcia z drona", value: "+200 zł" },
-            ],
-          },
-        ],
-      },
-    ],
+    pricingBlurb:
+      "Wycenę reportażu ustalam na podstawie liczby godzin obecności na evencie oraz opcji dodatkowych: live editing na Social Media w trakcie wydarzenia i ujęcia z drona. Pakiety kilkugodzinne i całodniowe wychodzą korzystniej niż rozliczenie godzinowe.",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
       { q: "Czy fotografujesz też wieczorne gale przy słabym świetle?", a: "Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają fotografować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie. Reportaż z gali, konferencji czy bankietu wygląda naturalnie." },
       { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media." },
       { q: "Ile zdjęć otrzymam?", a: "Średnio 15-30 gotowych zdjęć na każdą godzinę fotografowania, wyselekcjonowanych i poddanych postprodukcji. Dokładna liczba zależy od skali eventu i dodatkowych zadań w trakcie (wideo, dron, obróbka zdjęć na żywo, wydruk zdjęć na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
-      { q: "Czy pakiet całodniowy się opłaca?", a: "Przy 8h standardowo byłoby 3 400 zł. Pakiet to 2 800 zł, oszczędzasz 600 zł." },
+      { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
     ],
     portfolioSlug: "woohoo-autopay",
     seo: {
@@ -263,45 +188,8 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 3, title: "Sesja", desc: "10-15 min na osobę, headshot + opcja team" },
       { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
     ],
-    pricingType: "table",
-    tables: [
-      {
-        title: "Zespoły i Biura",
-        rows: [],
-        groups: [
-          {
-            label: "Stawka za osobę (1 retusz, progresywnie)",
-            items: [
-              { label: "Osoby 4-10", value: "150 zł" },
-              { label: "Osoby 11-30", value: "120 zł" },
-              { label: "Osoby od 31", value: "100 zł" },
-            ],
-          },
-          {
-            label: "Dopłaty",
-            items: [
-              { label: "Dodatkowe ujęcie / os.", value: "80 zł" },
-            ],
-          },
-          {
-            label: "Wynajem studia zewnętrznego",
-            items: [
-              { label: "Do 2h", value: "300 zł" },
-              { label: "Do 4h", value: "400 zł" },
-              { label: "Bez limitu", value: "800 zł" },
-            ],
-          },
-        ],
-        footerRows: [
-          {
-            label: "lub rozstawienie mobilnego studia w Twoim biurze",
-            value: "450 zł",
-            note: "Mobilne studio u Ciebie w biurze, rozstawienie ok. 20 min, wystarczy ~3 m².",
-          },
-        ],
-        note: "Sesje zespołowe realizuję od 4 osób. Dla 1 do 3 osób polecam pakiety indywidualne (Wizerunek & Portrety). Stawka progresywna: niższa cena dotyczy tylko osób w danym przedziale, nie całej grupy — więcej osób nigdy nie obniża sumy.",
-      },
-    ],
+    pricingBlurb:
+      "Wycena sesji zespołowej zależy przede wszystkim od liczby osób oraz tego, czy sesja odbywa się w Twoim biurze (mobilne studio) czy w studiu zewnętrznym. Większe zespoły rozliczam progresywnie — więcej osób nigdy nie podnosi stawki jednostkowej. Sesje zespołowe realizuję od 4 osób, dla mniejszych grup polecam pakiety indywidualne (Wizerunek & Portrety).",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 3 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
       { q: "Co z osobami, których nie ma w dniu sesji?", a: "Brakujące osoby dograć można w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu, żeby portrety całego zespołu były spójne. To częsta sytuacja przy większych zespołach i pracy zdalnej." },
@@ -346,39 +234,14 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 3, title: "Montaż", desc: "Cięcie, kolor, napisy, muzyka" },
       { num: 4, title: "Dostawa", desc: "Gotowe materiały w 21 dni" },
     ],
-    pricingType: "table",
-    tables: [
-      {
-        title: "Wideo Marketing",
-        rows: [],
-        groups: [
-          {
-            label: "Praca operatora",
-            items: [
-              { label: "Pierwsza godzina", value: "400 zł" },
-              { label: "Każda kolejna godzina", value: "200 zł" },
-            ],
-          },
-          {
-            label: "Pakiety montażowe",
-            items: [
-              { label: "XS Teaser (<15s)", value: "300 zł" },
-              { label: "S Reels (<30s)", value: "600 zł" },
-              { label: "M Event recap (<60s)", value: "900 zł" },
-              { label: "L Promo (1-2min)", value: "1 400 zł" },
-              { label: "XL Dokument (~3min)", value: "1 800 zł" },
-            ],
-          },
-        ],
-      },
-    ],
-    pricingNote: "Monthly Content: 4 900 zł / m-c (1 dzień zdjęciowy + montaż 4 reelsów, min. 3 miesiące umowy)",
+    pricingBlurb:
+      "Wycena wideo zależy od czasu nagrania (praca operatora) oraz długości i złożoności finalnego materiału — od krótkiego teasera po kilkuminutowy film. Przy regularnych potrzebach contentowych dostępna jest też stała, comiesięczna współpraca.",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 do nagrań, obiektywy od 16 do 200 mm, oświetlenie ciągłe LED Godox, dźwięk Rode Wireless PRO, VideoMicro II i rejestrator Zoom oraz dron DJI do ujęć z powietrza. Sprzęt pozwala nagrać i zmontować materiał od reelsa po dłuższy film." },
       { q: "Czy montujesz też materiał z telefonu?", a: "Tak, jeśli masz surowe nagrania z telefonu, mogę je zmontować profesjonalnie (cięcie, kolor, napisy, muzyka)." },
       { q: "W jakich formatach dostarczasz wideo?", a: "MP4 w rozdzielczości do 4K. Formaty: 9:16 (Reels/TikTok), 16:9 (YouTube/strona), 1:1 (feed). Dowolna kombinacja." },
-      { q: "Czy mogę zamówić sam montaż bez nagrywania?", a: "Tak, wystarczy przesłać surowe pliki. Wycena według cennika pakietów montażowych." },
-      { q: "Czy realizujesz wideo reklamowe i spoty?", a: "Tak, krótkie filmy reklamowe pod kampanie w Social Media i online (15-60 s). Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii. Wycena według pakietów montażowych plus praca operatora." },
+      { q: "Czy mogę zamówić sam montaż bez nagrywania?", a: "Tak, wystarczy przesłać surowe pliki. Wycena zależy od długości i złożoności finalnego materiału." },
+      { q: "Czy realizujesz wideo reklamowe i spoty?", a: "Tak, krótkie filmy reklamowe pod kampanie w Social Media i online (15-60 s). Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii." },
     ],
     seo: {
       title: "Wideo marketing i filmy korporacyjne | Marcin Szabunia",
@@ -405,38 +268,15 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
       </svg>
     ),
-    price: "od 55 zł/szt.",
+    price: "od 500 zł",
     process: [
       { num: 1, title: "Brief", desc: "Cel, platforma sprzedaży, wytyczne marki" },
       { num: 2, title: "Sesja", desc: "Fotografowanie w studiu z kontrolą światła" },
       { num: 3, title: "Retusz", desc: "Wycięcie z tła, korekta kolorów, białe tło" },
       { num: 4, title: "Dostawa", desc: "Pliki gotowe do użycia w 14 dni" },
     ],
-    pricingType: "table",
-    tables: [
-      {
-        title: "Fotografia produktowa",
-        rows: [],
-        groups: [
-          {
-            label: "Packshot (białe tło, progresywnie)",
-            items: [
-              { label: "Sztuki 1-20", value: "90 zł" },
-              { label: "Sztuki 21-50", value: "70 zł" },
-              { label: "Sztuki od 51", value: "55 zł" },
-            ],
-          },
-          {
-            label: "Zdjęcia kreatywne / reklamowe",
-            items: [
-              { label: "Internet / Social Media", value: "od 200 zł" },
-              { label: "Druk / Outdoor", value: "od 600 zł" },
-            ],
-          },
-        ],
-        note: "Retusz i wycięcie produktu z tła w cenie każdego zdjęcia. Minimalne zamówienie: 500 zł lub 6 zdjęć. Stawka progresywna: niższa cena dotyczy tylko sztuk w danym przedziale, nie całego zamówienia — więcej sztuk nigdy nie obniża sumy.",
-      },
-    ],
+    pricingBlurb:
+      "Wycena zależy od liczby produktów, rodzaju ujęć (packshot na białym tle czy zdjęcia kreatywne z aranżacją) oraz pola eksploatacji materiału — inaczej wyceniam zdjęcia na Social Media, inaczej do druku i outdooru. Większe zamówienia rozliczam progresywnie, minimalna wartość zamówienia to 500 zł lub 6 zdjęć.",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Aparat Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce." },
       { q: "Czy mogę przysłać produkty kurierem?", a: "Tak, przyjmuję przesyłki do studia. Po sesji odsyłam na mój koszt (przy zamówieniach powyżej 1 000 zł)." },
@@ -488,43 +328,14 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 3, title: "Postprodukcja", desc: "Obróbka zdjęć lub montaż wideo" },
       { num: 4, title: "Dostawa", desc: "Zdjęcia w 14 dni, wideo do 21 dni" },
     ],
-    pricingType: "table",
-    tables: [
-      {
-        title: "Zdjęcia i wideo z drona",
-        note: "Cena obejmuje dojazd w obrębie Poznania, dobór ujęć, retusz i korekcję barwną. Pliki RAW udostępniam, gdy przewiduje to umowa.",
-        rows: [
-          { label: "Zdjęcia z drona (do 8 wyretuszowanych ujęć, 50 Mpix)", value: "900 zł" },
-          { label: "Przebitki 4K do montażu własnego (korekcja barwna, bez montażu)", value: "700 zł" },
-          { label: "Wideo z drona 4K (zmontowany materiał do 60 s)", value: "1 200 zł" },
-        ],
-        groups: [
-          {
-            label: "Komplet z jednej sesji",
-            items: [
-              { label: "Zdjęcia + przebitki 4K", value: "1 300 zł" },
-              { label: "Zdjęcia + wideo (montaż)", value: "1 700 zł" },
-            ],
-          },
-          {
-            label: "Opcje dodatkowe",
-            items: [
-              { label: "Kolejny wylot / dodatkowa godzina", value: "300 zł" },
-              { label: "Dodatkowe zdjęcie ponad pakiet", value: "80 zł" },
-              { label: "Jako dodatek do innej sesji (do 3 ujęć)", value: "200 zł" },
-            ],
-          },
-        ],
-      },
-    ],
-    pricingNote:
-      "Dron DJI Mini 5 Pro (sensor 1'' CMOS, 50 Mpix), certyfikat operatora A1/A3 i ubezpieczenie OC. Poza Poznaniem dojazd liczony osobno (2,50 zł/km). W standardowych lokalizacjach loty bez dopłat. W strefach kontrolowanych koordynację lotniczą biorę na siebie, bez ukrytych kosztów. Przy strefach wymagających formalnych zgód uprzedzam z wyprzedzeniem.",
+    pricingBlurb:
+      "Wycena zależy od tego, czy potrzebujesz samych zdjęć, materiału wideo, czy kompletu z jednej sesji, a także liczby lokalizacji do przelotu. Dron DJI Mini 5 Pro, certyfikat operatora A1/A3 i ubezpieczenie OC — strona formalna jest po mojej stronie.",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro do zdjęć i wideo w 4K. Mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona łączę z naziemnym zestawem Canon, gdy potrzebny jest komplet foto i wideo." },
       { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
       { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji bezpłatnie przekładamy termin na najbliższy możliwy." },
       { q: "W jakiej jakości dostarczasz materiał?", a: "Wideo do 4K, zdjęcia w pełnej rozdzielczości. Formaty dobieram pod stronę WWW i social media (poziome i pionowe)." },
-      { q: "Czy mogę połączyć drona z sesją naziemną?", a: "Tak. Dron działa jako dodatek do eventu, sesji produktowej lub wizerunkowej za 200 zł (do 3 zdjęć lub ujęć wideo z powietrza). Z jednego wejścia powstaje spójny komplet." },
+      { q: "Czy mogę połączyć drona z sesją naziemną?", a: "Tak. Dron działa jako dodatek do eventu, sesji produktowej lub wizerunkowej — kilka dodatkowych zdjęć lub ujęć wideo z powietrza przy okazji innej sesji. Z jednego wejścia powstaje spójny komplet." },
     ],
     portfolioSlug: "woohoo-autopay",
     seo: {
@@ -535,7 +346,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 ];
 
 // Kolejność wyświetlania usług (kafelki na stronie głównej, lista /uslugi,
-// kalkulator wyceny). Zmiana tutaj zmienia kolejność wszędzie naraz.
+// sekcja Wycena). Zmiana tutaj zmienia kolejność wszędzie naraz.
 const SERVICE_DISPLAY_ORDER: string[] = [
   "wizerunek-portrety",
   "eventy-reportaze",

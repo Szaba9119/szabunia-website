@@ -62,11 +62,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...blogPages,
     {
-      url: `${baseUrl}/kalkulator`,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
       url: `${baseUrl}/poradnik`,
       changeFrequency: "monthly",
       priority: 0.7,

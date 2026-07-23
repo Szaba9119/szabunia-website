@@ -77,12 +77,12 @@ export default function PortfolioVideoShowcase({
                 >
                   Zapytaj o podobną realizację
                 </a>
-                <Link
-                  href="/#cennik"
+                <a
+                  href="#kontakt"
                   className="border border-border dark:border-dark-border text-navy dark:text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:border-blue hover:text-blue dark:hover:border-blue-light dark:hover:text-blue-light transition-colors"
                 >
-                  Zobacz cennik
-                </Link>
+                  Zapytaj o ofertę
+                </a>
               </div>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6">

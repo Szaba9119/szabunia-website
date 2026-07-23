@@ -77,7 +77,7 @@ export default function MobileFAB() {
           href="/kontakt"
           onClick={handleCtaClick}
           data-cta="wycena_sticky"
-          aria-label="Wyślij brief, przejdź do formularza"
+          aria-label="Przejdź do wyceny"
           className="flex items-center gap-2 pl-4 pr-5 py-2.5 bg-gradient-to-br from-blue to-blue-light text-white rounded-full btn-glow font-barlow font-bold text-sm"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
