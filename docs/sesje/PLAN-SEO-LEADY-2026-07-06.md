@@ -74,7 +74,25 @@ P3.1 (title/meta packshoty) ── czeka na wybór wariantu przez Marcina
 
 **Próba 2026-07-08 (rano, zadanie cykliczne):** rozszerzenie Claude in Chrome nieosiągalne — 3 próby `tabs_context_mcp`, za każdym razem "not connected" (ten sam wzorzec co poranna próba 2026-07-07). Zero zgłoszeń w tej turze, lista poniżej bez zmian. Zadanie spróbuje ponownie jutro o 9:07.
 
-Kolejność priorytetowa (pozostałe URL-e, zaszyta w zadaniu cyklicznym):
+**Próba 2026-07-09 (na żywo, na prośbę Marcina „indeksuj dalej, mamy nowy dzień" + „zacznij od najważniejszych podstron"):** Chrome połączony, GSC (property `sc-domain:szabunia.pl`) zalogowany. Zmiana podejścia zgodnie z prośbą: zamiast iść po liście bloga na ślepo, przejrzałem realny stan każdego URL-a przez Sprawdzenie adresu URL i zgłaszałem tylko te faktycznie niezindeksowane, zaczynając od najważniejszych podstron.
+
+**Kluczowe ustalenie:** raport GSC „Dlaczego strony nie są zindeksowane" ma datę danych **30.06** (nieaktualny — sprzed zgłoszeń z 6.07). Realnie większość z listy 30 „niezindeksowanych" jest już w indeksie. Potwierdzone na żywo jako `w indeksie`: wszystkie 7 podstron usług (nigdy nie były na liście), huby `/uslugi` `/portfolio` `/kalkulator` (zgłoszenia z 6.07 weszły), case studies Artech / Woohoo / Yes Butcher (6.07 weszły), oraz większość bloga (m.in. co-to-jest-packshot, sesja-wizerunkowa-poznan, headshoty-linkedin-konwersja, fotografia-produktowa-ecommerce, fotografia-eventowa-vs-reportaz, wideo-marketing-dla-firm-formaty, spojne-portrety-zespolu, zdjecia-na-strone-firmowa, zdjecia-ai-vs-profesjonalna-sesja, zdjecia-film-z-drona-dla-firm, pakiet-foto-wideo-czy-osobno, live-editing-na-evencie).
+
+**Zgłoszone dziś (8, każde z potwierdzeniem „Przesłano prośbę o zindeksowanie", zero komunikatu o limicie):**
+1. `/portfolio/box17-budki-akustyczne` — case study, nigdy wcześniej nie zgłoszony
+2. `/portfolio/idcom-headshoty-zespolu` — case study, nigdy wcześniej nie zgłoszony
+3. `/poradnik` — hub poradnika (uwaga: „Strona odsyłająca: Nie wykryto" → brak linku wewnętrznego, warto dolinkować)
+4. `/galeria`
+5. `/blog/bledy-zdjecia-zespolu` — był status „Adres URL jest Google nieznany"
+6. `/blog/zdjecie-do-cv-w-domu`
+7. `/blog/slownik-pojec-wideo` — był status „Adres URL jest Google nieznany"
+8. `/blog` — indeks bloga (hub)
+
+**Świadomie NIE zgłoszone:** `/portfolio`, `/uslugi`, `/kalkulator` i 3 blogi z 6.07 — już zaindeksowane, ponowne zgłoszenie i tak nie zmienia pozycji w kolejce (komunikat GSC to potwierdza, więc bez marnowania limitu). `/polityka-prywatnosci` — jedyna pozostała niezindeksowana, ale znikoma wartość SEO → pominięta świadomie.
+
+**Efekt:** lista ważnych niezindeksowanych stron praktycznie wyczerpana. **P1.1 zasadniczo zamknięte** — do ewentualnego zgłoszenia zostaje tylko `/polityka-prywatnosci`. Zadanie cykliczne `szabunia-gsc-indexing` można wyłączyć (jego warunek stopu — cała lista zgłoszona — jest spełniony); do decyzji Marcina. Kontrolę efektu (P1.3) przesunąć na ~16.07 (5-7 dni od dzisiejszych zgłoszeń).
+
+~~Kolejność priorytetowa (pozostałe URL-e, zaszyta w zadaniu cyklicznym):~~ **NIEAKTUALNE po przeglądzie 2026-07-09** — pozycje 1-4 tej listy są już zaindeksowane (sprawdzone na żywo), z „pozostałych ~19" większość też. Realnie do zgłoszenia została tylko `/polityka-prywatnosci`. Lista historyczna poniżej:
 
 1. `/blog/headshoty-linkedin-konwersja` (nie zgłoszona — limit przerwał próbę)
 2. `/blog/fotografia-eventowa-vs-reportaz`
