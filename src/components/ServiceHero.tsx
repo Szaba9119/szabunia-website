@@ -41,8 +41,13 @@ export default function ServiceHero({ service }: Props) {
         {/* Kolejność (prośba Marcina, 2026-07-23): tytuł → cena → krótki opis
             → ZDJĘCIE → długi opis → chipy → CTA na końcu. DOM = kolejność na
             mobile; desktop: zdjęcie w prawej kolumnie przez oba rzędy (split
-            50/50 z brief-23 zostaje), tekst w lewej rozbity na dwa rzędy. */}
-        <div className="grid md:grid-cols-2 md:grid-rows-[auto_auto] gap-6 md:gap-x-12 md:gap-y-8 items-start">
+            50/50 z brief-23 zostaje), tekst w lewej rozbity na dwa rzędy.
+            Rzędy [auto_1fr] (NIE auto_auto!): kwadratowe zdjęcie jest wyższe
+            niż tekst, więc przy auto_auto nadmiar wysokości rozkładał się po
+            równo i wpychał ~112 px pustki MIĘDZY bloki tekstu. 1fr w drugim
+            rzędzie pochłania nadmiar na dole, luka = tylko gap-y-8 (32 px).
+            Fix 2026-07-23 (Marcin: „na komputerze dużo wolnego miejsca"). */}
+        <div className="grid md:grid-cols-2 md:grid-rows-[auto_1fr] gap-6 md:gap-x-12 md:gap-y-8 items-start">
           {/* 1. Tytuł + cena + krótki opis */}
           <AnimatedSection className="md:col-start-1 md:row-start-1">
             <h1 className="font-barlow font-black text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-2">
