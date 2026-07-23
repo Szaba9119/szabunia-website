@@ -10,10 +10,20 @@ export interface ServiceData {
   description: string;
   forWhom: string[];
   icon: ReactNode;
+  /** Zdjęcie hero podstrony usługi, z istniejących bibliotek /images (brief-22 zad. 8). */
+  heroImage: string;
+  /** object-position dla heroImage, dobrane per kadr. Domyślnie "center". */
+  heroImagePos?: string;
   price: string;
   process: ProcessStep[];
-  /** 2-3 zdania: co wpływa na wycenę tej usługi. Bez kwot (sekcja Wycena, §4.2 brief-20). */
+  /** 2-3 zdania: co wpływa na wycenę tej usługi. Bez kwot (źródło pytania cenowego w FAQ, brief-22 zad. 4). */
   pricingBlurb: string;
+  /** Pytanie cenowe w FAQ, np. "Ile kosztuje sesja portretowa?" (brief-22 zad. 4). */
+  priceFaqQuestion: string;
+  /** Łącznik zdaniowy przed kwotą, np. "Sesje portretowe zaczynają się". */
+  priceFaqIntro: string;
+  /** Opcjonalny dalszy ciąg PIERWSZEGO zdania odpowiedzi, doklejany zaraz po "{price} netto" i przed kropką. */
+  priceFaqSuffix?: string;
   faqs: FAQItem[];
   portfolioSlug?: string;
   galleryCategory?: "portrety" | "eventy" | "produktowe" | "wideo" | "dron" | "zespolowe";
@@ -49,6 +59,8 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
       </svg>
     ),
+    heroImage: "/images/galeria/portrety/portret-05.jpg",
+    heroImagePos: "center 20%",
     price: "od 1 000 zł",
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
@@ -58,6 +70,8 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     pricingBlurb:
       "Wycenę portretu ustalam na podstawie liczby stylizacji, długości sesji i liczby wyretuszowanych zdjęć do wyboru. Każda sesja obejmuje darmowy poseboard z referencjami przed spotkaniem oraz studio dopasowane do Twojego projektu.",
+    priceFaqQuestion: "Ile kosztuje sesja portretowa?",
+    priceFaqIntro: "Sesje portretowe zaczynają się",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), jasne obiektywy stałoogniskowe Sigma Art 35 i 50 mm f/1.4 do naturalnych portretów oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
       { q: "Ile trwa sesja wizerunkowa?", a: "Sama sesja może trwać od 30 minut. Najważniejsze, że przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło, więc nie czekasz na moje przygotowania. Dłuższe pakiety dają po prostu więcej czasu na ujęcia i zmiany stylizacji." },
@@ -95,6 +109,7 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
       </svg>
     ),
+    heroImage: "/images/galeria/eventy/event-01.jpg",
     price: "od 1 800 zł",
     process: [
       { num: 1, title: "Brief", desc: "Cel, kanały, formaty wideo i foto" },
@@ -104,12 +119,14 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     pricingBlurb:
       "Wycena pakietu zależy od liczby godzin obecności na wydarzeniu, zakresu wideo (teaser, główny film, wywiady z uczestnikami) i tego, czy potrzebujesz ujęć z drona. Im dłuższa realizacja, tym więcej materiału foto i wideo z jednego wejścia.",
+    priceFaqQuestion: "Ile kosztuje pakiet foto + wideo?",
+    priceFaqIntro: "Pakiety zaczynają się",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 (foto i wideo równolegle, z zapisem na dwie karty), obiektywy Sigma, Tamron i Tokina od 16 do 200 mm, oświetlenie Godox, dźwięk Rode i Zoom oraz dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC. Jeden zestaw obsługuje całe wejście foto, wideo i dron." },
       { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkim briefie podaję jedną, konkretną wycenę w kilku wariantach." },
       { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Tak, pracuję w modelu one-man-band. Dzięki temu materiał jest spójny wizualnie, a Ty masz jedną osobę kontaktową zamiast dwóch ekip." },
       { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak, przy serii eventów koryguję zakres do realnych potrzeb projektu, np. stałą, comiesięczną współpracę contentową. Wycena po krótkim briefie." },
-      { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Dogrywamy dodatkowe godziny przed eventem — dokładam je do wyceny na etapie briefu." },
+      { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Dogrywamy dodatkowe godziny przed eventem, dokładam je do wyceny na etapie briefu." },
     ],
     seo: {
       title: "Pakiety Foto + Wideo + Dron — Marcin Szabunia | Poznań",
@@ -139,6 +156,8 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
       </svg>
     ),
+    heroImage: "/images/galeria/eventy/event-05.jpg",
+    heroImagePos: "center 20%",
     price: "od 600 zł",
     process: [
       { num: 1, title: "Brief", desc: "Agenda, kluczowe momenty, VIP-y" },
@@ -148,6 +167,8 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     pricingBlurb:
       "Wycenę reportażu ustalam na podstawie liczby godzin obecności na evencie oraz opcji dodatkowych: live editing na Social Media w trakcie wydarzenia i ujęcia z drona. Pakiety kilkugodzinne i całodniowe wychodzą korzystniej niż rozliczenie godzinowe.",
+    priceFaqQuestion: "Ile kosztuje reportaż z eventu?",
+    priceFaqIntro: "Reportaże zaczynają się",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
       { q: "Czy fotografujesz też wieczorne gale przy słabym świetle?", a: "Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają fotografować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie. Reportaż z gali, konferencji czy bankietu wygląda naturalnie." },
@@ -181,6 +202,7 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
       </svg>
     ),
+    heroImage: "/images/portfolio/sesje-zespolowe-cover.jpg",
     price: "od 150 zł/os.",
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram i liczbę osób" },
@@ -189,7 +211,9 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
     ],
     pricingBlurb:
-      "Wycena sesji zespołowej zależy przede wszystkim od liczby osób oraz tego, czy sesja odbywa się w Twoim biurze (mobilne studio) czy w studiu zewnętrznym. Większe zespoły rozliczam progresywnie — więcej osób nigdy nie podnosi stawki jednostkowej. Sesje zespołowe realizuję od 4 osób, dla mniejszych grup polecam pakiety indywidualne (Wizerunek & Portrety).",
+      "Wycena zależy od liczby osób i miejsca sesji: Twoje biuro z mobilnym studiem albo studio zewnętrzne. Przy większych zespołach stawka za osobę maleje progresywnie, a sesje realizuję od 4 osób (mniejszym grupom polecam pakiety Wizerunek & Portrety).",
+    priceFaqQuestion: "Ile kosztuje sesja zespołowa?",
+    priceFaqIntro: "Sesje zespołowe zaczynają się",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 3 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
       { q: "Co z osobami, których nie ma w dniu sesji?", a: "Brakujące osoby dograć można w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu, żeby portrety całego zespołu były spójne. To częsta sytuacja przy większych zespołach i pracy zdalnej." },
@@ -227,6 +251,8 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-2.625 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-1.5A1.125 1.125 0 0118 18.375M20.625 4.5H3.375m17.25 0c.621 0 1.125.504 1.125 1.125M20.625 4.5h-1.5C18.504 4.5 18 5.004 18 5.625m3.75 0v1.5c0 .621-.504 1.125-1.125 1.125M3.375 4.5c-.621 0-1.125.504-1.125 1.125M3.375 4.5h1.5C5.496 4.5 6 5.004 6 5.625m-2.625 0v1.5c0 .621.504 1.125 1.125 1.125m0 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m1.5-3.75C5.496 8.25 6 7.746 6 7.125v-1.5M4.875 8.25C5.496 8.25 6 8.754 6 9.375v1.5m0-5.25v5.25m0-5.25C6 5.004 6.504 4.5 7.125 4.5h9.75c.621 0 1.125.504 1.125 1.125m1.125 2.625h1.5m-1.5 0A1.125 1.125 0 0118 7.125v-1.5m1.125 2.625c-.621 0-1.125.504-1.125 1.125v1.5m2.625-2.625c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125M18 5.625v5.25M7.125 12h9.75m-9.75 0A1.125 1.125 0 016 10.875M7.125 12C6.504 12 6 12.504 6 13.125m0-2.25C6 11.496 5.496 12 4.875 12M18 10.875c0 .621-.504 1.125-1.125 1.125M18 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m-12 5.25v-5.25m0 5.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125m-12 0v-1.5c0-.621-.504-1.125-1.125-1.125M18 18.375v-5.25m0 5.25v-1.5c0-.621.504-1.125 1.125-1.125M18 13.125v1.5c0 .621.504 1.125 1.125 1.125M18 13.125c0-.621.504-1.125 1.125-1.125M6 13.125v1.5c0 .621-.504 1.125-1.125 1.125M6 13.125C6 12.504 5.496 12 4.875 12m-1.5 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M19.125 12h1.5m0 0c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h1.5m14.25 0h1.5" />
       </svg>
     ),
+    heroImage: "/images/galeria/eventy/event-16.jpg",
+    heroImagePos: "40% center",
     price: "od 300 zł",
     process: [
       { num: 1, title: "Concept", desc: "Cel, format, platforma docelowa" },
@@ -235,7 +261,9 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 4, title: "Dostawa", desc: "Gotowe materiały w 21 dni" },
     ],
     pricingBlurb:
-      "Wycena wideo zależy od czasu nagrania (praca operatora) oraz długości i złożoności finalnego materiału — od krótkiego teasera po kilkuminutowy film. Przy regularnych potrzebach contentowych dostępna jest też stała, comiesięczna współpraca.",
+      "Wycena zależy od czasu nagrania oraz długości i złożoności finalnego materiału: od krótkiego teasera po kilkuminutowy film. Przy regularnych potrzebach wideo możliwa jest też stała, comiesięczna współpraca.",
+    priceFaqQuestion: "Ile kosztuje produkcja wideo?",
+    priceFaqIntro: "Produkcja wideo zaczyna się",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 do nagrań, obiektywy od 16 do 200 mm, oświetlenie ciągłe LED Godox, dźwięk Rode Wireless PRO, VideoMicro II i rejestrator Zoom oraz dron DJI do ujęć z powietrza. Sprzęt pozwala nagrać i zmontować materiał od reelsa po dłuższy film." },
       { q: "Czy montujesz też materiał z telefonu?", a: "Tak, jeśli masz surowe nagrania z telefonu, mogę je zmontować profesjonalnie (cięcie, kolor, napisy, muzyka)." },
@@ -268,6 +296,7 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
       </svg>
     ),
+    heroImage: "/images/galeria/produktowe/produkt-13.jpg",
     price: "od 500 zł",
     process: [
       { num: 1, title: "Brief", desc: "Cel, platforma sprzedaży, wytyczne marki" },
@@ -276,7 +305,10 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 4, title: "Dostawa", desc: "Pliki gotowe do użycia w 14 dni" },
     ],
     pricingBlurb:
-      "Wycena zależy od liczby produktów, rodzaju ujęć (packshot na białym tle czy zdjęcia kreatywne z aranżacją) oraz pola eksploatacji materiału — inaczej wyceniam zdjęcia na Social Media, inaczej do druku i outdooru. Większe zamówienia rozliczam progresywnie, minimalna wartość zamówienia to 500 zł lub 6 zdjęć.",
+      "Wycena zależy od liczby produktów, rodzaju ujęć (packshot na białym tle albo zdjęcia kreatywne z aranżacją) oraz pola eksploatacji: inaczej wyceniam zdjęcia na Social Media, inaczej do druku i outdooru. Większe zamówienia rozliczam progresywnie.",
+    priceFaqQuestion: "Ile kosztuje sesja produktowa?",
+    priceFaqIntro: "Sesje produktowe zaczynają się",
+    priceFaqSuffix: " i tyle wynosi też minimalna wartość zamówienia (lub 6 zdjęć)",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Aparat Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce." },
       { q: "Czy mogę przysłać produkty kurierem?", a: "Tak, przyjmuję przesyłki do studia. Po sesji odsyłam na mój koszt (przy zamówieniach powyżej 1 000 zł)." },
@@ -321,6 +353,8 @@ const serviceCategoriesRaw: ServiceData[] = [
     ),
     // Cennik dronowy 2026-07: samodzielna linia usług od 900 zł (brief 09.07.2026).
     // Sprzedajemy deliverable, nie czas lotu — bez „1h lotu w cenie".
+    heroImage: "/images/galeria/dron/dron-05-panorama-poznania-zachod-slonca.jpg",
+    heroImagePos: "65% center",
     price: "od 900 zł",
     process: [
       { num: 1, title: "Brief i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
@@ -329,13 +363,15 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 4, title: "Dostawa", desc: "Zdjęcia w 14 dni, wideo do 21 dni" },
     ],
     pricingBlurb:
-      "Wycena zależy od tego, czy potrzebujesz samych zdjęć, materiału wideo, czy kompletu z jednej sesji, a także liczby lokalizacji do przelotu. Dron DJI Mini 5 Pro, certyfikat operatora A1/A3 i ubezpieczenie OC — strona formalna jest po mojej stronie.",
+      "Wycena zależy od tego, czy potrzebujesz samych zdjęć, materiału wideo, czy kompletu z jednej sesji, a także od liczby lokalizacji do przelotu. Latam dronem DJI Mini 5 Pro, mam certyfikat operatora A1/A3 i ubezpieczenie OC, a formalności i koordynację lotów biorę na siebie.",
+    priceFaqQuestion: "Ile kosztuje sesja z dronem?",
+    priceFaqIntro: "Zdjęcia i wideo z drona zaczynają się",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro do zdjęć i wideo w 4K. Mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona łączę z naziemnym zestawem Canon, gdy potrzebny jest komplet foto i wideo." },
       { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
       { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji bezpłatnie przekładamy termin na najbliższy możliwy." },
       { q: "W jakiej jakości dostarczasz materiał?", a: "Wideo do 4K, zdjęcia w pełnej rozdzielczości. Formaty dobieram pod stronę WWW i social media (poziome i pionowe)." },
-      { q: "Czy mogę połączyć drona z sesją naziemną?", a: "Tak. Dron działa jako dodatek do eventu, sesji produktowej lub wizerunkowej — kilka dodatkowych zdjęć lub ujęć wideo z powietrza przy okazji innej sesji. Z jednego wejścia powstaje spójny komplet." },
+      { q: "Czy mogę połączyć drona z sesją naziemną?", a: "Tak. Dron działa jako dodatek do eventu, sesji produktowej lub wizerunkowej: kilka dodatkowych zdjęć lub ujęć wideo z powietrza przy okazji innej sesji. Z jednego wejścia powstaje spójny komplet." },
     ],
     portfolioSlug: "woohoo-autopay",
     seo: {
@@ -365,6 +401,20 @@ export const serviceCategories: ServiceData[] = [...serviceCategoriesRaw].sort(
 
 export function getServiceBySlug(slug: string): ServiceData | undefined {
   return serviceCategories.find((s) => s.slug === slug);
+}
+
+// Wspólne zamknięcie dla FAQ cenowego (obietnica 24h powtarzana świadomie
+// w całym lejku — brief-22 §2). Jedna zmiana tutaj aktualizuje wszystkie 7 usług.
+const PRICE_FAQ_CLOSING = "Konkretną wycenę dostajesz w 24h po krótkim briefie.";
+
+// Pytanie cenowe budowane z danych usługi (price + pricingBlurb), nie
+// hardkodowane per usługa — zmiana ceny lub pricingBlurb aktualizuje FAQ
+// wszędzie naraz (brief-22 zad. 4).
+export function getPriceFaq(service: ServiceData): FAQItem {
+  return {
+    q: service.priceFaqQuestion,
+    a: `${service.priceFaqIntro} ${service.price} netto${service.priceFaqSuffix ?? ""}. ${service.pricingBlurb} ${PRICE_FAQ_CLOSING}`,
+  };
 }
 
 // Reprezentacyjne zdjęcie pokazywane na kafelku usługi (sekcja „Czym mogę Ci

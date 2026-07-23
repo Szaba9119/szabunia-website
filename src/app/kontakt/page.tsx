@@ -15,14 +15,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
     description:
-      "Napisz brief, odezwę się w 24h z wstępną wyceną i terminem. Fotografia i wideo dla firm — Poznań, cała Polska i Europa.",
+      "Napisz brief, odezwę się w 24h z wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
     url: "https://szabunia.pl/kontakt",
     images: [
       {
         url: "/images/marcin-hero.jpg",
         width: 1200,
         height: 630,
-        alt: "Kontakt — Marcin Szabunia, fotograf biznesowy Poznań",
+        alt: "Kontakt, Marcin Szabunia, fotograf biznesowy Poznań",
       },
     ],
   },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
     description:
-      "Napisz brief, odezwę się w 24h z wstępną wyceną i terminem. Fotografia i wideo dla firm — Poznań, cała Polska i Europa.",
+      "Napisz brief, odezwę się w 24h z wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
     images: ["/images/marcin-hero.jpg"],
   },
 };
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 const contactCards = [
   {
     title: "Odezwę się w 24h",
-    body: "Na każde zapytanie biznesowe odpowiadam w jeden dzień roboczy — z wstępną wyceną i propozycją terminu.",
+    body: "Na każde zapytanie biznesowe odpowiadam w jeden dzień roboczy, z wstępną wyceną i propozycją terminu.",
   },
   {
     title: "Poznań, cała Polska i Europa",
@@ -58,7 +58,7 @@ export default function KontaktPage() {
       name: "Kontakt — Marcin Szabunia",
       url: "https://szabunia.pl/kontakt",
       description:
-        "Kontakt w sprawie fotografii i wideo dla firm — portrety biznesowe, sesje zespołowe, eventy, fotografia produktowa, wideo marketing.",
+        "Kontakt w sprawie fotografii i wideo dla firm: portrety biznesowe, sesje zespołowe, eventy, fotografia produktowa, wideo marketing.",
       mainEntity: {
         "@type": "ProfessionalService",
         name: "Marcin Szabunia",
@@ -98,7 +98,7 @@ export default function KontaktPage() {
               Porozmawiajmy o Twoim projekcie
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-8 max-w-2xl mx-auto leading-relaxed">
-              Fotografia i wideo dla firm — portrety biznesowe, sesje zespołowe,
+              Fotografia i wideo dla firm: portrety biznesowe, sesje zespołowe,
               reportaże z eventów, fotografia produktowa i wideo marketing. Napisz
               brief, a odezwę się w ciągu 24 godzin z wstępną wyceną i terminem.
             </p>
@@ -150,7 +150,7 @@ export default function KontaktPage() {
                   Nie wiesz, czego potrzebujesz?
                 </h2>
                 <p className="text-[14px] text-steel dark:text-dark-text-muted leading-relaxed">
-                  Przejrzyj pełną ofertę dla firm i wróć z krótkim briefem —
+                  Przejrzyj pełną ofertę dla firm i wróć z krótkim briefem,
                   wycenę przygotuję w 24h.
                 </p>
               </div>

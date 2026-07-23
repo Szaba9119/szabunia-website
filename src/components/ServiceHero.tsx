@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
 import type { ServiceData } from "@/data/services";
 
@@ -35,15 +36,22 @@ export default function ServiceHero({ service }: Props) {
           </nav>
         </AnimatedSection>
 
+        {/* Tekst + zdjęcie: kolejność w DOM = kolejność na mobile (tekst i CTA
+            pierwsze, zdjęcie pod spodem, nie spycha ich pod fold). Desktop:
+            dwie kolumny obok siebie (brief-22 zad. 8). */}
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Text */}
           <AnimatedSection>
             <div className="w-12 h-12 rounded-xl bg-blue-pale dark:bg-blue/15 flex items-center justify-center mb-5" aria-hidden="true">
               {service.icon}
             </div>
-            <h1 className="font-barlow font-black text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-4">
+            <h1 className="font-barlow font-black text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-2">
               {service.title}
             </h1>
+            {/* Kotwica cenowa, mały element typograficzny — nie badge (brief-22 §3). */}
+            <p className="font-barlow font-semibold text-sm text-steel dark:text-dark-text-muted tracking-wide mb-4">
+              {service.price} netto
+            </p>
             <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mb-4">
               {service.subtitle}
             </p>
@@ -57,12 +65,6 @@ export default function ServiceHero({ service }: Props) {
                 className="bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
               >
                 Zapytaj o ofertę
-              </a>
-              <a
-                href="#wycena"
-                className="border border-border dark:border-dark-border text-navy dark:text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:border-blue dark:hover:border-blue-light transition-colors"
-              >
-                Jak wyceniam →
               </a>
             </div>
             {/* Chipy zaufania — spójne z hero strony głównej (audyt podstron
@@ -96,44 +98,63 @@ export default function ServiceHero({ service }: Props) {
             </ul>
           </AnimatedSection>
 
-          {/* Dla kogo */}
+          {/* Zdjęcie usługi (brief-22 zad. 8) — priority, LCP element strony. */}
           <AnimatedSection delay={0.15}>
-            <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6 md:p-8">
-              <h2 className="font-barlow font-bold text-lg text-navy dark:text-white mb-5">
-                Dla kogo?
-              </h2>
-              <ul className="flex flex-col gap-3">
-                {service.forWhom.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <svg
-                      className="w-5 h-5 text-blue dark:text-blue-light flex-shrink-0 mt-0.5"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                    </svg>
-                    <span className="text-text-body dark:text-dark-text text-[14px] leading-relaxed">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-              {service.portfolioSlug && (
-                <Link
-                  href={`/portfolio/${service.portfolioSlug}`}
-                  className="mt-6 inline-flex items-center gap-2 text-blue dark:text-blue-light text-[13px] font-barlow font-semibold hover:underline"
-                >
-                  Zobacz realizacje
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </Link>
-              )}
+            <div className="relative aspect-square rounded-3xl overflow-hidden bg-border dark:bg-dark-card">
+              <Image
+                src={service.heroImage}
+                alt={`${service.title}, Poznań`}
+                fill
+                className="object-cover"
+                style={{ objectPosition: service.heroImagePos ?? "center" }}
+                priority
+                fetchPriority="high"
+                sizes="(max-width: 768px) 100vw, 40vw"
+                quality={72}
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0YxRjVGOSIvPjwvc3ZnPg=="
+              />
             </div>
           </AnimatedSection>
         </div>
+
+        {/* Dla kogo — pod hero, nie w kolumnie ze zdjęciem (brief-22 zad. 8). */}
+        <AnimatedSection delay={0.25} className="mt-8 md:mt-10">
+          <div className="max-w-xl bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6 md:p-8">
+            <h2 className="font-barlow font-bold text-lg text-navy dark:text-white mb-5">
+              Dla kogo?
+            </h2>
+            <ul className="flex flex-col gap-3">
+              {service.forWhom.map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <svg
+                    className="w-5 h-5 text-blue dark:text-blue-light flex-shrink-0 mt-0.5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                  </svg>
+                  <span className="text-text-body dark:text-dark-text text-[14px] leading-relaxed">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+            {service.portfolioSlug && (
+              <Link
+                href={`/portfolio/${service.portfolioSlug}`}
+                className="mt-6 inline-flex items-center gap-2 text-blue dark:text-blue-light text-[13px] font-barlow font-semibold hover:underline"
+              >
+                Zobacz realizacje
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                </svg>
+              </Link>
+            )}
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

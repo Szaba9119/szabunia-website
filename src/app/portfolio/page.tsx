@@ -28,7 +28,7 @@ export const metadata: Metadata = {
         url: "/images/marcin-hero.jpg",
         width: 1200,
         height: 630,
-        alt: "Portfolio fotografii biznesowej — Marcin Szabunia, Poznań",
+        alt: "Portfolio fotografii biznesowej, Marcin Szabunia, Poznań",
       },
     ],
   },
@@ -78,7 +78,7 @@ export default function PortfolioPage() {
               Portfolio
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-              Projekty dla firm, które stawiają na profesjonalny wizerunek —
+              Projekty dla firm, które stawiają na profesjonalny wizerunek:
               sesje wizerunkowe, reportaże z eventów, sesje korporacyjne i
               fotografia produktowa.
             </p>
@@ -115,7 +115,7 @@ export default function PortfolioPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full h-full"
-                      aria-label={`${item.label} — otwiera się w nowej karcie`}
+                      aria-label={`${item.label}, otwiera się w nowej karcie`}
                     >
                       {overlay}
                     </a>

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: "/images/marcin-hero.jpg",
         width: 1200,
         height: 630,
-        alt: "Marcin Szabunia — Fotograf biznesowy Poznań",
+        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
       },
     ],
   },
@@ -98,14 +98,14 @@ export default function PrivacyPolicy() {
                 Formularz kontaktowy obsługiwany jest przez usługę Resend
                 (Resend, Inc., USA), a strona hostowana jest na platformie Vercel
                 (Vercel, Inc., USA). Jeśli dojdzie do zlecenia, rozliczenie i
-                wystawienie faktury odbywa się przez serwis Useme (useme.com) —
-                w tym celu przekazuję do Useme dane niezbędne do wystawienia
+                wystawienie faktury odbywa się przez serwis Useme (useme.com).
+                W tym celu przekazuję do Useme dane niezbędne do wystawienia
                 faktury (np. dane do faktury, których potrzebujesz jako nabywca).
                 Dane mogą być przekazywane także innym podmiotom świadczącym
                 usługi hostingowe, e-mailowe i informatyczne na podstawie umów
                 powierzenia przetwarzania danych. Przekazanie danych do USA
                 (Resend, Vercel) następuje na podstawie mechanizmów
-                zapewniających odpowiedni stopień ochrony — standardowych
+                zapewniających odpowiedni stopień ochrony: standardowych
                 klauzul umownych (SCC) lub udziału tych podmiotów w programie
                 EU-US Data Privacy Framework.
               </p>
@@ -117,7 +117,7 @@ export default function PrivacyPolicy() {
               </h2>
               <p>
                 Dane przechowuję przez okres niezbędny do realizacji celów, dla
-                których zostały zebrane — maksymalnie 2 lata od ostatniego
+                których zostały zebrane, maksymalnie 2 lata od ostatniego
                 kontaktu, chyba że dłuższy okres wymagany jest przepisami prawa.
               </p>
             </section>
@@ -141,12 +141,12 @@ export default function PrivacyPolicy() {
               </h2>
               <p>
                 Strona wykorzystuje niezbędne pliki cookies techniczne (np.
-                zapamiętanie preferencji trybu ciemnego) oraz — wyłącznie po
-                wyrażeniu zgody w banerze cookie — pliki cookies analityczne
+                zapamiętanie preferencji trybu ciemnego) oraz (wyłącznie po
+                wyrażeniu zgody w banerze cookie) pliki cookies analityczne
                 (Google Analytics 4) i reklamowe (Google Ads), służące do
                 analizy ruchu oraz pomiaru skuteczności reklam. Odbiorcą danych
                 zbieranych przez te pliki jest Google Ireland Ltd. Zgodę możesz
-                odrzucić — strona działa wtedy w pełni, bez pomiaru — a wyrażoną
+                odrzucić (strona działa wtedy w pełni, bez pomiaru), a wyrażoną
                 zgodę zmienić lub wycofać w każdej chwili, klikając „Ustawienia
                 cookies” w stopce strony albo usuwając pliki cookies w swojej
                 przeglądarce.

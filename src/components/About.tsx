@@ -19,7 +19,7 @@ export default function About() {
                 <div className="absolute inset-0 scale-[1.15]">
                   <Image
                     src="/images/marcin-o-mnie.jpg"
-                    alt="Marcin Szabunia — fotograf biznesowy, portret, Poznań"
+                    alt="Marcin Szabunia, fotograf biznesowy, portret, Poznań"
                     fill
                     className="object-cover"
                     sizes="(max-width: 1024px) 0px, 520px"

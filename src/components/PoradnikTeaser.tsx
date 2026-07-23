@@ -43,7 +43,7 @@ export default function PoradnikTeaser() {
                   <div className="relative aspect-[210/297] max-w-[260px] ml-auto rounded-xl overflow-hidden bg-white shadow-2xl ring-1 ring-border dark:ring-white/10 rotate-[2deg] hover:rotate-0 transition-transform">
                     <Image
                       src="/images/poradnik-cover.png"
-                      alt="Podgląd poradnika — Pakiet przygotowania do sesji biznesowej"
+                      alt="Podgląd poradnika, Pakiet przygotowania do sesji biznesowej"
                       fill
                       className="object-cover"
                       sizes="260px"

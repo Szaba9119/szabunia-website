@@ -56,7 +56,7 @@ export default function Services() {
                       >
                         <Image
                           src={s.image}
-                          alt={`${s.title} — przykładowa realizacja`}
+                          alt={`${s.title}, przykładowa realizacja`}
                           fill
                           sizes={
                             isPakiet

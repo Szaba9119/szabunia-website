@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: "/images/marcin-hero.jpg",
         width: 1200,
         height: 630,
-        alt: "Marcin Szabunia — Fotograf biznesowy Poznań",
+        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
       },
     ],
   },

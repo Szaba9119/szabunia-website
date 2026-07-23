@@ -15,7 +15,6 @@ const navLinks = [
   { label: "Usługi", href: "#uslugi", section: "uslugi", page: null },
   { label: "Portfolio", href: "#portfolio", section: "portfolio", page: null },
   { label: "Galeria", href: "/galeria", section: "galeria", page: "/galeria" },
-  { label: "Wycena", href: "#wycena", section: "wycena", page: null },
   { label: "Blog", href: "/blog", section: "blog", page: "/blog" },
   { label: "Poradnik", href: "/poradnik", section: "poradnik", page: "/poradnik" },
 ];

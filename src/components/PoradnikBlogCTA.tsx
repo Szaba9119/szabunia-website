@@ -8,7 +8,7 @@ export default function PoradnikBlogCTA() {
         <div className="relative w-[88px] aspect-[210/297] rounded-lg overflow-hidden bg-white shadow-lg ring-1 ring-border dark:ring-dark-border">
           <Image
             src="/images/poradnik-cover.png"
-            alt="Poradnik — przygotowanie do sesji biznesowej"
+            alt="Poradnik, przygotowanie do sesji biznesowej"
             fill
             className="object-cover"
             sizes="88px"
@@ -23,7 +23,7 @@ export default function PoradnikBlogCTA() {
           Przygotuj się do sesji jak zawodowiec
         </h3>
         <p className="text-[13px] text-steel dark:text-dark-text-muted mb-4 leading-relaxed">
-          Checklisty, planer stylizacji, ściąga kolorów i mini-brief — pobierz cały
+          Checklisty, planer stylizacji, ściąga kolorów i mini-brief: pobierz cały
           pakiet PDF za darmo.
         </p>
         <Link

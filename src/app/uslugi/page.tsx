@@ -24,7 +24,7 @@ export const metadata: Metadata = {
         url: "/images/marcin-hero.jpg",
         width: 1200,
         height: 630,
-        alt: "Usługi fotografii biznesowej i wideo — Marcin Szabunia, Poznań",
+        alt: "Usługi fotografii biznesowej i wideo, Marcin Szabunia, Poznań",
       },
     ],
   },
@@ -74,7 +74,7 @@ export default function UslugiPage() {
               Usługi fotograficzne i wideo dla biznesu
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-              Od portretów biznesowych po produkcję wideo — jeden twórca, spójny
+              Od portretów biznesowych po produkcję wideo: jeden twórca, spójny
               materiał, krótka droga od briefu do dostawy. Bazuję w Poznaniu,
               pracuję w całej Polsce i Europie.
             </p>

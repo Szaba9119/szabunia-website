@@ -16,14 +16,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Darmowy poradnik: przygotowanie do sesji biznesowej",
     description:
-      "Checklisty, planer stylizacji, ściąga kolorów i mini-brief — wszystko, żeby wejść na plan spokojnie i z głową. Pobierz za darmo.",
+      "Checklisty, planer stylizacji, ściąga kolorów i mini-brief: wszystko, żeby wejść na plan spokojnie i z głową. Pobierz za darmo.",
     url: "https://szabunia.pl/poradnik",
     images: [
       {
         url: "/images/marcin-hero.jpg",
         width: 1200,
         height: 630,
-        alt: "Marcin Szabunia — Fotograf biznesowy Poznań",
+        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
       },
     ],
   },
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Darmowy poradnik: przygotowanie do sesji biznesowej",
     description:
-      "Checklisty, planer stylizacji, ściąga kolorów i mini-brief — wszystko, żeby wejść na plan spokojnie i z głową. Pobierz za darmo.",
+      "Checklisty, planer stylizacji, ściąga kolorów i mini-brief: wszystko, żeby wejść na plan spokojnie i z głową. Pobierz za darmo.",
     images: ["/images/marcin-hero.jpg"],
   },
 };
@@ -70,7 +70,7 @@ export default function PoradnikPage() {
               Pakiet przygotowania do sesji biznesowej
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto">
-              Checklisty, planer stylizacji, ściąga kolorów i mini-brief — wszystko, żeby
+              Checklisty, planer stylizacji, ściąga kolorów i mini-brief: wszystko, żeby
               wyjść na zdjęciach pewnie i naturalnie, nawet jeśli zwykle nie lubisz się
               fotografować.
             </p>
@@ -82,7 +82,7 @@ export default function PoradnikPage() {
               <div className="relative aspect-[210/297] max-w-[420px] mx-auto rounded-2xl overflow-hidden bg-white shadow-2xl ring-1 ring-border dark:ring-dark-border">
                 <Image
                   src="/images/poradnik-cover.png"
-                  alt="Podgląd pierwszej strony poradnika — Pakiet przygotowania do sesji biznesowej"
+                  alt="Podgląd pierwszej strony poradnika, Pakiet przygotowania do sesji biznesowej"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 90vw, 420px"

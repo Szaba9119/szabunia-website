@@ -48,7 +48,7 @@ export const metadata: Metadata = {
         url: "/images/marcin-hero.jpg",
         width: 1200,
         height: 630,
-        alt: "Marcin Szabunia — Fotograf biznesowy Poznań",
+        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
       },
     ],
   },
@@ -181,7 +181,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                       "@type": "Service",
                       name: "Sesje zespołowe",
                       description:
-                        "Sesje zdjęciowe dla zespołów, działów, zarządów — na miejscu w biurze lub w studio",
+                        "Sesje zdjęciowe dla zespołów, działów, zarządów, na miejscu w biurze lub w studio",
                     },
                   },
                   {
@@ -217,7 +217,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                       "@type": "Service",
                       name: "Pakiety Foto + Wideo + Dron",
                       description:
-                        "Zdjęcia, wideo i ujęcia z drona z jednego wejścia — spójny materiał bez koordynowania dwóch ekip",
+                        "Zdjęcia, wideo i ujęcia z drona z jednego wejścia: spójny materiał bez koordynowania dwóch ekip",
                     },
                   },
                   {

@@ -7,8 +7,14 @@ import { PARALLAX } from "@/lib/motion";
 import { gtagEvent } from "@/lib/gtag";
 import { homeFaqs as faqs } from "@/data/faq";
 
+// Domyślnie widoczna szóstka (kolejność = pierwsze 6 pozycji w src/data/faq.ts,
+// brief-22 zad. 6) — reszta pod przyciskiem, bez przeładowania strony.
+const DEFAULT_VISIBLE = 6;
+
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [expanded, setExpanded] = useState(false);
+  const visibleFaqs = expanded ? faqs : faqs.slice(0, DEFAULT_VISIBLE);
 
   return (
     <section className="py-12 md:py-16 px-4">
@@ -24,8 +30,8 @@ export default function FAQ() {
           </p>
         </AnimatedSection>
 
-        <div className="flex flex-col gap-2">
-          {faqs.map((faq, i) => {
+        <div id="faq-list" className="flex flex-col gap-2">
+          {visibleFaqs.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
               <AnimatedSection key={faq.q} delay={i * 0.04}>
@@ -91,6 +97,19 @@ export default function FAQ() {
             );
           })}
         </div>
+
+        {!expanded && faqs.length > DEFAULT_VISIBLE && (
+          <div className="text-center mt-6">
+            <button
+              onClick={() => setExpanded(true)}
+              aria-expanded={expanded}
+              aria-controls="faq-list"
+              className="text-blue dark:text-blue-light font-barlow font-semibold text-sm hover:underline"
+            >
+              Pokaż wszystkie pytania ({faqs.length})
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

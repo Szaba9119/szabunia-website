@@ -89,7 +89,7 @@ export interface PortfolioCategory {
 export const portfolioCategories: PortfolioCategory[] = [
   {
     slug: "woohoo-autopay",
-    label: "E-commerce All-in — film z eventu i reelsy",
+    label: "E-commerce All-in: film z eventu i reelsy",
     heroTitle: "E-commerce All-in",
     heroSubtitle:
       "Podsumowanie wideo wydarzenia E-commerce All In na Enea Stadion w Poznaniu: poziomy film i trzy pionowe reelsy z wywiadami. Realizacja dla Woohoo, partnera wydarzenia.",
@@ -110,7 +110,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [],
     video: {
       youtubeId: "4INLtKcKcZk",
-      title: "E-commerce All-in — podsumowanie wydarzenia (ICEA × Autopay)",
+      title: "E-commerce All-in: podsumowanie wydarzenia (ICEA × Autopay)",
       uploadDate: "2026-03-30",
       duration: "PT2M12S",
     },
@@ -135,7 +135,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     ],
     caseStudy: {
-      client: "Woohoo — partner wydarzenia E-commerce All In",
+      client: "Woohoo, partner wydarzenia E-commerce All In",
       industry: "Wydarzenie branżowe e-commerce (org. ICEA i Autopay), Enea Stadion w Poznaniu",
       challenge:
         "Jeden wieczór i trzy zadania naprzemiennie: relacja z wydarzenia, wywiady z ekspertami i ujęcia z drona, w tym loty wewnątrz stadionu. Do tego mobilne studio do filmowania na sali eventowej: rozstawione tak, żeby nie przeszkadzało gościom, a tło kadru wyglądało jak w studiu.",
@@ -161,12 +161,12 @@ export const portfolioCategories: PortfolioCategory[] = [
   },
   {
     slug: "box17-budki-akustyczne",
-    label: "Box17 — packshoty budek akustycznych + film",
-    heroTitle: "Box17 — packshoty budek akustycznych i film produktowy",
+    label: "Box17: packshoty budek akustycznych + film",
+    heroTitle: "Box17: packshoty budek akustycznych i film produktowy",
     heroSubtitle:
-      "Jednodniowa sesja produktowa rodziny budek akustycznych Box17: zdjęcia na cykloramie i w showroomie oraz dwa filmy produktowe — pod stronę, sklep i social media.",
+      "Jednodniowa sesja produktowa rodziny budek akustycznych Box17: zdjęcia na cykloramie i w showroomie oraz dwa filmy produktowe, pod stronę, sklep i social media.",
     description:
-      "Box17 (marka firmy Tim Petzold z Tarnowa Podgórnego) produkuje budki akustyczne i pody do biur. W jeden dzień zdjęciowy zrealizowałem komplet materiału dla pięciu modeli: dużej Box XL ustawionej na cykloramie oraz czterech budek w showroomie — Box 1 Flex, Box 1 Stand, Box 2 Work i Box 2 Flex. Powstały zdjęcia pustych budek, kadry z meblami i ludźmi oraz detale (światło, wentylacja, regulacje), a do tego dwa filmy produktowe do prezentacji oferty. Z całości klient wybrał 10 zdjęć, które przeszły pełny retusz. Spójna stylistyka pozwala rozbudowywać materiał o kolejne produkty, a wideo pracuje na stronie i w rozmowach handlowych.",
+      "Box17 (marka firmy Tim Petzold z Tarnowa Podgórnego) produkuje budki akustyczne i pody do biur. W jeden dzień zdjęciowy zrealizowałem komplet materiału dla pięciu modeli: dużej Box XL ustawionej na cykloramie oraz czterech budek w showroomie, Box 1 Flex, Box 1 Stand, Box 2 Work i Box 2 Flex. Powstały zdjęcia pustych budek, kadry z meblami i ludźmi oraz detale (światło, wentylacja, regulacje), a do tego dwa filmy produktowe do prezentacji oferty. Z całości klient wybrał 10 zdjęć, które przeszły pełny retusz. Spójna stylistyka pozwala rozbudowywać materiał o kolejne produkty, a wideo pracuje na stronie i w rozmowach handlowych.",
     badge: "Realizacja foto + wideo",
     scope: [
       "Packshoty budki na cykloramie (Box XL)",
@@ -184,7 +184,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [],
     video: {
       youtubeId: "vjpUby-NZsY",
-      title: "Box17 — film produktowy budki akustycznej (Box XL)",
+      title: "Box17: film produktowy budki akustycznej (Box XL)",
       uploadDate: "2026-02-16",
       duration: "PT28S",
     },
@@ -192,7 +192,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       client: "Box17 (Tim Petzold)",
       industry: "Producent budek akustycznych i podów do biur, Tarnowo Podgórne",
       challenge:
-        "Spójne materiały produktowe całej rodziny budek akustycznych — od dużej Box XL po modele jednoosobowe — pod stronę internetową, sklep i social media, zrealizowane w jeden dzień mimo różnej dostępności budek (Box XL gotowa dopiero po południu).",
+        "Spójne materiały produktowe całej rodziny budek akustycznych (od dużej Box XL po modele jednoosobowe) pod stronę internetową, sklep i social media, zrealizowane w jeden dzień mimo różnej dostępności budek (Box XL gotowa dopiero po południu).",
       solution:
         "Jednodniowa sesja pięciu modeli: Box XL na cykloramie oraz Box 1 Flex, Box 1 Stand, Box 2 Work i Box 2 Flex w showroomie. Zdjęcia pustych budek, kadry z meblami i ludźmi oraz detale (światło, wentylacja, regulacje), uzupełnione dwoma filmami produktowymi do prezentacji oferty.",
       results: [
@@ -205,13 +205,13 @@ export const portfolioCategories: PortfolioCategory[] = [
     seo: {
       title: "Box17 — packshoty budek akustycznych | Marcin Szabunia",
       description:
-        "Case study dla Box17 (Tarnowo Podgórne): jednodniowa sesja pięciu budek akustycznych — packshoty na cykloramie, zdjęcia w showroomie i dwa filmy produktowe.",
+        "Case study dla Box17 (Tarnowo Podgórne): jednodniowa sesja pięciu budek akustycznych, packshoty na cykloramie, zdjęcia w showroomie i dwa filmy produktowe.",
     },
   },
   {
     slug: "artech-fotografia-produktowa",
-    label: "Artech — packshoty i film z produkcji",
-    heroTitle: "Artech — packshoty i film z produkcji",
+    label: "Artech: packshoty i film z produkcji",
+    heroTitle: "Artech: packshoty i film z produkcji",
     heroSubtitle:
       "Fotografia produktowa półfabrykatów i detali z tworzyw sztucznych na stronę i do katalogu oraz film z hali produkcyjnej do prezentacji oferty klientom.",
     description:
@@ -243,7 +243,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [],
     video: {
       youtubeId: "ivvZQ5lQ7FE",
-      title: "Artech — film z hali produkcyjnej (obróbka tworzyw sztucznych)",
+      title: "Artech: film z hali produkcyjnej (obróbka tworzyw sztucznych)",
       uploadDate: "2025-03-21",
       duration: "PT33S",
     },
@@ -274,8 +274,8 @@ export const portfolioCategories: PortfolioCategory[] = [
   },
   {
     slug: "idcom-headshoty-zespolu",
-    label: "IDcom — headshoty zespołu",
-    heroTitle: "IDcom — headshoty zespołu na trzech tłach",
+    label: "IDcom: headshoty zespołu",
+    heroTitle: "IDcom: headshoty zespołu na trzech tłach",
     heroSubtitle:
       "Sesja wizerunkowa zespołu poznańskiego software house'u: portrety na stronę internetową i do materiałów firmowych.",
     description:
@@ -311,13 +311,13 @@ export const portfolioCategories: PortfolioCategory[] = [
     seo: {
       title: "IDcom — headshoty zespołu na 3 tłach | Marcin Szabunia",
       description:
-        "Case study sesji wizerunkowej zespołu IDcom Group (Poznań): spójne portrety na trzech tłach — białym, czarnym i kremowym — na stronę WWW i materiały firmowe.",
+        "Case study sesji wizerunkowej zespołu IDcom Group (Poznań): spójne portrety na trzech tłach (białym, czarnym i kremowym) na stronę WWW i materiały firmowe.",
     },
   },
   {
     slug: "yes-butcher-przewodnik-michelin",
-    label: "Yes Butcher! — sesja do przewodnika Michelin ★",
-    heroTitle: "Yes Butcher! — sesja do przewodnika Michelin",
+    label: "Yes Butcher!: sesja do przewodnika Michelin ★",
+    heroTitle: "Yes Butcher!: sesja do przewodnika Michelin",
     heroSubtitle:
       "Wnętrza, nagrodzony stek i portrety szefa kuchni dla steakhouse'u w poznańskich Starych Koszarach. Zdjęcia trafiły na profil restauracji w przewodniku Michelin.",
     description:
@@ -376,10 +376,10 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Profesjonalne portrety biznesowe, headshoty i zdjęcia personal branding dla kadry zarządzającej i liderów.",
     description:
-      "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe, które budują zaufanie — na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Każda sesja poprzedzona jest konsultacją wizerunkową, dzięki której dobieramy stylizację, oświetlenie i klimat dopasowany do branży.",
+      "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe, które budują zaufanie: na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Każda sesja poprzedzona jest konsultacją wizerunkową, dzięki której dobieramy stylizację, oświetlenie i klimat dopasowany do branży.",
     thumbnail: "/images/portfolio-1.jpg",
     gallery: [
-      { src: "/images/portfolio/sesja-wizerunkowa/01.jpg", alt: "Sesja wizerunkowa firmy — portret biznesowy CEO w studiu, Poznań" },
+      { src: "/images/portfolio/sesja-wizerunkowa/01.jpg", alt: "Sesja wizerunkowa firmy, portret biznesowy CEO w studiu, Poznań" },
     ],
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
@@ -393,15 +393,15 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [
       {
         q: "Ile trwa sesja wizerunkowa?",
-        a: "W zależności od pakietu — od 90 minut do 3 godzin. Czas obejmuje przygotowanie oświetlenia, sesję oraz ewentualne zmiany stylizacji.",
+        a: "W zależności od pakietu, od 90 minut do 3 godzin. Czas obejmuje przygotowanie oświetlenia, sesję oraz ewentualne zmiany stylizacji.",
       },
       {
         q: "Czy mogę mieć sesję w swoim biurze?",
-        a: "Tak. Przyjeżdżam z mobilnym studiem — potrzebuję ok. 3m² wolnej przestrzeni i dostępu do gniazdka. Rozstawienie sprzętu zajmuje ok. 20 minut.",
+        a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3m² wolnej przestrzeni i dostępu do gniazdka. Rozstawienie sprzętu zajmuje ok. 20 minut.",
       },
       {
         q: "Ile osób mogę sfotografować w jeden dzień?",
-        a: "Przy portretach biznesowych — do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 10-15 minut.",
+        a: "Przy portretach biznesowych: do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 10-15 minut.",
       },
       {
         q: "Jak szybko otrzymam gotowe zdjęcia?",
@@ -421,10 +421,10 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Reportaże z konferencji, targów, gal i bankietów. Profesjonalna dokumentacja wydarzeń biznesowych.",
     description:
-      "Konferencje, targi, gale, spotkania firmowe — każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing — zdjęcia gotowe do publikacji na Social Media jeszcze w trakcie eventu.",
+      "Konferencje, targi, gale, spotkania firmowe: każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing: zdjęcia gotowe do publikacji na Social Media jeszcze w trakcie eventu.",
     thumbnail: "/images/portfolio-2.jpg",
     gallery: [
-      { src: "/images/portfolio/fotografia-eventowa/01.jpg", alt: "Fotografia eventowa — relacja z konferencji biznesowej w Poznaniu" },
+      { src: "/images/portfolio/fotografia-eventowa/01.jpg", alt: "Fotografia eventowa, relacja z konferencji biznesowej w Poznaniu" },
     ],
     process: [
       { num: 1, title: "Brief", desc: "Agenda eventu, kluczowe momenty, VIP-y" },
@@ -437,7 +437,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [
       {
         q: "Czy mogę otrzymać zdjęcia jeszcze w trakcie eventu?",
-        a: "Tak — oferuję usługę live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media w trakcie wydarzenia.",
+        a: "Tak, oferuję usługę live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media w trakcie wydarzenia.",
       },
       {
         q: "Ile zdjęć otrzymam z eventu?",
@@ -455,7 +455,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     seo: {
       title: "Fotografia eventowa — Marcin Szabunia | Poznań",
       description:
-        "Profesjonalna fotografia eventowa — konferencje, targi, gale, bankiety. Reportaż + live editing na Social Media. Poznań i cała Polska.",
+        "Profesjonalna fotografia eventowa: konferencje, targi, gale, bankiety. Reportaż + live editing na Social Media. Poznań i cała Polska.",
     },
   },
   {
@@ -465,10 +465,10 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Packshoty na białym tle, zdjęcia kreatywne i aranżacje na e-commerce, katalogi i Social Media.",
     description:
-      "Profesjonalne zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (idealne na marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Pracuję w studiu z pełnym zapleczem oświetleniowym — drobne produkty, meble, elektronika, kosmetyki.",
+      "Profesjonalne zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (idealne na marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Pracuję w studiu z pełnym zapleczem oświetleniowym: drobne produkty, meble, elektronika, kosmetyki.",
     thumbnail: "/images/portfolio-3.jpg",
     gallery: [
-      { src: "/images/portfolio/packshoty-produktowe/01.jpg", alt: "Packshot produktowy na białym tle — fotografia produktowa e-commerce, Poznań" },
+      { src: "/images/portfolio/packshoty-produktowe/01.jpg", alt: "Packshot produktowy na białym tle, fotografia produktowa e-commerce, Poznań" },
     ],
     process: [
       { num: 1, title: "Brief", desc: "Cel, platforma sprzedaży, wytyczne marki" },
@@ -481,7 +481,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [
       {
         q: "Czy mogę przysłać produkty kurierem?",
-        a: "Tak — przyjmuję przesyłki kurierskie do studia. Po sesji odsyłam produkty na mój koszt (przy zamówieniach powyżej 1 000 zł).",
+        a: "Tak, przyjmuję przesyłki kurierskie do studia. Po sesji odsyłam produkty na mój koszt (przy zamówieniach powyżej 1 000 zł).",
       },
       {
         q: "Jakie formaty plików otrzymam?",
@@ -489,11 +489,11 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Czy robisz zdjęcia produktów w aranżacji?",
-        a: "Tak — oprócz packshotów na białym tle tworzę zdjęcia kreatywne z rekwizytami i aranżacją dopasowaną do marki. Zdjęcia kreatywne wyceniam indywidualnie w zależności od pola eksploatacji.",
+        a: "Tak, oprócz packshotów na białym tle tworzę zdjęcia kreatywne z rekwizytami i aranżacją dopasowaną do marki. Zdjęcia kreatywne wyceniam indywidualnie w zależności od pola eksploatacji.",
       },
       {
         q: "Ile zdjęć dziennie jesteś w stanie zrealizować?",
-        a: "Przy packshotach na białym tle — ok. 30-50 produktów dziennie (zależy od złożoności). Zdjęcia kreatywne to ok. 8-15 ujęć dziennie.",
+        a: "Przy packshotach na białym tle: ok. 30-50 produktów dziennie (zależy od złożoności). Zdjęcia kreatywne to ok. 8-15 ujęć dziennie.",
       },
     ],
     seo: {
@@ -509,10 +509,10 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Headshoty dla całego zespołu, zdjęcia biura i przestrzeni firmowej. Mobilne studio w Twoim biurze.",
     description:
-      "Profesjonalne headshoty zespołu to fundament employer branding. Przyjeżdżam z mobilnym studiem do Twojego biura — każda osoba potrzebuje zaledwie 10-15 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
+      "Profesjonalne headshoty zespołu to fundament employer branding. Przyjeżdżam z mobilnym studiem do Twojego biura, każda osoba potrzebuje zaledwie 10-15 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
     thumbnail: "/images/portfolio-4.jpg",
     gallery: [
-      { src: "/images/portfolio/sesja-korporacyjna/01.jpg", alt: "Sesja korporacyjna — headshoty zespołu w biurze, Poznań" },
+      { src: "/images/portfolio/sesja-korporacyjna/01.jpg", alt: "Sesja korporacyjna, headshoty zespołu w biurze, Poznań" },
     ],
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram sesji w biurze" },
@@ -533,11 +533,11 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Czy zdjęcia będą spójne dla całego zespołu?",
-        a: "Tak — ustawiam identyczne oświetlenie i tło dla wszystkich osób. Dzięki temu headshoty są spójne na stronie WWW i w materiałach firmowych.",
+        a: "Tak, ustawiam identyczne oświetlenie i tło dla wszystkich osób. Dzięki temu headshoty są spójne na stronie WWW i w materiałach firmowych.",
       },
       {
         q: "Czy robisz też zdjęcia biura i wspólnej pracy?",
-        a: "Tak — oprócz indywidualnych headshotów mogę sfotografować przestrzeń biurową, teamwork i klimat firmy. Idealny materiał na stronę karriery i Social Media.",
+        a: "Tak, oprócz indywidualnych headshotów mogę sfotografować przestrzeń biurową, teamwork i klimat firmy. Idealny materiał na stronę karriery i Social Media.",
       },
     ],
     seo: {

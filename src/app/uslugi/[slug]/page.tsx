@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { serviceCategories, getServiceBySlug, SERVICE_TESTIMONIALS } from "@/data/services";
+import { serviceCategories, getServiceBySlug, getPriceFaq, SERVICE_TESTIMONIALS } from "@/data/services";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import ServiceHero from "@/components/ServiceHero";
@@ -9,7 +9,6 @@ import LogoBar from "@/components/LogoBar";
 import TrustStats from "@/components/TrustStats";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import PortfolioProcess from "@/components/PortfolioProcess";
-import ServicePricing from "@/components/ServicePricing";
 import PortfolioFAQ from "@/components/PortfolioFAQ";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
@@ -53,7 +52,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${service.title} — Marcin Szabunia`,
+          alt: `${service.title}, Marcin Szabunia`,
         },
       ],
     },
@@ -73,6 +72,9 @@ export default async function ServicePage({ params }: PageProps) {
 
   const relatedPosts = getPostsForService(service.slug, 3);
   const testimonial = SERVICE_TESTIMONIALS[service.slug];
+  // Pytanie cenowe zawsze pierwsze w FAQ (brief-22 zad. 4) — ta sama tablica
+  // zasila widoczną sekcję i JSON-LD, żeby nie rozjechały się jak wcześniej.
+  const faqs = [getPriceFaq(service), ...service.faqs];
 
   // Cena startowa usługi (np. "od 1 000 zł") → liczba do JSON-LD Offer.
   const priceMatch = service.price.match(/\d[\d\s]*\d|\d/);
@@ -112,7 +114,7 @@ export default async function ServicePage({ params }: PageProps) {
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      mainEntity: service.faqs.map((f) => ({
+      mainEntity: faqs.map((f) => ({
         "@type": "Question",
         name: f.q,
         acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -179,10 +181,7 @@ export default async function ServicePage({ params }: PageProps) {
             </section>
           </ErrorBoundary>
         )}
-        <ErrorBoundary>
-          <ServicePricing price={service.price} blurb={service.pricingBlurb} />
-        </ErrorBoundary>
-        <div className="px-4 -mt-4 md:-mt-8 pb-12 text-center">
+        <div className="px-4 pt-4 pb-12 text-center">
           <a
             href="#kontakt"
             data-cta="wycena_uslugi"
@@ -202,7 +201,7 @@ export default async function ServicePage({ params }: PageProps) {
           </ErrorBoundary>
         )}
         <ErrorBoundary>
-          <PortfolioFAQ faqs={service.faqs} />
+          <PortfolioFAQ faqs={faqs} />
         </ErrorBoundary>
         {relatedPosts.length > 0 && (
           <ErrorBoundary>

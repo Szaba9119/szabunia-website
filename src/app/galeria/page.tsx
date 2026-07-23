@@ -11,7 +11,6 @@ import Testimonials from "@/components/Testimonials";
 import Publications from "@/components/Publications";
 import Process from "@/components/Process";
 import Warunki from "@/components/Warunki";
-import Pricing from "@/components/Pricing";
 import FAQ from "@/components/FAQ";
 import BlogPreview from "@/components/BlogPreview";
 import PoradnikTeaser from "@/components/PoradnikTeaser";
@@ -34,7 +33,7 @@ export const metadata: Metadata = {
         url: "/images/marcin-hero.jpg",
         width: 1200,
         height: 630,
-        alt: "Marcin Szabunia — Fotograf biznesowy Poznań",
+        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
       },
     ],
   },
@@ -189,12 +188,10 @@ export default async function GaleriaPage({
           <Process />
         </ErrorBoundary>
 
-        <ErrorBoundary>
-          <Pricing />
-        </ErrorBoundary>
-
-        {/* Warunki po cenniku (wydzielone z Process.tsx, 2026-07-06) —
-            bez tego /galeria straciłaby je razem z wydzieleniem. */}
+        {/* Warunki (wydzielone z Process.tsx, 2026-07-06) — bez tego /galeria
+            straciłaby je razem z wydzieleniem. Sekcja Wycena skasowana
+            całkowicie (brief-22) — kotwice „od X zł" zostają w kartach usług
+            na home, /galeria ich nie duplikowała. */}
         <ErrorBoundary>
           <Warunki />
         </ErrorBoundary>

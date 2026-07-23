@@ -367,7 +367,7 @@ export const blogPosts: BlogPost[] = [
       <p>Standardowo gotowe zdjęcia dostajesz w ustalonym terminie. Jeśli materiał jest potrzebny „na wczoraj", możliwy jest tryb przyśpieszony. To dodatkowa opcja, a nie ukryty koszt.</p>
 
       <h2>Jak oszacować budżet w 2 minuty</h2>
-      <p>Zamiast zgadywać, policz. W <a href="/kontakt">kalkulatorze wyceny</a> zaznaczasz zakres i od razu widzisz orientacyjny koszt. Pełne pakiety i ceny znajdziesz też w <a href="/#wycena">cenniku</a>.</p>
+      <p>Zamiast zgadywać, policz. W <a href="/kontakt">kalkulatorze wyceny</a> zaznaczasz zakres i od razu widzisz orientacyjny koszt. Pełne pakiety i ceny znajdziesz też w <a href="/kontakt">cenniku</a>.</p>
       <p>Zanim umówimy sesję, zobacz, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, a gdy będziesz gotowy, <a href="/kontakt">napisz brief</a>, odezwę się w 24h.</p>
     `,
     seo: {

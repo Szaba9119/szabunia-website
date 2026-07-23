@@ -82,7 +82,7 @@ export default function PoradnikForm() {
           </svg>
         </div>
         <p className="text-navy dark:text-white font-barlow font-bold text-lg mb-1">
-          Gotowe — pobieranie ruszyło!
+          Gotowe, pobieranie ruszyło!
         </p>
         <p className="text-steel dark:text-dark-text-muted text-sm mb-5">
           Kopię linku wysłałem też na <span className="text-navy dark:text-white">{email.trim()}</span> (sprawdź też spam).

@@ -14,7 +14,6 @@ import { homeFaqs } from "@/data/faq";
 // renderowany; dzielony jest tylko JS hydratacji, co odchudza krytyczny bundle
 // na mobile i skraca LCP).
 const Portfolio = dynamic(() => import("@/components/Portfolio"));
-const Pricing = dynamic(() => import("@/components/Pricing"));
 const Process = dynamic(() => import("@/components/Process"));
 const Testimonials = dynamic(() => import("@/components/Testimonials"));
 const Publications = dynamic(() => import("@/components/Publications"));
@@ -63,13 +62,13 @@ export default function Home() {
             wartość i chęć, zanim klient zobaczy cennik (mniejszy opór cenowy). */}
         <ErrorBoundary><Testimonials /></ErrorBoundary>
         <ErrorBoundary><Publications /></ErrorBoundary>
-        {/* Proces tuż nad cennikiem: prosty przebieg (4 kroki) zmniejsza „szok ceną". */}
         <ErrorBoundary><Process /></ErrorBoundary>
-        <ErrorBoundary><Pricing /></ErrorBoundary>
-        {/* FAQ i formularz zaraz po cenniku: obsługa obiekcji → kontakt, bez
+        {/* FAQ i formularz zaraz po procesie: obsługa obiekcji → kontakt, bez
             przerywania ścieżki treściami nurture (blog/poradnik idą na koniec).
             Warunki współpracy wchłonięte do FAQ jako pytania (decyzja Marcina,
-            2026-07-06 noc) — źródło: src/data/faq.ts; osobna sekcja tylko na /galeria. */}
+            2026-07-06 noc) — źródło: src/data/faq.ts; osobna sekcja tylko na /galeria.
+            Kotwice „od X zł" pełnią rolę cennika poglądowego w kartach usług
+            (Services.tsx) wyżej na stronie (brief-22, kasacja sekcji Wycena). */}
         <ErrorBoundary><FAQ /></ErrorBoundary>
         <ErrorBoundary><CTA /></ErrorBoundary>
         <ErrorBoundary><BlogPreview /></ErrorBoundary>
