@@ -15,6 +15,10 @@ export interface ServiceData {
   /** object-position dla heroImage, dobrane per kadr. Domyślnie "center". */
   heroImagePos?: string;
   price: string;
+  /** Etykieta ceny TYLKO do nagłówka hero (np. "pakiety od 1 000 zł").
+      NIE zmienia `price`, którego używa FAQ (priceFaqIntro + price) i JSON-LD Offer.
+      Domyślnie (gdy brak) hero pokazuje `price`. Prośba Marcina 2026-07-23. */
+  heroPriceLabel?: string;
   process: ProcessStep[];
   /** 2-3 zdania: co wpływa na wycenę tej usługi. Bez kwot (źródło pytania cenowego w FAQ, brief-22 zad. 4). */
   pricingBlurb: string;
@@ -62,6 +66,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     heroImage: "/images/galeria/portrety/portret-05.jpg",
     heroImagePos: "center 20%",
     price: "od 1 000 zł",
+    heroPriceLabel: "pakiety od 1 000 zł",
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
       { num: 2, title: "Poseboard", desc: "Przygotowuję moodboard z referencjami" },
