@@ -24,7 +24,11 @@
   --color-dark-text-muted: #94A3B8;
 
   /* === Fonts (loaded via next/font, fallback to CSS variable) === */
-  --font-barlow: var(--font-barlow), "Barlow", sans-serif;
+  /* Nagłówki: Inter (decyzja Marcina 2026-07-23, ogonek Ę w Barlow wyglądał
+     nienaturalnie). Token --font-barlow celowo zachowuje starą nazwę — mapuje
+     utility `font-barlow` używane w ~34 komponentach; masowy rename to zbędny
+     refactor (CLAUDE.md §10 pkt 5). Oba tokeny wskazują na tę samą rodzinę. */
+  --font-barlow: var(--font-inter), "Inter", sans-serif;
   --font-inter: var(--font-inter), "Inter", sans-serif;
 }
 

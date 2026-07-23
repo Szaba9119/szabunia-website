@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Barlow, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "@/components/ThemeProvider";
 import CookieConsent from "@/components/CookieConsent";
@@ -7,24 +7,22 @@ import ContactClickTracker from "@/components/ContactClickTracker";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const barlow = Barlow({
+// Barlow usunięty (decyzja Marcina, 2026-07-23): ogonek w Ę/ę wyglądał w nim
+// nienaturalnie (widoczne zwłaszcza w hero "REALIZUJĘ"). Nagłówki przechodzą
+// na Inter Black — jedna rodzina na całej stronie, spójne polskie diakrytyki.
+// Utility `font-barlow` w komponentach ZOSTAJE (nazwa historyczna) — token
+// --font-barlow w globals.css wskazuje teraz na var(--font-inter).
+const inter = Inter({
   subsets: ["latin", "latin-ext"],
-  weight: ["600", "700", "800", "900"],
-  variable: "--font-barlow",
+  weight: ["400", "600", "700", "800", "900"],
+  variable: "--font-inter",
   // "swap", nie "optional" (brief-23 zad. 1): przy multi-subset foncie każdy
   // unicode-range (latin vs latin-ext) ładuje się osobnym plikiem. Z "optional"
   // przeglądarka na realnym łączu potrafi zdążyć z podstawowym latin w oknie
   // ~100ms, a spóźnić się z latin-ext (polskie znaki) — i już NIGDY nie
-  // podmienia fallbacku na Barlow dla tych znaków w danej wizycie. Efekt:
+  // podmienia fallbacku na Inter dla tych znaków w danej wizycie. Efekt:
   // trwała mieszanka dwóch fontów w jednym słowie (np. w nagłówkach FAQ).
   // "swap" kosztuje krótki, samokorygujący się błysk zamiast trwałego błędu.
-  display: "swap",
-});
-
-const inter = Inter({
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "600"],
-  variable: "--font-inter",
   display: "swap",
 });
 
@@ -84,7 +82,7 @@ export default function RootLayout({
   return (
     <html
       lang="pl"
-      className={`scroll-smooth ${barlow.variable} ${inter.variable}`}
+      className={`scroll-smooth ${inter.variable}`}
       suppressHydrationWarning
     >
       <head>
