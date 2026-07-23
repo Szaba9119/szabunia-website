@@ -4,10 +4,10 @@ import Image from "next/image";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
 
-// Hero mobile przeprojektowane (decyzja Marcina po mockupie, 2026-07-06 noc):
-// kolejność na telefonie = nagłówek → CTA → ZDJĘCIE (4:3, nad foldem) → chipy
-// zaufania. Wcześniej zdjęcie 3:4 wpadało pod fold, a linia zaufania łamała się
-// w przypadkowych miejscach. Desktop: układ jak dotychczas (tekst | zdjęcie),
+// Hero mobile przeprojektowane (decyzja Marcina po mockupie, 2026-07-06 noc),
+// a CTA przeniesione na sam dół hero (prośba Marcina, 2026-07-23): kolejność
+// na telefonie = nagłówek → opis → ZDJĘCIE (4:3) → chipy zaufania → „Zaufało
+// mi 100+ firm" → CTA. Desktop: układ dwukolumnowy (tekst | zdjęcie),
 // osiągnięty przez md:grid-rows — bez duplikowania bloków.
 export default function Hero() {
   return (
@@ -40,23 +40,10 @@ export default function Hero() {
             <br />
             MARKI.
           </h1>
-          <p className="font-inter text-[15px] md:text-base text-steel dark:text-dark-text-muted leading-relaxed max-w-md mb-6 md:mb-7">
+          <p className="font-inter text-[15px] md:text-base text-steel dark:text-dark-text-muted leading-relaxed max-w-md">
             Fotografia i wideo, które budują zaufanie, przyciągają klientów
             i&nbsp;wzmacniają autorytet na rynku.
           </p>
-          {/* Jedno CTA — decyzja Marcina (2026-07-06 noc): bez drugorzędnych
-              linków w hero, klient przechodzi przez lejek scrollując stronę.
-              Nie dodawać tu ponownie linków do cennika/portfolio. */}
-          <div className="flex flex-wrap items-center gap-3">
-            <a
-              href="#kontakt"
-              data-cta="wycena_home_hero"
-              className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]"
-            >
-              Zapytaj o ofertę
-              <span className="text-white/80">→</span>
-            </a>
-          </div>
         </div>
 
         {/* B. Zdjęcie (mobile: zaraz po CTA, kadr 4:3 z twarzą u góry — mieści się
@@ -123,6 +110,19 @@ export default function Hero() {
             <span className="font-semibold text-steel dark:text-dark-text">100+ firm</span>{" "}
             z&nbsp;całej Polski
           </p>
+          {/* CTA na końcu hero, pod linią zaufania (prośba Marcina, 2026-07-23).
+              Nadal jedno CTA w hero — bez drugorzędnych linków do cennika czy
+              portfolio (decyzja 2026-07-06 pozostaje w mocy). */}
+          <div className="mt-5 flex flex-wrap items-center gap-3">
+            <a
+              href="#kontakt"
+              data-cta="wycena_home_hero"
+              className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]"
+            >
+              Zapytaj o ofertę
+              <span className="text-white/80">→</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>

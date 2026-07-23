@@ -38,12 +38,13 @@ export default function ServiceHero({ service }: Props) {
           </nav>
         </AnimatedSection>
 
-        {/* Tekst + zdjęcie: kolejność w DOM = kolejność na mobile (tekst i CTA
-            pierwsze, zdjęcie pod spodem, nie spycha ich pod fold). Desktop:
-            dwie kolumny obok siebie (brief-22 zad. 8). */}
-        <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
-          {/* Text */}
-          <AnimatedSection>
+        {/* Kolejność (prośba Marcina, 2026-07-23): tytuł → cena → krótki opis
+            → ZDJĘCIE → długi opis → chipy → CTA na końcu. DOM = kolejność na
+            mobile; desktop: zdjęcie w prawej kolumnie przez oba rzędy (split
+            50/50 z brief-23 zostaje), tekst w lewej rozbity na dwa rzędy. */}
+        <div className="grid md:grid-cols-2 md:grid-rows-[auto_auto] gap-6 md:gap-x-12 md:gap-y-8 items-start">
+          {/* 1. Tytuł + cena + krótki opis */}
+          <AnimatedSection className="md:col-start-1 md:row-start-1">
             <h1 className="font-barlow font-black text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-2">
               {service.title}
             </h1>
@@ -51,25 +52,41 @@ export default function ServiceHero({ service }: Props) {
             <p className="font-barlow font-semibold text-sm text-steel dark:text-dark-text-muted tracking-wide mb-4">
               {service.price} netto
             </p>
-            <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mb-4">
+            <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed">
               {service.subtitle}
             </p>
+          </AnimatedSection>
+
+          {/* 2. Zdjęcie usługi (mobile: zaraz po krótkim opisie; desktop: prawa
+              kolumna przez oba rzędy) — priority, LCP element strony. */}
+          <AnimatedSection delay={0.15} className="md:col-start-2 md:row-start-1 md:row-span-2">
+            <div className="relative aspect-square rounded-3xl overflow-hidden bg-border dark:bg-dark-card">
+              <Image
+                src={service.heroImage}
+                alt={`${service.title}, Poznań`}
+                fill
+                className="object-cover"
+                style={{ objectPosition: service.heroImagePos ?? "center" }}
+                priority
+                fetchPriority="high"
+                sizes="(max-width: 768px) 100vw, 45vw"
+                quality={72}
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0YxRjVGOSIvPjwvc3ZnPg=="
+              />
+            </div>
+          </AnimatedSection>
+
+          {/* 3. Długi opis + chipy + CTA (mobile: pod zdjęciem; desktop: lewa
+              kolumna, dolny rząd) */}
+          <AnimatedSection className="md:col-start-1 md:row-start-2">
             <p className="text-text-body dark:text-dark-text text-[14px] leading-relaxed">
               {service.description}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a
-                href="#kontakt"
-                data-cta="wycena_hero"
-                className="bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
-              >
-                Zapytaj o ofertę
-              </a>
-            </div>
             {/* Chipy zaufania — spójne z hero strony głównej (audyt podstron
                 2026-07-07). Poprzedni zlepek z kropkami łamał się przypadkowo,
                 a „2 tury poprawek" było nieścisłe dla usług wideo (3 tury). */}
-            <ul className="mt-4 flex flex-wrap gap-2" aria-label="Najważniejsze warunki współpracy">
+            <ul className="mt-6 flex flex-wrap gap-2" aria-label="Najważniejsze warunki współpracy">
               <li className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border dark:border-dark-border text-[12px] text-steel dark:text-dark-text-muted">
                 <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -95,26 +112,18 @@ export default function ServiceHero({ service }: Props) {
                 </a>
               </li>
             </ul>
-          </AnimatedSection>
-
-          {/* Zdjęcie usługi (brief-22 zad. 8) — priority, LCP element strony. */}
-          <AnimatedSection delay={0.15}>
-            <div className="relative aspect-square rounded-3xl overflow-hidden bg-border dark:bg-dark-card">
-              <Image
-                src={service.heroImage}
-                alt={`${service.title}, Poznań`}
-                fill
-                className="object-cover"
-                style={{ objectPosition: service.heroImagePos ?? "center" }}
-                priority
-                fetchPriority="high"
-                sizes="(max-width: 768px) 100vw, 45vw"
-                quality={72}
-                placeholder="blur"
-                blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0YxRjVGOSIvPjwvc3ZnPg=="
-              />
+            {/* CTA na końcu, pod chipami (prośba Marcina, 2026-07-23). */}
+            <div className="mt-5 flex flex-wrap gap-3">
+              <a
+                href="#kontakt"
+                data-cta="wycena_hero"
+                className="bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
+              >
+                Zapytaj o ofertę
+              </a>
             </div>
           </AnimatedSection>
+
         </div>
         {/* Sekcja „Dla kogo?" wyłączona z renderu (brief-23 zad. 2) — dane
             service.forWhom i service.portfolioSlug zostają w services.tsx,

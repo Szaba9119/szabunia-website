@@ -25,11 +25,7 @@ export default function Services() {
         {/* Usługi — grid 3×2 + Pakiety (bestseller) na pełną szerokość ostatniego
             rzędu: bez „sieroty" w gridzie, z poziomym układem na md+ i badge
             „Bestseller" (audyt UX 2026-07-06). Obrazy na mobile w 16:9 zamiast
-            4:3 — sekcja zajmowała ~6,4 ekranu telefonu.
-            Kolejność wewnątrz karty: tytuł → cena → zdjęcie → opis, identyczna
-            na mobile i desktopie (decyzja Marcina). Karta Pakiety zachowuje
-            poziomy układ (zdjęcie na całą wysokość po lewej na md+) przez grid
-            z jawnym umiejscowieniem komórek zamiast kolejności w DOM. */}
+            4:3 — sekcja zajmowała ~6,4 ekranu telefonu. */}
         <AnimatedSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {serviceItems.map((s) => {
@@ -46,42 +42,16 @@ export default function Services() {
                 >
                   <Link
                     href={`/uslugi/${s.slug}`}
-                    className={
-                      isPakiet
-                        ? "grid grid-cols-1 md:grid-cols-[2fr_3fr] md:grid-rows-2"
-                        : "block"
-                    }
+                    className={isPakiet ? "block md:flex md:items-stretch" : "block"}
                   >
-                    {/* Tytuł + cena */}
-                    <div
-                      className={
-                        isPakiet
-                          ? "p-6 md:p-8 md:col-start-2 md:row-start-1 md:self-end"
-                          : "p-6 pb-0"
-                      }
-                    >
-                      <div className="flex items-center gap-2.5 mb-2">
-                        <div className="w-9 h-9 rounded-lg bg-blue-pale dark:bg-blue/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform" aria-hidden="true">
-                          {s.icon}
-                        </div>
-                        <h3 className="font-barlow font-bold text-base text-navy dark:text-white">
-                          {s.title}
-                        </h3>
-                      </div>
-                      <p className="text-blue dark:text-blue-light text-[12px] font-barlow font-semibold">
-                        {s.price}
-                      </p>
-                    </div>
-
-                    {/* Zdjęcie */}
                     {s.image && (
                       <div
                         className={`relative overflow-hidden bg-border dark:bg-dark-border ${
                           isPakiet
-                            ? // md:row-span-2: zdjęcie na całą wysokość karty po lewej
-                              // (bestseller), proporcja 3:2 = zero przycinania.
-                              "aspect-video md:aspect-[3/2] md:col-start-1 md:row-start-1 md:row-span-2"
-                            : "aspect-video sm:aspect-[4/3] mt-4"
+                            ? // 3:2 na md+ = natywna proporcja zdjęcia (zero przycinania);
+                              // objectPosition dla mobile ustawiony w SERVICE_TILE_POS.
+                              "aspect-video md:aspect-[3/2] md:w-2/5"
+                            : "aspect-video sm:aspect-[4/3]"
                         }`}
                       >
                         <Image
@@ -112,17 +82,20 @@ export default function Services() {
                         )}
                       </div>
                     )}
-
-                    {/* Opis */}
-                    <div
-                      className={
-                        isPakiet
-                          ? "px-6 pb-6 md:px-8 md:pb-8 md:col-start-2 md:row-start-2"
-                          : "p-6 pt-3"
-                      }
-                    >
-                      <p className="text-steel dark:text-dark-text-muted text-[13px] leading-relaxed">
+                    <div className={isPakiet ? "p-6 md:p-8 md:flex-1 md:self-center" : "p-6"}>
+                      <div className="flex items-center gap-2.5 mb-2">
+                        <div className="w-9 h-9 rounded-lg bg-blue-pale dark:bg-blue/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform" aria-hidden="true">
+                          {s.icon}
+                        </div>
+                        <h3 className="font-barlow font-bold text-base text-navy dark:text-white">
+                          {s.title}
+                        </h3>
+                      </div>
+                      <p className="text-steel dark:text-dark-text-muted text-[13px] leading-relaxed mb-3">
                         {s.desc}
+                      </p>
+                      <p className="text-blue dark:text-blue-light text-[12px] font-barlow font-semibold">
+                        {s.price}
                       </p>
                     </div>
                   </Link>
