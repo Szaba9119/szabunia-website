@@ -63,16 +63,17 @@ export default function Home() {
         <ErrorBoundary><Testimonials /></ErrorBoundary>
         <ErrorBoundary><Publications /></ErrorBoundary>
         <ErrorBoundary><Process /></ErrorBoundary>
-        {/* FAQ i formularz zaraz po procesie: obsługa obiekcji → kontakt, bez
-            przerywania ścieżki treściami nurture (blog/poradnik idą na koniec).
+        {/* FAQ zaraz po procesie: obsługa obiekcji, zanim czytelnik dotrze do
+            treści nurture (blog/poradnik) i formularza na samym dole
+            (brief-23 zad. 3 — wcześniej formularz szedł zaraz po FAQ).
             Warunki współpracy wchłonięte do FAQ jako pytania (decyzja Marcina,
             2026-07-06 noc) — źródło: src/data/faq.ts; osobna sekcja tylko na /galeria.
             Kotwice „od X zł" pełnią rolę cennika poglądowego w kartach usług
             (Services.tsx) wyżej na stronie (brief-22, kasacja sekcji Wycena). */}
         <ErrorBoundary><FAQ /></ErrorBoundary>
-        <ErrorBoundary><CTA /></ErrorBoundary>
         <ErrorBoundary><BlogPreview /></ErrorBoundary>
         <ErrorBoundary><PoradnikTeaser /></ErrorBoundary>
+        <ErrorBoundary><CTA /></ErrorBoundary>
       </main>
       <Footer />
       <MobileFAB />

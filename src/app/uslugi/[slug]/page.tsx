@@ -191,15 +191,6 @@ export default async function ServicePage({ params }: PageProps) {
             <span className="text-white/80">→</span>
           </a>
         </div>
-        {SHOW_PORADNIK.has(service.slug) && (
-          <ErrorBoundary>
-            <section className="pb-12 md:pb-16 px-4">
-              <div className="max-w-3xl mx-auto">
-                <PoradnikBlogCTA />
-              </div>
-            </section>
-          </ErrorBoundary>
-        )}
         <ErrorBoundary>
           <PortfolioFAQ faqs={faqs} />
         </ErrorBoundary>
@@ -218,6 +209,17 @@ export default async function ServicePage({ params }: PageProps) {
                     <BlogCard key={p.slug} post={p} />
                   ))}
                 </div>
+              </div>
+            </section>
+          </ErrorBoundary>
+        )}
+        {/* Poradnik między „Z bloga" a formularzem (brief-23 zad. 3;
+            wcześniej: przed FAQ). */}
+        {SHOW_PORADNIK.has(service.slug) && (
+          <ErrorBoundary>
+            <section className="pb-12 md:pb-16 px-4">
+              <div className="max-w-3xl mx-auto">
+                <PoradnikBlogCTA />
               </div>
             </section>
           </ErrorBoundary>

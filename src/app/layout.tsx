@@ -11,10 +11,14 @@ const barlow = Barlow({
   subsets: ["latin", "latin-ext"],
   weight: ["600", "700", "800", "900"],
   variable: "--font-barlow",
-  // "optional": nagłówki nie czekają na web-font (krótki LCP na wolnym 4G).
-  // Na pierwszej wizycie z zimnym cache mogą pokazać font zastępczy; metryki
-  // fallbacku dobrane przez next/font, więc bez przesunięć układu (CLS=0).
-  display: "optional",
+  // "swap", nie "optional" (brief-23 zad. 1): przy multi-subset foncie każdy
+  // unicode-range (latin vs latin-ext) ładuje się osobnym plikiem. Z "optional"
+  // przeglądarka na realnym łączu potrafi zdążyć z podstawowym latin w oknie
+  // ~100ms, a spóźnić się z latin-ext (polskie znaki) — i już NIGDY nie
+  // podmienia fallbacku na Barlow dla tych znaków w danej wizycie. Efekt:
+  // trwała mieszanka dwóch fontów w jednym słowie (np. w nagłówkach FAQ).
+  // "swap" kosztuje krótki, samokorygujący się błysk zamiast trwałego błędu.
+  display: "swap",
 });
 
 const inter = Inter({

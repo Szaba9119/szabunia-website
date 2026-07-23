@@ -12,7 +12,9 @@ interface Props {
 export default function ServiceHero({ service }: Props) {
   return (
     <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4">
-      <div className="max-w-5xl mx-auto">
+      {/* max-w-6xl (nie standardowe max-w-5xl podstron usług): hero na pełną
+          szerokość, symetryczny split 50/50 (brief-23 zad. 2). */}
+      <div className="max-w-6xl mx-auto">
         {/* Breadcrumb */}
         <AnimatedSection>
           <nav aria-label="Ścieżka nawigacji" className="mb-8">
@@ -42,9 +44,6 @@ export default function ServiceHero({ service }: Props) {
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
           {/* Text */}
           <AnimatedSection>
-            <div className="w-12 h-12 rounded-xl bg-blue-pale dark:bg-blue/15 flex items-center justify-center mb-5" aria-hidden="true">
-              {service.icon}
-            </div>
             <h1 className="font-barlow font-black text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-2">
               {service.title}
             </h1>
@@ -109,7 +108,7 @@ export default function ServiceHero({ service }: Props) {
                 style={{ objectPosition: service.heroImagePos ?? "center" }}
                 priority
                 fetchPriority="high"
-                sizes="(max-width: 768px) 100vw, 40vw"
+                sizes="(max-width: 768px) 100vw, 45vw"
                 quality={72}
                 placeholder="blur"
                 blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0YxRjVGOSIvPjwvc3ZnPg=="
@@ -117,44 +116,9 @@ export default function ServiceHero({ service }: Props) {
             </div>
           </AnimatedSection>
         </div>
-
-        {/* Dla kogo — pod hero, nie w kolumnie ze zdjęciem (brief-22 zad. 8). */}
-        <AnimatedSection delay={0.25} className="mt-8 md:mt-10">
-          <div className="max-w-xl bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6 md:p-8">
-            <h2 className="font-barlow font-bold text-lg text-navy dark:text-white mb-5">
-              Dla kogo?
-            </h2>
-            <ul className="flex flex-col gap-3">
-              {service.forWhom.map((item) => (
-                <li key={item} className="flex items-start gap-3">
-                  <svg
-                    className="w-5 h-5 text-blue dark:text-blue-light flex-shrink-0 mt-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
-                  </svg>
-                  <span className="text-text-body dark:text-dark-text text-[14px] leading-relaxed">
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
-            {service.portfolioSlug && (
-              <Link
-                href={`/portfolio/${service.portfolioSlug}`}
-                className="mt-6 inline-flex items-center gap-2 text-blue dark:text-blue-light text-[13px] font-barlow font-semibold hover:underline"
-              >
-                Zobacz realizacje
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                </svg>
-              </Link>
-            )}
-          </div>
-        </AnimatedSection>
+        {/* Sekcja „Dla kogo?" wyłączona z renderu (brief-23 zad. 2) — dane
+            service.forWhom i service.portfolioSlug zostają w services.tsx,
+            łatwy powrót: przywrócić blok z historii tego pliku. */}
       </div>
     </section>
   );
