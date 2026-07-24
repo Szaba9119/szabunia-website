@@ -33,7 +33,7 @@ export default function Hero() {
             wysokości zdjęcia — dokleiwamy A do dołu rzędu 1 i C do góry rzędu 2,
             żeby na desktopie CTA i chipy stykały się jak jeden blok. */}
         <div className="hero-intro md:col-start-1 md:row-start-1 md:self-end text-center md:text-left">
-          <h1 className="font-barlow font-black text-[clamp(32px,9vw,80px)] md:text-[clamp(40px,7vw,80px)] leading-[0.95] tracking-[-1px] md:tracking-[-2px] text-navy dark:text-white mb-4 md:mb-5">
+          <h1 className="font-barlow font-black text-[clamp(32px,9vw,80px)] md:text-[clamp(40px,7vw,80px)] leading-[1.05] md:leading-[0.95] tracking-[-1px] md:tracking-[-2px] text-navy dark:text-white mb-4 md:mb-5">
             REALIZUJĘ
             <br />
             <span className="text-blue dark:text-blue-light">CELE</span> TWOJEJ

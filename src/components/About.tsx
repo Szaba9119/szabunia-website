@@ -37,7 +37,7 @@ export default function About() {
           <AnimatedSection delay={0.15}>
             <div>
               <Parallax distance={PARALLAX.accent} direction="up">
-                <h2 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-6">
+                <h2 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-6 text-center lg:text-left">
                   O mnie
                 </h2>
               </Parallax>
@@ -88,8 +88,9 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Instagram link */}
-              <div className="mt-8">
+              {/* Instagram link — wyśrodkowany na mobile/tablecie (spójnie z hero
+                  i nagłówkiem „O mnie"); na desktopie lg do lewej (układ 2-kol.). */}
+              <div className="mt-8 text-center lg:text-left">
                 <a
                   href="https://instagram.com/szabunia.biz"
                   target="_blank"
