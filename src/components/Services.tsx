@@ -105,15 +105,26 @@ export default function Services() {
           </div>
         </AnimatedSection>
 
-        {/* Linijka o modelu wyceny „na zapytanie" (po usunięciu kalkulatora/cennika,
-            2026-07-23). Caption, nie link — nie łamie zasady „lejek bez bocznych
-            wyjść"; CTA i tak jest w nav i FAB. Głos strony, bez żargonu „brief". */}
+        {/* Linijka o modelu wyceny „na zapytanie" + CTA do formularza
+            (2026-07-23, prośba Marcina). Wyjątek od „bez bocznych wyjść": to CTA
+            konwersyjne do #kontakt (ten sam cel co hero), nie link informacyjny.
+            Głos strony, bez żargonu „brief". */}
         <AnimatedSection>
-          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mt-10 max-w-xl mx-auto">
-            Każdy projekt wyceniam indywidualnie — napisz w kilku zdaniach, co
-            planujesz, a wrócę do Ciebie z gotową ofertą{" "}
-            <span className="text-navy dark:text-white font-semibold">w ciągu 24h</span>.
-          </p>
+          <div className="mt-12 text-center">
+            <p className="text-steel dark:text-dark-text-muted text-[15px] max-w-xl mx-auto">
+              Każdy projekt wyceniam indywidualnie. Napisz w kilku zdaniach, co
+              planujesz, a wrócę do Ciebie z gotową ofertą{" "}
+              <span className="text-navy dark:text-white font-semibold">w ciągu 24h</span>.
+            </p>
+            <a
+              href="#kontakt"
+              data-cta="wycena_home_uslugi"
+              className="mt-6 inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]"
+            >
+              Zapytaj o ofertę
+              <span className="text-white/80">→</span>
+            </a>
+          </div>
         </AnimatedSection>
 
         {/* Link „Zobacz wszystkie usługi" usunięty (decyzja Marcina, 2026-07-07:
