@@ -105,6 +105,17 @@ export default function Services() {
           </div>
         </AnimatedSection>
 
+        {/* Linijka o modelu wyceny „na zapytanie" (po usunięciu kalkulatora/cennika,
+            2026-07-23). Caption, nie link — nie łamie zasady „lejek bez bocznych
+            wyjść"; CTA i tak jest w nav i FAB. Głos strony, bez żargonu „brief". */}
+        <AnimatedSection>
+          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mt-10 max-w-xl mx-auto">
+            Każdy projekt wyceniam indywidualnie — napisz w kilku zdaniach, co
+            planujesz, a wrócę do Ciebie z gotową ofertą{" "}
+            <span className="text-navy dark:text-white font-semibold">w ciągu 24h</span>.
+          </p>
+        </AnimatedSection>
+
         {/* Link „Zobacz wszystkie usługi" usunięty (decyzja Marcina, 2026-07-07:
             lejek bez bocznych wyjść — kafle i tak prowadzą do podstron usług).
             Link SEO z home do huba /uslugi przeniesiony do stopki (Footer.tsx). */}

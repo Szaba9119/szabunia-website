@@ -41,7 +41,7 @@ export default function Footer() {
               <a
                 key={link.label}
                 href={link.href}
-                className="py-1 hover:text-navy dark:hover:text-white transition-colors"
+                className="py-2 hover:text-navy dark:hover:text-white transition-colors"
               >
                 {link.label}
               </a>
@@ -52,13 +52,13 @@ export default function Footer() {
           <div className="flex flex-col gap-0.5 text-xs text-steel dark:text-steel-light">
             <a
               href="tel:+48514900688"
-              className="py-1 hover:text-navy dark:hover:text-white transition-colors"
+              className="py-2 hover:text-navy dark:hover:text-white transition-colors"
             >
               +48 514 900 688
             </a>
             <a
               href="mailto:marcin@szabunia.pl"
-              className="py-1 hover:text-navy dark:hover:text-white transition-colors"
+              className="py-2 hover:text-navy dark:hover:text-white transition-colors"
             >
               marcin@szabunia.pl
             </a>
@@ -66,7 +66,7 @@ export default function Footer() {
               href="https://instagram.com/szabunia.biz"
               target="_blank"
               rel="noopener noreferrer"
-              className="py-1 hover:text-navy dark:hover:text-white transition-colors"
+              className="py-2 hover:text-navy dark:hover:text-white transition-colors"
             >
               Instagram
             </a>
@@ -74,7 +74,7 @@ export default function Footer() {
               href="https://share.google/2OMRlIblNmEKlthIl"
               target="_blank"
               rel="noopener noreferrer"
-              className="py-1 hover:text-navy dark:hover:text-white transition-colors"
+              className="py-2 hover:text-navy dark:hover:text-white transition-colors"
             >
               Wizytówka Google
             </a>
@@ -113,13 +113,13 @@ export default function Footer() {
             <button
               type="button"
               onClick={() => window.dispatchEvent(new Event("open-cookie-settings"))}
-              className="py-1 hover:text-navy dark:hover:text-white transition-colors"
+              className="py-2 hover:text-navy dark:hover:text-white transition-colors"
             >
               Ustawienia cookies
             </button>
             <a
               href="/polityka-prywatnosci"
-              className="py-1 hover:text-navy dark:hover:text-white transition-colors"
+              className="py-2 hover:text-navy dark:hover:text-white transition-colors"
             >
               Polityka prywatności
             </a>
