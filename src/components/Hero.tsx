@@ -32,7 +32,7 @@ export default function Hero() {
         {/* md:self-end + md:self-start (blok C): rzędy dostają po równo nadmiar
             wysokości zdjęcia — dokleiwamy A do dołu rzędu 1 i C do góry rzędu 2,
             żeby na desktopie CTA i chipy stykały się jak jeden blok. */}
-        <div className="hero-intro md:col-start-1 md:row-start-1 md:self-end">
+        <div className="hero-intro md:col-start-1 md:row-start-1 md:self-end text-center md:text-left">
           <h1 className="font-barlow font-black text-[clamp(32px,9vw,80px)] md:text-[clamp(40px,7vw,80px)] leading-[0.95] tracking-[-1px] md:tracking-[-2px] text-navy dark:text-white mb-4 md:mb-5">
             REALIZUJĘ
             <br />
@@ -40,7 +40,7 @@ export default function Hero() {
             <br />
             MARKI.
           </h1>
-          <p className="font-inter text-[15px] md:text-base text-steel dark:text-dark-text-muted leading-relaxed max-w-md">
+          <p className="font-inter text-[15px] md:text-base text-steel dark:text-dark-text-muted leading-relaxed max-w-md mx-auto md:mx-0">
             Fotografia i wideo, które budują zaufanie, przyciągają klientów
             i&nbsp;wzmacniają autorytet na rynku.
           </p>
@@ -72,8 +72,8 @@ export default function Hero() {
             dolny rząd — wizualnie jak dotychczasowa linia pod przyciskami).
             Chipy zawijają się czysto — poprzedni zlepek z kropkami łamał się
             w środku „Faktura VAT". Telefon jako klikalny, wyróżniony chip. */}
-        <div className="hero-intro md:col-start-1 md:row-start-2 md:self-start md:pt-5">
-          <ul className="flex flex-wrap gap-2" aria-label="Najważniejsze warunki współpracy">
+        <div className="hero-intro md:col-start-1 md:row-start-2 md:self-start md:pt-5 text-center md:text-left">
+          <ul className="flex flex-wrap gap-2 justify-center md:justify-start" aria-label="Najważniejsze warunki współpracy">
             <li className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border dark:border-dark-border text-[12px] text-steel dark:text-dark-text-muted">
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -113,7 +113,7 @@ export default function Hero() {
           {/* CTA na końcu hero, pod linią zaufania (prośba Marcina, 2026-07-23).
               Nadal jedno CTA w hero — bez drugorzędnych linków do cennika czy
               portfolio (decyzja 2026-07-06 pozostaje w mocy). */}
-          <div className="mt-5 flex flex-wrap items-center gap-3">
+          <div className="mt-5 flex flex-wrap items-center gap-3 justify-center md:justify-start">
             <a
               href="#kontakt"
               data-cta="wycena_home_hero"
