@@ -29,7 +29,7 @@ export const homeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Czy wystawiam fakturę VAT?",
-    a: "Tak, jestem czynnym płatnikiem VAT. Płatność realizowana przez platformę Useme (faktura VAT). Termin płatności: 7 dni.",
+    a: "Tak. Rozliczenie prowadzę przez platformę Useme, która wystawia fakturę VAT za zrealizowane zlecenie. Termin płatności: 7 dni. Dla Twojej księgowości to standardowa faktura VAT z pełnymi danymi wystawcy.",
   },
   {
     q: "Co jeśli nie jestem fotogeniczny/a?",

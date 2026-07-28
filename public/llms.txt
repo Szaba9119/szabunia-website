@@ -36,7 +36,7 @@
 - Jak szybko będą zdjęcia? 14 dni roboczych, wideo do 21 dni, express do 48h za dopłatą +50%.
 - Czy dojeżdżasz poza Poznań? Tak, cała Polska i Europa; w Poznaniu dojazd 0 zł.
 - Ile osób można sfotografować w jeden dzień? Do 40 osób przy setupie studyjnym na miejscu (10-15 min/os.).
-- Czy jest faktura VAT? Tak, czynny płatnik VAT, płatność przez Useme.
+- Czy jest faktura VAT? Tak. Fakturę VAT za zrealizowane zlecenie wystawia platforma Useme, termin płatności 7 dni.
 
 ## Kontakt
 - Strona: https://szabunia.pl
@@ -49,9 +49,9 @@
 - [Usługi i cennik](https://szabunia.pl/uslugi)
 - [Portfolio i case study](https://szabunia.pl/portfolio)
 - [Galeria zdjęć i wideo](https://szabunia.pl/galeria)
-- [Kalkulator wyceny](https://szabunia.pl/kalkulator)
 - [Blog o fotografii biznesowej](https://szabunia.pl/blog)
-- [Kontakt](https://szabunia.pl/kontakt)
+- [Poradnik: jak przygotować się do sesji](https://szabunia.pl/poradnik)
+- [Kontakt i kalkulator wyceny](https://szabunia.pl/kontakt)
 
 ## Poradniki i artykuły (blog)
 - [Ile kosztuje film z drona dla firmy](https://szabunia.pl/blog/ile-kosztuje-film-z-drona)
