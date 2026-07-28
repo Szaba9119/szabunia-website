@@ -65,7 +65,7 @@ export const homeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Jak wygląda rozliczenie krok po kroku?",
-    a: "Po pierwszym retuszu wysyłam proformę z podglądem materiału. Masz 7 dni na akceptację (foto lub wideo), brak odpowiedzi oznacza akceptację. Po opłacie dostajesz pełne pliki (social media i druk) oraz fakturę VAT przez Useme.",
+    a: "Po pierwszym retuszu wysyłam proformę razem z podglądem materiału, jeszcze ze znakiem wodnym. Masz 7 dni na akceptację, brak odpowiedzi oznacza akceptację. Po opłacie dostajesz komplet plików bez znaku wodnego, w pełnej rozdzielczości, w wersjach na social media i do druku, oraz fakturę VAT przez Useme.",
   },
   {
     q: "Ile tur poprawek otrzymuję w cenie?",

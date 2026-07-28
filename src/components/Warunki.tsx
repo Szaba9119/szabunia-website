@@ -51,7 +51,7 @@ export default function Warunki() {
                 Rozliczenia
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Po pierwszym retuszu wysyłam proformę z podglądem materiału. Masz 7 dni na akceptację (foto lub wideo), brak odpowiedzi oznacza akceptację. Po opłacie dostajesz pełne pliki (social media i druk) oraz fakturę VAT przez Useme.
+                Po pierwszym retuszu wysyłam proformę razem z podglądem materiału, jeszcze ze znakiem wodnym. Masz 7 dni na akceptację, brak odpowiedzi oznacza akceptację. Po opłacie dostajesz komplet plików bez znaku wodnego, w pełnej rozdzielczości, oraz fakturę VAT przez Useme.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">
