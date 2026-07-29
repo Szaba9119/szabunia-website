@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getClientIp, isRateLimited } from "@/lib/ratelimit";
 import { verifyTurnstile } from "@/lib/turnstile";
+import { isAllowedOrigin } from "@/lib/origin";
 
 // Wysyłka maili przez Resend REST API (bez dodatkowej paczki npm).
 // Wymagana zmienna środowiskowa: RESEND_API_KEY
@@ -45,6 +46,11 @@ const CONSENT_TEXT =
   "v2026-07-29: Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z polityką prywatności.";
 
 export async function POST(req: Request) {
+  // Odcięcie żądań z obcych originów przed jakąkolwiek pracą (audyt PELNY2907-44).
+  if (!isAllowedOrigin(req)) {
+    return NextResponse.json({ error: "Nieprawidłowe żądanie" }, { status: 403 });
+  }
+
   const ip = getClientIp(req);
   if (await isRateLimited(ip)) {
     return NextResponse.json(

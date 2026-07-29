@@ -133,7 +133,7 @@ export default function Testimonials() {
               href="https://g.page/r/CcGxT8A_KfJREBM/review"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-[13px] text-steel dark:text-dark-text-muted hover:text-blue dark:hover:text-blue-light transition-colors font-barlow font-semibold"
+              className="inline-flex items-center gap-2 py-2 text-[13px] text-steel dark:text-dark-text-muted hover:text-blue dark:hover:text-blue-light transition-colors font-barlow font-semibold"
             >
               <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
@@ -207,7 +207,7 @@ export default function Testimonials() {
                 href="https://g.page/r/CcGxT8A_KfJREBM/review"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[13px] text-steel dark:text-dark-text-muted hover:text-blue dark:hover:text-blue-light transition-colors font-barlow font-semibold"
+                className="inline-flex items-center gap-2 py-2 text-[13px] text-steel dark:text-dark-text-muted hover:text-blue dark:hover:text-blue-light transition-colors font-barlow font-semibold"
               >
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>

@@ -58,7 +58,7 @@ export default function Publications() {
               href="https://bigfurnituregroup.com/big-furniture-group-magazine-april-2026-now-live/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-blue dark:text-blue-light hover:text-blue-light dark:hover:text-white text-[13px] font-barlow font-semibold transition-colors"
+              className="inline-flex items-center gap-1 py-2 text-blue dark:text-blue-light hover:text-blue-light dark:hover:text-white text-[13px] font-barlow font-semibold transition-colors"
             >
               Zobacz wydanie →
             </a>

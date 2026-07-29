@@ -167,7 +167,7 @@ export default function PoradnikForm() {
             onBlur={() => setConsentTouched(true)}
             aria-invalid={!!consentErr}
             aria-describedby={consentErr ? "consent-error" : undefined}
-            className="mt-0.5 w-4 h-4 rounded border-border dark:border-navy-light accent-blue flex-shrink-0"
+            className="mt-0.5 w-5 h-5 rounded border-border dark:border-navy-light accent-blue flex-shrink-0"
           />
           <span className="text-[11px] text-steel dark:text-dark-text-muted leading-relaxed">
             Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu wysłania poradnika oraz okazjonalnych wskazówek związanych z sesją (zgodę mogę wycofać, pisząc na marcin@szabunia.pl), zgodnie z{" "}

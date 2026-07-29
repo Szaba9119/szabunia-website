@@ -110,7 +110,7 @@ export default function FAQ() {
               onClick={() => setExpanded(true)}
               aria-expanded={expanded}
               aria-controls="faq-list"
-              className="text-blue dark:text-blue-light font-barlow font-semibold text-sm hover:underline"
+              className="inline-block py-2 text-blue dark:text-blue-light font-barlow font-semibold text-sm hover:underline"
             >
               Pokaż wszystkie pytania ({faqs.length})
             </button>

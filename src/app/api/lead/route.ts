@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getClientIp, isLeadRateLimited } from "@/lib/ratelimit";
 import { verifyTurnstile } from "@/lib/turnstile";
+import { isAllowedOrigin } from "@/lib/origin";
 
 // Zapis na lead magnet (darmowy poradnik) — wysyłka maili przez Resend REST API
 // (bez dodatkowej paczki npm). Wymagana zmienna: RESEND_API_KEY.
@@ -60,6 +61,11 @@ const CONSENT_TEXT =
   "v2026-07-29: Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu wysłania poradnika oraz okazjonalnych wskazówek związanych z sesją, zgodnie z polityką prywatności.";
 
 export async function POST(req: Request) {
+  // Odcięcie żądań z obcych originów przed jakąkolwiek pracą (audyt PELNY2907-44).
+  if (!isAllowedOrigin(req)) {
+    return NextResponse.json({ error: "Nieprawidłowe żądanie" }, { status: 403 });
+  }
+
   const ip = getClientIp(req);
   if (await isLeadRateLimited(ip)) {
     return NextResponse.json(

@@ -497,7 +497,7 @@ export default function CTA() {
                         }}
                         aria-invalid={!!fieldErrors.consent}
                         aria-describedby={fieldErrors.consent ? "consent-error" : undefined}
-                        className="mt-0.5 w-4 h-4 rounded border-border dark:border-navy-light accent-blue flex-shrink-0"
+                        className="mt-0.5 w-5 h-5 rounded border-border dark:border-navy-light accent-blue flex-shrink-0"
                       />
                       <span className="text-[11px] text-steel dark:text-dark-text-muted leading-relaxed">
                         Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z{" "}

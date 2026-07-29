@@ -4,7 +4,12 @@ export interface BlogPost {
   excerpt: string;
   content: string;
   category: "poradnik" | "realizacja" | "branża";
+  /** Data publikacji. NIE podnosić przy korektach — od tego jest `updated`. */
   date: string;
+  /** Data ostatniej istotnej zmiany treści (ceny, CTA, fakty). Zasila `lastModified`
+      w sitemapie — bez tego Google dostawał datę publikacji jako datę modyfikacji
+      (audyt PELNY2907-45). Podnosić ręcznie przy realnej zmianie treści. */
+  updated?: string;
   readTime: number;
   thumbnail: string;
   seo: {
@@ -81,6 +86,7 @@ export const blogPosts: BlogPost[] = [
       "Profil z profesjonalnym zdjęciem generuje 14x więcej wyświetleń. Jak wykorzystać portret biznesowy, żeby LinkedIn pracował na Twoją markę?",
     category: "branża",
     date: "2025-02-08",
+    updated: "2026-07-29",
     readTime: 5,
     thumbnail: "/images/blog/headshoty-linkedin-konwersja-2.jpg",
     content: `
@@ -134,6 +140,7 @@ export const blogPosts: BlogPost[] = [
       "Reportaż i sesja eventowa to dwa różne podejścia. Które lepiej opowie historię Twojego wydarzenia? Porównanie stylów, kosztów i efektów.",
     category: "poradnik",
     date: "2025-03-02",
+    updated: "2026-07-29",
     readTime: 7,
     thumbnail: "/images/blog/fotografia-eventowa-vs-reportaz-2.jpg",
     content: `
@@ -196,6 +203,7 @@ export const blogPosts: BlogPost[] = [
       "Nie masz czasu na sesję u fotografa? Oto jak zrobić przyzwoite zdjęcie do CV telefonem, i kiedy lepiej jednak zainwestować w profesjonalną sesję.",
     category: "poradnik",
     date: "2025-04-10",
+    updated: "2026-07-29",
     readTime: 8,
     thumbnail: "/images/blog/zdjecie-do-cv-w-domu-2.jpg",
     content: `
@@ -299,6 +307,7 @@ export const blogPosts: BlogPost[] = [
       "Zdjęcia zespołowe to wizytówka firmy. Oto najczęstsze błędy, które sprawiają, że wyglądają nieprofesjonalnie, i jak ich uniknąć.",
     category: "poradnik",
     date: "2025-06-01",
+    updated: "2026-07-29",
     readTime: 5,
     thumbnail: "/images/blog/bledy-zdjecia-zespolu-2.jpg",
     content: `
@@ -341,6 +350,7 @@ export const blogPosts: BlogPost[] = [
       "Cena sesji wizerunkowej zaczyna się od 1 100 zł, ale finalna wycena zależy od kilku policzalnych czynników. Tłumaczę, za co realnie płacisz i jak zaplanować budżet.",
     category: "poradnik",
     date: "2026-03-10",
+    updated: "2026-07-29",
     readTime: 6,
     thumbnail: "/images/blog/ile-kosztuje-sesja-wizerunkowa-dla-firmy-2.jpg",
     content: `
@@ -389,6 +399,7 @@ export const blogPosts: BlogPost[] = [
       "W e-commerce klient kupuje to, co widzi na zdjęciu. Jak packshot i lifestyle, spójność katalogu i kadr pod mobile realnie wpływają na sprzedaż.",
     category: "branża",
     date: "2026-04-14",
+    updated: "2026-07-29",
     readTime: 6,
     thumbnail: "/images/blog/fotografia-produktowa-ecommerce-3.jpg",
     content: `
@@ -433,6 +444,7 @@ export const blogPosts: BlogPost[] = [
       "Film wizerunkowy, pionowy reels, testimonial czy aftermovie z eventu? Przegląd formatów wideo marketingu dla firm i tego, gdzie każdy z nich naprawdę działa.",
     category: "poradnik",
     date: "2026-05-12",
+    updated: "2026-07-29",
     readTime: 6,
     thumbnail: "/images/blog/wideo-marketing-dla-firm-formaty-2.jpg",
     content: `
@@ -474,6 +486,7 @@ export const blogPosts: BlogPost[] = [
       "Gdzie najlepiej zrobić zdjęcia biznesowe w Poznaniu? Porównanie trzech podejść: studio, Twoje biuro i plener. Plusy, minusy i to, dla kogo każde z nich sprawdzi się najlepiej.",
     category: "poradnik",
     date: "2026-05-27",
+    updated: "2026-07-29",
     readTime: 6,
     thumbnail: "/images/blog/sesja-wizerunkowa-poznan-2.jpg",
     content: `
@@ -638,6 +651,7 @@ export const blogPosts: BlogPost[] = [
       "Strona firmowa to często pierwszy kontakt klienta z marką. Oto, jakich zdjęć naprawdę potrzebujesz, sekcja po sekcji, żeby budowała zaufanie, a nie wyglądała jak baza stocków.",
     category: "poradnik",
     date: "2026-05-15",
+    updated: "2026-07-29",
     readTime: 7,
     thumbnail: "/images/blog/zdjecia-na-strone-firmowa-2.jpg",
     content: `
@@ -685,6 +699,7 @@ export const blogPosts: BlogPost[] = [
       "Reels, b-roll, color grading, teaser, setka. Krótki słownik pojęć, które padają przy zamawianiu wideo dla firmy, wyjaśniony prostym językiem, bez branżowego żargonu.",
     category: "poradnik",
     date: "2026-06-12",
+    updated: "2026-07-29",
     readTime: 7,
     thumbnail: "/images/blog/slownik-pojec-wideo.jpg",
     content: `
@@ -756,6 +771,7 @@ export const blogPosts: BlogPost[] = [
       "Packshot, lifestyle, headshot, brief, RAW, retusz. Krótki słownik pojęć, które padają przy zamawianiu zdjęć dla firmy, wyjaśniony prostym językiem, bez branżowego żargonu.",
     category: "poradnik",
     date: "2026-06-11",
+    updated: "2026-07-29",
     readTime: 7,
     thumbnail: "/images/blog/co-to-jest-packshot.jpg",
     content: `
@@ -818,6 +834,7 @@ export const blogPosts: BlogPost[] = [
       "Do czego firmie zdjęcia i film z drona, jak wygląda realizacja, co z legalnością lotów i ile to kosztuje. Praktyczny przewodnik B2B z Poznania.",
     category: "poradnik",
     date: "2026-06-27",
+    updated: "2026-07-29",
     readTime: 7,
     thumbnail: "/images/blog/zdjecia-film-z-drona-dla-firm.jpg",
     content: `
@@ -1004,6 +1021,7 @@ export const blogPosts: BlogPost[] = [
       "Gotowy pakiet foto, wideo i dron u jednej osoby czy ekipa z osobnych specjalistów? Kiedy opłaca się pakiet, kiedy usługi osobno i na co patrzeć poza ceną.",
     category: "branża",
     date: "2026-06-28",
+    updated: "2026-07-29",
     readTime: 5,
     thumbnail: "/images/blog/pakiet-foto-wideo-czy-osobno.jpg",
     content: `
@@ -1060,6 +1078,7 @@ export const blogPosts: BlogPost[] = [
       "Zdjęcia i film z drona pokazują inwestycję tak, jak nie zrobi tego ujęcie z ziemi: lokalizację, skalę i postęp budowy. Zastosowania, legalność i koszt dla deweloperów.",
     category: "branża",
     date: "2026-06-28",
+    updated: "2026-07-29",
     readTime: 5,
     thumbnail: "/images/blog/zdjecia-z-drona-dla-deweloperow.jpg",
     content: `
@@ -1112,6 +1131,7 @@ export const blogPosts: BlogPost[] = [
       "Ile kosztuje film z drona dla firmy i od czego zależy cena. Warianty, komplety z jednej sesji, strefy kontrolowane i orientacyjne ceny netto, żebyś wiedział, czego się spodziewać.",
     category: "poradnik",
     date: "2026-06-28",
+    updated: "2026-07-29",
     readTime: 5,
     thumbnail: "/images/blog/ile-kosztuje-film-z-drona.jpg",
     content: `
@@ -1398,6 +1418,7 @@ export const blogPosts: BlogPost[] = [
       "Ile kosztuje film promocyjny i od czego zależy cena. Jak liczę pracę operatora i montaż, ile kosztują formaty od teasera po film o firmie oraz Monthly Content.",
     category: "poradnik",
     date: "2026-06-28",
+    updated: "2026-07-29",
     readTime: 5,
     thumbnail: "/images/blog/ile-kosztuje-film-promocyjny.jpg",
     content: `
