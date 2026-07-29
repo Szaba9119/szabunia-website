@@ -1,0 +1,22 @@
+diff --git a/src/app/layout.tsx b/src/app/layout.tsx
+index 5e98c6c..3131a07 100644
+--- a/src/app/layout.tsx
++++ b/src/app/layout.tsx
+@@ -104,6 +104,17 @@ export default function RootLayout({
+             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+ gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+ try{if(localStorage.getItem('cookie-consent')==='accepted'){gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}}catch(e){}
++/* Ruch wewnetrzny na urzadzeniach mobilnych (audyt PELNY2907-46). Filtry GA4 dzialaja
++   wylacznie po adresie IP, wiec regula na IP biura nie lapie wejsc Marcina z telefonu
++   przez siec komorkowa — i to one zawyzaly dane (czerwcowe "49 sesji z Instagrama").
++   Wejscie raz na /?internal=1 oznacza urzadzenie na stale; /?internal=0 kasuje flage.
++   traffic_type=internal ustawiamy PRZED gtag('config'), zeby objal takze pierwszy
++   page_view. Wartosc 'internal' musi zgadzac sie z regula w GA4 (Definiowanie ruchu
++   wewnetrznego) i z filtrem danych "Internal Traffic" ustawionym na Wyklucz. */
++try{var q=location.search;
++if(q.indexOf('internal=1')>-1){localStorage.setItem('szabunia-internal','1');}
++else if(q.indexOf('internal=0')>-1){localStorage.removeItem('szabunia-internal');}
++if(localStorage.getItem('szabunia-internal')==='1'){gtag('set',{traffic_type:'internal'});}}catch(e){}
+ gtag('js',new Date());gtag('config','G-MD8FJ0CZG3');
+ /* gtag.js (~175 KiB) doładowywany dopiero gdy watek glowny jest wolny lub przy
+    pierwszej interakcji — uwalnia main thread i skraca render delay LCP na mobile.
