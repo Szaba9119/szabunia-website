@@ -1,6 +1,6 @@
-# Plan poprawek — po audycie 2026-07-20
+# Plan poprawek — po audycie 2026-07-23
 
-Źródło: `AUDYT-2026-07-20.md`. Plan do **późniejszego wykonania** (dziś nic nie ruszam w kontach).
+Źródło: `AUDYT-2026-07-23.md`. Plan do **późniejszego wykonania** (dziś nic nie ruszam w kontach).
 Legenda właściciela: **[M]** decyzja/akcja Marcina · **[C-panel]** Claude w panelu na żywo za zgodą Marcina · **[C-code]** zadanie dla Claude Code w repo (brief + stop-conditions).
 Kolejność = priorytet wpływu na leady.
 
@@ -76,4 +76,4 @@ Indeksacja ~pełna (46/50). Jeśli zostały pojedyncze wpisy bloga poza indeksem
 ## Sugerowana kolejność wykonania
 1. P0.2 (podpiąć cel — 5 min, zero ryzyka) → 2. P0.1 (decyzja limitu) → 3. P2.2 (opinie — darmowe, szybkie) → 4. P1.1 (katalogi) → 5. P2.1 (wpis GBP) → 6. P2.3 (godziny) → 7. P0.3/P1.2 (opcjonalne).
 
-*Plan wygenerowany 2026-07-20 przez Claude (orchestrator). Wykonanie po decyzjach Marcina; zmiany w kontach/kodzie wyłącznie za zgodą.*
+*Plan wygenerowany 2026-07-23 przez Claude (orchestrator). Wykonanie po decyzjach Marcina; zmiany w kontach/kodzie wyłącznie za zgodą.*

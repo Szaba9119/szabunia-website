@@ -18,7 +18,7 @@ export default function Services() {
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
-            Kompleksowe usługi foto i wideo dla firm.
+            Foto, wideo i dron dla firm, z jednego wejścia.
           </p>
         </AnimatedSection>
 

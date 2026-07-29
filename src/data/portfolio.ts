@@ -405,7 +405,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Jak szybko otrzymam gotowe zdjęcia?",
-        a: "Standardowy czas to 14 dni roboczych. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50%).",
+        a: "Standardowy czas to 14 dni. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50%).",
       },
     ],
     seo: {
@@ -427,10 +427,10 @@ export const portfolioCategories: PortfolioCategory[] = [
       { src: "/images/portfolio/fotografia-eventowa/01.jpg", alt: "Fotografia eventowa, relacja z konferencji biznesowej w Poznaniu" },
     ],
     process: [
-      { num: 1, title: "Brief", desc: "Agenda eventu, kluczowe momenty, VIP-y" },
+      { num: 1, title: "Rozmowa", desc: "Agenda eventu, kluczowe momenty, VIP-y" },
       { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
       { num: 3, title: "Live edit", desc: "Zdjęcia na Social Media w trakcie eventu" },
-      { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni roboczych" },
+      { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni" },
     ],
     // Cennik celowo usunięty z draftu (audyt 2026-07-06) — kanon: services.tsx.
     pricingType: "table",
@@ -441,7 +441,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Ile zdjęć otrzymam z eventu?",
-        a: "To zależy od długości wydarzenia. Średnio 15-30 gotowych zdjęć na każdą godzinę fotografowania, wyselekcjonowanych i poddanych postprodukcji (autorska selekcja najlepszych momentów).",
+        a: "To zależy od długości wydarzenia. Około 20 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji (autorska selekcja najlepszych momentów). Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie.",
       },
       {
         q: "Czy realizujesz eventy poza Poznaniem?",
@@ -471,7 +471,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       { src: "/images/portfolio/packshoty-produktowe/01.jpg", alt: "Packshot produktowy na białym tle, fotografia produktowa e-commerce, Poznań" },
     ],
     process: [
-      { num: 1, title: "Brief", desc: "Cel, platforma sprzedaży, wytyczne marki" },
+      { num: 1, title: "Rozmowa", desc: "Cel, platforma sprzedaży, wytyczne marki" },
       { num: 2, title: "Sesja", desc: "Fotografowanie w studiu z kontrolą światła" },
       { num: 3, title: "Retusz", desc: "Clipping path, korekta kolorów, białe tło" },
       { num: 4, title: "Dostawa", desc: "Pliki gotowe do użycia w 14 dni" },
@@ -567,6 +567,11 @@ export interface PortfolioItem {
 // wkrótce"). Ukryte z indeksu /portfolio, z sitemap i z indeksacji do czasu
 // uzupełnienia galerii. Aby pokazać realizację — usuń jej slug z tego zbioru.
 const DRAFT_SLUGS = new Set<string>([
+  // Box17: brak miniatury (public/images/portfolio/box17/ ma tylko placeholder .txt),
+  // przez co kafel na /portfolio był pusty, a og:image zwracał 404 (audyt PELNY2907-01).
+  // Decyzja Marcina 2026-07-29: nie upubliczniamy do czasu zdjęć. Po wgraniu
+  // `box17.jpg` wystarczy usunąć tę linię — reszta danych case study jest gotowa.
+  "box17-budki-akustyczne",
   "sesja-wizerunkowa",
   "fotografia-eventowa",
   "packshoty-produktowe",

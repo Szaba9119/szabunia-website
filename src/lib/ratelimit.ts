@@ -33,14 +33,6 @@ const leadRatelimit = redis
     })
   : null;
 
-const quoteRatelimit = redis
-  ? new Ratelimit({
-      redis,
-      limiter: Ratelimit.slidingWindow(5, "1 h"),
-      prefix: "szabunia-quote",
-    })
-  : null;
-
 /** IP klienta z nagłówków Vercel/proxy (Request App Routera nie ma req.ip). */
 export function getClientIp(req: Request): string {
   const forwarded = req.headers.get("x-forwarded-for");
@@ -51,7 +43,7 @@ export function getClientIp(req: Request): string {
 /** true = przekroczono limit (8 żądań/h/IP). Fail-open (false) gdy Redis nie jest skonfigurowany. */
 export async function isRateLimited(ip: string): Promise<boolean> {
   if (!contactRatelimit) {
-    console.error("Rate-limit pominięty: UPSTASH_REDIS_REST_URL/TOKEN nie są ustawione.");
+    console.error("[ALERT] Rate-limit pominięty: UPSTASH_REDIS_REST_URL/TOKEN nie są ustawione.");
     return false;
   }
   const { success } = await contactRatelimit.limit(ip);
@@ -61,19 +53,10 @@ export async function isRateLimited(ip: string): Promise<boolean> {
 /** true = przekroczono limit (5 żądań/h/IP). Fail-open (false) gdy Redis nie jest skonfigurowany. */
 export async function isLeadRateLimited(ip: string): Promise<boolean> {
   if (!leadRatelimit) {
-    console.error("Rate-limit pominięty: UPSTASH_REDIS_REST_URL/TOKEN nie są ustawione.");
+    console.error("[ALERT] Rate-limit pominięty: UPSTASH_REDIS_REST_URL/TOKEN nie są ustawione.");
     return false;
   }
   const { success } = await leadRatelimit.limit(ip);
   return !success;
 }
 
-/** true = przekroczono limit (5 żądań/h/IP). Fail-open (false) gdy Redis nie jest skonfigurowany. */
-export async function isQuoteRateLimited(ip: string): Promise<boolean> {
-  if (!quoteRatelimit) {
-    console.error("Rate-limit pominięty: UPSTASH_REDIS_REST_URL/TOKEN nie są ustawione.");
-    return false;
-  }
-  const { success } = await quoteRatelimit.limit(ip);
-  return !success;
-}

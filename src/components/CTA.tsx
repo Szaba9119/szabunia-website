@@ -10,6 +10,11 @@ import TurnstileWidget, { type TurnstileWidgetHandle } from "./TurnstileWidget";
 
 const TURNSTILE_ENABLED = !!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 
+// Treść klauzuli zgody — jedno źródło dla etykiety w UI i dla dowodu wysyłanego
+// na serwer (audyt PELNY2907-07). Zmiana tekstu w UI musi iść przez tę stałą.
+const CONSENT_TEXT =
+  "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z polityką prywatności.";
+
 interface FieldErrors {
   name?: string;
   email?: string;
@@ -76,6 +81,12 @@ export default function CTA() {
           phone: formData.phone,
           service: formData.service,
           message: formData.message,
+          // Dowód zgody RODO — do tej pory checkbox żył wyłącznie po stronie
+          // klienta, więc nie było czym wykazać, że zgoda została udzielona
+          // (audyt PELNY2907-07). Treść klauzuli trzymamy tu 1:1 z etykietą.
+          consent: true,
+          consentText: CONSENT_TEXT,
+          consentTs: new Date().toISOString(),
           _gotcha: gotcha,
           turnstileToken,
           ...getUtmParams(),
@@ -490,7 +501,7 @@ export default function CTA() {
                       />
                       <span className="text-[11px] text-steel dark:text-dark-text-muted leading-relaxed">
                         Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z{" "}
-                        <a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer" className="text-blue hover:text-navy dark:hover:text-white underline transition-colors">
+                        <a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer" className="text-blue dark:text-blue-light hover:text-navy dark:hover:text-white underline transition-colors">
                           polityką prywatności
                         </a>.
                       </span>

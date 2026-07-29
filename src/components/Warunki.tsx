@@ -62,7 +62,7 @@ export default function Warunki() {
                 Czas realizacji
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Zdjęcia: 14 dni roboczych. Wideo: 21 dni roboczych. Express do 48h: +50% wartości zlecenia.
+                Zdjęcia: 14 dni. Wideo: 21 dni. Express do 48h: +50% wartości zlecenia.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">

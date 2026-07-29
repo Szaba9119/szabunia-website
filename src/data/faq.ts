@@ -13,15 +13,15 @@ export interface HomeFaqItem {
 export const homeFaqs: HomeFaqItem[] = [
   {
     q: "Ile kosztuje sesja?",
-    a: "Sesje portretowe zaczynają się od 1 000 zł netto. Konkretną wycenę przygotuję po krótkim briefie. Wycena zależy od liczby osób, lokalizacji i zakresu postprodukcji. Zawsze wyceniam indywidualnie, żeby nie przepłacać za to, czego nie potrzebujesz.",
+    a: "Sesje portretowe zaczynają się od 1 100 zł netto. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24h. Cena zależy od liczby osób, lokalizacji i zakresu postprodukcji. Zawsze wyceniam indywidualnie, żeby nie przepłacać za to, czego nie potrzebujesz.",
   },
   {
     q: "Jak szybko otrzymam gotowe materiały?",
-    a: "Standardowy czas oddania zdjęć to 14 dni roboczych, a materiałów wideo do 21 dni. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50% wartości zlecenia).",
+    a: "Standardowy czas oddania zdjęć to 14 dni, a materiałów wideo do 21 dni. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50% wartości zlecenia).",
   },
   {
     q: "Jak wygląda sesja zdjęciowa krok po kroku?",
-    a: "Zaczynamy od krótkiego briefu (telefon lub mail), w którym ustalamy cel, styl i logistykę. Przed sesją przygotowuję poseboard z przykładowymi kadrami. W dniu sesji prowadzę Cię przez pozowanie i dobór ujęć. Po sesji wybierasz zdjęcia z galerii online, a ja zajmuję się retuszem. Gotowe materiały dostajesz w ciągu 14 dni.",
+    a: "Zaczynamy od krótkiej rozmowy (telefon lub mail), w której ustalamy cel, styl i logistykę. Przed sesją przygotowuję poseboard z przykładowymi kadrami. W dniu sesji prowadzę Cię przez pozowanie i dobór ujęć. Po sesji wybierasz zdjęcia z galerii online, a ja zajmuję się retuszem. Gotowe materiały dostajesz w ciągu 14 dni.",
   },
   {
     q: "Czy dojeżdżasz poza Poznań?",
@@ -69,7 +69,7 @@ export const homeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Ile tur poprawek otrzymuję w cenie?",
-    a: "Zdjęcia: 2 tury poprawek w cenie. Wideo: 3 tury poprawek montażowych w cenie. Dodatkowe zmiany ponad tę liczbę wyceniam indywidualnie. W praktyce pierwsza tura prawie zawsze wystarcza, bo zależy mi, żeby finalny materiał w 100% odpowiadał Twoim oczekiwaniom.",
+    a: "Zdjęcia: 2 tury poprawek w cenie. Wideo: 3 tury poprawek montażowych w cenie. Poprawki realizuję w ciągu 7 dni od zgłoszenia. Nie liczę terminu podstawowego od nowa. Tura poprawek to korekta w obrębie wybranego materiału. Zmianę wyboru kadrów po rozpoczęciu retuszu wyceniam osobno i zawsze o tym uprzedzam. W praktyce pierwsza tura prawie zawsze wystarcza.",
   },
   {
     q: "Czy pracujesz z AI w zdjęciach i wideo?",

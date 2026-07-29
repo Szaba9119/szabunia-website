@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
     description:
-      "Napisz brief, odezwę się w 24h z wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
+      "Napisz, czego potrzebujesz, a odezwę się w 24h ze wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
     url: "https://szabunia.pl/kontakt",
     images: [
       {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
     description:
-      "Napisz brief, odezwę się w 24h z wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
+      "Napisz, czego potrzebujesz, a odezwę się w 24h ze wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
     images: ["/images/marcin-hero.jpg"],
   },
 };
@@ -45,7 +45,7 @@ const contactCards = [
     body: "Bazuję w Poznaniu, realizuję projekty w całym kraju i za granicą. Dojazd ustalamy w wycenie.",
   },
   {
-    title: "Przygotuj krótki brief",
+    title: "Opisz, czego potrzebujesz",
     body: "Napisz, czego potrzebujesz: cel zdjęć lub wideo, orientacyjny termin, lokalizację i zakres. Resztę dopniemy razem.",
   },
 ];
@@ -100,7 +100,8 @@ export default function KontaktPage() {
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-8 max-w-2xl mx-auto leading-relaxed">
               Fotografia i wideo dla firm: portrety biznesowe, sesje zespołowe,
               reportaże z eventów, fotografia produktowa i wideo marketing. Napisz
-              brief, a odezwę się w ciągu 24 godzin z wstępną wyceną i terminem.
+              w kilku zdaniach, czego potrzebujesz, a odezwę się w ciągu 24 godzin
+              ze wstępną wyceną i terminem.
             </p>
 
             {/* Quick actions — telefon jako primary: GA4 pokazuje, że klienci
@@ -150,7 +151,7 @@ export default function KontaktPage() {
                   Nie wiesz, czego potrzebujesz?
                 </h2>
                 <p className="text-[14px] text-steel dark:text-dark-text-muted leading-relaxed">
-                  Przejrzyj pełną ofertę dla firm i wróć z krótkim briefem,
+                  Przejrzyj pełną ofertę dla firm i napisz, co Cię interesuje,
                   wycenę przygotuję w 24h.
                 </p>
               </div>

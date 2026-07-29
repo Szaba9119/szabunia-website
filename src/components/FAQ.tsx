@@ -9,12 +9,15 @@ import { homeFaqs as faqs } from "@/data/faq";
 
 // Domyślnie widoczna szóstka (kolejność = pierwsze 6 pozycji w src/data/faq.ts,
 // brief-22 zad. 6) — reszta pod przyciskiem, bez przeładowania strony.
+// UWAGA (audyt PELNY2907-09): renderujemy WSZYSTKIE pozycje i chowamy nadmiar
+// CSS-em, a nie `slice`. JSON-LD FAQPage w page.tsx deklaruje pełną listę, więc
+// cięcie tablicy dawało 16 pytań w markupie i 6 w DOM — niezgodność z wytycznymi
+// Google „oznaczona treść musi być na stronie". Nie wracać do `slice`.
 const DEFAULT_VISIBLE = 6;
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const [expanded, setExpanded] = useState(false);
-  const visibleFaqs = expanded ? faqs : faqs.slice(0, DEFAULT_VISIBLE);
 
   return (
     <section className="py-12 md:py-16 px-4">
@@ -31,10 +34,12 @@ export default function FAQ() {
         </AnimatedSection>
 
         <div id="faq-list" className="flex flex-col gap-2">
-          {visibleFaqs.map((faq, i) => {
+          {faqs.map((faq, i) => {
             const isOpen = openIndex === i;
+            const hiddenByFold = !expanded && i >= DEFAULT_VISIBLE;
             return (
-              <AnimatedSection key={faq.q} delay={i * 0.04}>
+              <div key={faq.q} className={hiddenByFold ? "hidden" : undefined}>
+              <AnimatedSection delay={(hiddenByFold ? 0 : i) * 0.04}>
                 <div
                   className={`bg-white dark:bg-dark-card rounded-xl border transition-all duration-300 overflow-hidden ${
                     isOpen
@@ -94,6 +99,7 @@ export default function FAQ() {
                   </div>
                 </div>
               </AnimatedSection>
+              </div>
             );
           })}
         </div>

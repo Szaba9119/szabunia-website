@@ -54,6 +54,11 @@ async function sendEmail(
   });
 }
 
+// Treść klauzuli zgody marketingowej z formularza poradnika. Musi być zgodna
+// z etykietą w src/components/PoradnikForm.tsx. Wersjonujemy datą.
+const CONSENT_TEXT =
+  "v2026-07-29: Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu wysłania poradnika oraz okazjonalnych wskazówek związanych z sesją, zgodnie z polityką prywatności.";
+
 export async function POST(req: Request) {
   const ip = getClientIp(req);
   if (await isLeadRateLimited(ip)) {
@@ -82,6 +87,11 @@ export async function POST(req: Request) {
       { status: 400 }
     );
   }
+
+  if (data.consent !== true) {
+    return NextResponse.json({ error: "Wymagana jest zgoda na przetwarzanie danych" }, { status: 400 });
+  }
+  const consentTs = new Date().toISOString();
 
   const email = String(data.email ?? "").trim();
   if (!email || email.length > 320 || !isEmail(email)) {
@@ -127,6 +137,39 @@ export async function POST(req: Request) {
     </div>
   `;
 
+  // Kolejność odwrócona po audycie PELNY2907-15: najpierw powiadomienie do
+  // Marcina i zapis do CRM, dopiero potem mail z poradnikiem do subskrybenta.
+  // Wcześniej odbicie maila do subskrybenta kończyło się 502 i Marcin nie
+  // dowiadywał się nawet, że ktoś próbował pobrać poradnik.
+  try {
+    const utmHtml = Object.keys(utm).length
+      ? `<p><strong>Źródło:</strong> ${escapeHtml(
+          Object.entries(utm)
+            .map(([k, v]) => `${k}: ${v}`)
+            .join(" · ")
+        )}</p>`
+      : "";
+    await sendEmail(apiKey, {
+      from: FROM,
+      to: [TO],
+      reply_to: email,
+      subject: `Nowy zapis na poradnik: ${email}`,
+      html: `<h2>Nowy zapis na poradnik</h2><p><strong>E-mail:</strong> ${escapeHtml(
+        email
+      )}</p><p><strong>Zgoda marketingowa:</strong> TAK, ${escapeHtml(consentTs)}<br><em>${escapeHtml(
+        CONSENT_TEXT
+      )}</em></p>${utmHtml}`,
+    });
+  } catch (notifyErr) {
+    console.error("Resend notify error:", notifyErr);
+  }
+
+  try {
+    await pushToCrm({ name: "", email, source: "lead-magnet", consent: consentTs, ...utm });
+  } catch (crmErr) {
+    console.error("CRM webhook error:", crmErr);
+  }
+
   try {
     const guideRes = await sendEmail(apiKey, {
       from: FROM,
@@ -137,41 +180,16 @@ export async function POST(req: Request) {
     });
 
     if (!guideRes.ok) {
+      // Lead jest już zapisany (powiadomienie + CRM wyżej), a PDF pobiera się
+      // po stronie klienta — dlatego odbicie tego maila NIE wywraca całej
+      // odpowiedzi. Błąd zostaje w logach z markerem do wyfiltrowania, a front
+      // dostaje `guideSent: false` i nie obiecuje maila, którego nie ma.
       const detail = await guideRes.text();
-      console.error("Resend error (guide):", guideRes.status, detail);
-      return NextResponse.json({ error: "Nie udało się wysłać" }, { status: 502 });
+      console.error("[ALERT] Resend error (guide):", guideRes.status, detail);
+      return NextResponse.json({ ok: true, guideSent: false });
     }
 
-    // 2) Powiadomienie do Marcina — best-effort, nie blokuje sukcesu.
-    try {
-      const utmHtml = Object.keys(utm).length
-        ? `<p><strong>Źródło:</strong> ${escapeHtml(
-            Object.entries(utm)
-              .map(([k, v]) => `${k}: ${v}`)
-              .join(" · ")
-          )}</p>`
-        : "";
-      await sendEmail(apiKey, {
-        from: FROM,
-        to: [TO],
-        reply_to: email,
-        subject: `Nowy zapis na poradnik: ${email}`,
-        html: `<h2>Nowy zapis na poradnik</h2><p><strong>E-mail:</strong> ${escapeHtml(
-          email
-        )}</p>${utmHtml}`,
-      });
-    } catch (notifyErr) {
-      console.error("Resend notify error:", notifyErr);
-    }
-
-    // Zapis do CRM — best-effort, nie blokuje sukcesu.
-    try {
-      await pushToCrm({ name: "", email, source: "lead-magnet", ...utm });
-    } catch (crmErr) {
-      console.error("CRM webhook error:", crmErr);
-    }
-
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, guideSent: true });
   } catch (err) {
     console.error("Błąd /api/lead:", err);
     return NextResponse.json({ error: "Błąd serwera" }, { status: 500 });

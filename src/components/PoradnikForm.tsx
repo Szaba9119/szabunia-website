@@ -20,6 +20,9 @@ export default function PoradnikForm() {
   const [turnstileToken, setTurnstileToken] = useState("");
   const [turnstileBlocked, setTurnstileBlocked] = useState(false);
   const [consentTouched, setConsentTouched] = useState(false);
+  // Czy mail z linkiem faktycznie wyszedł — serwer może zwrócić sukces mimo
+  // odbicia maila (lead jest wtedy zapisany, ale nie obiecujemy wiadomości).
+  const [guideSent, setGuideSent] = useState(true);
   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
 
   const GENERIC_ERROR = "Coś poszło nie tak. Spróbuj ponownie lub napisz na marcin@szabunia.pl";
@@ -51,12 +54,17 @@ export default function PoradnikForm() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           email: email.trim(),
+          // Dowód zgody marketingowej (audyt PELNY2907-07). Treść klauzuli
+          // i znacznik czasu ustala serwer; tu potwierdzamy sam fakt zgody.
+          consent: true,
           _gotcha: gotcha,
           turnstileToken,
           ...getUtmParams(),
         }),
       });
       if (res.ok) {
+        const body: { guideSent?: boolean } | null = await res.json().catch(() => null);
+        setGuideSent(body?.guideSent !== false);
         setSubmitted(true);
         gtagEvent("generate_lead", { source: "poradnik" });
         triggerDownload();
@@ -85,7 +93,13 @@ export default function PoradnikForm() {
           Gotowe, pobieranie ruszyło!
         </p>
         <p className="text-steel dark:text-dark-text-muted text-sm mb-5">
-          Kopię linku wysłałem też na <span className="text-navy dark:text-white">{email.trim()}</span> (sprawdź też spam).
+          {guideSent ? (
+            <>
+              Kopię linku wysłałem też na <span className="text-navy dark:text-white">{email.trim()}</span> (sprawdź też spam).
+            </>
+          ) : (
+            <>Plik pobiera się poniżej. Gdyby coś nie zadziałało, napisz na marcin@szabunia.pl, odeślę link ręcznie.</>
+          )}
         </p>
         <a
           href={PDF_URL}

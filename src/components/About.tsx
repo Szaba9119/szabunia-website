@@ -55,7 +55,7 @@ export default function About() {
                   potrzebują powtarzalnego standardu wizerunkowego między sesjami.
                   Portrety biznesowe, reportaże z eventów, fotografia produktowa,
                   wideo marketingowe. <strong>Jeden twórca</strong>, spójny materiał i krótka droga
-                  od briefu do dostawy.
+                  od pierwszej rozmowy do dostawy.
                 </p>
                 <p>
                   Współpracowałem m.in. z <strong>H&amp;M</strong>,{" "}

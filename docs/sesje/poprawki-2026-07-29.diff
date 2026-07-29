@@ -1,0 +1,1161 @@
+diff --git a/public/llms.txt b/public/llms.txt
+index 3f43baa..61038ff 100644
+--- a/public/llms.txt
++++ b/public/llms.txt
+@@ -14,26 +14,27 @@
+ - Sprzęt: 2x Canon R6, obiektywy Sigma / Tamron / Tokina (16-200 mm), oświetlenie Godox, dźwięk Rode i Zoom, dron DJI Mini 5 Pro (certyfikat A1/A3, ubezpieczenie OC operatora)
+ 
+ ## Usługi i cennik (netto)
+-- [Wizerunek & Portrety](https://szabunia.pl/uslugi/wizerunek-portrety): Portret Standard 1 000 zł, Portret Professional 1 300 zł, Portret Premium 1 800 zł
+-- [Sesje zespołowe](https://szabunia.pl/uslugi/sesje-zespolowe): sesje od 4 osób, stawka progresywna za osobę: osoby 4-10 po 150 zł, osoby 11-30 po 120 zł, osoby od 31 po 100 zł (niższa stawka dotyczy tylko osób w danym przedziale, nie całej grupy); rozstawienie mobilnego studia w biurze klienta 450 zł; alternatywnie wynajem studia zewnętrznego 300-800 zł zależnie od czasu
+-- [Fotografia produktowa](https://szabunia.pl/uslugi/fotografia-produktowa): packshot progresywnie: sztuki 1-20 po 90 zł, sztuki 21-50 po 70 zł, sztuki od 51 po 55 zł (niższa stawka tylko dla sztuk w danym przedziale); minimalne zamówienie 500 zł lub 6 zdjęć; zdjęcia kreatywne internet od 200 zł/szt., druk/outdoor od 600 zł/szt.
+-- [Eventy & Reportaże](https://szabunia.pl/uslugi/eventy-reportaze): 600 zł pierwsza godzina, 400 zł kolejne, pakiet 4h 1 600 zł, całodniowy 8h 2 800 zł; live editing 20 zł/zdjęcie, ujęcia z drona +200 zł
+-- [Wideo marketing](https://szabunia.pl/uslugi/wideo-marketing): operator 400 zł (pierwsza godz.) / 200 zł (kolejne), pakiety montażowe 300-1 800 zł (teaser, reels, recap, promo, dokument), Monthly Content 4 900 zł/m-c
+-- [Pakiety foto + wideo](https://szabunia.pl/uslugi/pakiety-foto-wideo): Event Standard 1 800 zł, Event Professional 3 200 zł, Event Premium 4 500 zł; dodatkowa godzina 400 zł
+-- [Zdjęcia i wideo z drona](https://szabunia.pl/uslugi/zdjecia-wideo-z-drona): samodzielna usługa od 900 zł. Zdjęcia z drona (do 8 wyretuszowanych ujęć, 50 Mpix) 900 zł, przebitki 4K do montażu własnego 700 zł, zmontowane wideo 4K do 60 s 1 200 zł; komplet zdjęcia + przebitki 1 300 zł lub zdjęcia + wideo 1 700 zł; kolejny wylot/godzina 300 zł, dodatkowe zdjęcie 80 zł, dron jako dodatek do innej sesji (do 3 ujęć) 200 zł (dron DJI Mini 5 Pro, certyfikat operatora A1/A3, ubezpieczenie OC)
++- [Wizerunek & Portrety](https://szabunia.pl/uslugi/wizerunek-portrety): PORTRET STANDARD 1 100 zł (1 osoba, 90 min, 5 wyretuszowanych zdjęć), PORTRET PRO 1 400 zł (1 osoba, 2 h, 8 zdjęć), PORTRET PRO MAX 1 800 zł (1 osoba, do 3 h, 10 zdjęć)
++- [Sesje zespołowe](https://szabunia.pl/uslugi/sesje-zespolowe): sesje od 4 osób, stawka progresywna za osobę: osoby 4-10 po 180 zł, osoby 11-30 po 150 zł, osoby od 31 po 120 zł (niższa stawka dotyczy tylko osób w danym przedziale, nie całej grupy); dodatkowe ujęcie 100 zł; rozstawienie mobilnego studia w biurze klienta 450 zł; alternatywnie wynajem studia zewnętrznego: do 2 h 400 zł, do 4 h 800 zł, dzień zdjęciowy 1 300 zł
++- [Fotografia produktowa](https://szabunia.pl/uslugi/fotografia-produktowa): packshot progresywnie: sztuki 1-20 po 90 zł, sztuki 21-50 po 70 zł, sztuki od 51 po 55 zł (niższa stawka tylko dla sztuk w danym przedziale); minimalne zamówienie 600 zł; zdjęcia kreatywne internet od 200 zł/szt., druk/outdoor od 600 zł/szt.
++- [Eventy & Reportaże](https://szabunia.pl/uslugi/eventy-reportaze): 600 zł pierwsza godzina, 350 zł każda kolejna, pakiet 4 h 1 500 zł, całodniowy 8 h 2 600 zł; live editing 20 zł/zdjęcie, dostawa tego samego dnia 400 zł (partia do 15 zdjęć), express do 48 h +50%, ujęcia z drona +200 zł
++- [Wideo marketing](https://szabunia.pl/uslugi/wideo-marketing): praca operatora 400 zł (pierwsza godzina) / 200 zł (każda kolejna); pakiety montażowe: XS Teaser do 15 s 300 zł (wyłącznie jako dodatek do zlecenia), montaż wywiadu do 30 s 450 zł, S Reels do 30 s 1 200 zł, M Event recap do 60 s 1 800 zł, L Promo 1-2 min i XL Dokument ok. 3 min wyceniane indywidualnie; Monthly Content 4 900 zł/m-c (jeden dzień zdjęciowy + montaż czterech reelsów, umowa na minimum trzy miesiące). Pakiety montażowe obejmują samą postprodukcję: jeśli materiał nagrywam ja, dochodzi praca operatora; jeśli przynosisz własne ujęcia, płacisz tylko za montaż
++- [Pakiety foto + wideo](https://szabunia.pl/uslugi/pakiety-foto-wideo): EVENT STANDARD 2 100 zł (3 h, 60+ zdjęć, Reels 30 s, dron), EVENT PRO 3 600 zł (6 h, 120+ zdjęć, film 60 s, teaser 15 s, dron), EVENT PRO MAX 5 000 zł (do 8 h, 160+ zdjęć, film 60 s, teaser, 2 wywiady, dron); dodatkowa godzina 400 zł
++- [Zdjęcia i wideo z drona](https://szabunia.pl/uslugi/zdjecia-wideo-z-drona): samodzielna usługa od 700 zł. Zdjęcia z drona (do 8 wyretuszowanych ujęć, 50 Mpix) 900 zł, przebitki 4K do montażu własnego 700 zł, zmontowane wideo 4K do 60 s 1 200 zł; komplet zdjęcia + przebitki 1 300 zł lub zdjęcia + wideo 1 700 zł; kolejny wylot/godzina 300 zł, dodatkowe zdjęcie 80 zł, dron jako dodatek do innej sesji (do 3 ujęć) 200 zł (dron DJI Mini 5 Pro, certyfikat operatora A1/A3, ubezpieczenie OC)
+ 
+ ## Warunki współpracy
+-- Wszystkie ceny netto (+23% VAT), faktura VAT, rozliczenie przez Useme, termin płatności 7 dni
+-- Terminy: zdjęcia 14 dni roboczych, wideo 21 dni roboczych, express do 48h: +50%
+-- Poprawki w cenie: 2 tury foto, 3 tury wideo
++- Wszystkie ceny netto (+23% VAT). Rozliczenie prowadzę przez platformę Useme, która wystawia fakturę VAT za zrealizowane zlecenie. Termin płatności: 7 dni
++- Po pierwszym retuszu wysyłam proformę razem z podglądem materiału ze znakiem wodnym; 7 dni na akceptację, brak odpowiedzi oznacza akceptację. Po opłacie dostajesz komplet plików bez znaku wodnego, w pełnej rozdzielczości
++- Terminy (dni kalendarzowe): zdjęcia 14 dni, wideo 21 dni, express do 48h: +50%
++- Poprawki w cenie: 2 tury foto, 3 tury wideo. Poprawki realizuję w ciągu 7 dni od zgłoszenia i nie liczę terminu podstawowego od nowa. Tura poprawek to korekta w obrębie wybranego materiału; zmianę wyboru kadrów po rozpoczęciu retuszu wyceniam osobno i zawsze o tym uprzedzam
+ - Licencja komercyjna w cenie (www, social media, druk, reklama online), bez limitów czasowych
+ - Pliki RAW nie są przekazywane (możliwe tylko przy ustaleniach licencyjnych)
+ - Archiwizacja gotowych plików 1 rok; po pełnej akceptacji dzieła do 7 dni na dodatkowe poprawki
+ - Bezpłatna zmiana terminu do 48h przed sesją
+ 
+ ## Najczęstsze pytania (FAQ)
+-- Ile kosztuje sesja? Portrety od 1 000 zł netto, wycena indywidualna po krótkim briefie.
+-- Jak szybko będą zdjęcia? 14 dni roboczych, wideo do 21 dni, express do 48h za dopłatą +50%.
++- Ile kosztuje sesja? Portrety od 1 100 zł netto, wycena indywidualna. Napisz, czego potrzebujesz, wstępną wycenę odsyłam w 24h.
++- Jak szybko będą zdjęcia? 14 dni, wideo do 21 dni (dni kalendarzowe), express do 48h za dopłatą +50%.
+ - Czy dojeżdżasz poza Poznań? Tak, cała Polska i Europa; w Poznaniu dojazd 0 zł.
+ - Ile osób można sfotografować w jeden dzień? Do 40 osób przy setupie studyjnym na miejscu (10-15 min/os.).
+ - Czy jest faktura VAT? Tak. Fakturę VAT za zrealizowane zlecenie wystawia platforma Useme, termin płatności 7 dni.
+@@ -46,12 +47,12 @@
+ 
+ ## Kluczowe strony
+ - [Strona główna](https://szabunia.pl/)
+-- [Usługi i cennik](https://szabunia.pl/uslugi)
++- [Usługi](https://szabunia.pl/uslugi)
+ - [Portfolio i case study](https://szabunia.pl/portfolio)
+ - [Galeria zdjęć i wideo](https://szabunia.pl/galeria)
+ - [Blog o fotografii biznesowej](https://szabunia.pl/blog)
+ - [Poradnik: jak przygotować się do sesji](https://szabunia.pl/poradnik)
+-- [Kontakt i kalkulator wyceny](https://szabunia.pl/kontakt)
++- [Kontakt](https://szabunia.pl/kontakt)
+ 
+ ## Poradniki i artykuły (blog)
+ - [Ile kosztuje film z drona dla firmy](https://szabunia.pl/blog/ile-kosztuje-film-z-drona)
+diff --git a/public/robots.txt b/public/robots.txt
+index 2f59678..9687cb4 100644
+--- a/public/robots.txt
++++ b/public/robots.txt
+@@ -1,6 +1,8 @@
+ User-agent: *
+ Allow: /
+ Disallow: /api/
++# Lead magnet — plik ma być bramkowany formularzem, nie wyszukiwarką (audyt 2026-07-29)
++Disallow: /poradnik-przygotowanie-do-sesji.pdf
+ 
+ Sitemap: https://szabunia.pl/sitemap.xml
+ 
+diff --git a/src/app/api/contact/route.ts b/src/app/api/contact/route.ts
+index eabef62..78fb56e 100644
+--- a/src/app/api/contact/route.ts
++++ b/src/app/api/contact/route.ts
+@@ -38,6 +38,12 @@ async function pushToCrm(lead: Record<string, string>): Promise<void> {
+   });
+ }
+ 
++// Treść klauzuli zgody obowiązująca na formularzu kontaktowym. Musi być
++// zgodna z etykietą w src/components/CTA.tsx (CONSENT_TEXT). Wersjonujemy datą,
++// żeby po zmianie treści dało się odtworzyć, na co zgadzał się dany lead.
++const CONSENT_TEXT =
++  "v2026-07-29: Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z polityką prywatności.";
++
+ export async function POST(req: Request) {
+   const ip = getClientIp(req);
+   if (await isRateLimited(ip)) {
+@@ -105,8 +111,23 @@ export async function POST(req: Request) {
+     dron: "Zdjęcia i wideo z drona",
+     inne: "Inne zapytanie",
+   };
++  // Twarda lista kodów usług — bez niej pole `service` przyjmowało dowolne
++  // 100 znaków i trafiało do maila jako „kategoria z listy" (audyt PELNY2907-21).
++  if (service && !(service in SERVICE_LABELS)) {
++    return NextResponse.json({ error: "Nieznany rodzaj usługi" }, { status: 400 });
++  }
+   const serviceLabel = SERVICE_LABELS[service] ?? service;
+ 
++  // Zgoda RODO — walidowana po stronie serwera; bez niej żądanie złożone poza
++  // formularzem przechodziło bez śladu zgody (audyt PELNY2907-07).
++  // Treść klauzuli i znacznik czasu ustala SERWER, nie klient — inaczej „dowód"
++  // byłby w całości sterowany przez wysyłającego i nic by nie znaczył.
++  if (data.consent !== true) {
++    return NextResponse.json({ error: "Wymagana jest zgoda na przetwarzanie danych" }, { status: 400 });
++  }
++  const consentText = CONSENT_TEXT;
++  const consentTs = new Date().toISOString();
++
+   if (!name || !email) {
+     return NextResponse.json({ error: "Brak wymaganych pól" }, { status: 400 });
+   }
+@@ -141,9 +162,19 @@ export async function POST(req: Request) {
+     <p><strong>Telefon:</strong> ${escapeHtml(phone) || "—"}</p>
+     <p><strong>Usługa:</strong> ${escapeHtml(serviceLabel) || "—"}</p>
+     <p><strong>Wiadomość:</strong><br>${escapeHtml(message).replace(/\n/g, "<br>") || "—"}</p>
++    <p><strong>Zgoda RODO:</strong> TAK${consentTs ? `, ${escapeHtml(consentTs)}` : ""}${
++      consentText ? `<br><em>${escapeHtml(consentText)}</em>` : ""
++    }</p>
+     ${utmHtml}
+   `;
+ 
++  // Zapis do CRM PRZED wysyłką maila — best-effort. Wcześniej `pushToCrm`
++  // stało w gałęzi sukcesu, więc awaria Resend kasowała leada z obu kanałów
++  // naraz (audyt PELNY2907-14). CRM jest niezależną usługą i może go uratować.
++  void pushToCrm({ name, email, phone, service, message, source: "contact", consent: consentTs, ...utm }).catch(
++    (crmErr) => console.error("CRM webhook error:", crmErr)
++  );
++
+   try {
+     const res = await fetch(RESEND_ENDPOINT, {
+       method: "POST",
+@@ -166,13 +197,6 @@ export async function POST(req: Request) {
+       return NextResponse.json({ error: "Nie udało się wysłać" }, { status: 502 });
+     }
+ 
+-    // Zapis do CRM — best-effort, nie blokuje sukcesu formularza.
+-    try {
+-      await pushToCrm({ name, email, phone, service, message, source: "contact", ...utm });
+-    } catch (crmErr) {
+-      console.error("CRM webhook error:", crmErr);
+-    }
+-
+     return NextResponse.json({ ok: true });
+   } catch (err) {
+     console.error("Błąd /api/contact:", err);
+diff --git a/src/app/api/lead/route.ts b/src/app/api/lead/route.ts
+index d95b77b..747a617 100644
+--- a/src/app/api/lead/route.ts
++++ b/src/app/api/lead/route.ts
+@@ -54,6 +54,11 @@ async function sendEmail(
+   });
+ }
+ 
++// Treść klauzuli zgody marketingowej z formularza poradnika. Musi być zgodna
++// z etykietą w src/components/PoradnikForm.tsx. Wersjonujemy datą.
++const CONSENT_TEXT =
++  "v2026-07-29: Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu wysłania poradnika oraz okazjonalnych wskazówek związanych z sesją, zgodnie z polityką prywatności.";
++
+ export async function POST(req: Request) {
+   const ip = getClientIp(req);
+   if (await isLeadRateLimited(ip)) {
+@@ -83,6 +88,11 @@ export async function POST(req: Request) {
+     );
+   }
+ 
++  if (data.consent !== true) {
++    return NextResponse.json({ error: "Wymagana jest zgoda na przetwarzanie danych" }, { status: 400 });
++  }
++  const consentTs = new Date().toISOString();
++
+   const email = String(data.email ?? "").trim();
+   if (!email || email.length > 320 || !isEmail(email)) {
+     return NextResponse.json(
+@@ -127,6 +137,39 @@ export async function POST(req: Request) {
+     </div>
+   `;
+ 
++  // Kolejność odwrócona po audycie PELNY2907-15: najpierw powiadomienie do
++  // Marcina i zapis do CRM, dopiero potem mail z poradnikiem do subskrybenta.
++  // Wcześniej odbicie maila do subskrybenta kończyło się 502 i Marcin nie
++  // dowiadywał się nawet, że ktoś próbował pobrać poradnik.
++  try {
++    const utmHtml = Object.keys(utm).length
++      ? `<p><strong>Źródło:</strong> ${escapeHtml(
++          Object.entries(utm)
++            .map(([k, v]) => `${k}: ${v}`)
++            .join(" · ")
++        )}</p>`
++      : "";
++    await sendEmail(apiKey, {
++      from: FROM,
++      to: [TO],
++      reply_to: email,
++      subject: `Nowy zapis na poradnik: ${email}`,
++      html: `<h2>Nowy zapis na poradnik</h2><p><strong>E-mail:</strong> ${escapeHtml(
++        email
++      )}</p><p><strong>Zgoda marketingowa:</strong> TAK, ${escapeHtml(consentTs)}<br><em>${escapeHtml(
++        CONSENT_TEXT
++      )}</em></p>${utmHtml}`,
++    });
++  } catch (notifyErr) {
++    console.error("Resend notify error:", notifyErr);
++  }
++
++  try {
++    await pushToCrm({ name: "", email, source: "lead-magnet", consent: consentTs, ...utm });
++  } catch (crmErr) {
++    console.error("CRM webhook error:", crmErr);
++  }
++
+   try {
+     const guideRes = await sendEmail(apiKey, {
+       from: FROM,
+@@ -137,41 +180,16 @@ export async function POST(req: Request) {
+     });
+ 
+     if (!guideRes.ok) {
++      // Lead jest już zapisany (powiadomienie + CRM wyżej), a PDF pobiera się
++      // po stronie klienta — dlatego odbicie tego maila NIE wywraca całej
++      // odpowiedzi. Błąd zostaje w logach z markerem do wyfiltrowania, a front
++      // dostaje `guideSent: false` i nie obiecuje maila, którego nie ma.
+       const detail = await guideRes.text();
+-      console.error("Resend error (guide):", guideRes.status, detail);
+-      return NextResponse.json({ error: "Nie udało się wysłać" }, { status: 502 });
+-    }
+-
+-    // 2) Powiadomienie do Marcina — best-effort, nie blokuje sukcesu.
+-    try {
+-      const utmHtml = Object.keys(utm).length
+-        ? `<p><strong>Źródło:</strong> ${escapeHtml(
+-            Object.entries(utm)
+-              .map(([k, v]) => `${k}: ${v}`)
+-              .join(" · ")
+-          )}</p>`
+-        : "";
+-      await sendEmail(apiKey, {
+-        from: FROM,
+-        to: [TO],
+-        reply_to: email,
+-        subject: `Nowy zapis na poradnik: ${email}`,
+-        html: `<h2>Nowy zapis na poradnik</h2><p><strong>E-mail:</strong> ${escapeHtml(
+-          email
+-        )}</p>${utmHtml}`,
+-      });
+-    } catch (notifyErr) {
+-      console.error("Resend notify error:", notifyErr);
+-    }
+-
+-    // Zapis do CRM — best-effort, nie blokuje sukcesu.
+-    try {
+-      await pushToCrm({ name: "", email, source: "lead-magnet", ...utm });
+-    } catch (crmErr) {
+-      console.error("CRM webhook error:", crmErr);
++      console.error("[ALERT] Resend error (guide):", guideRes.status, detail);
++      return NextResponse.json({ ok: true, guideSent: false });
+     }
+ 
+-    return NextResponse.json({ ok: true });
++    return NextResponse.json({ ok: true, guideSent: true });
+   } catch (err) {
+     console.error("Błąd /api/lead:", err);
+     return NextResponse.json({ error: "Błąd serwera" }, { status: 500 });
+diff --git a/src/app/kontakt/page.tsx b/src/app/kontakt/page.tsx
+index 9b2464b..95569f4 100644
+--- a/src/app/kontakt/page.tsx
++++ b/src/app/kontakt/page.tsx
+@@ -15,7 +15,7 @@ export const metadata: Metadata = {
+   openGraph: {
+     title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
+     description:
+-      "Napisz brief, odezwę się w 24h z wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
++      "Napisz, czego potrzebujesz, a odezwę się w 24h ze wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
+     url: "https://szabunia.pl/kontakt",
+     images: [
+       {
+@@ -30,7 +30,7 @@ export const metadata: Metadata = {
+     card: "summary_large_image",
+     title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
+     description:
+-      "Napisz brief, odezwę się w 24h z wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
++      "Napisz, czego potrzebujesz, a odezwę się w 24h ze wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
+     images: ["/images/marcin-hero.jpg"],
+   },
+ };
+@@ -45,7 +45,7 @@ const contactCards = [
+     body: "Bazuję w Poznaniu, realizuję projekty w całym kraju i za granicą. Dojazd ustalamy w wycenie.",
+   },
+   {
+-    title: "Przygotuj krótki brief",
++    title: "Opisz, czego potrzebujesz",
+     body: "Napisz, czego potrzebujesz: cel zdjęć lub wideo, orientacyjny termin, lokalizację i zakres. Resztę dopniemy razem.",
+   },
+ ];
+@@ -100,7 +100,8 @@ export default function KontaktPage() {
+             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-8 max-w-2xl mx-auto leading-relaxed">
+               Fotografia i wideo dla firm: portrety biznesowe, sesje zespołowe,
+               reportaże z eventów, fotografia produktowa i wideo marketing. Napisz
+-              brief, a odezwę się w ciągu 24 godzin z wstępną wyceną i terminem.
++              w kilku zdaniach, czego potrzebujesz, a odezwę się w ciągu 24 godzin
++              ze wstępną wyceną i terminem.
+             </p>
+ 
+             {/* Quick actions — telefon jako primary: GA4 pokazuje, że klienci
+@@ -150,7 +151,7 @@ export default function KontaktPage() {
+                   Nie wiesz, czego potrzebujesz?
+                 </h2>
+                 <p className="text-[14px] text-steel dark:text-dark-text-muted leading-relaxed">
+-                  Przejrzyj pełną ofertę dla firm i wróć z krótkim briefem,
++                  Przejrzyj pełną ofertę dla firm i napisz, co Cię interesuje,
+                   wycenę przygotuję w 24h.
+                 </p>
+               </div>
+diff --git a/src/app/poradnik/page.tsx b/src/app/poradnik/page.tsx
+index 9accac1..3127f4f 100644
+--- a/src/app/poradnik/page.tsx
++++ b/src/app/poradnik/page.tsx
+@@ -6,6 +6,7 @@ import ScrollProgress from "@/components/ScrollProgress";
+ import Footer from "@/components/Footer";
+ import MobileFAB from "@/components/MobileFAB";
+ import AnimatedSection from "@/components/AnimatedSection";
++import ErrorBoundary from "@/components/ErrorBoundary";
+ import PoradnikForm from "@/components/PoradnikForm";
+ 
+ export const metadata: Metadata = {
+@@ -111,7 +112,9 @@ export default function PoradnikPage() {
+                   ))}
+                 </ul>
+ 
+-                <PoradnikForm />
++                <ErrorBoundary>
++                  <PoradnikForm />
++                </ErrorBoundary>
+ 
+                 <p className="text-[12px] text-steel dark:text-dark-text-muted/70 mt-4">
+                   4 strony A4 · PDF · od Marcina Szabuni, fotografa biznesowego z Poznania.
+diff --git a/src/app/sitemap.ts b/src/app/sitemap.ts
+index 229820d..74862c1 100644
+--- a/src/app/sitemap.ts
++++ b/src/app/sitemap.ts
+@@ -6,16 +6,23 @@ import { blogPosts } from "@/data/blog";
+ export default function sitemap(): MetadataRoute.Sitemap {
+   const baseUrl = "https://szabunia.pl";
+ 
++  // Data ostatniej istotnej zmiany treści statycznych tras i stron usług.
++  // Podnosić RĘCZNIE przy realnej zmianie treści — `new Date()` przy każdym
++  // buildzie byłoby fałszywym sygnałem świeżości (audyt PELNY2907-29).
++  const SITE_UPDATED = new Date("2026-07-29");
++
+   const portfolioPages = portfolioCategories
+     .filter((c) => !c.externalUrl && !isPortfolioDraft(c.slug))
+     .map((c) => ({
+       url: `${baseUrl}/portfolio/${c.slug}`,
++      lastModified: SITE_UPDATED,
+       changeFrequency: "monthly" as const,
+       priority: 0.8,
+     }));
+ 
+   const servicePages = serviceCategories.map((s) => ({
+     url: `${baseUrl}/uslugi/${s.slug}`,
++    lastModified: SITE_UPDATED,
+     changeFrequency: "monthly" as const,
+     priority: 0.7,
+   }));
+@@ -30,44 +37,52 @@ export default function sitemap(): MetadataRoute.Sitemap {
+   return [
+     {
+       url: baseUrl,
++      lastModified: SITE_UPDATED,
+       changeFrequency: "monthly",
+       priority: 1,
+     },
+     {
+       url: `${baseUrl}/uslugi`,
++      lastModified: SITE_UPDATED,
+       changeFrequency: "monthly",
+       priority: 0.9,
+     },
+     ...servicePages,
+     {
+       url: `${baseUrl}/kontakt`,
++      lastModified: SITE_UPDATED,
+       changeFrequency: "yearly",
+       priority: 0.8,
+     },
+     {
+       url: `${baseUrl}/portfolio`,
++      lastModified: SITE_UPDATED,
+       changeFrequency: "monthly",
+       priority: 0.9,
+     },
+     {
+       url: `${baseUrl}/galeria`,
++      lastModified: SITE_UPDATED,
+       changeFrequency: "monthly",
+       priority: 0.8,
+     },
+     ...portfolioPages,
+     {
+       url: `${baseUrl}/blog`,
++      lastModified: SITE_UPDATED,
+       changeFrequency: "weekly",
+       priority: 0.7,
+     },
+     ...blogPages,
+     {
+       url: `${baseUrl}/poradnik`,
++      lastModified: SITE_UPDATED,
+       changeFrequency: "monthly",
+       priority: 0.7,
+     },
+     {
+       url: `${baseUrl}/polityka-prywatnosci`,
++      lastModified: SITE_UPDATED,
+       changeFrequency: "yearly",
+       priority: 0.3,
+     },
+diff --git a/src/app/uslugi/page.tsx b/src/app/uslugi/page.tsx
+index 1f01a32..12e782f 100644
+--- a/src/app/uslugi/page.tsx
++++ b/src/app/uslugi/page.tsx
+@@ -75,7 +75,7 @@ export default function UslugiPage() {
+             </h1>
+             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed">
+               Od portretów biznesowych po produkcję wideo: jeden twórca, spójny
+-              materiał, krótka droga od briefu do dostawy. Bazuję w Poznaniu,
++              materiał, krótka droga od rozmowy do dostawy. Bazuję w Poznaniu,
+               pracuję w całej Polsce i Europie.
+             </p>
+           </AnimatedSection>
+diff --git a/src/components/About.tsx b/src/components/About.tsx
+index ca005d7..6ee3b5b 100644
+--- a/src/components/About.tsx
++++ b/src/components/About.tsx
+@@ -55,7 +55,7 @@ export default function About() {
+                   potrzebują powtarzalnego standardu wizerunkowego między sesjami.
+                   Portrety biznesowe, reportaże z eventów, fotografia produktowa,
+                   wideo marketingowe. <strong>Jeden twórca</strong>, spójny materiał i krótka droga
+-                  od briefu do dostawy.
++                  od pierwszej rozmowy do dostawy.
+                 </p>
+                 <p>
+                   Współpracowałem m.in. z <strong>H&amp;M</strong>,{" "}
+diff --git a/src/components/CTA.tsx b/src/components/CTA.tsx
+index 74c9b19..c18f149 100644
+--- a/src/components/CTA.tsx
++++ b/src/components/CTA.tsx
+@@ -10,6 +10,11 @@ import TurnstileWidget, { type TurnstileWidgetHandle } from "./TurnstileWidget";
+ 
+ const TURNSTILE_ENABLED = !!process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+ 
++// Treść klauzuli zgody — jedno źródło dla etykiety w UI i dla dowodu wysyłanego
++// na serwer (audyt PELNY2907-07). Zmiana tekstu w UI musi iść przez tę stałą.
++const CONSENT_TEXT =
++  "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z polityką prywatności.";
++
+ interface FieldErrors {
+   name?: string;
+   email?: string;
+@@ -76,6 +81,12 @@ export default function CTA() {
+           phone: formData.phone,
+           service: formData.service,
+           message: formData.message,
++          // Dowód zgody RODO — do tej pory checkbox żył wyłącznie po stronie
++          // klienta, więc nie było czym wykazać, że zgoda została udzielona
++          // (audyt PELNY2907-07). Treść klauzuli trzymamy tu 1:1 z etykietą.
++          consent: true,
++          consentText: CONSENT_TEXT,
++          consentTs: new Date().toISOString(),
+           _gotcha: gotcha,
+           turnstileToken,
+           ...getUtmParams(),
+@@ -490,7 +501,7 @@ export default function CTA() {
+                       />
+                       <span className="text-[11px] text-steel dark:text-dark-text-muted leading-relaxed">
+                         Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z{" "}
+-                        <a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer" className="text-blue hover:text-navy dark:hover:text-white underline transition-colors">
++                        <a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer" className="text-blue dark:text-blue-light hover:text-navy dark:hover:text-white underline transition-colors">
+                           polityką prywatności
+                         </a>.
+                       </span>
+diff --git a/src/components/FAQ.tsx b/src/components/FAQ.tsx
+index d71e3e2..5dc19a1 100644
+--- a/src/components/FAQ.tsx
++++ b/src/components/FAQ.tsx
+@@ -9,12 +9,15 @@ import { homeFaqs as faqs } from "@/data/faq";
+ 
+ // Domyślnie widoczna szóstka (kolejność = pierwsze 6 pozycji w src/data/faq.ts,
+ // brief-22 zad. 6) — reszta pod przyciskiem, bez przeładowania strony.
++// UWAGA (audyt PELNY2907-09): renderujemy WSZYSTKIE pozycje i chowamy nadmiar
++// CSS-em, a nie `slice`. JSON-LD FAQPage w page.tsx deklaruje pełną listę, więc
++// cięcie tablicy dawało 16 pytań w markupie i 6 w DOM — niezgodność z wytycznymi
++// Google „oznaczona treść musi być na stronie". Nie wracać do `slice`.
+ const DEFAULT_VISIBLE = 6;
+ 
+ export default function FAQ() {
+   const [openIndex, setOpenIndex] = useState<number | null>(null);
+   const [expanded, setExpanded] = useState(false);
+-  const visibleFaqs = expanded ? faqs : faqs.slice(0, DEFAULT_VISIBLE);
+ 
+   return (
+     <section className="py-12 md:py-16 px-4">
+@@ -31,10 +34,12 @@ export default function FAQ() {
+         </AnimatedSection>
+ 
+         <div id="faq-list" className="flex flex-col gap-2">
+-          {visibleFaqs.map((faq, i) => {
++          {faqs.map((faq, i) => {
+             const isOpen = openIndex === i;
++            const hiddenByFold = !expanded && i >= DEFAULT_VISIBLE;
+             return (
+-              <AnimatedSection key={faq.q} delay={i * 0.04}>
++              <div key={faq.q} className={hiddenByFold ? "hidden" : undefined}>
++              <AnimatedSection delay={(hiddenByFold ? 0 : i) * 0.04}>
+                 <div
+                   className={`bg-white dark:bg-dark-card rounded-xl border transition-all duration-300 overflow-hidden ${
+                     isOpen
+@@ -94,6 +99,7 @@ export default function FAQ() {
+                   </div>
+                 </div>
+               </AnimatedSection>
++              </div>
+             );
+           })}
+         </div>
+diff --git a/src/components/PoradnikForm.tsx b/src/components/PoradnikForm.tsx
+index 8191b38..a19380b 100644
+--- a/src/components/PoradnikForm.tsx
++++ b/src/components/PoradnikForm.tsx
+@@ -20,6 +20,9 @@ export default function PoradnikForm() {
+   const [turnstileToken, setTurnstileToken] = useState("");
+   const [turnstileBlocked, setTurnstileBlocked] = useState(false);
+   const [consentTouched, setConsentTouched] = useState(false);
++  // Czy mail z linkiem faktycznie wyszedł — serwer może zwrócić sukces mimo
++  // odbicia maila (lead jest wtedy zapisany, ale nie obiecujemy wiadomości).
++  const [guideSent, setGuideSent] = useState(true);
+   const turnstileRef = useRef<TurnstileWidgetHandle>(null);
+ 
+   const GENERIC_ERROR = "Coś poszło nie tak. Spróbuj ponownie lub napisz na marcin@szabunia.pl";
+@@ -51,12 +54,17 @@ export default function PoradnikForm() {
+         headers: { "Content-Type": "application/json", Accept: "application/json" },
+         body: JSON.stringify({
+           email: email.trim(),
++          // Dowód zgody marketingowej (audyt PELNY2907-07). Treść klauzuli
++          // i znacznik czasu ustala serwer; tu potwierdzamy sam fakt zgody.
++          consent: true,
+           _gotcha: gotcha,
+           turnstileToken,
+           ...getUtmParams(),
+         }),
+       });
+       if (res.ok) {
++        const body: { guideSent?: boolean } | null = await res.json().catch(() => null);
++        setGuideSent(body?.guideSent !== false);
+         setSubmitted(true);
+         gtagEvent("generate_lead", { source: "poradnik" });
+         triggerDownload();
+@@ -85,7 +93,13 @@ export default function PoradnikForm() {
+           Gotowe, pobieranie ruszyło!
+         </p>
+         <p className="text-steel dark:text-dark-text-muted text-sm mb-5">
+-          Kopię linku wysłałem też na <span className="text-navy dark:text-white">{email.trim()}</span> (sprawdź też spam).
++          {guideSent ? (
++            <>
++              Kopię linku wysłałem też na <span className="text-navy dark:text-white">{email.trim()}</span> (sprawdź też spam).
++            </>
++          ) : (
++            <>Plik pobiera się poniżej. Gdyby coś nie zadziałało, napisz na marcin@szabunia.pl, odeślę link ręcznie.</>
++          )}
+         </p>
+         <a
+           href={PDF_URL}
+diff --git a/src/components/Process.tsx b/src/components/Process.tsx
+index 16a3c8f..a6c9c86 100644
+--- a/src/components/Process.tsx
++++ b/src/components/Process.tsx
+@@ -7,7 +7,7 @@ import { PARALLAX } from "@/lib/motion";
+ const steps = [
+   {
+     num: 1,
+-    title: "Brief",
++    title: "Rozmowa",
+     desc: "Krótka rozmowa o celu, terminie i budżecie. Wycenę dostajesz w ciągu 24h.",
+     icon: (
+       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+diff --git a/src/components/Services.tsx b/src/components/Services.tsx
+index 54f5d90..c6f21fb 100644
+--- a/src/components/Services.tsx
++++ b/src/components/Services.tsx
+@@ -18,7 +18,7 @@ export default function Services() {
+             </h2>
+           </Parallax>
+           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
+-            Kompleksowe usługi foto i wideo dla firm.
++            Foto, wideo i dron dla firm, z jednego wejścia.
+           </p>
+         </AnimatedSection>
+ 
+diff --git a/src/components/Testimonials.tsx b/src/components/Testimonials.tsx
+index a94122a..d3e5b6a 100644
+--- a/src/components/Testimonials.tsx
++++ b/src/components/Testimonials.tsx
+@@ -23,7 +23,7 @@ const testimonials = [
+   },
+   {
+     quote:
+-      "Miałam przyjemność współpracować z Marcinem już kilkukrotnie i sesje studyjne są pełne profesjonalizmu i zaangażowania. Marcin daje z siebie 100% i bardzo szybko przełamuje lody — nawet jeśli ktoś staje przed obiektywem po raz pierwszy. Polecam z pełnym przekonaniem!",
++      "Miałam przyjemność współpracować z Marcinem już kilkukrotnie i sesje studyjne są pełne profesjonalizmu i zaangażowania. Marcin daje z siebie 100% i bardzo szybko przełamuje lody, nawet jeśli ktoś staje przed obiektywem po raz pierwszy. Polecam z pełnym przekonaniem!",
+     author: "Zuzanna Fortuniak",
+     meta: "Menedżerka ds. marketingu, Weranda · Opinia Google",
+     initials: "ZF",
+diff --git a/src/components/Warunki.tsx b/src/components/Warunki.tsx
+index 66dc668..3cb50ec 100644
+--- a/src/components/Warunki.tsx
++++ b/src/components/Warunki.tsx
+@@ -62,7 +62,7 @@ export default function Warunki() {
+                 Czas realizacji
+               </p>
+               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
+-                Zdjęcia: 14 dni roboczych. Wideo: 21 dni roboczych. Express do 48h: +50% wartości zlecenia.
++                Zdjęcia: 14 dni. Wideo: 21 dni. Express do 48h: +50% wartości zlecenia.
+               </p>
+             </div>
+             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">
+diff --git a/src/data/blog.ts b/src/data/blog.ts
+index 2cce381..c58ac46 100644
+--- a/src/data/blog.ts
++++ b/src/data/blog.ts
+@@ -113,7 +113,7 @@ export const blogPosts: BlogPost[] = [
+       <p>Prosta zasada: zdjęcie na LinkedIn powinno wyglądać jak Ty <strong>dzisiaj</strong>. Jeśli ktoś umówi się z Tobą na spotkanie i nie rozpozna Cię, masz problem. Aktualizuj headshot co 1-2 lata lub po znaczącej zmianie wizerunku.</p>
+ 
+       <h2>ROI profesjonalnego headshota</h2>
+-      <p><a href="/uslugi/wizerunek-portrety">Sesja portretowa</a> kosztuje od 1 000 zł. Jeden nowy klient pozyskany dzięki lepszemu profilowi na LinkedIn zwraca tę inwestycję wielokrotnie. To jedna z najtańszych i najskuteczniejszych inwestycji w personal branding. Pracuję z bazy w Poznaniu — na terenie miasta dojazd jest wliczony w cenę, a sesje realizuję w całej Polsce i Europie.</p>
++      <p><a href="/uslugi/wizerunek-portrety">Sesja portretowa</a> kosztuje od 1 100 zł. Jeden nowy klient pozyskany dzięki lepszemu profilowi na LinkedIn zwraca tę inwestycję wielokrotnie. To jedna z najtańszych i najskuteczniejszych inwestycji w personal branding. Pracuję z bazy w Poznaniu, na terenie miasta dojazd jest wliczony w cenę, a sesje realizuję w całej Polsce i Europie.</p>
+       <p>Zanim umówisz sesję, sprawdź, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, pobierz <a href="/poradnik">darmowy poradnik przygotowania do sesji</a> i zobacz <a href="/galeria?kat=portrety">przykładowe realizacje sesji wizerunkowych</a>.</p>
+     `,
+     seo: {
+@@ -127,7 +127,7 @@ export const blogPosts: BlogPost[] = [
+     faq: [
+       { q: "Czym różni się reportaż od sesji eventowej?", a: "Reportaż to dyskretne dokumentowanie autentycznych momentów — fotograf jest „niewidzialny\", nie pozuje uczestników. Sesja eventowa to podejście zaaranżowane: grupowe zdjęcia, portrety prelegentów i kluczowe momenty z najlepszej perspektywy. Oba style dają zupełnie inny materiał." },
+       { q: "Które podejście wybrać na konferencję firmową?", a: "Najczęściej sprawdza się podejście hybrydowe: reportaż podczas rejestracji, networkingu i paneli, w przerwach portrety prelegentów i zdjęcia grupowe, a wieczorem reportaż z części oficjalnej. Dzięki temu firma dostaje kompletny materiał na social media i do materiałów prasowych." },
+-      { q: "Od czego zależy cena fotografii eventowej?", a: "Cena nie zależy od stylu fotografii, tylko od czasu pracy i opcji dodatkowych: 600 zł za pierwszą godzinę, 400 zł za kolejne, pakiet całodniowy (8h) to 2 800 zł. Live editing kosztuje +20 zł/zdjęcie, a ujęcia z drona +200 zł." },
++      { q: "Od czego zależy cena fotografii eventowej?", a: "Cena nie zależy od stylu fotografii, tylko od czasu pracy i opcji dodatkowych: 600 zł za pierwszą godzinę, 350 zł za każdą kolejną, pakiet całodniowy (8 h) to 2 600 zł. Live editing kosztuje +20 zł/zdjęcie, a ujęcia z drona +200 zł." },
+     ],
+     title: "Fotografia eventowa vs reportaż: co wybrać dla Twojej konferencji",
+     excerpt:
+@@ -167,8 +167,9 @@ export const blogPosts: BlogPost[] = [
+       <h2>Porównanie kosztów</h2>
+       <p>Cena nie zależy od stylu fotografii, a od czasu pracy i opcji dodatkowych:</p>
+       <ul>
+-        <li><strong>Stawka godzinowa:</strong> 600 zł (pierwsza godzina), 400 zł (kolejne)</li>
+-        <li><strong>Pakiet całodniowy (8h):</strong> 2 800 zł</li>
++        <li><strong>Stawka godzinowa:</strong> 600 zł (pierwsza godzina), 350 zł (każda kolejna)</li>
++        <li><strong>Pakiet 4 h:</strong> 1 500 zł</li>
++        <li><strong>Pakiet całodniowy (8 h):</strong> 2 600 zł</li>
+         <li><strong>Live editing:</strong> +20 zł/zdjęcie (zdjęcia na Social Media w trakcie eventu)</li>
+         <li><strong>Ujęcia z drona:</strong> +200 zł</li>
+       </ul>
+@@ -188,7 +189,7 @@ export const blogPosts: BlogPost[] = [
+     faq: [
+       { q: "Jakie światło jest najlepsze do zdjęcia do CV w domu?", a: "Naturalne, rozproszone światło dzienne. Stań twarzą do dużego okna, z jednolitą ścianą za plecami, najlepiej w godzinach przedpołudniowych. Unikaj sztucznego oświetlenia sufitowego, które tworzy cienie pod oczami — a pochmurny dzień daje najmiększe i najbardziej równomierne światło." },
+       { q: "Jak ustawić telefon do zdjęcia do CV?", a: "Postaw telefon pionowo na statywie lub stabilnym podparciu na wysokości oczu, w odległości około 1-1,5 metra. Użyj tylnego aparatu (ma lepszą jakość) i samowyzwalacza na 3-10 sekund. Kadruj od klatki piersiowej w górę, z twarzą w centrum, a jeśli telefon ma tryb portretowy — włącz go." },
+-      { q: "Kiedy zamiast zdjęcia z telefonu wybrać fotografa?", a: "Zdjęcie z telefonu wystarczy na szybką aplikację. Jeśli jednak zależy Ci na stanowisku, gdzie liczy się wizerunek — sprzedaż, management, consulting, marketing — profesjonalna sesja portretowa zwróci się wielokrotnie. Zaczyna się od 1 000 zł, a jedno dobre zdjęcie posłuży na LinkedIn, stronę firmową i materiały branżowe." },
++      { q: "Kiedy zamiast zdjęcia z telefonu wybrać fotografa?", a: "Zdjęcie z telefonu wystarczy na szybką aplikację. Jeśli jednak zależy Ci na stanowisku, gdzie liczy się wizerunek — sprzedaż, management, consulting, marketing — profesjonalna sesja portretowa zwróci się wielokrotnie. Zaczyna się od 1 100 zł, a jedno dobre zdjęcie posłuży na LinkedIn, stronę firmową i materiały branżowe." },
+     ],
+     title: "Jak zrobić profesjonalne zdjęcie do CV w domu: kompletny poradnik",
+     excerpt:
+@@ -226,7 +227,7 @@ export const blogPosts: BlogPost[] = [
+       <p>Użyj bezpłatnych aplikacji jak Snapseed lub Lightroom Mobile. Wystarczy: lekko podnieść jasność, wyrównać balans bieli, przyciąć kadr do proporcji paszportowych. Nie przesadzaj z filtrami: zdjęcie do CV ma wyglądać naturalnie.</p>
+ 
+       <h2>Kiedy lepiej iść do fotografa?</h2>
+-      <p>Zdjęcie z telefonu wystarczy na szybką aplikację. Ale jeśli zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), <a href="/uslugi/wizerunek-portrety">profesjonalna sesja portretowa</a> zwróci się wielokrotnie. Sesja headshot zaczyna się od 1 000 zł, a jedno dobrze zrobione zdjęcie posłuży Ci na LinkedIn, stronę firmową i materiały branżowe. Sesje realizuję w Poznaniu (dojazd na terenie miasta wliczony), a na zapytania odpowiadam w ciągu 24h.</p>
++      <p>Zdjęcie z telefonu wystarczy na szybką aplikację. Ale jeśli zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), <a href="/uslugi/wizerunek-portrety">profesjonalna sesja portretowa</a> zwróci się wielokrotnie. Sesja headshot zaczyna się od 1 100 zł, a jedno dobrze zrobione zdjęcie posłuży Ci na LinkedIn, stronę firmową i materiały branżowe. Sesje realizuję w Poznaniu (dojazd na terenie miasta wliczony), a na zapytania odpowiadam w ciągu 24h.</p>
+       <p>Jeśli chcesz, żeby profil naprawdę pracował, przeczytaj, jak <a href="/blog/headshoty-linkedin-konwersja">headshoty zwiększają konwersję na LinkedIn</a>.</p>
+     `,
+     seo: {
+@@ -331,13 +332,13 @@ export const blogPosts: BlogPost[] = [
+   {
+     slug: "ile-kosztuje-sesja-wizerunkowa-dla-firmy",
+     faq: [
+-      { q: "Od jakiej kwoty zaczyna się sesja wizerunkowa dla firmy?", a: "Pojedynczy portret biznesowy zaczyna się od 1 000 zł — to punkt wyjścia dla jednej osoby i podstawowego zestawu ujęć. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek." },
++      { q: "Od jakiej kwoty zaczyna się sesja wizerunkowa dla firmy?", a: "Pojedynczy portret biznesowy zaczyna się od 1 100 zł — to punkt wyjścia dla jednej osoby i podstawowego zestawu ujęć. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek." },
+       { q: "Co wpływa na cenę sesji wizerunkowej?", a: "Sześć policzalnych czynników: liczba osób, liczba finalnych ujęć z autorskim retuszem, lokalizacja i dojazd (na terenie Poznania wliczony), sceneria i przygotowanie planu, zakres licencji na wykorzystanie zdjęć oraz ewentualny tryb ekspresowy, gdy materiał jest potrzebny szybciej niż standardowo." },
+       { q: "Ile czasu trwa portret jednej osoby przy sesji zespołowej?", a: "Realnie 10-15 minut na dobry portret jednej osoby, wliczając ustawienie i kilka prób. Właśnie dlatego liczba osób to główny czynnik wyceny przy sesjach zespołowych — czas pracy rośnie wraz z wielkością grupy." },
+     ],
+     title: "Ile kosztuje sesja wizerunkowa dla firmy: co realnie wpływa na cenę",
+     excerpt:
+-      "Cena sesji wizerunkowej zaczyna się od 1 000 zł, ale finalna wycena zależy od kilku policzalnych czynników. Tłumaczę, za co realnie płacisz i jak zaplanować budżet.",
++      "Cena sesji wizerunkowej zaczyna się od 1 100 zł, ale finalna wycena zależy od kilku policzalnych czynników. Tłumaczę, za co realnie płacisz i jak zaplanować budżet.",
+     category: "poradnik",
+     date: "2026-03-10",
+     readTime: 6,
+@@ -346,7 +347,7 @@ export const blogPosts: BlogPost[] = [
+       <p class="lead">„Ile kosztuje sesja wizerunkowa?" to pytanie, które dostaję najczęściej. Uczciwa odpowiedź brzmi: to zależy, ale od konkretnych, policzalnych rzeczy. Poniżej tłumaczę, co realnie wpływa na cenę <a href="/uslugi/wizerunek-portrety">sesji wizerunkowej dla firmy</a>, żebyś wiedział, za co płacisz i jak zaplanować budżet.</p>
+ 
+       <h2>Od czego zaczyna się wycena</h2>
+-      <p>Pojedynczy portret biznesowy zaczyna się od <strong>1 000 zł</strong>. To punkt wyjścia dla jednej osoby i podstawowego zestawu ujęć. Im więcej elementów dochodzi, tym wyżej idzie wycena. Zawsze jednak ustalamy ją z góry, przed sesją, bez niespodzianek.</p>
++      <p>Pojedynczy portret biznesowy zaczyna się od <strong>1 100 zł</strong>. To punkt wyjścia dla jednej osoby i podstawowego zestawu ujęć. Im więcej elementów dochodzi, tym wyżej idzie wycena. Zawsze jednak ustalamy ją z góry, przed sesją, bez niespodzianek.</p>
+ 
+       <h2>1. Liczba osób</h2>
+       <p>Sesja jednej osoby to inny nakład pracy niż <a href="/uslugi/sesje-zespolowe">sesja całego zespołu</a>. Przy większej grupie liczy się czas na osobę: realnie 10–15 minut na dobry portret, wliczając ustawienie i kilka prób. To główny czynnik przy zespołach.</p>
+@@ -366,14 +367,14 @@ export const blogPosts: BlogPost[] = [
+       <h2>6. Tryb ekspresowy</h2>
+       <p>Standardowo gotowe zdjęcia dostajesz w ustalonym terminie. Jeśli materiał jest potrzebny „na wczoraj", możliwy jest tryb przyśpieszony. To dodatkowa opcja, a nie ukryty koszt.</p>
+ 
+-      <h2>Jak oszacować budżet w 2 minuty</h2>
+-      <p>Zamiast zgadywać, policz. W <a href="/kontakt">kalkulatorze wyceny</a> zaznaczasz zakres i od razu widzisz orientacyjny koszt. Pełne pakiety i ceny znajdziesz też w <a href="/kontakt">cenniku</a>.</p>
+-      <p>Zanim umówimy sesję, zobacz, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, a gdy będziesz gotowy, <a href="/kontakt">napisz brief</a>, odezwę się w 24h.</p>
++      <h2>Jak zaplanować budżet</h2>
++      <p>Zamiast zgadywać, opisz zakres: liczbę osób, miejsce i to, gdzie zdjęcia będą używane. Wstępną wycenę odeślę w 24h.</p>
++      <p>Zanim umówimy sesję, zobacz, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, a gdy będziesz gotowy, <a href="/kontakt">napisz, czego potrzebujesz</a>.</p>
+     `,
+     seo: {
+       title: "Ile kosztuje sesja wizerunkowa dla firmy | Marcin Szabunia",
+       description:
+-        "Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja, licencja. Od 1 000 zł, sprawdź, jak zaplanować budżet i oszacuj koszt.",
++        "Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja, licencja. Od 1 100 zł, sprawdź, jak zaplanować budżet.",
+     },
+   },
+   {
+@@ -412,7 +413,7 @@ export const blogPosts: BlogPost[] = [
+ 
+       <h2>Jak przygotować sesję produktową</h2>
+       <p>Przed sesją ustalamy listę produktów, liczbę ujęć na produkt (front, tył, detale, w użyciu) i docelowe proporcje kadru pod Twój sklep. Dobry plan pozwala odfotografować większą partię sprawnie i bez chaosu. Sesję zrealizujemy w moim studiu w Poznaniu albo z dojazdem — pracuję dla klientów w całej Polsce.</p>
+-      <p>Zobacz <a href="/portfolio/artech-fotografia-produktowa">realizacje packshotów produktowych</a>, policz zakres w <a href="/kontakt">kalkulatorze</a> i <a href="/kontakt">napisz, co chcesz sfotografować</a>.</p>
++      <p>Zobacz <a href="/portfolio/artech-fotografia-produktowa">realizacje packshotów produktowych</a>, a potem <a href="/kontakt">napisz, co chcesz sfotografować</a>.</p>
+     `,
+     seo: {
+       title: "Fotografia produktowa dla e-commerce | Marcin Szabunia",
+@@ -453,7 +454,7 @@ export const blogPosts: BlogPost[] = [
+       <p>Aftermovie z konferencji, targów czy gali firmowej to energia wydarzenia zamknięta w 60–90 sekundach. Działa jako podsumowanie dla uczestników i zaproszenie na kolejną edycję. Jeśli organizujesz event, zaplanuj wideo razem z <a href="/blog/fotografia-eventowa-vs-reportaz">fotografią eventową</a>.</p>
+ 
+       <h2>Foto i wideo w jednym wejściu</h2>
+-      <p>Najefektywniej jest łączyć materiał foto i wideo na jednej realizacji: jeden brief, jeden dzień, spójny styl. Bazuję w Poznaniu, a realizacje prowadzę w całej Polsce i Europie. Sprawdź <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, oszacuj zakres w <a href="/kontakt">kalkulatorze</a> i <a href="/kontakt">opisz swój projekt</a>. Podpowiem, który format da najwięcej przy Twoim budżecie.</p>
++      <p>Najefektywniej jest łączyć materiał foto i wideo na jednej realizacji: jeden brief, jeden dzień, spójny styl. Bazuję w Poznaniu, a realizacje prowadzę w całej Polsce i Europie. Sprawdź <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, a potem <a href="/kontakt">opisz swój projekt</a>. Podpowiem, który format da najwięcej przy Twoim budżecie.</p>
+     `,
+     seo: {
+       title: "Wideo marketing dla firm: jakie formaty | Marcin Szabunia",
+@@ -507,7 +508,7 @@ export const blogPosts: BlogPost[] = [
+ 
+       <h2>Logistyka i dojazd w Poznaniu</h2>
+       <p>Bazuję w Poznaniu, więc dojazd na terenie miasta jest wliczony w cenę, niezależnie od tego, czy to studio, Twoje biuro, czy plener. Realizacje poza Poznaniem ustalamy indywidualnie. Przed sesją zawsze omawiamy lokalizację, żeby światło i tło grały na Twoją korzyść.</p>
+-      <p>Zobacz <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> i <a href="/portfolio/idcom-headshoty-zespolu">sesji korporacyjnych</a>, oszacuj zakres w <a href="/kontakt">kalkulatorze</a>, a potem <a href="/kontakt">napisz, co chcesz osiągnąć</a>. Dobiorę miejsce pod Twój cel.</p>
++      <p>Zobacz <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> i <a href="/portfolio/idcom-headshoty-zespolu">sesji korporacyjnych</a>, a potem <a href="/kontakt">napisz, co chcesz osiągnąć</a>. Dobiorę miejsce pod Twój cel.</p>
+     `,
+     seo: {
+       title: "Sesja wizerunkowa Poznań: gdzie ją zrobić | Marcin Szabunia",
+@@ -664,7 +665,7 @@ export const blogPosts: BlogPost[] = [
+       <p>Stocki są wygodne, ale mają trzy wady: każdy ma do nich dostęp (Twój konkurent może użyć tego samego zdjęcia), nie pokazują Twojej realnej firmy i często widać w nich „sztuczność". Autentyczne, autorskie zdjęcia odróżniają markę, stock ją upodabnia do innych.</p>
+ 
+       <h2>Jak to zaplanować</h2>
+-      <p>Najtaniej i najspójniej jest zebrać potrzeby z całej strony i zrealizować je w jednej, dobrze zaplanowanej sesji (albo serii). Zaczynamy od listy sekcji i ujęć, dobieramy lokalizację i styl, a Ty dostajesz komplet spójnego materiału. Działam z Poznania — tu dojazd masz w cenie, a sesje realizuję w całej Polsce i Europie. Oszacuj zakres w <a href="/kontakt">kalkulatorze</a>, przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje</a> i <a href="/kontakt">napisz, co jest na Twojej stronie</a>, ułożymy plan zdjęć pod nią.</p>
++      <p>Najtaniej i najspójniej jest zebrać potrzeby z całej strony i zrealizować je w jednej, dobrze zaplanowanej sesji (albo serii). Zaczynamy od listy sekcji i ujęć, dobieramy lokalizację i styl, a Ty dostajesz komplet spójnego materiału. Działam z Poznania, tu dojazd masz w cenie, a sesje realizuję w całej Polsce i Europie. Przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje</a> i <a href="/kontakt">napisz, co jest na Twojej stronie</a>, ułożymy plan zdjęć pod nią.</p>
+     `,
+     seo: {
+       title: "Jakie zdjęcia na stronę firmową: lista | Marcin Szabunia",
+@@ -702,7 +703,7 @@ export const blogPosts: BlogPost[] = [
+       <p>Wypowiedź wprost do kamery: ekspert, prezes, uczestnik eventu. Nazwa pochodzi z żargonu telewizyjnego, po angielsku mówi się talking head. Setki najlepiej nagrywać w kontrolowanych warunkach, dlatego na eventach buduję mobilne studio do filmowania z porządnym światłem i dźwiękiem.</p>
+ 
+       <h2>Teaser</h2>
+-      <p>Bardzo krótka zapowiedź, do 15 sekund. Pojedyncze najmocniejsze ujęcia, dynamiczny montaż, logo i data. Idealny do podgrzania atmosfery przed wydarzeniem albo jako szybka reklama. W moim cenniku to najtańszy pakiet montażowy.</p>
++      <p>Bardzo krótka zapowiedź, do 15 sekund. Pojedyncze najmocniejsze ujęcia, dynamiczny montaż, logo i data. Idealny do podgrzania atmosfery przed wydarzeniem albo jako szybka reklama. Robię go jako dodatek do większego zlecenia.</p>
+ 
+       <h2>Event recap (aftermovie)</h2>
+       <p>Film podsumowujący wydarzenie, zwykle do 60-90 sekund: najlepsze momenty, emocje, skala. Pokazuje sponsorom i przyszłym uczestnikom, dlaczego warto być na kolejnej edycji. Przykład znajdziesz w <a href="/portfolio/woohoo-autopay">realizacji dla E-commerce All In</a>.</p>
+@@ -735,7 +736,7 @@ export const blogPosts: BlogPost[] = [
+       <p>Liczba rund uwag, które możesz zgłosić do montażu w cenie. U mnie wideo ma 3 tury poprawek w cenie, a w praktyce pierwsza prawie zawsze wystarcza, bo zakres i styl ustalamy przed realizacją.</p>
+ 
+       <h2>Nie musisz znać żargonu</h2>
+-      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan realizacji. Zobacz <a href="/uslugi/wideo-marketing">ofertę wideo marketingu</a> i <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, oszacuj koszt w <a href="/kontakt">kalkulatorze wyceny</a> albo po prostu <a href="/kontakt">napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
++      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan realizacji. Zobacz <a href="/uslugi/wideo-marketing">ofertę wideo marketingu</a> i <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, a potem <a href="/kontakt">napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
+     `,
+     seo: {
+       title: "Co to jest b-roll? Słownik pojęć wideo | Marcin Szabunia",
+@@ -785,7 +786,7 @@ export const blogPosts: BlogPost[] = [
+       <p>Obróbka i dostarczanie zdjęć jeszcze w trakcie wydarzenia. Organizator dostaje gotowe kadry do publikacji w social media, zanim event się skończy. Opcja dodatkowa przy <a href="/uslugi/eventy-reportaze">reportażach eventowych</a>, wyceniana za zdjęcie.</p>
+ 
+       <h2>Mobilne studio</h2>
+-      <p>Pełny zestaw studyjny (tło, oświetlenie, stanowisko), który przywożę do Twojego biura. Rozstawienie zajmuje około 30 minut, a zespół fotografuje się na miejscu, bez wysyłania ludzi przez pół miasta. Bazuję w Poznaniu, gdzie dojazd jest w cenie (0 zł); poza miastem doliczam 2,50 zł netto za kilometr, licząc od granic miasta w obie strony. Podstawa <a href="/uslugi/sesje-zespolowe">sesji zespołowych</a>.</p>
++      <p>Pełny zestaw studyjny (tło, oświetlenie, stanowisko), który przywożę do Twojego biura. Rozstawienie zajmuje około 20 minut, a zespół fotografuje się na miejscu, bez wysyłania ludzi przez pół miasta. Bazuję w Poznaniu, gdzie dojazd jest w cenie (0 zł); poza miastem doliczam 2,50 zł netto za kilometr, licząc od granic miasta w obie strony. Podstawa <a href="/uslugi/sesje-zespolowe">sesji zespołowych</a>.</p>
+ 
+       <h2>RAW</h2>
+       <p>Surowy plik z aparatu, cyfrowy odpowiednik negatywu. Zawiera pełne dane obrazu, ale wymaga obróbki i nie nadaje się do bezpośredniej publikacji. Fotografowie standardowo nie przekazują RAW-ów, tak jak drukarnia nie oddaje projektów otwartych: oddaję gotowy, spójny materiał po autorskiej postprodukcji.</p>
+@@ -797,7 +798,7 @@ export const blogPosts: BlogPost[] = [
+       <p>Określa, gdzie i jak możesz używać zdjęć. W moim standardzie licencja obejmuje pełny użytek komercyjny: strona www, social media, druk, reklama online, bez limitów czasowych. Szerszy zakres (np. ogólnopolska kampania outdoor) ustalamy indywidualnie przy wycenie.</p>
+ 
+       <h2>Nie musisz znać żargonu</h2>
+-      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan sesji. Oszacuj koszt w <a href="/kontakt">kalkulatorze wyceny</a> albo po prostu <a href="/kontakt">napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
++      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan sesji. <a href="/kontakt">Napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
+     `,
+     seo: {
+       title: "Co to jest packshot? Słownik fotografii | Marcin Szabunia",
+@@ -810,7 +811,7 @@ export const blogPosts: BlogPost[] = [
+     faq: [
+       { q: "Czy komercyjne loty dronem dla firm są legalne?", a: "Tak, loty komercyjne dronem są w Polsce uregulowane i wymagają uprawnień. Po stronie operatora jest komplet formalności: certyfikat A1/A3 zgodny z przepisami unijnymi, ubezpieczenie OC oraz uzyskanie zgód przed lotem w strefach kontrolowanych. Strona formalna nie jest problemem klienta." },
+       { q: "W jakiej formie dostanę materiał z drona?", a: "W zależności od celu materiał ma trzy formy: wyretuszowane zdjęcia do oferty i na stronę, zmontowany film 4K gotowy na stronę i social media albo przebitki 4K z korekcją barwną do własnego montażu. Jeśli potrzebujesz tylko surowca do swojego montażu, płacisz mniej." },
+-      { q: "Jak długo trwa realizacja zdjęć i filmu z drona?", a: "Zwykle godzina w powietrzu wystarcza na komplet ujęć jednego obiektu. Zdjęcia dostarczam do 14 dni, wideo do 21 dni roboczych, dostępny jest też tryb ekspresowy. Wcześniej ustalamy brief, ujęcia i sprawdzam, czy teren leży w strefie wymagającej zgody." },
++      { q: "Jak długo trwa realizacja zdjęć i filmu z drona?", a: "Zwykle godzina w powietrzu wystarcza na komplet ujęć jednego obiektu. Zdjęcia dostarczam do 14 dni, wideo do 21 dni, dostępny jest też tryb ekspresowy. Wcześniej ustalamy brief, ujęcia i sprawdzam, czy teren leży w strefie wymagającej zgody." },
+     ],
+     title: "Zdjęcia i film z drona dla firm: zastosowania, legalność i koszt",
+     excerpt:
+@@ -849,7 +850,7 @@ export const blogPosts: BlogPost[] = [
+         <li><strong>Brief i zgody:</strong> ustalamy ujęcia, lokalizację i sprawdzam, czy teren leży w strefie wymagającej zgody.</li>
+         <li><strong>Lot:</strong> zdjęcia i wideo w 4K. Zwykle godzina w powietrzu wystarcza na komplet ujęć jednego obiektu.</li>
+         <li><strong>Postprodukcja:</strong> retusz zdjęć albo montaż filmu i korekcja barwna.</li>
+-        <li><strong>Dostawa:</strong> zdjęcia do 14 dni, wideo do 21 dni roboczych. Jest też tryb ekspresowy.</li>
++        <li><strong>Dostawa:</strong> zdjęcia do 14 dni, wideo do 21 dni. Jest też tryb ekspresowy.</li>
+       </ul>
+ 
+       <h2>Legalność i bezpieczeństwo lotów</h2>
+@@ -1034,12 +1035,12 @@ export const blogPosts: BlogPost[] = [
+         <li><strong>Formalności:</strong> jedna umowa i faktura zamiast kilku.</li>
+       </ul>
+ 
+-      <h2>Jak to policzyć dla siebie</h2>
+-      <p>Najprościej porównać konkretne liczby dla Twojego wydarzenia. Skoro dron i tak jest na miejscu, a foto i wideo powstają z jednego wejścia, komplet w pakiecie wychodzi taniej niż te same usługi zamawiane osobno. Dokładne kwoty dla Twojej skali policzysz w <a href="/kontakt">kalkulatorze wyceny</a> albo dostaniesz po krótkim briefie — na zapytania odpowiadam w ciągu 24 godzin. Działam z bazą w Poznaniu, a pakiety realizuję w całej Polsce: w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr.</p>
++      <h2>Jak to wygląda przy Twoim wydarzeniu</h2>
++      <p>Najprościej porównać konkretne liczby dla Twojego wydarzenia. Skoro dron i tak jest na miejscu, a foto i wideo powstają z jednego wejścia, komplet w pakiecie wychodzi taniej niż te same usługi zamawiane osobno. Dokładne kwoty dla Twojej skali odeślę po krótkim opisie wydarzenia, na zapytania odpowiadam w ciągu 24 godzin. Działam z bazą w Poznaniu, a pakiety realizuję w całej Polsce: w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr.</p>
+ 
+       <h2>Podsumowanie</h2>
+       <p>Pakiet foto + wideo + dron opłaca się tam, gdzie z jednego wydarzenia ma powstać kilka spójnych formatów, a Ty chcesz prostej logistyki i niższego kosztu niż dwie osobne ekipy. Usługi osobno mają sens przy pojedynczej potrzebie albo bardzo dużej produkcji.</p>
+-      <p>Zobacz <a href="/uslugi/pakiety-foto-wideo">pakiety foto, wideo i dron</a> albo policz swój wariant w <a href="/kontakt">kalkulatorze</a>.</p>
++      <p>Zobacz <a href="/uslugi/pakiety-foto-wideo">pakiety foto, wideo i dron</a> albo <a href="/kontakt">opisz swój wariant</a>.</p>
+     `,
+     seo: {
+       title: "Pakiet foto, wideo i dron czy osobno | Marcin Szabunia",
+@@ -1087,7 +1088,7 @@ export const blogPosts: BlogPost[] = [
+       <p>Loty nad inwestycją to nie tylko kwestia sprzętu. Latam zgodnie z przepisami EASA, mam numer operatora i uprawnienia w kategorii otwartej (A1/A3), a przy strefach kontrolowanych wymagane zgłoszenia i zgody lotnicze biorę na siebie. Nad terenem budowy ustalamy wcześniej dostęp i zasady bezpieczeństwa. Dla Ciebie to oznacza materiał zrobiony legalnie, bez ryzyka i formalnych przestojów.</p>
+ 
+       <h2>Ile to kosztuje</h2>
+-      <p>Cena zależy od tego, co ma powstać. Orientacyjnie, ceny netto: same przebitki 4K do własnego montażu od 700 zł, zdjęcia z drona (do 8 wyretuszowanych ujęć) od 900 zł, gotowy film 4K od 1 200 zł. Komplet zdjęcia plus przebitki (1 300 zł) albo zdjęcia plus film (1 700 zł) z jednej sesji wychodzi taniej niż zamawianie tego osobno. Pracuję z bazą w Poznaniu i realizuję zlecenia w całej Polsce, w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr od granic miasta. Dokładną wycenę policzysz w <a href="/kontakt">kalkulatorze</a> albo dostaniesz po krótkim briefie o inwestycji.</p>
++      <p>Cena zależy od tego, co ma powstać. Orientacyjnie, ceny netto: same przebitki 4K do własnego montażu od 700 zł, zdjęcia z drona (do 8 wyretuszowanych ujęć) od 900 zł, gotowy film 4K od 1 200 zł. Komplet zdjęcia plus przebitki (1 300 zł) albo zdjęcia plus film (1 700 zł) z jednej sesji wychodzi taniej niż zamawianie tego osobno. Pracuję z bazą w Poznaniu i realizuję zlecenia w całej Polsce, w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr od granic miasta. Dokładną wycenę odeślę po krótkim opisie inwestycji.</p>
+ 
+       <h2>Podsumowanie</h2>
+       <p>Dla dewelopera zdjęcia i film z drona to nie ozdoba, tylko argument sprzedażowy. Pokazują lokalizację, skalę i postęp inwestycji tak, jak nie zrobi tego żadne ujęcie z ziemi. Najwięcej zyskujesz, biorąc z jednego lotu komplet foto i wideo gotowy do kampanii.</p>
+@@ -1151,11 +1152,11 @@ export const blogPosts: BlogPost[] = [
+         <li>Komplet zdjęcia plus przebitki: 1 300 zł.</li>
+         <li>Komplet zdjęcia plus film: 1 700 zł.</li>
+       </ul>
+-      <p>To punkty wyjścia. Dokładną kwotę dla Twojego obiektu i lokalizacji policzysz w <a href="/kontakt">kalkulatorze</a> albo dostaniesz po krótkim opisie zlecenia.</p>
++      <p>To punkty wyjścia. Dokładną kwotę dla Twojego obiektu i lokalizacji odeślę po krótkim opisie zlecenia.</p>
+ 
+       <h2>Podsumowanie</h2>
+       <p>Cena filmu z drona zależy głównie od tego, co ma powstać, ile czasu zajmie lot i gdzie się odbywa. Najtaniej wychodzą przebitki do własnego montażu, najwięcej daje gotowy komplet foto i wideo z jednego wejścia.</p>
+-      <p>Zobacz <a href="/uslugi/zdjecia-wideo-z-drona">zdjęcia i wideo z drona</a> albo policz swój wariant w <a href="/kontakt">kalkulatorze</a>.</p>
++      <p>Zobacz <a href="/uslugi/zdjecia-wideo-z-drona">zdjęcia i wideo z drona</a> albo <a href="/kontakt">opisz swój wariant</a>.</p>
+     `,
+     seo: {
+       title: "Ile kosztuje film z drona dla firmy | Marcin Szabunia",
+@@ -1390,7 +1391,7 @@ export const blogPosts: BlogPost[] = [
+     faq: [
+       { q: "Od czego zależy cena filmu promocyjnego?", a: "Od czterech czynników: długości i typu materiału (teaser, reels, recap z eventu czy dłuższy film to różne nakłady montażu), czasu nagrań na planie, złożoności realizacji (liczba lokalizacji, scenariusz, napisy, grafika) oraz dodatków, takich jak ujęcia z drona, lektor, licencjonowana muzyka czy wersje językowe." },
+       { q: "Jak liczona jest cena filmu promocyjnego?", a: "Cena składa się z dwóch przejrzystych części: pracy operatora na planie (pierwsza godzina 400 zł, każda kolejna 200 zł netto) oraz pakietu montażowego, czyli obróbki nagranego materiału. Dzięki temu klient płaci za realny zakres, a nie za sztywny pakiet, którego nie wykorzysta." },
+-      { q: "Ile kosztuje montaż filmu dla firmy?", a: "Pakiety montażowe (ceny netto): teaser do 15 s — 300 zł, reels do 30 s — 600 zł, event recap do 60 s — 900 zł, film promo 1–2 min — 1 400 zł, dłuższy dokument około 3 min — 1 800 zł. Do tego dochodzi praca operatora na planie." },
++      { q: "Ile kosztuje montaż filmu dla firmy?", a: "Pakiety montażowe (ceny netto): teaser do 15 s 300 zł (wyłącznie jako dodatek do zlecenia), montaż wywiadu do 30 s 450 zł, reels do 30 s 1 200 zł, event recap do 60 s 1 800 zł. Film promo 1-2 min i dłuższy dokument około 3 min wyceniam indywidualnie. Pakiet montażowy obejmuje samą postprodukcję: jeśli materiał nagrywam ja, dochodzi praca operatora na planie." },
+     ],
+     title: "Ile kosztuje film promocyjny dla firmy i od czego zależy cena",
+     excerpt:
+@@ -1416,11 +1417,12 @@ export const blogPosts: BlogPost[] = [
+       <h2>Formaty i ceny montażu</h2>
+       <p>Pakiety montażowe (ceny netto) dobierasz pod cel:</p>
+       <ul>
+-        <li><strong>XS Teaser (do 15 s): 300 zł.</strong> Krótka zajawka na social media.</li>
+-        <li><strong>S Reels (do 30 s): 600 zł.</strong> Dynamiczny format pionowy pod Reels, TikTok, Shorts.</li>
+-        <li><strong>M Event recap (do 60 s): 900 zł.</strong> Podsumowanie wydarzenia.</li>
+-        <li><strong>L Promo (1-2 min): 1 400 zł.</strong> Film promocyjny produktu albo usługi.</li>
+-        <li><strong>XL Dokument (około 3 min): 1 800 zł.</strong> Dłuższy materiał o firmie, ludziach i sposobie pracy.</li>
++        <li><strong>XS Teaser (do 15 s): 300 zł.</strong> Krótka zajawka na social media, wyłącznie jako dodatek do zlecenia.</li>
++        <li><strong>Montaż wywiadu (do 30 s): 450 zł.</strong> Wypowiedź jednej osoby, cięcie, napisy, korekta dźwięku.</li>
++        <li><strong>S Reels (do 30 s): 1 200 zł.</strong> Dynamiczny format pionowy pod Reels, TikTok, Shorts.</li>
++        <li><strong>M Event recap (do 60 s): 1 800 zł.</strong> Podsumowanie wydarzenia.</li>
++        <li><strong>L Promo (1-2 min): wycena indywidualna.</strong> Film promocyjny produktu albo usługi.</li>
++        <li><strong>XL Dokument (około 3 min): wycena indywidualna.</strong> Dłuższy materiał o firmie, ludziach i sposobie pracy.</li>
+       </ul>
+       <p>Więcej o tym, który format kiedy wybrać, znajdziesz we wpisie o <a href="/blog/wideo-marketing-dla-firm-formaty">formatach wideo dla firm</a>.</p>
+ 
+@@ -1430,15 +1432,15 @@ export const blogPosts: BlogPost[] = [
+       <h2>Orientacyjnie: ile zapłacisz za konkretny film</h2>
+       <p>Najprościej na przykładach (ceny netto, praca operatora plus montaż):</p>
+       <ul>
+-        <li>Reels z jednego, krótkiego nagrania: od około 600 zł plus godzina pracy operatora.</li>
+-        <li>Recap z eventu: montaż 900 zł plus czas nagrań na miejscu.</li>
+-        <li>Film promocyjny 1-2 min z jednej lokalizacji: pakiet L 1 400 zł plus praca operatora.</li>
++        <li>Reels z jednego, krótkiego nagrania: 1 200 zł plus godzina pracy operatora.</li>
++        <li>Recap z eventu: montaż 1 800 zł plus czas nagrań na miejscu.</li>
++        <li>Film promocyjny 1-2 min z jednej lokalizacji: pakiet L wyceniany indywidualnie, plus praca operatora.</li>
+       </ul>
+-      <p>Dokładną kwotę dla Twojego projektu policzysz w <a href="/kontakt">kalkulatorze</a> albo dostaniesz po krótkim opisie pomysłu.</p>
++      <p>Dokładną kwotę dla Twojego projektu odeślę po krótkim opisie pomysłu.</p>
+ 
+       <h2>Podsumowanie</h2>
+       <p>Cena filmu promocyjnego zależy przede wszystkim od formatu i czasu nagrań. Rozbicie na pracę operatora i pakiet montażowy sprawia, że płacisz za realny zakres, a przy regularnych potrzebach taniej wychodzi Monthly Content.</p>
+-      <p>Zobacz <a href="/uslugi/wideo-marketing">wideo marketing</a> albo policz swój film w <a href="/kontakt">kalkulatorze</a>.</p>
++      <p>Zobacz <a href="/uslugi/wideo-marketing">wideo marketing</a> albo <a href="/kontakt">opisz swój film</a>.</p>
+     `,
+     seo: {
+       title: "Ile kosztuje film promocyjny dla firmy | Marcin Szabunia",
+diff --git a/src/data/faq.ts b/src/data/faq.ts
+index 9cb9b30..d7e3e33 100644
+--- a/src/data/faq.ts
++++ b/src/data/faq.ts
+@@ -13,15 +13,15 @@ export interface HomeFaqItem {
+ export const homeFaqs: HomeFaqItem[] = [
+   {
+     q: "Ile kosztuje sesja?",
+-    a: "Sesje portretowe zaczynają się od 1 000 zł netto. Konkretną wycenę przygotuję po krótkim briefie. Wycena zależy od liczby osób, lokalizacji i zakresu postprodukcji. Zawsze wyceniam indywidualnie, żeby nie przepłacać za to, czego nie potrzebujesz.",
++    a: "Sesje portretowe zaczynają się od 1 100 zł netto. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24h. Cena zależy od liczby osób, lokalizacji i zakresu postprodukcji. Zawsze wyceniam indywidualnie, żeby nie przepłacać za to, czego nie potrzebujesz.",
+   },
+   {
+     q: "Jak szybko otrzymam gotowe materiały?",
+-    a: "Standardowy czas oddania zdjęć to 14 dni roboczych, a materiałów wideo do 21 dni. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50% wartości zlecenia).",
++    a: "Standardowy czas oddania zdjęć to 14 dni, a materiałów wideo do 21 dni. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50% wartości zlecenia).",
+   },
+   {
+     q: "Jak wygląda sesja zdjęciowa krok po kroku?",
+-    a: "Zaczynamy od krótkiego briefu (telefon lub mail), w którym ustalamy cel, styl i logistykę. Przed sesją przygotowuję poseboard z przykładowymi kadrami. W dniu sesji prowadzę Cię przez pozowanie i dobór ujęć. Po sesji wybierasz zdjęcia z galerii online, a ja zajmuję się retuszem. Gotowe materiały dostajesz w ciągu 14 dni.",
++    a: "Zaczynamy od krótkiej rozmowy (telefon lub mail), w której ustalamy cel, styl i logistykę. Przed sesją przygotowuję poseboard z przykładowymi kadrami. W dniu sesji prowadzę Cię przez pozowanie i dobór ujęć. Po sesji wybierasz zdjęcia z galerii online, a ja zajmuję się retuszem. Gotowe materiały dostajesz w ciągu 14 dni.",
+   },
+   {
+     q: "Czy dojeżdżasz poza Poznań?",
+@@ -69,7 +69,7 @@ export const homeFaqs: HomeFaqItem[] = [
+   },
+   {
+     q: "Ile tur poprawek otrzymuję w cenie?",
+-    a: "Zdjęcia: 2 tury poprawek w cenie. Wideo: 3 tury poprawek montażowych w cenie. Dodatkowe zmiany ponad tę liczbę wyceniam indywidualnie. W praktyce pierwsza tura prawie zawsze wystarcza, bo zależy mi, żeby finalny materiał w 100% odpowiadał Twoim oczekiwaniom.",
++    a: "Zdjęcia: 2 tury poprawek w cenie. Wideo: 3 tury poprawek montażowych w cenie. Poprawki realizuję w ciągu 7 dni od zgłoszenia. Nie liczę terminu podstawowego od nowa. Tura poprawek to korekta w obrębie wybranego materiału. Zmianę wyboru kadrów po rozpoczęciu retuszu wyceniam osobno i zawsze o tym uprzedzam. W praktyce pierwsza tura prawie zawsze wystarcza.",
+   },
+   {
+     q: "Czy pracujesz z AI w zdjęciach i wideo?",
+diff --git a/src/data/portfolio.ts b/src/data/portfolio.ts
+index eb056e1..e0c1149 100644
+--- a/src/data/portfolio.ts
++++ b/src/data/portfolio.ts
+@@ -405,7 +405,7 @@ export const portfolioCategories: PortfolioCategory[] = [
+       },
+       {
+         q: "Jak szybko otrzymam gotowe zdjęcia?",
+-        a: "Standardowy czas to 14 dni roboczych. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50%).",
++        a: "Standardowy czas to 14 dni. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50%).",
+       },
+     ],
+     seo: {
+@@ -427,10 +427,10 @@ export const portfolioCategories: PortfolioCategory[] = [
+       { src: "/images/portfolio/fotografia-eventowa/01.jpg", alt: "Fotografia eventowa, relacja z konferencji biznesowej w Poznaniu" },
+     ],
+     process: [
+-      { num: 1, title: "Brief", desc: "Agenda eventu, kluczowe momenty, VIP-y" },
++      { num: 1, title: "Rozmowa", desc: "Agenda eventu, kluczowe momenty, VIP-y" },
+       { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
+       { num: 3, title: "Live edit", desc: "Zdjęcia na Social Media w trakcie eventu" },
+-      { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni roboczych" },
++      { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni" },
+     ],
+     // Cennik celowo usunięty z draftu (audyt 2026-07-06) — kanon: services.tsx.
+     pricingType: "table",
+@@ -441,7 +441,7 @@ export const portfolioCategories: PortfolioCategory[] = [
+       },
+       {
+         q: "Ile zdjęć otrzymam z eventu?",
+-        a: "To zależy od długości wydarzenia. Średnio 15-30 gotowych zdjęć na każdą godzinę fotografowania, wyselekcjonowanych i poddanych postprodukcji (autorska selekcja najlepszych momentów).",
++        a: "To zależy od długości wydarzenia. Około 20 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji (autorska selekcja najlepszych momentów). Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie.",
+       },
+       {
+         q: "Czy realizujesz eventy poza Poznaniem?",
+@@ -471,7 +471,7 @@ export const portfolioCategories: PortfolioCategory[] = [
+       { src: "/images/portfolio/packshoty-produktowe/01.jpg", alt: "Packshot produktowy na białym tle, fotografia produktowa e-commerce, Poznań" },
+     ],
+     process: [
+-      { num: 1, title: "Brief", desc: "Cel, platforma sprzedaży, wytyczne marki" },
++      { num: 1, title: "Rozmowa", desc: "Cel, platforma sprzedaży, wytyczne marki" },
+       { num: 2, title: "Sesja", desc: "Fotografowanie w studiu z kontrolą światła" },
+       { num: 3, title: "Retusz", desc: "Clipping path, korekta kolorów, białe tło" },
+       { num: 4, title: "Dostawa", desc: "Pliki gotowe do użycia w 14 dni" },
+@@ -567,6 +567,11 @@ export interface PortfolioItem {
+ // wkrótce"). Ukryte z indeksu /portfolio, z sitemap i z indeksacji do czasu
+ // uzupełnienia galerii. Aby pokazać realizację — usuń jej slug z tego zbioru.
+ const DRAFT_SLUGS = new Set<string>([
++  // Box17: brak miniatury (public/images/portfolio/box17/ ma tylko placeholder .txt),
++  // przez co kafel na /portfolio był pusty, a og:image zwracał 404 (audyt PELNY2907-01).
++  // Decyzja Marcina 2026-07-29: nie upubliczniamy do czasu zdjęć. Po wgraniu
++  // `box17.jpg` wystarczy usunąć tę linię — reszta danych case study jest gotowa.
++  "box17-budki-akustyczne",
+   "sesja-wizerunkowa",
+   "fotografia-eventowa",
+   "packshoty-produktowe",
+diff --git a/src/data/services.tsx b/src/data/services.tsx
+index f19451a..0e0a58e 100644
+--- a/src/data/services.tsx
++++ b/src/data/services.tsx
+@@ -65,13 +65,13 @@ const serviceCategoriesRaw: ServiceData[] = [
+     ),
+     heroImage: "/images/galeria/portrety/portret-05.jpg",
+     heroImagePos: "center 20%",
+-    price: "od 1 000 zł",
+-    heroPriceLabel: "pakiety od 1 000 zł",
++    price: "od 1 100 zł",
++    heroPriceLabel: "pakiety od 1 100 zł",
+     process: [
+       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
+       { num: 2, title: "Poseboard", desc: "Przygotowuję moodboard z referencjami" },
+       { num: 3, title: "Sesja", desc: "Prowadzę Cię przez pozowanie, w studiu lub Twoim biurze. Nie musisz nic umieć." },
+-      { num: 4, title: "Dostawa", desc: "Wybrane, wyretuszowane zdjęcia w 14 dni roboczych." },
++      { num: 4, title: "Dostawa", desc: "Wybrane, wyretuszowane zdjęcia w 14 dni." },
+     ],
+     pricingBlurb:
+       "Wycenę portretu ustalam na podstawie liczby stylizacji, długości sesji i liczby wyretuszowanych zdjęć do wyboru. Każda sesja obejmuje darmowy poseboard z referencjami przed spotkaniem oraz studio dopasowane do Twojego projektu.",
+@@ -81,7 +81,7 @@ const serviceCategoriesRaw: ServiceData[] = [
+       { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), jasne obiektywy stałoogniskowe Sigma Art 35 i 50 mm f/1.4 do naturalnych portretów oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
+       { q: "Ile trwa sesja wizerunkowa?", a: "Sama sesja może trwać od 30 minut. Najważniejsze, że przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło, więc nie czekasz na moje przygotowania. Dłuższe pakiety dają po prostu więcej czasu na ujęcia i zmiany stylizacji." },
+       { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3m² wolnej przestrzeni i dostępu do gniazdka." },
+-      { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni roboczych. Ekspres do 48h za dodatkową opłatą (+50%)." },
++      { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni. Ekspres do 48h za dodatkową opłatą (+50%)." },
+       { q: "Czy mogę użyć zdjęć na LinkedIn i stronie?", a: "Tak. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
+     ],
+     portfolioSlug: "idcom-headshoty-zespolu",
+@@ -115,9 +115,9 @@ const serviceCategoriesRaw: ServiceData[] = [
+       </svg>
+     ),
+     heroImage: "/images/galeria/eventy/event-01.jpg",
+-    price: "od 1 800 zł",
++    price: "od 2 100 zł",
+     process: [
+-      { num: 1, title: "Brief", desc: "Cel, kanały, formaty wideo i foto" },
++      { num: 1, title: "Rozmowa", desc: "Cel, kanały, formaty wideo i foto" },
+       { num: 2, title: "Realizacja", desc: "Sesja foto + nagranie wideo w jednym dniu" },
+       { num: 3, title: "Postprodukcja", desc: "Retusz zdjęć + montaż wideo" },
+       { num: 4, title: "Dostawa", desc: "Zdjęcia w 14 dni, wideo w 21 dni" },
+@@ -165,10 +165,10 @@ const serviceCategoriesRaw: ServiceData[] = [
+     heroImagePos: "center 20%",
+     price: "od 600 zł",
+     process: [
+-      { num: 1, title: "Brief", desc: "Agenda, kluczowe momenty, VIP-y" },
++      { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
+       { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
+       { num: 3, title: "Live edit", desc: "Zdjęcia na Social Media w trakcie eventu" },
+-      { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni roboczych" },
++      { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni" },
+     ],
+     pricingBlurb:
+       "Wycenę reportażu ustalam na podstawie liczby godzin obecności na evencie oraz opcji dodatkowych: live editing na Social Media w trakcie wydarzenia i ujęcia z drona. Pakiety kilkugodzinne i całodniowe wychodzą korzystniej niż rozliczenie godzinowe.",
+@@ -178,7 +178,7 @@ const serviceCategoriesRaw: ServiceData[] = [
+       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
+       { q: "Czy fotografujesz też wieczorne gale przy słabym świetle?", a: "Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają fotografować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie. Reportaż z gali, konferencji czy bankietu wygląda naturalnie." },
+       { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media." },
+-      { q: "Ile zdjęć otrzymam?", a: "Średnio 15-30 gotowych zdjęć na każdą godzinę fotografowania, wyselekcjonowanych i poddanych postprodukcji. Dokładna liczba zależy od skali eventu i dodatkowych zadań w trakcie (wideo, dron, obróbka zdjęć na żywo, wydruk zdjęć na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
++      { q: "Ile zdjęć otrzymam?", a: "Około 20 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
+       { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
+     ],
+     portfolioSlug: "woohoo-autopay",
+@@ -208,7 +208,7 @@ const serviceCategoriesRaw: ServiceData[] = [
+       </svg>
+     ),
+     heroImage: "/images/portfolio/sesje-zespolowe-cover.jpg",
+-    price: "od 150 zł/os.",
++    price: "od 120 zł/os.",
+     process: [
+       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram i liczbę osób" },
+       { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio w biurze (20 min)" },
+@@ -258,7 +258,7 @@ const serviceCategoriesRaw: ServiceData[] = [
+     ),
+     heroImage: "/images/galeria/eventy/event-16.jpg",
+     heroImagePos: "40% center",
+-    price: "od 300 zł",
++    price: "od 400 zł",
+     process: [
+       { num: 1, title: "Concept", desc: "Cel, format, platforma docelowa" },
+       { num: 2, title: "Nagranie", desc: "Profesjonalne ujęcia, światło, dźwięk" },
+@@ -302,9 +302,9 @@ const serviceCategoriesRaw: ServiceData[] = [
+       </svg>
+     ),
+     heroImage: "/images/galeria/produktowe/produkt-13.jpg",
+-    price: "od 500 zł",
++    price: "od 600 zł",
+     process: [
+-      { num: 1, title: "Brief", desc: "Cel, platforma sprzedaży, wytyczne marki" },
++      { num: 1, title: "Rozmowa", desc: "Cel, platforma sprzedaży, wytyczne marki" },
+       { num: 2, title: "Sesja", desc: "Fotografowanie w studiu z kontrolą światła" },
+       { num: 3, title: "Retusz", desc: "Wycięcie z tła, korekta kolorów, białe tło" },
+       { num: 4, title: "Dostawa", desc: "Pliki gotowe do użycia w 14 dni" },
+@@ -313,7 +313,7 @@ const serviceCategoriesRaw: ServiceData[] = [
+       "Wycena zależy od liczby produktów, rodzaju ujęć (packshot na białym tle albo zdjęcia kreatywne z aranżacją) oraz pola eksploatacji: inaczej wyceniam zdjęcia na Social Media, inaczej do druku i outdooru. Większe zamówienia rozliczam progresywnie.",
+     priceFaqQuestion: "Ile kosztuje sesja produktowa?",
+     priceFaqIntro: "Sesje produktowe zaczynają się",
+-    priceFaqSuffix: " i tyle wynosi też minimalna wartość zamówienia (lub 6 zdjęć)",
++    priceFaqSuffix: " i tyle wynosi też minimalna wartość zamówienia",
+     faqs: [
+       { q: "Na jakim sprzęcie pracujesz?", a: "Aparat Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce." },
+       { q: "Czy mogę przysłać produkty kurierem?", a: "Tak, przyjmuję przesyłki do studia. Po sesji odsyłam na mój koszt (przy zamówieniach powyżej 1 000 zł)." },
+@@ -356,11 +356,11 @@ const serviceCategoriesRaw: ServiceData[] = [
+         <path strokeLinecap="round" d="M7.8 7.8l1.7 1.7M16.2 7.8l-1.7 1.7M7.8 16.2l1.7-1.7M16.2 16.2l-1.7-1.7" />
+       </svg>
+     ),
+-    // Cennik dronowy 2026-07: samodzielna linia usług od 900 zł (brief 09.07.2026).
++    // Cennik dronowy v3 (2026-07-29): samodzielna linia usług od 700 zł (przebitki 4K).
+     // Sprzedajemy deliverable, nie czas lotu — bez „1h lotu w cenie".
+     heroImage: "/images/galeria/dron/dron-05-panorama-poznania-zachod-slonca.jpg",
+     heroImagePos: "65% center",
+-    price: "od 900 zł",
++    price: "od 700 zł",
+     process: [
+       { num: 1, title: "Brief i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
+       { num: 2, title: "Lot", desc: "Zdjęcia i wideo 4K z powietrza" },
+@@ -410,7 +410,7 @@ export function getServiceBySlug(slug: string): ServiceData | undefined {
+ 
+ // Wspólne zamknięcie dla FAQ cenowego (obietnica 24h powtarzana świadomie
+ // w całym lejku — brief-22 §2). Jedna zmiana tutaj aktualizuje wszystkie 7 usług.
+-const PRICE_FAQ_CLOSING = "Konkretną wycenę dostajesz w 24h po krótkim briefie.";
++const PRICE_FAQ_CLOSING = "Napisz w kilku zdaniach, czego potrzebujesz. Wstępną wycenę odsyłam w 24h.";
+ 
+ // Pytanie cenowe budowane z danych usługi (price + pricingBlurb), nie
+ // hardkodowane per usługa — zmiana ceny lub pricingBlurb aktualizuje FAQ
+diff --git a/src/lib/ratelimit.ts b/src/lib/ratelimit.ts
+index 1b82a1d..f814744 100644
+--- a/src/lib/ratelimit.ts
++++ b/src/lib/ratelimit.ts
+@@ -33,14 +33,6 @@ const leadRatelimit = redis
+     })
+   : null;
+ 
+-const quoteRatelimit = redis
+-  ? new Ratelimit({
+-      redis,
+-      limiter: Ratelimit.slidingWindow(5, "1 h"),
+-      prefix: "szabunia-quote",
+-    })
+-  : null;
+-
+ /** IP klienta z nagłówków Vercel/proxy (Request App Routera nie ma req.ip). */
+ export function getClientIp(req: Request): string {
+   const forwarded = req.headers.get("x-forwarded-for");
+@@ -51,7 +43,7 @@ export function getClientIp(req: Request): string {
+ /** true = przekroczono limit (8 żądań/h/IP). Fail-open (false) gdy Redis nie jest skonfigurowany. */
+ export async function isRateLimited(ip: string): Promise<boolean> {
+   if (!contactRatelimit) {
+-    console.error("Rate-limit pominięty: UPSTASH_REDIS_REST_URL/TOKEN nie są ustawione.");
++    console.error("[ALERT] Rate-limit pominięty: UPSTASH_REDIS_REST_URL/TOKEN nie są ustawione.");
+     return false;
+   }
+   const { success } = await contactRatelimit.limit(ip);
+@@ -61,19 +53,10 @@ export async function isRateLimited(ip: string): Promise<boolean> {
+ /** true = przekroczono limit (5 żądań/h/IP). Fail-open (false) gdy Redis nie jest skonfigurowany. */
+ export async function isLeadRateLimited(ip: string): Promise<boolean> {
+   if (!leadRatelimit) {
+-    console.error("Rate-limit pominięty: UPSTASH_REDIS_REST_URL/TOKEN nie są ustawione.");
++    console.error("[ALERT] Rate-limit pominięty: UPSTASH_REDIS_REST_URL/TOKEN nie są ustawione.");
+     return false;
+   }
+   const { success } = await leadRatelimit.limit(ip);
+   return !success;
+ }
+ 
+-/** true = przekroczono limit (5 żądań/h/IP). Fail-open (false) gdy Redis nie jest skonfigurowany. */
+-export async function isQuoteRateLimited(ip: string): Promise<boolean> {
+-  if (!quoteRatelimit) {
+-    console.error("Rate-limit pominięty: UPSTASH_REDIS_REST_URL/TOKEN nie są ustawione.");
+-    return false;
+-  }
+-  const { success } = await quoteRatelimit.limit(ip);
+-  return !success;
+-}

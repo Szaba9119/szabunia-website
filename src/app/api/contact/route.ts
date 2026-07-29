@@ -38,6 +38,12 @@ async function pushToCrm(lead: Record<string, string>): Promise<void> {
   });
 }
 
+// Treść klauzuli zgody obowiązująca na formularzu kontaktowym. Musi być
+// zgodna z etykietą w src/components/CTA.tsx (CONSENT_TEXT). Wersjonujemy datą,
+// żeby po zmianie treści dało się odtworzyć, na co zgadzał się dany lead.
+const CONSENT_TEXT =
+  "v2026-07-29: Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z polityką prywatności.";
+
 export async function POST(req: Request) {
   const ip = getClientIp(req);
   if (await isRateLimited(ip)) {
@@ -105,7 +111,22 @@ export async function POST(req: Request) {
     dron: "Zdjęcia i wideo z drona",
     inne: "Inne zapytanie",
   };
+  // Twarda lista kodów usług — bez niej pole `service` przyjmowało dowolne
+  // 100 znaków i trafiało do maila jako „kategoria z listy" (audyt PELNY2907-21).
+  if (service && !(service in SERVICE_LABELS)) {
+    return NextResponse.json({ error: "Nieznany rodzaj usługi" }, { status: 400 });
+  }
   const serviceLabel = SERVICE_LABELS[service] ?? service;
+
+  // Zgoda RODO — walidowana po stronie serwera; bez niej żądanie złożone poza
+  // formularzem przechodziło bez śladu zgody (audyt PELNY2907-07).
+  // Treść klauzuli i znacznik czasu ustala SERWER, nie klient — inaczej „dowód"
+  // byłby w całości sterowany przez wysyłającego i nic by nie znaczył.
+  if (data.consent !== true) {
+    return NextResponse.json({ error: "Wymagana jest zgoda na przetwarzanie danych" }, { status: 400 });
+  }
+  const consentText = CONSENT_TEXT;
+  const consentTs = new Date().toISOString();
 
   if (!name || !email) {
     return NextResponse.json({ error: "Brak wymaganych pól" }, { status: 400 });
@@ -141,8 +162,18 @@ export async function POST(req: Request) {
     <p><strong>Telefon:</strong> ${escapeHtml(phone) || "—"}</p>
     <p><strong>Usługa:</strong> ${escapeHtml(serviceLabel) || "—"}</p>
     <p><strong>Wiadomość:</strong><br>${escapeHtml(message).replace(/\n/g, "<br>") || "—"}</p>
+    <p><strong>Zgoda RODO:</strong> TAK${consentTs ? `, ${escapeHtml(consentTs)}` : ""}${
+      consentText ? `<br><em>${escapeHtml(consentText)}</em>` : ""
+    }</p>
     ${utmHtml}
   `;
+
+  // Zapis do CRM PRZED wysyłką maila — best-effort. Wcześniej `pushToCrm`
+  // stało w gałęzi sukcesu, więc awaria Resend kasowała leada z obu kanałów
+  // naraz (audyt PELNY2907-14). CRM jest niezależną usługą i może go uratować.
+  void pushToCrm({ name, email, phone, service, message, source: "contact", consent: consentTs, ...utm }).catch(
+    (crmErr) => console.error("CRM webhook error:", crmErr)
+  );
 
   try {
     const res = await fetch(RESEND_ENDPOINT, {
@@ -164,13 +195,6 @@ export async function POST(req: Request) {
       const detail = await res.text();
       console.error("Resend error:", res.status, detail);
       return NextResponse.json({ error: "Nie udało się wysłać" }, { status: 502 });
-    }
-
-    // Zapis do CRM — best-effort, nie blokuje sukcesu formularza.
-    try {
-      await pushToCrm({ name, email, phone, service, message, source: "contact", ...utm });
-    } catch (crmErr) {
-      console.error("CRM webhook error:", crmErr);
     }
 
     return NextResponse.json({ ok: true });

@@ -6,6 +6,7 @@ import ScrollProgress from "@/components/ScrollProgress";
 import Footer from "@/components/Footer";
 import MobileFAB from "@/components/MobileFAB";
 import AnimatedSection from "@/components/AnimatedSection";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import PoradnikForm from "@/components/PoradnikForm";
 
 export const metadata: Metadata = {
@@ -111,7 +112,9 @@ export default function PoradnikPage() {
                   ))}
                 </ul>
 
-                <PoradnikForm />
+                <ErrorBoundary>
+                  <PoradnikForm />
+                </ErrorBoundary>
 
                 <p className="text-[12px] text-steel dark:text-dark-text-muted/70 mt-4">
                   4 strony A4 · PDF · od Marcina Szabuni, fotografa biznesowego z Poznania.

@@ -75,7 +75,7 @@ export default function UslugiPage() {
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed">
               Od portretów biznesowych po produkcję wideo: jeden twórca, spójny
-              materiał, krótka droga od briefu do dostawy. Bazuję w Poznaniu,
+              materiał, krótka droga od rozmowy do dostawy. Bazuję w Poznaniu,
               pracuję w całej Polsce i Europie.
             </p>
           </AnimatedSection>

@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+# Lead magnet — plik ma być bramkowany formularzem, nie wyszukiwarką (audyt 2026-07-29)
+Disallow: /poradnik-przygotowanie-do-sesji.pdf
 
 Sitemap: https://szabunia.pl/sitemap.xml
 

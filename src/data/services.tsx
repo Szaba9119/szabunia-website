@@ -65,13 +65,13 @@ const serviceCategoriesRaw: ServiceData[] = [
     ),
     heroImage: "/images/galeria/portrety/portret-05.jpg",
     heroImagePos: "center 20%",
-    price: "od 1 000 zł",
-    heroPriceLabel: "pakiety od 1 000 zł",
+    price: "od 1 100 zł",
+    heroPriceLabel: "pakiety od 1 100 zł",
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
       { num: 2, title: "Poseboard", desc: "Przygotowuję moodboard z referencjami" },
       { num: 3, title: "Sesja", desc: "Prowadzę Cię przez pozowanie, w studiu lub Twoim biurze. Nie musisz nic umieć." },
-      { num: 4, title: "Dostawa", desc: "Wybrane, wyretuszowane zdjęcia w 14 dni roboczych." },
+      { num: 4, title: "Dostawa", desc: "Wybrane, wyretuszowane zdjęcia w 14 dni." },
     ],
     pricingBlurb:
       "Wycenę portretu ustalam na podstawie liczby stylizacji, długości sesji i liczby wyretuszowanych zdjęć do wyboru. Każda sesja obejmuje darmowy poseboard z referencjami przed spotkaniem oraz studio dopasowane do Twojego projektu.",
@@ -81,7 +81,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), jasne obiektywy stałoogniskowe Sigma Art 35 i 50 mm f/1.4 do naturalnych portretów oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
       { q: "Ile trwa sesja wizerunkowa?", a: "Sama sesja może trwać od 30 minut. Najważniejsze, że przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło, więc nie czekasz na moje przygotowania. Dłuższe pakiety dają po prostu więcej czasu na ujęcia i zmiany stylizacji." },
       { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3m² wolnej przestrzeni i dostępu do gniazdka." },
-      { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni roboczych. Ekspres do 48h za dodatkową opłatą (+50%)." },
+      { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni. Ekspres do 48h za dodatkową opłatą (+50%)." },
       { q: "Czy mogę użyć zdjęć na LinkedIn i stronie?", a: "Tak. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
@@ -115,9 +115,9 @@ const serviceCategoriesRaw: ServiceData[] = [
       </svg>
     ),
     heroImage: "/images/galeria/eventy/event-01.jpg",
-    price: "od 1 800 zł",
+    price: "od 2 100 zł",
     process: [
-      { num: 1, title: "Brief", desc: "Cel, kanały, formaty wideo i foto" },
+      { num: 1, title: "Rozmowa", desc: "Cel, kanały, formaty wideo i foto" },
       { num: 2, title: "Realizacja", desc: "Sesja foto + nagranie wideo w jednym dniu" },
       { num: 3, title: "Postprodukcja", desc: "Retusz zdjęć + montaż wideo" },
       { num: 4, title: "Dostawa", desc: "Zdjęcia w 14 dni, wideo w 21 dni" },
@@ -165,10 +165,10 @@ const serviceCategoriesRaw: ServiceData[] = [
     heroImagePos: "center 20%",
     price: "od 600 zł",
     process: [
-      { num: 1, title: "Brief", desc: "Agenda, kluczowe momenty, VIP-y" },
+      { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
       { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
       { num: 3, title: "Live edit", desc: "Zdjęcia na Social Media w trakcie eventu" },
-      { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni roboczych" },
+      { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni" },
     ],
     pricingBlurb:
       "Wycenę reportażu ustalam na podstawie liczby godzin obecności na evencie oraz opcji dodatkowych: live editing na Social Media w trakcie wydarzenia i ujęcia z drona. Pakiety kilkugodzinne i całodniowe wychodzą korzystniej niż rozliczenie godzinowe.",
@@ -178,7 +178,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
       { q: "Czy fotografujesz też wieczorne gale przy słabym świetle?", a: "Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają fotografować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie. Reportaż z gali, konferencji czy bankietu wygląda naturalnie." },
       { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media." },
-      { q: "Ile zdjęć otrzymam?", a: "Średnio 15-30 gotowych zdjęć na każdą godzinę fotografowania, wyselekcjonowanych i poddanych postprodukcji. Dokładna liczba zależy od skali eventu i dodatkowych zadań w trakcie (wideo, dron, obróbka zdjęć na żywo, wydruk zdjęć na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
+      { q: "Ile zdjęć otrzymam?", a: "Około 20 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
       { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
     ],
     portfolioSlug: "woohoo-autopay",
@@ -208,7 +208,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       </svg>
     ),
     heroImage: "/images/portfolio/sesje-zespolowe-cover.jpg",
-    price: "od 150 zł/os.",
+    price: "od 120 zł/os.",
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram i liczbę osób" },
       { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio w biurze (20 min)" },
@@ -258,7 +258,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ),
     heroImage: "/images/galeria/eventy/event-16.jpg",
     heroImagePos: "40% center",
-    price: "od 300 zł",
+    price: "od 400 zł",
     process: [
       { num: 1, title: "Concept", desc: "Cel, format, platforma docelowa" },
       { num: 2, title: "Nagranie", desc: "Profesjonalne ujęcia, światło, dźwięk" },
@@ -302,9 +302,9 @@ const serviceCategoriesRaw: ServiceData[] = [
       </svg>
     ),
     heroImage: "/images/galeria/produktowe/produkt-13.jpg",
-    price: "od 500 zł",
+    price: "od 600 zł",
     process: [
-      { num: 1, title: "Brief", desc: "Cel, platforma sprzedaży, wytyczne marki" },
+      { num: 1, title: "Rozmowa", desc: "Cel, platforma sprzedaży, wytyczne marki" },
       { num: 2, title: "Sesja", desc: "Fotografowanie w studiu z kontrolą światła" },
       { num: 3, title: "Retusz", desc: "Wycięcie z tła, korekta kolorów, białe tło" },
       { num: 4, title: "Dostawa", desc: "Pliki gotowe do użycia w 14 dni" },
@@ -313,7 +313,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       "Wycena zależy od liczby produktów, rodzaju ujęć (packshot na białym tle albo zdjęcia kreatywne z aranżacją) oraz pola eksploatacji: inaczej wyceniam zdjęcia na Social Media, inaczej do druku i outdooru. Większe zamówienia rozliczam progresywnie.",
     priceFaqQuestion: "Ile kosztuje sesja produktowa?",
     priceFaqIntro: "Sesje produktowe zaczynają się",
-    priceFaqSuffix: " i tyle wynosi też minimalna wartość zamówienia (lub 6 zdjęć)",
+    priceFaqSuffix: " i tyle wynosi też minimalna wartość zamówienia",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Aparat Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce." },
       { q: "Czy mogę przysłać produkty kurierem?", a: "Tak, przyjmuję przesyłki do studia. Po sesji odsyłam na mój koszt (przy zamówieniach powyżej 1 000 zł)." },
@@ -356,11 +356,11 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" d="M7.8 7.8l1.7 1.7M16.2 7.8l-1.7 1.7M7.8 16.2l1.7-1.7M16.2 16.2l-1.7-1.7" />
       </svg>
     ),
-    // Cennik dronowy 2026-07: samodzielna linia usług od 900 zł (brief 09.07.2026).
+    // Cennik dronowy v3 (2026-07-29): samodzielna linia usług od 700 zł (przebitki 4K).
     // Sprzedajemy deliverable, nie czas lotu — bez „1h lotu w cenie".
     heroImage: "/images/galeria/dron/dron-05-panorama-poznania-zachod-slonca.jpg",
     heroImagePos: "65% center",
-    price: "od 900 zł",
+    price: "od 700 zł",
     process: [
       { num: 1, title: "Brief i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
       { num: 2, title: "Lot", desc: "Zdjęcia i wideo 4K z powietrza" },
@@ -410,7 +410,7 @@ export function getServiceBySlug(slug: string): ServiceData | undefined {
 
 // Wspólne zamknięcie dla FAQ cenowego (obietnica 24h powtarzana świadomie
 // w całym lejku — brief-22 §2). Jedna zmiana tutaj aktualizuje wszystkie 7 usług.
-const PRICE_FAQ_CLOSING = "Konkretną wycenę dostajesz w 24h po krótkim briefie.";
+const PRICE_FAQ_CLOSING = "Napisz w kilku zdaniach, czego potrzebujesz. Wstępną wycenę odsyłam w 24h.";
 
 // Pytanie cenowe budowane z danych usługi (price + pricingBlurb), nie
 // hardkodowane per usługa — zmiana ceny lub pricingBlurb aktualizuje FAQ
