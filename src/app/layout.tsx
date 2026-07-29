@@ -142,7 +142,10 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                 longitude: 16.9252,
               },
               image: "https://szabunia.pl/images/marcin-hero.jpg",
-              priceRange: "od 300 zł",
+              // priceRange usunięty świadomie (audyt PELNY2907-41, decyzja Marcina
+              // 2026-07-29): po cenniku v3 wartość "od 300 zł" przestała odpowiadać
+              // czemukolwiek w ofercie, a strona działa w modelu "cena na zapytanie".
+              // Nie przywracać bez decyzji — pusta wartość jest lepsza niż zła.
               openingHoursSpecification: {
                 "@type": "OpeningHoursSpecification",
                 dayOfWeek: [
