@@ -1,0 +1,622 @@
+diff --git a/CLAUDE.md b/CLAUDE.md
+index a4d9a10..1e53ec3 100644
+--- a/CLAUDE.md
++++ b/CLAUDE.md
+@@ -9,8 +9,9 @@ Claude Code jest wykonawcą — nie decydentem.
+ ## 1. Co to za projekt
+ 
+ Strona biznesowa fotografa i twórcy wideo **Marcin Szabunia**, B2B.
+-Docelowa domena produkcyjna: **szabunia.pl** (migracja w toku — patrz §9).
+-Obecna domena wpisana w kodzie: `marcinszabunia.pl` (do zmiany — §9).
++Domena produkcyjna: **szabunia.pl**. Migracja zakończona — `grep -rn "marcinszabunia\.pl" src/ public/`
++daje **zero trafień**; stara domena żyje wyłącznie jako host-based 301 w `next.config.ts`.
++Model biznesowy od 23.07.2026: **cena na zapytanie** (bez publicznego cennika i kalkulatora).
+ 
+ Język treści: **polski**. Docelowo druga wersja językowa DE (nie wcześniej niż po pełnym odpaleniu PL).
+ 
+@@ -18,15 +19,17 @@ Język treści: **polski**. Docelowo druga wersja językowa DE (nie wcześniej n
+ 
+ ## 2. Stack (stan faktyczny z `package.json`)
+ 
+-- **Next.js 16.1.6** (App Router)
++- **Next.js 16.2.10** (App Router, Turbopack)
+ - **React 19.2.3 / React DOM 19.2.3**
+ - **TypeScript 5**, tryb `strict: true`
+ - **Tailwind CSS v4** (`@tailwindcss/postcss`, `@import "tailwindcss"`, `@theme inline` w `globals.css` — nie `tailwind.config.js`)
+-- **framer-motion 12.34.2**
++- **framer-motion 12.34.2** — obsługuje dziś JEDEN komponent (`PortfolioGallery.tsx`); reszta animacji to czysty CSS + IntersectionObserver
++- **@upstash/ratelimit + @upstash/redis** — rate-limit tras `/api/*`
++- **@vercel/analytics + @vercel/speed-insights**
+ - **ESLint 9** + `eslint-config-next`
+-- Fonts przez `next/font/google` (Barlow + Inter)
++- Fonts przez `next/font/google` — **wyłącznie Inter**. Token `--font-barlow` to celowy alias Intera (decyzja 2026-07-23, naturalny ogonek „Ę"). Barlow usunięty
+ - Forms: **Resend** (REST API w `/api/contact` i `/api/lead`; zmienna `RESEND_API_KEY`, opc. `CONTACT_TO_EMAIL` / `CONTACT_FROM_EMAIL`)
+-- Hosting docelowy: **Vercel** (jeszcze nie podpięty live na szabunia.pl)
++- Hosting: **Vercel**, produkcja żyje na szabunia.pl. Push do `main` = automatyczny deploy produkcyjny (nie odpalać `vercel --prod` ręcznie)
+ 
+ **Zakaz instalowania nowych dependency bez pisemnej zgody Marcina.** Jeśli zadanie wymaga nowej paczki — zapytaj najpierw, uzasadnij, czekaj na "ok".
+ 
+@@ -43,12 +46,16 @@ src/
+ │   ├── globals.css             # design tokens (@theme inline)
+ │   ├── not-found.tsx
+ │   ├── sitemap.ts
++│   ├── api/                    # contact, lead (jedyne trasy serwerowe)
+ │   ├── blog/
++│   ├── feed.xml/               # RSS
++│   ├── galeria/
++│   ├── kontakt/                # strona docelowa lejka
++│   ├── poradnik/               # lead magnet
+ │   ├── portfolio/
+ │   ├── uslugi/
+-│   ├── kalkulator/
+ │   └── polityka-prywatnosci/
+-├── components/                 # 34 komponenty React
++├── components/                 # 46 komponentów React
+ ├── data/                       # statyczne dane dla komponentów
+ ├── hooks/
+ └── lib/
+@@ -84,7 +91,7 @@ Path alias: **`@/*` → `./src/*`** (z `tsconfig.json`).
+ - `--color-dark-text-muted` `#94A3B8`
+ 
+ ### Typografia
+-- **Nagłówki:** Barlow (600/700/800/900) — `font-barlow`
++- **Nagłówki:** Inter (600/700/800/900) — klasa `font-barlow` (nazwa historyczna, token wskazuje na Intera od 2026-07-23)
+ - **Body:** Inter (400/600) — `font-inter`
+ - Fonty ładowane przez `next/font/google` z `display: swap` — **nie dodawać `<link>` do Google Fonts w `<head>`**.
+ 
+@@ -124,7 +131,7 @@ npm start       # production server (lokalnie)
+ **Definition of Done dla każdego zadania:**
+ 1. `npm run lint` → 0 errors, 0 warnings (warnings dopuszczalne tylko jeśli były wcześniej i nie dotyczą Twoich zmian).
+ 2. `npm run build` → sukces.
+-3. Dev server odpala się bez błędów w konsoli przeglądarki na `/`, `/portfolio`, `/uslugi`, `/blog`, `/kalkulator`.
++3. Dev server odpala się bez błędów w konsoli przeglądarki na `/`, `/portfolio`, `/uslugi`, `/blog`, `/kontakt`.
+ 4. Dark mode toggle działa na wszystkich odwiedzonych stronach.
+ 
+ ---
+@@ -141,11 +148,15 @@ npm start       # production server (lokalnie)
+ ## 8. Środowisko i sekrety
+ 
+ - Przykład w `.env.local.example`. Marcin trzyma `.env.local` lokalnie.
+-- Obecnie używane:
++- Kod czyta **10** zmiennych (`grep -rho "process\.env\.[A-Z_0-9]*" src/ | sort -u`):
+   - `RESEND_API_KEY` — klucz API Resend (WYMAGANE — bez tego `/api/contact` i `/api/lead` zwracają 500)
+-  - `CONTACT_TO_EMAIL` — opcjonalne, adres powiadomień (domyślnie marcin.szabunia@gmail.com)
+-  - `CONTACT_FROM_EMAIL` — opcjonalne, nadawca (domyślnie onboarding@resend.dev)
+-  - `NEXT_PUBLIC_ANALYTICS_URL` — opcjonalne (Plausible/Umami), jeszcze nieustawione
++  - `CONTACT_TO_EMAIL` — adres powiadomień (domyślnie marcin.szabunia@gmail.com)
++  - `CONTACT_FROM_EMAIL` — nadawca. **Domyślny `onboarding@resend.dev` to sandbox Resend** — przepuszcza maile tylko na adres właściciela konta, więc na produkcji musi wskazywać zweryfikowaną domenę
++  - `TURNSTILE_SECRET_KEY` + `NEXT_PUBLIC_TURNSTILE_SITE_KEY` — CAPTCHA formularzy (fail-open z logiem `[ALERT]`)
++  - `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` — rate-limit (fail-open z logiem `[ALERT]`)
++  - `CRM_WEBHOOK_URL` + `CRM_WEBHOOK_SECRET` — webhook do arkusza CRM. **NIE są ustawione na produkcji** (stan 2026-07-29), więc `pushToCrm` jest tam no-opem
++  - `NEXT_PUBLIC_ANALYTICS_URL` — opcjonalne (Plausible/Umami), nieustawione. Uwaga: CSP w `next.config.ts` nie dopuszcza dziś tej domeny, więc skrypt zostałby zablokowany
++- **Ustawione w Vercel (Production i Preview):** 7 pierwszych z listy wyżej. Brakuje obu zmiennych CRM.
+ - **Nigdy nie loguj wartości env do konsoli, nie wstawiaj ich do kodu na stałe, nie commituj `.env*`.**
+ 
+ ---
+@@ -156,22 +167,36 @@ npm start       # production server (lokalnie)
+ 
+ Marka `szabunia.pl` / `marcin@szabunia.pl` / `@szabunia.biz` wdrożona we wszystkich plikach:
+ - `src/app/layout.tsx` — metadataBase, openGraph.url, JSON-LD url/email/image/sameAs, analytics data-domain
+-- `src/app/kalkulator/page.tsx`, `uslugi/[slug]/page.tsx`, `blog/page.tsx`, `blog/[slug]/page.tsx`, `portfolio/[slug]/page.tsx` — openGraph.url + JSON-LD
++- `uslugi/[slug]/page.tsx`, `blog/page.tsx`, `blog/[slug]/page.tsx`, `portfolio/[slug]/page.tsx` — openGraph.url + JSON-LD
+ - `src/app/sitemap.ts` — baseUrl
+ - `src/app/polityka-prywatnosci/page.tsx` — email w treści + głos l. poj.
+ - `src/components/Footer.tsx`, `CTA.tsx`, `About.tsx` — email + Instagram href/display
+ 
+-**Otwarte (brak nowych wartości w source-of-truth):**
+-- LinkedIn: `https://www.linkedin.com/in/marcinszabunia` — potwierdzić lub podać nowy URL
+-- Facebook: `https://www.facebook.com/marcinszabunia.fotograf` — j.w.
++**Social: TYLKO Instagram** (`@szabunia.biz`) — decyzja D z 2026-06-09. `sameAs` w JSON-LD
++zawiera Instagram + wizytówkę Google, bez LinkedIn i Facebooka. Nie dodawać ich bez decyzji
++(uwaga: profil FB istnieje i ma ~1,4 tys. obserwujących — to otwarty temat linkowania, nie błąd).
+ 
+-**Cennik 2026: ZAKTUALIZOWANY** (sesja orchestracyjna, kwiecień 2026).
+-- ESSENTIAL: 1 000 zł (było 850 zł) — 11 miejsc zaktualizowanych
+-- Monthly Content: 4 900 zł/m-c (było 4 000 zł) — 3 miejsca zaktualizowane
+-- EVENT PREMIUM 4 500 zł — dodany w Pricing.tsx, PricingCalculator.tsx, services.tsx (features: TODO do potwierdzenia z Marcinem)
+-- Rabat 10-15% usunięty z FAQ, zastąpiony językiem zakresu
++**Depricing 23.07.2026:** `Pricing.tsx`, `PricingCalculator.tsx` i cała trasa `/kalkulator`
++**USUNIĘTE**. `/kalkulator` → 301 → `/kontakt`. Strona nie publikuje tabel cenowych — zostały
++wyłącznie kotwice „od X zł" w kartach usług (`src/data/services.tsx`). Nie odbudowywać
++sekcji cennika bez wyraźnej decyzji Marcina.
+ 
+-**Znany rozjazd historyczny:** folder/zip `Strona z google ai` w repo to relikt eksperymentu z Gemini. Jest w `tsconfig.exclude`. Nie dotykać, nie importować z niego.
++**Cennik v3 (2026-07-29):** kotwice = portrety 1 100, pakiety hybrydowe 2 100, eventy 600,
++sesje zespołowe 120 zł/os. (stawka od 31 osób; przy 4-10 osobach 180 zł), wideo 400,
++produktowa 600, dron 700. Nazwy pakietów: **STANDARD / PRO / PRO MAX**. Terminy w **dniach
++kalendarzowych** (zdjęcia 14, wideo 21), poprawki w 7 dni od zgłoszenia.
++Pełna siatka cen żyje w `public/llms.txt` i we wpisach `src/data/blog.ts` — **kanon kotwic
++to `src/data/services.tsx`**.
++
++**Box17:** case study `box17-budki-akustyczne` jest w `DRAFT_SLUGS` (`src/data/portfolio.ts`),
++bo brakuje miniatury. Po wgraniu `public/images/portfolio/box17/box17.jpg` wystarczy usunąć
++jedną linię, reszta danych jest gotowa.
++
++**Znany rozjazd historyczny:** folder/zip `Strona z google ai` był reliktem eksperymentu z Gemini —
++**już go w repo nie ma** (wpis w `tsconfig.exclude` jest wyłącznie historyczny).
++
++**Audyty:** metodyka w `docs/METODYKA-AUDYTU.md`, raporty w `docs/sesje/`. Ostatni pełny:
++`AUDYT-PELNY-2026-07-29.md` (moduły A-E + panele) razem z `POPRAWKI-2026-07-29.md`.
+ 
+ ---
+ 
+@@ -242,4 +267,5 @@ Wszystkie pytania, niejasności, wątpliwości → wypisz w sekcji **"Problemy i
+ 
+ ---
+ 
+-*Ostatnia aktualizacja: start sesji orchestracyjnej. Zmiany w tym pliku wymagają zgody Marcina.*
++*Ostatnia aktualizacja: 2026-07-29 (audyt PELNY2907-17 — 8 rozjazdów z kodem wyprostowanych,
++za zgodą Marcina). Zmiany w tym pliku wymagają zgody Marcina.*
+diff --git a/DESIGN.md b/DESIGN.md
+index f148ef5..d3ed8b1 100644
+--- a/DESIGN.md
++++ b/DESIGN.md
+@@ -1,3 +1,9 @@
++> **Aktualizacja 2026-07-29 (audyt PELNY2907-16).** `Pricing.tsx` i `Showreel.tsx`
++> **nie istnieją** — zostały usunięte przy przejściu na model „cena na zapytanie" (23.07.2026).
++> Odwołania do nich zostały ~~przekreślone~~, a nie skasowane, żeby zachować historię decyzji.
++> Nagłówki od 23.07 renderuje **Inter**; token `--font-barlow` to celowy alias, nie błąd.
++> Nie przywracać żadnej z tych rzeczy bez decyzji Marcina.
++
+ # DESIGN.md — System projektowy szabunia.pl
+ 
+ > Plik jest **źródłem prawdy o wizualu i wzorcach komponentów**. Każda sesja
+@@ -23,7 +29,7 @@
+ |---|---|---|---|
+ | `--color-navy` | `navy` | `#0F172A` | Główny tekst, tła sekcji (CTA, Footer), `text-navy` bardzo szeroko |
+ | `--color-navy-light` | `navy-light` | `#1E293B` | Obramowania w dark bg, ikony kontaktowe w CTA, `ThemeToggle.tsx` |
+-| `--color-gray-bg` | `gray-bg` | `#F9FAFB` | Tło body (`bg-gray-bg`), tło sekcji Pricing (`Pricing.tsx:64`) |
++| `--color-gray-bg` | `gray-bg` | `#F9FAFB` | Tło body (`bg-gray-bg`) ~~, tło sekcji Pricing (`Pricing.tsx:64`)~~ |
+ | `--color-blue` | `blue` | `#2563EB` | Akcenty CTA, linki, aktywne stany nav, gradienty przycisków, focus ring |
+ | `--color-blue-light` | `blue-light` | `#3B82F6` | Gradienty (`from-blue to-blue-light`), dark mode akcentów |
+ | `--color-blue-pale` | `blue-pale` | `#EFF6FF` | Tła icon wrapperów (`bg-blue-pale`), ThemeToggle light bg |
+@@ -103,7 +109,8 @@ nowego koloru, zgłasza to w raporcie i czeka na decyzję orchestratora.
+ 
+ ### 2.1 Fonty
+ 
+-- **Heading:** Barlow — wagi `600, 700, 800, 900` — CSS var `--font-barlow` — klasa `font-barlow`
++- **Heading:** **Inter** — wagi `600, 700, 800, 900` — CSS var `--font-barlow` — klasa `font-barlow`
++  (nazwa tokenu została po Barlow; od 2026-07-23 wskazuje na Intera. Decyzja: naturalny ogonek „Ę". ~~Barlow~~)
+ - **Body:** Inter — wagi `400, 600` — CSS var `--font-inter` — klasa `font-inter`
+ - Ładowane przez `next/font/google` z `display: swap` i `subsets: ["latin", "latin-ext"]`
+ - Body element domyślnie: `font-inter antialiased` (`layout.tsx:209`)
+@@ -116,15 +123,15 @@ nowego koloru, zgłasza to w raporcie i czeka na decyzję orchestratora.
+ | **H1** | `font-barlow font-black text-[clamp(40px,7vw,80px)] leading-[0.95] tracking-[-2px]` | `Hero.tsx:20` — tylko Hero, fluid typ |
+ | **H2 standard** | `font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight` | `About.tsx:33`, `Services.tsx:12`, `Process.tsx:54`, `Testimonials.tsx:88` |
+ | **H2 CTA** | `font-barlow font-black text-3xl md:text-[36px] leading-[1.1] tracking-tight` | `CTA.tsx:137` — wariant na ciemnym tle |
+-| **H2 Pricing/sub** | `font-barlow font-bold text-xl` | `Pricing.tsx:134` — subheader sekcji wewnętrznej |
++| ~~**H2 Pricing/sub**~~ | `font-barlow font-bold text-xl` | ~~`Pricing.tsx:134`~~ — wzorzec żyje w `FAQ.tsx` i `Warunki.tsx` |
+ | **H3 karta** | `font-barlow font-bold text-base` | `Services.tsx:33`, `Process.tsx:84` |
+ | **H3 mała** | `font-barlow font-bold text-sm` | `Process.tsx:119` |
+-| **H4 karta cennikowa** | `font-barlow font-bold text-lg` | `Pricing.tsx:115,130,...` |
++| ~~**H4 karta cennikowa**~~ | `font-barlow font-bold text-lg` | ~~`Pricing.tsx:115,130`~~ — wzorzec żyje w `Services.tsx` |
+ | **Body lead** | `font-inter text-[15px] md:text-base leading-relaxed` | `Hero.tsx:27`, `Services.tsx:15` |
+-| **Body small** | `text-[13px] leading-relaxed` | Opisy kart, listy cech: `Services.tsx:36`, `Pricing.tsx:248` |
++| **Body small** | `text-[13px] leading-relaxed` | Opisy kart, listy cech: `Services.tsx:36` ~~, `Pricing.tsx:248`~~ |
+ | **Label / badge** | `text-[11px] font-barlow font-semibold uppercase tracking-wide` | Labele formularzy `CTA.tsx:327` |
+ | **Caption / meta** | `text-xs text-steel-light` | Stopka, social proof |
+-| **Badge pill** | `text-[10px] font-barlow font-bold uppercase tracking-wider` | Badges na kartach cennikowych `Pricing.tsx:152` |
++| **Badge pill** | `text-[10px] font-barlow font-bold uppercase tracking-wider` | ~~Badges na kartach cennikowych `Pricing.tsx:152`~~ — dziś np. „Bestseller" w `Portfolio.tsx` |
+ 
+ ### 2.3 Tracking i line-height patterny
+ 
+@@ -147,7 +154,7 @@ nowego koloru, zgłasza to w raporcie i czeka na decyzję orchestratora.
+ ```html
+ max-w-6xl mx-auto px-4
+ ```
+-Używany w: `CTA.tsx:125`, `Services.tsx:10`, `Pricing.tsx:65`, `Testimonials.tsx:86`, `Footer.tsx:13`, `Hero.tsx:14`
++Używany w: `CTA.tsx:125`, `Services.tsx:10`, ~~`Pricing.tsx:65`~~, `Testimonials.tsx:86`, `Footer.tsx:13`, `Hero.tsx:14`
+ 
+ **Węższy kontener (podstrony usług/portfolio):**
+ ```html
+@@ -165,7 +172,7 @@ Używany w: `PortfolioProcess.tsx:13`, `PortfolioGallery.tsx:49`, `PortfolioPric
+ ```html
+ py-12 md:py-24 px-4
+ ```
+-Używany w: `Services.tsx:9`, `Pricing.tsx:64`, `CTA.tsx:124`, `Showreel.tsx:10`, `Testimonials.tsx:85`, `PortfolioProcess.tsx:12`, `PortfolioFAQ.tsx:15`, `PortfolioGallery.tsx:48`
++Używany w: `Services.tsx:9`, ~~`Pricing.tsx:64`~~, `CTA.tsx:124`, ~~`Showreel.tsx:10`~~, `Testimonials.tsx:85`, `PortfolioProcess.tsx:12`, `PortfolioFAQ.tsx:15`, `PortfolioGallery.tsx:48`
+ 
+ **Hero — wyjątek (offset pod fixed navbar):**
+ ```html
+@@ -184,7 +191,7 @@ px-8 py-10 md:px-12 md:py-14   ← inner card
+ | Layout | Klasy | Gdzie |
+ |---|---|---|
+ | 3-kolumnowa siatka kart | `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4` | `Services.tsx:23` |
+-| 3-kolumnowa cennik | `grid grid-cols-1 md:grid-cols-3 gap-4` | `Pricing.tsx:127,203` |
++| ~~3-kolumnowa cennik~~ | `grid grid-cols-1 md:grid-cols-3 gap-4` | ~~`Pricing.tsx:127,203`~~ — wzorzec żyje w `Process.tsx` i `Services.tsx` |
+ | 2-kolumnowa CTA | `grid md:grid-cols-2 gap-10 items-start` | `CTA.tsx:134` |
+ | 4-kolumnowa stopka | `grid grid-cols-2 md:grid-cols-4 gap-8` | `Footer.tsx:14` |
+ | Hero asymetryczny | `grid md:grid-cols-[1.2fr_0.8fr] gap-8 md:gap-12` | `Hero.tsx:14` |
+@@ -206,7 +213,7 @@ Każda nowa sekcja na stronie głównej:
+ ```
+ Sekcja ze zmienionym tłem (np. Pricing):
+ ```jsx
+-// src/components/Pricing.tsx:64
++// wzorzec pochodzi z usuniętego Pricing.tsx:64 — dziś: Services.tsx
+ <section id="cennik" className="py-12 md:py-24 px-4 bg-gray-bg dark:bg-dark-bg">
+ ```
+ **Zakaz** używania `py-24 md:py-32` — nie ma takiego patternu w projekcie.
+@@ -227,7 +234,7 @@ Standardowa karta (usługa, post, krok procesu):
+ 
+ Karta wyróżniona / "Rekomendowana":
+ ```jsx
+-// src/components/Pricing.tsx:151
++// wzorzec pochodzi z usuniętego Pricing.tsx:151 — dziś: Portfolio.tsx
+ <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border-2
+   border-blue dark:border-blue-light h-full flex flex-col relative
+   shadow-lg shadow-blue/5">
+@@ -307,7 +314,7 @@ Używane wyłącznie w sekcji CTA (ciemne tło `bg-navy`):
+ ### 4.6 Badge / Pill
+ 
+ ```jsx
+-// src/components/Pricing.tsx:152
++// wzorzec pochodzi z usuniętego Pricing.tsx:152 — dziś: Portfolio.tsx
+ <div className="absolute -top-3 right-4 bg-blue text-white px-3 py-0.5
+   rounded-full text-[10px] font-barlow font-bold uppercase tracking-wider">
+   NOWOŚĆ
+diff --git a/src/app/api/contact/route.ts b/src/app/api/contact/route.ts
+index fd82d51..74a0c80 100644
+--- a/src/app/api/contact/route.ts
++++ b/src/app/api/contact/route.ts
+@@ -2,42 +2,17 @@ import { NextResponse } from "next/server";
+ import { getClientIp, isRateLimited } from "@/lib/ratelimit";
+ import { verifyTurnstile } from "@/lib/turnstile";
+ import { isAllowedOrigin } from "@/lib/origin";
++import { escapeHtml, isEmail, sendEmail, utmHtmlBlock, MAIL_FROM, NOTIFY_TO } from "@/lib/mail";
++import { pushToCrm } from "@/lib/crm";
+ 
+ // Wysyłka maili przez Resend REST API (bez dodatkowej paczki npm).
+ // Wymagana zmienna środowiskowa: RESEND_API_KEY
+ // Opcjonalne: CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL
+ export const runtime = "nodejs";
+ 
+-const RESEND_ENDPOINT = "https://api.resend.com/emails";
+-const TO = process.env.CONTACT_TO_EMAIL || "marcin.szabunia@gmail.com";
+-const FROM =
+-  process.env.CONTACT_FROM_EMAIL || "Formularz szabunia.pl <onboarding@resend.dev>";
+-
+-function escapeHtml(value: string): string {
+-  return value
+-    .replace(/&/g, "&amp;")
+-    .replace(/</g, "&lt;")
+-    .replace(/>/g, "&gt;")
+-    .replace(/"/g, "&quot;");
+-}
+-
+-function isEmail(value: string): boolean {
+-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+-}
++const TO = NOTIFY_TO;
++const FROM = MAIL_FROM;
+ 
+-// Best-effort zapis leada do CRM (Google Sheets, Apps Script webhook).
+-// Wymaga: CRM_WEBHOOK_URL + CRM_WEBHOOK_SECRET. Brak zmiennych = no-op.
+-async function pushToCrm(lead: Record<string, string>): Promise<void> {
+-  const url = process.env.CRM_WEBHOOK_URL;
+-  const secret = process.env.CRM_WEBHOOK_SECRET;
+-  if (!url || !secret) return;
+-  await fetch(url, {
+-    method: "POST",
+-    headers: { "Content-Type": "text/plain;charset=utf-8" },
+-    body: JSON.stringify({ ...lead, secret }),
+-    signal: AbortSignal.timeout(5000),
+-  });
+-}
+ 
+ // Treść klauzuli zgody obowiązująca na formularzu kontaktowym. Musi być
+ // zgodna z etykietą w src/components/CTA.tsx (CONSENT_TEXT). Wersjonujemy datą,
+@@ -153,13 +128,7 @@ export async function POST(req: Request) {
+     );
+   }
+ 
+-  const utmHtml = Object.keys(utm).length
+-    ? `<p><strong>Źródło:</strong> ${escapeHtml(
+-        Object.entries(utm)
+-          .map(([k, v]) => `${k}: ${v}`)
+-          .join(" · ")
+-      )}</p>`
+-    : "";
++  const utmHtml = utmHtmlBlock(utm);
+ 
+   const html = `
+     <h2>Nowe zgłoszenie z formularza szabunia.pl</h2>
+@@ -182,19 +151,12 @@ export async function POST(req: Request) {
+   );
+ 
+   try {
+-    const res = await fetch(RESEND_ENDPOINT, {
+-      method: "POST",
+-      headers: {
+-        Authorization: `Bearer ${apiKey}`,
+-        "Content-Type": "application/json",
+-      },
+-      body: JSON.stringify({
+-        from: FROM,
+-        to: [TO],
+-        reply_to: email,
+-        subject: `Nowe zapytanie ze strony: ${name}`,
+-        html,
+-      }),
++    const res = await sendEmail(apiKey, {
++      from: FROM,
++      to: [TO],
++      reply_to: email,
++      subject: `Nowe zapytanie ze strony: ${name}`,
++      html,
+     });
+ 
+     if (!res.ok) {
+diff --git a/src/app/api/lead/route.ts b/src/app/api/lead/route.ts
+index 0b98b1a..76195ae 100644
+--- a/src/app/api/lead/route.ts
++++ b/src/app/api/lead/route.ts
+@@ -2,58 +2,19 @@ import { NextResponse } from "next/server";
+ import { getClientIp, isLeadRateLimited } from "@/lib/ratelimit";
+ import { verifyTurnstile } from "@/lib/turnstile";
+ import { isAllowedOrigin } from "@/lib/origin";
++import { escapeHtml, isEmail, sendEmail, utmHtmlBlock, MAIL_FROM, NOTIFY_TO } from "@/lib/mail";
++import { pushToCrm } from "@/lib/crm";
+ 
+ // Zapis na lead magnet (darmowy poradnik) — wysyłka maili przez Resend REST API
+ // (bez dodatkowej paczki npm). Wymagana zmienna: RESEND_API_KEY.
+ // Opcjonalne: CONTACT_TO_EMAIL (powiadomienie dla Marcina), CONTACT_FROM_EMAIL (nadawca).
+ export const runtime = "nodejs";
+ 
+-const RESEND_ENDPOINT = "https://api.resend.com/emails";
+ const SITE = "https://szabunia.pl";
+ const PDF_URL = `${SITE}/poradnik-przygotowanie-do-sesji.pdf`;
+-const TO = process.env.CONTACT_TO_EMAIL || "marcin.szabunia@gmail.com";
+-const FROM =
+-  process.env.CONTACT_FROM_EMAIL || "Marcin Szabunia <onboarding@resend.dev>";
+-
+-function escapeHtml(value: string): string {
+-  return value
+-    .replace(/&/g, "&amp;")
+-    .replace(/</g, "&lt;")
+-    .replace(/>/g, "&gt;")
+-    .replace(/"/g, "&quot;");
+-}
+-
+-function isEmail(value: string): boolean {
+-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+-}
++const TO = NOTIFY_TO;
++const FROM = MAIL_FROM;
+ 
+-// Best-effort zapis leada do CRM (Google Sheets, Apps Script webhook).
+-// Wymaga: CRM_WEBHOOK_URL + CRM_WEBHOOK_SECRET. Brak zmiennych = no-op.
+-async function pushToCrm(lead: Record<string, string>): Promise<void> {
+-  const url = process.env.CRM_WEBHOOK_URL;
+-  const secret = process.env.CRM_WEBHOOK_SECRET;
+-  if (!url || !secret) return;
+-  await fetch(url, {
+-    method: "POST",
+-    headers: { "Content-Type": "text/plain;charset=utf-8" },
+-    body: JSON.stringify({ ...lead, secret }),
+-    signal: AbortSignal.timeout(5000),
+-  });
+-}
+-
+-async function sendEmail(
+-  apiKey: string,
+-  payload: Record<string, unknown>
+-): Promise<Response> {
+-  return fetch(RESEND_ENDPOINT, {
+-    method: "POST",
+-    headers: {
+-      Authorization: `Bearer ${apiKey}`,
+-      "Content-Type": "application/json",
+-    },
+-    body: JSON.stringify(payload),
+-  });
+-}
+ 
+ // Treść klauzuli zgody marketingowej z formularza poradnika. Musi być zgodna
+ // z etykietą w src/components/PoradnikForm.tsx. Wersjonujemy datą.
+@@ -148,13 +109,7 @@ export async function POST(req: Request) {
+   // Wcześniej odbicie maila do subskrybenta kończyło się 502 i Marcin nie
+   // dowiadywał się nawet, że ktoś próbował pobrać poradnik.
+   try {
+-    const utmHtml = Object.keys(utm).length
+-      ? `<p><strong>Źródło:</strong> ${escapeHtml(
+-          Object.entries(utm)
+-            .map(([k, v]) => `${k}: ${v}`)
+-            .join(" · ")
+-        )}</p>`
+-      : "";
++    const utmHtml = utmHtmlBlock(utm);
+     await sendEmail(apiKey, {
+       from: FROM,
+       to: [TO],
+diff --git a/src/app/blog/[slug]/page.tsx b/src/app/blog/[slug]/page.tsx
+index 826bcff..11a33c0 100644
+--- a/src/app/blog/[slug]/page.tsx
++++ b/src/app/blog/[slug]/page.tsx
+@@ -258,7 +258,7 @@ export default async function BlogPostPage({ params }: PageProps) {
+                 Potrzebujesz zdjęć lub wideo dla firmy?
+               </h2>
+               <p className="text-steel dark:text-dark-text-muted text-[14px] mb-5 max-w-md mx-auto">
+-                Napisz, co chcesz pokazać. Wycenę dostaniesz w 24h.
++                Napisz, co chcesz pokazać. Wstępną wycenę dostaniesz w 24h.
+               </p>
+               <Link
+                 href="/kontakt"
+diff --git a/src/app/kontakt/page.tsx b/src/app/kontakt/page.tsx
+index 95569f4..f8f714e 100644
+--- a/src/app/kontakt/page.tsx
++++ b/src/app/kontakt/page.tsx
+@@ -38,7 +38,7 @@ export const metadata: Metadata = {
+ const contactCards = [
+   {
+     title: "Odezwę się w 24h",
+-    body: "Na każde zapytanie biznesowe odpowiadam w jeden dzień roboczy, z wstępną wyceną i propozycją terminu.",
++    body: "Na każde zapytanie biznesowe odpowiadam w ciągu 24h, ze wstępną wyceną i propozycją terminu.",
+   },
+   {
+     title: "Poznań, cała Polska i Europa",
+@@ -152,7 +152,7 @@ export default function KontaktPage() {
+                 </h2>
+                 <p className="text-[14px] text-steel dark:text-dark-text-muted leading-relaxed">
+                   Przejrzyj pełną ofertę dla firm i napisz, co Cię interesuje,
+-                  wycenę przygotuję w 24h.
++                  wstępną wycenę przygotuję w 24h.
+                 </p>
+               </div>
+               <div className="flex flex-wrap gap-3 shrink-0">
+diff --git a/src/components/CTA.tsx b/src/components/CTA.tsx
+index de2a119..4d1e998 100644
+--- a/src/components/CTA.tsx
++++ b/src/components/CTA.tsx
+@@ -155,7 +155,7 @@ export default function CTA() {
+                   Twój wizerunek
+                 </h2>
+                 <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mb-4">
+-                  Odpowiadam w ciągu 24h ze spersonalizowaną ofertą dopasowaną
++                  Odpowiadam w ciągu 24h ze wstępną wyceną dopasowaną
+                   do Twojego budżetu.
+                 </p>
+ 
+@@ -317,8 +317,7 @@ export default function CTA() {
+                       Wiadomość wysłana!
+                     </p>
+                     <p className="text-steel dark:text-dark-text-muted text-sm mb-6">
+-                      Dziękuję za kontakt. Odpowiem najszybciej jak to możliwe
+-                      (zazwyczaj w ciągu 24h).
++                      Dziękuję za kontakt. Wstępną wycenę odeślę w ciągu 24h.
+                     </p>
+                     <button
+                       onClick={() => {
+diff --git a/src/components/Process.tsx b/src/components/Process.tsx
+index a6c9c86..8b15185 100644
+--- a/src/components/Process.tsx
++++ b/src/components/Process.tsx
+@@ -8,7 +8,7 @@ const steps = [
+   {
+     num: 1,
+     title: "Rozmowa",
+-    desc: "Krótka rozmowa o celu, terminie i budżecie. Wycenę dostajesz w ciągu 24h.",
++    desc: "Krótka rozmowa o celu, terminie i budżecie. Wstępną wycenę dostajesz w ciągu 24h.",
+     icon: (
+       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+         <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+diff --git a/src/components/Services.tsx b/src/components/Services.tsx
+index c6f21fb..a8ca8c3 100644
+--- a/src/components/Services.tsx
++++ b/src/components/Services.tsx
+@@ -113,7 +113,7 @@ export default function Services() {
+           <div className="mt-12 text-center">
+             <p className="text-steel dark:text-dark-text-muted text-[15px] max-w-xl mx-auto">
+               Każdy projekt wyceniam indywidualnie. Napisz w kilku zdaniach, co
+-              planujesz, a wrócę do Ciebie z gotową ofertą{" "}
++              planujesz, a wrócę do Ciebie ze wstępną wyceną{" "}
+               <span className="text-navy dark:text-white font-semibold">w ciągu 24h</span>.
+             </p>
+             <a
+diff --git a/src/data/services.tsx b/src/data/services.tsx
+index 0e0a58e..f810810 100644
+--- a/src/data/services.tsx
++++ b/src/data/services.tsx
+@@ -216,9 +216,10 @@ const serviceCategoriesRaw: ServiceData[] = [
+       { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
+     ],
+     pricingBlurb:
+-      "Wycena zależy od liczby osób i miejsca sesji: Twoje biuro z mobilnym studiem albo studio zewnętrzne. Przy większych zespołach stawka za osobę maleje progresywnie, a sesje realizuję od 4 osób (mniejszym grupom polecam pakiety Wizerunek & Portrety).",
++      "Wycena zależy od liczby osób i miejsca sesji: Twoje biuro z mobilnym studiem albo studio zewnętrzne. Stawka za osobę maleje progresywnie wraz z wielkością zespołu: 120 zł dotyczy zespołów od 31 osób, przy mniejszych grupach jest wyższa. Sesje realizuję od 4 osób (mniejszym grupom polecam pakiety Wizerunek & Portrety).",
+     priceFaqQuestion: "Ile kosztuje sesja zespołowa?",
+     priceFaqIntro: "Sesje zespołowe zaczynają się",
++    priceFaqSuffix: " przy zespołach od 31 osób (przy mniejszych grupach stawka za osobę jest wyższa)",
+     faqs: [
+       { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 3 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
+       { q: "Co z osobami, których nie ma w dniu sesji?", a: "Brakujące osoby dograć można w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu, żeby portrety całego zespołu były spójne. To częsta sytuacja przy większych zespołach i pracy zdalnej." },
+diff --git a/src/lib/crm.ts b/src/lib/crm.ts
+new file mode 100644
+index 0000000..fdecec0
+--- /dev/null
++++ b/src/lib/crm.ts
+@@ -0,0 +1,22 @@
++// Best-effort zapis leada do CRM (Google Sheets przez webhook Apps Script).
++// Wydzielone z obu tras formularzowych (audyt PELNY2907-43).
++//
++// STAN NA 2026-07-29: `CRM_WEBHOOK_URL` i `CRM_WEBHOOK_SECRET` NIE są ustawione
++// na produkcji (sprawdzone w panelu Vercel), więc ta funkcja jest tam no-opem,
++// a arkusz CRM_Szabunia_2026 nie dostaje leadów ze strony. Wdrożenie webhooka
++// czeka po stronie Marcina. Jeśli decyzja padnie na „nie wdrażamy", ten plik
++// i jego wywołania należy usunąć — kod, który wygląda na działającą
++// automatyzację, a nią nie jest, jest gorszy niż brak kodu.
++
++/** Zapis leada. Brak zmiennych środowiskowych = cichy no-op (świadomie). */
++export async function pushToCrm(lead: Record<string, string>): Promise<void> {
++  const url = process.env.CRM_WEBHOOK_URL;
++  const secret = process.env.CRM_WEBHOOK_SECRET;
++  if (!url || !secret) return;
++  await fetch(url, {
++    method: "POST",
++    headers: { "Content-Type": "text/plain;charset=utf-8" },
++    body: JSON.stringify({ ...lead, secret }),
++    signal: AbortSignal.timeout(5000),
++  });
++}
+diff --git a/src/lib/mail.ts b/src/lib/mail.ts
+new file mode 100644
+index 0000000..bdc1c51
+--- /dev/null
++++ b/src/lib/mail.ts
+@@ -0,0 +1,58 @@
++// Wspólne narzędzia obu tras formularzowych (audyt PELNY2907-43).
++//
++// Powód wydzielenia: `escapeHtml`, `isEmail` i wysyłka przez Resend istniały
++// w dwóch identycznych kopiach w `/api/contact` i `/api/lead`. Przez tę
++// dywergencję poprawka dowodu zgody RODO trafiła najpierw tylko do jednego
++// routu i przeszła niezauważona. Jedno źródło zamyka tę klasę błędu.
++
++const RESEND_ENDPOINT = "https://api.resend.com/emails";
++
++/** Adres odbiorcy powiadomień. Domyślnie skrzynka prywatna — na produkcji nadpisywane. */
++export const NOTIFY_TO = process.env.CONTACT_TO_EMAIL || "marcin.szabunia@gmail.com";
++
++/** Nadawca. UWAGA: domyślny `onboarding@resend.dev` to sandbox Resend, który
++ *  przepuszcza maile wyłącznie na adres właściciela konta. Na produkcji
++ *  `CONTACT_FROM_EMAIL` musi wskazywać zweryfikowaną domenę, inaczej mail
++ *  z poradnikiem do subskrybenta się odbije (audyt PELNY2907-15). */
++export const MAIL_FROM =
++  process.env.CONTACT_FROM_EMAIL || "Formularz szabunia.pl <onboarding@resend.dev>";
++
++/** Escapowanie treści od użytkownika przed wstawieniem do HTML maila.
++ *  Apostrof świadomie pominięty — wartości trafiają wyłącznie do węzłów
++ *  tekstowych, nigdy do atrybutów. */
++export function escapeHtml(value: string): string {
++  return value
++    .replace(/&/g, "&amp;")
++    .replace(/</g, "&lt;")
++    .replace(/>/g, "&gt;")
++    .replace(/"/g, "&quot;");
++}
++
++export function isEmail(value: string): boolean {
++  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
++}
++
++/** Wysyłka przez Resend REST API — bez dodatkowej paczki npm. */
++export async function sendEmail(
++  apiKey: string,
++  payload: Record<string, unknown>
++): Promise<Response> {
++  return fetch(RESEND_ENDPOINT, {
++    method: "POST",
++    headers: {
++      Authorization: `Bearer ${apiKey}`,
++      "Content-Type": "application/json",
++    },
++    body: JSON.stringify(payload),
++  });
++}
++
++/** Blok HTML ze źródłem ruchu (UTM/gclid) albo pusty string. */
++export function utmHtmlBlock(utm: Record<string, string>): string {
++  if (!Object.keys(utm).length) return "";
++  return `<p><strong>Źródło:</strong> ${escapeHtml(
++    Object.entries(utm)
++      .map(([k, v]) => `${k}: ${v}`)
++      .join(" · ")
++  )}</p>`;
++}

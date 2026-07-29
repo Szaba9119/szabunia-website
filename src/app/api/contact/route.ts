@@ -2,42 +2,17 @@ import { NextResponse } from "next/server";
 import { getClientIp, isRateLimited } from "@/lib/ratelimit";
 import { verifyTurnstile } from "@/lib/turnstile";
 import { isAllowedOrigin } from "@/lib/origin";
+import { escapeHtml, isEmail, sendEmail, utmHtmlBlock, MAIL_FROM, NOTIFY_TO } from "@/lib/mail";
+import { pushToCrm } from "@/lib/crm";
 
 // Wysyłka maili przez Resend REST API (bez dodatkowej paczki npm).
 // Wymagana zmienna środowiskowa: RESEND_API_KEY
 // Opcjonalne: CONTACT_TO_EMAIL, CONTACT_FROM_EMAIL
 export const runtime = "nodejs";
 
-const RESEND_ENDPOINT = "https://api.resend.com/emails";
-const TO = process.env.CONTACT_TO_EMAIL || "marcin.szabunia@gmail.com";
-const FROM =
-  process.env.CONTACT_FROM_EMAIL || "Formularz szabunia.pl <onboarding@resend.dev>";
+const TO = NOTIFY_TO;
+const FROM = MAIL_FROM;
 
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-
-function isEmail(value: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}
-
-// Best-effort zapis leada do CRM (Google Sheets, Apps Script webhook).
-// Wymaga: CRM_WEBHOOK_URL + CRM_WEBHOOK_SECRET. Brak zmiennych = no-op.
-async function pushToCrm(lead: Record<string, string>): Promise<void> {
-  const url = process.env.CRM_WEBHOOK_URL;
-  const secret = process.env.CRM_WEBHOOK_SECRET;
-  if (!url || !secret) return;
-  await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "text/plain;charset=utf-8" },
-    body: JSON.stringify({ ...lead, secret }),
-    signal: AbortSignal.timeout(5000),
-  });
-}
 
 // Treść klauzuli zgody obowiązująca na formularzu kontaktowym. Musi być
 // zgodna z etykietą w src/components/CTA.tsx (CONSENT_TEXT). Wersjonujemy datą,
@@ -153,13 +128,7 @@ export async function POST(req: Request) {
     );
   }
 
-  const utmHtml = Object.keys(utm).length
-    ? `<p><strong>Źródło:</strong> ${escapeHtml(
-        Object.entries(utm)
-          .map(([k, v]) => `${k}: ${v}`)
-          .join(" · ")
-      )}</p>`
-    : "";
+  const utmHtml = utmHtmlBlock(utm);
 
   const html = `
     <h2>Nowe zgłoszenie z formularza szabunia.pl</h2>
@@ -182,19 +151,12 @@ export async function POST(req: Request) {
   );
 
   try {
-    const res = await fetch(RESEND_ENDPOINT, {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: FROM,
-        to: [TO],
-        reply_to: email,
-        subject: `Nowe zapytanie ze strony: ${name}`,
-        html,
-      }),
+    const res = await sendEmail(apiKey, {
+      from: FROM,
+      to: [TO],
+      reply_to: email,
+      subject: `Nowe zapytanie ze strony: ${name}`,
+      html,
     });
 
     if (!res.ok) {

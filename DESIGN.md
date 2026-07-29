@@ -1,3 +1,9 @@
+> **Aktualizacja 2026-07-29 (audyt PELNY2907-16).** `Pricing.tsx` i `Showreel.tsx`
+> **nie istnieją** — zostały usunięte przy przejściu na model „cena na zapytanie" (23.07.2026).
+> Odwołania do nich zostały ~~przekreślone~~, a nie skasowane, żeby zachować historię decyzji.
+> Nagłówki od 23.07 renderuje **Inter**; token `--font-barlow` to celowy alias, nie błąd.
+> Nie przywracać żadnej z tych rzeczy bez decyzji Marcina.
+
 # DESIGN.md — System projektowy szabunia.pl
 
 > Plik jest **źródłem prawdy o wizualu i wzorcach komponentów**. Każda sesja
@@ -23,7 +29,7 @@
 |---|---|---|---|
 | `--color-navy` | `navy` | `#0F172A` | Główny tekst, tła sekcji (CTA, Footer), `text-navy` bardzo szeroko |
 | `--color-navy-light` | `navy-light` | `#1E293B` | Obramowania w dark bg, ikony kontaktowe w CTA, `ThemeToggle.tsx` |
-| `--color-gray-bg` | `gray-bg` | `#F9FAFB` | Tło body (`bg-gray-bg`), tło sekcji Pricing (`Pricing.tsx:64`) |
+| `--color-gray-bg` | `gray-bg` | `#F9FAFB` | Tło body (`bg-gray-bg`) ~~, tło sekcji Pricing (`Pricing.tsx:64`)~~ |
 | `--color-blue` | `blue` | `#2563EB` | Akcenty CTA, linki, aktywne stany nav, gradienty przycisków, focus ring |
 | `--color-blue-light` | `blue-light` | `#3B82F6` | Gradienty (`from-blue to-blue-light`), dark mode akcentów |
 | `--color-blue-pale` | `blue-pale` | `#EFF6FF` | Tła icon wrapperów (`bg-blue-pale`), ThemeToggle light bg |
@@ -103,7 +109,8 @@ nowego koloru, zgłasza to w raporcie i czeka na decyzję orchestratora.
 
 ### 2.1 Fonty
 
-- **Heading:** Barlow — wagi `600, 700, 800, 900` — CSS var `--font-barlow` — klasa `font-barlow`
+- **Heading:** **Inter** — wagi `600, 700, 800, 900` — CSS var `--font-barlow` — klasa `font-barlow`
+  (nazwa tokenu została po Barlow; od 2026-07-23 wskazuje na Intera. Decyzja: naturalny ogonek „Ę". ~~Barlow~~)
 - **Body:** Inter — wagi `400, 600` — CSS var `--font-inter` — klasa `font-inter`
 - Ładowane przez `next/font/google` z `display: swap` i `subsets: ["latin", "latin-ext"]`
 - Body element domyślnie: `font-inter antialiased` (`layout.tsx:209`)
@@ -116,15 +123,15 @@ nowego koloru, zgłasza to w raporcie i czeka na decyzję orchestratora.
 | **H1** | `font-barlow font-black text-[clamp(40px,7vw,80px)] leading-[0.95] tracking-[-2px]` | `Hero.tsx:20` — tylko Hero, fluid typ |
 | **H2 standard** | `font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight` | `About.tsx:33`, `Services.tsx:12`, `Process.tsx:54`, `Testimonials.tsx:88` |
 | **H2 CTA** | `font-barlow font-black text-3xl md:text-[36px] leading-[1.1] tracking-tight` | `CTA.tsx:137` — wariant na ciemnym tle |
-| **H2 Pricing/sub** | `font-barlow font-bold text-xl` | `Pricing.tsx:134` — subheader sekcji wewnętrznej |
+| ~~**H2 Pricing/sub**~~ | `font-barlow font-bold text-xl` | ~~`Pricing.tsx:134`~~ — wzorzec żyje w `FAQ.tsx` i `Warunki.tsx` |
 | **H3 karta** | `font-barlow font-bold text-base` | `Services.tsx:33`, `Process.tsx:84` |
 | **H3 mała** | `font-barlow font-bold text-sm` | `Process.tsx:119` |
-| **H4 karta cennikowa** | `font-barlow font-bold text-lg` | `Pricing.tsx:115,130,...` |
+| ~~**H4 karta cennikowa**~~ | `font-barlow font-bold text-lg` | ~~`Pricing.tsx:115,130`~~ — wzorzec żyje w `Services.tsx` |
 | **Body lead** | `font-inter text-[15px] md:text-base leading-relaxed` | `Hero.tsx:27`, `Services.tsx:15` |
-| **Body small** | `text-[13px] leading-relaxed` | Opisy kart, listy cech: `Services.tsx:36`, `Pricing.tsx:248` |
+| **Body small** | `text-[13px] leading-relaxed` | Opisy kart, listy cech: `Services.tsx:36` ~~, `Pricing.tsx:248`~~ |
 | **Label / badge** | `text-[11px] font-barlow font-semibold uppercase tracking-wide` | Labele formularzy `CTA.tsx:327` |
 | **Caption / meta** | `text-xs text-steel-light` | Stopka, social proof |
-| **Badge pill** | `text-[10px] font-barlow font-bold uppercase tracking-wider` | Badges na kartach cennikowych `Pricing.tsx:152` |
+| **Badge pill** | `text-[10px] font-barlow font-bold uppercase tracking-wider` | ~~Badges na kartach cennikowych `Pricing.tsx:152`~~ — dziś np. „Bestseller" w `Portfolio.tsx` |
 
 ### 2.3 Tracking i line-height patterny
 
@@ -147,7 +154,7 @@ nowego koloru, zgłasza to w raporcie i czeka na decyzję orchestratora.
 ```html
 max-w-6xl mx-auto px-4
 ```
-Używany w: `CTA.tsx:125`, `Services.tsx:10`, `Pricing.tsx:65`, `Testimonials.tsx:86`, `Footer.tsx:13`, `Hero.tsx:14`
+Używany w: `CTA.tsx:125`, `Services.tsx:10`, ~~`Pricing.tsx:65`~~, `Testimonials.tsx:86`, `Footer.tsx:13`, `Hero.tsx:14`
 
 **Węższy kontener (podstrony usług/portfolio):**
 ```html
@@ -165,7 +172,7 @@ Używany w: `PortfolioProcess.tsx:13`, `PortfolioGallery.tsx:49`, `PortfolioPric
 ```html
 py-12 md:py-24 px-4
 ```
-Używany w: `Services.tsx:9`, `Pricing.tsx:64`, `CTA.tsx:124`, `Showreel.tsx:10`, `Testimonials.tsx:85`, `PortfolioProcess.tsx:12`, `PortfolioFAQ.tsx:15`, `PortfolioGallery.tsx:48`
+Używany w: `Services.tsx:9`, ~~`Pricing.tsx:64`~~, `CTA.tsx:124`, ~~`Showreel.tsx:10`~~, `Testimonials.tsx:85`, `PortfolioProcess.tsx:12`, `PortfolioFAQ.tsx:15`, `PortfolioGallery.tsx:48`
 
 **Hero — wyjątek (offset pod fixed navbar):**
 ```html
@@ -184,7 +191,7 @@ px-8 py-10 md:px-12 md:py-14   ← inner card
 | Layout | Klasy | Gdzie |
 |---|---|---|
 | 3-kolumnowa siatka kart | `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4` | `Services.tsx:23` |
-| 3-kolumnowa cennik | `grid grid-cols-1 md:grid-cols-3 gap-4` | `Pricing.tsx:127,203` |
+| ~~3-kolumnowa cennik~~ | `grid grid-cols-1 md:grid-cols-3 gap-4` | ~~`Pricing.tsx:127,203`~~ — wzorzec żyje w `Process.tsx` i `Services.tsx` |
 | 2-kolumnowa CTA | `grid md:grid-cols-2 gap-10 items-start` | `CTA.tsx:134` |
 | 4-kolumnowa stopka | `grid grid-cols-2 md:grid-cols-4 gap-8` | `Footer.tsx:14` |
 | Hero asymetryczny | `grid md:grid-cols-[1.2fr_0.8fr] gap-8 md:gap-12` | `Hero.tsx:14` |
@@ -206,7 +213,7 @@ Każda nowa sekcja na stronie głównej:
 ```
 Sekcja ze zmienionym tłem (np. Pricing):
 ```jsx
-// src/components/Pricing.tsx:64
+// wzorzec pochodzi z usuniętego Pricing.tsx:64 — dziś: Services.tsx
 <section id="cennik" className="py-12 md:py-24 px-4 bg-gray-bg dark:bg-dark-bg">
 ```
 **Zakaz** używania `py-24 md:py-32` — nie ma takiego patternu w projekcie.
@@ -227,7 +234,7 @@ Standardowa karta (usługa, post, krok procesu):
 
 Karta wyróżniona / "Rekomendowana":
 ```jsx
-// src/components/Pricing.tsx:151
+// wzorzec pochodzi z usuniętego Pricing.tsx:151 — dziś: Portfolio.tsx
 <div className="bg-white dark:bg-dark-card rounded-2xl p-6 border-2
   border-blue dark:border-blue-light h-full flex flex-col relative
   shadow-lg shadow-blue/5">
@@ -307,7 +314,7 @@ Używane wyłącznie w sekcji CTA (ciemne tło `bg-navy`):
 ### 4.6 Badge / Pill
 
 ```jsx
-// src/components/Pricing.tsx:152
+// wzorzec pochodzi z usuniętego Pricing.tsx:152 — dziś: Portfolio.tsx
 <div className="absolute -top-3 right-4 bg-blue text-white px-3 py-0.5
   rounded-full text-[10px] font-barlow font-bold uppercase tracking-wider">
   NOWOŚĆ

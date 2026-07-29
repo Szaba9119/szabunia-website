@@ -9,8 +9,9 @@ Claude Code jest wykonawcą — nie decydentem.
 ## 1. Co to za projekt
 
 Strona biznesowa fotografa i twórcy wideo **Marcin Szabunia**, B2B.
-Docelowa domena produkcyjna: **szabunia.pl** (migracja w toku — patrz §9).
-Obecna domena wpisana w kodzie: `marcinszabunia.pl` (do zmiany — §9).
+Domena produkcyjna: **szabunia.pl**. Migracja zakończona — `grep -rn "marcinszabunia\.pl" src/ public/`
+daje **zero trafień**; stara domena żyje wyłącznie jako host-based 301 w `next.config.ts`.
+Model biznesowy od 23.07.2026: **cena na zapytanie** (bez publicznego cennika i kalkulatora).
 
 Język treści: **polski**. Docelowo druga wersja językowa DE (nie wcześniej niż po pełnym odpaleniu PL).
 
@@ -18,15 +19,17 @@ Język treści: **polski**. Docelowo druga wersja językowa DE (nie wcześniej n
 
 ## 2. Stack (stan faktyczny z `package.json`)
 
-- **Next.js 16.1.6** (App Router)
+- **Next.js 16.2.10** (App Router, Turbopack)
 - **React 19.2.3 / React DOM 19.2.3**
 - **TypeScript 5**, tryb `strict: true`
 - **Tailwind CSS v4** (`@tailwindcss/postcss`, `@import "tailwindcss"`, `@theme inline` w `globals.css` — nie `tailwind.config.js`)
-- **framer-motion 12.34.2**
+- **framer-motion 12.34.2** — obsługuje dziś JEDEN komponent (`PortfolioGallery.tsx`); reszta animacji to czysty CSS + IntersectionObserver
+- **@upstash/ratelimit + @upstash/redis** — rate-limit tras `/api/*`
+- **@vercel/analytics + @vercel/speed-insights**
 - **ESLint 9** + `eslint-config-next`
-- Fonts przez `next/font/google` (Barlow + Inter)
+- Fonts przez `next/font/google` — **wyłącznie Inter**. Token `--font-barlow` to celowy alias Intera (decyzja 2026-07-23, naturalny ogonek „Ę"). Barlow usunięty
 - Forms: **Resend** (REST API w `/api/contact` i `/api/lead`; zmienna `RESEND_API_KEY`, opc. `CONTACT_TO_EMAIL` / `CONTACT_FROM_EMAIL`)
-- Hosting docelowy: **Vercel** (jeszcze nie podpięty live na szabunia.pl)
+- Hosting: **Vercel**, produkcja żyje na szabunia.pl. Push do `main` = automatyczny deploy produkcyjny (nie odpalać `vercel --prod` ręcznie)
 
 **Zakaz instalowania nowych dependency bez pisemnej zgody Marcina.** Jeśli zadanie wymaga nowej paczki — zapytaj najpierw, uzasadnij, czekaj na "ok".
 
@@ -43,12 +46,16 @@ src/
 │   ├── globals.css             # design tokens (@theme inline)
 │   ├── not-found.tsx
 │   ├── sitemap.ts
+│   ├── api/                    # contact, lead (jedyne trasy serwerowe)
 │   ├── blog/
+│   ├── feed.xml/               # RSS
+│   ├── galeria/
+│   ├── kontakt/                # strona docelowa lejka
+│   ├── poradnik/               # lead magnet
 │   ├── portfolio/
 │   ├── uslugi/
-│   ├── kalkulator/
 │   └── polityka-prywatnosci/
-├── components/                 # 34 komponenty React
+├── components/                 # 46 komponentów React
 ├── data/                       # statyczne dane dla komponentów
 ├── hooks/
 └── lib/
@@ -84,7 +91,7 @@ Path alias: **`@/*` → `./src/*`** (z `tsconfig.json`).
 - `--color-dark-text-muted` `#94A3B8`
 
 ### Typografia
-- **Nagłówki:** Barlow (600/700/800/900) — `font-barlow`
+- **Nagłówki:** Inter (600/700/800/900) — klasa `font-barlow` (nazwa historyczna, token wskazuje na Intera od 2026-07-23)
 - **Body:** Inter (400/600) — `font-inter`
 - Fonty ładowane przez `next/font/google` z `display: swap` — **nie dodawać `<link>` do Google Fonts w `<head>`**.
 
@@ -124,7 +131,7 @@ npm start       # production server (lokalnie)
 **Definition of Done dla każdego zadania:**
 1. `npm run lint` → 0 errors, 0 warnings (warnings dopuszczalne tylko jeśli były wcześniej i nie dotyczą Twoich zmian).
 2. `npm run build` → sukces.
-3. Dev server odpala się bez błędów w konsoli przeglądarki na `/`, `/portfolio`, `/uslugi`, `/blog`, `/kalkulator`.
+3. Dev server odpala się bez błędów w konsoli przeglądarki na `/`, `/portfolio`, `/uslugi`, `/blog`, `/kontakt`.
 4. Dark mode toggle działa na wszystkich odwiedzonych stronach.
 
 ---
@@ -141,11 +148,15 @@ npm start       # production server (lokalnie)
 ## 8. Środowisko i sekrety
 
 - Przykład w `.env.local.example`. Marcin trzyma `.env.local` lokalnie.
-- Obecnie używane:
+- Kod czyta **10** zmiennych (`grep -rho "process\.env\.[A-Z_0-9]*" src/ | sort -u`):
   - `RESEND_API_KEY` — klucz API Resend (WYMAGANE — bez tego `/api/contact` i `/api/lead` zwracają 500)
-  - `CONTACT_TO_EMAIL` — opcjonalne, adres powiadomień (domyślnie marcin.szabunia@gmail.com)
-  - `CONTACT_FROM_EMAIL` — opcjonalne, nadawca (domyślnie onboarding@resend.dev)
-  - `NEXT_PUBLIC_ANALYTICS_URL` — opcjonalne (Plausible/Umami), jeszcze nieustawione
+  - `CONTACT_TO_EMAIL` — adres powiadomień (domyślnie marcin.szabunia@gmail.com)
+  - `CONTACT_FROM_EMAIL` — nadawca. **Domyślny `onboarding@resend.dev` to sandbox Resend** — przepuszcza maile tylko na adres właściciela konta, więc na produkcji musi wskazywać zweryfikowaną domenę
+  - `TURNSTILE_SECRET_KEY` + `NEXT_PUBLIC_TURNSTILE_SITE_KEY` — CAPTCHA formularzy (fail-open z logiem `[ALERT]`)
+  - `UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN` — rate-limit (fail-open z logiem `[ALERT]`)
+  - `CRM_WEBHOOK_URL` + `CRM_WEBHOOK_SECRET` — webhook do arkusza CRM. **NIE są ustawione na produkcji** (stan 2026-07-29), więc `pushToCrm` jest tam no-opem
+  - `NEXT_PUBLIC_ANALYTICS_URL` — opcjonalne (Plausible/Umami), nieustawione. Uwaga: CSP w `next.config.ts` nie dopuszcza dziś tej domeny, więc skrypt zostałby zablokowany
+- **Ustawione w Vercel (Production i Preview):** 7 pierwszych z listy wyżej. Brakuje obu zmiennych CRM.
 - **Nigdy nie loguj wartości env do konsoli, nie wstawiaj ich do kodu na stałe, nie commituj `.env*`.**
 
 ---
@@ -156,22 +167,36 @@ npm start       # production server (lokalnie)
 
 Marka `szabunia.pl` / `marcin@szabunia.pl` / `@szabunia.biz` wdrożona we wszystkich plikach:
 - `src/app/layout.tsx` — metadataBase, openGraph.url, JSON-LD url/email/image/sameAs, analytics data-domain
-- `src/app/kalkulator/page.tsx`, `uslugi/[slug]/page.tsx`, `blog/page.tsx`, `blog/[slug]/page.tsx`, `portfolio/[slug]/page.tsx` — openGraph.url + JSON-LD
+- `uslugi/[slug]/page.tsx`, `blog/page.tsx`, `blog/[slug]/page.tsx`, `portfolio/[slug]/page.tsx` — openGraph.url + JSON-LD
 - `src/app/sitemap.ts` — baseUrl
 - `src/app/polityka-prywatnosci/page.tsx` — email w treści + głos l. poj.
 - `src/components/Footer.tsx`, `CTA.tsx`, `About.tsx` — email + Instagram href/display
 
-**Otwarte (brak nowych wartości w source-of-truth):**
-- LinkedIn: `https://www.linkedin.com/in/marcinszabunia` — potwierdzić lub podać nowy URL
-- Facebook: `https://www.facebook.com/marcinszabunia.fotograf` — j.w.
+**Social: TYLKO Instagram** (`@szabunia.biz`) — decyzja D z 2026-06-09. `sameAs` w JSON-LD
+zawiera Instagram + wizytówkę Google, bez LinkedIn i Facebooka. Nie dodawać ich bez decyzji
+(uwaga: profil FB istnieje i ma ~1,4 tys. obserwujących — to otwarty temat linkowania, nie błąd).
 
-**Cennik 2026: ZAKTUALIZOWANY** (sesja orchestracyjna, kwiecień 2026).
-- ESSENTIAL: 1 000 zł (było 850 zł) — 11 miejsc zaktualizowanych
-- Monthly Content: 4 900 zł/m-c (było 4 000 zł) — 3 miejsca zaktualizowane
-- EVENT PREMIUM 4 500 zł — dodany w Pricing.tsx, PricingCalculator.tsx, services.tsx (features: TODO do potwierdzenia z Marcinem)
-- Rabat 10-15% usunięty z FAQ, zastąpiony językiem zakresu
+**Depricing 23.07.2026:** `Pricing.tsx`, `PricingCalculator.tsx` i cała trasa `/kalkulator`
+**USUNIĘTE**. `/kalkulator` → 301 → `/kontakt`. Strona nie publikuje tabel cenowych — zostały
+wyłącznie kotwice „od X zł" w kartach usług (`src/data/services.tsx`). Nie odbudowywać
+sekcji cennika bez wyraźnej decyzji Marcina.
 
-**Znany rozjazd historyczny:** folder/zip `Strona z google ai` w repo to relikt eksperymentu z Gemini. Jest w `tsconfig.exclude`. Nie dotykać, nie importować z niego.
+**Cennik v3 (2026-07-29):** kotwice = portrety 1 100, pakiety hybrydowe 2 100, eventy 600,
+sesje zespołowe 120 zł/os. (stawka od 31 osób; przy 4-10 osobach 180 zł), wideo 400,
+produktowa 600, dron 700. Nazwy pakietów: **STANDARD / PRO / PRO MAX**. Terminy w **dniach
+kalendarzowych** (zdjęcia 14, wideo 21), poprawki w 7 dni od zgłoszenia.
+Pełna siatka cen żyje w `public/llms.txt` i we wpisach `src/data/blog.ts` — **kanon kotwic
+to `src/data/services.tsx`**.
+
+**Box17:** case study `box17-budki-akustyczne` jest w `DRAFT_SLUGS` (`src/data/portfolio.ts`),
+bo brakuje miniatury. Po wgraniu `public/images/portfolio/box17/box17.jpg` wystarczy usunąć
+jedną linię, reszta danych jest gotowa.
+
+**Znany rozjazd historyczny:** folder/zip `Strona z google ai` był reliktem eksperymentu z Gemini —
+**już go w repo nie ma** (wpis w `tsconfig.exclude` jest wyłącznie historyczny).
+
+**Audyty:** metodyka w `docs/METODYKA-AUDYTU.md`, raporty w `docs/sesje/`. Ostatni pełny:
+`AUDYT-PELNY-2026-07-29.md` (moduły A-E + panele) razem z `POPRAWKI-2026-07-29.md`.
 
 ---
 
@@ -242,4 +267,5 @@ Wszystkie pytania, niejasności, wątpliwości → wypisz w sekcji **"Problemy i
 
 ---
 
-*Ostatnia aktualizacja: start sesji orchestracyjnej. Zmiany w tym pliku wymagają zgody Marcina.*
+*Ostatnia aktualizacja: 2026-07-29 (audyt PELNY2907-17 — 8 rozjazdów z kodem wyprostowanych,
+za zgodą Marcina). Zmiany w tym pliku wymagają zgody Marcina.*

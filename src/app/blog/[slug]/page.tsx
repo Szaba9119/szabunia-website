@@ -258,7 +258,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 Potrzebujesz zdjęć lub wideo dla firmy?
               </h2>
               <p className="text-steel dark:text-dark-text-muted text-[14px] mb-5 max-w-md mx-auto">
-                Napisz, co chcesz pokazać. Wycenę dostaniesz w 24h.
+                Napisz, co chcesz pokazać. Wstępną wycenę dostaniesz w 24h.
               </p>
               <Link
                 href="/kontakt"

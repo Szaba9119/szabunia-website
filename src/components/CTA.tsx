@@ -155,7 +155,7 @@ export default function CTA() {
                   Twój wizerunek
                 </h2>
                 <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mb-4">
-                  Odpowiadam w ciągu 24h ze spersonalizowaną ofertą dopasowaną
+                  Odpowiadam w ciągu 24h ze wstępną wyceną dopasowaną
                   do Twojego budżetu.
                 </p>
 
@@ -317,8 +317,7 @@ export default function CTA() {
                       Wiadomość wysłana!
                     </p>
                     <p className="text-steel dark:text-dark-text-muted text-sm mb-6">
-                      Dziękuję za kontakt. Odpowiem najszybciej jak to możliwe
-                      (zazwyczaj w ciągu 24h).
+                      Dziękuję za kontakt. Wstępną wycenę odeślę w ciągu 24h.
                     </p>
                     <button
                       onClick={() => {

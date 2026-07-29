@@ -113,7 +113,7 @@ export default function Services() {
           <div className="mt-12 text-center">
             <p className="text-steel dark:text-dark-text-muted text-[15px] max-w-xl mx-auto">
               Każdy projekt wyceniam indywidualnie. Napisz w kilku zdaniach, co
-              planujesz, a wrócę do Ciebie z gotową ofertą{" "}
+              planujesz, a wrócę do Ciebie ze wstępną wyceną{" "}
               <span className="text-navy dark:text-white font-semibold">w ciągu 24h</span>.
             </p>
             <a

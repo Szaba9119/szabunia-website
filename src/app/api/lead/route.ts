@@ -2,58 +2,19 @@ import { NextResponse } from "next/server";
 import { getClientIp, isLeadRateLimited } from "@/lib/ratelimit";
 import { verifyTurnstile } from "@/lib/turnstile";
 import { isAllowedOrigin } from "@/lib/origin";
+import { escapeHtml, isEmail, sendEmail, utmHtmlBlock, MAIL_FROM, NOTIFY_TO } from "@/lib/mail";
+import { pushToCrm } from "@/lib/crm";
 
 // Zapis na lead magnet (darmowy poradnik) — wysyłka maili przez Resend REST API
 // (bez dodatkowej paczki npm). Wymagana zmienna: RESEND_API_KEY.
 // Opcjonalne: CONTACT_TO_EMAIL (powiadomienie dla Marcina), CONTACT_FROM_EMAIL (nadawca).
 export const runtime = "nodejs";
 
-const RESEND_ENDPOINT = "https://api.resend.com/emails";
 const SITE = "https://szabunia.pl";
 const PDF_URL = `${SITE}/poradnik-przygotowanie-do-sesji.pdf`;
-const TO = process.env.CONTACT_TO_EMAIL || "marcin.szabunia@gmail.com";
-const FROM =
-  process.env.CONTACT_FROM_EMAIL || "Marcin Szabunia <onboarding@resend.dev>";
+const TO = NOTIFY_TO;
+const FROM = MAIL_FROM;
 
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-
-function isEmail(value: string): boolean {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}
-
-// Best-effort zapis leada do CRM (Google Sheets, Apps Script webhook).
-// Wymaga: CRM_WEBHOOK_URL + CRM_WEBHOOK_SECRET. Brak zmiennych = no-op.
-async function pushToCrm(lead: Record<string, string>): Promise<void> {
-  const url = process.env.CRM_WEBHOOK_URL;
-  const secret = process.env.CRM_WEBHOOK_SECRET;
-  if (!url || !secret) return;
-  await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "text/plain;charset=utf-8" },
-    body: JSON.stringify({ ...lead, secret }),
-    signal: AbortSignal.timeout(5000),
-  });
-}
-
-async function sendEmail(
-  apiKey: string,
-  payload: Record<string, unknown>
-): Promise<Response> {
-  return fetch(RESEND_ENDPOINT, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
-  });
-}
 
 // Treść klauzuli zgody marketingowej z formularza poradnika. Musi być zgodna
 // z etykietą w src/components/PoradnikForm.tsx. Wersjonujemy datą.
@@ -148,13 +109,7 @@ export async function POST(req: Request) {
   // Wcześniej odbicie maila do subskrybenta kończyło się 502 i Marcin nie
   // dowiadywał się nawet, że ktoś próbował pobrać poradnik.
   try {
-    const utmHtml = Object.keys(utm).length
-      ? `<p><strong>Źródło:</strong> ${escapeHtml(
-          Object.entries(utm)
-            .map(([k, v]) => `${k}: ${v}`)
-            .join(" · ")
-        )}</p>`
-      : "";
+    const utmHtml = utmHtmlBlock(utm);
     await sendEmail(apiKey, {
       from: FROM,
       to: [TO],

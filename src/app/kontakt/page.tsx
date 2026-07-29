@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 const contactCards = [
   {
     title: "Odezwę się w 24h",
-    body: "Na każde zapytanie biznesowe odpowiadam w jeden dzień roboczy, z wstępną wyceną i propozycją terminu.",
+    body: "Na każde zapytanie biznesowe odpowiadam w ciągu 24h, ze wstępną wyceną i propozycją terminu.",
   },
   {
     title: "Poznań, cała Polska i Europa",
@@ -152,7 +152,7 @@ export default function KontaktPage() {
                 </h2>
                 <p className="text-[14px] text-steel dark:text-dark-text-muted leading-relaxed">
                   Przejrzyj pełną ofertę dla firm i napisz, co Cię interesuje,
-                  wycenę przygotuję w 24h.
+                  wstępną wycenę przygotuję w 24h.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 shrink-0">
