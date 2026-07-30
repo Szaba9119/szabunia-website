@@ -21,6 +21,12 @@ export interface ServiceData {
       to klientowi przez telefon"). Miasto w H1 tylko wtedy, gdy wychodzi naturalnie
       w zdaniu, jak „Obsługa eventów firmowych w Poznaniu". */
   h1?: string;
+  /** Nagłówki H2 sekcji „jak wygląda współpraca” i FAQ. Domyślne teksty w komponentach
+      są szablonowe („Jak wygląda współpraca”, „Najczęstsze pytania”) i nie niosą żadnej
+      frazy, a te same komponenty obsługują też strony portfolio, więc nie da się ich
+      podmienić globalnie. Brak wartości = domyślny tekst komponentu (audyt 2026-07-30). */
+  h2Process?: string;
+  h2Faq?: string;
   subtitle: string;
   description: string;
   forWhom: string[];
@@ -60,6 +66,8 @@ export interface ServiceData {
 const serviceCategoriesRaw: ServiceData[] = [
   {
     slug: "wizerunek-portrety",
+    h2Process: "Jak wygląda sesja portretowa",
+    h2Faq: "Portrety biznesowe: najczęstsze pytania",
     h1: "Portrety biznesowe i headshoty",
     galleryCategory: "portrety",
     title: "Wizerunek & Portrety",
@@ -94,11 +102,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqQuestion: "Ile kosztuje sesja wizerunkowa dla firmy?",
     priceFaqIntro: "Sesje portretowe zaczynają się",
     faqs: [
-      { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), jasne obiektywy stałoogniskowe Sigma Art 35 i 50 mm f/1.4 do naturalnych portretów oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
       { q: "Ile trwa sesja wizerunkowa?", a: "Sama sesja może trwać od 30 minut. Najważniejsze, że przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło, więc nie czekasz na moje przygotowania. Dłuższe pakiety dają po prostu więcej czasu na ujęcia i zmiany stylizacji." },
       { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3 m² wolnej przestrzeni i dostępu do gniazdka." },
       { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni. Ekspres do 48h za dodatkową opłatą (+50%)." },
       { q: "Czy mogę użyć zdjęć na LinkedIn i stronie?", a: "Tak. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), jasne obiektywy stałoogniskowe Sigma Art 35 i 50 mm f/1.4 do naturalnych portretów oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
@@ -108,6 +116,8 @@ const serviceCategoriesRaw: ServiceData[] = [
   },
   {
     slug: "pakiety-foto-wideo",
+    h2Process: "Jak wygląda dzień zdjęciowy",
+    h2Faq: "Zdjęcia i film razem: najczęstsze pytania",
     h1: "Zdjęcia, film i dron od jednej osoby",
     portfolioSlug: "woohoo-autopay",
     galleryCategory: "eventy",
@@ -144,11 +154,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqQuestion: "Ile kosztuje pakiet foto + wideo?",
     priceFaqIntro: "Pakiety zaczynają się",
     faqs: [
-      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 (foto i wideo równolegle, z zapisem na dwie karty), obiektywy Sigma, Tamron i Tokina od 16 do 200 mm, oświetlenie Godox, dźwięk Rode i Zoom oraz dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC. Jeden zestaw obsługuje całe wejście foto, wideo i dron." },
       { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkim briefie podaję jedną, konkretną wycenę w kilku wariantach." },
       { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Tak, pracuję w modelu one-man-band. Dzięki temu materiał jest spójny wizualnie, a Ty masz jedną osobę kontaktową zamiast dwóch ekip." },
       { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak, przy serii eventów koryguję zakres do realnych potrzeb projektu, np. stałą, comiesięczną współpracę contentową. Wycena po krótkim briefie." },
       { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Dogrywamy dodatkowe godziny przed eventem, dokładam je do wyceny na etapie briefu." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 (foto i wideo równolegle, z zapisem na dwie karty), obiektywy Sigma, Tamron i Tokina od 16 do 200 mm, oświetlenie Godox, dźwięk Rode i Zoom oraz dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC. Jeden zestaw obsługuje całe wejście foto, wideo i dron." },
     ],
     seo: {
       title: "Zdjęcia, film i dron od jednej osoby | Szabunia",
@@ -157,6 +167,8 @@ const serviceCategoriesRaw: ServiceData[] = [
   },
   {
     slug: "eventy-reportaze",
+    h2Process: "Jak wygląda obsługa eventu",
+    h2Faq: "Obsługa eventów: najczęstsze pytania",
     h1: "Obsługa eventów firmowych w Poznaniu",
     galleryCategory: "eventy",
     videoId: "m42ywMWjthw",
@@ -193,11 +205,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqQuestion: "Ile kosztuje fotograf na event firmowy?",
     priceFaqIntro: "Reportaże zaczynają się",
     faqs: [
-      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
       { q: "Czy fotografujesz też wieczorne gale przy słabym świetle?", a: "Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają fotografować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie. Reportaż z gali, konferencji czy bankietu wygląda naturalnie." },
       { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media." },
       { q: "Ile zdjęć otrzymam?", a: "Około 20 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
       { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
     ],
     portfolioSlug: "woohoo-autopay",
     seo: {
@@ -207,6 +219,8 @@ const serviceCategoriesRaw: ServiceData[] = [
   },
   {
     slug: "sesje-zespolowe",
+    h2Process: "Jak wygląda sesja zespołowa",
+    h2Faq: "Headshoty zespołu: najczęstsze pytania",
     h1: "Headshoty zespołu w Twoim biurze",
     galleryCategory: "zespolowe",
     title: "Sesje zespołowe",
@@ -240,11 +254,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqIntro: "Sesje zespołowe zaczynają się",
     priceFaqSuffix: " przy zespołach od 31 osób (przy mniejszych grupach stawka za osobę jest wyższa)",
     faqs: [
-      { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 3 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
       { q: "Co z osobami, których nie ma w dniu sesji?", a: "Brakujące osoby dograć można w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu, żeby portrety całego zespołu były spójne. To częsta sytuacja przy większych zespołach i pracy zdalnej." },
       { q: "Ile osób mogę sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studiu. Każda osoba potrzebuje ok. 10-15 minut." },
       { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 3 m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
       { q: "Czy zdjęcia będą spójne dla całego zespołu?", a: "Tak, identyczne oświetlenie i tło. Spójne headshoty na stronie i w materiałach firmowych." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 3 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
@@ -254,6 +268,8 @@ const serviceCategoriesRaw: ServiceData[] = [
   },
   {
     slug: "wideo-marketing",
+    h2Process: "Jak wygląda produkcja filmu",
+    h2Faq: "Wideo dla firm: najczęstsze pytania",
     h1: "Wideo dla firm i filmy korporacyjne",
     portfolioSlug: "woohoo-autopay",
     galleryCategory: "wideo",
@@ -291,11 +307,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqQuestion: "Ile kosztuje film promocyjny dla firmy?",
     priceFaqIntro: "Produkcja wideo zaczyna się",
     faqs: [
-      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 do nagrań, obiektywy od 16 do 200 mm, oświetlenie ciągłe LED Godox, dźwięk Rode Wireless PRO, VideoMicro II i rejestrator Zoom oraz dron DJI do ujęć z powietrza. Sprzęt pozwala nagrać i zmontować materiał od reelsa po dłuższy film." },
       { q: "Czy montujesz też materiał z telefonu?", a: "Tak, jeśli masz surowe nagrania z telefonu, mogę je zmontować (cięcie, kolor, napisy, muzyka)." },
       { q: "W jakich formatach dostarczasz wideo?", a: "MP4 w rozdzielczości do 4K. Formaty: 9:16 (Reels/TikTok), 16:9 (YouTube/strona), 1:1 (feed). Dowolna kombinacja." },
       { q: "Czy mogę zamówić sam montaż bez nagrywania?", a: "Tak, wystarczy przesłać surowe pliki. Wycena zależy od długości i złożoności finalnego materiału." },
       { q: "Czy realizujesz wideo reklamowe i spoty?", a: "Tak, krótkie filmy reklamowe pod kampanie w Social Media i online (15-60 s). Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 do nagrań, obiektywy od 16 do 200 mm, oświetlenie ciągłe LED Godox, dźwięk Rode Wireless PRO, VideoMicro II i rejestrator Zoom oraz dron DJI do ujęć z powietrza. Sprzęt pozwala nagrać i zmontować materiał od reelsa po dłuższy film." },
     ],
     seo: {
       title: "Wideo dla firm i filmy korporacyjne | Szabunia",
@@ -304,6 +320,8 @@ const serviceCategoriesRaw: ServiceData[] = [
   },
   {
     slug: "fotografia-produktowa",
+    h2Process: "Jak wygląda sesja packshotowa",
+    h2Faq: "Packshoty: najczęstsze pytania",
     h1: "Packshot i fotografia produktowa",
     galleryCategory: "produktowe",
     title: "Fotografia produktowa",
@@ -337,12 +355,12 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqIntro: "Sesje produktowe zaczynają się",
     priceFaqSuffix: " i tyle wynosi też minimalna wartość zamówienia",
     faqs: [
-      { q: "Na jakim sprzęcie pracujesz?", a: "Aparat Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce." },
       { q: "Czy mogę przysłać produkty kurierem?", a: "Tak, przyjmuję przesyłki do studia. Po sesji odsyłam na mój koszt (przy zamówieniach powyżej 1 000 zł)." },
       { q: "Jakie formaty plików otrzymam?", a: "JPEG w pełnej rozdzielczości + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku." },
       { q: "Ile produktów dziennie jesteś w stanie zrealizować?", a: "Packshoty na białym tle: 30-50 produktów/dzień. Zdjęcia kreatywne: 8-15 ujęć/dzień." },
       { q: "Czym różni się fotografia produktowa od fotografii reklamowej?", a: "Fotografia produktowa pokazuje produkt wprost, packshot na białym tle do sklepu czy katalogu. Fotografia reklamowa buduje wokół produktu historię: aranżacja, rekwizyty, światło pod konkretną kampanię. Zdjęcia reklamowe wyceniam według pola eksploatacji, inaczej na Social Media, inaczej do druku i na outdoor." },
       { q: "Czy retusz jest wliczony w cenę zdjęcia?", a: "Tak. Każdy packshot dostajesz wyretuszowany: czyste białe tło, produkt precyzyjnie wycięty z tła, korekta kolorów i usunięcie drobnych skaz. Nie dopłacasz za obróbkę osobno, w przeciwieństwie do wielu studiów, gdzie retusz to dodatkowy koszt." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Aparat Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce." },
     ],
     portfolioSlug: "artech-fotografia-produktowa",
     seo: {
@@ -352,6 +370,8 @@ const serviceCategoriesRaw: ServiceData[] = [
   },
   {
     slug: "zdjecia-wideo-z-drona",
+    h2Process: "Jak wygląda realizacja z dronem",
+    h2Faq: "Zdjęcia z drona: najczęstsze pytania",
     h1: "Zdjęcia i wideo z drona dla firm",
     galleryCategory: "dron",
     videoId: "4INLtKcKcZk",
@@ -395,11 +415,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqQuestion: "Ile kosztuje film z drona?",
     priceFaqIntro: "Zdjęcia i wideo z drona zaczynają się",
     faqs: [
-      { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro do zdjęć i wideo w 4K. Mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona łączę z naziemnym zestawem Canon, gdy potrzebny jest komplet foto i wideo." },
       { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
       { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji bezpłatnie przekładamy termin na najbliższy możliwy." },
       { q: "W jakiej jakości dostarczasz materiał?", a: "Wideo do 4K, zdjęcia w pełnej rozdzielczości. Formaty dobieram pod stronę WWW i social media (poziome i pionowe)." },
       { q: "Czy mogę połączyć drona z sesją naziemną?", a: "Tak. Dron działa jako dodatek do eventu, sesji produktowej lub wizerunkowej: kilka dodatkowych zdjęć lub ujęć wideo z powietrza przy okazji innej sesji. Z jednej sesji powstaje spójny komplet." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro do zdjęć i wideo w 4K. Mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona łączę z naziemnym zestawem Canon, gdy potrzebny jest komplet foto i wideo." },
     ],
     portfolioSlug: "woohoo-autopay",
     seo: {

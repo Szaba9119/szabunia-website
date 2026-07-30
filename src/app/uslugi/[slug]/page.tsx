@@ -164,7 +164,7 @@ export default async function ServicePage({ params }: PageProps) {
           <TrustStats />
         </ErrorBoundary>
         <ErrorBoundary>
-          <PortfolioProcess steps={service.process} />
+          <PortfolioProcess steps={service.process} heading={service.h2Process} />
         </ErrorBoundary>
         {testimonial && (
           <ErrorBoundary>
@@ -199,7 +199,7 @@ export default async function ServicePage({ params }: PageProps) {
           </a>
         </div>
         <ErrorBoundary>
-          <PortfolioFAQ faqs={faqs} />
+          <PortfolioFAQ faqs={faqs} heading={service.h2Faq} />
         </ErrorBoundary>
         {relatedPosts.length > 0 && (
           <ErrorBoundary>

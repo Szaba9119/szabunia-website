@@ -5,9 +5,12 @@ import type { ProcessStep } from "@/data/portfolio";
 
 interface Props {
   steps: ProcessStep[];
+  /** Nagłówek sekcji. Domyślnie „Jak wygląda współpraca” (strony portfolio).
+      Strony usług podają własny, z frazą (audyt 2026-07-30). */
+  heading?: string;
 }
 
-export default function PortfolioProcess({ steps }: Props) {
+export default function PortfolioProcess({ steps, heading }: Props) {
   if (steps.length === 0) return null;
   return (
     <section className="py-12 md:py-16 px-4">
@@ -15,7 +18,7 @@ export default function PortfolioProcess({ steps }: Props) {
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">
             <h2 className="font-barlow font-extrabold text-3xl md:text-[40px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
-              Jak wygląda współpraca
+              {heading ?? "Jak wygląda współpraca"}
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">

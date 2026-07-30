@@ -8,9 +8,12 @@ import type { FAQItem } from "@/data/portfolio";
 
 interface Props {
   faqs: FAQItem[];
+  /** Nagłówek sekcji. Domyślnie „Najczęstsze pytania” (strony portfolio).
+      Strony usług podają własny, z frazą (audyt 2026-07-30). */
+  heading?: string;
 }
 
-export default function PortfolioFAQ({ faqs }: Props) {
+export default function PortfolioFAQ({ faqs, heading }: Props) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   if (faqs.length === 0) return null;
@@ -21,7 +24,7 @@ export default function PortfolioFAQ({ faqs }: Props) {
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">
             <h2 className="font-barlow font-extrabold text-3xl md:text-[40px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
-              Najczęstsze pytania
+              {heading ?? "Najczęstsze pytania"}
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
