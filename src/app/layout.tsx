@@ -200,9 +200,9 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Fotografia biznesowa i portretowa",
+                      name: "Obsługa eventów firmowych",
                       description:
-                        "Portrety biznesowe, headshoty, sesje wizerunkowe dla firm i specjalistów",
+                        "Fotoreportaż z konferencji, targów, gal i eventów firmowych",
                     },
                   },
                   {
@@ -218,18 +218,18 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Fotografia produktowa",
+                      name: "Pakiety Foto + Wideo + Dron",
                       description:
-                        "Zdjęcia produktowe na białym tle, packshoty, fotografia przemysłowa",
+                        "Zdjęcia, wideo i ujęcia z drona od jednej osoby: spójny materiał bez koordynowania dwóch ekip",
                     },
                   },
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Fotografia eventowa",
+                      name: "Fotografia biznesowa i portretowa",
                       description:
-                        "Fotoreportaż z konferencji, targów, gal i eventów firmowych",
+                        "Portrety biznesowe, headshoty, sesje wizerunkowe dla firm i specjalistów",
                     },
                   },
                   {
@@ -245,9 +245,9 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Pakiety Foto + Wideo + Dron",
+                      name: "Fotografia produktowa",
                       description:
-                        "Zdjęcia, wideo i ujęcia z drona od jednej osoby: spójny materiał bez koordynowania dwóch ekip",
+                        "Zdjęcia produktowe na białym tle, packshoty, fotografia przemysłowa",
                     },
                   },
                   {

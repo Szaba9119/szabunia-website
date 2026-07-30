@@ -1617,7 +1617,7 @@ export const blogPosts: BlogPost[] = [
     ],
     title: "Ile kosztuje film promocyjny dla firmy i od czego zależy cena",
     excerpt:
-      "Ile kosztuje film promocyjny i od czego zależy cena. Jak liczę pracę operatora i montaż, ile kosztują formaty od teasera po film o firmie oraz Monthly Content.",
+      "Ile kosztuje film promocyjny i od czego zależy cena. Jak liczę pracę operatora i montaż oraz ile kosztują formaty od teasera po film o firmie.",
     category: "poradnik",
     date: "2026-06-28",
     updated: "2026-07-29",
@@ -1649,9 +1649,6 @@ export const blogPosts: BlogPost[] = [
       </ul>
       <p>Więcej o tym, który format kiedy wybrać, znajdziesz we wpisie o <a href="/blog/wideo-marketing-dla-firm-formaty">formatach wideo dla firm</a>.</p>
 
-      <h2>Monthly Content: wideo w abonamencie</h2>
-      <p>Jeśli potrzebujesz regularnych materiałów do social mediów, taniej wychodzi stała współpraca niż pojedyncze zlecenia. Monthly Content to 4 900 zł netto miesięcznie: jeden dzień zdjęciowy i montaż czterech reelsów, przy minimum trzymiesięcznej umowie. Masz wtedy przewidywalny dopływ materiału i stały koszt w budżecie.</p>
-
       <h2>Orientacyjnie: ile zapłacisz za konkretny film</h2>
       <p>Najprościej na przykładach (ceny netto, praca operatora plus montaż):</p>
       <ul>
@@ -1662,13 +1659,13 @@ export const blogPosts: BlogPost[] = [
       <p>Dokładną kwotę dla Twojego projektu odeślę po krótkim opisie pomysłu.</p>
 
       <h2>Podsumowanie</h2>
-      <p>Cena filmu promocyjnego zależy przede wszystkim od formatu i czasu nagrań. Rozbicie na pracę operatora i pakiet montażowy sprawia, że płacisz za realny zakres, a przy regularnych potrzebach taniej wychodzi Monthly Content.</p>
+      <p>Cena filmu promocyjnego zależy przede wszystkim od formatu i czasu nagrań. Rozbicie na pracę operatora i pakiet montażowy sprawia, że płacisz za realny zakres, bez płacenia za rzeczy, których nie potrzebujesz.</p>
       <p>Zobacz <a href="/uslugi/wideo-marketing">wideo marketing</a> albo <a href="/kontakt">opisz swój film</a>.</p>
     `,
     seo: {
       title: "Ile kosztuje film promocyjny dla firmy | Szabunia",
       description:
-        "Ile kosztuje film promocyjny i od czego zależy cena: praca operatora, pakiety montażowe (teaser, reels, recap, promo), Monthly Content. Ceny netto, Poznań.",
+        "Ile kosztuje film promocyjny i od czego zależy cena: praca operatora i pakiety montażowe (teaser, reels, recap, promo). Ceny netto, Poznań.",
     },
   },
 ];

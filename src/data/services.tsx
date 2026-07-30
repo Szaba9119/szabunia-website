@@ -63,58 +63,120 @@ export interface ServiceData {
   };
 }
 
+// Kolejność kart = kolejność strategiczna, nie alfabetyczna ani historyczna
+// (decyzja Marcina 30.07.2026, na danych z GSC, CRM i cennika v3):
+//   1. eventy          — wejście do lejka i faktyczna tożsamość firmy: 10 z 11 realizacji
+//                        referencyjnych to eventy (korekta_pozycjonowania_2026-07.md)
+//   2. sesje zespołowe — zarobek: 211 zł/h na konto po prowizji Useme, najlepsza pozycja
+//                        w cenniku, i sprzedaje się tej samej osobie z HR co event
+//   3. pakiety         — jedyna przewaga w Poznaniu (foto + wideo + dron u jednej osoby),
+//                        naturalny upsell na eventy
+//   4. portrety        — najwięcej leadów w CRM (27) i 24% zapytań w GSC, więc nie schodzi
+//                        głęboko, ale to rozszerzenie, nie fundament
+//   5-7. wideo, produktowa, dron — produktowa ma 39% ruchu organicznego, ale nie ma jej
+//                        w tabeli rentowności mapy drogowej, więc nie jest promowana
+// Wcześniej: portrety, pakiety, eventy, zespołowe, wideo, produktowa, dron.
 const serviceCategoriesRaw: ServiceData[] = [
   {
-    slug: "wizerunek-portrety",
-    h2Process: "Jak wygląda sesja portretowa",
-    h2Faq: "Portrety biznesowe: najczęstsze pytania",
-    h1: "Portrety biznesowe i headshoty",
-    galleryCategory: "portrety",
-    title: "Wizerunek & Portrety",
+    slug: "eventy-reportaze",
+    h2Process: "Jak wygląda obsługa eventu",
+    h2Faq: "Obsługa eventów: najczęstsze pytania",
+    h1: "Obsługa eventów firmowych w Poznaniu",
+    galleryCategory: "eventy",
+    videoId: "m42ywMWjthw",
+    videoTitle: "Film z eventu firmowego dla Woohoo",
+    videoNote: "Tak wygląda film z eventu: dynamiczne podsumowanie wydarzenia, gotowe do social mediów.",
+    title: "Obsługa eventów firmowych",
     subtitle:
-      "Portrety biznesowe, headshoty na LinkedIn i zdjęcia do personal brandingu. Prowadzę przez pozowanie, nie musisz nic umieć.",
+      "Dokumentacja konferencji, targów, gal i wydarzeń firmowych. Zdjęcia na social media jeszcze w trakcie eventu.",
     description:
-      "Portret biznesowy to Twoja wizytówka w cyfrowym świecie. Tworzę zdjęcia, które oddają charakter i kompetencje, na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Każdą sesję poprzedza konsultacja wizerunkowa, dzięki której dobieramy styl, oświetlenie i klimat dopasowany do Twojej branży.",
+      "Każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing, zdjęcia gotowe do publikacji na Social Media jeszcze w trakcie eventu. Fotografię eventową robię od początku działalności. Przez ponad osiem lat dokumentowałem wydarzenia w Poznaniu, nierzadko kilka różnych miejsc jednego wieczoru. Sprawne tempo i logistyka dużych eventów to dla mnie naturalny grunt.",
     forWhom: [
-      "CEO i kadra zarządzająca",
-      "Eksperci i konsultanci",
-      "Prawnicy, lekarze, architekci",
-      "Osoby budujące markę osobistą",
-      "Startupy i firmy technologiczne",
+      "Organizatorzy konferencji i targów",
+      "Firmy organizujące wydarzenia firmowe",
+      "Agencje eventowe",
+      "Hotele i centra konferencyjne",
+      "Firmy technologiczne (launch produktu, demo day)",
     ],
     icon: (
       <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
       </svg>
     ),
-    heroImage: "/images/galeria/portrety/portret-05.jpg",
+    heroImage: "/images/galeria/eventy/event-05.jpg",
     heroImagePos: "center 20%",
-    price: "od 1 100 zł",
-    heroPriceLabel: "pakiety od 1 100 zł",
+    price: "od 600 zł",
     process: [
-      { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
-      { num: 2, title: "Poseboard", desc: "Przygotowuję moodboard z referencjami" },
-      { num: 3, title: "Sesja", desc: "Prowadzę Cię przez pozowanie, w studiu lub Twoim biurze. Nie musisz nic umieć." },
-      { num: 4, title: "Dostawa", desc: "Wybrane, wyretuszowane zdjęcia w 14 dni." },
+      { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
+      { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
+      { num: 3, title: "Live edit", desc: "Zdjęcia na Social Media w trakcie eventu" },
+      { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni" },
     ],
     pricingBlurb:
-      "Wycenę portretu ustalam na podstawie liczby stylizacji, długości sesji i liczby wyretuszowanych zdjęć do wyboru. Każda sesja obejmuje darmowy poseboard z referencjami przed spotkaniem oraz studio dopasowane do Twojego projektu.",
-    priceFaqQuestion: "Ile kosztuje sesja wizerunkowa dla firmy?",
-    priceFaqIntro: "Sesje portretowe zaczynają się",
+      "Wycenę reportażu ustalam na podstawie liczby godzin obecności na evencie oraz opcji dodatkowych: live editing na Social Media w trakcie wydarzenia i ujęcia z drona. Pakiety kilkugodzinne i całodniowe wychodzą korzystniej niż rozliczenie godzinowe.",
+    priceFaqQuestion: "Ile kosztuje fotograf na event firmowy?",
+    priceFaqIntro: "Reportaże zaczynają się",
     faqs: [
-      { q: "Ile trwa sesja wizerunkowa?", a: "Sama sesja może trwać od 30 minut. Najważniejsze, że przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło, więc nie czekasz na moje przygotowania. Dłuższe pakiety dają po prostu więcej czasu na ujęcia i zmiany stylizacji." },
-      { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3 m² wolnej przestrzeni i dostępu do gniazdka." },
-      { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni. Ekspres do 48h za dodatkową opłatą (+50%)." },
-      { q: "Czy mogę użyć zdjęć na LinkedIn i stronie?", a: "Tak. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), jasne obiektywy stałoogniskowe Sigma Art 35 i 50 mm f/1.4 do naturalnych portretów oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
+      { q: "Czy fotografujesz też wieczorne gale przy słabym świetle?", a: "Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają fotografować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie. Reportaż z gali, konferencji czy bankietu wygląda naturalnie." },
+      { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media." },
+      { q: "Ile zdjęć otrzymam?", a: "Około 20 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
+      { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
+    ],
+    portfolioSlug: "woohoo-autopay",
+    seo: {
+      title: "Obsługa eventów firmowych, Poznań | Szabunia",
+      description: "Konferencje, targi, gale i integracje. Zdjęcia, film i dron od jednej osoby. Fotografowałem eventy dla H&M i Santandera.",
+    },
+  },  {
+    slug: "sesje-zespolowe",
+    h2Process: "Jak wygląda sesja zespołowa",
+    h2Faq: "Headshoty zespołu: najczęstsze pytania",
+    h1: "Headshoty zespołu w biurze albo w studiu",
+    galleryCategory: "zespolowe",
+    title: "Sesje zespołowe",
+    subtitle:
+      "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne.",
+    description:
+      "Spójne headshoty zespołu to fundament employer branding. Przyjeżdżam z mobilnym studiem do Twojego biura albo rezerwuję studio, rozstawienie zajmuje 20 minut, a każda osoba potrzebuje 10-15 minut na sesję. Efekt: spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
+    forWhom: [
+      "Zespoły korporacyjne i działy HR",
+      "Kancelarie prawne i firmy doradcze",
+      "Startupy budujące wizerunek marki",
+      "Firmy z rozproszonymi oddziałami",
+      "Organizacje rebrandingujące się",
+    ],
+    icon: (
+      <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+      </svg>
+    ),
+    heroImage: "/images/portfolio/sesje-zespolowe-cover.jpg",
+    price: "od 120 zł/os.",
+    process: [
+      { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram i liczbę osób" },
+      { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio w biurze (20 min)" },
+      { num: 3, title: "Sesja", desc: "10-15 min na osobę, headshot + opcja team" },
+      { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
+    ],
+    pricingBlurb:
+      "Wycena zależy od liczby osób i miejsca sesji: Twoje biuro z mobilnym studiem albo studio zewnętrzne. Stawka za osobę maleje progresywnie wraz z wielkością zespołu: 120 zł dotyczy zespołów od 31 osób, przy mniejszych grupach jest wyższa. Sesje realizuję od 4 osób (mniejszym grupom polecam pakiety Wizerunek & Portrety).",
+    priceFaqQuestion: "Ile kosztuje sesja zdjęciowa zespołu?",
+    priceFaqIntro: "Sesje zespołowe zaczynają się",
+    priceFaqSuffix: " przy zespołach od 31 osób (przy mniejszych grupach stawka za osobę jest wyższa)",
+    faqs: [
+      { q: "Co z osobami, których nie ma w dniu sesji?", a: "Brakujące osoby dograć można w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu, żeby portrety całego zespołu były spójne. To częsta sytuacja przy większych zespołach i pracy zdalnej." },
+      { q: "Ile osób mogę sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studiu. Każda osoba potrzebuje ok. 10-15 minut." },
+      { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 3 m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
+      { q: "Czy zdjęcia będą spójne dla całego zespołu?", a: "Tak, identyczne oświetlenie i tło. Spójne headshoty na stronie i w materiałach firmowych." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 3 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
-      title: "Portrety biznesowe i headshoty, Poznań | Szabunia",
-      description: "Portrety biznesowe, headshoty na LinkedIn i personal branding. Sesja w studiu albo mobilne studio w Twoim biurze. Poznań i cała Polska.",
+      title: "Headshoty zespołu w biurze i w studiu | Szabunia",
+      description: "Spójne portrety całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne, 10 do 15 minut na osobę. Poznań i cała Polska.",
     },
-  },
-  {
+  },  {
     slug: "pakiety-foto-wideo",
     h2Process: "Jak wygląda dzień zdjęciowy",
     h2Faq: "Zdjęcia i film razem: najczęstsze pytania",
@@ -164,109 +226,56 @@ const serviceCategoriesRaw: ServiceData[] = [
       title: "Zdjęcia, film i dron od jednej osoby | Szabunia",
       description: "Jeden twórca zamiast dwóch ekip, jedna faktura, jeden termin. Zdjęcia, film i ujęcia z drona z tego samego dnia. Eventy firmowe, Poznań.",
     },
-  },
-  {
-    slug: "eventy-reportaze",
-    h2Process: "Jak wygląda obsługa eventu",
-    h2Faq: "Obsługa eventów: najczęstsze pytania",
-    h1: "Obsługa eventów firmowych w Poznaniu",
-    galleryCategory: "eventy",
-    videoId: "m42ywMWjthw",
-    videoTitle: "Film z eventu firmowego dla Woohoo",
-    videoNote: "Tak wygląda film z eventu: dynamiczne podsumowanie wydarzenia, gotowe do social mediów.",
-    title: "Eventy & Reportaże",
+  },  {
+    slug: "wizerunek-portrety",
+    h2Process: "Jak wygląda sesja portretowa",
+    h2Faq: "Portrety biznesowe: najczęstsze pytania",
+    h1: "Portrety biznesowe i headshoty",
+    galleryCategory: "portrety",
+    title: "Wizerunek & Portrety",
     subtitle:
-      "Dokumentacja konferencji, targów, gal i wydarzeń firmowych. Zdjęcia na social media jeszcze w trakcie eventu.",
+      "Portrety biznesowe, headshoty na LinkedIn i zdjęcia do personal brandingu. Prowadzę przez pozowanie, nie musisz nic umieć.",
     description:
-      "Każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing, zdjęcia gotowe do publikacji na Social Media jeszcze w trakcie eventu. Fotografię eventową robię od początku działalności. Przez ponad osiem lat dokumentowałem wydarzenia w Poznaniu, nierzadko kilka różnych miejsc jednego wieczoru. Sprawne tempo i logistyka dużych eventów to dla mnie naturalny grunt.",
+      "Portret biznesowy to Twoja wizytówka w cyfrowym świecie. Tworzę zdjęcia, które oddają charakter i kompetencje, na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Każdą sesję poprzedza konsultacja wizerunkowa, dzięki której dobieramy styl, oświetlenie i klimat dopasowany do Twojej branży.",
     forWhom: [
-      "Organizatorzy konferencji i targów",
-      "Firmy organizujące wydarzenia firmowe",
-      "Agencje eventowe",
-      "Hotele i centra konferencyjne",
-      "Firmy technologiczne (launch produktu, demo day)",
+      "CEO i kadra zarządzająca",
+      "Eksperci i konsultanci",
+      "Prawnicy, lekarze, architekci",
+      "Osoby budujące markę osobistą",
+      "Startupy i firmy technologiczne",
     ],
     icon: (
       <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
       </svg>
     ),
-    heroImage: "/images/galeria/eventy/event-05.jpg",
+    heroImage: "/images/galeria/portrety/portret-05.jpg",
     heroImagePos: "center 20%",
-    price: "od 600 zł",
+    price: "od 1 100 zł",
+    heroPriceLabel: "pakiety od 1 100 zł",
     process: [
-      { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
-      { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
-      { num: 3, title: "Live edit", desc: "Zdjęcia na Social Media w trakcie eventu" },
-      { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni" },
+      { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
+      { num: 2, title: "Poseboard", desc: "Przygotowuję moodboard z referencjami" },
+      { num: 3, title: "Sesja", desc: "Prowadzę Cię przez pozowanie, w studiu lub Twoim biurze. Nie musisz nic umieć." },
+      { num: 4, title: "Dostawa", desc: "Wybrane, wyretuszowane zdjęcia w 14 dni." },
     ],
     pricingBlurb:
-      "Wycenę reportażu ustalam na podstawie liczby godzin obecności na evencie oraz opcji dodatkowych: live editing na Social Media w trakcie wydarzenia i ujęcia z drona. Pakiety kilkugodzinne i całodniowe wychodzą korzystniej niż rozliczenie godzinowe.",
-    priceFaqQuestion: "Ile kosztuje fotograf na event firmowy?",
-    priceFaqIntro: "Reportaże zaczynają się",
+      "Wycenę portretu ustalam na podstawie liczby stylizacji, długości sesji i liczby wyretuszowanych zdjęć do wyboru. Każda sesja obejmuje darmowy poseboard z referencjami przed spotkaniem oraz studio dopasowane do Twojego projektu.",
+    priceFaqQuestion: "Ile kosztuje sesja wizerunkowa dla firmy?",
+    priceFaqIntro: "Sesje portretowe zaczynają się",
     faqs: [
-      { q: "Czy fotografujesz też wieczorne gale przy słabym świetle?", a: "Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają fotografować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie. Reportaż z gali, konferencji czy bankietu wygląda naturalnie." },
-      { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media." },
-      { q: "Ile zdjęć otrzymam?", a: "Około 20 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
-      { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
-    ],
-    portfolioSlug: "woohoo-autopay",
-    seo: {
-      title: "Obsługa eventów firmowych, Poznań | Szabunia",
-      description: "Konferencje, targi, gale i integracje. Zdjęcia, film i dron od jednej osoby. Fotografowałem eventy dla H&M i Santandera.",
-    },
-  },
-  {
-    slug: "sesje-zespolowe",
-    h2Process: "Jak wygląda sesja zespołowa",
-    h2Faq: "Headshoty zespołu: najczęstsze pytania",
-    h1: "Headshoty zespołu w biurze albo w studiu",
-    galleryCategory: "zespolowe",
-    title: "Sesje zespołowe",
-    subtitle:
-      "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne.",
-    description:
-      "Spójne headshoty zespołu to fundament employer branding. Przyjeżdżam z mobilnym studiem do Twojego biura albo rezerwuję studio, rozstawienie zajmuje 20 minut, a każda osoba potrzebuje 10-15 minut na sesję. Efekt: spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
-    forWhom: [
-      "Zespoły korporacyjne i działy HR",
-      "Kancelarie prawne i firmy doradcze",
-      "Startupy budujące wizerunek marki",
-      "Firmy z rozproszonymi oddziałami",
-      "Organizacje rebrandingujące się",
-    ],
-    icon: (
-      <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-      </svg>
-    ),
-    heroImage: "/images/portfolio/sesje-zespolowe-cover.jpg",
-    price: "od 120 zł/os.",
-    process: [
-      { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram i liczbę osób" },
-      { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio w biurze (20 min)" },
-      { num: 3, title: "Sesja", desc: "10-15 min na osobę, headshot + opcja team" },
-      { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
-    ],
-    pricingBlurb:
-      "Wycena zależy od liczby osób i miejsca sesji: Twoje biuro z mobilnym studiem albo studio zewnętrzne. Stawka za osobę maleje progresywnie wraz z wielkością zespołu: 120 zł dotyczy zespołów od 31 osób, przy mniejszych grupach jest wyższa. Sesje realizuję od 4 osób (mniejszym grupom polecam pakiety Wizerunek & Portrety).",
-    priceFaqQuestion: "Ile kosztuje sesja zdjęciowa zespołu?",
-    priceFaqIntro: "Sesje zespołowe zaczynają się",
-    priceFaqSuffix: " przy zespołach od 31 osób (przy mniejszych grupach stawka za osobę jest wyższa)",
-    faqs: [
-      { q: "Co z osobami, których nie ma w dniu sesji?", a: "Brakujące osoby dograć można w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu, żeby portrety całego zespołu były spójne. To częsta sytuacja przy większych zespołach i pracy zdalnej." },
-      { q: "Ile osób mogę sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studiu. Każda osoba potrzebuje ok. 10-15 minut." },
-      { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 3 m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
-      { q: "Czy zdjęcia będą spójne dla całego zespołu?", a: "Tak, identyczne oświetlenie i tło. Spójne headshoty na stronie i w materiałach firmowych." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 3 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
+      { q: "Ile trwa sesja wizerunkowa?", a: "Sama sesja może trwać od 30 minut. Najważniejsze, że przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło, więc nie czekasz na moje przygotowania. Dłuższe pakiety dają po prostu więcej czasu na ujęcia i zmiany stylizacji." },
+      { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3 m² wolnej przestrzeni i dostępu do gniazdka." },
+      { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni. Ekspres do 48h za dodatkową opłatą (+50%)." },
+      { q: "Czy mogę użyć zdjęć na LinkedIn i stronie?", a: "Tak. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), jasne obiektywy stałoogniskowe Sigma Art 35 i 50 mm f/1.4 do naturalnych portretów oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
-      title: "Headshoty zespołu w biurze i w studiu | Szabunia",
-      description: "Spójne portrety całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne, 10 do 15 minut na osobę. Poznań i cała Polska.",
+      title: "Portrety biznesowe i headshoty, Poznań | Szabunia",
+      description: "Portrety biznesowe, headshoty na LinkedIn i personal branding. Sesja w studiu albo mobilne studio w Twoim biurze. Poznań i cała Polska.",
     },
-  },
-  {
+  },  {
     slug: "wideo-marketing",
     h2Process: "Jak wygląda produkcja filmu",
     h2Faq: "Wideo dla firm: najczęstsze pytania",
@@ -315,10 +324,9 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     seo: {
       title: "Wideo dla firm i filmy korporacyjne | Szabunia",
-      description: "Filmy o firmie, reelsy, wywiady i relacje z eventów. Nagranie i montaż u jednego twórcy. Stała współpraca w Monthly Content. Poznań.",
+      description: "Filmy o firmie, reelsy, wywiady i relacje z eventów. Nagranie i montaż u jednego twórcy. Poznań i cała Polska.",
     },
-  },
-  {
+  },  {
     slug: "fotografia-produktowa",
     h2Process: "Jak wygląda sesja packshotowa",
     h2Faq: "Packshoty: najczęstsze pytania",
@@ -367,8 +375,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       title: "Packshot i fotografia produktowa, Poznań | Szabunia",
       description: "Packshoty na białym tle i zdjęcia produktowe w studiu w Poznaniu. E-commerce, katalogi, social media. Retusz w cenie zdjęcia.",
     },
-  },
-  {
+  },  {
     slug: "zdjecia-wideo-z-drona",
     h2Process: "Jak wygląda realizacja z dronem",
     h2Faq: "Zdjęcia z drona: najczęstsze pytania",
@@ -430,15 +437,32 @@ const serviceCategoriesRaw: ServiceData[] = [
 ];
 
 // Kolejność wyświetlania usług (kafelki na stronie głównej, lista /uslugi,
-// sekcja Wycena). Zmiana tutaj zmienia kolejność wszędzie naraz.
+// sekcja Wycena, sitemap). Zmiana tutaj zmienia kolejność wszędzie naraz.
+// TA STAŁA RZĄDZI, nie kolejność bloków w serviceCategoriesRaw wyżej.
+//
+// Kolejność strategiczna, ustawiona 30.07.2026 (decyzja Marcina, na danych z GSC,
+// CRM i cennika v3). Wcześniej: portrety, eventy, wideo, dron, produktowa,
+// zespołowe, pakiety.
+//   1. eventy      — wejście do lejka i faktyczna tożsamość firmy: 10 z 11 realizacji
+//                    referencyjnych to eventy (korekta_pozycjonowania_2026-07.md §1)
+//   2. zespołowe   — zarobek: 211 zł/h na konto po prowizji Useme, najlepsza pozycja
+//                    w cenniku, sprzedawana tej samej osobie z HR co event
+//                    („event jest wejściem, sesja zespołowa jest zarobkiem")
+//   3. pakiety     — jedyna przewaga w Poznaniu, naturalny upsell na event
+//   4. portrety    — najwięcej leadów w CRM (27) i 24% zapytań w GSC, więc nie schodzą
+//                    głęboko, ale to rozszerzenie, nie fundament
+//   5. wideo
+//   6. produktowa  — 39% ruchu organicznego, ale poza tabelą rentowności mapy drogowej,
+//                    więc utrzymywana, nie promowana
+//   7. dron        — element pakietów hybrydowych, nie osobna linia
 const SERVICE_DISPLAY_ORDER: string[] = [
-  "wizerunek-portrety",
   "eventy-reportaze",
-  "wideo-marketing",
-  "zdjecia-wideo-z-drona",
-  "fotografia-produktowa",
   "sesje-zespolowe",
   "pakiety-foto-wideo",
+  "wizerunek-portrety",
+  "wideo-marketing",
+  "fotografia-produktowa",
+  "zdjecia-wideo-z-drona",
 ];
 
 export const serviceCategories: ServiceData[] = [...serviceCategoriesRaw].sort(
