@@ -150,7 +150,7 @@ export default async function ServicePage({ params }: PageProps) {
                   Przykładowa realizacja wideo
                 </h2>
                 <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-8">
-                  {service.videoNote ?? "Tak wygląda materiał wideo z jednego wejścia foto + wideo."}
+                  {service.videoNote ?? "Tak wygląda materiał wideo z sesji, na której powstały też zdjęcia."}
                 </p>
                 <YouTubeFacade id={service.videoId} title={service.videoTitle ?? service.title} className="" />
               </div>

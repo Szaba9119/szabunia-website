@@ -195,8 +195,34 @@ jedną linię, reszta danych jest gotowa.
 **Znany rozjazd historyczny:** folder/zip `Strona z google ai` był reliktem eksperymentu z Gemini —
 **już go w repo nie ma** (wpis w `tsconfig.exclude` jest wyłącznie historyczny).
 
+**Repozycjonowanie SEO 30.07.2026 (zgoda Marcina, na danych z GSC i Ads).** Cztery zmiany,
+których NIE cofać bez przeczytania `docs/sesje/RANKING-CO-NAPRAWIC-2026-07-30.md`
+i `01_Biznes/_System/07_Strategia/seo_vs_strategia_2026-07-30.md`:
+
+1. **Przekierowania ze starej domeny: mapowanie tematyczne** (`next.config.ts`). Cofa
+   ustalenie z 09.06 („wszystko na stronę główną, lejek sprzedażowy"). Powód: przekierowanie
+   na stronę niepowiązaną tematycznie jest dla Google miękkim 404 i nie przenosi sygnałów,
+   więc osiem lat historii `marcinszabunia.pl` przepadało. Kryterium sukcesu i punkt
+   odniesienia w komentarzu w kodzie. Odwracalne jednym commitem.
+2. **Pole `h1?` w `ServiceData`** (`services.tsx`, użyte w `ServiceHero.tsx`). `title`
+   zostaje krótką nazwą dla nawigacji, kart, okruszków i `name` w JSON-LD; `h1` niesie frazę.
+   Nie zlewać tych dwóch pól. Nie doklejać miasta przecinkiem, patrz `docs/zasady-tekstow.md`.
+3. **H1 strony głównej to fraza, hasło „REALIZUJĘ CELE TWOJEJ MARKI" zjechało na `h2`**
+   (`Hero.tsx`). Hasło nie zniknęło, zmieniło poziom nagłówka. Hierarchia h1 → h2 → h3
+   pozostaje poprawna, bo wszystkie sekcje strony głównej i tak używają `h2`.
+4. **Pozycjonowanie w metadanych i JSON-LD: eventy przed portretami.** Wynika z
+   `01_Biznes/_System/07_Strategia/korekta_pozycjonowania_2026-07.md` (10 z 11 realizacji
+   referencyjnych to eventy). Kolejność kart usług w `services.tsx` NADAL ma portrety
+   pierwsze — to świadome, odwrócenie hierarchii jest robotą na wrzesień
+   (`CO_DALEJ_lista_dzialan.md`: „strukturę zostawiamy do września").
+
+Usunięty żargon: **„z jednego wejścia" → „od jednej osoby"** w 25 miejscach (`src/` i `blog.ts`).
+Słowo „wejście" miało zero wystąpień we wszystkich zapytaniach z GSC i Ads. Slug
+`/blog/foto-wideo-dron-z-jednego-wejscia` **został bez zmian**, bo jest zaindeksowany.
+
 **Audyty:** metodyka w `docs/METODYKA-AUDYTU.md`, raporty w `docs/sesje/`. Ostatni pełny:
 `AUDYT-PELNY-2026-07-29.md` (moduły A-E + panele) razem z `POPRAWKI-2026-07-29.md`.
+Metadane i nagłówki: `SEO-TITLE-DESCRIPTION-2026-07-30.md` i `RANKING-CO-NAPRAWIC-2026-07-30.md`.
 
 ---
 
@@ -267,5 +293,6 @@ Wszystkie pytania, niejasności, wątpliwości → wypisz w sekcji **"Problemy i
 
 ---
 
-*Ostatnia aktualizacja: 2026-07-29 (audyt PELNY2907-17 — 8 rozjazdów z kodem wyprostowanych,
-za zgodą Marcina). Zmiany w tym pliku wymagają zgody Marcina.*
+*Ostatnia aktualizacja: 2026-07-30 (repozycjonowanie SEO: metadane, H1, mapowanie przekierowań
+ze starej domeny, koniec żargonu „z jednego wejścia" — za zgodą Marcina).
+Zmiany w tym pliku wymagają zgody Marcina.*

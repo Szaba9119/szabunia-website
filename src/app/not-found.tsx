@@ -4,8 +4,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "404 — Strona nie znaleziona | Marcin Szabunia",
-  description: "Strona, której szukasz, nie istnieje lub została przeniesiona. Wróć na stronę główną fotografa biznesowego z Poznania.",
+  title: "404: strona nie znaleziona | Szabunia",
+  description: "Strona, której szukasz, nie istnieje lub została przeniesiona. Wróć na stronę główną.",
   robots: { index: false, follow: false },
 };
 

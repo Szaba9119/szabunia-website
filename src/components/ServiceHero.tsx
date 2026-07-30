@@ -35,7 +35,7 @@ export default function ServiceHero({ service, crumbs }: Props) {
               lewej krawędzi z 202 px pustki obok (pomiar @375 px, 2026-07-30). */}
           <AnimatedSection className="md:col-start-1 md:row-start-1 text-center md:text-left">
             <h1 className="font-barlow font-black text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-2">
-              {service.title}
+              {service.h1 ?? service.title}
             </h1>
             {/* Kotwica cenowa, mały element typograficzny — nie badge (brief-22 §3). */}
             <p className="font-barlow font-semibold text-sm text-steel dark:text-dark-text-muted tracking-wide mb-4">

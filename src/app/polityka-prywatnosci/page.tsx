@@ -4,14 +4,14 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "Polityka prywatności | Marcin Szabunia",
+  title: "Polityka prywatności | Szabunia",
   description:
     "Polityka prywatności serwisu szabunia.pl. Informacje o przetwarzaniu danych osobowych, plikach cookies i prawach użytkownika zgodnie z RODO.",
   alternates: {
     canonical: "/polityka-prywatnosci",
   },
   openGraph: {
-    title: "Polityka prywatności | Marcin Szabunia",
+    title: "Polityka prywatności | Szabunia",
     description:
       "Polityka prywatności serwisu szabunia.pl. Informacje o przetwarzaniu danych osobowych, plikach cookies i prawach użytkownika zgodnie z RODO.",
     url: "https://szabunia.pl/polityka-prywatnosci",
@@ -20,13 +20,13 @@ export const metadata: Metadata = {
         url: "/images/og/strony/polityka-prywatnosci.jpg",
         width: 1200,
         height: 630,
-        alt: "Polityka prywatności — Marcin Szabunia",
+        alt: "Polityka prywatności, Marcin Szabunia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Polityka prywatności | Marcin Szabunia",
+    title: "Polityka prywatności | Szabunia",
     description:
       "Polityka prywatności serwisu szabunia.pl. Informacje o przetwarzaniu danych osobowych, plikach cookies i prawach użytkownika zgodnie z RODO.",
     images: ["/images/og/strony/polityka-prywatnosci.jpg"],

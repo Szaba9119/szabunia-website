@@ -11,29 +11,29 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Usługi foto i wideo dla firm | Marcin Szabunia Poznań",
+  title: "Usługi foto i wideo dla firm, Poznań | Szabunia",
   description:
-    "Pełna oferta dla firm: portrety biznesowe, sesje zespołowe, fotografia eventowa i produktowa, pakiety foto + wideo oraz wideo marketing. Poznań i cała Polska.",
+    "Obsługa eventów firmowych, sesje zespołowe, portrety, wideo i dron. Jeden twórca, jedna faktura, jeden termin. Poznań i cała Polska.",
   alternates: { canonical: "/uslugi" },
   openGraph: {
-    title: "Usługi — fotografia biznesowa i wideo marketing | Marcin Szabunia",
+    title: "Usługi foto i wideo dla firm, Poznań | Szabunia",
     description:
-      "Pełna oferta usług fotograficznych i wideo dla firm B2B. Poznań, cała Polska i Europa.",
+      "Obsługa wydarzeń firmowych, wizerunek zespołów, wideo i dron. Poznań, cała Polska i Europa.",
     url: "https://szabunia.pl/uslugi",
     images: [
       {
         url: "/images/og/strony/uslugi.jpg",
         width: 1200,
         height: 630,
-        alt: "Usługi fotograficzne i wideo dla firm — Marcin Szabunia",
+        alt: "Usługi fotograficzne i wideo dla firm, Marcin Szabunia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Usługi — fotografia biznesowa i wideo marketing | Marcin Szabunia",
+    title: "Usługi foto i wideo dla firm, Poznań | Szabunia",
     description:
-      "Pełna oferta usług fotograficznych i wideo dla firm B2B. Poznań, cała Polska i Europa.",
+      "Obsługa wydarzeń firmowych, wizerunek zespołów, wideo i dron. Poznań, cała Polska i Europa.",
     images: ["/images/og/strony/uslugi.jpg"],
   },
 };

@@ -6,6 +6,21 @@ export { type ProcessStep, type FAQItem };
 export interface ServiceData {
   slug: string;
   title: string;
+  /** Nagłówek H1 na podstronie usługi, gdy ma brzmieć inaczej niż `title`.
+      `title` jest nazwą krótką i trafia do nawigacji, kart na stronie głównej,
+      okruszków i pola `name` w JSON-LD, więc nie da się go rozbudować bez psucia
+      tych miejsc. H1 to najmocniejszy sygnał na stronie i ma zawierać frazę,
+      której ludzie realnie szukają (audyt 2026-07-30: `packshot` z 100 wyświetleniami
+      w GSC nie występował w żadnym H1). Brak wartości = fallback na `title`.
+
+      NIE doklejać miasta przecinkiem („Portrety biznesowe, Poznań"). Sprawdzone
+      2026-07-30: lokalność jest już zbudowana przez `addressLocality` i `GeoCoordinates`
+      w layoucie, `areaServed` na każdej podstronie, „Poznań" 1-3 razy w treści oraz
+      `title`, który i tak pokazuje się w wyniku. H1 z miastem po przecinku nie dokłada
+      rankingu, a łamie test nadrzędny z docs/zasady-tekstow.md („czy Marcin powiedziałby
+      to klientowi przez telefon"). Miasto w H1 tylko wtedy, gdy wychodzi naturalnie
+      w zdaniu, jak „Obsługa eventów firmowych w Poznaniu". */
+  h1?: string;
   subtitle: string;
   description: string;
   forWhom: string[];
@@ -45,10 +60,11 @@ export interface ServiceData {
 const serviceCategoriesRaw: ServiceData[] = [
   {
     slug: "wizerunek-portrety",
+    h1: "Portrety biznesowe i headshoty",
     galleryCategory: "portrety",
     title: "Wizerunek & Portrety",
     subtitle:
-      "Profesjonalne portrety biznesowe, headshoty i zdjęcia personal branding, które budują zaufanie.",
+      "Portrety biznesowe, headshoty na LinkedIn i zdjęcia do personal brandingu. Prowadzę przez pozowanie, nie musisz nic umieć.",
     description:
       "Portret biznesowy to Twoja wizytówka w cyfrowym świecie. Tworzę zdjęcia, które oddają charakter i kompetencje, na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Każdą sesję poprzedza konsultacja wizerunkowa, dzięki której dobieramy styl, oświetlenie i klimat dopasowany do Twojej branży.",
     forWhom: [
@@ -86,21 +102,22 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
-      title: "Wizerunek & Portrety biznesowe — Marcin Szabunia | Poznań",
-      description: "Profesjonalne portrety biznesowe, headshoty i personal branding. Sesje w studiu lub w mobilnym studiu w biurze. Poznań i cała Polska.",
+      title: "Portrety biznesowe i headshoty, Poznań | Szabunia",
+      description: "Portrety biznesowe, headshoty na LinkedIn i personal branding. Sesja w studiu albo mobilne studio w Twoim biurze. Poznań i cała Polska.",
     },
   },
   {
     slug: "pakiety-foto-wideo",
+    h1: "Zdjęcia, film i dron od jednej osoby",
     portfolioSlug: "woohoo-autopay",
     galleryCategory: "eventy",
     videoId: "4INLtKcKcZk",
     videoTitle: "E-commerce All-in, film z eventu dla Woohoo",
     title: "Pakiety Foto + Wideo + Dron",
     subtitle:
-      "Foto, wideo i ujęcia z drona z jednego wejścia. Jeden twórca, spójny materiał, mniej logistyki. Bestseller wśród klientów korporacyjnych.",
+      "Zdjęcia, film i ujęcia z drona od jednej osoby. Jeden twórca, spójny materiał, mniej logistyki. Bestseller wśród klientów korporacyjnych.",
     description:
-      "Pakiet hybrydowy to najefektywniejsze rozwiązanie, jedno wejście, dwa formaty. Podczas jednego wydarzenia lub sesji tworzę zarówno profesjonalne zdjęcia jak i materiał wideo. Rezultat: spójny wizualnie content na wszystkie kanały, bez koordynowania dwóch ekip.",
+      "Pakiet hybrydowy to jeden dzień zdjęciowy i dwa formaty na wyjściu. Podczas jednego wydarzenia lub sesji powstają i zdjęcia, i materiał wideo. Rezultat: spójny wizualnie content na wszystkie kanały, bez koordynowania dwóch ekip.",
     forWhom: [
       "Firmy organizujące eventy (konferencje, gale)",
       "Marki potrzebujące contentu na Social Media",
@@ -123,7 +140,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 4, title: "Dostawa", desc: "Zdjęcia w 14 dni, wideo w 21 dni" },
     ],
     pricingBlurb:
-      "Wycena pakietu zależy od liczby godzin obecności na wydarzeniu, zakresu wideo (teaser, główny film, wywiady z uczestnikami) i tego, czy potrzebujesz ujęć z drona. Im dłuższa realizacja, tym więcej materiału foto i wideo z jednego wejścia.",
+      "Wycena pakietu zależy od liczby godzin obecności na wydarzeniu, zakresu wideo (teaser, główny film, wywiady z uczestnikami) i tego, czy potrzebujesz ujęć z drona. Im dłuższa realizacja, tym więcej materiału zdjęciowego i wideo z tego samego dnia.",
     priceFaqQuestion: "Ile kosztuje pakiet foto + wideo?",
     priceFaqIntro: "Pakiety zaczynają się",
     faqs: [
@@ -134,19 +151,20 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Dogrywamy dodatkowe godziny przed eventem, dokładam je do wyceny na etapie briefu." },
     ],
     seo: {
-      title: "Pakiety Foto + Wideo + Dron — Marcin Szabunia | Poznań",
-      description: "Pakiety hybrydowe foto + wideo. Jeden twórca, spójny materiał, mniej logistyki. Eventy, konferencje, content marketing. Poznań.",
+      title: "Zdjęcia, film i dron od jednej osoby | Szabunia",
+      description: "Jeden twórca zamiast dwóch ekip, jedna faktura, jeden termin. Zdjęcia, film i ujęcia z drona z tego samego dnia. Eventy firmowe, Poznań.",
     },
   },
   {
     slug: "eventy-reportaze",
+    h1: "Obsługa eventów firmowych w Poznaniu",
     galleryCategory: "eventy",
     videoId: "m42ywMWjthw",
     videoTitle: "Film z eventu firmowego dla Woohoo",
     videoNote: "Tak wygląda film z eventu: dynamiczne podsumowanie wydarzenia, gotowe do social mediów.",
     title: "Eventy & Reportaże",
     subtitle:
-      "Profesjonalna dokumentacja konferencji, targów, gal i wydarzeń firmowych. Opcja live editing.",
+      "Dokumentacja konferencji, targów, gal i wydarzeń firmowych. Zdjęcia na social media jeszcze w trakcie eventu.",
     description:
       "Każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing, zdjęcia gotowe do publikacji na Social Media jeszcze w trakcie eventu. Fotografię eventową robię od początku działalności. Przez ponad osiem lat dokumentowałem wydarzenia w Poznaniu, nierzadko kilka różnych miejsc jednego wieczoru. Sprawne tempo i logistyka dużych eventów to dla mnie naturalny grunt.",
     forWhom: [
@@ -183,12 +201,13 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     portfolioSlug: "woohoo-autopay",
     seo: {
-      title: "Fotografia eventowa & reportaże — Marcin Szabunia | Poznań",
-      description: "Profesjonalna fotografia eventowa, konferencje, targi, gale. Reportaż + live editing na Social Media. Poznań i cała Polska.",
+      title: "Obsługa eventów firmowych, Poznań | Szabunia",
+      description: "Konferencje, targi, gale i integracje. Zdjęcia, film i dron od jednej osoby. Fotografowałem eventy dla H&M i Santandera.",
     },
   },
   {
     slug: "sesje-zespolowe",
+    h1: "Headshoty zespołu w Twoim biurze",
     galleryCategory: "zespolowe",
     title: "Sesje zespołowe",
     subtitle:
@@ -198,7 +217,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     forWhom: [
       "Zespoły korporacyjne i działy HR",
       "Kancelarie prawne i firmy doradcze",
-      "Startupy szukające profesjonalnego wizerunku",
+      "Startupy budujące wizerunek marki",
       "Firmy z rozproszonymi oddziałami",
       "Organizacje rebrandingujące się",
     ],
@@ -229,12 +248,13 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
-      title: "Sesje zespołowe & headshoty — Marcin Szabunia | Poznań",
-      description: "Profesjonalne headshoty zespołu w Twoim biurze. Mobilne studio, spójne zdjęcia, 10-15 min na osobę. Poznań i cała Polska.",
+      title: "Headshoty zespołu w Twoim biurze | Szabunia",
+      description: "Spójne portrety całego zespołu w jeden dzień. Mobilne studio w biurze, 10 do 15 minut na osobę, zdjęcia w 14 dni. Poznań i cała Polska.",
     },
   },
   {
     slug: "wideo-marketing",
+    h1: "Wideo dla firm i filmy korporacyjne",
     portfolioSlug: "woohoo-autopay",
     galleryCategory: "wideo",
     videoId: "hLO5iInREaI",
@@ -262,7 +282,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     price: "od 400 zł",
     process: [
       { num: 1, title: "Concept", desc: "Cel, format, platforma docelowa" },
-      { num: 2, title: "Nagranie", desc: "Profesjonalne ujęcia, światło, dźwięk" },
+      { num: 2, title: "Nagranie", desc: "Ujęcia, światło i dźwięk" },
       { num: 3, title: "Montaż", desc: "Cięcie, kolor, napisy, muzyka" },
       { num: 4, title: "Dostawa", desc: "Gotowe materiały w 21 dni" },
     ],
@@ -272,24 +292,25 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqIntro: "Produkcja wideo zaczyna się",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 do nagrań, obiektywy od 16 do 200 mm, oświetlenie ciągłe LED Godox, dźwięk Rode Wireless PRO, VideoMicro II i rejestrator Zoom oraz dron DJI do ujęć z powietrza. Sprzęt pozwala nagrać i zmontować materiał od reelsa po dłuższy film." },
-      { q: "Czy montujesz też materiał z telefonu?", a: "Tak, jeśli masz surowe nagrania z telefonu, mogę je zmontować profesjonalnie (cięcie, kolor, napisy, muzyka)." },
+      { q: "Czy montujesz też materiał z telefonu?", a: "Tak, jeśli masz surowe nagrania z telefonu, mogę je zmontować (cięcie, kolor, napisy, muzyka)." },
       { q: "W jakich formatach dostarczasz wideo?", a: "MP4 w rozdzielczości do 4K. Formaty: 9:16 (Reels/TikTok), 16:9 (YouTube/strona), 1:1 (feed). Dowolna kombinacja." },
       { q: "Czy mogę zamówić sam montaż bez nagrywania?", a: "Tak, wystarczy przesłać surowe pliki. Wycena zależy od długości i złożoności finalnego materiału." },
       { q: "Czy realizujesz wideo reklamowe i spoty?", a: "Tak, krótkie filmy reklamowe pod kampanie w Social Media i online (15-60 s). Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii." },
     ],
     seo: {
-      title: "Wideo marketing i filmy korporacyjne | Marcin Szabunia",
-      description: "Filmy korporacyjne, reelsy, filmy promocyjne i reklamowe, relacje z eventów. Profesjonalna produkcja wideo od nagrania po montaż. Poznań i cała Polska.",
+      title: "Wideo dla firm i filmy korporacyjne | Szabunia",
+      description: "Filmy o firmie, reelsy, wywiady i relacje z eventów. Nagranie i montaż u jednego twórcy. Stała współpraca w Monthly Content. Poznań.",
     },
   },
   {
     slug: "fotografia-produktowa",
+    h1: "Packshot i fotografia produktowa",
     galleryCategory: "produktowe",
     title: "Fotografia produktowa",
     subtitle:
       "Packshoty na białym tle z retuszem w cenie, zdjęcia kreatywne i aranżacje pod e-commerce, katalogi i Social Media.",
     description:
-      "Profesjonalne zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową, kreatywne ujęcia z aranżacją i rekwizytami, przygotowane pod konkretną kampanię: od internetu i Social Media po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym. Każde zdjęcie dostajesz z retuszem w cenie: produkt precyzyjnie wycięty z tła, czyste białe tło zgodne z wymogami Allegro i Amazon, a na życzenie przezroczyste tło (PNG).",
+      "Zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową, kreatywne ujęcia z aranżacją i rekwizytami, przygotowane pod konkretną kampanię: od internetu i Social Media po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym. Każde zdjęcie dostajesz z retuszem w cenie: produkt precyzyjnie wycięty z tła, czyste białe tło zgodne z wymogami Allegro i Amazon, a na życzenie przezroczyste tło (PNG).",
     forWhom: [
       "Sklepy internetowe i marketplace'y",
       "Marki kosmetyczne i modowe",
@@ -325,12 +346,13 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     portfolioSlug: "artech-fotografia-produktowa",
     seo: {
-      title: "Packshot i fotografia produktowa — Poznań | Marcin Szabunia",
-      description: "Packshoty na białym tle i zdjęcia produktowe w studiu w Poznaniu. E-commerce, katalogi, Social Media. Retusz w cenie zdjęcia.",
+      title: "Packshot i fotografia produktowa, Poznań | Szabunia",
+      description: "Packshoty na białym tle i zdjęcia produktowe w studiu w Poznaniu. E-commerce, katalogi, social media. Retusz w cenie zdjęcia.",
     },
   },
   {
     slug: "zdjecia-wideo-z-drona",
+    h1: "Zdjęcia i wideo z drona dla firm",
     galleryCategory: "dron",
     videoId: "4INLtKcKcZk",
     videoTitle: "Film z eventu dla Woohoo z ujęciami z drona",
@@ -339,7 +361,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Ujęcia z powietrza: budynki i obiekty firmowe, tereny, eventy i architektura. Foto i wideo w 4K.",
     description:
-      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, tereny i place, inwestycje budowlane, architektura oraz ujęcia eventowe. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego wejścia powstaje spójny komplet foto i wideo.",
+      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, tereny i place, inwestycje budowlane, architektura oraz ujęcia eventowe. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego dnia powstaje spójny komplet zdjęć i wideo.",
     forWhom: [
       "Deweloperzy i firmy budowlane (postęp prac, inwestycje)",
       "Hotele, ośrodki i obiekty turystyczne",
@@ -377,12 +399,12 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
       { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji bezpłatnie przekładamy termin na najbliższy możliwy." },
       { q: "W jakiej jakości dostarczasz materiał?", a: "Wideo do 4K, zdjęcia w pełnej rozdzielczości. Formaty dobieram pod stronę WWW i social media (poziome i pionowe)." },
-      { q: "Czy mogę połączyć drona z sesją naziemną?", a: "Tak. Dron działa jako dodatek do eventu, sesji produktowej lub wizerunkowej: kilka dodatkowych zdjęć lub ujęć wideo z powietrza przy okazji innej sesji. Z jednego wejścia powstaje spójny komplet." },
+      { q: "Czy mogę połączyć drona z sesją naziemną?", a: "Tak. Dron działa jako dodatek do eventu, sesji produktowej lub wizerunkowej: kilka dodatkowych zdjęć lub ujęć wideo z powietrza przy okazji innej sesji. Z jednej sesji powstaje spójny komplet." },
     ],
     portfolioSlug: "woohoo-autopay",
     seo: {
-      title: "Zdjęcia i wideo z drona — Marcin Szabunia | Poznań",
-      description: "Zdjęcia i wideo z drona (4K): budynki i obiekty firmowe, tereny, inwestycje, eventy i architektura. Certyfikat A1/A3 i OC operatora. Poznań i cała Polska.",
+      title: "Zdjęcia i wideo z drona dla firm | Szabunia",
+      description: "Ujęcia 4K budynków, terenów, inwestycji i eventów. Certyfikat A1/A3 i OC operatora. Dron w cenie pakietów hybrydowych. Poznań i cała Polska.",
     },
   },
 ];

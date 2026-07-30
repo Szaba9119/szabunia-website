@@ -11,29 +11,29 @@ import { blogPosts } from "@/data/blog";
 import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Blog o fotografii biznesowej i wideo | Marcin Szabunia",
+  title: "Blog o fotografii i wideo dla firm | Szabunia",
   description:
-    "Artykuły o fotografii biznesowej, sesjach wizerunkowych i wideo marketingu B2B. Porady od fotografa pracującego dla H&M, Warner Music i Santander.",
+    "Jak przygotować sesję, ile kosztuje event, jakie formaty wideo działają. Odpowiedzi od fotografa marek H&M, Warner Music i Santander.",
   alternates: { canonical: "/blog" },
   openGraph: {
-    title: "Blog — Fotografia biznesowa i wideo marketing | Marcin Szabunia",
+    title: "Blog o fotografii i wideo dla firm | Szabunia",
     description:
-      "Artykuły o fotografii biznesowej, sesjach wizerunkowych i wideo marketingu B2B. Porady od fotografa pracującego dla H&M, Warner Music i Santander.",
+      "Jak przygotować sesję, ile kosztuje event, jakie formaty wideo działają. Odpowiedzi od fotografa marek H&M, Warner Music i Santander.",
     url: "https://szabunia.pl/blog",
     images: [
       {
         url: "/images/og/strony/blog.jpg",
         width: 1200,
         height: 630,
-        alt: "Blog o fotografii biznesowej — Marcin Szabunia",
+        alt: "Blog o fotografii i wideo dla firm, Marcin Szabunia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Blog — Fotografia biznesowa i wideo marketing | Marcin Szabunia",
+    title: "Blog o fotografii i wideo dla firm | Szabunia",
     description:
-      "Artykuły o fotografii biznesowej, sesjach wizerunkowych i wideo marketingu B2B. Porady od fotografa pracującego dla H&M, Warner Music i Santander.",
+      "Jak przygotować sesję, ile kosztuje event, jakie formaty wideo działają. Odpowiedzi od fotografa marek H&M, Warner Music i Santander.",
     images: ["/images/og/strony/blog.jpg"],
   },
 };

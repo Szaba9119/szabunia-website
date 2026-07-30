@@ -11,29 +11,29 @@ import PoradnikForm from "@/components/PoradnikForm";
 import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Darmowy poradnik: przygotowanie do sesji | Marcin Szabunia",
+  title: "Darmowy poradnik: sesja biznesowa | Szabunia",
   description:
-    "Pobierz darmowy pakiet przygotowania do sesji biznesowej: checklisty, planer stylizacji, ściąga kolorów i mini-brief. Wyjdź na zdjęciach pewnie i naturalnie.",
+    "Checklisty, planer stylizacji, ściąga kolorów i mini-brief. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
   alternates: { canonical: "/poradnik" },
   openGraph: {
-    title: "Darmowy poradnik: przygotowanie do sesji biznesowej",
+    title: "Darmowy poradnik: sesja biznesowa | Szabunia",
     description:
-      "Checklisty, planer stylizacji, ściąga kolorów i mini-brief: wszystko, żeby wejść na plan spokojnie i z głową. Pobierz za darmo.",
+      "Checklisty, planer stylizacji, ściąga kolorów i mini-brief. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
     url: "https://szabunia.pl/poradnik",
     images: [
       {
         url: "/images/og/strony/poradnik.jpg",
         width: 1200,
         height: 630,
-        alt: "Poradnik przygotowania do sesji — Marcin Szabunia",
+        alt: "Poradnik przygotowania do sesji, Marcin Szabunia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Darmowy poradnik: przygotowanie do sesji biznesowej",
+    title: "Darmowy poradnik: sesja biznesowa | Szabunia",
     description:
-      "Checklisty, planer stylizacji, ściąga kolorów i mini-brief: wszystko, żeby wejść na plan spokojnie i z głową. Pobierz za darmo.",
+      "Checklisty, planer stylizacji, ściąga kolorów i mini-brief. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
     images: ["/images/og/strony/poradnik.jpg"],
   },
 };

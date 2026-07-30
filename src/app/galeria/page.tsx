@@ -20,29 +20,29 @@ import { listGalleryImagesSized } from "@/lib/galleryImages";
 import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Galeria zdjęć i wideo | Marcin Szabunia — fotograf Poznań",
+  title: "Galeria kadrów z realizacji | Szabunia",
   description:
-    "Wybrane kadry z realizacji: portrety biznesowe, fotografia eventowa, produktowa, wideo oraz zdjęcia z drona. Marcin Szabunia, Poznań i cała Polska.",
+    "Kadry z eventów firmowych, portrety, sesje zespołowe, packshoty i ujęcia z drona. Przegląd po kategoriach. Poznań i cała Polska.",
   alternates: { canonical: "/galeria" },
   openGraph: {
-    title: "Galeria zdjęć i wideo | Marcin Szabunia",
+    title: "Galeria kadrów z realizacji | Szabunia",
     description:
-      "Portrety biznesowe, fotografia eventowa, produktowa, wideo i zdjęcia z drona. Wybrane kadry z realizacji.",
+      "Eventy firmowe, portrety, sesje zespołowe, packshoty i ujęcia z drona. Przegląd kadrów po kategoriach.",
     url: "https://szabunia.pl/galeria",
     images: [
       {
         url: "/images/og/strony/galeria.jpg",
         width: 1200,
         height: 630,
-        alt: "Galeria kadrów z realizacji — Marcin Szabunia",
+        alt: "Galeria kadrów z realizacji, Marcin Szabunia",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Galeria zdjęć i wideo | Marcin Szabunia",
+    title: "Galeria kadrów z realizacji | Szabunia",
     description:
-      "Portrety biznesowe, fotografia eventowa, produktowa, wideo i zdjęcia z drona. Wybrane kadry z realizacji.",
+      "Eventy firmowe, portrety, sesje zespołowe, packshoty i ujęcia z drona. Przegląd kadrów po kategoriach.",
     images: ["/images/og/strony/galeria.jpg"],
   },
 };
@@ -66,7 +66,7 @@ export default async function GaleriaPage({
         "Portret biznesowy w studio, fotograf Marcin Szabunia, Poznań",
         "Headshot biznesowy do LinkedIn, sesja wizerunkowa, Poznań",
         "Zdjęcie wizerunkowe dla firmy, fotografia korporacyjna, Poznań",
-        "Profesjonalny portret pracownika, sesja biznesowa, Marcin Szabunia",
+        "Portret pracownika z sesji biznesowej, Marcin Szabunia",
         "Sesja personal branding, portret eksperta, fotograf Poznań",
       ],
     },

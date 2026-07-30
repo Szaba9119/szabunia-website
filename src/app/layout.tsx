@@ -27,20 +27,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Marcin Szabunia — Fotograf biznesowy & twórca wideo | Poznań",
+  title: "Fotograf eventowy i biznesowy Poznań | Szabunia",
   description:
-    "Profesjonalna fotografia biznesowa i wideo marketing dla firm. Portrety biznesowe, eventy, fotografia produktowa. Poznań i cała Polska.",
+    "Obsługa wydarzeń firmowych i wizerunek zespołów w Poznaniu. Zdjęcia, film i dron od jednej osoby. Współpracowałem z H&M i Santanderem.",
   metadataBase: new URL("https://szabunia.pl"),
   alternates: {
     canonical: "/",
     types: {
-      "application/rss+xml": [{ url: "/feed.xml", title: "Blog — Marcin Szabunia" }],
+      "application/rss+xml": [{ url: "/feed.xml", title: "Blog Marcina Szabuni" }],
     },
   },
   openGraph: {
-    title: "Marcin Szabunia — Fotograf biznesowy & twórca wideo",
+    title: "Marcin Szabunia, fotograf eventowy i biznesowy",
     description:
-      "Fotografia i wideo, które budują zaufanie, przyciągają klientów i wzmacniają autorytet na rynku.",
+      "Obsługa wydarzeń firmowych i wizerunek zespołów. Jeden twórca, spójny materiał, krótka droga od briefu do dostawy.",
     url: "https://szabunia.pl",
     siteName: "Marcin Szabunia",
     locale: "pl_PL",
@@ -50,15 +50,15 @@ export const metadata: Metadata = {
         url: "/images/og/strony/home.jpg",
         width: 1200,
         height: 630,
-        alt: "Marcin Szabunia — fotografia i wideo dla firm, Poznań",
+        alt: "Marcin Szabunia, fotografia i wideo dla firm, Poznań",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marcin Szabunia — Fotograf biznesowy & twórca wideo",
+    title: "Marcin Szabunia, fotograf eventowy i biznesowy",
     description:
-      "Fotografia i wideo, które budują zaufanie, przyciągają klientów i wzmacniają autorytet na rynku.",
+      "Obsługa wydarzeń firmowych i wizerunek zespołów. Jeden twórca, spójny materiał, krótka droga od briefu do dostawy.",
     images: ["/images/og/strony/home.jpg"],
   },
   robots: {
@@ -143,9 +143,9 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
               // (audyt PELNY2907-31). Przy zerowych backlinkach to najtańszy
               // sygnał tożsamości, jaki możemy dać Knowledge Graph.
               "@id": "https://szabunia.pl/#business",
-              name: "Marcin Szabunia — Fotograf biznesowy",
+              name: "Marcin Szabunia, fotograf eventowy i biznesowy",
               description:
-                "Profesjonalna fotografia biznesowa i wideo marketing dla firm. Portrety biznesowe, eventy, fotografia produktowa.",
+                "Obsługa wydarzeń firmowych i wizerunek zespołów. Zdjęcia, film i ujęcia z drona od jednej osoby. Poznań, cała Polska i Europa.",
               url: "https://szabunia.pl",
               telephone: "+48514900688",
               email: "marcin@szabunia.pl",
@@ -229,7 +229,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                       "@type": "Service",
                       name: "Fotografia eventowa",
                       description:
-                        "Profesjonalny fotoreportaż z konferencji, gal, eventów firmowych",
+                        "Fotoreportaż z konferencji, targów, gal i eventów firmowych",
                     },
                   },
                   {
@@ -247,7 +247,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                       "@type": "Service",
                       name: "Pakiety Foto + Wideo + Dron",
                       description:
-                        "Zdjęcia, wideo i ujęcia z drona z jednego wejścia: spójny materiał bez koordynowania dwóch ekip",
+                        "Zdjęcia, wideo i ujęcia z drona od jednej osoby: spójny materiał bez koordynowania dwóch ekip",
                     },
                   },
                   {
@@ -276,7 +276,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
               url: "https://szabunia.pl",
               image: "https://szabunia.pl/images/marcin-hero.jpg",
               description:
-                "Profesjonalny fotograf biznesowy i twórca wideo B2B z Poznania. Specjalizacja: portrety biznesowe, fotografia eventowa, wideo marketing, fotografia produktowa. Klienci: H&M, Warner Music Poland, Santander Bank Polska, John Deere, IQOS, Amica, Grupa Forte S.A., Centrum Posnania, Woohoo.",
+                "Fotograf eventowy i biznesowy z Poznania. Obsługa wydarzeń firmowych, wizerunek zespołów, wideo i dron. Współpracowałem z H&M, Warner Music Poland, Santander Bank Polska, John Deere, IQOS, Amica, Grupa Forte S.A., Centrum Posnania i Woohoo.",
               email: "marcin@szabunia.pl",
               address: {
                 "@type": "PostalAddress",
@@ -315,7 +315,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
               "@context": "https://schema.org",
               "@type": "WebSite",
               "@id": "https://szabunia.pl/#website",
-              name: "Marcin Szabunia — Fotografia biznesowa i wideo",
+              name: "Marcin Szabunia, fotografia i wideo dla firm",
               url: "https://szabunia.pl",
               inLanguage: "pl-PL",
               description:

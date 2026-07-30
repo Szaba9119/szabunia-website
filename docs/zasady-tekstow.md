@@ -28,6 +28,12 @@ broszura — do kosza.
 „szeroka gama", „bogate doświadczenie", „gwarancja satysfakcji",
 „podchodzę indywidualnie" (bez konkretu obok).
 
+**Dopisane 30.07.2026:** „profesjonalny / profesjonalna / profesjonalne" jako jedyne
+określenie. Żaden fotograf nie napisze „nieprofesjonalna fotografia", więc to słowo nic
+nie komunikuje, a zjada 14 znaków z limitu 155 w opisie meta. Przy audycie otwierało
+osiem opisów. Zostaje tylko tam, gdzie coś rozróżnia (np. „profesjonalne zdjęcie do CV"
+kontra zdjęcie zrobione telefonem).
+
 ## Czarna lista konstrukcji
 
 - Triady przymiotników („naturalne, autentyczne i profesjonalne").
@@ -40,8 +46,53 @@ broszura — do kosza.
 Zdanie po przepisaniu ma brzmieć jak powiedziane na głos, nie jak
 przeredagowany myślnik.
 
+## Nazwy usług: nie wymyślaj własnego słownika (dodane 30.07.2026)
+
+**Zanim nazwiesz usługę, sprawdź, czy ktokolwiek tak jej szuka.** Nazwa wymyślona
+wewnętrznie brzmi dla Ciebie oczywiście, a dla klienta jest zagadką.
+
+Precedens: fraza **„foto, wideo i dron z jednego wejścia"** żyła w 25 miejscach w repo,
+w tym w H1, w tytułach i w adresie wpisu blogowego. Sprawdzenie w danych: słowo „wejście"
+**nie występuje w żadnym zapytaniu** w GSC (3 miesiące i 7 dni) ani w wyszukiwanych hasłach
+z Google Ads. Zero popytu. Marcin sam nie umiał powiedzieć, czy znaczy „z jednego eventu",
+czy „od jednej osoby".
+
+Zastąpione przez **„zdjęcia, film i dron od jednej osoby"**, bo `film` i `filmowanie`
+występują w siedmiu realnych zapytaniach, a `kamerzysta` i `operator` w zerze.
+
+**Reguła:** przy nazwie usługi najpierw sprawdź GSC i wyszukiwane hasła z Ads. Jeśli słowa
+tam nie ma, użyj tego, którego ludzie faktycznie wpisują, nawet gdy brzmi prościej.
+Nie nazywaj też zawodu, gdy klient szuka rezultatu.
+
+## Miasto w nagłówkach (dodane 30.07.2026)
+
+**Nie doklejaj miasta przecinkiem.** „Portrety biznesowe i headshoty, Poznań" nie przechodzi
+testu nadrzędnego: nikt tak nie powie klientowi przez telefon. Brzmi jak słowo kluczowe
+wklejone w zdanie.
+
+Lokalność jest już zbudowana bez tego: `addressLocality` i `GeoCoordinates` w layoucie,
+`areaServed` na każdej podstronie usługi, „Poznań" od 1 do 3 razy w treści każdej z nich
+oraz `title`, który jako jedyny trafia wprost do wyniku wyszukiwania. Powtórzenie miasta
+w H1 nie kumuluje się.
+
+Miasto w nagłówku **tylko wtedy, gdy wychodzi naturalnie w zdaniu**, jak „Obsługa eventów
+firmowych w Poznaniu". W `title` zostaje, tam jego miejsce jest właściwe.
+
+## Czego nie wolno redagować (dodane 30.07.2026)
+
+**Cytatów klientów.** Opinie w `Testimonials.tsx` i w `portfolio.ts` zawierają frazy
+z czarnej listy („na najwyższym poziomie", „profesjonalne podejście"). To wypowiedzi
+innych ludzi. Poprawianie ich pod zasady redakcyjne jest fałszowaniem cudzej opinii,
+niezależnie od tego, jak brzmią.
+
+**Treści `blog.ts` wstecznie** (zapis pierwotny, nadal obowiązuje). Wyjątek: gdy usuwamy
+z serwisu żargon, który tam też siedzi, jak przy „jednym wejściu" 30.07.2026. Wtedy
+przepisujemy zdania, nie podmieniamy słów, i nie ruszamy sluga, jeśli adres jest
+zaindeksowany.
+
 ## Wzorce dobrego głosu (z istniejącej strony)
 
 - „Nie musisz być modelem, wystarczy być sobą. Reszta to moja robota."
 - „Słyszę to bardzo często i za każdym razem efekt pozytywnie zaskakuje."
 - „Jeden twórca, spójny materiał i krótka droga od briefu do dostawy."
+- „Zdjęcia, film i dron od jednej osoby." (30.07.2026, zastąpiło „z jednego wejścia")

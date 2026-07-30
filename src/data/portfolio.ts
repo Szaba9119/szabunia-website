@@ -154,9 +154,9 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     },
     seo: {
-      title: "E-commerce All-in — realizacja wideo | Marcin Szabunia",
+      title: "E-commerce All-in: realizacja wideo | Szabunia",
       description:
-        "Case study realizacji wideo dla Woohoo z wydarzenia E-commerce All-in (ICEA × Autopay) na Enea Stadion: poziomy film podsumowujący i trzy pionowe reelsy z wywiadami.",
+        "Realizacja wideo dla Woohoo z wydarzenia E-commerce All-in (ICEA i Autopay) na Enea Stadion: film podsumowujący i trzy reelsy z wywiadami.",
     },
   },
   {
@@ -203,7 +203,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       ],
     },
     seo: {
-      title: "Box17 — packshoty budek akustycznych | Marcin Szabunia",
+      title: "Box17: packshoty budek akustycznych | Szabunia",
       description:
         "Case study dla Box17 (Tarnowo Podgórne): jednodniowa sesja pięciu budek akustycznych, packshoty na cykloramie, zdjęcia w showroomie i dwa filmy produktowe.",
     },
@@ -267,7 +267,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     },
     seo: {
-      title: "Artech — packshoty i film z produkcji | Marcin Szabunia",
+      title: "Artech: packshoty i film z produkcji | Szabunia",
       description:
         "Case study dla Artech Group (Poznań): packshoty półfabrykatów i detali z tworzyw sztucznych na stronę WWW i do katalogu oraz film z hali produkcyjnej.",
     },
@@ -309,7 +309,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       ],
     },
     seo: {
-      title: "IDcom — headshoty zespołu na 3 tłach | Marcin Szabunia",
+      title: "IDcom: headshoty zespołu na 3 tłach | Szabunia",
       description:
         "Case study sesji wizerunkowej zespołu IDcom Group (Poznań): spójne portrety na trzech tłach (białym, czarnym i kremowym) na stronę WWW i materiały firmowe.",
     },
@@ -364,9 +364,9 @@ export const portfolioCategories: PortfolioCategory[] = [
       ],
     },
     seo: {
-      title: "Yes Butcher — sesja do przewodnika Michelin | Marcin Szabunia",
+      title: "Yes Butcher w przewodniku Michelin | Szabunia",
       description:
-        "Case study sesji dla Yes Butcher! Shop & Bistro (Poznań): zdjęcie z drona, wnętrza, portrety szefa kuchni i nagrodzony stek. Zdjęcia trafiły do przewodnika Michelin.",
+        "Sesja dla Yes Butcher Shop & Bistro w Poznaniu: dron, wnętrza, portrety szefa kuchni i nagrodzony stek. Zdjęcia trafiły do przewodnika Michelin.",
     },
   },
   {
@@ -409,7 +409,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     ],
     seo: {
-      title: "Sesja wizerunkowa firmy — Marcin Szabunia | Poznań",
+      title: "Sesja wizerunkowa firmy, Poznań | Szabunia",
       description:
         "Profesjonalne portrety biznesowe i headshoty dla kadry zarządzającej. Sesje w studiu lub mobilnym studio w biurze. Poznań i cała Polska.",
     },
@@ -453,7 +453,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     ],
     seo: {
-      title: "Fotografia eventowa — Marcin Szabunia | Poznań",
+      title: "Fotografia eventowa, Poznań | Szabunia",
       description:
         "Profesjonalna fotografia eventowa: konferencje, targi, gale, bankiety. Reportaż + live editing na Social Media. Poznań i cała Polska.",
     },
@@ -497,7 +497,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     ],
     seo: {
-      title: "Fotografia produktowa & packshoty — Marcin Szabunia | Poznań",
+      title: "Fotografia produktowa i packshoty, Poznań | Szabunia",
       description:
         "Profesjonalne packshoty na białym tle i zdjęcia kreatywne produktów. E-commerce, katalogi, Social Media. Studio w Poznaniu.",
     },
@@ -541,7 +541,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     ],
     seo: {
-      title: "Sesja korporacyjna & headshoty zespołu — Marcin Szabunia | Poznań",
+      title: "Sesja korporacyjna i headshoty zespołu | Szabunia",
       description:
         "Profesjonalne headshoty zespołu i zdjęcia korporacyjne. Mobilne studio w Twoim biurze. Poznań i cała Polska.",
     },

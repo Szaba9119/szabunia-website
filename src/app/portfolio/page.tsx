@@ -15,29 +15,29 @@ const blurPlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
 
 export const metadata: Metadata = {
-  title: "Portfolio — realizacje foto i wideo | Marcin Szabunia",
+  title: "Portfolio realizacji foto i wideo | Szabunia",
   description:
-    "Wybrane realizacje: sesje wizerunkowe, fotografia eventowa, sesje korporacyjne i packshoty produktowe dla firm B2B. Poznań, cała Polska i Europa.",
+    "Eventy firmowe, sesje zespołowe, packshoty i film z produkcji. Współpracowałem z H&M, Santanderem, Warner Music i John Deere.",
   alternates: { canonical: "/portfolio" },
   openGraph: {
-    title: "Portfolio — realizacje fotograficzne i wideo | Marcin Szabunia",
+    title: "Portfolio realizacji foto i wideo | Szabunia",
     description:
-      "Wybrane realizacje fotograficzne i wideo dla firm B2B. Poznań, cała Polska i Europa.",
+      "Case studies realizacji foto i wideo dla firm. Poznań, cała Polska i Europa.",
     url: "https://szabunia.pl/portfolio",
     images: [
       {
         url: "/images/og/strony/portfolio.jpg",
         width: 1200,
         height: 630,
-        alt: "Portfolio realizacji — Marcin Szabunia, fotograf biznesowy",
+        alt: "Portfolio realizacji, Marcin Szabunia, fotograf biznesowy",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Portfolio — realizacje fotograficzne i wideo | Marcin Szabunia",
+    title: "Portfolio realizacji foto i wideo | Szabunia",
     description:
-      "Wybrane realizacje fotograficzne i wideo dla firm B2B. Poznań, cała Polska i Europa.",
+      "Case studies realizacji foto i wideo dla firm. Poznań, cała Polska i Europa.",
     images: ["/images/og/strony/portfolio.jpg"],
   },
 };
@@ -75,7 +75,7 @@ export default function PortfolioPage() {
               Portfolio
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-              Projekty dla firm, które stawiają na profesjonalny wizerunek:
+              Wybrane realizacje dla firm:
               sesje wizerunkowe, reportaże z eventów, sesje korporacyjne i
               fotografia produktowa.
             </p>

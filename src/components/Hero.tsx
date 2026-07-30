@@ -31,16 +31,27 @@ export default function Hero() {
             wysokości zdjęcia — dokleiwamy A do dołu rzędu 1 i C do góry rzędu 2,
             żeby na desktopie CTA i chipy stykały się jak jeden blok. */}
         <div className="hero-intro md:col-start-1 md:row-start-1 md:self-end text-center md:text-left">
-          <h1 className="font-barlow font-black text-[clamp(32px,9vw,80px)] md:text-[clamp(40px,7vw,80px)] leading-[1.05] md:leading-[0.95] tracking-[-1px] md:tracking-[-2px] text-navy dark:text-white mb-4 md:mb-5">
+          {/* H1 to fraza, hasło zostaje jako element graficzny w H2 (decyzja Marcina
+              2026-07-30). Powód: poprzedni H1 brzmiał „REALIZUJĘ CELE TWOJEJ MARKI"
+              i nie zawierał ani jednego słowa, którego ktokolwiek szuka, a strona
+              główna walczy o „fotograf biznesowy poznań" (59 wyświetleń, pozycja 11,08
+              w GSC). H1 jest najmocniejszym sygnałem na stronie. Hasło nie zniknęło,
+              zmieniło tylko poziom nagłówka, więc układ wizualny zostaje bez zmian
+              poza jedną linią kickera. */}
+          <h1 className="font-barlow font-semibold text-[11px] md:text-sm tracking-[0.06em] md:tracking-[0.14em] uppercase text-steel dark:text-dark-text-muted mb-3 md:mb-4">
+            Fotograf eventowy i biznesowy w Poznaniu
+          </h1>
+          <h2 className="font-barlow font-black text-[clamp(32px,9vw,80px)] md:text-[clamp(40px,7vw,80px)] leading-[1.05] md:leading-[0.95] tracking-[-1px] md:tracking-[-2px] text-navy dark:text-white mb-4 md:mb-5">
             REALIZUJĘ
             <br />
             <span className="text-blue dark:text-blue-light">CELE</span> TWOJEJ
             <br />
             MARKI.
-          </h1>
+          </h2>
           <p className="font-inter text-[15px] md:text-base text-steel dark:text-dark-text-muted leading-relaxed max-w-md mx-auto md:mx-0">
-            Fotografia i wideo, które budują zaufanie, przyciągają klientów
-            i&nbsp;wzmacniają autorytet na rynku.
+            Obsługa wydarzeń firmowych i wizerunek zespołów. Zdjęcia, film i dron
+            od&nbsp;jednej osoby. Współpracowałem z H&amp;M, Santanderem
+            i&nbsp;Warner Music.
           </p>
         </div>
 

@@ -9,29 +9,29 @@ import ErrorBoundary from "@/components/ErrorBoundary";
 import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
-  title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
+  title: "Kontakt i wycena, fotograf Poznań | Szabunia",
   description:
-    "Skontaktuj się w sprawie fotografii i wideo dla firm: portrety biznesowe, eventy, produktowa, wideo. Poznań, cała Polska. Odpowiadam w 24h.",
+    "Napisz, czego potrzebujesz. Odpowiadam w 24 godziny wstępną wyceną i wolnym terminem. Poznań, cała Polska i Europa.",
   alternates: { canonical: "/kontakt" },
   openGraph: {
-    title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
+    title: "Kontakt i wycena, fotograf Poznań | Szabunia",
     description:
-      "Napisz, czego potrzebujesz, a odezwę się w 24h ze wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
+      "Napisz, czego potrzebujesz. Odpowiadam w 24 godziny wstępną wyceną i wolnym terminem. Poznań, cała Polska i Europa.",
     url: "https://szabunia.pl/kontakt",
     images: [
       {
         url: "/images/og/strony/kontakt.jpg",
         width: 1200,
         height: 630,
-        alt: "Kontakt — Marcin Szabunia, fotograf biznesowy Poznań",
+        alt: "Kontakt, Marcin Szabunia, fotograf biznesowy Poznań",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
+    title: "Kontakt i wycena, fotograf Poznań | Szabunia",
     description:
-      "Napisz, czego potrzebujesz, a odezwę się w 24h ze wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
+      "Napisz, czego potrzebujesz. Odpowiadam w 24 godziny wstępną wyceną i wolnym terminem. Poznań, cała Polska i Europa.",
     images: ["/images/og/strony/kontakt.jpg"],
   },
 };

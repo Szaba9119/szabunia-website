@@ -69,9 +69,9 @@ export const blogPosts: BlogPost[] = [
       <p>Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">profesjonalne headshoty zwiększają konwersję na LinkedIn</a>, przejrzyj moje <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> albo pobierz <a href="/poradnik">darmowy poradnik przygotowania do sesji</a>.</p>
     `,
     seo: {
-      title: "Jak przygotować się do sesji biznesowej | Marcin Szabunia",
+      title: "Jak przygotować się do sesji biznesowej | Szabunia",
       description:
-        "Praktyczna checklista przed sesją portretową: stylizacja, detale, inspiracje. Wszystko, czego potrzebujesz, żeby Twoje zdjęcia biznesowe wyglądały profesjonalnie.",
+        "Checklista przed sesją portretową: stylizacja, detale, inspiracje. Co przygotować, żeby zdjęcia biznesowe wyszły dobrze za pierwszym razem.",
     },
   },
   {
@@ -131,7 +131,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Studio, Twoje biuro czy sesja dla całego zespołu</h2>
       <p>Nie musisz nigdzie jechać. Na sesję w Twoim biurze przywożę mobilne studio: potrzebuję około 3 m² wolnej przestrzeni i dostępu do gniazdka. Sala konferencyjna w zupełności wystarczy.</p>
-      <p>Jeśli headshota potrzebuje więcej osób niż jedna, sensowniej wychodzi <a href="/uslugi/sesje-zespolowe">sesja zespołowa</a>: jedno wejście, to samo światło, ten sam retusz, a stawka za osobę spada wraz z wielkością grupy. Sesje zespołowe realizuję od 4 osób. Efekt uboczny jest taki, że profile Waszych ludzi na LinkedIn zaczynają wyglądać jak jedna firma, a nie jak zbiór przypadkowych zdjęć.</p>
+      <p>Jeśli headshota potrzebuje więcej osób niż jedna, sensowniej wychodzi <a href="/uslugi/sesje-zespolowe">sesja zespołowa</a>: jeden dzień, to samo światło, ten sam retusz, a stawka za osobę spada wraz z wielkością grupy. Sesje zespołowe realizuję od 4 osób. Efekt uboczny jest taki, że profile Waszych ludzi na LinkedIn zaczynają wyglądać jak jedna firma, a nie jak zbiór przypadkowych zdjęć.</p>
 
       <h2>„Nie jestem fotogeniczny" to nie jest przeszkoda</h2>
       <p>Słyszę to bardzo często i za każdym razem efekt pozytywnie zaskakuje. Prowadzę Cię przez całą sesję: pomagam z pozowaniem, ustawiam światło pod Twoją twarz, pilnuję naturalnego wyrazu. W studiu zawsze ustawiam lustro przed osobą fotografowaną, żebyś na bieżąco widział siebie i mógł poprawić drobne detale, zamiast dowiadywać się o nich dopiero z gotowych zdjęć. Nie musisz być modelem, wystarczy być sobą. Reszta to moja robota.</p>
@@ -141,7 +141,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Jeden headshot czy kilka wariantów</h2>
       <p>LinkedIn to nie jedyne miejsce, w którym pracuje Twój portret. Zwykle potrzebne są jeszcze zdjęcia na stronę firmową, do materiałów prasowych i do prezentacji. Dobrze zaplanowana sesja daje kilka wariantów naraz.</p>
-      <p>Dla IDcom Group zrealizowałem sesję na trzech tłach w jednym wejściu: białym, czarnym z niebieskim światłem i kremowym. Każda osoba dostała komplet kadrów w tym samym standardzie światła i retuszu, więc firma dobiera klimat do kontekstu zamiast wracać do studia. Zobacz <a href="/portfolio/idcom-headshoty-zespolu">case study IDcom</a>.</p>
+      <p>Dla IDcom Group zrealizowałem sesję na trzech tłach w ciągu jednego dnia: białym, czarnym z niebieskim światłem i kremowym. Każda osoba dostała komplet kadrów w tym samym standardzie światła i retuszu, więc firma dobiera klimat do kontekstu zamiast wracać do studia. Zobacz <a href="/portfolio/idcom-headshoty-zespolu">case study IDcom</a>.</p>
 
       <h2>Zdjęcie z generatora AI zamiast sesji</h2>
       <p>Generatory headshotów kuszą ceną i czasem. Zanim wrzucisz taki portret na profil, warto wiedzieć, gdzie leżą granice tego rozwiązania i co ryzykujesz przy spotkaniu na żywo. Rozłożyłem to na czynniki pierwsze w tekście <a href="/blog/zdjecia-ai-vs-profesjonalna-sesja">zdjęcia AI vs profesjonalna sesja</a>.</p>
@@ -156,7 +156,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zanim umówisz sesję, sprawdź, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, pobierz <a href="/poradnik">darmowy poradnik przygotowania do sesji</a> i zobacz <a href="/galeria?kat=portrety">przykładowe realizacje sesji wizerunkowych</a>.</p>
     `,
     seo: {
-      title: "Headshoty na LinkedIn a konwersja | Marcin Szabunia",
+      title: "Headshoty na LinkedIn a konwersja | Szabunia",
       description:
         "Profil ze zdjęciem bywa oglądany 21x częściej niż profil bez niego. Jak zrobić headshot, który buduje zaufanie i przyciąga klientów?",
     },
@@ -219,7 +219,7 @@ export const blogPosts: BlogPost[] = [
       <p>Sprawdź pełną ofertę <a href="/uslugi/eventy-reportaze">fotografii eventowej</a> i napisz, jeśli chcesz omówić swoje wydarzenie. Działam z Poznania, obsługuję eventy w całej Polsce i Europie, a na zapytania odpowiadam w ciągu 24h.</p>
     `,
     seo: {
-      title: "Fotografia eventowa vs reportaż: co wybrać | Marcin Szabunia",
+      title: "Fotografia eventowa vs reportaż: co wybrać | Szabunia",
       description:
         "Reportaż czy sesja eventowa? Porównanie stylów fotografii na konferencjach, targach i galach. Koszty, efekty, kiedy co wybrać.",
     },
@@ -272,7 +272,7 @@ export const blogPosts: BlogPost[] = [
       <p>Jeśli chcesz, żeby profil naprawdę pracował, przeczytaj, jak <a href="/blog/headshoty-linkedin-konwersja">headshoty zwiększają konwersję na LinkedIn</a>.</p>
     `,
     seo: {
-      title: "Jak zrobić zdjęcie do CV w domu: poradnik | Marcin Szabunia",
+      title: "Jak zrobić zdjęcie do CV w domu: poradnik | Szabunia",
       description:
         "Praktyczny poradnik: jak zrobić profesjonalne zdjęcie do CV telefonem w domu. Oświetlenie, tło, ustawienie i kiedy lepiej wybrać fotografa.",
     },
@@ -330,7 +330,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Film z hali pracuje inaczej niż zdjęcia</h2>
       <p>Zdjęcie pokazuje moment, film pokazuje ruch: maszynę w pracy, rytm linii, sposób obsługi. Dla Artech Group, poznańskiego centrum obróbki tworzyw sztucznych CNC, powstał film z hali produkcyjnej pokazujący park maszynowy i sposób pracy firmy. Materiał pracuje na stronie i w rozmowach handlowych: zamiast opisywać możliwości produkcyjne, firma po prostu je pokazuje. To argument, który w B2B skraca rozmowę o kilka mejli.</p>
-      <p>Nagranie wideo i zdjęcia da się zrobić w jednym wejściu, w modelu <a href="/uslugi/pakiety-foto-wideo">foto plus wideo</a>. Jedna wizyta na hali oznacza jedno przerwanie rytmu produkcji zamiast dwóch.</p>
+      <p>Nagranie wideo i zdjęcia da się zrobić w jednej sesji, w modelu <a href="/uslugi/pakiety-foto-wideo">foto plus wideo</a>. Jedna wizyta na hali oznacza jedno przerwanie rytmu produkcji zamiast dwóch.</p>
 
       <h2>Packshoty półfabrykatów jako uzupełnienie</h2>
       <p>Firmy produkcyjne często potrzebują dwóch rzeczy naraz: zdjęć z hali i zdjęć samych wyrobów. Dla Artech powstało 20 packshotów półfabrykatów i detali z tworzyw na białym tle, w powtarzalnym setupie, wykorzystywanych na stronie internetowej, w katalogu i w sklepie internetowym. Powtarzalny setup ma znaczenie praktyczne: katalog da się rozbudowywać o kolejne pozycje bez ponownego fotografowania wszystkiego. Szczegóły opisałem przy <a href="/uslugi/fotografia-produktowa">fotografii produktowej</a> oraz w <a href="/portfolio/artech-fotografia-produktowa">case study Artech</a>.</p>
@@ -357,7 +357,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zobacz <a href="/portfolio/artech-fotografia-produktowa">realizację dla Artech Group</a>, a potem <a href="/kontakt">napisz, co dzieje się w Twoim zakładzie</a>.</p>
     `,
     seo: {
-      title: "Fotografia przemysłowa: zdjęcia fabryki | Marcin Szabunia",
+      title: "Fotografia przemysłowa: zdjęcia fabryki | Szabunia",
       description:
         "Jak fotografować hale produkcyjne, maszyny i procesy przemysłowe. Praktyczne wskazówki od fotografa z doświadczeniem w branży produkcyjnej.",
     },
@@ -434,7 +434,7 @@ export const blogPosts: BlogPost[] = [
       <p>Przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje sesji korporacyjnych</a>, sprawdź, jak zaplanować <a href="/blog/headshoty-zespolu-w-jeden-dzien">headshoty całego zespołu w jeden dzień</a>, i daj znać, kiedy zaplanować sesję u Was.</p>
     `,
     seo: {
-      title: "5 błędów przy zdjęciach zespołu | Marcin Szabunia",
+      title: "5 błędów przy zdjęciach zespołu | Szabunia",
       description:
         "Najczęstsze błędy w zdjęciach zespołowych: niespójność, złe tło, brak zapowiedzi. Jak zorganizować profesjonalną sesję dla pracowników.",
     },
@@ -483,7 +483,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zanim umówimy sesję, zobacz, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, a gdy będziesz gotowy, <a href="/kontakt">napisz, czego potrzebujesz</a>.</p>
     `,
     seo: {
-      title: "Ile kosztuje sesja wizerunkowa dla firmy | Marcin Szabunia",
+      title: "Ile kosztuje sesja wizerunkowa dla firmy | Szabunia",
       description:
         "Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja, licencja. Od 1 100 zł, sprawdź, jak zaplanować budżet.",
     },
@@ -577,7 +577,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zobacz <a href="/portfolio/artech-fotografia-produktowa">realizacje packshotów produktowych</a>, sprawdź <a href="/blog/co-to-jest-packshot">słownik pojęć fotografii produktowej</a>, a potem <a href="/kontakt">napisz, co chcesz sfotografować</a>.</p>
     `,
     seo: {
-      title: "Fotografia produktowa dla e-commerce | Marcin Szabunia",
+      title: "Fotografia produktowa dla e-commerce | Szabunia",
       description:
         "Jak zdjęcia produktowe wpływają na sprzedaż w e-commerce: packshot vs lifestyle, spójność katalogu, kadr pod mobile i mniej zwrotów. Praktyczny przewodnik.",
     },
@@ -649,12 +649,12 @@ export const blogPosts: BlogPost[] = [
       <h2>Terminy i poprawki</h2>
       <p>Gotowe wideo dostajesz w 21 dni kalendarzowych, a jeśli termin goni, jest tryb ekspresowy do 48 godzin za dopłatą 50 procent wartości zlecenia. W cenie masz trzy tury poprawek montażowych, realizowane w ciągu 7 dni od zgłoszenia, bez liczenia terminu podstawowego od nowa. Licencja komercyjna jest w cenie i nie ma limitów czasowych: film możesz puścić na stronie, w Social Media, w reklamie online i w materiałach sprzedażowych.</p>
 
-      <h2>Foto i wideo w jednym wejściu</h2>
+      <h2>Zdjęcia i film w jednej sesji</h2>
       <p>Najefektywniej jest łączyć materiał foto i wideo na jednej realizacji: jedna rozmowa na starcie, jeden dzień zdjęciowy, spójny styl. Nie koordynujesz dwóch ekip i nie tłumaczysz dwa razy tego samego. Bazuję w Poznaniu, gdzie dojazd kosztuje 0 zł, poza miastem doliczam 2,50 zł netto za kilometr w obie strony, a realizacje prowadzę w całej Polsce i Europie.</p>
       <p>Sprawdź <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, zobacz, kiedy bardziej opłaca się <a href="/blog/pakiet-foto-wideo-czy-osobno">pakiet, a kiedy usługi osobno</a>, i zajrzyj do <a href="/blog/slownik-pojec-wideo">słownika pojęć wideo</a>, jeśli chcesz rozumieć, o czym mówimy przy ustalaniu zakresu. A potem <a href="/kontakt">opisz swój projekt</a>. Podpowiem, który format da najwięcej przy Twoim budżecie.</p>
     `,
     seo: {
-      title: "Wideo marketing dla firm: jakie formaty | Marcin Szabunia",
+      title: "Wideo marketing dla firm: jakie formaty | Szabunia",
       description:
         "Film wizerunkowy, reels, testimonial, wideo produktowe, relacja z eventu, przegląd formatów wideo marketingu B2B i tego, gdzie każdy się sprawdza.",
     },
@@ -709,7 +709,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zobacz <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> i <a href="/portfolio/idcom-headshoty-zespolu">sesji korporacyjnych</a>, a potem <a href="/kontakt">napisz, co chcesz osiągnąć</a>. Dobiorę miejsce pod Twój cel.</p>
     `,
     seo: {
-      title: "Sesja wizerunkowa Poznań: gdzie ją zrobić | Marcin Szabunia",
+      title: "Sesja wizerunkowa Poznań: gdzie ją zrobić | Szabunia",
       description:
         "Gdzie zrobić sesję wizerunkową w Poznaniu: studio, biuro czy plener? Porównanie podejść, plusy i minusy każdego, dojazd na terenie Poznania w cenie.",
     },
@@ -759,9 +759,9 @@ export const blogPosts: BlogPost[] = [
       <p>Zobacz <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> albo od razu <a href="/kontakt">napisz, czego potrzebujesz</a>. Podpowiem, ile ujęć i wariantów realnie wystarczy. Bazuję w Poznaniu, a sesje realizuję w całej Polsce i Europie.</p>
     `,
     seo: {
-      title: "Zdjęcia AI vs profesjonalna sesja | Marcin Szabunia",
+      title: "Zdjęcia AI vs profesjonalna sesja | Szabunia",
       description:
-        "Headshot z generatora AI czy profesjonalna sesja? Porównanie kosztów, wiarygodności, zgodności z wizerunkiem i ryzyk. Kiedy AI wystarczy, a kiedy szkodzi marce.",
+        "Headshot z generatora AI czy zwykła sesja? Porównanie kosztów, wiarygodności i ryzyk. Kiedy AI wystarczy, a kiedy szkodzi marce.",
     },
   },
   {
@@ -819,9 +819,9 @@ export const blogPosts: BlogPost[] = [
       <p>Resztę przygotowań znajdziesz w poradniku <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>. Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">headshot pracuje na konwersję na LinkedIn</a>, i przejrzyj <a href="/galeria?kat=portrety">przykładowe realizacje</a>. Gotowy? <a href="/kontakt">Napisz do mnie</a>, umówimy termin. Odpowiadam w ciągu 24h. Sesje realizuję w Poznaniu, a także w całej Polsce i Europie.</p>
     `,
     seo: {
-      title: "Co założyć na sesję biznesową: stylizacje | Marcin Szabunia",
+      title: "Co założyć na sesję biznesową: stylizacje | Szabunia",
       description:
-        "Jak ubrać się na sesję wizerunkową: kolory, które dobrze wyglądają na zdjęciach, fasony, materiały i błędy do uniknięcia. Praktyczny przewodnik krok po kroku.",
+        "Jak ubrać się na sesję wizerunkową: kolory, które dobrze wyglądają na zdjęciach, fasony, materiały i błędy do uniknięcia.",
     },
   },
   {
@@ -867,7 +867,7 @@ export const blogPosts: BlogPost[] = [
       <p>Najtaniej i najspójniej jest zebrać potrzeby z całej strony i zrealizować je w jednej, dobrze zaplanowanej sesji (albo serii). Zaczynamy od listy sekcji i ujęć, dobieramy lokalizację i styl, a Ty dostajesz komplet spójnego materiału. Działam z Poznania, tu dojazd masz w cenie, a sesje realizuję w całej Polsce i Europie. Przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje</a> i <a href="/kontakt">napisz, co jest na Twojej stronie</a>, ułożymy plan zdjęć pod nią.</p>
     `,
     seo: {
-      title: "Jakie zdjęcia na stronę firmową: lista | Marcin Szabunia",
+      title: "Jakie zdjęcia na stronę firmową: lista | Szabunia",
       description:
         "Jakich zdjęć potrzebuje strona internetowa firmy: hero, zespół, biuro, produkty, realizacje. Lista sekcja po sekcji i dlaczego warto zrezygnować ze stocków.",
     },
@@ -939,9 +939,9 @@ export const blogPosts: BlogPost[] = [
       <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan realizacji. Zobacz <a href="/uslugi/wideo-marketing">ofertę wideo marketingu</a> i <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, a potem <a href="/kontakt">napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
     `,
     seo: {
-      title: "Co to jest b-roll? Słownik pojęć wideo | Marcin Szabunia",
+      title: "B-roll, setka, recap: słownik wideo | Szabunia",
       description:
-        "Reels, b-roll, color grading, teaser, setka, recap, gimbal. Słownik pojęć wideo marketingu dla firm wyjaśniony prostym językiem, bez żargonu.",
+        "Co to jest b-roll, setka, recap, teaser, color grading i gimbal. Pojęcia wideo wyjaśnione tak, żeby dogadać się z ekipą na planie.",
     },
   },
   {
@@ -1002,7 +1002,7 @@ export const blogPosts: BlogPost[] = [
       <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan sesji. <a href="/kontakt">Napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
     `,
     seo: {
-      title: "Co to jest packshot? Słownik fotografii | Marcin Szabunia",
+      title: "Co to jest packshot? Słownik fotografii | Szabunia",
       description:
         "Packshot, lifestyle, headshot, brief, RAW, retusz, licencja. Słownik pojęć fotografii biznesowej i produktowej wyjaśniony prostym językiem, bez żargonu.",
     },
@@ -1026,7 +1026,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">Perspektywa z lotu ptaka pokazuje to, czego nie odda żadne zdjęcie z poziomu ziemi: skalę inwestycji, układ terenu, sąsiedztwo i kontekst całego obiektu. Dla firmy to nie efekt „wow" dla samego efektu, tylko konkretne narzędzie sprzedaży i dokumentacji. Poniżej tłumaczę, do czego realnie przydają się zdjęcia i film z drona, jak wygląda realizacja, co z legalnością lotów i od czego zależy koszt.</p>
 
       <h2>Do czego firmie zdjęcia i film z drona</h2>
-      <p>Dron to jedno wejście, a kilka zupełnie różnych zastosowań. Najczęściej realizuję materiał dla:</p>
+      <p>Dron to jedna sesja, a kilka zupełnie różnych zastosowań. Najczęściej realizuję materiał dla:</p>
       <ul>
         <li><strong>Deweloperów i firm budowlanych:</strong> postęp prac, dokumentacja etapów, inwestycja pokazana w otoczeniu.</li>
         <li><strong>Przemysłu i logistyki:</strong> hale, place, tereny i infrastruktura w prawdziwej skali.</li>
@@ -1068,26 +1068,26 @@ export const blogPosts: BlogPost[] = [
       <p>Orientacyjnie, netto: przebitki 4K do montażu własnego od <strong>700 zł</strong>, zdjęcia z drona (do 8 wyretuszowanych ujęć) od <strong>900 zł</strong>, zmontowany film 4K od <strong>1 200 zł</strong>, a komplet z jednej sesji wychodzi taniej niż te same usługi zamawiane osobno. Pełne rozbicie ceny na czynniki (warianty, komplety, strefy) znajdziesz we wpisie <a href="/blog/ile-kosztuje-film-z-drona">ile kosztuje film z drona</a>.</p>
 
       <h2>Dron jako dodatek, nie tylko osobna usługa</h2>
-      <p>Materiał z drona świetnie łączy się z sesją naziemną. Na <a href="/uslugi/eventy-reportaze">evencie</a> kilka ujęć z góry pokazuje skalę wydarzenia, a w filmie firmowym otwierają one całość i nadają jej rozmach. Z jednego wejścia powstaje wtedy spójny komplet foto i wideo, bez logistyki dwóch ekip.</p>
+      <p>Materiał z drona świetnie łączy się z sesją naziemną. Na <a href="/uslugi/eventy-reportaze">evencie</a> kilka ujęć z góry pokazuje skalę wydarzenia, a w filmie firmowym otwierają one całość i nadają jej rozmach. Z jednej sesji powstaje wtedy spójny komplet zdjęć i wideo, bez logistyki dwóch ekip.</p>
 
       <h2>Podsumowanie</h2>
       <p>Zdjęcia i film z drona to dla firmy narzędzie, które sprzedaje skalę i kontekst, a przy okazji wyróżnia materiał na tle konkurencji. Najważniejsze: ustal cel (zdjęcia, gotowy film czy przebitki), a resztę, łącznie z formalnościami, zostaw operatorowi. Bazę mam w Poznaniu, a loty realizuję w całej Polsce: w Poznaniu bez kosztów dojazdu, poza miastem dochodzi dojazd 2,50 zł netto/km liczony od granic miasta.</p>
       <p>Zobacz <a href="/galeria?kat=dron">przykładowe kadry z drona</a> albo od razu <a href="/uslugi/zdjecia-wideo-z-drona">zapytaj o wycenę</a> swojego obiektu.</p>
     `,
     seo: {
-      title: "Zdjęcia i film z drona dla firm: koszt | Marcin Szabunia",
+      title: "Zdjęcia i film z drona dla firm: koszt | Szabunia",
       description:
-        "Zastosowania zdjęć i filmów z drona w B2B, przebieg realizacji, legalność (A1/A3, OC, strefy kontrolowane) i koszt. Fotografia z drona dla firm, Poznań i cała Polska.",
+        "Zastosowania zdjęć i filmów z drona w B2B, przebieg realizacji, legalność (A1/A3, OC, strefy kontrolowane) i koszt. Poznań i cała Polska.",
     },
   },
   {
     slug: "foto-wideo-dron-z-jednego-wejscia",
     faq: [
-      { q: "Co oznacza foto, wideo i dron „z jednego wejścia\"?", a: "To jeden twórca na planie, który tym samym okiem i w jednym standardzie realizuje zdjęcia, wideo i w razie potrzeby ujęcia z drona. Jest jeden brief, jeden harmonogram i jeden komplet materiału, bez dwóch stylów kolorystycznych i ekip wchodzących sobie w kadr." },
+      { q: "Co znaczy, że zdjęcia, film i dron robi jedna osoba?", a: "To jedna osoba na planie, która tym samym okiem i w jednym standardzie realizuje zdjęcia, wideo i w razie potrzeby ujęcia z drona. Jest jeden brief, jeden harmonogram i jeden komplet materiału, bez dwóch stylów kolorystycznych i ekip wchodzących sobie w kadr." },
       { q: "Kiedy jeden twórca opłaca się bardziej niż dwie ekipy?", a: "Wtedy, gdy z jednego wydarzenia ma powstać kilka formatów: reportaż zdjęciowy, film podsumowujący, teaser do social mediów i ujęcia z drona (np. event, premiera albo dzień zdjęciowy pod stały content). Jeśli potrzebujesz tylko zdjęć albo tylko filmu, łączenie nie ma sensu." },
-      { q: "Jak wyglądają terminy dostawy przy realizacji foto i wideo z jednego wejścia?", a: "Zdjęcia dostarczane są do 14 dni, wideo do 21 dni, całość w jednym spójnym standardzie. Na planie pracuję na dwóch aparatach równolegle, z dźwiękiem i dronem, jeśli jest w planie, a kolejność dnia układam tak, żeby foto i wideo nie wchodziły sobie w drogę." },
+      { q: "Jakie są terminy dostawy, gdy zdjęcia i film robi jedna osoba?", a: "Zdjęcia dostarczane są do 14 dni, wideo do 21 dni, całość w jednym spójnym standardzie. Na planie pracuję na dwóch aparatach równolegle, z dźwiękiem i dronem, jeśli jest w planie, a kolejność dnia układam tak, żeby foto i wideo nie wchodziły sobie w drogę." },
     ],
-    title: "Foto, wideo i dron z jednego wejścia: dlaczego jeden twórca to mniej logistyki",
+    title: "Zdjęcia, film i dron od jednej osoby: dlaczego to mniej logistyki",
     excerpt:
       "Dwie osobne ekipy do zdjęć i wideo to więcej kosztów, koordynacji i ryzyka. Jeden twórca, który ogarnia foto, wideo i dron, daje spójny materiał i prostszą logistykę.",
     category: "branża",
@@ -1095,16 +1095,16 @@ export const blogPosts: BlogPost[] = [
     readTime: 5,
     thumbnail: "/images/blog/foto-wideo-dron-z-jednego-wejscia.jpg",
     content: `
-      <p class="lead">Kiedy firma potrzebuje i zdjęć, i wideo, naturalny odruch to zatrudnić fotografa oraz osobno ekipę filmową. W praktyce oznacza to dwa briefy, dwa grafiki, dwie umowy i dwie wizje na jednym planie. Da się prościej. Jeden twórca, który ogarnia foto, wideo i dron z jednego wejścia, to mniej logistyki, spójny materiał i zwykle niższy koszt. Wyjaśniam, na czym to polega i kiedy się sprawdza.</p>
+      <p class="lead">Kiedy firma potrzebuje i zdjęć, i wideo, naturalny odruch to zatrudnić fotografa oraz osobno ekipę filmową. W praktyce oznacza to dwa briefy, dwa grafiki, dwie umowy i dwie wizje na jednym planie. Da się prościej. Jedna osoba, która w tym samym dniu robi zdjęcia, film i ujęcia z drona, to mniej logistyki, spójny materiał i zwykle niższy koszt. Wyjaśniam, na czym to polega i kiedy się sprawdza.</p>
 
-      <h2>Co znaczy „jedno wejście"</h2>
-      <p>„Jedno wejście" to jeden twórca na planie, który tym samym okiem i w jednym standardzie realizuje zdjęcia, wideo, a w razie potrzeby ujęcia z drona. Nie ma przerzucania odpowiedzialnością między ekipami, nie ma dwóch różnych stylów kolorystycznych, nie ma sytuacji, w której fotograf i operator wchodzą sobie w kadr. Jest jeden brief, jeden harmonogram i jeden komplet materiału na koniec.</p>
+      <h2>Co znaczy: jedna osoba na planie</h2>
+      <p>Jedna osoba na planie realizuje zdjęcia, wideo, a w razie potrzeby ujęcia z drona, tym samym okiem i w jednym standardzie. Nie ma przerzucania odpowiedzialnością między ekipami, nie ma dwóch różnych stylów kolorystycznych, nie ma sytuacji, w której fotograf i operator wchodzą sobie w kadr. Jest jeden brief, jeden harmonogram i jeden komplet materiału na koniec.</p>
 
       <h2>Co realnie zyskujesz</h2>
       <ul>
         <li><strong>Spójność materiału.</strong> Zdjęcia i wideo wyglądają, jakby pochodziły z tej samej produkcji, bo pochodzą. To samo światło, ta sama kolorystyka, ten sam klimat. Marka dostaje jednolity zestaw na stronę, do social mediów i materiałów firmowych.</li>
         <li><strong>Mniej logistyki.</strong> Ustalasz wszystko z jedną osobą: jeden kontakt, jeden brief, jedna faktura, jeden termin. Przy evencie to różnica między spokojnym dniem a żonglerką dwoma ekipami.</li>
-        <li><strong>Niższy koszt.</strong> Nie płacisz dwóm zespołom za ten sam dzień i tę samą logistykę. Pakiet foto, wideo i dron z jednego wejścia wychodzi taniej niż te usługi zamawiane osobno.</li>
+        <li><strong>Niższy koszt.</strong> Nie płacisz dwóm zespołom za ten sam dzień i tę samą logistykę. Pakiet zdjęć, filmu i drona z jednego dnia wychodzi taniej niż te usługi zamawiane osobno.</li>
       </ul>
 
       <h2>Kiedy to się sprawdza</h2>
@@ -1114,7 +1114,7 @@ export const blogPosts: BlogPost[] = [
         <li><strong>Premiery i otwarcia:</strong> spójny zestaw foto i wideo do komunikacji i prasy.</li>
         <li><strong>Stały content:</strong> jeden dzień zdjęciowy, z którego powstaje paczka zdjęć i kilka reelsów do regularnych publikacji.</li>
       </ul>
-      <p>Jeśli potrzebujesz tylko zdjęć albo tylko filmu, nie ma sensu na siłę łączyć. Siła „jednego wejścia" ujawnia się dopiero wtedy, gdy z jednego wydarzenia ma powstać więcej niż jeden format.</p>
+      <p>Jeśli potrzebujesz tylko zdjęć albo tylko filmu, nie ma sensu na siłę łączyć. Ten model ma sens dopiero wtedy, gdy z jednego wydarzenia ma powstać więcej niż jeden format.</p>
 
       <h2>Jak wygląda realizacja</h2>
       <ul>
@@ -1125,13 +1125,13 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Podsumowanie</h2>
-      <p>Jeden twórca od foto, wideo i drona to dla firmy prostsza logistyka, spójniejszy materiał i niższy koszt niż dwie osobne ekipy. Najwięcej zyskujesz tam, gdzie z jednego wejścia ma powstać kilka formatów: event, premiera, stały content. Pracuję z bazą w Poznaniu, a zlecenia realizuję w całej Polsce i Europie; na zapytania odpowiadam w ciągu 24 godzin.</p>
+      <p>Jeden twórca od foto, wideo i drona to dla firmy prostsza logistyka, spójniejszy materiał i niższy koszt niż dwie osobne ekipy. Najwięcej zyskujesz tam, gdzie z jednego dnia ma powstać kilka formatów: event, premiera, stały content. Pracuję z bazą w Poznaniu, a zlecenia realizuję w całej Polsce i Europie; na zapytania odpowiadam w ciągu 24 godzin.</p>
       <p>Zobacz <a href="/uslugi/pakiety-foto-wideo">pakiety foto, wideo i dron</a> albo <a href="/uslugi/eventy-reportaze">obsługę eventów</a>, a po przykłady realizacji zajrzyj do <a href="/galeria">galerii</a>.</p>
     `,
     seo: {
-      title: "Foto, wideo i dron z jednego wejścia | Marcin Szabunia",
+      title: "Jedna osoba czy dwie ekipy do foto i wideo | Szabunia",
       description:
-        "Dlaczego jeden twórca foto, wideo i dron to mniej logistyki, spójny materiał i niższy koszt niż dwie ekipy. Kompleksowa obsługa eventów i contentu, Poznań.",
+        "Dlaczego zdjęcia, film i dron od jednej osoby to mniej logistyki, spójny materiał i niższy koszt niż dwie osobne ekipy. Eventy i content, Poznań.",
     },
   },
   {
@@ -1189,7 +1189,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zobacz <a href="/uslugi/pakiety-foto-wideo">pakiety foto, wideo i dron</a> oraz <a href="/uslugi/eventy-reportaze">reportaż z eventów</a>, a przykładowe kadry znajdziesz w <a href="/galeria?kat=eventy">galerii eventowej</a>.</p>
     `,
     seo: {
-      title: "Obsługa foto-wideo eventu firmowego | Marcin Szabunia",
+      title: "Obsługa foto-wideo eventu firmowego | Szabunia",
       description:
         "Praktyczny przewodnik: brief, harmonogram, must-have ujęcia, dron i live editing. Jak zaplanować kompleksową obsługę foto-wideo eventu firmowego. Poznań.",
     },
@@ -1213,7 +1213,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">Firma, która potrzebuje zdjęć i filmu z jednego wydarzenia, staje przed wyborem: zamówić gotowy pakiet foto, wideo i dron u jednej osoby, czy złożyć ekipę z osobnych specjalistów. Obie drogi mają sens, ale w różnych sytuacjach. Poniżej tłumaczę, kiedy bardziej opłaca się pakiet, a kiedy usługi osobno, i na co realnie patrzeć poza ceną.</p>
 
       <h2>Co zwykle wchodzi w pakiet</h2>
-      <p>Pakiet foto + wideo + dron z jednego wejścia to jeden twórca, który w jednym standardzie realizuje zdjęcia, film i ujęcia z powietrza. Z jednego dnia dostajesz reportaż zdjęciowy, film podsumowujący, krótki teaser do social mediów i ujęcia z drona, a wszystko spięte jednym briefem, jedną fakturą i jednym terminem.</p>
+      <p>Pakiet foto + wideo + dron to jedna osoba, która w jednym standardzie realizuje zdjęcia, film i ujęcia z powietrza. Z jednego dnia dostajesz reportaż zdjęciowy, film podsumowujący, krótki teaser do social mediów i ujęcia z drona, a wszystko spięte jednym briefem, jedną fakturą i jednym terminem.</p>
 
       <h2>Kiedy pakiet się opłaca</h2>
       <p>Pakiet wygrywa wtedy, gdy z jednego wydarzenia ma powstać kilka rodzajów materiału:</p>
@@ -1239,14 +1239,14 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Jak to wygląda przy Twoim wydarzeniu</h2>
-      <p>Najprościej porównać konkretne liczby dla Twojego wydarzenia. Skoro dron i tak jest na miejscu, a foto i wideo powstają z jednego wejścia, komplet w pakiecie wychodzi taniej niż te same usługi zamawiane osobno. Dokładne kwoty dla Twojej skali odeślę po krótkim opisie wydarzenia, na zapytania odpowiadam w ciągu 24 godzin. Działam z bazą w Poznaniu, a pakiety realizuję w całej Polsce: w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr.</p>
+      <p>Najprościej porównać konkretne liczby dla Twojego wydarzenia. Skoro dron i tak jest na miejscu, a zdjęcia i film powstają w tym samym dniu, komplet w pakiecie wychodzi taniej niż te same usługi zamawiane osobno. Dokładne kwoty dla Twojej skali odeślę po krótkim opisie wydarzenia, na zapytania odpowiadam w ciągu 24 godzin. Działam z bazą w Poznaniu, a pakiety realizuję w całej Polsce: w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr.</p>
 
       <h2>Podsumowanie</h2>
       <p>Pakiet foto + wideo + dron opłaca się tam, gdzie z jednego wydarzenia ma powstać kilka spójnych formatów, a Ty chcesz prostej logistyki i niższego kosztu niż dwie osobne ekipy. Usługi osobno mają sens przy pojedynczej potrzebie albo bardzo dużej produkcji.</p>
       <p>Zobacz <a href="/uslugi/pakiety-foto-wideo">pakiety foto, wideo i dron</a> albo <a href="/kontakt">opisz swój wariant</a>.</p>
     `,
     seo: {
-      title: "Pakiet foto, wideo i dron czy osobno | Marcin Szabunia",
+      title: "Pakiet foto, wideo i dron czy osobno | Szabunia",
       description:
         "Kiedy opłaca się pakiet foto + wideo + dron, a kiedy usługi osobno. Porównanie kosztu, spójności i logistyki obsługi eventu firmowego. Poznań.",
     },
@@ -1281,7 +1281,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Co dostajesz z jednego lotu</h2>
-      <p>Z jednego wejścia powstaje komplet materiału, który od razu trafia do sprzedaży:</p>
+      <p>Z jednej sesji powstaje komplet materiału, który od razu trafia do sprzedaży:</p>
       <ul>
         <li><strong>Zdjęcia w wysokiej rozdzielczości:</strong> kadry poziome i pionowe pod stronę, social media i druk.</li>
         <li><strong>Film z drona:</strong> płynny oblot inwestycji i okolicy, gotowy montaż albo surowe przebitki 4K.</li>
@@ -1299,9 +1299,9 @@ export const blogPosts: BlogPost[] = [
       <p>Zobacz <a href="/uslugi/zdjecia-wideo-z-drona">zdjęcia i wideo z drona</a> albo przykłady w <a href="/galeria?kat=dron">galerii z drona</a>.</p>
     `,
     seo: {
-      title: "Zdjęcia z drona dla deweloperów | Marcin Szabunia",
+      title: "Zdjęcia z drona dla deweloperów | Szabunia",
       description:
-        "Zdjęcia i film z drona w sprzedaży inwestycji: postęp budowy, lokalizacja, materiały sprzedażowe, legalność i koszt. Fotografia z drona dla deweloperów, Poznań.",
+        "Zdjęcia i film z drona w sprzedaży inwestycji: postęp budowy, lokalizacja, materiały sprzedażowe, legalność i koszt. Poznań i cała Polska.",
     },
   },
   {
@@ -1309,7 +1309,7 @@ export const blogPosts: BlogPost[] = [
     faq: [
       { q: "Ile kosztuje film z drona dla firmy?", a: "Orientacyjne ceny netto zaczynają się od 700 zł za przebitki 4K do własnego montażu, 900 zł za zdjęcia z drona (do 8 wyretuszowanych ujęć) i 1 200 zł za gotowy film 4K. Komplet zdjęcia plus przebitki to 1 300 zł, a zdjęcia plus film 1 700 zł. To punkty wyjścia do wyceny." },
       { q: "Od czego zależy cena filmu z drona?", a: "Głównie od tego, co ma powstać: same zdjęcia, gotowy zmontowany film czy surowe przebitki 4K. Na cenę wpływają też zakres lotu, lokalizacja i dojazd, strefa powietrzna oraz postprodukcja. Gotowy film z muzyką i kolorystyką kosztuje więcej niż surowe ujęcia." },
-      { q: "Czy komplet zdjęć i filmu z jednego lotu się opłaca?", a: "Tak. Skoro dron i tak jest na miejscu, zdjęcia plus przebitki albo zdjęcia plus film z jednego wejścia kosztują mniej niż te same usługi zamawiane osobno, bo płacisz za jeden dojazd, jedno przygotowanie i jedną sesję w powietrzu." },
+      { q: "Czy komplet zdjęć i filmu z jednego lotu się opłaca?", a: "Tak. Skoro dron i tak jest na miejscu, zdjęcia plus przebitki albo zdjęcia plus film z tej samej sesji kosztują mniej niż te same usługi zamawiane osobno, bo płacisz za jeden dojazd, jedno przygotowanie i jedną sesję w powietrzu." },
     ],
     title: "Ile kosztuje film z drona dla firmy i od czego zależy cena",
     excerpt:
@@ -1340,13 +1340,13 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Czas lotu i lokalizacja</h2>
-      <p>Wycena rośnie razem z zakresem. Jeden budynek z kilku ujęć zrobię w trakcie krótkiego wejścia. Większy teren, kilka lokalizacji albo dokumentacja postępu budowy w paru terminach to więcej czasu w powietrzu i przy komputerze. Do tego dochodzi dojazd: w Poznaniu bez dopłaty, poza miastem liczony za kilometry.</p>
+      <p>Wycena rośnie razem z zakresem. Jeden budynek z kilku ujęć zrobię w trakcie jednej krótkiej sesji. Większy teren, kilka lokalizacji albo dokumentacja postępu budowy w paru terminach to więcej czasu w powietrzu i przy komputerze. Do tego dochodzi dojazd: w Poznaniu bez dopłaty, poza miastem liczony za kilometry.</p>
 
       <h2>Strefy kontrolowane i formalności</h2>
       <p>Spora część Poznania leży w zasięgu stref kontrolowanych wokół lotniska. Loty w takich strefach są legalne, ale wymagają zgłoszeń i zgód lotniczych, a czasem ograniczają pułap. Mam numer operatora i uprawnienia w kategorii otwartej (A1/A3), więc koordynację lotniczą biorę na siebie, bez ukrytych kosztów. Dla Ciebie znika to z listy zmartwień, warto tylko wiedzieć, że przy strefach wymagających formalnych zgód lot trzeba zaplanować z wyprzedzeniem. Uprzedzam o tym na etapie briefu.</p>
 
       <h2>Komplet z jednej sesji wychodzi taniej</h2>
-      <p>Skoro dron i tak jest na miejscu, najwięcej zyskujesz, biorąc komplet. Zdjęcia plus przebitki albo zdjęcia plus film z jednego wejścia kosztują mniej niż te same usługi osobno, bo płacisz za jeden dojazd, jedno przygotowanie i jedną sesję w powietrzu.</p>
+      <p>Skoro dron i tak jest na miejscu, najwięcej zyskujesz, biorąc komplet. Zdjęcia plus przebitki albo zdjęcia plus film z tej samej sesji kosztują mniej niż te same usługi osobno, bo płacisz za jeden dojazd, jedno przygotowanie i jedną sesję w powietrzu.</p>
 
       <h2>Orientacyjne ceny</h2>
       <p>Ceny netto, od których zaczynamy:</p>
@@ -1360,11 +1360,11 @@ export const blogPosts: BlogPost[] = [
       <p>To punkty wyjścia. Dokładną kwotę dla Twojego obiektu i lokalizacji odeślę po krótkim opisie zlecenia.</p>
 
       <h2>Podsumowanie</h2>
-      <p>Cena filmu z drona zależy głównie od tego, co ma powstać, ile czasu zajmie lot i gdzie się odbywa. Najtaniej wychodzą przebitki do własnego montażu, najwięcej daje gotowy komplet foto i wideo z jednego wejścia.</p>
+      <p>Cena filmu z drona zależy głównie od tego, co ma powstać, ile czasu zajmie lot i gdzie się odbywa. Najtaniej wychodzą przebitki do własnego montażu, najwięcej daje gotowy komplet zdjęć i wideo z jednej sesji.</p>
       <p>Zobacz <a href="/uslugi/zdjecia-wideo-z-drona">zdjęcia i wideo z drona</a> albo <a href="/kontakt">opisz swój wariant</a>.</p>
     `,
     seo: {
-      title: "Ile kosztuje film z drona dla firmy | Marcin Szabunia",
+      title: "Ile kosztuje film z drona dla firmy | Szabunia",
       description:
         "Ile kosztuje film z drona i od czego zależy cena: warianty, strefy kontrolowane, komplet z jednej sesji. Orientacyjne ceny netto. Poznań.",
     },
@@ -1423,7 +1423,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zobacz <a href="/uslugi/eventy-reportaze">obsługę fotograficzną eventów</a> albo przykłady w <a href="/galeria?kat=eventy">galerii eventowej</a>. Bazuję w Poznaniu, a eventy obsługuję w całej Polsce. W granicach Poznania nie doliczam kosztów dojazdu.</p>
     `,
     seo: {
-      title: "Jak wybrać fotografa na event firmowy | Marcin Szabunia",
+      title: "Jak wybrać fotografa na event firmowy | Szabunia",
       description:
         "Checklista wyboru fotografa na event firmowy: czego wymagać, jakie pytania zadać, czerwone flagi i brief. Fotograf eventowy Poznań.",
     },
@@ -1468,7 +1468,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Live editing a wideo</h2>
-      <p>Ten sam mechanizm działa przy wideo. Krótki teaser albo kilka ujęć zmontowanych jeszcze w trakcie wydarzenia podbija relację tak samo jak zdjęcia. Jeśli planujesz i foto, i wideo, warto połączyć je w jednym wejściu, żeby relacja na żywo miała oba formaty.</p>
+      <p>Ten sam mechanizm działa przy wideo. Krótki teaser albo kilka ujęć zmontowanych jeszcze w trakcie wydarzenia podbija relację tak samo jak zdjęcia. Jeśli planujesz i foto, i wideo, warto połączyć je w jednej sesji, żeby relacja na żywo miała oba formaty.</p>
 
       <h2>Ile to kosztuje</h2>
       <p>Live editing to dodatkowa praca na miejscu, więc wyceniam ją jako opcję do obsługi eventu, zależnie od długości wydarzenia i tempa przekazywania zdjęć. Najprościej podać mi program i oczekiwania, a dostaniesz konkretną wycenę. Na zapytania odpowiadam w ciągu 24h. Działam z Poznania, a eventy obsługuję w całej Polsce i Europie. Przy większych wydarzeniach ten koszt zwykle zwraca się samym zasięgiem relacji na żywo.</p>
@@ -1478,7 +1478,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zobacz <a href="/uslugi/eventy-reportaze">obsługę eventów</a> albo połącz ją z <a href="/uslugi/wideo-marketing">wideo marketingiem</a>.</p>
     `,
     seo: {
-      title: "Live editing na evencie: zdjęcia od ręki | Marcin Szabunia",
+      title: "Live editing na evencie: zdjęcia od ręki | Szabunia",
       description:
         "Live editing na evencie: obróbka i przekazywanie zdjęć na bieżąco, jeszcze w trakcie wydarzenia. Większe zasięgi relacji w social mediach. Poznań.",
     },
@@ -1533,7 +1533,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zobacz <a href="/uslugi/sesje-zespolowe">sesje zespołowe</a> albo sprawdź <a href="/poradnik">poradnik przygotowania do sesji</a>.</p>
     `,
     seo: {
-      title: "Headshoty całego zespołu w jeden dzień | Marcin Szabunia",
+      title: "Headshoty całego zespołu w jeden dzień | Szabunia",
       description:
         "Jak zorganizować headshoty całego zespołu w jeden dzień: mobilne studio w biurze, harmonogram 10-15 minut na osobę, przygotowanie zespołu i spójność. Poznań.",
     },
@@ -1586,7 +1586,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zobacz <a href="/uslugi/sesje-zespolowe">sesje zespołowe</a> albo przykład <a href="/portfolio/idcom-headshoty-zespolu">headshotów IDcom</a>.</p>
     `,
     seo: {
-      title: "Spójne portrety zespołu: jeden standard | Marcin Szabunia",
+      title: "Spójne portrety zespołu: jeden standard | Szabunia",
       description:
         "Dlaczego warto fotografować cały zespół w jednym standardzie: spójne światło, kadr, tło i retusz. Jak utrzymać spójność przy rotacji. Przykład IDcom, Poznań.",
     },
@@ -1649,7 +1649,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zobacz <a href="/uslugi/wideo-marketing">wideo marketing</a> albo <a href="/kontakt">opisz swój film</a>.</p>
     `,
     seo: {
-      title: "Ile kosztuje film promocyjny dla firmy | Marcin Szabunia",
+      title: "Ile kosztuje film promocyjny dla firmy | Szabunia",
       description:
         "Ile kosztuje film promocyjny i od czego zależy cena: praca operatora, pakiety montażowe (teaser, reels, recap, promo), Monthly Content. Ceny netto, Poznań.",
     },
