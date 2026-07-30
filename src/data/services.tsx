@@ -448,21 +448,35 @@ const serviceCategoriesRaw: ServiceData[] = [
 //   2. zespołowe   — zarobek: 211 zł/h na konto po prowizji Useme, najlepsza pozycja
 //                    w cenniku, sprzedawana tej samej osobie z HR co event
 //                    („event jest wejściem, sesja zespołowa jest zarobkiem")
-//   3. pakiety     — jedyna przewaga w Poznaniu, naturalny upsell na event
-//   4. portrety    — najwięcej leadów w CRM (27) i 24% zapytań w GSC, więc nie schodzą
+//   3. portrety    — najwięcej leadów w CRM (27) i 24% zapytań w GSC, więc nie schodzą
 //                    głęboko, ale to rozszerzenie, nie fundament
-//   5. wideo
-//   6. produktowa  — 39% ruchu organicznego, ale poza tabelą rentowności mapy drogowej,
+//   4. wideo
+//   5. produktowa  — 39% ruchu organicznego, ale poza tabelą rentowności mapy drogowej,
 //                    więc utrzymywana, nie promowana
-//   7. dron        — element pakietów hybrydowych, nie osobna linia
+//   6. dron        — element pakietów hybrydowych, nie osobna linia
+//   7. pakiety     — jedyna przewaga w Poznaniu i naturalny upsell na event; ostatni
+//                    WYŁĄCZNIE z powodu geometrii siatki, patrz nota niżej
+//
+// UWAGA NA GEOMETRIĘ SIATKI. `pakiety-foto-wideo` renderuje się jako kafelek na całą
+// szerokość (`md:col-span-3` w Services.tsx) z plakietką „Bestseller". Przy siedmiu
+// usługach w siatce 3-kolumnowej musi stać OSTATNI, inaczej po dwóch wąskich kafelkach
+// zostaje dziura w rzędzie (zgłoszone przez Marcina 30.07.2026, po pierwszej próbie,
+// gdzie pakiety stały na trzecim miejscu). Sześć wąskich = dwa pełne rzędy, siódmy
+// szeroki domyka sekcję.
+//
+// Pakiety nie tracą przez to na widoczności: szeroki kafelek z plakietką jest mocniejszy
+// niż trzecia pozycja w wąskim. Rozważane i odrzucone: przeniesienie szerokiego kafelka
+// na drona (Marcin, 30.07). Plakietka „Bestseller" jest prawdziwa dla pakietów
+// hybrydowych (cennik v3 §2), a nie dla drona, i wypromowałoby to wizualnie usługę
+// z ostatniego miejsca listy.
 const SERVICE_DISPLAY_ORDER: string[] = [
   "eventy-reportaze",
   "sesje-zespolowe",
-  "pakiety-foto-wideo",
   "wizerunek-portrety",
   "wideo-marketing",
   "fotografia-produktowa",
   "zdjecia-wideo-z-drona",
+  "pakiety-foto-wideo",
 ];
 
 export const serviceCategories: ServiceData[] = [...serviceCategoriesRaw].sort(
