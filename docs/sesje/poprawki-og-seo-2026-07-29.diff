@@ -1,0 +1,1452 @@
+diff --git a/README.md b/README.md
+index e215bc4..409d5f2 100644
+--- a/README.md
++++ b/README.md
+@@ -1,36 +1,123 @@
+-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
++# szabunia.pl
+ 
+-## Getting Started
++Strona wizytówka i kanał pozyskiwania leadów dla **Marcina Szabuni**, fotografa
++biznesowego i twórcy wideo B2B z Poznania. Next.js 16 (App Router), hostowana
++na Vercel, deploy automatyczny z gałęzi `main`.
+ 
+-First, run the development server:
++Ten plik opisuje repo. Zasady pracy agentów AI, stop-conditions i Definition of
++Done są w [`CLAUDE.md`](./CLAUDE.md) i to on jest źródłem prawdy przy sporze.
++
++## Start
+ 
+ ```bash
+-npm run dev
+-# or
+-yarn dev
+-# or
+-pnpm dev
+-# or
+-bun dev
++npm ci
++npm run dev   # http://localhost:3000
++```
++
++Skrypty:
++
++| Komenda | Co robi |
++|---|---|
++| `npm run dev` | Serwer deweloperski (Turbopack) |
++| `npm run build` | Build produkcyjny. Musi przechodzić przed każdym pushem |
++| `npm start` | Serwer produkcyjny lokalnie |
++| `npm run lint` | ESLint. Musi być zielony przed każdym pushem |
++| `npx tsc --noEmit` | Kontrola typów, nie objęta `npm run lint` |
++
++## Stack
++
++- **Next.js 16.2.10**, App Router, React 19
++- **TypeScript** w trybie `strict`
++- **Tailwind CSS v4** przez `@theme inline` w `src/app/globals.css`.
++  Nie ma `tailwind.config.js` i nie należy go dodawać
++- **framer-motion** dla animacji wejścia sekcji
++- Poza tym: `@upstash/ratelimit` + `@upstash/redis` (limitowanie formularzy),
++  `@vercel/analytics`, `@vercel/speed-insights`
++
++Nowych zależności nie dodajemy bez decyzji właściciela (`CLAUDE.md` §11).
++
++## Struktura
++
++```
++src/
++├── app/          # trasy App Routera, metadata, JSON-LD, API
++│   ├── api/      # /api/contact, /api/lead
++│   └── ...       # blog, portfolio, uslugi, galeria, poradnik, kontakt
++├── components/   # 47 komponentów React
++├── data/         # treść jako dane: services.tsx, blog.ts, portfolio.ts
++├── hooks/
++└── lib/          # mail, crm, origin, turnstile, ratelimit
++public/
++├── images/og/    # karty Open Graph generowane skryptami
++└── llms.txt      # zwięzły opis oferty dla modeli językowych
++scripts/          # generatory obrazków (Python + Pillow), uruchamiane ręcznie
++docs/             # metodyka audytu, zasady tekstów, raporty sesji
+ ```
+ 
+-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
++Alias importów: `@/*` → `./src/*`. Używamy go zamiast ścieżek względnych
++między katalogami.
+ 
+-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
++Treść mieszka w `src/data/`, nie w komponentach. Zmiana ceny czy opisu usługi
++to edycja `services.tsx`, nie JSX-a.
+ 
+-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
++## Zmienne środowiskowe
+ 
+-## Learn More
++Produkcja ustawiana w panelu Vercel. Lokalnie: `.env.local` w katalogu repo.
+ 
+-To learn more about Next.js, take a look at the following resources:
++Uwaga na pułapkę: `.gitignore` ignoruje wzorzec `.env*`, więc **`.env.local.example`
++nie jest w repozytorium**, choć istnieje na maszynie właściciela i wymienia go
++`CLAUDE.md` §8. Po świeżym `git clone` nie ma z czego kopiować i poniższa tabela
++jest jedyną listą. Rozwiązanie, gdyby przeszkadzało: wyjątek `!.env.local.example`
++w `.gitignore` (zmiana `.gitignore` wymaga decyzji właściciela, `CLAUDE.md` §7).
+ 
+-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
++| Zmienna | Wymagana | Do czego |
++|---|---|---|
++| `RESEND_API_KEY` | tak | Wysyłka maili. Bez niej `/api/contact` i `/api/lead` zwracają 500 |
++| `CONTACT_TO_EMAIL` | nie | Odbiorca powiadomień o leadach |
++| `CONTACT_FROM_EMAIL` | nie | Nadawca. Domyślny `onboarding@resend.dev` to sandbox i nie dowiezie maila do subskrybenta |
++| `NEXT_PUBLIC_TURNSTILE_SITE_KEY` | nie | Cloudflare Turnstile, strona klienta |
++| `TURNSTILE_SECRET_KEY` | nie | Turnstile, weryfikacja serwerowa |
++| `UPSTASH_REDIS_REST_URL` | nie | Limitowanie liczby zgłoszeń |
++| `UPSTASH_REDIS_REST_TOKEN` | nie | j.w. |
++| `CRM_WEBHOOK_URL` | nie | Zapis leada do arkusza CRM |
++| `CRM_WEBHOOK_SECRET` | nie | j.w. |
++| `NEXT_PUBLIC_ANALYTICS_URL` | nie | Opcjonalna analityka niezależna od GA4 |
++
++Turnstile i rate-limit są **fail-open**: brak kluczy nie blokuje formularza,
++tylko wyłącza daną barierę. To świadoma decyzja, żeby awaria usługi trzeciej nie
++kosztowała leadów. Konsekwencje opisane w `src/lib/origin.ts`.
++
++Nigdy nie logujemy wartości zmiennych i nie commitujemy `.env*`.
++
++## Pomiar
++
++GA4 (`G-MD8FJ0CZG3`) z Consent Mode v2: domyślnie wszystko `denied`, zgoda
++nadawana po akceptacji w banerze cookie. Skrypt jest celowo zwykłym `<script>`
++w `<head>`, nie `next/script`. Powód i wynik nieudanej próby refaktoru opisane
++w komentarzu w `src/app/layout.tsx`.
++
++Własny ruch odcinamy flagą: wejście na `https://szabunia.pl/?internal=1` zapisuje
++znacznik w `localStorage` i od tej chwili przeglądarka wysyła `traffic_type:
++internal`. Wyłączenie: `?internal=0`. Działa niezależnie od IP i sieci, w
++odróżnieniu od filtra po adresie IP w panelu GA4.
++
++## Obrazki Open Graph
++
++Karty OG są generowane, nie rysowane ręcznie:
++
++```bash
++python3 scripts/generate-og-strony.py   # strony statyczne i huby
++python3 scripts/generate-og-uslugi.py   # podstrony usług
++python3 scripts/generate-og-blog.py     # wpisy blogowe
++```
+ 
+-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
++Wymagają Pillow i fontu z polskimi znakami. Wynik trafia do
++`public/images/og/` i jest commitowany razem ze zmianą treści.
+ 
+-## Deploy on Vercel
++## Deploy
+ 
+-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
++Push do `main` uruchamia build na Vercel. Przed pushem: `npm run lint`,
++`npx tsc --noEmit`, `npm run build`, klik po `/`, `/uslugi`, `/portfolio`,
++`/blog`, `/galeria`, `/kontakt` z przełączeniem trybu ciemnego.
+ 
+-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
++Agenci AI nie commitują i nie pushują. Git obsługuje właściciel repo.
+diff --git a/src/app/blog/[slug]/page.tsx b/src/app/blog/[slug]/page.tsx
+index 11a33c0..35c5bfb 100644
+--- a/src/app/blog/[slug]/page.tsx
++++ b/src/app/blog/[slug]/page.tsx
+@@ -13,6 +13,7 @@ import BlogContent from "@/components/BlogContent";
+ import BlogCard from "@/components/BlogCard";
+ import AnimatedSection from "@/components/AnimatedSection";
+ import PoradnikBlogCTA from "@/components/PoradnikBlogCTA";
++import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
+ 
+ const blurPlaceholder =
+   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
+@@ -66,6 +67,12 @@ export default async function BlogPostPage({ params }: PageProps) {
+   const post = getBlogPostBySlug(slug);
+   if (!post) notFound();
+ 
++  const crumbs: Crumb[] = [
++    { name: "Strona główna", href: "/" },
++    { name: "Blog", href: "/blog" },
++    { name: post.title },
++  ];
++
+   const structuredData = [
+     {
+       "@context": "https://schema.org",
+@@ -73,6 +80,9 @@ export default async function BlogPostPage({ params }: PageProps) {
+       headline: post.title,
+       description: post.seo.description,
+       datePublished: post.date,
++      // Sygnał świeżości dla Google. `updated` ustawiane przy realnej zmianie treści,
++      // nie przy każdym deployu (audyt PELNY2907-10).
++      dateModified: post.updated ?? post.date,
+       author: {
+         "@type": "Person",
+         name: "Marcin Szabunia",
+@@ -86,15 +96,7 @@ export default async function BlogPostPage({ params }: PageProps) {
+       image: `https://szabunia.pl/images/og/blog/${post.slug}.png`,
+       mainEntityOfPage: `https://szabunia.pl/blog/${post.slug}`,
+     },
+-    {
+-      "@context": "https://schema.org",
+-      "@type": "BreadcrumbList",
+-      itemListElement: [
+-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
+-        { "@type": "ListItem", position: 2, name: "Blog", item: "https://szabunia.pl/blog" },
+-        { "@type": "ListItem", position: 3, name: post.title },
+-      ],
+-    },
++    breadcrumbJsonLd(crumbs),
+     // FAQPage tylko dla wpisów z sekcją Q&A (featured snippets / AEO)
+     ...(post.faq && post.faq.length > 0
+       ? [
+@@ -121,19 +123,8 @@ export default async function BlogPostPage({ params }: PageProps) {
+       <Navigation />
+       <main id="main" className="pt-28 pb-16 px-4">
+         <article className="max-w-3xl mx-auto">
+-          {/* Breadcrumb */}
+           <AnimatedSection>
+-            <nav className="text-[12px] text-steel dark:text-dark-text-muted mb-6">
+-              <Link href="/" className="hover:text-navy dark:hover:text-white transition-colors">
+-                Strona główna
+-              </Link>
+-              <span className="mx-1.5">/</span>
+-              <Link href="/blog" className="hover:text-navy dark:hover:text-white transition-colors">
+-                Blog
+-              </Link>
+-              <span className="mx-1.5">/</span>
+-              <span className="text-navy dark:text-white">{post.title}</span>
+-            </nav>
++            <Breadcrumbs items={crumbs} className="mb-6" />
+           </AnimatedSection>
+ 
+           {/* Header */}
+diff --git a/src/app/blog/page.tsx b/src/app/blog/page.tsx
+index 35b59ca..cdec2f1 100644
+--- a/src/app/blog/page.tsx
++++ b/src/app/blog/page.tsx
+@@ -8,6 +8,7 @@ import BlogCard from "@/components/BlogCard";
+ import CTA from "@/components/CTA";
+ import ErrorBoundary from "@/components/ErrorBoundary";
+ import { blogPosts } from "@/data/blog";
++import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
+ 
+ export const metadata: Metadata = {
+   title: "Blog o fotografii biznesowej i wideo | Marcin Szabunia",
+@@ -21,10 +22,10 @@ export const metadata: Metadata = {
+     url: "https://szabunia.pl/blog",
+     images: [
+       {
+-        url: "/images/marcin-hero.jpg",
++        url: "/images/og/strony/blog.jpg",
+         width: 1200,
+         height: 630,
+-        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
++        alt: "Blog o fotografii biznesowej — Marcin Szabunia",
+       },
+     ],
+   },
+@@ -33,19 +34,14 @@ export const metadata: Metadata = {
+     title: "Blog — Fotografia biznesowa i wideo marketing | Marcin Szabunia",
+     description:
+       "Artykuły o fotografii biznesowej, sesjach wizerunkowych i wideo marketingu B2B. Porady od fotografa pracującego dla H&M, Warner Music i Santander.",
+-    images: ["/images/marcin-hero.jpg"],
++    images: ["/images/og/strony/blog.jpg"],
+   },
+ };
+ 
+ export default function BlogPage() {
+-  const structuredData = {
+-    "@context": "https://schema.org",
+-    "@type": "BreadcrumbList",
+-    itemListElement: [
+-      { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
+-      { "@type": "ListItem", position: 2, name: "Blog" },
+-    ],
+-  };
++  const crumbs: Crumb[] = [{ name: "Strona główna", href: "/" }, { name: "Blog" }];
++
++  const structuredData = breadcrumbJsonLd(crumbs);
+ 
+   return (
+     <>
+@@ -53,6 +49,7 @@ export default function BlogPage() {
+       <Navigation />
+       <main id="main" className="pt-28 pb-16">
+         <div className="max-w-6xl mx-auto px-4">
++          <Breadcrumbs items={crumbs} className="mb-6" />
+           <AnimatedSection>
+             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
+               Blog
+diff --git a/src/app/galeria/page.tsx b/src/app/galeria/page.tsx
+index 9322540..2f3aeff 100644
+--- a/src/app/galeria/page.tsx
++++ b/src/app/galeria/page.tsx
+@@ -17,6 +17,7 @@ import PoradnikTeaser from "@/components/PoradnikTeaser";
+ import MobileFAB from "@/components/MobileFAB";
+ import { galleryVideos } from "@/data/galeria";
+ import { listGalleryImagesSized } from "@/lib/galleryImages";
++import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
+ 
+ export const metadata: Metadata = {
+   title: "Galeria zdjęć i wideo | Marcin Szabunia — fotograf Poznań",
+@@ -30,10 +31,10 @@ export const metadata: Metadata = {
+     url: "https://szabunia.pl/galeria",
+     images: [
+       {
+-        url: "/images/marcin-hero.jpg",
++        url: "/images/og/strony/galeria.jpg",
+         width: 1200,
+         height: 630,
+-        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
++        alt: "Galeria kadrów z realizacji — Marcin Szabunia",
+       },
+     ],
+   },
+@@ -42,7 +43,7 @@ export const metadata: Metadata = {
+     title: "Galeria zdjęć i wideo | Marcin Szabunia",
+     description:
+       "Portrety biznesowe, fotografia eventowa, produktowa, wideo i zdjęcia z drona. Wybrane kadry z realizacji.",
+-    images: ["/images/marcin-hero.jpg"],
++    images: ["/images/og/strony/galeria.jpg"],
+   },
+ };
+ 
+@@ -123,6 +124,8 @@ export default async function GaleriaPage({
+   const validKeys = [...categories.map((c) => c.key), "wideo"];
+   const initialActive = kat && validKeys.includes(kat) ? kat : categories[0]?.key ?? "wideo";
+ 
++  const crumbs: Crumb[] = [{ name: "Strona główna", href: "/" }, { name: "Galeria" }];
++
+   const structuredData = [
+     {
+       "@context": "https://schema.org",
+@@ -133,14 +136,7 @@ export default async function GaleriaPage({
+       url: "https://szabunia.pl/galeria",
+       author: { "@type": "Person", name: "Marcin Szabunia", url: "https://szabunia.pl" },
+     },
+-    {
+-      "@context": "https://schema.org",
+-      "@type": "BreadcrumbList",
+-      itemListElement: [
+-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
+-        { "@type": "ListItem", position: 2, name: "Galeria" },
+-      ],
+-    },
++    breadcrumbJsonLd(crumbs),
+   ];
+ 
+   return (
+@@ -149,6 +145,7 @@ export default async function GaleriaPage({
+       <Navigation />
+       <main id="main" className="pt-28 pb-16">
+         <div className="max-w-6xl mx-auto px-4">
++          <Breadcrumbs items={crumbs} className="mb-6" />
+           <AnimatedSection>
+             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
+               Galeria
+diff --git a/src/app/kontakt/page.tsx b/src/app/kontakt/page.tsx
+index f8f714e..f55a4a5 100644
+--- a/src/app/kontakt/page.tsx
++++ b/src/app/kontakt/page.tsx
+@@ -6,6 +6,7 @@ import AnimatedSection from "@/components/AnimatedSection";
+ import CTA from "@/components/CTA";
+ import Footer from "@/components/Footer";
+ import ErrorBoundary from "@/components/ErrorBoundary";
++import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
+ 
+ export const metadata: Metadata = {
+   title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
+@@ -19,10 +20,10 @@ export const metadata: Metadata = {
+     url: "https://szabunia.pl/kontakt",
+     images: [
+       {
+-        url: "/images/marcin-hero.jpg",
++        url: "/images/og/strony/kontakt.jpg",
+         width: 1200,
+         height: 630,
+-        alt: "Kontakt, Marcin Szabunia, fotograf biznesowy Poznań",
++        alt: "Kontakt — Marcin Szabunia, fotograf biznesowy Poznań",
+       },
+     ],
+   },
+@@ -31,13 +32,13 @@ export const metadata: Metadata = {
+     title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
+     description:
+       "Napisz, czego potrzebujesz, a odezwę się w 24h ze wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
+-    images: ["/images/marcin-hero.jpg"],
++    images: ["/images/og/strony/kontakt.jpg"],
+   },
+ };
+ 
+ const contactCards = [
+   {
+-    title: "Odezwę się w 24h",
++    title: "Wstępna wycena w 24h",
+     body: "Na każde zapytanie biznesowe odpowiadam w ciągu 24h, ze wstępną wyceną i propozycją terminu.",
+   },
+   {
+@@ -51,6 +52,8 @@ const contactCards = [
+ ];
+ 
+ export default function KontaktPage() {
++  const crumbs: Crumb[] = [{ name: "Strona główna", href: "/" }, { name: "Kontakt" }];
++
+   const structuredData = [
+     {
+       "@context": "https://schema.org",
+@@ -69,18 +72,16 @@ export default function KontaktPage() {
+         areaServed: ["Poznań", "Polska", "Europa"],
+         sameAs: [
+           "https://instagram.com/szabunia.biz",
+-          "https://share.google/2OMRlIblNmEKlthIl",
++          // Kanoniczny adres wizytówki Google (Knowledge Graph, kgmid /g/11rcwdrdcl).
++          // Wcześniej był tu shortlink share.google — działa, ale to domena
++          // przekierowująca, nie adres samej encji, więc jako sygnał `sameAs`
++          // jest słabszy (audyt PELNY2907-10). Rozwinięcie zweryfikowane
++          // w przeglądarce 2026-07-29.
++          "https://www.google.com/search?kgmid=/g/11rcwdrdcl",
+         ],
+       },
+     },
+-    {
+-      "@context": "https://schema.org",
+-      "@type": "BreadcrumbList",
+-      itemListElement: [
+-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
+-        { "@type": "ListItem", position: 2, name: "Kontakt", item: "https://szabunia.pl/kontakt" },
+-      ],
+-    },
++    breadcrumbJsonLd(crumbs),
+   ];
+ 
+   return (
+@@ -89,6 +90,7 @@ export default function KontaktPage() {
+       <Navigation />
+       <main id="main" className="pt-28 pb-16 px-4">
+         <div className="max-w-6xl mx-auto">
++          <Breadcrumbs items={crumbs} className="mb-6" />
+           {/* Header */}
+           <AnimatedSection>
+             <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
+diff --git a/src/app/layout.tsx b/src/app/layout.tsx
+index 3131a07..3920427 100644
+--- a/src/app/layout.tsx
++++ b/src/app/layout.tsx
+@@ -47,10 +47,10 @@ export const metadata: Metadata = {
+     type: "website",
+     images: [
+       {
+-        url: "/images/marcin-hero.jpg",
++        url: "/images/og/strony/home.jpg",
+         width: 1200,
+         height: 630,
+-        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
++        alt: "Marcin Szabunia — fotografia i wideo dla firm, Poznań",
+       },
+     ],
+   },
+@@ -59,7 +59,7 @@ export const metadata: Metadata = {
+     title: "Marcin Szabunia — Fotograf biznesowy & twórca wideo",
+     description:
+       "Fotografia i wideo, które budują zaufanie, przyciągają klientów i wzmacniają autorytet na rynku.",
+-    images: ["/images/marcin-hero.jpg"],
++    images: ["/images/og/strony/home.jpg"],
+   },
+   robots: {
+     index: true,
+@@ -88,7 +88,10 @@ export default function RootLayout({
+       <head>
+         <link rel="icon" href="/favicon.ico" sizes="any" />
+         <link rel="manifest" href="/manifest.json" />
+-        <meta name="theme-color" content="#F9FAFB" />
++        {/* Dwa warianty: pasek adresu przeglądarki dopasowuje się do motywu.
++            Wartości z globals.css: --color-gray-bg i --color-dark-bg. */}
++        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F9FAFB" />
++        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0B0F1A" />
+         <link rel="dns-prefetch" href="https://www.youtube.com" />
+         {/* GA4 (gtag.js) z Consent Mode v2 — domyślnie wszystko denied;
+             zgoda nadawana po "Akceptuję" w banerze cookie (CookieConsent.tsx).
+@@ -176,7 +179,12 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
+               // Opinie pozostają w widocznej treści strony (Testimonials.tsx).
+               sameAs: [
+                 "https://instagram.com/szabunia.biz",
+-                "https://share.google/2OMRlIblNmEKlthIl",
++                // Kanoniczny adres wizytówki Google (Knowledge Graph, kgmid /g/11rcwdrdcl).
++                // Wcześniej był tu shortlink share.google — działa, ale to domena
++                // przekierowująca, nie adres samej encji, więc jako sygnał `sameAs`
++                // jest słabszy (audyt PELNY2907-10). Rozwinięcie zweryfikowane
++                // w przeglądarce 2026-07-29.
++                "https://www.google.com/search?kgmid=/g/11rcwdrdcl",
+               ],
+               hasOfferCatalog: {
+                 "@type": "OfferCatalog",
+@@ -276,7 +284,12 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
+               },
+               sameAs: [
+                 "https://instagram.com/szabunia.biz",
+-                "https://share.google/2OMRlIblNmEKlthIl",
++                // Kanoniczny adres wizytówki Google (Knowledge Graph, kgmid /g/11rcwdrdcl).
++                // Wcześniej był tu shortlink share.google — działa, ale to domena
++                // przekierowująca, nie adres samej encji, więc jako sygnał `sameAs`
++                // jest słabszy (audyt PELNY2907-10). Rozwinięcie zweryfikowane
++                // w przeglądarce 2026-07-29.
++                "https://www.google.com/search?kgmid=/g/11rcwdrdcl",
+               ],
+               knowsAbout: [
+                 "Fotografia biznesowa",
+@@ -300,7 +313,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
+               url: "https://szabunia.pl",
+               inLanguage: "pl-PL",
+               description:
+-                "Strona fotografa biznesowego i twórcy wideo B2B z Poznania. Portfolio, wycena po briefie, oferta w 24h.",
++                "Strona fotografa biznesowego i twórcy wideo B2B z Poznania. Portfolio, zakres ustalany przed wyceną, wstępna wycena w 24h.",
+               publisher: {
+                 "@type": "Person",
+                 name: "Marcin Szabunia",
+diff --git a/src/app/polityka-prywatnosci/page.tsx b/src/app/polityka-prywatnosci/page.tsx
+index 7edb679..4de40ce 100644
+--- a/src/app/polityka-prywatnosci/page.tsx
++++ b/src/app/polityka-prywatnosci/page.tsx
+@@ -17,10 +17,10 @@ export const metadata: Metadata = {
+     url: "https://szabunia.pl/polityka-prywatnosci",
+     images: [
+       {
+-        url: "/images/marcin-hero.jpg",
++        url: "/images/og/strony/polityka-prywatnosci.jpg",
+         width: 1200,
+         height: 630,
+-        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
++        alt: "Polityka prywatności — Marcin Szabunia",
+       },
+     ],
+   },
+@@ -29,7 +29,7 @@ export const metadata: Metadata = {
+     title: "Polityka prywatności | Marcin Szabunia",
+     description:
+       "Polityka prywatności serwisu szabunia.pl. Informacje o przetwarzaniu danych osobowych, plikach cookies i prawach użytkownika zgodnie z RODO.",
+-    images: ["/images/marcin-hero.jpg"],
++    images: ["/images/og/strony/polityka-prywatnosci.jpg"],
+   },
+ };
+ 
+diff --git a/src/app/poradnik/page.tsx b/src/app/poradnik/page.tsx
+index 3127f4f..edbe9be 100644
+--- a/src/app/poradnik/page.tsx
++++ b/src/app/poradnik/page.tsx
+@@ -8,6 +8,7 @@ import MobileFAB from "@/components/MobileFAB";
+ import AnimatedSection from "@/components/AnimatedSection";
+ import ErrorBoundary from "@/components/ErrorBoundary";
+ import PoradnikForm from "@/components/PoradnikForm";
++import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
+ 
+ export const metadata: Metadata = {
+   title: "Darmowy poradnik: przygotowanie do sesji | Marcin Szabunia",
+@@ -21,10 +22,10 @@ export const metadata: Metadata = {
+     url: "https://szabunia.pl/poradnik",
+     images: [
+       {
+-        url: "/images/marcin-hero.jpg",
++        url: "/images/og/strony/poradnik.jpg",
+         width: 1200,
+         height: 630,
+-        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
++        alt: "Poradnik przygotowania do sesji — Marcin Szabunia",
+       },
+     ],
+   },
+@@ -33,7 +34,7 @@ export const metadata: Metadata = {
+     title: "Darmowy poradnik: przygotowanie do sesji biznesowej",
+     description:
+       "Checklisty, planer stylizacji, ściąga kolorów i mini-brief: wszystko, żeby wejść na plan spokojnie i z głową. Pobierz za darmo.",
+-    images: ["/images/marcin-hero.jpg"],
++    images: ["/images/og/strony/poradnik.jpg"],
+   },
+ };
+ 
+@@ -45,16 +46,57 @@ const inside = [
+   "Mini-brief, który wyślesz mi w 2 minuty",
+ ];
+ 
++// Rozpiska sekcji PDF-a (8 stron treści na 4 stronach A4). Kolejność i nazwy
++// odpowiadają zawartości `public/poradnik-przygotowanie-do-sesji.pdf`. Przy
++// wymianie pliku zaktualizuj też ten opis, żeby strona nie obiecywała czegoś,
++// czego w środku nie ma.
++const sections: { title: string; desc: string }[] = [
++  {
++    title: "Jak wygląda sesja, cztery kroki",
++    desc: "Od pierwszego kontaktu do gotowych zdjęć: rozmowa o celu i logistyce, sesja z prowadzeniem ujęcie po ujęciu, selekcja kadrów w galerii online, dostawa. Wiesz z góry, co się wydarzy i kiedy.",
++  },
++  {
++    title: "Checklisty: 48 godzin przed i w dniu sesji",
++    desc: "Dwie listy do odhaczania. Wcześniej: przymierzone stylizacje, wysłane inspiracje, sesja wpisana w luźniejszy dzień, sprawdzony dojazd. W dniu sesji: ubrania na wieszaku, zapasowa koszula, przetarte okulary, przyjazd 10 minut wcześniej.",
++  },
++  {
++    title: "Planer stylizacji na 2–3 zestawy",
++    desc: "Tabela do wypełnienia ręcznie: kanał i okazja, góra, dół, warstwa, buty, dodatki, notatka. Warstwy (marynarka, sweter, szalik) to najprostszy sposób, żeby z jednej sesji wyjść z kilkoma nastrojami zdjęć.",
++  },
++  {
++    title: "Ściąga kolorów",
++    desc: "Pewniaki: granat, grafit, szarość, butelkowa zieleń, burgund, biel pod warstwą. Ostrożnie: czysta czerń, jaskrawe neony, drobna kratka i wąskie paski (efekt mory), połysk i satyna, duże logo na całą klatkę.",
++  },
++  {
++    title: "Formalność dobrana do branży",
++    desc: "Osobne wskazówki dla kancelarii i finansów, techu i startupów, marketingu, produkcji i rzemiosła oraz medycyny i nauki. Zasada nadrzędna jest jedna: o jeden poziom wyżej niż na co dzień w pracy.",
++  },
++  {
++    title: "Jak wyglądać naturalnie przed obiektywem",
++    desc: "Drobiazgi, które robią różnicę: sylwetka lekko pod kątem, ramiona w dół, oddech przed ujęciem, rozluźniona szczęka, uśmiech na sekundę zamiast trzymanego na siłę. Nie musisz znać póz, od tego jestem ja.",
++  },
++  {
++    title: "Po sesji, czego się spodziewać",
++    desc: "Galeria online ze wszystkimi ujęciami i Twój wybór kadrów do retuszu. Terminy dostawy i tryb ekspresowy. Pliki w pełnej jakości plus wersja web oraz licencja komercyjna bez limitów czasowych.",
++  },
++  {
++    title: "Mini-brief, który wyślesz mi w 2 minuty",
++    desc: "Pięć punktów do skopiowania do maila: cel zdjęć, styl i nastrój z linkami, liczba osób, termin i miejsce, dodatkowe uwagi. Im więcej wiem, tym celniejsza wycena wraca do Ciebie.",
++  },
++];
++
++const forWhom: string[] = [
++  "Idziesz na pierwszą sesję wizerunkową i nie wiesz, czego się spodziewać.",
++  "Jesteś w kadrze zarządzającej, doradzasz albo prowadzisz własną praktykę i potrzebujesz zdjęć na LinkedIn, stronę i do materiałów prasowych.",
++  "Organizujesz sesję dla zespołu i chcesz wysłać ludziom jeden plik zamiast pisać instrukcje od zera.",
++  "Nie lubisz się fotografować i wolisz wejść na plan z planem, a nie z nadzieją.",
++];
++
+ export default function PoradnikPage() {
++  const crumbs: Crumb[] = [{ name: "Strona główna", href: "/" }, { name: "Darmowy poradnik" }];
++
+   const structuredData = [
+-    {
+-      "@context": "https://schema.org",
+-      "@type": "BreadcrumbList",
+-      itemListElement: [
+-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
+-        { "@type": "ListItem", position: 2, name: "Darmowy poradnik" },
+-      ],
+-    },
++    breadcrumbJsonLd(crumbs),
+   ];
+ 
+   return (
+@@ -63,6 +105,7 @@ export default function PoradnikPage() {
+       <Navigation />
+       <main id="main" className="pt-28 pb-16 px-4">
+         <div className="max-w-6xl mx-auto">
++          <Breadcrumbs items={crumbs} className="mb-6" />
+           <AnimatedSection>
+             <p className="text-[12px] font-barlow font-semibold uppercase tracking-[0.16em] text-blue dark:text-blue-light text-center mb-3">
+               Darmowy poradnik
+@@ -136,6 +179,80 @@ export default function PoradnikPage() {
+               </div>
+             </AnimatedSection>
+           </div>
++
++          <AnimatedSection>
++            <div className="max-w-3xl mx-auto mt-20">
++              <h2 className="font-barlow font-bold text-2xl md:text-[28px] text-navy dark:text-white mb-4">
++                Co dokładnie dostajesz
++              </h2>
++              <p className="text-[15px] text-text-body dark:text-dark-text-muted leading-relaxed mb-8">
++                Cztery strony A4 w PDF, bez wstępu o tym, jak ważny jest wizerunek. Same
++                rzeczy do użycia: listy do odhaczenia, tabela do wypełnienia i gotowy
++                szablon wiadomości. Przeczytasz to w kwadrans, a wrócisz do tego dzień
++                przed sesją.
++              </p>
++
++              <ol className="space-y-6 mb-12">
++                {sections.map((s, i) => (
++                  <li key={s.title} className="flex items-start gap-4">
++                    <span className="mt-0.5 w-7 h-7 rounded-lg bg-blue-pale dark:bg-blue/15 flex items-center justify-center flex-shrink-0 font-barlow font-bold text-[13px] text-blue dark:text-blue-light">
++                      {i + 1}
++                    </span>
++                    <div>
++                      <h3 className="font-barlow font-bold text-[16px] text-navy dark:text-white mb-1">
++                        {s.title}
++                      </h3>
++                      <p className="text-[14.5px] text-text-body dark:text-dark-text-muted leading-relaxed">
++                        {s.desc}
++                      </p>
++                    </div>
++                  </li>
++                ))}
++              </ol>
++
++              <h2 className="font-barlow font-bold text-2xl md:text-[28px] text-navy dark:text-white mb-4">
++                Dla kogo to jest
++              </h2>
++              <p className="text-[15px] text-text-body dark:text-dark-text-muted leading-relaxed mb-5">
++                Poradnik pisałem dla osób, które fotografują się z powodów zawodowych, nie
++                dla przyjemności. Rozpoznasz się tu, jeśli:
++              </p>
++              <ul className="space-y-3 mb-12">
++                {forWhom.map((item) => (
++                  <li key={item} className="flex items-start gap-3">
++                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-blue dark:bg-blue-light flex-shrink-0" />
++                    <span className="text-[14.5px] text-text-body dark:text-dark-text-muted leading-relaxed">
++                      {item}
++                    </span>
++                  </li>
++                ))}
++              </ul>
++
++              <h2 className="font-barlow font-bold text-2xl md:text-[28px] text-navy dark:text-white mb-4">
++                Czego w nim nie ma
++              </h2>
++              <p className="text-[15px] text-text-body dark:text-dark-text-muted leading-relaxed mb-5">
++                Nie ma cennika ani tabeli pakietów. Każdą sesję wyceniam indywidualnie, bo
++                cena zależy od liczby osób, miejsca i zakresu postprodukcji. Jeśli
++                potrzebujesz kwoty, napisz w kilku zdaniach, czego potrzebujesz. Wstępną
++                wycenę odsyłam w 24h.
++              </p>
++              <p className="text-[15px] text-text-body dark:text-dark-text-muted leading-relaxed">
++                Nie ma też kursu fotografii. To materiał dla osoby po drugiej stronie
++                obiektywu: co spakować, co założyć i jak się zachować, żeby zdjęcia
++                wyglądały jak Ty w dobrym dniu. Resztą, czyli światłem, kadrem i
++                prowadzeniem, zajmuję się ja. Więcej znajdziesz we wpisie{" "}
++                <Link href="/blog/jak-przygotowac-sie-do-sesji-biznesowej" className="text-blue dark:text-blue-light font-semibold hover:underline underline-offset-2">
++                  jak przygotować się do sesji biznesowej
++                </Link>{" "}
++                oraz w przewodniku po tym,{" "}
++                <Link href="/blog/co-zalozyc-na-sesje-biznesowa" className="text-blue dark:text-blue-light font-semibold hover:underline underline-offset-2">
++                  co założyć na sesję biznesową
++                </Link>
++                .
++              </p>
++            </div>
++          </AnimatedSection>
+         </div>
+       </main>
+       <Footer />
+diff --git a/src/app/portfolio/[slug]/page.tsx b/src/app/portfolio/[slug]/page.tsx
+index 322ffb9..22796b1 100644
+--- a/src/app/portfolio/[slug]/page.tsx
++++ b/src/app/portfolio/[slug]/page.tsx
+@@ -13,6 +13,7 @@ import PortfolioVideoShowcase from "@/components/PortfolioVideoShowcase";
+ import CTA from "@/components/CTA";
+ import Footer from "@/components/Footer";
+ import ErrorBoundary from "@/components/ErrorBoundary";
++import { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
+ 
+ export function generateStaticParams() {
+   return portfolioCategories
+@@ -51,15 +52,12 @@ export default async function PortfolioPage({ params }: PageProps) {
+   const category = getCategoryBySlug(slug);
+   if (!category) notFound();
+ 
+-  const breadcrumb = {
+-    "@context": "https://schema.org",
+-    "@type": "BreadcrumbList",
+-    itemListElement: [
+-      { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
+-      { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://szabunia.pl/portfolio" },
+-      { "@type": "ListItem", position: 3, name: category.label },
+-    ],
+-  };
++  const crumbs: Crumb[] = [
++    { name: "Strona główna", href: "/" },
++    { name: "Portfolio", href: "/portfolio" },
++    { name: category.label },
++  ];
++  const breadcrumb = breadcrumbJsonLd(crumbs);
+ 
+   const structuredData = category.video
+     ? [
+@@ -122,7 +120,7 @@ export default async function PortfolioPage({ params }: PageProps) {
+         {category.video ? (
+           <>
+             <ErrorBoundary>
+-              <PortfolioVideoShowcase category={category} />
++              <PortfolioVideoShowcase category={category} crumbs={crumbs} />
+             </ErrorBoundary>
+             {category.gallery.length > 0 && (
+               <ErrorBoundary>
+@@ -143,7 +141,7 @@ export default async function PortfolioPage({ params }: PageProps) {
+         ) : (
+           <>
+             <ErrorBoundary>
+-              <PortfolioHero category={category} />
++              <PortfolioHero category={category} crumbs={crumbs} />
+             </ErrorBoundary>
+             <ErrorBoundary>
+               <PortfolioGallery
+diff --git a/src/app/portfolio/page.tsx b/src/app/portfolio/page.tsx
+index 09e13da..1c96fbb 100644
+--- a/src/app/portfolio/page.tsx
++++ b/src/app/portfolio/page.tsx
+@@ -9,6 +9,7 @@ import CTA from "@/components/CTA";
+ import Footer from "@/components/Footer";
+ import MobileFAB from "@/components/MobileFAB";
+ import ErrorBoundary from "@/components/ErrorBoundary";
++import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
+ 
+ const blurPlaceholder =
+   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
+@@ -25,10 +26,10 @@ export const metadata: Metadata = {
+     url: "https://szabunia.pl/portfolio",
+     images: [
+       {
+-        url: "/images/marcin-hero.jpg",
++        url: "/images/og/strony/portfolio.jpg",
+         width: 1200,
+         height: 630,
+-        alt: "Portfolio fotografii biznesowej, Marcin Szabunia, Poznań",
++        alt: "Portfolio realizacji — Marcin Szabunia, fotograf biznesowy",
+       },
+     ],
+   },
+@@ -37,20 +38,15 @@ export const metadata: Metadata = {
+     title: "Portfolio — realizacje fotograficzne i wideo | Marcin Szabunia",
+     description:
+       "Wybrane realizacje fotograficzne i wideo dla firm B2B. Poznań, cała Polska i Europa.",
+-    images: ["/images/marcin-hero.jpg"],
++    images: ["/images/og/strony/portfolio.jpg"],
+   },
+ };
+ 
+ export default function PortfolioPage() {
++  const crumbs: Crumb[] = [{ name: "Strona główna", href: "/" }, { name: "Portfolio" }];
++
+   const structuredData = [
+-    {
+-      "@context": "https://schema.org",
+-      "@type": "BreadcrumbList",
+-      itemListElement: [
+-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
+-        { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://szabunia.pl/portfolio" },
+-      ],
+-    },
++    breadcrumbJsonLd(crumbs),
+     {
+       "@context": "https://schema.org",
+       "@type": "ItemList",
+@@ -70,6 +66,7 @@ export default function PortfolioPage() {
+       <Navigation />
+       <main id="main" className="pt-28 pb-16 px-4">
+         <div className="max-w-6xl mx-auto">
++          <Breadcrumbs items={crumbs} className="mb-6" />
+           <AnimatedSection>
+             <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
+               Realizacje
+diff --git a/src/app/uslugi/[slug]/page.tsx b/src/app/uslugi/[slug]/page.tsx
+index ebab3f7..1e0f808 100644
+--- a/src/app/uslugi/[slug]/page.tsx
++++ b/src/app/uslugi/[slug]/page.tsx
+@@ -17,6 +17,7 @@ import BlogCard from "@/components/BlogCard";
+ import PoradnikBlogCTA from "@/components/PoradnikBlogCTA";
+ import ErrorBoundary from "@/components/ErrorBoundary";
+ import { getPostsForService } from "@/data/blog";
++import { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
+ 
+ // Poradnik (lead magnet) dotyczy wyłącznie stylizacji/pozowania do pojedynczego
+ // portretu — pokazujemy go tylko na stronie portretów i na stronie głównej
+@@ -80,6 +81,12 @@ export default async function ServicePage({ params }: PageProps) {
+   const priceMatch = service.price.match(/\d[\d\s]*\d|\d/);
+   const startingPrice = priceMatch ? priceMatch[0].replace(/\s/g, "") : undefined;
+ 
++  const crumbs: Crumb[] = [
++    { name: "Strona główna", href: "/" },
++    { name: "Usługi", href: "/uslugi" },
++    { name: service.title },
++  ];
++
+   const structuredData = [
+     {
+       "@context": "https://schema.org",
+@@ -95,22 +102,22 @@ export default async function ServicePage({ params }: PageProps) {
+       ...(startingPrice && {
+         offers: {
+           "@type": "Offer",
+-          priceCurrency: "PLN",
+-          price: startingPrice,
++          // `price` deklaruje cenę dokładną, a strona podaje wyłącznie kotwice
++          // "od X zł" (model "cena na zapytanie"). PriceSpecification z minPrice
++          // opisuje to zgodnie z prawdą i nie generuje w Google ceny, której nie ma
++          // (audyt PELNY2907-10).
++          priceSpecification: {
++            "@type": "PriceSpecification",
++            priceCurrency: "PLN",
++            minPrice: startingPrice,
++            valueAddedTaxIncluded: false,
++          },
+           availability: "https://schema.org/InStock",
+           url: `https://szabunia.pl/uslugi/${service.slug}`,
+         },
+       }),
+     },
+-    {
+-      "@context": "https://schema.org",
+-      "@type": "BreadcrumbList",
+-      itemListElement: [
+-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
+-        { "@type": "ListItem", position: 2, name: "Usługi", item: "https://szabunia.pl/uslugi" },
+-        { "@type": "ListItem", position: 3, name: service.title },
+-      ],
+-    },
++    breadcrumbJsonLd(crumbs),
+     {
+       "@context": "https://schema.org",
+       "@type": "FAQPage",
+@@ -128,7 +135,7 @@ export default async function ServicePage({ params }: PageProps) {
+       <Navigation />
+       <main id="main">
+         <ErrorBoundary>
+-          <ServiceHero service={service} />
++          <ServiceHero service={service} crumbs={crumbs} />
+         </ErrorBoundary>
+         {service.galleryCategory && (
+           <ErrorBoundary>
+diff --git a/src/app/uslugi/page.tsx b/src/app/uslugi/page.tsx
+index 12e782f..074cd47 100644
+--- a/src/app/uslugi/page.tsx
++++ b/src/app/uslugi/page.tsx
+@@ -8,6 +8,7 @@ import CTA from "@/components/CTA";
+ import Footer from "@/components/Footer";
+ import MobileFAB from "@/components/MobileFAB";
+ import ErrorBoundary from "@/components/ErrorBoundary";
++import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
+ 
+ export const metadata: Metadata = {
+   title: "Usługi foto i wideo dla firm | Marcin Szabunia Poznań",
+@@ -21,10 +22,10 @@ export const metadata: Metadata = {
+     url: "https://szabunia.pl/uslugi",
+     images: [
+       {
+-        url: "/images/marcin-hero.jpg",
++        url: "/images/og/strony/uslugi.jpg",
+         width: 1200,
+         height: 630,
+-        alt: "Usługi fotografii biznesowej i wideo, Marcin Szabunia, Poznań",
++        alt: "Usługi fotograficzne i wideo dla firm — Marcin Szabunia",
+       },
+     ],
+   },
+@@ -33,20 +34,15 @@ export const metadata: Metadata = {
+     title: "Usługi — fotografia biznesowa i wideo marketing | Marcin Szabunia",
+     description:
+       "Pełna oferta usług fotograficznych i wideo dla firm B2B. Poznań, cała Polska i Europa.",
+-    images: ["/images/marcin-hero.jpg"],
++    images: ["/images/og/strony/uslugi.jpg"],
+   },
+ };
+ 
+ export default function UslugiPage() {
++  const crumbs: Crumb[] = [{ name: "Strona główna", href: "/" }, { name: "Usługi" }];
++
+   const structuredData = [
+-    {
+-      "@context": "https://schema.org",
+-      "@type": "BreadcrumbList",
+-      itemListElement: [
+-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
+-        { "@type": "ListItem", position: 2, name: "Usługi", item: "https://szabunia.pl/uslugi" },
+-      ],
+-    },
++    breadcrumbJsonLd(crumbs),
+     {
+       "@context": "https://schema.org",
+       "@type": "ItemList",
+@@ -66,6 +62,7 @@ export default function UslugiPage() {
+       <Navigation />
+       <main id="main" className="pt-28 pb-16 px-4">
+         <div className="max-w-6xl mx-auto">
++          <Breadcrumbs items={crumbs} className="mb-6" />
+           <AnimatedSection>
+             <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
+               Oferta
+diff --git a/src/components/Hero.tsx b/src/components/Hero.tsx
+index 68cf469..a2cf0e7 100644
+--- a/src/components/Hero.tsx
++++ b/src/components/Hero.tsx
+@@ -78,7 +78,7 @@ export default function Hero() {
+               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+               </svg>
+-              Odpowiedź w 24h
++              Wstępna wycena w 24h
+             </li>
+             <li className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border dark:border-dark-border text-[12px] text-steel dark:text-dark-text-muted">
+               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+diff --git a/src/components/PortfolioHero.tsx b/src/components/PortfolioHero.tsx
+index 044e2b8..5899902 100644
+--- a/src/components/PortfolioHero.tsx
++++ b/src/components/PortfolioHero.tsx
+@@ -1,14 +1,16 @@
+ "use client";
+ 
+ import Image from "next/image";
+-import Link from "next/link";
+ import AnimatedSection from "./AnimatedSection";
+ import Parallax from "./Parallax";
+ import { PARALLAX } from "@/lib/motion";
+ import type { PortfolioCategory } from "@/data/portfolio";
++import Breadcrumbs, { type Crumb } from "./Breadcrumbs";
+ 
+ interface Props {
+   category: PortfolioCategory;
++  /** Ta sama tablica, z której strona buduje JSON-LD (audyt PELNY2907-10). */
++  crumbs: Crumb[];
+ }
+ 
+ const blurPlaceholder =
+@@ -49,7 +51,7 @@ function ClientLinkIcon({ url }: { url: string }) {
+   );
+ }
+ 
+-export default function PortfolioHero({ category }: Props) {
++export default function PortfolioHero({ category, crumbs }: Props) {
+   const isPortrait = (category.heroAspect ?? category.galleryAspect) === "portrait";
+   const heroAspect = isPortrait ? "aspect-[3/4] max-w-md mx-auto md:mx-0" : "aspect-[4/3]";
+   // Pionowe kadry kotwiczymy do góry, żeby nie ucinać głów.
+@@ -57,27 +59,8 @@ export default function PortfolioHero({ category }: Props) {
+   return (
+     <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4">
+       <div className="max-w-5xl mx-auto">
+-        {/* Breadcrumb */}
+         <AnimatedSection>
+-          <nav aria-label="Ścieżka nawigacji" className="mb-8">
+-            <ol className="flex items-center gap-1.5 text-[13px] text-steel dark:text-dark-text-muted flex-wrap">
+-              <li>
+-                <Link href="/" className="hover:text-blue dark:hover:text-blue-light transition-colors">
+-                  Strona główna
+-                </Link>
+-              </li>
+-              <li aria-hidden="true" className="text-steel-light">/</li>
+-              <li>
+-                <Link href="/#portfolio" className="hover:text-blue dark:hover:text-blue-light transition-colors">
+-                  Portfolio
+-                </Link>
+-              </li>
+-              <li aria-hidden="true" className="text-steel-light">/</li>
+-              <li>
+-                <span className="text-navy dark:text-white font-semibold">{category.label}</span>
+-              </li>
+-            </ol>
+-          </nav>
++          <Breadcrumbs items={crumbs} className="mb-8" />
+         </AnimatedSection>
+ 
+         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+diff --git a/src/components/PortfolioVideoShowcase.tsx b/src/components/PortfolioVideoShowcase.tsx
+index 6a807ad..15ac1de 100644
+--- a/src/components/PortfolioVideoShowcase.tsx
++++ b/src/components/PortfolioVideoShowcase.tsx
+@@ -1,8 +1,8 @@
+-import Link from "next/link";
+ import Image from "next/image";
+ import AnimatedSection from "./AnimatedSection";
+ import YouTubeFacade from "./YouTubeFacade";
+ import type { PortfolioCategory } from "@/data/portfolio";
++import Breadcrumbs, { type Crumb } from "./Breadcrumbs";
+ 
+ const defaultScope = [
+   "Poziomy film (YouTube)",
+@@ -13,8 +13,11 @@ const defaultScope = [
+ 
+ export default function PortfolioVideoShowcase({
+   category,
++  crumbs,
+ }: {
+   category: PortfolioCategory;
++  /** Ta sama tablica, z której strona buduje JSON-LD (audyt PELNY2907-10). */
++  crumbs: Crumb[];
+ }) {
+   const video = category.video;
+   const reels = category.reels ?? [];
+@@ -30,19 +33,8 @@ export default function PortfolioVideoShowcase({
+         <div className="absolute bottom-[5%] right-[8%] w-[380px] h-[380px] bg-[radial-gradient(circle,rgba(37,99,235,0.05)_0%,transparent_70%)] dark:bg-[radial-gradient(circle,rgba(37,99,235,0.10)_0%,transparent_70%)]" />
+       </div>
+       <div className="max-w-5xl mx-auto">
+-        {/* Breadcrumb */}
+         <AnimatedSection>
+-          <nav className="text-[12px] text-steel dark:text-dark-text-muted mb-6">
+-            <Link href="/" className="hover:text-navy dark:hover:text-white transition-colors">
+-              Strona główna
+-            </Link>
+-            <span className="mx-1.5">/</span>
+-            <Link href="/portfolio" className="hover:text-navy dark:hover:text-white transition-colors">
+-              Portfolio
+-            </Link>
+-            <span className="mx-1.5">/</span>
+-            <span className="text-navy dark:text-white">{category.label}</span>
+-          </nav>
++          <Breadcrumbs items={crumbs} className="mb-6" />
+         </AnimatedSection>
+ 
+         {/* Header */}
+diff --git a/src/components/ServiceHero.tsx b/src/components/ServiceHero.tsx
+index 0429a24..81a2020 100644
+--- a/src/components/ServiceHero.tsx
++++ b/src/components/ServiceHero.tsx
+@@ -1,41 +1,24 @@
+ "use client";
+ 
+-import Link from "next/link";
+ import Image from "next/image";
+ import AnimatedSection from "./AnimatedSection";
+ import type { ServiceData } from "@/data/services";
++import Breadcrumbs, { type Crumb } from "./Breadcrumbs";
+ 
+ interface Props {
+   service: ServiceData;
++  /** Ta sama tablica, z której strona buduje JSON-LD (audyt PELNY2907-10). */
++  crumbs: Crumb[];
+ }
+ 
+-export default function ServiceHero({ service }: Props) {
++export default function ServiceHero({ service, crumbs }: Props) {
+   return (
+     <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4">
+       {/* max-w-6xl (nie standardowe max-w-5xl podstron usług): hero na pełną
+           szerokość, symetryczny split 50/50 (brief-23 zad. 2). */}
+       <div className="max-w-6xl mx-auto">
+-        {/* Breadcrumb */}
+         <AnimatedSection>
+-          <nav aria-label="Ścieżka nawigacji" className="mb-8">
+-            <ol className="flex items-center gap-1.5 text-[13px] text-steel dark:text-dark-text-muted flex-wrap">
+-              <li>
+-                <Link href="/" className="hover:text-blue dark:hover:text-blue-light transition-colors">
+-                  Strona główna
+-                </Link>
+-              </li>
+-              <li aria-hidden="true" className="text-steel-light">/</li>
+-              <li>
+-                <Link href="/#uslugi" className="hover:text-blue dark:hover:text-blue-light transition-colors">
+-                  Usługi
+-                </Link>
+-              </li>
+-              <li aria-hidden="true" className="text-steel-light">/</li>
+-              <li>
+-                <span className="text-navy dark:text-white font-semibold">{service.title}</span>
+-              </li>
+-            </ol>
+-          </nav>
++          <Breadcrumbs items={crumbs} className="mb-8" />
+         </AnimatedSection>
+ 
+         {/* Kolejność (prośba Marcina, 2026-07-23): tytuł → cena → krótki opis
+@@ -96,7 +79,7 @@ export default function ServiceHero({ service }: Props) {
+                 <svg className="w-3 h-3 md:w-3.5 md:h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                 </svg>
+-                Odpowiedź w 24h
++                Wstępna wycena w 24h
+               </li>
+               <li className="inline-flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-full border border-border dark:border-dark-border text-[11px] md:text-[12px] text-steel dark:text-dark-text-muted">
+                 <svg className="w-3 h-3 md:w-3.5 md:h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+diff --git a/src/data/blog.ts b/src/data/blog.ts
+index 646782c..5242fbc 100644
+--- a/src/data/blog.ts
++++ b/src/data/blog.ts
+@@ -77,13 +77,13 @@ export const blogPosts: BlogPost[] = [
+   {
+     slug: "headshoty-linkedin-konwersja",
+     faq: [
+-      { q: "Ile więcej wyświetleń daje profesjonalne zdjęcie na LinkedIn?", a: "Według danych LinkedIn profile z profesjonalnym zdjęciem generują 14 razy więcej wyświetleń niż te bez zdjęcia lub ze zdjęciem amatorskim. Statystyki mówią też o 21x większej liczbie wyświetleń profilu, 36x większej liczbie wiadomości i 9x większej liczbie zaproszeń do połączenia." },
++      { q: "Ile więcej wyświetleń daje profesjonalne zdjęcie na LinkedIn?", a: "W materiałach o LinkedIn powtarza się jeden zestaw proporcji dla profilu ze zdjęciem w porównaniu z profilem bez niego: 21x więcej wyświetleń profilu, 36x więcej otrzymywanych wiadomości i 9x więcej zaproszeń do połączenia. Traktuj te liczby jako rząd wielkości, a nie obietnicę wyniku: samo zdjęcie nie zastąpi opisu profilu ani aktywności." },
+       { q: "Jak często aktualizować zdjęcie profilowe na LinkedIn?", a: "Zdjęcie na LinkedIn powinno wyglądać jak Ty dzisiaj — jeśli ktoś umówi się z Tobą na spotkanie i Cię nie rozpozna, masz problem. Dobra zasada to aktualizacja headshota co 1-2 lata lub po każdej znaczącej zmianie wizerunku." },
+       { q: "Co wyróżnia dobry headshot na LinkedIn?", a: "Dobry headshot buduje zaufanie, a nie tylko dobrze wygląda. Kluczowe elementy to kontakt wzrokowy z obiektywem, delikatny uśmiech sygnalizujący dostępność, czyste lub lekko rozmyte tło, kadr od ramion w górę z twarzą zajmującą około 60% kadru oraz stylizacja dopasowana do branży." },
+     ],
+     title: "Dlaczego profesjonalne headshoty zwiększają konwersję na LinkedIn",
+     excerpt:
+-      "Profil z profesjonalnym zdjęciem generuje 14x więcej wyświetleń. Jak wykorzystać portret biznesowy, żeby LinkedIn pracował na Twoją markę?",
++      "Profil ze zdjęciem bywa oglądany 21x częściej niż profil bez niego. Jak wykorzystać portret biznesowy, żeby LinkedIn pracował na Twoją markę?",
+     category: "branża",
+     date: "2025-02-08",
+     updated: "2026-07-29",
+@@ -92,13 +92,14 @@ export const blogPosts: BlogPost[] = [
+     content: `
+       <p class="lead">LinkedIn to nie Facebook. To narzędzie biznesowe, w którym pierwsze wrażenie decyduje o tym, czy ktoś kliknie „Połącz", czy przewinie dalej. A pierwsze wrażenie zaczyna się od zdjęcia profilowego.</p>
+ 
+-      <h2>Liczby nie kłamią</h2>
+-      <p>Według danych LinkedIn, profile z profesjonalnym zdjęciem generują <strong>14 razy więcej wyświetleń</strong> niż te bez zdjęcia lub ze zdjęciem amatorskim. To nie jest subtelna różnica, to przepaść.</p>
++      <h2>Ile realnie daje zdjęcie na profilu</h2>
++      <p>W materiałach o LinkedIn od lat powtarza się jeden zestaw proporcji dla profilu ze zdjęciem, w porównaniu z profilem bez niego:</p>
+       <ul>
+         <li>21x więcej wyświetleń profilu</li>
+-        <li>36x więcej wiadomości</li>
++        <li>36x więcej otrzymywanych wiadomości</li>
+         <li>9x więcej zaproszeń do połączenia</li>
+       </ul>
++      <p>Traktuj te liczby jako rząd wielkości, nie jako obietnicę wyniku. Samo zdjęcie nie zastąpi opisu profilu ani regularnej aktywności. Pokazuje jednak kierunek: przy identycznym doświadczeniu i identycznej treści profilu, wersja ze zdjęciem po prostu wygrywa uwagę.</p>
+ 
+       <h2>Co sprawia, że headshot „działa"?</h2>
+       <p>Nie chodzi o to, żeby zdjęcie było „ładne". Chodzi o to, żeby budowało <strong>zaufanie</strong>. Profesjonalny headshot komunikuje: „Jestem kompetentny, wiarygodny, warto ze mną rozmawiać".</p>
+@@ -118,14 +119,46 @@ export const blogPosts: BlogPost[] = [
+       <h2>Jak często aktualizować zdjęcie?</h2>
+       <p>Prosta zasada: zdjęcie na LinkedIn powinno wyglądać jak Ty <strong>dzisiaj</strong>. Jeśli ktoś umówi się z Tobą na spotkanie i nie rozpozna Cię, masz problem. Aktualizuj headshot co 1-2 lata lub po znaczącej zmianie wizerunku.</p>
+ 
++      <h2>Jak wygląda sesja headshotowa</h2>
++      <p>Sesja portretowa nie musi zjeść pół dnia. Sama sesja może trwać od 30 minut, a przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło. Nie siedzisz i nie czekasz, aż fotograf się rozstawi.</p>
++      <ul>
++        <li><strong>1. Konsultacja.</strong> Omawiamy cel, styl i to, gdzie zdjęcia mają pracować.</li>
++        <li><strong>2. Poseboard.</strong> Przygotowuję moodboard z referencjami, żebyśmy oboje wiedzieli, do czego dążymy.</li>
++        <li><strong>3. Sesja.</strong> Prowadzę Cię przez pozowanie, w studiu albo w Twoim biurze.</li>
++        <li><strong>4. Dostawa.</strong> Wybrane, wyretuszowane zdjęcia w 14 dni kalendarzowych.</li>
++      </ul>
++      <p>Dłuższe pakiety nie znaczą „więcej czekania", tylko więcej czasu na ujęcia i zmiany stylizacji. Jeśli potrzebujesz zdjęć na wczoraj, jest tryb ekspresowy do 48 godzin za dopłatą 50 procent.</p>
++
++      <h2>Studio, Twoje biuro czy sesja dla całego zespołu</h2>
++      <p>Nie musisz nigdzie jechać. Na sesję w Twoim biurze przywożę mobilne studio: potrzebuję około 3 m² wolnej przestrzeni i dostępu do gniazdka. Sala konferencyjna w zupełności wystarczy.</p>
++      <p>Jeśli headshota potrzebuje więcej osób niż jedna, sensowniej wychodzi <a href="/uslugi/sesje-zespolowe">sesja zespołowa</a>: jedno wejście, to samo światło, ten sam retusz, a stawka za osobę spada wraz z wielkością grupy. Sesje zespołowe realizuję od 4 osób. Efekt uboczny jest taki, że profile Waszych ludzi na LinkedIn zaczynają wyglądać jak jedna firma, a nie jak zbiór przypadkowych zdjęć.</p>
++
++      <h2>„Nie jestem fotogeniczny" to nie jest przeszkoda</h2>
++      <p>Słyszę to bardzo często i za każdym razem efekt pozytywnie zaskakuje. Prowadzę Cię przez całą sesję: pomagam z pozowaniem, ustawiam światło pod Twoją twarz, pilnuję naturalnego wyrazu. W studiu zawsze ustawiam lustro przed osobą fotografowaną, żebyś na bieżąco widział siebie i mógł poprawić drobne detale, zamiast dowiadywać się o nich dopiero z gotowych zdjęć. Nie musisz być modelem, wystarczy być sobą. Reszta to moja robota.</p>
++
++      <h2>Co założyć na headshot</h2>
++      <p>Zasada jest prosta: ubierz się o jeden poziom bardziej elegancko niż na co dzień w pracy. Bezpieczne kolory to granat, szarość, biel, czerń i butelkowa zieleń. Odpuść drobne paski i kratkę (potrafią migotać na zdjęciu), jaskrawe neony i ubrania z dużym logo. Warto wziąć 2 lub 3 stylizacje, żeby mieć z czego wybierać. Szerzej rozkładam to w tekście o tym, <a href="/blog/co-zalozyc-na-sesje-biznesowa">co założyć na sesję biznesową</a>.</p>
++
++      <h2>Jeden headshot czy kilka wariantów</h2>
++      <p>LinkedIn to nie jedyne miejsce, w którym pracuje Twój portret. Zwykle potrzebne są jeszcze zdjęcia na stronę firmową, do materiałów prasowych i do prezentacji. Dobrze zaplanowana sesja daje kilka wariantów naraz.</p>
++      <p>Dla IDcom Group zrealizowałem sesję na trzech tłach w jednym wejściu: białym, czarnym z niebieskim światłem i kremowym. Każda osoba dostała komplet kadrów w tym samym standardzie światła i retuszu, więc firma dobiera klimat do kontekstu zamiast wracać do studia. Zobacz <a href="/portfolio/idcom-headshoty-zespolu">case study IDcom</a>.</p>
++
++      <h2>Zdjęcie z generatora AI zamiast sesji</h2>
++      <p>Generatory headshotów kuszą ceną i czasem. Zanim wrzucisz taki portret na profil, warto wiedzieć, gdzie leżą granice tego rozwiązania i co ryzykujesz przy spotkaniu na żywo. Rozłożyłem to na czynniki pierwsze w tekście <a href="/blog/zdjecia-ai-vs-profesjonalna-sesja">zdjęcia AI vs profesjonalna sesja</a>.</p>
++
++      <h2>Gdzie możesz użyć tego zdjęcia</h2>
++      <p>Licencja komercyjna jest w cenie i nie ma limitów czasowych. To samo zdjęcie może pójść na LinkedIn, na stronę firmową, do materiałów drukowanych, do raportu rocznego i do reklamy online. Nie wracasz po zgody i nie pilnujesz dat wygaśnięcia.</p>
++      <p>Pliki dostajesz w pełnej jakości plus wersje zoptymalizowane pod web, a na życzenie także PNG z przezroczystym tłem i TIFF do druku. W cenie są dwie tury poprawek, realizowane w ciągu 7 dni od zgłoszenia.</p>
++
+       <h2>ROI profesjonalnego headshota</h2>
+-      <p><a href="/uslugi/wizerunek-portrety">Sesja portretowa</a> kosztuje od 1 100 zł. Jeden nowy klient pozyskany dzięki lepszemu profilowi na LinkedIn zwraca tę inwestycję wielokrotnie. To jedna z najtańszych i najskuteczniejszych inwestycji w personal branding. Pracuję z bazy w Poznaniu, na terenie miasta dojazd jest wliczony w cenę, a sesje realizuję w całej Polsce i Europie.</p>
++      <p><a href="/uslugi/wizerunek-portrety">Sesja portretowa</a> kosztuje od 1 100 zł netto. Na wycenę pracują trzy rzeczy: liczba stylizacji, długość sesji i liczba wyretuszowanych zdjęć do wyboru. Każda sesja obejmuje poseboard z referencjami przed spotkaniem, bez dopłaty.</p>
++      <p>Jeden nowy klient pozyskany dzięki lepszemu profilowi na LinkedIn zwraca tę inwestycję wielokrotnie, a zdjęcie pracuje przez najbliższe dwa lata w każdym miejscu, w którym ktoś sprawdza, z kim ma do czynienia. Pracuję z bazy w Poznaniu, na terenie miasta dojazd jest wliczony w cenę, poza miastem doliczam 2,50 zł netto za kilometr w obie strony, a sesje realizuję w całej Polsce i Europie. Napisz w kilku zdaniach, czego potrzebujesz. Wstępną wycenę odsyłam w 24h.</p>
+       <p>Zanim umówisz sesję, sprawdź, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, pobierz <a href="/poradnik">darmowy poradnik przygotowania do sesji</a> i zobacz <a href="/galeria?kat=portrety">przykładowe realizacje sesji wizerunkowych</a>.</p>
+     `,
+     seo: {
+       title: "Headshoty na LinkedIn a konwersja | Marcin Szabunia",
+       description:
+-        "Profesjonalne zdjęcie na LinkedIn generuje 14x więcej wyświetleń. Jak zrobić headshot, który buduje zaufanie i przyciąga klientów?",
++        "Profil ze zdjęciem bywa oglądany 21x częściej niż profil bez niego. Jak zrobić headshot, który buduje zaufanie i przyciąga klientów?",
+     },
+   },
+   {
+@@ -256,6 +289,7 @@ export const blogPosts: BlogPost[] = [
+       "Hale produkcyjne, maszyny CNC, linie montażowe. Jak uchwycić skalę i precyzję nowoczesnego zakładu? Praktyczne wskazówki od fotografa przemysłowego.",
+     category: "branża",
+     date: "2025-05-05",
++    updated: "2026-07-29",
+     readTime: 6,
+     thumbnail: "/images/blog/fotografia-przemyslowa-fabryka-3.jpg",
+     content: `
+@@ -286,8 +320,41 @@ export const blogPosts: BlogPost[] = [
+         <li><strong>Social Media:</strong> content pokazujący „behind the scenes" produkcji</li>
+       </ul>
+ 
++      <h2>Sprzęt, który radzi sobie z halą</h2>
++      <p>Na hali nie ma miejsca na eksperymenty ze sprzętem, bo drugiego podejścia zwykle nie ma. Pracuję na dwóch aparatach Canon R6, z zapisem na dwie karty jednocześnie, więc materiał z dnia zdjęciowego jest zabezpieczony. Do tego jasne obiektywy Sigma Art f/1.4 na trudne światło, Sigma 70-200 mm f/2.8 do ujęć z bezpiecznego dystansu, szeroka Tokina 16-28 mm f/2.8 na ciasne przejścia między maszynami oraz mobilny system lamp Godox, kiedy trzeba doświetlić stanowisko.</p>
++      <p>Dwa aparaty mają jeszcze jedną zaletę na produkcji: nie zmieniam obiektywu w zapylonym otoczeniu. Mniej kurzu na matrycy to mniej czyszczenia w retuszu i mniej ryzyka, że w środku hali zostanę bez sprawnego korpusu.</p>
++
++      <h2>Ujęcia z drona nad zakładem</h2>
++      <p>Skali terenu, hal i placów manewrowych nie da się pokazać z poziomu ziemi. <a href="/uslugi/zdjecia-wideo-z-drona">Zdjęcia i wideo z drona</a> robię dronem DJI Mini 5 Pro, mam certyfikat operatora A1/A3 i ubezpieczenie OC, a w strefach kontrolowanych uzyskuję wymagane zgody przed lotem. Zakłady przemysłowe często leżą blisko lotnisk albo w strefach z ograniczeniami, więc tę część warto zgłosić z wyprzedzeniem, a nie w dniu sesji.</p>
++      <p>Materiał z powietrza dostajesz w 4K przy wideo i w pełnej rozdzielczości przy zdjęciach. Jeśli pogoda nie pozwala bezpiecznie latać (silny wiatr, opady), bezpłatnie przekładamy sam lot na najbliższy możliwy termin, bez ruszania reszty harmonogramu.</p>
++
++      <h2>Film z hali pracuje inaczej niż zdjęcia</h2>
++      <p>Zdjęcie pokazuje moment, film pokazuje ruch: maszynę w pracy, rytm linii, sposób obsługi. Dla Artech Group, poznańskiego centrum obróbki tworzyw sztucznych CNC, powstał film z hali produkcyjnej pokazujący park maszynowy i sposób pracy firmy. Materiał pracuje na stronie i w rozmowach handlowych: zamiast opisywać możliwości produkcyjne, firma po prostu je pokazuje. To argument, który w B2B skraca rozmowę o kilka mejli.</p>
++      <p>Nagranie wideo i zdjęcia da się zrobić w jednym wejściu, w modelu <a href="/uslugi/pakiety-foto-wideo">foto plus wideo</a>. Jedna wizyta na hali oznacza jedno przerwanie rytmu produkcji zamiast dwóch.</p>
++
++      <h2>Packshoty półfabrykatów jako uzupełnienie</h2>
++      <p>Firmy produkcyjne często potrzebują dwóch rzeczy naraz: zdjęć z hali i zdjęć samych wyrobów. Dla Artech powstało 20 packshotów półfabrykatów i detali z tworzyw na białym tle, w powtarzalnym setupie, wykorzystywanych na stronie internetowej, w katalogu i w sklepie internetowym. Powtarzalny setup ma znaczenie praktyczne: katalog da się rozbudowywać o kolejne pozycje bez ponownego fotografowania wszystkiego. Szczegóły opisałem przy <a href="/uslugi/fotografia-produktowa">fotografii produktowej</a> oraz w <a href="/portfolio/artech-fotografia-produktowa">case study Artech</a>.</p>
++
++      <h2>Portrety pracowników w jednym standardzie</h2>
++      <p>Zdjęcia z hali dobrze uzupełnić portretami zespołu, zwłaszcza gdy materiał ma pracować w rekrutacji. Przywożę mobilne studio, rozstawiam je w sali konferencyjnej albo na korytarzu, potrzebuję około 3 m² i gniazdka. Setup zajmuje jakieś 20 minut, a każda osoba jest w kadrze przez 10 do 15 minut. W jeden dzień da się w ten sposób sfotografować do 40 osób, wszystkie w tym samym świetle i retuszu. Osoby nieobecne w dniu sesji dogrywam w osobnym, krótszym terminie, w tym samym standardzie. Więcej o organizacji takiej sesji piszę w tekście o <a href="/blog/headshoty-zespolu-w-jeden-dzien">headshotach całego zespołu w jeden dzień</a>.</p>
++
++      <h2>Co dostajesz po sesji</h2>
++      <p>Zdjęcia w pełnej jakości plus wersje zoptymalizowane pod web, na życzenie także PNG z przezroczystym tłem i TIFF do druku (przydaje się przy katalogach i materiałach targowych). Surowych plików RAW nie przekazuję.</p>
++      <ul>
++        <li><strong>Terminy:</strong> zdjęcia w 14 dni kalendarzowych, wideo w 21 dni. Tryb ekspresowy do 48 godzin za dopłatą 50 procent.</li>
++        <li><strong>Poprawki:</strong> 2 tury przy zdjęciach, 3 tury przy wideo, realizowane w 7 dni od zgłoszenia.</li>
++        <li><strong>Licencja:</strong> komercyjna, bez limitów czasowych. Strona, raport roczny, materiały targowe, oferta przetargowa, reklama online.</li>
++        <li><strong>Dojazd:</strong> 0 zł w Poznaniu, poza miastem 2,50 zł netto za kilometr w obie strony. Przy wyjazdach dłuższych niż jeden dzień pracy dochodzi nocleg.</li>
++      </ul>
++
++      <h2>Ile kosztuje sesja w zakładzie</h2>
++      <p>Sesja przemysłowa rzadko jest jedną usługą. Zwykle składa się na nią kilka elementów: zdjęcia procesów na hali, portrety pracowników, packshoty wyrobów, ujęcia z drona i czasem film. Dlatego nie ma tu jednej ceny katalogowej, a wycena zależy od tego, ile z tych elementów realnie potrzebujesz i ile czasu zajmie wejście na produkcję.</p>
++      <p>Najprościej: opisz w kilku zdaniach, co ma się znaleźć na zdjęciach i gdzie trafią. Wstępną wycenę odsyłam w 24h, w kilku wariantach zakresu, żebyś mógł odciąć to, czego nie potrzebujesz.</p>
++
+       <h2>Jak się przygotować?</h2>
+-      <p>Przed sesją ustalam z klientem listę kluczowych ujęć: procesy produkcyjne, które chcemy pokazać, kluczowi pracownicy do portretów, produkty finalne. Dobry plan pozwala wykorzystać czas na hali maksymalnie efektywnie, bo produkcja nie czeka. Bazuję w Poznaniu, a sesje przemysłowe realizuję w zakładach w całej Polsce i Europie.</p>
++      <p>Przed sesją ustalam z klientem listę kluczowych ujęć: procesy produkcyjne, które chcemy pokazać, kluczowi pracownicy do portretów, produkty finalne. Dobry plan pozwala wykorzystać czas na hali maksymalnie efektywnie, bo produkcja nie czeka.</p>
++      <p>Po stronie zakładu warto zadbać o cztery rzeczy: osobę, która oprowadzi po hali i zna harmonogram zmian, uprzedzenie pracowników, że tego dnia będzie fotograf, uprzątnięcie stanowisk, które mają trafić do kadru (kurz i przypadkowe kartony widać na zdjęciu bardziej niż na żywo), oraz informację o obszarach objętych tajemnicą, których nie wolno pokazywać. Bazuję w Poznaniu, a sesje przemysłowe realizuję w zakładach w całej Polsce i Europie.</p>
++      <p>Zobacz <a href="/portfolio/artech-fotografia-produktowa">realizację dla Artech Group</a>, a potem <a href="/kontakt">napisz, co dzieje się w Twoim zakładzie</a>.</p>
+     `,
+     seo: {
+       title: "Fotografia przemysłowa: zdjęcia fabryki | Marcin Szabunia",
+@@ -319,8 +386,8 @@ export const blogPosts: BlogPost[] = [
+       <h2>2. Złe tło i otoczenie</h2>
+       <p>Zdjęcia na tle ksero, kuchni biurowej albo parkingu. Tło powinno być albo neutralne (jednolite, rozmyte), albo celowo dobrane (np. open space, sala konferencyjna, przestrzeń biurowa). Nigdy przypadkowe.</p>
+ 
+-      <h2>3. Brak briefu i przygotowania</h2>
+-      <p>Pracownicy dowiadują się o sesji 5 minut przed. Efekt: pogniecione koszule, brak makijażu, stresowe miny. Informujcie zespół minimum tydzień wcześniej. Wyślijcie wskazówki dotyczące ubioru. Dajcie ludziom czas na przygotowanie, a efekt będzie wielokrotnie lepszy.</p>
++      <h2>3. Brak zapowiedzi i przygotowania</h2>
++      <p>Pracownicy dowiadują się o sesji 5 minut przed. Efekt: pogniecione koszule, brak makijażu, stresowe miny. Informujcie zespół minimum tydzień wcześniej. Wyślijcie wskazówki dotyczące ubioru. Dajcie ludziom czas na przygotowanie, a efekt będzie wielokrotnie lepszy. Gotową ściągę dla zespołu znajdziesz w tekście o tym, <a href="/blog/co-zalozyc-na-sesje-biznesowa">co założyć na sesję biznesową</a>: wystarczy przekleić link do maila zapowiadającego sesję.</p>
+ 
+       <h2>4. Za mało czasu na osobę</h2>
+       <p>Sesja dla 30 osób w 2 godziny = 4 minuty na osobę. To za mało na dobry portret. Realistyczny czas to 10-15 minut na osobę, wliczając ustawienie światła, rozgrzewkę i kilka prób. Nie oszczędzaj na czasie: to inwestycja w wizerunek.</p>
+@@ -328,14 +395,48 @@ export const blogPosts: BlogPost[] = [
+       <h2>5. Zapominanie o aktualizacji</h2>
+       <p>Nowy pracownik dołącza, stary odchodzi, a zdjęcia na stronie mają 3 lata. Ustal harmonogram aktualizacji, np. sesja co rok lub przy każdej większej zmianie w zespole. Regularne sesje utrzymują stronę aktualną i pokazują, że firma się rozwija.</p>
+ 
++      <h2>Jak wygląda dzień sesji zespołowej</h2>
++      <p>Cała sesja rozkłada się na cztery etapy i większość pracy dzieje się przed nią, nie w jej trakcie:</p>
++      <ul>
++        <li><strong>1. Logistyka.</strong> Ustalamy harmonogram i liczbę osób. Najlepiej działa lista z godzinami, po dwie osoby na okienko, żeby kolejka się nie tworzyła i nikt nie stał pod salą.</li>
++        <li><strong>2. Setup.</strong> Rozstawiam mobilne studio w biurze, zajmuje to około 20 minut.</li>
++        <li><strong>3. Sesja.</strong> Od 10 do 15 minut na osobę: headshot plus opcjonalne ujęcie zespołowe.</li>
++        <li><strong>4. Dostawa.</strong> Wyretuszowane zdjęcia w 14 dni kalendarzowych.</li>
++      </ul>
++
++      <h2>Ile miejsca trzeba i ile osób zmieści się w jeden dzień</h2>
++      <p>Potrzebuję minimum 3 m² wolnej przestrzeni i gniazdka. Sala konferencyjna, hol albo szerszy korytarz sprawdzą się tak samo dobrze, nie musicie nic przemeblowywać na stałe. W jeden dzień przy mobilnym studiu fotografuję do 40 osób. Jeśli zespół jest większy, rozkładamy sesję na dwa dni zamiast skracać czas na osobę, bo to właśnie ten błąd numer cztery z listy powyżej.</p>
++
++      <h2>Biuro czy studio zewnętrzne</h2>
++      <p>Mobilne studio u Was oznacza zero podróży dla pracowników i zero wyrw w kalendarzu: człowiek wychodzi ze spotkania, wchodzi na sesję, wraca do biurka. Studio zewnętrzne daje więcej miejsca i większą swobodę w scenografii, ale wymaga przewiezienia ludzi. Przy zespołach rozproszonych po oddziałach zwykle wygrywa mobilne studio, po prostu przyjeżdżam kolejno do każdej lokalizacji z tym samym zestawem światła.</p>
++
++      <h2>Co z osobami, których nie ma w dniu sesji</h2>
++      <p>Zawsze ktoś jest na urlopie, na zwolnieniu albo pracuje zdalnie z drugiego końca kraju. To normalne i nie jest powodem do przekładania całej sesji. Brakujące osoby dogrywam w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu. Portrety całego zespołu zostają spójne, a nowa osoba nie odstaje na siatce na stronie.</p>
++
++      <h2>Jedna sesja, kilka teł</h2>
++      <p>Spójność nie musi oznaczać, że wszyscy mają dokładnie jedno zdjęcie na jednym tle. Dla IDcom Group, poznańskiego software house'u, zrealizowałem sesję na trzech tłach naraz: białym (czyste i uniwersalne), czarnym z niebieskim światłem (bardziej technologiczne) i kremowym (cieplejsze, swobodniejsze). Każda osoba dostała komplet kadrów w tym samym standardzie światła i retuszu, więc firma dobiera klimat do kontekstu, zamiast wracać do studia po nową wersję. Zobacz <a href="/portfolio/idcom-headshoty-zespolu">case study IDcom</a>.</p>
++
++      <h2>Co dzieje się po sesji</h2>
++      <p>Po sesji udostępniam galerię online ze wszystkimi wykonanymi ujęciami. Z niej wybieracie kadry, które mają trafić do retuszu, więc kontrola nad tym, jak kto wygląda, zostaje po Waszej stronie. W praktyce warto, żeby każda osoba wybierała swój kadr sama: to skraca późniejsze dyskusje o wymianę zdjęcia.</p>
++      <p>W cenie są dwie tury poprawek, realizowane w ciągu 7 dni od zgłoszenia, bez liczenia terminu podstawowego od nowa. Licencja komercyjna nie ma limitów czasowych, więc zdjęcia mogą pracować na stronie, na LinkedIn, w materiałach drukowanych i w reklamie online tak długo, jak potrzebujecie.</p>
++
++      <h2>Co wpływa na wycenę sesji zespołowej</h2>
++      <p>Dwie rzeczy: liczba osób i miejsce sesji. Stawka za osobę spada progresywnie wraz z wielkością zespołu, przy czym niższa stawka dotyczy tylko osób w danym przedziale, a nie całej grupy:</p>
++      <ul>
++        <li>osoby od 4 do 10: 180 zł netto za osobę,</li>
++        <li>osoby od 11 do 30: 150 zł netto za osobę,</li>
++        <li>osoby od 31 wzwyż: 120 zł netto za osobę.</li>
++      </ul>
++      <p>Sesje zespołowe realizuję od 4 osób. Mniejszym grupom polecam pakiety z <a href="/uslugi/wizerunek-portrety">Wizerunku i Portretów</a>, bo przy dwóch czy trzech osobach indywidualna sesja portretowa daje więcej niż setup zespołowy. Podaj liczbę osób i miejsce, a wstępną wycenę odeślę w 24h.</p>
++
+       <h2>Bonus: jak zorganizować sesję zespołową?</h2>
+-      <p>Mogę przyjechać do Waszego biura z <a href="/uslugi/sesje-zespolowe">mobilnym studiem</a> — bazuję w Poznaniu, gdzie dojazd jest bezpłatny, a poza miastem doliczam 2,50 zł netto/km od granic Poznania, w obie strony. Setup zajmuje ok. 20 minut, a potem fotografuję osoby jedna po drugiej. Zero stresu, zero logistyki po Waszej stronie. Gotowe zdjęcia w 14 dni.</p>
+-      <p>Przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje sesji korporacyjnych</a> i daj znać, kiedy zaplanować sesję u Was.</p>
++      <p>Mogę przyjechać do Waszego biura z <a href="/uslugi/sesje-zespolowe">mobilnym studiem</a>. Bazuję w Poznaniu, gdzie dojazd jest bezpłatny, a poza miastem doliczam 2,50 zł netto/km od granic Poznania, w obie strony. Setup zajmuje ok. 20 minut, a potem fotografuję osoby jedna po drugiej. Zero stresu, zero logistyki po Waszej stronie. Gotowe zdjęcia w 14 dni.</p>
++      <p>Przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje sesji korporacyjnych</a>, sprawdź, jak zaplanować <a href="/blog/headshoty-zespolu-w-jeden-dzien">headshoty całego zespołu w jeden dzień</a>, i daj znać, kiedy zaplanować sesję u Was.</p>
+     `,
+     seo: {
+       title: "5 błędów przy zdjęciach zespołu | Marcin Szabunia",
+       description:
+-        "Najczęstsze błędy w zdjęciach zespołowych: niespójność, złe tło, brak briefu. Jak zorganizować profesjonalną sesję dla pracowników.",
++        "Najczęstsze błędy w zdjęciach zespołowych: niespójność, złe tło, brak zapowiedzi. Jak zorganizować profesjonalną sesję dla pracowników.",
+     },
+   },
+   {
+@@ -422,9 +523,58 @@ export const blogPosts: BlogPost[] = [
+       <h2>Dobre zdjęcia zmniejszają liczbę zwrotów</h2>
+       <p>Kiedy klient dokładnie widzi, co kupuje (kolor, fakturę, proporcje, wykończenie), rzadziej jest rozczarowany po rozpakowaniu. Mniejsza rozbieżność między oczekiwaniem a rzeczywistością to mniej zwrotów i mniej pytań do obsługi.</p>
+ 
++      <h2>Packshot a fotografia reklamowa: dwie różne rzeczy</h2>
++      <p>Te pojęcia bywają mylone, a różnica jest istotna także dla budżetu. Fotografia produktowa pokazuje produkt wprost: packshot na białym tle do sklepu czy katalogu. Fotografia reklamowa buduje wokół produktu historię, czyli aranżację, rekwizyty i światło ustawione pod konkretną kampanię.</p>
++      <p>Konsekwencja jest praktyczna: zdjęcia reklamowe wyceniam według pola eksploatacji. Inaczej wygląda wycena materiału, który pójdzie tylko na Social Media, inaczej takiego, który trafi do druku i na outdoor. Warto powiedzieć o tym na starcie, bo zmiana przeznaczenia zdjęć po sesji oznacza nową rozmowę o licencji.</p>
++
++      <h2>Retusz jest wliczony w cenę zdjęcia</h2>
++      <p>W wielu studiach obróbka to osobna pozycja na fakturze. U mnie każdy packshot dostajesz gotowy do wrzucenia na kartę produktu:</p>
++      <ul>
++        <li>produkt precyzyjnie wycięty z tła,</li>
++        <li>czyste białe tło zgodne z wymogami Allegro i Amazon,</li>
++        <li>korekta kolorów, żeby odcień na zdjęciu zgadzał się z tym, co dostanie klient,</li>
++        <li>usunięcie drobnych skaz, kurzu i odcisków palców na opakowaniu.</li>
++      </ul>
++      <p>Na życzenie przygotuję też wersję z przezroczystym tłem (PNG), przydatną, gdy grafik składa z produktu banery albo materiały do newslettera.</p>
++
++      <h2>Jak wygląda sesja produktowa krok po kroku</h2>
++      <ul>
++        <li><strong>1. Rozmowa.</strong> Ustalamy cel, platformę sprzedaży i wytyczne marki. Wtedy wychodzi, czy potrzebujesz samych packshotów, czy także ujęć kreatywnych.</li>
++        <li><strong>2. Sesja.</strong> Fotografuję w studiu, w pełnej kontroli światła. Ten sam setup dla całej partii oznacza, że produkty da się porównać między sobą na liście w sklepie.</li>
++        <li><strong>3. Retusz.</strong> Wycięcie z tła, korekta kolorów, czyste białe tło.</li>
++        <li><strong>4. Dostawa.</strong> Pliki gotowe do użycia w 14 dni.</li>
++      </ul>
++
++      <h2>Ile produktów zmieści się w jednym dniu zdjęciowym</h2>
++      <p>To pytanie pada najczęściej, bo od niego zależy, czy zdążysz przed sezonem. Realne tempo wygląda tak: packshoty na białym tle to 30 do 50 produktów dziennie, zdjęcia kreatywne z aranżacją to 8 do 15 ujęć dziennie. Różnica bierze się z tego, że przy aranżacji każde ujęcie buduje się od nowa, a przy packshocie zmienia się tylko produkt na stole.</p>
++      <p>Pracuję na aparacie Canon R6, obiektywach do detalu i packshotu, stole bezcieniowym i studyjnym oświetleniu ciągłym LED Godox. Ten zestaw jest powtarzalny, więc za pół roku możesz dołożyć do katalogu kolejne pozycje w tej samej stylistyce, zamiast fotografować wszystko od nowa.</p>
++
++      <h2>Produkty możesz przysłać kurierem</h2>
++      <p>Nie musisz jechać do Poznania z pudłem asortymentu. Przyjmuję przesyłki do studia, a po sesji odsyłam produkty na mój koszt przy zamówieniach powyżej 1 000 zł. To wygodne zwłaszcza przy pierwszej współpracy, kiedy chcesz sprawdzić efekt na kilkunastu pozycjach, zanim zdecydujesz o całym katalogu.</p>
++
++      <h2>Jakie pliki dostajesz</h2>
++      <p>Standardowo JPEG w pełnej rozdzielczości plus wersja zoptymalizowana pod web, żeby karta produktu nie ładowała się w nieskończoność. Na życzenie dokładam PNG z przezroczystym tłem i TIFF do druku. Surowych plików RAW nie przekazuję: dostajesz materiał po autorskiej postprodukcji, czyli gotowy produkt, a nie półprodukt do obróbki po Twojej stronie.</p>
++      <p>Licencja komercyjna jest w cenie i nie ma limitów czasowych. Zdjęcia możesz używać na stronie, w sklepie, na Social Media, w materiałach drukowanych i w reklamie online, bez pilnowania dat.</p>
++
++      <h2>Terminy i poprawki</h2>
++      <p>Gotowe pliki dostajesz w 14 dni kalendarzowych. Jeśli gonisz z premierą, jest tryb ekspresowy do 48 godzin za dopłatą 50 procent wartości zlecenia. W cenie masz dwie tury poprawek, realizowane w ciągu 7 dni od zgłoszenia, i nie liczę wtedy terminu podstawowego od nowa. Tura poprawek to korekta w obrębie wybranego materiału. Jeśli po rozpoczęciu retuszu chcesz zmienić wybór kadrów, wyceniam to osobno i zawsze uprzedzam wcześniej.</p>
++
++      <h2>Co wpływa na wycenę</h2>
++      <p>Sesje produktowe zaczynają się od 600 zł netto i tyle wynosi też minimalna wartość zamówienia. Na końcową kwotę pracują trzy rzeczy:</p>
++      <ul>
++        <li><strong>liczba produktów</strong> (większe zamówienia rozliczam progresywnie, więc stawka za sztukę spada wraz z wielkością partii),</li>
++        <li><strong>rodzaj ujęć</strong> (packshot na białym tle albo zdjęcia kreatywne z aranżacją),</li>
++        <li><strong>pole eksploatacji</strong> (Social Media, druk, outdoor).</li>
++      </ul>
++      <p>Napisz w kilku zdaniach, co chcesz sfotografować i gdzie te zdjęcia trafią. Wstępną wycenę odsyłam w 24h.</p>
++
++      <h2>Fotografia produktowa w Poznaniu i poza nim</h2>
++      <p>Studio mam w Poznaniu i tu realizuję większość sesji produktowych. W granicach miasta dojazd kosztuje 0 zł, poza Poznaniem doliczam 2,50 zł netto za kilometr, liczone w obie strony. Pracuję w całej Polsce, a przy dłuższych wyjazdach ustalamy warunki indywidualnie.</p>
++      <p>Przykład z Poznania: dla Artech Group, centrum obróbki tworzyw sztucznych CNC, powstało 20 packshotów półfabrykatów i detali na białym tle. Te same zdjęcia pracują w trzech miejscach naraz: na stronie internetowej, w katalogu i w sklepie internetowym. Do tego doszedł film z hali produkcyjnej, który firma pokazuje w rozmowach handlowych zamiast opisywać park maszynowy słowami.</p>
++
+       <h2>Jak przygotować sesję produktową</h2>
+-      <p>Przed sesją ustalamy listę produktów, liczbę ujęć na produkt (front, tył, detale, w użyciu) i docelowe proporcje kadru pod Twój sklep. Dobry plan pozwala odfotografować większą partię sprawnie i bez chaosu. Sesję zrealizujemy w moim studiu w Poznaniu albo z dojazdem — pracuję dla klientów w całej Polsce.</p>
+-      <p>Zobacz <a href="/portfolio/artech-fotografia-produktowa">realizacje packshotów produktowych</a>, a potem <a href="/kontakt">napisz, co chcesz sfotografować</a>.</p>
++      <p>Przed sesją ustalamy listę produktów, liczbę ujęć na produkt (front, tył, detale, w użyciu) i docelowe proporcje kadru pod Twój sklep. Dobry plan pozwala odfotografować większą partię sprawnie i bez chaosu. Przydaje się też komplet informacji o marce: kod koloru z identyfikacji, wzorcowy egzemplarz produktu w idealnym stanie i lista pozycji, które mają wyglądać identycznie obok siebie na liście w sklepie.</p>
++      <p>Zobacz <a href="/portfolio/artech-fotografia-produktowa">realizacje packshotów produktowych</a>, sprawdź <a href="/blog/co-to-jest-packshot">słownik pojęć fotografii produktowej</a>, a potem <a href="/kontakt">napisz, co chcesz sfotografować</a>.</p>
+     `,
+     seo: {
+       title: "Fotografia produktowa dla e-commerce | Marcin Szabunia",
+@@ -437,7 +587,7 @@ export const blogPosts: BlogPost[] = [
+     faq: [
+       { q: "Jaki format wideo wybrać na stronę firmową?", a: "Film wizerunkowy — wizytówka firmy w 60–120 sekundach, która odpowiada na pytania: kim jesteście, co robicie i dlaczego warto. Sprawdza się na stronie głównej, w stopce maila i prezentacjach sprzedażowych. To format „evergreen\", pracujący miesiącami, więc warto zrobić go porządnie." },
+       { q: "Dlaczego testimonial wideo działa w B2B?", a: "Zadowolony klient mówiący o współpracy to jeden z najmocniejszych formatów B2B. Buduje zaufanie lepiej niż dowolny opis na stronie, bo to nie firma mówi o sobie — to ktoś inny mówi o niej, a taka rekomendacja jest dla odbiorcy dużo bardziej wiarygodna." },
+-      { q: "Czy warto łączyć zdjęcia i wideo na jednej realizacji?", a: "Tak, to najefektywniejsze podejście: jeden brief, jeden dzień zdjęciowy i spójny styl materiałów. Firma otrzymuje jednocześnie zdjęcia i wideo — na przykład na stronę i do social mediów — zamiast organizować dwie osobne realizacje z osobnymi briefami i terminami." },
++      { q: "Czy warto łączyć zdjęcia i wideo na jednej realizacji?", a: "Tak, to najefektywniejsze podejście: jedna rozmowa na starcie, jeden dzień zdjęciowy i spójny styl materiałów. Firma otrzymuje jednocześnie zdjęcia i wideo, na przykład na stronę i do social mediów, zamiast organizować dwie osobne realizacje z osobnymi ustaleniami i terminami." },
+     ],
+     title: "Wideo marketing dla firm: jakie formaty naprawdę się sprawdzają",
+     excerpt:
+@@ -465,8 +615,43 @@ export const blogPosts: BlogPost[] = [
+       <h2>5. Relacja z eventu</h2>
+       <p>Aftermovie z konferencji, targów czy gali firmowej to energia wydarzenia zamknięta w 60–90 sekundach. Działa jako podsumowanie dla uczestników i zaproszenie na kolejną edycję. Jeśli organizujesz event, zaplanuj wideo razem z <a href="/blog/fotografia-eventowa-vs-reportaz">fotografią eventową</a>.</p>
+ 
++      <h2>Jeden event, kilka formatów naraz</h2>
++      <p>Formaty z tej listy nie wykluczają się, tylko powstają z tego samego materiału. Dobrym przykładem jest realizacja dla Woohoo z wydarzenia E-commerce All In na Enea Stadion w Poznaniu. Z jednego wieczoru powstał poziomy film podsumowujący na YouTube oraz trzy pionowe reelsy z wywiadami na profil firmy.</p>
++      <p>Logistyka wyglądała tak: najpierw ujęcia z drona, w tym loty wewnątrz stadionu, potem relacja z wydarzenia, a w przerwach wywiady nagrywane w mobilnym studiu rozstawionym na sali. Tło kadru wyglądało jak w studiu, a goście w ogóle nie musieli się przemieszczać. Efekt: dwa formaty dystrybucji (YouTube i Instagram) z jednego dnia zdjęciowego. Całość zobaczysz w <a href="/portfolio/woohoo-autopay">case study E-commerce All In</a>.</p>
++
++      <h2>Jak wygląda produkcja wideo krok po kroku</h2>
++      <ul>
++        <li><strong>1. Concept.</strong> Ustalamy cel, format i platformę docelową. To moment, w którym decyduje się, czy robimy jeden dłuższy film, czy serię krótkich form.</li>
++        <li><strong>2. Nagranie.</strong> Ujęcia, światło i dźwięk. Dźwięk jest tu ważniejszy, niż się wydaje: widz wybaczy przeciętny obraz, ale nie wybaczy szumu i echa w wypowiedzi.</li>
++        <li><strong>3. Montaż.</strong> Cięcie, kolor, napisy, muzyka. Napisy nie są dodatkiem, bo większość materiałów w Social Media ogląda się bez dźwięku.</li>
++        <li><strong>4. Dostawa.</strong> Gotowe materiały w 21 dni kalendarzowych.</li>
++      </ul>
++
++      <h2>W jakich formatach dostajesz pliki</h2>
++      <p>MP4 w rozdzielczości do 4K. Proporcje dobieram pod miejsce emisji: 9:16 na Reels i TikTok, 16:9 na YouTube i stronę, 1:1 na feed. Kombinacja jest dowolna, więc jeden materiał może wyjść w trzech wersjach kadru zamiast jednej przycinanej na siłę. Warto ustalić to przed nagraniem, bo kadr pionowy planuje się inaczej niż poziomy i doklejenie go po fakcie zwykle oznacza kompromis.</p>
++
++      <h2>Sprzęt: obraz i dźwięk</h2>
++      <p>Nagrywam na dwóch aparatach Canon R6, z obiektywami pokrywającymi zakres od 16 do 200 mm. Do tego oświetlenie ciągłe LED Godox, dźwięk Rode Wireless PRO, mikrofon Rode VideoMicro II i rejestrator Zoom oraz dron DJI Mini 5 Pro z certyfikatem operatora A1/A3 i ubezpieczeniem OC. Ten zestaw obsługuje zarówno kilkunastosekundowego reelsa, jak i dłuższy film firmowy, bez doszukiwania sprzętu na zewnątrz.</p>
++
++      <h2>Wideo reklamowe i spoty</h2>
++      <p>Osobna kategoria to krótkie filmy reklamowe pod kampanie w Social Media i online, zwykle od 15 do 60 sekund. Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii, bo spot, który ma zatrzymać kciuk w feedzie, buduje się inaczej niż materiał odtwarzany przed filmem na YouTube.</p>
++
++      <h2>Sam montaż, bez nagrywania</h2>
++      <p>Jeśli masz już surowy materiał, mogę zająć się wyłącznie postprodukcją: cięciem, kolorem, napisami i muzyką. Dotyczy to również nagrań z telefonu, które w firmach powstają najczęściej. Wycena zależy wtedy od długości i złożoności finalnego materiału, a nie od czasu zdjęciowego. To sensowna opcja, kiedy masz archiwum z eventu, którego nikt nigdy nie zmontował.</p>
++
++      <h2>Regularne wideo zamiast jednorazowego zrywu</h2>
++      <p>Jeden film raz w roku rzadko buduje obecność. Przy stałych potrzebach contentowych sprawdza się comiesięczna współpraca: cykliczny dzień zdjęciowy i montaż serii krótkich materiałów. Firma wie, ile płaci co miesiąc, a ja mogę planować ujęcia z wyprzedzeniem, zamiast reagować na zgłoszenia z tygodnia na tydzień.</p>
++
++      <h2>Ile kosztuje wideo dla firmy</h2>
++      <p>Produkcja wideo zaczyna się od 400 zł netto. Na wycenę pracują dwie rzeczy: czas nagrania oraz długość i złożoność finalnego materiału, od krótkiego teasera po kilkuminutowy film. Krótko mówiąc, minuta gotowego materiału to nie minuta pracy, tylko kilka godzin zdjęciowych i montażowych, i to widać w wycenie.</p>
++      <p>Opisz w kilku zdaniach, co chcesz nagrać i gdzie to trafi. Wstępną wycenę odsyłam w 24h.</p>
++
++      <h2>Terminy i poprawki</h2>
++      <p>Gotowe wideo dostajesz w 21 dni kalendarzowych, a jeśli termin goni, jest tryb ekspresowy do 48 godzin za dopłatą 50 procent wartości zlecenia. W cenie masz trzy tury poprawek montażowych, realizowane w ciągu 7 dni od zgłoszenia, bez liczenia terminu podstawowego od nowa. Licencja komercyjna jest w cenie i nie ma limitów czasowych: film możesz puścić na stronie, w Social Media, w reklamie online i w materiałach sprzedażowych.</p>
++
+       <h2>Foto i wideo w jednym wejściu</h2>
+-      <p>Najefektywniej jest łączyć materiał foto i wideo na jednej realizacji: jeden brief, jeden dzień, spójny styl. Bazuję w Poznaniu, a realizacje prowadzę w całej Polsce i Europie. Sprawdź <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, a potem <a href="/kontakt">opisz swój projekt</a>. Podpowiem, który format da najwięcej przy Twoim budżecie.</p>
++      <p>Najefektywniej jest łączyć materiał foto i wideo na jednej realizacji: jedna rozmowa na starcie, jeden dzień zdjęciowy, spójny styl. Nie koordynujesz dwóch ekip i nie tłumaczysz dwa razy tego samego. Bazuję w Poznaniu, gdzie dojazd kosztuje 0 zł, poza miastem doliczam 2,50 zł netto za kilometr w obie strony, a realizacje prowadzę w całej Polsce i Europie.</p>
++      <p>Sprawdź <a href="/uslugi/pakiety-foto-wideo">pakiety foto + wideo</a>, zobacz, kiedy bardziej opłaca się <a href="/blog/pakiet-foto-wideo-czy-osobno">pakiet, a kiedy usługi osobno</a>, i zajrzyj do <a href="/blog/slownik-pojec-wideo">słownika pojęć wideo</a>, jeśli chcesz rozumieć, o czym mówimy przy ustalaniu zakresu. A potem <a href="/kontakt">opisz swój projekt</a>. Podpowiem, który format da najwięcej przy Twoim budżecie.</p>
+     `,
+     seo: {
+       title: "Wideo marketing dla firm: jakie formaty | Marcin Szabunia",

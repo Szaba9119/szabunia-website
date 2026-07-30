@@ -6,6 +6,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
@@ -19,10 +20,10 @@ export const metadata: Metadata = {
     url: "https://szabunia.pl/kontakt",
     images: [
       {
-        url: "/images/marcin-hero.jpg",
+        url: "/images/og/strony/kontakt.jpg",
         width: 1200,
         height: 630,
-        alt: "Kontakt, Marcin Szabunia, fotograf biznesowy Poznań",
+        alt: "Kontakt — Marcin Szabunia, fotograf biznesowy Poznań",
       },
     ],
   },
@@ -31,13 +32,13 @@ export const metadata: Metadata = {
     title: "Kontakt — fotograf biznesowy Poznań | Marcin Szabunia",
     description:
       "Napisz, czego potrzebujesz, a odezwę się w 24h ze wstępną wyceną i terminem. Fotografia i wideo dla firm, Poznań, cała Polska i Europa.",
-    images: ["/images/marcin-hero.jpg"],
+    images: ["/images/og/strony/kontakt.jpg"],
   },
 };
 
 const contactCards = [
   {
-    title: "Odezwę się w 24h",
+    title: "Wstępna wycena w 24h",
     body: "Na każde zapytanie biznesowe odpowiadam w ciągu 24h, ze wstępną wyceną i propozycją terminu.",
   },
   {
@@ -51,6 +52,8 @@ const contactCards = [
 ];
 
 export default function KontaktPage() {
+  const crumbs: Crumb[] = [{ name: "Strona główna", href: "/" }, { name: "Kontakt" }];
+
   const structuredData = [
     {
       "@context": "https://schema.org",
@@ -69,18 +72,16 @@ export default function KontaktPage() {
         areaServed: ["Poznań", "Polska", "Europa"],
         sameAs: [
           "https://instagram.com/szabunia.biz",
-          "https://share.google/2OMRlIblNmEKlthIl",
+          // Kanoniczny adres wizytówki Google (Knowledge Graph, kgmid /g/11rcwdrdcl).
+          // Wcześniej był tu shortlink share.google — działa, ale to domena
+          // przekierowująca, nie adres samej encji, więc jako sygnał `sameAs`
+          // jest słabszy (audyt PELNY2907-10). Rozwinięcie zweryfikowane
+          // w przeglądarce 2026-07-29.
+          "https://www.google.com/search?kgmid=/g/11rcwdrdcl",
         ],
       },
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
-        { "@type": "ListItem", position: 2, name: "Kontakt", item: "https://szabunia.pl/kontakt" },
-      ],
-    },
+    breadcrumbJsonLd(crumbs),
   ];
 
   return (
@@ -89,6 +90,7 @@ export default function KontaktPage() {
       <Navigation />
       <main id="main" className="pt-28 pb-16 px-4">
         <div className="max-w-6xl mx-auto">
+          <Breadcrumbs items={crumbs} className="mb-6" />
           {/* Header */}
           <AnimatedSection>
             <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">

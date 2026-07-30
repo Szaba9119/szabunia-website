@@ -9,6 +9,7 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import MobileFAB from "@/components/MobileFAB";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 const blurPlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
@@ -25,10 +26,10 @@ export const metadata: Metadata = {
     url: "https://szabunia.pl/portfolio",
     images: [
       {
-        url: "/images/marcin-hero.jpg",
+        url: "/images/og/strony/portfolio.jpg",
         width: 1200,
         height: 630,
-        alt: "Portfolio fotografii biznesowej, Marcin Szabunia, Poznań",
+        alt: "Portfolio realizacji — Marcin Szabunia, fotograf biznesowy",
       },
     ],
   },
@@ -37,20 +38,15 @@ export const metadata: Metadata = {
     title: "Portfolio — realizacje fotograficzne i wideo | Marcin Szabunia",
     description:
       "Wybrane realizacje fotograficzne i wideo dla firm B2B. Poznań, cała Polska i Europa.",
-    images: ["/images/marcin-hero.jpg"],
+    images: ["/images/og/strony/portfolio.jpg"],
   },
 };
 
 export default function PortfolioPage() {
+  const crumbs: Crumb[] = [{ name: "Strona główna", href: "/" }, { name: "Portfolio" }];
+
   const structuredData = [
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
-        { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://szabunia.pl/portfolio" },
-      ],
-    },
+    breadcrumbJsonLd(crumbs),
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
@@ -70,6 +66,7 @@ export default function PortfolioPage() {
       <Navigation />
       <main id="main" className="pt-28 pb-16 px-4">
         <div className="max-w-6xl mx-auto">
+          <Breadcrumbs items={crumbs} className="mb-6" />
           <AnimatedSection>
             <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
               Realizacje

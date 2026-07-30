@@ -13,6 +13,7 @@ import PortfolioVideoShowcase from "@/components/PortfolioVideoShowcase";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 export function generateStaticParams() {
   return portfolioCategories
@@ -51,15 +52,12 @@ export default async function PortfolioPage({ params }: PageProps) {
   const category = getCategoryBySlug(slug);
   if (!category) notFound();
 
-  const breadcrumb = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
-      { "@type": "ListItem", position: 2, name: "Portfolio", item: "https://szabunia.pl/portfolio" },
-      { "@type": "ListItem", position: 3, name: category.label },
-    ],
-  };
+  const crumbs: Crumb[] = [
+    { name: "Strona główna", href: "/" },
+    { name: "Portfolio", href: "/portfolio" },
+    { name: category.label },
+  ];
+  const breadcrumb = breadcrumbJsonLd(crumbs);
 
   const structuredData = category.video
     ? [
@@ -122,7 +120,7 @@ export default async function PortfolioPage({ params }: PageProps) {
         {category.video ? (
           <>
             <ErrorBoundary>
-              <PortfolioVideoShowcase category={category} />
+              <PortfolioVideoShowcase category={category} crumbs={crumbs} />
             </ErrorBoundary>
             {category.gallery.length > 0 && (
               <ErrorBoundary>
@@ -143,7 +141,7 @@ export default async function PortfolioPage({ params }: PageProps) {
         ) : (
           <>
             <ErrorBoundary>
-              <PortfolioHero category={category} />
+              <PortfolioHero category={category} crumbs={crumbs} />
             </ErrorBoundary>
             <ErrorBoundary>
               <PortfolioGallery

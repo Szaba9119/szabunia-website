@@ -17,10 +17,10 @@ export const metadata: Metadata = {
     url: "https://szabunia.pl/polityka-prywatnosci",
     images: [
       {
-        url: "/images/marcin-hero.jpg",
+        url: "/images/og/strony/polityka-prywatnosci.jpg",
         width: 1200,
         height: 630,
-        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
+        alt: "Polityka prywatności — Marcin Szabunia",
       },
     ],
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Polityka prywatności | Marcin Szabunia",
     description:
       "Polityka prywatności serwisu szabunia.pl. Informacje o przetwarzaniu danych osobowych, plikach cookies i prawach użytkownika zgodnie z RODO.",
-    images: ["/images/marcin-hero.jpg"],
+    images: ["/images/og/strony/polityka-prywatnosci.jpg"],
   },
 };
 

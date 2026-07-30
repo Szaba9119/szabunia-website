@@ -1,14 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
 import type { PortfolioCategory } from "@/data/portfolio";
+import Breadcrumbs, { type Crumb } from "./Breadcrumbs";
 
 interface Props {
   category: PortfolioCategory;
+  /** Ta sama tablica, z której strona buduje JSON-LD (audyt PELNY2907-10). */
+  crumbs: Crumb[];
 }
 
 const blurPlaceholder =
@@ -49,7 +51,7 @@ function ClientLinkIcon({ url }: { url: string }) {
   );
 }
 
-export default function PortfolioHero({ category }: Props) {
+export default function PortfolioHero({ category, crumbs }: Props) {
   const isPortrait = (category.heroAspect ?? category.galleryAspect) === "portrait";
   const heroAspect = isPortrait ? "aspect-[3/4] max-w-md mx-auto md:mx-0" : "aspect-[4/3]";
   // Pionowe kadry kotwiczymy do góry, żeby nie ucinać głów.
@@ -57,27 +59,8 @@ export default function PortfolioHero({ category }: Props) {
   return (
     <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4">
       <div className="max-w-5xl mx-auto">
-        {/* Breadcrumb */}
         <AnimatedSection>
-          <nav aria-label="Ścieżka nawigacji" className="mb-8">
-            <ol className="flex items-center gap-1.5 text-[13px] text-steel dark:text-dark-text-muted flex-wrap">
-              <li>
-                <Link href="/" className="hover:text-blue dark:hover:text-blue-light transition-colors">
-                  Strona główna
-                </Link>
-              </li>
-              <li aria-hidden="true" className="text-steel-light">/</li>
-              <li>
-                <Link href="/#portfolio" className="hover:text-blue dark:hover:text-blue-light transition-colors">
-                  Portfolio
-                </Link>
-              </li>
-              <li aria-hidden="true" className="text-steel-light">/</li>
-              <li>
-                <span className="text-navy dark:text-white font-semibold">{category.label}</span>
-              </li>
-            </ol>
-          </nav>
+          <Breadcrumbs items={crumbs} className="mb-8" />
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">

@@ -17,6 +17,7 @@ import PoradnikTeaser from "@/components/PoradnikTeaser";
 import MobileFAB from "@/components/MobileFAB";
 import { galleryVideos } from "@/data/galeria";
 import { listGalleryImagesSized } from "@/lib/galleryImages";
+import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Galeria zdjęć i wideo | Marcin Szabunia — fotograf Poznań",
@@ -30,10 +31,10 @@ export const metadata: Metadata = {
     url: "https://szabunia.pl/galeria",
     images: [
       {
-        url: "/images/marcin-hero.jpg",
+        url: "/images/og/strony/galeria.jpg",
         width: 1200,
         height: 630,
-        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
+        alt: "Galeria kadrów z realizacji — Marcin Szabunia",
       },
     ],
   },
@@ -42,7 +43,7 @@ export const metadata: Metadata = {
     title: "Galeria zdjęć i wideo | Marcin Szabunia",
     description:
       "Portrety biznesowe, fotografia eventowa, produktowa, wideo i zdjęcia z drona. Wybrane kadry z realizacji.",
-    images: ["/images/marcin-hero.jpg"],
+    images: ["/images/og/strony/galeria.jpg"],
   },
 };
 
@@ -123,6 +124,8 @@ export default async function GaleriaPage({
   const validKeys = [...categories.map((c) => c.key), "wideo"];
   const initialActive = kat && validKeys.includes(kat) ? kat : categories[0]?.key ?? "wideo";
 
+  const crumbs: Crumb[] = [{ name: "Strona główna", href: "/" }, { name: "Galeria" }];
+
   const structuredData = [
     {
       "@context": "https://schema.org",
@@ -133,14 +136,7 @@ export default async function GaleriaPage({
       url: "https://szabunia.pl/galeria",
       author: { "@type": "Person", name: "Marcin Szabunia", url: "https://szabunia.pl" },
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
-        { "@type": "ListItem", position: 2, name: "Galeria" },
-      ],
-    },
+    breadcrumbJsonLd(crumbs),
   ];
 
   return (
@@ -149,6 +145,7 @@ export default async function GaleriaPage({
       <Navigation />
       <main id="main" className="pt-28 pb-16">
         <div className="max-w-6xl mx-auto px-4">
+          <Breadcrumbs items={crumbs} className="mb-6" />
           <AnimatedSection>
             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
               Galeria

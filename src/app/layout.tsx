@@ -47,10 +47,10 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/marcin-hero.jpg",
+        url: "/images/og/strony/home.jpg",
         width: 1200,
         height: 630,
-        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
+        alt: "Marcin Szabunia — fotografia i wideo dla firm, Poznań",
       },
     ],
   },
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     title: "Marcin Szabunia — Fotograf biznesowy & twórca wideo",
     description:
       "Fotografia i wideo, które budują zaufanie, przyciągają klientów i wzmacniają autorytet na rynku.",
-    images: ["/images/marcin-hero.jpg"],
+    images: ["/images/og/strony/home.jpg"],
   },
   robots: {
     index: true,
@@ -88,7 +88,10 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="manifest" href="/manifest.json" />
-        <meta name="theme-color" content="#F9FAFB" />
+        {/* Dwa warianty: pasek adresu przeglądarki dopasowuje się do motywu.
+            Wartości z globals.css: --color-gray-bg i --color-dark-bg. */}
+        <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F9FAFB" />
+        <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0B0F1A" />
         <link rel="dns-prefetch" href="https://www.youtube.com" />
         {/* GA4 (gtag.js) z Consent Mode v2 — domyślnie wszystko denied;
             zgoda nadawana po "Akceptuję" w banerze cookie (CookieConsent.tsx).
@@ -176,7 +179,12 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
               // Opinie pozostają w widocznej treści strony (Testimonials.tsx).
               sameAs: [
                 "https://instagram.com/szabunia.biz",
-                "https://share.google/2OMRlIblNmEKlthIl",
+                // Kanoniczny adres wizytówki Google (Knowledge Graph, kgmid /g/11rcwdrdcl).
+                // Wcześniej był tu shortlink share.google — działa, ale to domena
+                // przekierowująca, nie adres samej encji, więc jako sygnał `sameAs`
+                // jest słabszy (audyt PELNY2907-10). Rozwinięcie zweryfikowane
+                // w przeglądarce 2026-07-29.
+                "https://www.google.com/search?kgmid=/g/11rcwdrdcl",
               ],
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
@@ -276,7 +284,12 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
               },
               sameAs: [
                 "https://instagram.com/szabunia.biz",
-                "https://share.google/2OMRlIblNmEKlthIl",
+                // Kanoniczny adres wizytówki Google (Knowledge Graph, kgmid /g/11rcwdrdcl).
+                // Wcześniej był tu shortlink share.google — działa, ale to domena
+                // przekierowująca, nie adres samej encji, więc jako sygnał `sameAs`
+                // jest słabszy (audyt PELNY2907-10). Rozwinięcie zweryfikowane
+                // w przeglądarce 2026-07-29.
+                "https://www.google.com/search?kgmid=/g/11rcwdrdcl",
               ],
               knowsAbout: [
                 "Fotografia biznesowa",
@@ -300,7 +313,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
               url: "https://szabunia.pl",
               inLanguage: "pl-PL",
               description:
-                "Strona fotografa biznesowego i twórcy wideo B2B z Poznania. Portfolio, wycena po briefie, oferta w 24h.",
+                "Strona fotografa biznesowego i twórcy wideo B2B z Poznania. Portfolio, zakres ustalany przed wyceną, wstępna wycena w 24h.",
               publisher: {
                 "@type": "Person",
                 name: "Marcin Szabunia",

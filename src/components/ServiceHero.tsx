@@ -1,41 +1,24 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
 import type { ServiceData } from "@/data/services";
+import Breadcrumbs, { type Crumb } from "./Breadcrumbs";
 
 interface Props {
   service: ServiceData;
+  /** Ta sama tablica, z której strona buduje JSON-LD (audyt PELNY2907-10). */
+  crumbs: Crumb[];
 }
 
-export default function ServiceHero({ service }: Props) {
+export default function ServiceHero({ service, crumbs }: Props) {
   return (
     <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4">
       {/* max-w-6xl (nie standardowe max-w-5xl podstron usług): hero na pełną
           szerokość, symetryczny split 50/50 (brief-23 zad. 2). */}
       <div className="max-w-6xl mx-auto">
-        {/* Breadcrumb */}
         <AnimatedSection>
-          <nav aria-label="Ścieżka nawigacji" className="mb-8">
-            <ol className="flex items-center gap-1.5 text-[13px] text-steel dark:text-dark-text-muted flex-wrap">
-              <li>
-                <Link href="/" className="hover:text-blue dark:hover:text-blue-light transition-colors">
-                  Strona główna
-                </Link>
-              </li>
-              <li aria-hidden="true" className="text-steel-light">/</li>
-              <li>
-                <Link href="/#uslugi" className="hover:text-blue dark:hover:text-blue-light transition-colors">
-                  Usługi
-                </Link>
-              </li>
-              <li aria-hidden="true" className="text-steel-light">/</li>
-              <li>
-                <span className="text-navy dark:text-white font-semibold">{service.title}</span>
-              </li>
-            </ol>
-          </nav>
+          <Breadcrumbs items={crumbs} className="mb-8" />
         </AnimatedSection>
 
         {/* Kolejność (prośba Marcina, 2026-07-23): tytuł → cena → krótki opis
@@ -96,7 +79,7 @@ export default function ServiceHero({ service }: Props) {
                 <svg className="w-3 h-3 md:w-3.5 md:h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Odpowiedź w 24h
+                Wstępna wycena w 24h
               </li>
               <li className="inline-flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-full border border-border dark:border-dark-border text-[11px] md:text-[12px] text-steel dark:text-dark-text-muted">
                 <svg className="w-3 h-3 md:w-3.5 md:h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">

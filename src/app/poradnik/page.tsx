@@ -8,6 +8,7 @@ import MobileFAB from "@/components/MobileFAB";
 import AnimatedSection from "@/components/AnimatedSection";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import PoradnikForm from "@/components/PoradnikForm";
+import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Darmowy poradnik: przygotowanie do sesji | Marcin Szabunia",
@@ -21,10 +22,10 @@ export const metadata: Metadata = {
     url: "https://szabunia.pl/poradnik",
     images: [
       {
-        url: "/images/marcin-hero.jpg",
+        url: "/images/og/strony/poradnik.jpg",
         width: 1200,
         height: 630,
-        alt: "Marcin Szabunia, fotograf biznesowy Poznań",
+        alt: "Poradnik przygotowania do sesji — Marcin Szabunia",
       },
     ],
   },
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
     title: "Darmowy poradnik: przygotowanie do sesji biznesowej",
     description:
       "Checklisty, planer stylizacji, ściąga kolorów i mini-brief: wszystko, żeby wejść na plan spokojnie i z głową. Pobierz za darmo.",
-    images: ["/images/marcin-hero.jpg"],
+    images: ["/images/og/strony/poradnik.jpg"],
   },
 };
 
@@ -45,16 +46,57 @@ const inside = [
   "Mini-brief, który wyślesz mi w 2 minuty",
 ];
 
+// Rozpiska sekcji PDF-a (8 stron treści na 4 stronach A4). Kolejność i nazwy
+// odpowiadają zawartości `public/poradnik-przygotowanie-do-sesji.pdf`. Przy
+// wymianie pliku zaktualizuj też ten opis, żeby strona nie obiecywała czegoś,
+// czego w środku nie ma.
+const sections: { title: string; desc: string }[] = [
+  {
+    title: "Jak wygląda sesja, cztery kroki",
+    desc: "Od pierwszego kontaktu do gotowych zdjęć: rozmowa o celu i logistyce, sesja z prowadzeniem ujęcie po ujęciu, selekcja kadrów w galerii online, dostawa. Wiesz z góry, co się wydarzy i kiedy.",
+  },
+  {
+    title: "Checklisty: 48 godzin przed i w dniu sesji",
+    desc: "Dwie listy do odhaczania. Wcześniej: przymierzone stylizacje, wysłane inspiracje, sesja wpisana w luźniejszy dzień, sprawdzony dojazd. W dniu sesji: ubrania na wieszaku, zapasowa koszula, przetarte okulary, przyjazd 10 minut wcześniej.",
+  },
+  {
+    title: "Planer stylizacji na 2–3 zestawy",
+    desc: "Tabela do wypełnienia ręcznie: kanał i okazja, góra, dół, warstwa, buty, dodatki, notatka. Warstwy (marynarka, sweter, szalik) to najprostszy sposób, żeby z jednej sesji wyjść z kilkoma nastrojami zdjęć.",
+  },
+  {
+    title: "Ściąga kolorów",
+    desc: "Pewniaki: granat, grafit, szarość, butelkowa zieleń, burgund, biel pod warstwą. Ostrożnie: czysta czerń, jaskrawe neony, drobna kratka i wąskie paski (efekt mory), połysk i satyna, duże logo na całą klatkę.",
+  },
+  {
+    title: "Formalność dobrana do branży",
+    desc: "Osobne wskazówki dla kancelarii i finansów, techu i startupów, marketingu, produkcji i rzemiosła oraz medycyny i nauki. Zasada nadrzędna jest jedna: o jeden poziom wyżej niż na co dzień w pracy.",
+  },
+  {
+    title: "Jak wyglądać naturalnie przed obiektywem",
+    desc: "Drobiazgi, które robią różnicę: sylwetka lekko pod kątem, ramiona w dół, oddech przed ujęciem, rozluźniona szczęka, uśmiech na sekundę zamiast trzymanego na siłę. Nie musisz znać póz, od tego jestem ja.",
+  },
+  {
+    title: "Po sesji, czego się spodziewać",
+    desc: "Galeria online ze wszystkimi ujęciami i Twój wybór kadrów do retuszu. Terminy dostawy i tryb ekspresowy. Pliki w pełnej jakości plus wersja web oraz licencja komercyjna bez limitów czasowych.",
+  },
+  {
+    title: "Mini-brief, który wyślesz mi w 2 minuty",
+    desc: "Pięć punktów do skopiowania do maila: cel zdjęć, styl i nastrój z linkami, liczba osób, termin i miejsce, dodatkowe uwagi. Im więcej wiem, tym celniejsza wycena wraca do Ciebie.",
+  },
+];
+
+const forWhom: string[] = [
+  "Idziesz na pierwszą sesję wizerunkową i nie wiesz, czego się spodziewać.",
+  "Jesteś w kadrze zarządzającej, doradzasz albo prowadzisz własną praktykę i potrzebujesz zdjęć na LinkedIn, stronę i do materiałów prasowych.",
+  "Organizujesz sesję dla zespołu i chcesz wysłać ludziom jeden plik zamiast pisać instrukcje od zera.",
+  "Nie lubisz się fotografować i wolisz wejść na plan z planem, a nie z nadzieją.",
+];
+
 export default function PoradnikPage() {
+  const crumbs: Crumb[] = [{ name: "Strona główna", href: "/" }, { name: "Darmowy poradnik" }];
+
   const structuredData = [
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
-        { "@type": "ListItem", position: 2, name: "Darmowy poradnik" },
-      ],
-    },
+    breadcrumbJsonLd(crumbs),
   ];
 
   return (
@@ -63,6 +105,7 @@ export default function PoradnikPage() {
       <Navigation />
       <main id="main" className="pt-28 pb-16 px-4">
         <div className="max-w-6xl mx-auto">
+          <Breadcrumbs items={crumbs} className="mb-6" />
           <AnimatedSection>
             <p className="text-[12px] font-barlow font-semibold uppercase tracking-[0.16em] text-blue dark:text-blue-light text-center mb-3">
               Darmowy poradnik
@@ -136,6 +179,80 @@ export default function PoradnikPage() {
               </div>
             </AnimatedSection>
           </div>
+
+          <AnimatedSection>
+            <div className="max-w-3xl mx-auto mt-20">
+              <h2 className="font-barlow font-bold text-2xl md:text-[28px] text-navy dark:text-white mb-4">
+                Co dokładnie dostajesz
+              </h2>
+              <p className="text-[15px] text-text-body dark:text-dark-text-muted leading-relaxed mb-8">
+                Cztery strony A4 w PDF, bez wstępu o tym, jak ważny jest wizerunek. Same
+                rzeczy do użycia: listy do odhaczenia, tabela do wypełnienia i gotowy
+                szablon wiadomości. Przeczytasz to w kwadrans, a wrócisz do tego dzień
+                przed sesją.
+              </p>
+
+              <ol className="space-y-6 mb-12">
+                {sections.map((s, i) => (
+                  <li key={s.title} className="flex items-start gap-4">
+                    <span className="mt-0.5 w-7 h-7 rounded-lg bg-blue-pale dark:bg-blue/15 flex items-center justify-center flex-shrink-0 font-barlow font-bold text-[13px] text-blue dark:text-blue-light">
+                      {i + 1}
+                    </span>
+                    <div>
+                      <h3 className="font-barlow font-bold text-[16px] text-navy dark:text-white mb-1">
+                        {s.title}
+                      </h3>
+                      <p className="text-[14.5px] text-text-body dark:text-dark-text-muted leading-relaxed">
+                        {s.desc}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+
+              <h2 className="font-barlow font-bold text-2xl md:text-[28px] text-navy dark:text-white mb-4">
+                Dla kogo to jest
+              </h2>
+              <p className="text-[15px] text-text-body dark:text-dark-text-muted leading-relaxed mb-5">
+                Poradnik pisałem dla osób, które fotografują się z powodów zawodowych, nie
+                dla przyjemności. Rozpoznasz się tu, jeśli:
+              </p>
+              <ul className="space-y-3 mb-12">
+                {forWhom.map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-blue dark:bg-blue-light flex-shrink-0" />
+                    <span className="text-[14.5px] text-text-body dark:text-dark-text-muted leading-relaxed">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <h2 className="font-barlow font-bold text-2xl md:text-[28px] text-navy dark:text-white mb-4">
+                Czego w nim nie ma
+              </h2>
+              <p className="text-[15px] text-text-body dark:text-dark-text-muted leading-relaxed mb-5">
+                Nie ma cennika ani tabeli pakietów. Każdą sesję wyceniam indywidualnie, bo
+                cena zależy od liczby osób, miejsca i zakresu postprodukcji. Jeśli
+                potrzebujesz kwoty, napisz w kilku zdaniach, czego potrzebujesz. Wstępną
+                wycenę odsyłam w 24h.
+              </p>
+              <p className="text-[15px] text-text-body dark:text-dark-text-muted leading-relaxed">
+                Nie ma też kursu fotografii. To materiał dla osoby po drugiej stronie
+                obiektywu: co spakować, co założyć i jak się zachować, żeby zdjęcia
+                wyglądały jak Ty w dobrym dniu. Resztą, czyli światłem, kadrem i
+                prowadzeniem, zajmuję się ja. Więcej znajdziesz we wpisie{" "}
+                <Link href="/blog/jak-przygotowac-sie-do-sesji-biznesowej" className="text-blue dark:text-blue-light font-semibold hover:underline underline-offset-2">
+                  jak przygotować się do sesji biznesowej
+                </Link>{" "}
+                oraz w przewodniku po tym,{" "}
+                <Link href="/blog/co-zalozyc-na-sesje-biznesowa" className="text-blue dark:text-blue-light font-semibold hover:underline underline-offset-2">
+                  co założyć na sesję biznesową
+                </Link>
+                .
+              </p>
+            </div>
+          </AnimatedSection>
         </div>
       </main>
       <Footer />

@@ -8,6 +8,7 @@ import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import MobileFAB from "@/components/MobileFAB";
 import ErrorBoundary from "@/components/ErrorBoundary";
+import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Usługi foto i wideo dla firm | Marcin Szabunia Poznań",
@@ -21,10 +22,10 @@ export const metadata: Metadata = {
     url: "https://szabunia.pl/uslugi",
     images: [
       {
-        url: "/images/marcin-hero.jpg",
+        url: "/images/og/strony/uslugi.jpg",
         width: 1200,
         height: 630,
-        alt: "Usługi fotografii biznesowej i wideo, Marcin Szabunia, Poznań",
+        alt: "Usługi fotograficzne i wideo dla firm — Marcin Szabunia",
       },
     ],
   },
@@ -33,20 +34,15 @@ export const metadata: Metadata = {
     title: "Usługi — fotografia biznesowa i wideo marketing | Marcin Szabunia",
     description:
       "Pełna oferta usług fotograficznych i wideo dla firm B2B. Poznań, cała Polska i Europa.",
-    images: ["/images/marcin-hero.jpg"],
+    images: ["/images/og/strony/uslugi.jpg"],
   },
 };
 
 export default function UslugiPage() {
+  const crumbs: Crumb[] = [{ name: "Strona główna", href: "/" }, { name: "Usługi" }];
+
   const structuredData = [
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
-        { "@type": "ListItem", position: 2, name: "Usługi", item: "https://szabunia.pl/uslugi" },
-      ],
-    },
+    breadcrumbJsonLd(crumbs),
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
@@ -66,6 +62,7 @@ export default function UslugiPage() {
       <Navigation />
       <main id="main" className="pt-28 pb-16 px-4">
         <div className="max-w-6xl mx-auto">
+          <Breadcrumbs items={crumbs} className="mb-6" />
           <AnimatedSection>
             <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
               Oferta

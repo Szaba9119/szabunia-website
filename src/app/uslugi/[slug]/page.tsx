@@ -17,6 +17,7 @@ import BlogCard from "@/components/BlogCard";
 import PoradnikBlogCTA from "@/components/PoradnikBlogCTA";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { getPostsForService } from "@/data/blog";
+import { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 // Poradnik (lead magnet) dotyczy wyłącznie stylizacji/pozowania do pojedynczego
 // portretu — pokazujemy go tylko na stronie portretów i na stronie głównej
@@ -80,6 +81,12 @@ export default async function ServicePage({ params }: PageProps) {
   const priceMatch = service.price.match(/\d[\d\s]*\d|\d/);
   const startingPrice = priceMatch ? priceMatch[0].replace(/\s/g, "") : undefined;
 
+  const crumbs: Crumb[] = [
+    { name: "Strona główna", href: "/" },
+    { name: "Usługi", href: "/uslugi" },
+    { name: service.title },
+  ];
+
   const structuredData = [
     {
       "@context": "https://schema.org",
@@ -95,22 +102,22 @@ export default async function ServicePage({ params }: PageProps) {
       ...(startingPrice && {
         offers: {
           "@type": "Offer",
-          priceCurrency: "PLN",
-          price: startingPrice,
+          // `price` deklaruje cenę dokładną, a strona podaje wyłącznie kotwice
+          // "od X zł" (model "cena na zapytanie"). PriceSpecification z minPrice
+          // opisuje to zgodnie z prawdą i nie generuje w Google ceny, której nie ma
+          // (audyt PELNY2907-10).
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            priceCurrency: "PLN",
+            minPrice: startingPrice,
+            valueAddedTaxIncluded: false,
+          },
           availability: "https://schema.org/InStock",
           url: `https://szabunia.pl/uslugi/${service.slug}`,
         },
       }),
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
-        { "@type": "ListItem", position: 2, name: "Usługi", item: "https://szabunia.pl/uslugi" },
-        { "@type": "ListItem", position: 3, name: service.title },
-      ],
-    },
+    breadcrumbJsonLd(crumbs),
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
@@ -128,7 +135,7 @@ export default async function ServicePage({ params }: PageProps) {
       <Navigation />
       <main id="main">
         <ErrorBoundary>
-          <ServiceHero service={service} />
+          <ServiceHero service={service} crumbs={crumbs} />
         </ErrorBoundary>
         {service.galleryCategory && (
           <ErrorBoundary>

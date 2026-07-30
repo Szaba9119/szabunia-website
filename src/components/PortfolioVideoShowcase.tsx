@@ -1,8 +1,8 @@
-import Link from "next/link";
 import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
 import YouTubeFacade from "./YouTubeFacade";
 import type { PortfolioCategory } from "@/data/portfolio";
+import Breadcrumbs, { type Crumb } from "./Breadcrumbs";
 
 const defaultScope = [
   "Poziomy film (YouTube)",
@@ -13,8 +13,11 @@ const defaultScope = [
 
 export default function PortfolioVideoShowcase({
   category,
+  crumbs,
 }: {
   category: PortfolioCategory;
+  /** Ta sama tablica, z której strona buduje JSON-LD (audyt PELNY2907-10). */
+  crumbs: Crumb[];
 }) {
   const video = category.video;
   const reels = category.reels ?? [];
@@ -30,19 +33,8 @@ export default function PortfolioVideoShowcase({
         <div className="absolute bottom-[5%] right-[8%] w-[380px] h-[380px] bg-[radial-gradient(circle,rgba(37,99,235,0.05)_0%,transparent_70%)] dark:bg-[radial-gradient(circle,rgba(37,99,235,0.10)_0%,transparent_70%)]" />
       </div>
       <div className="max-w-5xl mx-auto">
-        {/* Breadcrumb */}
         <AnimatedSection>
-          <nav className="text-[12px] text-steel dark:text-dark-text-muted mb-6">
-            <Link href="/" className="hover:text-navy dark:hover:text-white transition-colors">
-              Strona główna
-            </Link>
-            <span className="mx-1.5">/</span>
-            <Link href="/portfolio" className="hover:text-navy dark:hover:text-white transition-colors">
-              Portfolio
-            </Link>
-            <span className="mx-1.5">/</span>
-            <span className="text-navy dark:text-white">{category.label}</span>
-          </nav>
+          <Breadcrumbs items={crumbs} className="mb-6" />
         </AnimatedSection>
 
         {/* Header */}

@@ -13,6 +13,7 @@ import BlogContent from "@/components/BlogContent";
 import BlogCard from "@/components/BlogCard";
 import AnimatedSection from "@/components/AnimatedSection";
 import PoradnikBlogCTA from "@/components/PoradnikBlogCTA";
+import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 const blurPlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
@@ -66,6 +67,12 @@ export default async function BlogPostPage({ params }: PageProps) {
   const post = getBlogPostBySlug(slug);
   if (!post) notFound();
 
+  const crumbs: Crumb[] = [
+    { name: "Strona główna", href: "/" },
+    { name: "Blog", href: "/blog" },
+    { name: post.title },
+  ];
+
   const structuredData = [
     {
       "@context": "https://schema.org",
@@ -73,6 +80,9 @@ export default async function BlogPostPage({ params }: PageProps) {
       headline: post.title,
       description: post.seo.description,
       datePublished: post.date,
+      // Sygnał świeżości dla Google. `updated` ustawiane przy realnej zmianie treści,
+      // nie przy każdym deployu (audyt PELNY2907-10).
+      dateModified: post.updated ?? post.date,
       author: {
         "@type": "Person",
         name: "Marcin Szabunia",
@@ -86,15 +96,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       image: `https://szabunia.pl/images/og/blog/${post.slug}.png`,
       mainEntityOfPage: `https://szabunia.pl/blog/${post.slug}`,
     },
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Strona główna", item: "https://szabunia.pl" },
-        { "@type": "ListItem", position: 2, name: "Blog", item: "https://szabunia.pl/blog" },
-        { "@type": "ListItem", position: 3, name: post.title },
-      ],
-    },
+    breadcrumbJsonLd(crumbs),
     // FAQPage tylko dla wpisów z sekcją Q&A (featured snippets / AEO)
     ...(post.faq && post.faq.length > 0
       ? [
@@ -121,19 +123,8 @@ export default async function BlogPostPage({ params }: PageProps) {
       <Navigation />
       <main id="main" className="pt-28 pb-16 px-4">
         <article className="max-w-3xl mx-auto">
-          {/* Breadcrumb */}
           <AnimatedSection>
-            <nav className="text-[12px] text-steel dark:text-dark-text-muted mb-6">
-              <Link href="/" className="hover:text-navy dark:hover:text-white transition-colors">
-                Strona główna
-              </Link>
-              <span className="mx-1.5">/</span>
-              <Link href="/blog" className="hover:text-navy dark:hover:text-white transition-colors">
-                Blog
-              </Link>
-              <span className="mx-1.5">/</span>
-              <span className="text-navy dark:text-white">{post.title}</span>
-            </nav>
+            <Breadcrumbs items={crumbs} className="mb-6" />
           </AnimatedSection>
 
           {/* Header */}
