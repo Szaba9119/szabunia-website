@@ -221,13 +221,13 @@ const serviceCategoriesRaw: ServiceData[] = [
     slug: "sesje-zespolowe",
     h2Process: "Jak wygląda sesja zespołowa",
     h2Faq: "Headshoty zespołu: najczęstsze pytania",
-    h1: "Headshoty zespołu w Twoim biurze",
+    h1: "Headshoty zespołu w biurze albo w studiu",
     galleryCategory: "zespolowe",
     title: "Sesje zespołowe",
     subtitle:
-      "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze, bez logistyki.",
+      "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne.",
     description:
-      "Spójne headshoty zespołu to fundament employer branding. Przyjeżdżam z mobilnym studiem do Twojego biura, rozstawienie zajmuje 20 minut, a każda osoba potrzebuje zaledwie 10-15 minut na sesję. Rezultat: profesjonalne, spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
+      "Spójne headshoty zespołu to fundament employer branding. Przyjeżdżam z mobilnym studiem do Twojego biura albo rezerwuję studio, rozstawienie zajmuje 20 minut, a każda osoba potrzebuje 10-15 minut na sesję. Efekt: spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
     forWhom: [
       "Zespoły korporacyjne i działy HR",
       "Kancelarie prawne i firmy doradcze",
@@ -262,8 +262,8 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
-      title: "Headshoty zespołu w Twoim biurze | Szabunia",
-      description: "Spójne portrety całego zespołu w jeden dzień. Mobilne studio w biurze, 10 do 15 minut na osobę, zdjęcia w 14 dni. Poznań i cała Polska.",
+      title: "Headshoty zespołu w biurze i w studiu | Szabunia",
+      description: "Spójne portrety całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne, 10 do 15 minut na osobę. Poznań i cała Polska.",
     },
   },
   {

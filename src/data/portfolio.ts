@@ -541,9 +541,9 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     ],
     seo: {
-      title: "Przykłady headshotów zespołów w biurze | Szabunia",
+      title: "Przykłady headshotów zespołu: studio i biuro | Szabunia",
       description:
-        "Kadry z sesji zespołowych realizowanych w biurach klientów. Przykłady spójnych portretów całych zespołów na jednym tle.",
+        "Kadry z sesji zespołowych realizowanych w studiu i w biurach klientów. Przykłady spójnych portretów całego zespołu na jednym tle.",
     },
   },
 ];

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { blogPosts, getBlogPostBySlug, getServiceSlugForPost, getRelatedPosts } from "@/data/blog";
+import { blogPosts, getBlogPostBySlug, getServiceSlugForPost, getRelatedPosts, PORADNIK_CTA_SLUGS } from "@/data/blog";
 import { getServiceBySlug } from "@/data/services";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -196,7 +196,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           )}
 
           {/* Lead magnet CTA — tylko przy wpisach o przygotowaniu / stylizacji */}
-          {["jak-przygotowac-sie-do-sesji-biznesowej", "co-zalozyc-na-sesje-biznesowa"].includes(post.slug) && (
+          {(PORADNIK_CTA_SLUGS as readonly string[]).includes(post.slug) && (
             <AnimatedSection className="mt-10">
               <PoradnikBlogCTA />
             </AnimatedSection>

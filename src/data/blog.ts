@@ -20,6 +20,22 @@ export interface BlogPost {
   faq?: { q: string; a: string }[];
 }
 
+/** Wpisy, pod którymi pokazujemy CTA lead magneta `/poradnik`.
+    Kryterium: intencja przedzakupowa, czyli ktoś, kto szykuje się do sesji albo
+    właśnie decyduje, czy i gdzie ją zrobić. Lista trzymana tu, obok treści, a nie
+    na sztywno w komponencie strony (audyt 2026-07-30: były tam dwa slugi, a klaster
+    „przygotowanie do sesji" ma 157 wyświetleń w GSC, przy 1 wyświetleniu /poradnik,
+    więc linkowanie wewnętrzne jest jedynym kanałem dojścia do tej strony). */
+export const PORADNIK_CTA_SLUGS = [
+  "jak-przygotowac-sie-do-sesji-biznesowej",
+  "co-zalozyc-na-sesje-biznesowa",
+  "sesja-wizerunkowa-poznan",
+  "zdjecia-ai-vs-profesjonalna-sesja",
+  "bledy-zdjecia-zespolu",
+  "spojne-portrety-zespolu",
+  "headshoty-zespolu-w-jeden-dzien",
+] as const;
+
 export const blogPosts: BlogPost[] = [
   {
     slug: "jak-przygotowac-sie-do-sesji-biznesowej",
