@@ -1,5 +1,3 @@
-"use client";
-
 /**
  * Typografia treści wpisów. Świadomie BEZ pluginu @tailwindcss/typography
  * (klasy `prose-*` nie działały, bo plugin nigdy nie był zainstalowany) —

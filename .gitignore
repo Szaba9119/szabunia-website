@@ -37,6 +37,12 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+# Wyjątek: szablon bez wartości. Wzorzec `.env*` wykluczał go z repo, więc po
+# świeżym `git clone` nie było z czego skopiować konfiguracji, mimo że CLAUDE.md
+# §8 się na niego powołuje (audyt PELNY2907-38). Zweryfikowane 2026-07-30:
+# plik nie zawiera żadnych sekretów, tylko nazwy zmiennych i dwie zakomentowane
+# przykładowe wartości.
+!.env.local.example
 
 # vercel
 .vercel

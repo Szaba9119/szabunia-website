@@ -161,7 +161,7 @@ export default function CTA() {
 
                 {/* Zbijanie ryzyka */}
                 <ul className="flex flex-wrap gap-x-4 gap-y-1.5 mb-8">
-                  {["Faktura VAT", "Poprawki: 2 tury foto / 3 wideo", "Licencja komercyjna bez limitu", "Wolne terminy zwykle w 1-3 tyg."].map((t) => (
+                  {["Faktura VAT", "Poprawki: 2 tury foto / 3 wideo", "Licencja komercyjna bez limitu", "Wolne terminy: 1–3 tyg."].map((t) => (
                     <li key={t} className="flex items-center gap-1.5 text-[13px] text-steel dark:text-dark-text-muted">
                       <svg className="w-4 h-4 text-blue dark:text-blue-light flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
@@ -496,7 +496,7 @@ export default function CTA() {
                         }}
                         aria-invalid={!!fieldErrors.consent}
                         aria-describedby={fieldErrors.consent ? "consent-error" : undefined}
-                        className="mt-0.5 w-5 h-5 rounded border-border dark:border-navy-light accent-blue flex-shrink-0"
+                        className="mt-0.5 w-6 h-6 rounded border-border dark:border-navy-light accent-blue flex-shrink-0"
                       />
                       <span className="text-[11px] text-steel dark:text-dark-text-muted leading-relaxed">
                         Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie, zgodnie z{" "}

@@ -95,9 +95,12 @@ export default function Navigation() {
             : "py-3 shadow-md shadow-navy/[0.03] dark:shadow-black/10"
         }`}
       >
+        {/* min-h-[24px] + inline-flex: sam tekst dawał cel 141×20 px
+            (WCAG 2.2 SC 2.5.8, audyt PELNY2907-23). Wysokość paska nawigacji
+            bez zmian, bo rząd i tak jest wyższy niż 24 px. */}
         <Link
           href="/"
-          className="font-barlow font-extrabold text-sm tracking-wide text-navy dark:text-white"
+          className="inline-flex items-center min-h-[24px] font-barlow font-extrabold text-sm tracking-wide text-navy dark:text-white"
         >
           MARCIN SZABUNIA
         </Link>

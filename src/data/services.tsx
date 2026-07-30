@@ -80,7 +80,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), jasne obiektywy stałoogniskowe Sigma Art 35 i 50 mm f/1.4 do naturalnych portretów oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
       { q: "Ile trwa sesja wizerunkowa?", a: "Sama sesja może trwać od 30 minut. Najważniejsze, że przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło, więc nie czekasz na moje przygotowania. Dłuższe pakiety dają po prostu więcej czasu na ujęcia i zmiany stylizacji." },
-      { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3m² wolnej przestrzeni i dostępu do gniazdka." },
+      { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3 m² wolnej przestrzeni i dostępu do gniazdka." },
       { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni. Ekspres do 48h za dodatkową opłatą (+50%)." },
       { q: "Czy mogę użyć zdjęć na LinkedIn i stronie?", a: "Tak. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
     ],
@@ -224,7 +224,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 3 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
       { q: "Co z osobami, których nie ma w dniu sesji?", a: "Brakujące osoby dograć można w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu, żeby portrety całego zespołu były spójne. To częsta sytuacja przy większych zespołach i pracy zdalnej." },
       { q: "Ile osób mogę sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studiu. Każda osoba potrzebuje ok. 10-15 minut." },
-      { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 3m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
+      { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 3 m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
       { q: "Czy zdjęcia będą spójne dla całego zespołu?", a: "Tak, identyczne oświetlenie i tło. Spójne headshoty na stronie i w materiałach firmowych." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",

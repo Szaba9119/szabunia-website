@@ -139,12 +139,18 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "ProfessionalService",
+              // @id spina trzy encje w jeden graf zamiast trzech luźnych węzłów
+              // (audyt PELNY2907-31). Przy zerowych backlinkach to najtańszy
+              // sygnał tożsamości, jaki możemy dać Knowledge Graph.
+              "@id": "https://szabunia.pl/#business",
               name: "Marcin Szabunia — Fotograf biznesowy",
               description:
                 "Profesjonalna fotografia biznesowa i wideo marketing dla firm. Portrety biznesowe, eventy, fotografia produktowa.",
               url: "https://szabunia.pl",
               telephone: "+48514900688",
               email: "marcin@szabunia.pl",
+              // Domknięcie grafu w drugą stronę: firma → osoba (audyt PELNY2907-31).
+              founder: { "@id": "https://szabunia.pl/#person" },
               address: {
                 "@type": "PostalAddress",
                 addressLocality: "Poznań",
@@ -264,6 +270,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Person",
+              "@id": "https://szabunia.pl/#person",
               name: "Marcin Szabunia",
               jobTitle: "Fotograf biznesowy i twórca wideo",
               url: "https://szabunia.pl",
@@ -277,11 +284,9 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                 addressRegion: "Wielkopolska",
                 addressCountry: "PL",
               },
-              worksFor: {
-                "@type": "ProfessionalService",
-                name: "Marcin Szabunia — Fotografia biznesowa",
-                url: "https://szabunia.pl",
-              },
+              // Referencja przez @id zamiast powielonej encji — Google widzi
+              // jedną firmę, nie dwie o podobnych nazwach (audyt PELNY2907-31).
+              worksFor: { "@id": "https://szabunia.pl/#business" },
               sameAs: [
                 "https://instagram.com/szabunia.biz",
                 // Kanoniczny adres wizytówki Google (Knowledge Graph, kgmid /g/11rcwdrdcl).
@@ -309,16 +314,13 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
+              "@id": "https://szabunia.pl/#website",
               name: "Marcin Szabunia — Fotografia biznesowa i wideo",
               url: "https://szabunia.pl",
               inLanguage: "pl-PL",
               description:
                 "Strona fotografa biznesowego i twórcy wideo B2B z Poznania. Portfolio, zakres ustalany przed wyceną, wstępna wycena w 24h.",
-              publisher: {
-                "@type": "Person",
-                name: "Marcin Szabunia",
-                url: "https://szabunia.pl",
-              },
+              publisher: { "@id": "https://szabunia.pl/#person" },
             }),
           }}
         />

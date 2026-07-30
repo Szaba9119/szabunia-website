@@ -278,20 +278,28 @@ export default function Testimonials() {
                 </button>
               </div>
 
-              {/* Pagination dots */}
-              <div className="flex gap-2">
+              {/* Pagination dots — kropka zostaje wizualnie taka sama (8 px
+                  wysokości), ale przycisk dostaje 24×24 px pola dotyku przez
+                  padding (WCAG 2.2 SC 2.5.8, audyt PELNY2907-23). Wcześniej cel
+                  miał 8×8 px. Padding zastępuje gap-2, ujemny margines na
+                  kontenerze wyrównuje krawędzie rzędu do poprzedniego stanu. */}
+              <div className="flex -mx-2 -my-2">
                 {testimonials.map((_, i) => (
                   <button
                     key={i}
                     onClick={() => goTo(i)}
-                    className={`h-2 rounded-full transition-all duration-400 ${
-                      i === currentIndex
-                        ? "bg-blue dark:bg-blue-light w-6"
-                        : "bg-border dark:bg-dark-border w-2 hover:bg-steel-light dark:hover:bg-dark-text-muted"
-                    }`}
+                    className="p-2 flex items-center"
                     aria-label={`Przejdź do opinii ${i + 1}`}
                     aria-current={i === currentIndex ? "step" : undefined}
-                  />
+                  >
+                    <span
+                      className={`block h-2 rounded-full transition-all duration-400 ${
+                        i === currentIndex
+                          ? "bg-blue dark:bg-blue-light w-6"
+                          : "bg-border dark:bg-dark-border w-2 hover:bg-steel-light dark:hover:bg-dark-text-muted"
+                      }`}
+                    />
+                  </button>
                 ))}
               </div>
             </div>

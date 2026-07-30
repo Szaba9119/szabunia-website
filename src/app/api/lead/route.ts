@@ -125,11 +125,13 @@ export async function POST(req: Request) {
     console.error("Resend notify error:", notifyErr);
   }
 
-  try {
-    await pushToCrm({ name: "", email, source: "lead-magnet", consent: consentTs, ...utm });
-  } catch (crmErr) {
-    console.error("CRM webhook error:", crmErr);
-  }
+  // Bez `await` — tak samo jak w /api/contact (audyt PELNY2907-28). Dopóki
+  // webhook był no-opem, blokowanie nic nie kosztowało; po wdrożeniu CRM
+  // (decyzja D2/A, 2026-07-30) `pushToCrm` czeka do 5 s na Apps Script
+  // i o tyle opóźniałoby odpowiedź oraz wysyłkę poradnika do subskrybenta.
+  void pushToCrm({ name: "", email, source: "lead-magnet", consent: consentTs, ...utm }).catch(
+    (crmErr) => console.error("CRM webhook error:", crmErr)
+  );
 
   try {
     const guideRes = await sendEmail(apiKey, {

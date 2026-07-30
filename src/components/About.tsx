@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
 import CountUp from "./CountUp";

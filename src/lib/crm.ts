@@ -1,12 +1,15 @@
 // Best-effort zapis leada do CRM (Google Sheets przez webhook Apps Script).
 // Wydzielone z obu tras formularzowych (audyt PELNY2907-43).
 //
-// STAN NA 2026-07-29: `CRM_WEBHOOK_URL` i `CRM_WEBHOOK_SECRET` NIE są ustawione
-// na produkcji (sprawdzone w panelu Vercel), więc ta funkcja jest tam no-opem,
-// a arkusz CRM_Szabunia_2026 nie dostaje leadów ze strony. Wdrożenie webhooka
-// czeka po stronie Marcina. Jeśli decyzja padnie na „nie wdrażamy", ten plik
-// i jego wywołania należy usunąć — kod, który wygląda na działającą
-// automatyzację, a nią nie jest, jest gorszy niż brak kodu.
+// STAN NA 2026-07-30: decyzja D2/A — webhook wdrażamy. Skrypt Apps Script leży
+// gotowy w `01_Biznes/_System/04_Sprzedaz/CRM_2026/webhook.gs`, instrukcja
+// wdrożenia obok. Do działania potrzebne są dwie zmienne na Vercelu:
+// `CRM_WEBHOOK_URL` (adres `/exec` z wdrożenia Apps Script) i `CRM_WEBHOOK_SECRET`
+// (ten sam ciąg co stała SECRET w webhook.gs). Dopóki ich nie ma, funkcja jest
+// cichym no-opem i arkusz nie dostaje leadów ze strony.
+//
+// Uwaga: `consent` i parametry UTM są wysyłane, ale arkusz nie ma na nie kolumn,
+// więc webhook je ignoruje. Dowód zgody RODO żyje dziś wyłącznie w mailu z Resend.
 
 /** Zapis leada. Brak zmiennych środowiskowych = cichy no-op (świadomie). */
 export async function pushToCrm(lead: Record<string, string>): Promise<void> {

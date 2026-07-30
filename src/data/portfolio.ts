@@ -397,7 +397,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Czy mogę mieć sesję w swoim biurze?",
-        a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3m² wolnej przestrzeni i dostępu do gniazdka. Rozstawienie sprzętu zajmuje ok. 20 minut.",
+        a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3 m² wolnej przestrzeni i dostępu do gniazdka. Rozstawienie sprzętu zajmuje ok. 20 minut.",
       },
       {
         q: "Ile osób mogę sfotografować w jeden dzień?",
@@ -529,7 +529,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Ile miejsca potrzebujesz w biurze?",
-        a: "Minimum 3m² wolnej przestrzeni i dostęp do gniazdka. Mogę ustawić się w sali konferencyjnej, holu lub nawet na korytarzu.",
+        a: "Minimum 3 m² wolnej przestrzeni i dostęp do gniazdka. Mogę ustawić się w sali konferencyjnej, holu lub nawet na korytarzu.",
       },
       {
         q: "Czy zdjęcia będą spójne dla całego zespołu?",
