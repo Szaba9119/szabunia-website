@@ -27,6 +27,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const category = getCategoryBySlug(slug);
   if (!category) return {};
+  // Karta OG generowana skryptem scripts/generate-og-portfolio.py. Wcześniej stało tu
+  // `category.thumbnail`, czyli zdjęcie z galerii, przy zadeklarowanych 1200x630.
+  // Realne wymiary były inne, a dwa case studies miały pliki pionowe (1365x2048
+  // i 1333x2000), więc karta na LinkedIn była przycinana przez środek (audyt 2026-07-30).
+  const ogImage = `/images/og/portfolio/${category.slug}.png`;
+
   return {
     title: category.seo.title,
     description: category.seo.description,
@@ -36,13 +42,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: category.seo.title,
       description: category.seo.description,
       url: `https://szabunia.pl/portfolio/${category.slug}`,
-      images: [{ url: category.thumbnail, width: 1200, height: 630, alt: category.label }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: category.label }],
     },
     twitter: {
       card: "summary_large_image",
       title: category.seo.title,
       description: category.seo.description,
-      images: [category.thumbnail],
+      images: [ogImage],
     },
   };
 }

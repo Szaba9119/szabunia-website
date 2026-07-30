@@ -29,6 +29,7 @@ export interface BlogPost {
 export const PORADNIK_CTA_SLUGS = [
   "jak-przygotowac-sie-do-sesji-biznesowej",
   "co-zalozyc-na-sesje-biznesowa",
+  "zdjecie-do-cv-w-domu",
   "sesja-wizerunkowa-poznan",
   "zdjecia-ai-vs-profesjonalna-sesja",
   "bledy-zdjecia-zespolu",
