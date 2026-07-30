@@ -27,7 +27,7 @@ export default function Publications() {
             eventów i najmocniejsze dowody jakości, jakich nie ma żaden inny fotograf
             w Poznaniu. W rzędzie logotypów obok reszty marek ginęły. */}
         {/* Pion na telefonie, poziom na komputerze (prośba Marcina 30.07.2026). */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
         {/* Karta publikacji: Big Furniture Group Magazine */}
         <AnimatedSection>
@@ -47,7 +47,7 @@ export default function Publications() {
                 className="w-full h-auto"
               />
             </a>
-            <div className="min-w-0">
+            <div className="min-w-0 self-stretch flex flex-col">
             <p className="text-[10px] font-barlow font-semibold uppercase tracking-wider text-steel dark:text-dark-text-muted mb-3">
               Prasa branżowa · UK · 2026
             </p>
@@ -64,7 +64,7 @@ export default function Publications() {
               href="https://bigfurnituregroup.com/big-furniture-group-magazine-april-2026-now-live/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 py-2 text-blue dark:text-blue-light hover:text-blue-light dark:hover:text-white text-[13px] font-barlow font-semibold transition-colors"
+              className="mt-auto inline-flex items-center gap-1 py-2 text-blue dark:text-blue-light hover:text-blue-light dark:hover:text-white text-[13px] font-barlow font-semibold transition-colors"
             >
               Zobacz wydanie →
             </a>
@@ -90,7 +90,7 @@ export default function Publications() {
                 className="w-full h-auto"
               />
             </a>
-            <div className="min-w-0">
+            <div className="min-w-0 self-stretch flex flex-col">
             <p className="text-[10px] font-barlow font-semibold uppercase tracking-wider text-steel dark:text-dark-text-muted mb-3">
               Przewodnik Michelin · Poznań · 2026
             </p>
@@ -105,7 +105,7 @@ export default function Publications() {
             </p>
             <Link
               href="/portfolio/yes-butcher-przewodnik-michelin"
-              className="inline-flex items-center gap-1 py-2 text-blue dark:text-blue-light hover:text-blue-light dark:hover:text-white text-[13px] font-barlow font-semibold transition-colors"
+              className="mt-auto inline-flex items-center gap-1 py-2 text-blue dark:text-blue-light hover:text-blue-light dark:hover:text-white text-[13px] font-barlow font-semibold transition-colors"
             >
               Zobacz case study →
             </Link>
