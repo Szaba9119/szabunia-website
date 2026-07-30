@@ -148,7 +148,7 @@ export default async function GaleriaPage({
           <Breadcrumbs items={crumbs} className="mb-6" />
           <AnimatedSection>
             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
-              Galeria
+              Galeria kadrów z realizacji
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-6 max-w-2xl mx-auto">
               Wybrane kadry z realizacji: portrety biznesowe, eventy, fotografia produktowa, wideo oraz zdjęcia z drona.

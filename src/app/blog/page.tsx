@@ -52,13 +52,19 @@ export default function BlogPage() {
           <Breadcrumbs items={crumbs} className="mb-6" />
           <AnimatedSection>
             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
-              Blog
+              Blog o fotografii i wideo dla firm
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-lg mx-auto">
               Praktyczne porady, kulisy realizacji i trendy w fotografii biznesowej.
             </p>
           </AnimatedSection>
 
+          {/* h2 domyka hierarchię: bez niego strona skakała z h1 na h3 z kart wpisów
+              (BlogCard ma h3, bo na podstronach usług siedzi pod nagłówkiem „Z bloga").
+              Audyt 2026-07-30. */}
+          <h2 className="font-barlow font-extrabold text-xl md:text-2xl tracking-tight text-navy dark:text-white mb-6">
+            Najnowsze wpisy
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((post, i) => (
               <AnimatedSection key={post.slug} delay={0.08 * i}>

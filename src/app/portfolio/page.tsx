@@ -72,7 +72,7 @@ export default function PortfolioPage() {
               Realizacje
             </p>
             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
-              Portfolio
+              Portfolio realizacji foto i wideo
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed">
               Wybrane realizacje dla firm:
