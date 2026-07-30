@@ -91,7 +91,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     pricingBlurb:
       "Wycenę portretu ustalam na podstawie liczby stylizacji, długości sesji i liczby wyretuszowanych zdjęć do wyboru. Każda sesja obejmuje darmowy poseboard z referencjami przed spotkaniem oraz studio dopasowane do Twojego projektu.",
-    priceFaqQuestion: "Ile kosztuje sesja portretowa?",
+    priceFaqQuestion: "Ile kosztuje sesja wizerunkowa dla firmy?",
     priceFaqIntro: "Sesje portretowe zaczynają się",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), jasne obiektywy stałoogniskowe Sigma Art 35 i 50 mm f/1.4 do naturalnych portretów oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
@@ -190,7 +190,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     pricingBlurb:
       "Wycenę reportażu ustalam na podstawie liczby godzin obecności na evencie oraz opcji dodatkowych: live editing na Social Media w trakcie wydarzenia i ujęcia z drona. Pakiety kilkugodzinne i całodniowe wychodzą korzystniej niż rozliczenie godzinowe.",
-    priceFaqQuestion: "Ile kosztuje reportaż z eventu?",
+    priceFaqQuestion: "Ile kosztuje fotograf na event firmowy?",
     priceFaqIntro: "Reportaże zaczynają się",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
@@ -236,7 +236,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     pricingBlurb:
       "Wycena zależy od liczby osób i miejsca sesji: Twoje biuro z mobilnym studiem albo studio zewnętrzne. Stawka za osobę maleje progresywnie wraz z wielkością zespołu: 120 zł dotyczy zespołów od 31 osób, przy mniejszych grupach jest wyższa. Sesje realizuję od 4 osób (mniejszym grupom polecam pakiety Wizerunek & Portrety).",
-    priceFaqQuestion: "Ile kosztuje sesja zespołowa?",
+    priceFaqQuestion: "Ile kosztuje sesja zdjęciowa zespołu?",
     priceFaqIntro: "Sesje zespołowe zaczynają się",
     priceFaqSuffix: " przy zespołach od 31 osób (przy mniejszych grupach stawka za osobę jest wyższa)",
     faqs: [
@@ -288,7 +288,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     pricingBlurb:
       "Wycena zależy od czasu nagrania oraz długości i złożoności finalnego materiału: od krótkiego teasera po kilkuminutowy film. Przy regularnych potrzebach wideo możliwa jest też stała, comiesięczna współpraca.",
-    priceFaqQuestion: "Ile kosztuje produkcja wideo?",
+    priceFaqQuestion: "Ile kosztuje film promocyjny dla firmy?",
     priceFaqIntro: "Produkcja wideo zaczyna się",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 do nagrań, obiektywy od 16 do 200 mm, oświetlenie ciągłe LED Godox, dźwięk Rode Wireless PRO, VideoMicro II i rejestrator Zoom oraz dron DJI do ujęć z powietrza. Sprzęt pozwala nagrać i zmontować materiał od reelsa po dłuższy film." },
@@ -333,7 +333,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     pricingBlurb:
       "Wycena zależy od liczby produktów, rodzaju ujęć (packshot na białym tle albo zdjęcia kreatywne z aranżacją) oraz pola eksploatacji: inaczej wyceniam zdjęcia na Social Media, inaczej do druku i outdooru. Większe zamówienia rozliczam progresywnie.",
-    priceFaqQuestion: "Ile kosztuje sesja produktowa?",
+    priceFaqQuestion: "Ile kosztuje packshot i sesja produktowa?",
     priceFaqIntro: "Sesje produktowe zaczynają się",
     priceFaqSuffix: " i tyle wynosi też minimalna wartość zamówienia",
     faqs: [
@@ -392,7 +392,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     pricingBlurb:
       "Wycena zależy od tego, czy potrzebujesz samych zdjęć, materiału wideo, czy kompletu z jednej sesji, a także od liczby lokalizacji do przelotu. Latam dronem DJI Mini 5 Pro, mam certyfikat operatora A1/A3 i ubezpieczenie OC, a formalności i koordynację lotów biorę na siebie.",
-    priceFaqQuestion: "Ile kosztuje sesja z dronem?",
+    priceFaqQuestion: "Ile kosztuje film z drona?",
     priceFaqIntro: "Zdjęcia i wideo z drona zaczynają się",
     faqs: [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro do zdjęć i wideo w 4K. Mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona łączę z naziemnym zestawem Canon, gdy potrzebny jest komplet foto i wideo." },
