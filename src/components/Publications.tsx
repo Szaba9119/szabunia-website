@@ -26,17 +26,18 @@ export default function Publications() {
             §4d, decyzja Marcina 30.07.2026): to jedyne dwie pozycje w portfolio spoza
             eventów i najmocniejsze dowody jakości, jakich nie ma żaden inny fotograf
             w Poznaniu. W rzędzie logotypów obok reszty marek ginęły. */}
-        <div className="space-y-6">
+        {/* Pion na telefonie, poziom na komputerze (prośba Marcina 30.07.2026). */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
 
         {/* Karta publikacji: Big Furniture Group Magazine */}
         <AnimatedSection>
-          <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6 md:p-8 max-w-3xl mx-auto flex flex-col sm:flex-row gap-6 md:gap-8 items-start">
+          <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6 md:p-8 h-full flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
             <a
               href="https://bigfurnituregroup.com/big-furniture-group-magazine-april-2026-now-live/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Okładka Big Furniture Group Magazine, kwiecień 2026 (otwiera się w nowej karcie)"
-              className="block shrink-0 w-40 sm:w-44 mx-auto sm:mx-0 rounded-lg overflow-hidden border border-border dark:border-dark-border shadow-md hover:shadow-lg transition-shadow"
+              className="block shrink-0 w-40 lg:w-44 mx-auto lg:mx-0 rounded-lg overflow-hidden border border-border dark:border-dark-border shadow-md hover:shadow-lg transition-shadow"
             >
               <Image
                 src="/images/publikacje/bfg-april-2026.jpg"
@@ -73,13 +74,13 @@ export default function Publications() {
 
         {/* Karta publikacji: przewodnik Michelin (Yes Butcher!) */}
         <AnimatedSection>
-          <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6 md:p-8 max-w-3xl mx-auto flex flex-col sm:flex-row gap-6 md:gap-8 items-start">
+          <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6 md:p-8 h-full flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
             <a
               href="https://guide.michelin.com/en/wielkopolskie/poznan_2395985/restaurant/yes-butcher"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Profil Yes Butcher! w przewodniku Michelin (otwiera się w nowej karcie)"
-              className="block shrink-0 w-40 sm:w-44 mx-auto sm:mx-0 rounded-lg overflow-hidden border border-border dark:border-dark-border shadow-md hover:shadow-lg transition-shadow"
+              className="block shrink-0 w-40 lg:w-44 mx-auto lg:mx-0 rounded-lg overflow-hidden border border-border dark:border-dark-border shadow-md hover:shadow-lg transition-shadow"
             >
               <Image
                 src="/images/portfolio/yes-butcher/yes-butcher-44.jpg"
