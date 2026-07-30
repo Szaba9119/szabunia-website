@@ -37,15 +37,16 @@ export default function PortfolioVideoShowcase({
           <Breadcrumbs items={crumbs} className="mb-6" />
         </AnimatedSection>
 
-        {/* Header */}
-        <AnimatedSection>
+        {/* Header — text-center na mobile = parytet ze stroną główną i hubami
+            (Hero.tsx:35). Decyzja Marcina 2026-07-30. */}
+        <AnimatedSection className="text-center md:text-left">
           <p className="text-[12px] font-barlow font-semibold uppercase tracking-[0.16em] text-blue dark:text-blue-light mb-3">
             {badge}
           </p>
           <h1 className="font-barlow font-extrabold text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-4">
             {category.heroTitle}
           </h1>
-          <p className="text-steel dark:text-dark-text-muted text-[15px] md:text-base max-w-2xl">
+          <p className="text-steel dark:text-dark-text-muted text-[15px] md:text-base max-w-2xl mx-auto md:mx-0">
             {category.heroSubtitle}
           </p>
         </AnimatedSection>
@@ -58,11 +59,11 @@ export default function PortfolioVideoShowcase({
         {/* Opis + karta zakresu + CTA */}
         <AnimatedSection>
           <div className="mt-10 grid md:grid-cols-[1.6fr_1fr] gap-6 md:gap-8 items-start">
-            <div>
+            <div className="text-center md:text-left">
               <p className="text-text-body dark:text-dark-text-muted text-[15px] leading-relaxed">
                 {category.description}
               </p>
-              <div className="mt-7 flex flex-wrap gap-3">
+              <div className="mt-7 flex flex-wrap gap-3 justify-center md:justify-start">
                 <a
                   href="#kontakt"
                   className="bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"

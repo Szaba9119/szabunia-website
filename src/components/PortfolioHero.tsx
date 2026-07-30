@@ -64,8 +64,10 @@ export default function PortfolioHero({ category, crumbs }: Props) {
         </AnimatedSection>
 
         <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-          {/* Text */}
-          <AnimatedSection>
+          {/* Text — text-center na mobile = parytet ze stroną główną i hubami
+              (Hero.tsx:35). Okruszki zostają przy lewej krawędzi, tak samo jak
+              na hubach. Decyzja Marcina 2026-07-30. */}
+          <AnimatedSection className="text-center md:text-left">
             <h1 className="font-barlow font-black text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-4">
               {category.heroTitle}
             </h1>
@@ -75,7 +77,7 @@ export default function PortfolioHero({ category, crumbs }: Props) {
             <p className="text-text-body dark:text-dark-text text-[14px] leading-relaxed">
               {category.description}
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 flex flex-wrap gap-3 justify-center md:justify-start">
               <a
                 href="#kontakt"
                 className="bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
@@ -101,7 +103,7 @@ export default function PortfolioHero({ category, crumbs }: Props) {
               </a>
             )}
             {category.clientLinks && category.clientLinks.length > 0 && (
-              <div className="mt-4 flex flex-wrap gap-2">
+              <div className="mt-4 flex flex-wrap gap-2 justify-center md:justify-start">
                 {category.clientLinks.map((link) => (
                   <a
                     key={link.url}

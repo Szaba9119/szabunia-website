@@ -68,10 +68,24 @@ export default function PrivacyPolicy() {
                 2. Zakres zbieranych danych
               </h2>
               <p>
-                Zbieram dane osobowe, które dobrowolnie podajesz za
-                pośrednictwem formularza kontaktowego na stronie: imię i nazwisko
-                (lub nazwa firmy), adres e-mail, numer telefonu (opcjonalnie),
-                rodzaj usługi oraz treść wiadomości.
+                <strong>Formularz kontaktowy:</strong>{" "}
+                imię i nazwisko (lub nazwa
+                firmy), adres e-mail, numer telefonu (opcjonalnie), rodzaj usługi
+                oraz treść wiadomości.
+              </p>
+              <p className="mt-3">
+                <strong>Formularz zapisu na darmowy poradnik</strong>{" "}
+                (strona
+                &bdquo;Poradnik&rdquo;): wyłącznie adres e-mail oraz zapis potwierdzający
+                udzielenie zgody marketingowej (treść klauzuli i znacznik czasu).
+              </p>
+              <p className="mt-3">
+                <strong>Dane techniczne przy wysyłce obu formularzy:</strong>{" "}
+                adres IP oraz informacje przekazywane przez przeglądarkę.
+                Przetwarzam je wyłącznie w celu zabezpieczenia formularzy przed
+                spamem i nadużyciami (weryfikacja antybotowa oraz ograniczenie
+                liczby zgłoszeń z jednego adresu). Nie łączę ich z Twoim
+                zapytaniem w celach marketingowych.
               </p>
             </section>
 
@@ -88,6 +102,20 @@ export default function PrivacyPolicy() {
                 przetwarzam dane także w celu wykonania umowy oraz rozliczenia i
                 wystawienia faktury (art. 6 ust. 1 lit. b i c RODO).
               </p>
+              <p className="mt-3">
+                Adres e-mail podany w formularzu zapisu na darmowy poradnik
+                przetwarzam na podstawie Twojej zgody (art. 6 ust. 1 lit. a RODO)
+                w celu wysłania poradnika oraz okazjonalnych wskazówek związanych
+                z przygotowaniem do sesji. Zgodę możesz wycofać w każdej chwili,
+                pisząc na marcin@szabunia.pl. Wycofanie zgody nie wpływa na
+                zgodność z prawem przetwarzania dokonanego przed jej wycofaniem.
+              </p>
+              <p className="mt-3">
+                Dane techniczne opisane w sekcji 2 przetwarzam na podstawie
+                prawnie uzasadnionego interesu administratora (art. 6 ust. 1
+                lit. f RODO), którym jest zabezpieczenie strony i formularzy
+                przed spamem oraz nadużyciami.
+              </p>
             </section>
 
             <section>
@@ -103,11 +131,30 @@ export default function PrivacyPolicy() {
                 faktury (np. dane do faktury, których potrzebujesz jako nabywca).
                 Dane mogą być przekazywane także innym podmiotom świadczącym
                 usługi hostingowe, e-mailowe i informatyczne na podstawie umów
-                powierzenia przetwarzania danych. Przekazanie danych do USA
-                (Resend, Vercel) następuje na podstawie mechanizmów
-                zapewniających odpowiedni stopień ochrony: standardowych
-                klauzul umownych (SCC) lub udziału tych podmiotów w programie
-                EU-US Data Privacy Framework.
+                powierzenia przetwarzania danych.
+              </p>
+              <p className="mt-3">
+                Zabezpieczenie formularzy przed spamem realizują dodatkowo:
+                Cloudflare, Inc. (USA) w ramach usługi Turnstile, która
+                weryfikuje, czy zgłoszenie wysyła człowiek, oraz Upstash, Inc.
+                (USA), gdzie przechowywany jest krótkotrwały licznik zgłoszeń
+                powiązany z adresem IP. Oba podmioty przetwarzają wyłącznie dane
+                techniczne opisane w sekcji 2 i nie otrzymują treści Twojej
+                wiadomości.
+              </p>
+              <p className="mt-3">
+                Dane zbierane przez pliki cookies analityczne i reklamowe
+                (sekcja 7) przetwarza Google Ireland Ltd. z możliwym dalszym
+                przekazaniem do Google LLC (USA).
+              </p>
+              <p className="mt-3">
+                Przekazanie danych do USA (Resend, Vercel, Cloudflare, Upstash,
+                Google) następuje na podstawie mechanizmów zapewniających
+                odpowiedni stopień ochrony: decyzji Komisji Europejskiej
+                stwierdzającej odpowiedni stopień ochrony w ramach EU-US Data
+                Privacy Framework, a wobec podmiotów nieuczestniczących w tym
+                programie na podstawie standardowych klauzul umownych (SCC)
+                zatwierdzonych przez Komisję Europejską.
               </p>
             </section>
 
@@ -116,9 +163,21 @@ export default function PrivacyPolicy() {
                 5. Okres przechowywania
               </h2>
               <p>
-                Dane przechowuję przez okres niezbędny do realizacji celów, dla
-                których zostały zebrane, maksymalnie 2 lata od ostatniego
-                kontaktu, chyba że dłuższy okres wymagany jest przepisami prawa.
+                Dane z formularza kontaktowego przechowuję przez okres
+                niezbędny do realizacji celów, dla których zostały zebrane,
+                maksymalnie 2 lata od ostatniego kontaktu, chyba że dłuższy okres
+                wymagany jest przepisami prawa (np. dokumentacja rozliczeniowa).
+              </p>
+              <p className="mt-3">
+                Adres e-mail z zapisu na poradnik przechowuję do momentu
+                wycofania zgody. Dowód udzielenia zgody zachowuję jeszcze przez
+                okres przedawnienia ewentualnych roszczeń, ponieważ mam obowiązek
+                wykazać, że zgoda została udzielona.
+              </p>
+              <p className="mt-3">
+                Dane techniczne służące zabezpieczeniu formularzy przechowywane
+                są krótkotrwale, w praktyce do kilkudziesięciu godzin od wysłania
+                zgłoszenia.
               </p>
             </section>
 
@@ -129,7 +188,9 @@ export default function PrivacyPolicy() {
               <p>
                 Masz prawo dostępu do swoich danych, ich sprostowania, usunięcia,
                 ograniczenia przetwarzania, przenoszenia danych, wniesienia
-                sprzeciwu wobec przetwarzania, a także prawo do wniesienia skargi
+                sprzeciwu wobec przetwarzania, prawo do wycofania zgody
+                w dowolnym momencie (art. 7 ust. 3 RODO), a także prawo do
+                wniesienia skargi
                 do Prezesa Urzędu Ochrony Danych Osobowych (ul. Stawki 2,
                 00-193 Warszawa).
               </p>
@@ -144,8 +205,8 @@ export default function PrivacyPolicy() {
                 zapamiętanie preferencji trybu ciemnego) oraz (wyłącznie po
                 wyrażeniu zgody w banerze cookie) pliki cookies analityczne
                 (Google Analytics 4) i reklamowe (Google Ads), służące do
-                analizy ruchu oraz pomiaru skuteczności reklam. Odbiorcą danych
-                zbieranych przez te pliki jest Google Ireland Ltd. Zgodę możesz
+                analizy ruchu oraz pomiaru skuteczności reklam (odbiorcy
+                wskazani w sekcji 4). Zgodę możesz
                 odrzucić (strona działa wtedy w pełni, bez pomiaru), a wyrażoną
                 zgodę zmienić lub wycofać w każdej chwili, klikając „Ustawienia
                 cookies” w stopce strony albo usuwając pliki cookies w swojej
@@ -185,7 +246,7 @@ export default function PrivacyPolicy() {
               <p>
                 Zastrzegam sobie prawo do wprowadzania zmian w niniejszej
                 polityce prywatności. Aktualna wersja jest zawsze dostępna na tej
-                stronie. Ostatnia aktualizacja: czerwiec 2026.
+                stronie. Ostatnia aktualizacja: 29 lipca 2026.
               </p>
             </section>
           </div>

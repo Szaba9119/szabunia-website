@@ -32,7 +32,10 @@ export default function ServiceHero({ service, crumbs }: Props) {
             Fix 2026-07-23 (Marcin: „na komputerze dużo wolnego miejsca"). */}
         <div className="grid md:grid-cols-2 md:grid-rows-[auto_1fr] gap-6 md:gap-x-12 md:gap-y-8 items-start">
           {/* 1. Tytuł + cena + krótki opis */}
-          <AnimatedSection className="md:col-start-1 md:row-start-1">
+          {/* text-center na mobile = parytet ze stroną główną i hubami
+              (Hero.tsx:35). Wcześniej przycisk „Zapytaj o ofertę" siedział przy
+              lewej krawędzi z 202 px pustki obok (pomiar @375 px, 2026-07-30). */}
+          <AnimatedSection className="md:col-start-1 md:row-start-1 text-center md:text-left">
             <h1 className="font-barlow font-black text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-2">
               {service.title}
             </h1>
@@ -67,14 +70,14 @@ export default function ServiceHero({ service, crumbs }: Props) {
 
           {/* 3. Długi opis + chipy + CTA (mobile: pod zdjęciem; desktop: lewa
               kolumna, dolny rząd) */}
-          <AnimatedSection className="md:col-start-1 md:row-start-2">
+          <AnimatedSection className="md:col-start-1 md:row-start-2 text-center md:text-left">
             <p className="text-text-body dark:text-dark-text text-[14px] leading-relaxed">
               {service.description}
             </p>
             {/* Chipy zaufania — spójne z hero strony głównej (audyt podstron
                 2026-07-07). Poprzedni zlepek z kropkami łamał się przypadkowo,
                 a „2 tury poprawek" było nieścisłe dla usług wideo (3 tury). */}
-            <ul className="mt-6 flex flex-wrap gap-1.5 md:gap-2" aria-label="Najważniejsze warunki współpracy">
+            <ul className="mt-6 flex flex-wrap gap-1.5 md:gap-2 justify-center md:justify-start" aria-label="Najważniejsze warunki współpracy">
               <li className="inline-flex items-center gap-1 md:gap-1.5 px-2 md:px-3 py-1 md:py-1.5 rounded-full border border-border dark:border-dark-border text-[11px] md:text-[12px] text-steel dark:text-dark-text-muted">
                 <svg className="w-3 h-3 md:w-3.5 md:h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -101,7 +104,7 @@ export default function ServiceHero({ service, crumbs }: Props) {
               </li>
             </ul>
             {/* CTA na końcu, pod chipami (prośba Marcina, 2026-07-23). */}
-            <div className="mt-5 flex flex-wrap gap-3">
+            <div className="mt-5 flex flex-wrap gap-3 justify-center md:justify-start">
               <a
                 href="#kontakt"
                 data-cta="wycena_hero"
