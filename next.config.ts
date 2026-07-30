@@ -86,15 +86,24 @@ const nextConfig: NextConfig = {
     const oldHost = [
       { type: "host" as const, value: "(www\\.)?marcinszabunia\\.pl" },
     ];
-    // Ruch ze starej domeny kierujemy na stronę główną (lejek sprzedażowy),
-    // a nie na podstrony usług. Wyjątek: /contact → /kontakt (intencja kontaktowa).
+    // Mapowanie tematyczne, wariant A z docs/sesje/LINKI-I-KATALOGI-2026-07-29.md §3.
+    // Decyzja Marcina 2026-07-30, cofa ustalenie z 09.06 („wszystko na stronę główną,
+    // lejek sprzedażowy"). Powód: przekierowanie na stronę niepowiązaną tematycznie jest
+    // dla Google miękkim błędem 404 i NIE przenosi sygnałów rankingowych, więc osiem lat
+    // historii marcinszabunia.pl przepadało. Dowód z GSC (30.07.2026): strona główna stoi
+    // na pozycji 11,83, a każda podstrona usługi na 22-46, mimo własnej treści, JSON-LD
+    // i 4-10 linków wewnętrznych. Najlepiej radzą sobie dwie podstrony, które nie miały
+    // odpowiednika w starej mapie.
+    // Kryterium sukcesu: w 8 tygodni rośnie liczba zapytań, na których wyświetlają się
+    // podstrony /uslugi/*. Punkt odniesienia w docs/sesje/RANKING-CO-NAPRAWIC-2026-07-30.md §1.
+    // Odwracalne jednym commitem.
     const oldDomainMap: { source: string; destination: string }[] = [
       { source: "/strona-glowna", destination: "https://szabunia.pl/" },
-      { source: "/portrety-biznesowe", destination: "https://szabunia.pl/" },
-      { source: "/fotografia-eventowa", destination: "https://szabunia.pl/" },
-      { source: "/zdjecia-produktowe", destination: "https://szabunia.pl/" },
-      { source: "/video", destination: "https://szabunia.pl/" },
-      { source: "/o-mnie", destination: "https://szabunia.pl/" },
+      { source: "/portrety-biznesowe", destination: "https://szabunia.pl/uslugi/wizerunek-portrety" },
+      { source: "/fotografia-eventowa", destination: "https://szabunia.pl/uslugi/eventy-reportaze" },
+      { source: "/zdjecia-produktowe", destination: "https://szabunia.pl/uslugi/fotografia-produktowa" },
+      { source: "/video", destination: "https://szabunia.pl/uslugi/wideo-marketing" },
+      { source: "/o-mnie", destination: "https://szabunia.pl/#o-mnie" },
       { source: "/contact", destination: "https://szabunia.pl/kontakt" },
     ];
     return [
