@@ -376,7 +376,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Profesjonalne portrety biznesowe, headshoty i zdjęcia personal branding dla kadry zarządzającej i liderów.",
     description:
-      "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe, które budują zaufanie: na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Każda sesja poprzedzona jest konsultacją wizerunkową, dzięki której dobieramy stylizację, oświetlenie i klimat dopasowany do branży.",
+      "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe na: na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Każda sesja poprzedzona jest konsultacją wizerunkową, dzięki której dobieramy stylizację, oświetlenie i klimat dopasowany do branży.",
     thumbnail: "/images/portfolio-1.jpg",
     gallery: [
       { src: "/images/portfolio/sesja-wizerunkowa/01.jpg", alt: "Sesja wizerunkowa firmy, portret biznesowy CEO w studiu, Poznań" },
@@ -409,9 +409,9 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     ],
     seo: {
-      title: "Sesja wizerunkowa firmy, Poznań | Szabunia",
+      title: "Przykłady sesji wizerunkowych dla firm | Szabunia",
       description:
-        "Profesjonalne portrety biznesowe i headshoty dla kadry zarządzającej. Sesje w studiu lub mobilnym studio w biurze. Poznań i cała Polska.",
+        "Kadry z sesji wizerunkowych kadry zarządzającej: studio i mobilne studio w biurze klienta. Przykłady realizacji, nie oferta.",
     },
   },
   {
@@ -453,9 +453,9 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     ],
     seo: {
-      title: "Fotografia eventowa, Poznań | Szabunia",
+      title: "Przykłady zdjęć z eventów firmowych | Szabunia",
       description:
-        "Profesjonalna fotografia eventowa: konferencje, targi, gale, bankiety. Reportaż + live editing na Social Media. Poznań i cała Polska.",
+        "Kadry z konferencji, targów, gal i bankietów. Przykłady reportaży z wydarzeń firmowych, w tym zdjęcia przekazywane w trakcie eventu.",
     },
   },
   {
@@ -465,7 +465,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Packshoty na białym tle, zdjęcia kreatywne i aranżacje na e-commerce, katalogi i Social Media.",
     description:
-      "Profesjonalne zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (idealne na marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Pracuję w studiu z pełnym zapleczem oświetleniowym: drobne produkty, meble, elektronika, kosmetyki.",
+      "Zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (idealne na marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Pracuję w studiu z pełnym zapleczem oświetleniowym: drobne produkty, meble, elektronika, kosmetyki.",
     thumbnail: "/images/portfolio-3.jpg",
     gallery: [
       { src: "/images/portfolio/packshoty-produktowe/01.jpg", alt: "Packshot produktowy na białym tle, fotografia produktowa e-commerce, Poznań" },
@@ -497,9 +497,9 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     ],
     seo: {
-      title: "Fotografia produktowa i packshoty, Poznań | Szabunia",
+      title: "Przykłady packshotów i zdjęć produktów | Szabunia",
       description:
-        "Profesjonalne packshoty na białym tle i zdjęcia kreatywne produktów. E-commerce, katalogi, Social Media. Studio w Poznaniu.",
+        "Kadry z sesji produktowych: packshoty na białym tle i zdjęcia kreatywne. Przykłady realizacji dla e-commerce i katalogów.",
     },
   },
   {
@@ -509,7 +509,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Headshoty dla całego zespołu, zdjęcia biura i przestrzeni firmowej. Mobilne studio w Twoim biurze.",
     description:
-      "Profesjonalne headshoty zespołu to fundament employer branding. Przyjeżdżam z mobilnym studiem do Twojego biura, każda osoba potrzebuje zaledwie 10-15 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
+      "Headshoty zespołu to fundament employer branding. Przyjeżdżam z mobilnym studiem do Twojego biura, każda osoba potrzebuje zaledwie 10-15 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
     thumbnail: "/images/portfolio-4.jpg",
     gallery: [
       { src: "/images/portfolio/sesja-korporacyjna/01.jpg", alt: "Sesja korporacyjna, headshoty zespołu w biurze, Poznań" },
@@ -541,9 +541,9 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
     ],
     seo: {
-      title: "Sesja korporacyjna i headshoty zespołu | Szabunia",
+      title: "Przykłady headshotów zespołów w biurze | Szabunia",
       description:
-        "Profesjonalne headshoty zespołu i zdjęcia korporacyjne. Mobilne studio w Twoim biurze. Poznań i cała Polska.",
+        "Kadry z sesji zespołowych realizowanych w biurach klientów. Przykłady spójnych portretów całych zespołów na jednym tle.",
     },
   },
 ];
