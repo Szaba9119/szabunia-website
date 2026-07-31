@@ -367,7 +367,7 @@ export default function CTA() {
                         aria-invalid={!!fieldErrors.name}
                         aria-describedby={fieldErrors.name ? "name-error" : undefined}
                         placeholder="Jan Kowalski / Firma Sp. z o.o."
-                        className={`w-full bg-white dark:bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter transition-colors ${fieldErrors.name ? "border-red-400 focus:border-red-400" : "border-border dark:border-navy-light focus:border-blue"}`}
+                        className={`w-full bg-white dark:bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel dark:placeholder-dark-text-muted font-inter transition-colors ${fieldErrors.name ? "border-red-400 focus:border-red-400" : "border-border dark:border-navy-light focus:border-blue"}`}
                       />
                       {fieldErrors.name && (
                         <p id="name-error" role="alert" className="text-red-600 dark:text-red-400 text-[11px] mt-1">{fieldErrors.name}</p>
@@ -391,7 +391,7 @@ export default function CTA() {
                           aria-invalid={!!fieldErrors.email}
                           aria-describedby={fieldErrors.email ? "email-error" : undefined}
                           placeholder="jan@firma.pl"
-                          className={`w-full bg-white dark:bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter transition-colors ${fieldErrors.email ? "border-red-400 focus:border-red-400" : "border-border dark:border-navy-light focus:border-blue"}`}
+                          className={`w-full bg-white dark:bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel dark:placeholder-dark-text-muted font-inter transition-colors ${fieldErrors.email ? "border-red-400 focus:border-red-400" : "border-border dark:border-navy-light focus:border-blue"}`}
                         />
                         {fieldErrors.email && (
                           <p id="email-error" role="alert" className="text-red-600 dark:text-red-400 text-[11px] mt-1">{fieldErrors.email}</p>
@@ -410,7 +410,7 @@ export default function CTA() {
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="+48 xxx xxx xxx"
-                          className="w-full bg-white dark:bg-white/[0.08] border border-border dark:border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter focus:border-blue transition-colors"
+                          className="w-full bg-white dark:bg-white/[0.08] border border-border dark:border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel dark:placeholder-dark-text-muted font-inter focus:border-blue transition-colors"
                         />
                       </div>
                     </div>
@@ -482,7 +482,7 @@ export default function CTA() {
                         onChange={handleChange}
                         placeholder="Opowiedz krótko o swoim projekcie..."
                         rows={3}
-                        className="w-full bg-white dark:bg-white/[0.08] border border-border dark:border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter resize-none focus:border-blue transition-colors"
+                        className="w-full bg-white dark:bg-white/[0.08] border border-border dark:border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel dark:placeholder-dark-text-muted font-inter resize-none focus:border-blue transition-colors"
                       />
                     </div>
 
@@ -540,7 +540,7 @@ export default function CTA() {
                     <button
                       type="submit"
                       disabled={sending || (TURNSTILE_ENABLED && !turnstileToken)}
-                      className={`w-full bg-gradient-to-br from-blue to-blue-light text-white py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:shadow-blue/40 hover:brightness-110 active:scale-[0.98] disabled:opacity-80 disabled:hover:scale-100 disabled:hover:shadow-none disabled:hover:brightness-100 ${sending ? "disabled:cursor-wait" : "disabled:cursor-not-allowed"}`}
+                      className={`w-full bg-gradient-to-br from-blue to-blue text-white py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:shadow-blue/40 hover:brightness-110 active:scale-[0.98] disabled:opacity-80 disabled:hover:scale-100 disabled:hover:shadow-none disabled:hover:brightness-100 ${sending ? "disabled:cursor-wait" : "disabled:cursor-not-allowed"}`}
                     >
                       {sending ? (
                         <span className="inline-flex items-center gap-2">

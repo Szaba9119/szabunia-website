@@ -481,7 +481,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [
       {
         q: "Czy mogę przysłać produkty kurierem?",
-        a: "Tak, przyjmuję przesyłki kurierskie do studia. Po sesji odsyłam produkty na mój koszt (przy zamówieniach powyżej 1 000 zł).",
+        a: "Tak, przyjmuję przesyłki kurierskie do studia. Koszt przesyłki zwrotnej ustalamy przy wycenie, zależnie od gabarytu i liczby pozycji.",
       },
       {
         q: "Jakie formaty plików otrzymam?",

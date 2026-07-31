@@ -104,7 +104,7 @@ export default function PoradnikForm() {
         <a
           href={PDF_URL}
           download="Poradnik-przygotowanie-do-sesji-Marcin-Szabunia.pdf"
-          className="inline-block bg-gradient-to-br from-blue to-blue-light text-white px-5 py-2.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform"
+          className="inline-block bg-gradient-to-br from-blue to-blue text-white px-5 py-2.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform"
         >
           Pobierz ponownie
         </a>
@@ -148,7 +148,7 @@ export default function PoradnikForm() {
           aria-invalid={!!emailErr}
           aria-describedby={emailErr ? "lead-email-error" : undefined}
           placeholder="jan@firma.pl"
-          className={`w-full bg-white dark:bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel font-inter transition-colors ${emailErr ? "border-red-400 focus:border-red-400" : "border-border dark:border-navy-light focus:border-blue"}`}
+          className={`w-full bg-white dark:bg-white/[0.08] border rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel dark:placeholder-dark-text-muted font-inter transition-colors ${emailErr ? "border-red-400 focus:border-red-400" : "border-border dark:border-navy-light focus:border-blue"}`}
         />
         {emailErr && (
           <p id="lead-email-error" role="alert" className="text-red-600 dark:text-red-400 text-[11px] mt-1">
@@ -171,7 +171,7 @@ export default function PoradnikForm() {
           />
           <span className="text-[11px] text-steel dark:text-dark-text-muted leading-relaxed">
             Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu wysłania poradnika oraz okazjonalnych wskazówek związanych z sesją (zgodę mogę wycofać, pisząc na marcin@szabunia.pl), zgodnie z{" "}
-            <a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer" className="text-blue hover:text-white underline transition-colors">
+            <a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer" className="text-blue dark:text-blue-light hover:text-white underline transition-colors">
               polityką prywatności
             </a>.
           </span>
@@ -211,7 +211,7 @@ export default function PoradnikForm() {
         <button
           type="submit"
           disabled={sending || (TURNSTILE_ENABLED && !turnstileToken)}
-          className={`w-full bg-gradient-to-br from-blue to-blue-light text-white py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform disabled:opacity-70 ${sending ? "disabled:cursor-wait" : "disabled:cursor-not-allowed"}`}
+          className={`w-full bg-gradient-to-br from-blue to-blue text-white py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform disabled:opacity-70 ${sending ? "disabled:cursor-wait" : "disabled:cursor-not-allowed"}`}
         >
           {sending ? (
             <span className="inline-flex items-center gap-2">

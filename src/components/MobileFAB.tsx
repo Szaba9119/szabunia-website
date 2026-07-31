@@ -78,7 +78,7 @@ export default function MobileFAB() {
           onClick={handleCtaClick}
           data-cta="wycena_sticky"
           aria-label="Przejdź do formularza kontaktowego"
-          className="flex items-center gap-2 pl-4 pr-5 py-2.5 bg-gradient-to-br from-blue to-blue-light text-white rounded-full btn-glow font-barlow font-bold text-sm"
+          className="flex items-center gap-2 pl-4 pr-5 py-2.5 bg-gradient-to-br from-blue to-blue text-white rounded-full btn-glow font-barlow font-bold text-sm"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125" />

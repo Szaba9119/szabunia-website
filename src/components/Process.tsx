@@ -78,7 +78,7 @@ export default function Process() {
                     className="flex flex-col items-center text-center"
                   >
                     {/* Number circle */}
-                    <div className="relative z-10 w-14 h-14 rounded-full bg-gradient-to-br from-blue to-blue-light text-white flex items-center justify-center font-barlow font-extrabold text-xl shadow-lg shadow-blue/25 mb-5">
+                    <div className="relative z-10 w-14 h-14 rounded-full bg-gradient-to-br from-blue to-blue text-white flex items-center justify-center font-barlow font-extrabold text-xl shadow-lg shadow-blue/25 mb-5">
                       {step.num}
                     </div>
                     <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border w-full flex-1 hover:border-blue dark:hover:border-blue hover:-translate-y-0.5 transition-all">
@@ -110,7 +110,7 @@ export default function Process() {
               >
                 {/* Vertical line + circle */}
                 <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue to-blue-light text-white flex items-center justify-center font-barlow font-extrabold text-base shadow-md shadow-blue/20 shrink-0 z-10">
+                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue to-blue text-white flex items-center justify-center font-barlow font-extrabold text-base shadow-md shadow-blue/20 shrink-0 z-10">
                     {step.num}
                   </div>
                   {i < steps.length - 1 && (

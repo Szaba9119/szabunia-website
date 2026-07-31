@@ -27,6 +27,11 @@ export default function Services() {
         <AnimatedSection>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {serviceItems.map((s) => {
+              // Kafelek na pełną szerokość: flaga `wide` w danych usługi, nie nazwa slug.
+              // Od 31.07.2026 szerokie są dwie usługi (obiekty i pakiety), więc twarde
+              // porównanie do jednego sluga przestało wystarczać. Plakietka „Bestseller"
+              // zostaje przy samych pakietach, bo tylko tam jest prawdziwa (cennik v3 §2).
+              const isWide = s.wide === true;
               const isPakiet = s.slug === "pakiety-foto-wideo";
               // Wariant C (chowanie zdjęć części usług na mobile) WYCOFANY decyzją
               // Marcina po obejrzeniu (2026-07-06): zdjęcia zawsze widoczne — to
@@ -35,17 +40,17 @@ export default function Services() {
                 <div
                   key={s.title}
                   className={`bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5 group overflow-hidden${
-                    isPakiet ? " sm:col-span-2 md:col-span-3" : ""
+                    isWide ? " sm:col-span-2 md:col-span-3" : ""
                   }`}
                 >
                   <Link
                     href={`/uslugi/${s.slug}`}
-                    className={isPakiet ? "block md:flex md:items-stretch" : "block"}
+                    className={isWide ? "block md:flex md:items-stretch" : "block"}
                   >
                     {s.image && (
                       <div
                         className={`relative overflow-hidden bg-border dark:bg-dark-border ${
-                          isPakiet
+                          isWide
                             ? // 3:2 na md+ = natywna proporcja zdjęcia (zero przycinania);
                               // objectPosition dla mobile ustawiony w SERVICE_TILE_POS.
                               "aspect-video md:aspect-[3/2] md:w-2/5"
@@ -57,7 +62,7 @@ export default function Services() {
                           alt={`${s.title}, przykładowa realizacja`}
                           fill
                           sizes={
-                            isPakiet
+                            isWide
                               ? "(max-width: 768px) 100vw, 40vw"
                               : "(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                           }
@@ -80,7 +85,7 @@ export default function Services() {
                         )}
                       </div>
                     )}
-                    <div className={isPakiet ? "p-6 md:p-8 md:flex-1 md:self-center" : "p-6"}>
+                    <div className={isWide ? "p-6 md:p-8 md:flex-1 md:self-center" : "p-6"}>
                       <div className="flex items-center gap-2.5 mb-2">
                         <div className="w-9 h-9 rounded-lg bg-blue-pale dark:bg-blue/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform" aria-hidden="true">
                           {s.icon}
@@ -117,7 +122,7 @@ export default function Services() {
             <a
               href="#kontakt"
               data-cta="wycena_home_uslugi"
-              className="mt-6 inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]"
+              className="mt-6 inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]"
             >
               Zapytaj o ofertę
               <span className="text-white/80">→</span>

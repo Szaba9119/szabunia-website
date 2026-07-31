@@ -139,7 +139,7 @@ export default function GalleryView({
             className={`px-4 py-2 rounded-full text-[13px] font-barlow font-semibold transition-colors ${
               active === t.key
                 ? "bg-blue text-white"
-                : "bg-blue-pale dark:bg-dark-card text-steel dark:text-dark-text-muted hover:text-navy dark:hover:text-white border border-transparent dark:border-dark-border"
+                : "bg-blue-pale dark:bg-dark-card text-text-body dark:text-dark-text-muted hover:text-navy dark:hover:text-white border border-transparent dark:border-dark-border"
             }`}
           >
             {t.label}

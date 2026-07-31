@@ -567,7 +567,7 @@ export const blogPosts: BlogPost[] = [
       <p>Pracuję na aparacie Canon R6, obiektywach do detalu i packshotu, stole bezcieniowym i studyjnym oświetleniu ciągłym LED Godox. Ten zestaw jest powtarzalny, więc za pół roku możesz dołożyć do katalogu kolejne pozycje w tej samej stylistyce, zamiast fotografować wszystko od nowa.</p>
 
       <h2>Produkty możesz przysłać kurierem</h2>
-      <p>Nie musisz jechać do Poznania z pudłem asortymentu. Przyjmuję przesyłki do studia, a po sesji odsyłam produkty na mój koszt przy zamówieniach powyżej 1 000 zł. To wygodne zwłaszcza przy pierwszej współpracy, kiedy chcesz sprawdzić efekt na kilkunastu pozycjach, zanim zdecydujesz o całym katalogu.</p>
+      <p>Nie musisz jechać do Poznania z pudłem asortymentu. Przyjmuję przesyłki do studia, a koszt przesyłki zwrotnej ustalamy przy wycenie, zależnie od gabarytu i liczby pozycji. To wygodne zwłaszcza przy pierwszej współpracy, kiedy chcesz sprawdzić efekt na kilkunastu pozycjach, zanim zdecydujesz o całym katalogu.</p>
 
       <h2>Jakie pliki dostajesz</h2>
       <p>Standardowo JPEG w pełnej rozdzielczości plus wersja zoptymalizowana pod web, żeby karta produktu nie ładowała się w nieskończoność. Na życzenie dokładam PNG z przezroczystym tłem i TIFF do druku. Surowych plików RAW nie przekazuję: dostajesz materiał po autorskiej postprodukcji, czyli gotowy produkt, a nie półprodukt do obróbki po Twojej stronie.</p>
@@ -657,7 +657,7 @@ export const blogPosts: BlogPost[] = [
       <p>Jeśli masz już surowy materiał, mogę zająć się wyłącznie postprodukcją: cięciem, kolorem, napisami i muzyką. Dotyczy to również nagrań z telefonu, które w firmach powstają najczęściej. Wycena zależy wtedy od długości i złożoności finalnego materiału, a nie od czasu zdjęciowego. To sensowna opcja, kiedy masz archiwum z eventu, którego nikt nigdy nie zmontował.</p>
 
       <h2>Regularne wideo zamiast jednorazowego zrywu</h2>
-      <p>Jeden film raz w roku rzadko buduje obecność. Przy stałych potrzebach contentowych sprawdza się comiesięczna współpraca: cykliczny dzień zdjęciowy i montaż serii krótkich materiałów. Firma wie, ile płaci co miesiąc, a ja mogę planować ujęcia z wyprzedzeniem, zamiast reagować na zgłoszenia z tygodnia na tydzień.</p>
+      <p>Jeden film raz w roku rzadko buduje obecność. Przy stałych potrzebach contentowych sprawdza się ustalenie wolumenu na rok z góry: firma deklaruje, ile realizacji planuje, a ja rezerwuję terminy i trzymam dzisiejsze ceny na całość. Każdą realizację rozliczamy osobno, więc nie płacicie za materiał, którego nie zamówiliście, a ja mogę planować ujęcia z wyprzedzeniem, zamiast reagować na zgłoszenia z tygodnia na tydzień.</p>
 
       <h2>Ile kosztuje wideo dla firmy</h2>
       <p>Produkcja wideo zaczyna się od 400 zł netto. Na wycenę pracują dwie rzeczy: czas nagrania oraz długość i złożoność finalnego materiału, od krótkiego teasera po kilkuminutowy film. Krótko mówiąc, minuta gotowego materiału to nie minuta pracy, tylko kilka godzin zdjęciowych i montażowych, i to widać w wycenie.</p>

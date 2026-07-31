@@ -37,7 +37,7 @@ export default function PrivacyPolicy() {
   return (
     <>
       <Navigation />
-      <main className="pt-28 pb-16 px-4">
+      <main id="main" className="pt-28 pb-16 px-4">
         <div className="max-w-3xl mx-auto">
           <Link
             href="/"

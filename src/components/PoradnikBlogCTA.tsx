@@ -28,7 +28,7 @@ export default function PoradnikBlogCTA() {
         </p>
         <Link
           href="/poradnik"
-          className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-5 py-2.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform"
+          className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-5 py-2.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform"
         >
           Pobierz poradnik
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

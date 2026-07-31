@@ -192,7 +192,7 @@ export default async function ServicePage({ params }: PageProps) {
           <a
             href="#kontakt"
             data-cta="wycena_uslugi"
-            className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
+            className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
           >
             Zapytaj o ofertę
             <span className="text-white/80">→</span>

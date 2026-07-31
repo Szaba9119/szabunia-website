@@ -49,9 +49,16 @@ export interface ServiceData {
   priceFaqIntro: string;
   /** Opcjonalny dalszy ciąg PIERWSZEGO zdania odpowiedzi, doklejany zaraz po "{price} netto" i przed kropką. */
   priceFaqSuffix?: string;
+  /** Kafelek na pełną szerokość rzędu w siatce na stronie głównej.
+      Siatka ma trzy kolumny, więc liczba WĄSKICH kafelków musi dzielić się przez trzy,
+      inaczej w ostatnim rzędzie zostaje „sierota" (zgłoszone przez Marcina 30.07.2026).
+      Przy ośmiu usługach: sześć wąskich (dwa pełne rzędy) + dwa szerokie na dole.
+      Szerokie są dwie najlepsze marżowo linie: obiekty (ok. 190 zł/h) i pakiety hybrydowe.
+      Plakietka „Bestseller" zostaje WYŁĄCZNIE przy pakietach, bo tylko dla nich jest prawdziwa. */
+  wide?: boolean;
   faqs: FAQItem[];
   portfolioSlug?: string;
-  galleryCategory?: "portrety" | "eventy" | "produktowe" | "wideo" | "dron" | "zespolowe";
+  galleryCategory?: "portrety" | "eventy" | "produktowe" | "wideo" | "dron" | "zespolowe" | "obiekty";
   /** YouTube ID przykładowego filmu pokazywanego na podstronie usługi. */
   videoId?: string;
   videoTitle?: string;
@@ -105,7 +112,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ),
     heroImage: "/images/galeria/eventy/event-05.jpg",
     heroImagePos: "center 20%",
-    price: "od 600 zł",
+    price: "od 600 zł netto",
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
       { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
@@ -152,7 +159,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       </svg>
     ),
     heroImage: "/images/portfolio/sesje-zespolowe-cover.jpg",
-    price: "od 120 zł/os.",
+    price: "od 120 zł netto/os.",
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram i liczbę osób" },
       { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio w biurze (20 min)" },
@@ -204,7 +211,8 @@ const serviceCategoriesRaw: ServiceData[] = [
       </svg>
     ),
     heroImage: "/images/galeria/eventy/event-01.jpg",
-    price: "od 2 100 zł",
+    price: "od 2 100 zł netto",
+    wide: true,
     process: [
       { num: 1, title: "Rozmowa", desc: "Cel, kanały, formaty wideo i foto" },
       { num: 2, title: "Realizacja", desc: "Sesja foto + nagranie wideo w jednym dniu" },
@@ -218,7 +226,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     faqs: [
       { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkim briefie podaję jedną, konkretną wycenę w kilku wariantach." },
       { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Tak, pracuję w modelu one-man-band. Dzięki temu materiał jest spójny wizualnie, a Ty masz jedną osobę kontaktową zamiast dwóch ekip." },
-      { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak, przy serii eventów koryguję zakres do realnych potrzeb projektu, np. stałą, comiesięczną współpracę contentową. Wycena po krótkim briefie." },
+      { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak. Przy serii wydarzeń koryguję zakres do realnych potrzeb projektu. Jeśli realizacje wracają co roku, możemy umówić wolumen z góry: deklarujecie liczbę wydarzeń, ja rezerwuję terminy i trzymam dzisiejsze ceny na całość. Wycena po krótkim briefie." },
       { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Dogrywamy dodatkowe godziny przed eventem, dokładam je do wyceny na etapie briefu." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 (foto i wideo równolegle, z zapisem na dwie karty), obiektywy Sigma, Tamron i Tokina od 16 do 200 mm, oświetlenie Godox, dźwięk Rode i Zoom oraz dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC. Jeden zestaw obsługuje całe wejście foto, wideo i dron." },
     ],
@@ -251,7 +259,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ),
     heroImage: "/images/galeria/portrety/portret-05.jpg",
     heroImagePos: "center 20%",
-    price: "od 1 100 zł",
+    price: "od 1 100 zł netto",
     heroPriceLabel: "pakiety od 1 100 zł",
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
@@ -304,7 +312,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ),
     heroImage: "/images/galeria/eventy/event-16.jpg",
     heroImagePos: "40% center",
-    price: "od 400 zł",
+    price: "od 400 zł netto",
     process: [
       { num: 1, title: "Concept", desc: "Cel, format, platforma docelowa" },
       { num: 2, title: "Nagranie", desc: "Ujęcia, światło i dźwięk" },
@@ -312,7 +320,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 4, title: "Dostawa", desc: "Gotowe materiały w 21 dni" },
     ],
     pricingBlurb:
-      "Wycena zależy od czasu nagrania oraz długości i złożoności finalnego materiału: od krótkiego teasera po kilkuminutowy film. Przy regularnych potrzebach wideo możliwa jest też stała, comiesięczna współpraca.",
+      "Wycena zależy od czasu nagrania oraz długości i złożoności finalnego materiału: od krótkiego teasera po kilkuminutowy film. Przy regularnych potrzebach wideo można ustalić wolumen na cały rok, z rezerwacją terminów i ceną zamrożoną na ten okres.",
     priceFaqQuestion: "Ile kosztuje film promocyjny dla firmy?",
     priceFaqIntro: "Produkcja wideo zaczyna się",
     faqs: [
@@ -350,7 +358,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       </svg>
     ),
     heroImage: "/images/galeria/produktowe/produkt-13.jpg",
-    price: "od 600 zł",
+    price: "od 600 zł netto",
     process: [
       { num: 1, title: "Rozmowa", desc: "Cel, platforma sprzedaży, wytyczne marki" },
       { num: 2, title: "Sesja", desc: "Fotografowanie w studiu z kontrolą światła" },
@@ -363,7 +371,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqIntro: "Sesje produktowe zaczynają się",
     priceFaqSuffix: " i tyle wynosi też minimalna wartość zamówienia",
     faqs: [
-      { q: "Czy mogę przysłać produkty kurierem?", a: "Tak, przyjmuję przesyłki do studia. Po sesji odsyłam na mój koszt (przy zamówieniach powyżej 1 000 zł)." },
+      { q: "Czy mogę przysłać produkty kurierem?", a: "Tak, przyjmuję przesyłki do studia. Koszt przesyłki zwrotnej ustalamy przy wycenie, zależnie od gabarytu i liczby pozycji." },
       { q: "Jakie formaty plików otrzymam?", a: "JPEG w pełnej rozdzielczości + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku." },
       { q: "Ile produktów dziennie jesteś w stanie zrealizować?", a: "Packshoty na białym tle: 30-50 produktów/dzień. Zdjęcia kreatywne: 8-15 ujęć/dzień." },
       { q: "Czym różni się fotografia produktowa od fotografii reklamowej?", a: "Fotografia produktowa pokazuje produkt wprost, packshot na białym tle do sklepu czy katalogu. Fotografia reklamowa buduje wokół produktu historię: aranżacja, rekwizyty, światło pod konkretną kampanię. Zdjęcia reklamowe wyceniam według pola eksploatacji, inaczej na Social Media, inaczej do druku i na outdoor." },
@@ -386,11 +394,10 @@ const serviceCategoriesRaw: ServiceData[] = [
     videoNote: "Film z eventu dla Woohoo. Ujęcia z drona łączą się tu z materiałem z poziomu ziemi w jeden spójny film.",
     title: "Zdjęcia i wideo z drona",
     subtitle:
-      "Ujęcia z powietrza: budynki i obiekty firmowe, tereny, eventy i architektura. Foto i wideo w 4K.",
+      "Ujęcia z powietrza: tereny, place, panoramy i skala wydarzeń. Foto i wideo w 4K.",
     description:
-      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, tereny i place, inwestycje budowlane, architektura oraz ujęcia eventowe. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego dnia powstaje spójny komplet zdjęć i wideo.",
+      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: tereny i place, panoramy, skala wydarzeń oraz przebitki 4K do montażu własnego. Jeśli fotografujecie konkretny budynek, a nie teren, właściwsza będzie sesja obiektu: dochodzą do niej kadry z poziomu ziemi i retusz architektoniczny. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego dnia powstaje spójny komplet zdjęć i wideo.",
     forWhom: [
-      "Deweloperzy i firmy budowlane (postęp prac, inwestycje)",
       "Hotele, ośrodki i obiekty turystyczne",
       "Firmy przemysłowe i logistyczne (tereny, hale, place)",
       "Organizatorzy eventów (skala wydarzenia)",
@@ -410,7 +417,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     // Sprzedajemy deliverable, nie czas lotu — bez „1h lotu w cenie".
     heroImage: "/images/galeria/dron/dron-05-panorama-poznania-zachod-slonca.jpg",
     heroImagePos: "65% center",
-    price: "od 700 zł",
+    price: "od 700 zł netto",
     process: [
       { num: 1, title: "Brief i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
       { num: 2, title: "Lot", desc: "Zdjęcia i wideo 4K z powietrza" },
@@ -431,7 +438,58 @@ const serviceCategoriesRaw: ServiceData[] = [
     portfolioSlug: "woohoo-autopay",
     seo: {
       title: "Zdjęcia i wideo z drona dla firm | Szabunia",
-      description: "Ujęcia 4K budynków, terenów, inwestycji i eventów. Certyfikat A1/A3 i OC operatora. Dron w cenie pakietów hybrydowych. Poznań i cała Polska.",
+      description: "Ujęcia 4K terenów, placów, panoram i eventów. Certyfikat A1/A3 i OC operatora. Dron w cenie pakietów hybrydowych. Poznań i cała Polska.",
+    },
+  },
+  {
+    slug: "wnetrza-obiekty-architektura",
+    h2Process: "Jak wygląda sesja obiektu",
+    h2Faq: "Fotografia obiektów: najczęstsze pytania",
+    h1: "Fotografia wnętrz, obiektów i architektury",
+    galleryCategory: "obiekty",
+    title: "Wnętrza, obiekty i architektura",
+    subtitle:
+      "Dokumentacja hal, budynków i wnętrz. Dwie perspektywy z jednego planu: z powietrza i z poziomu ziemi.",
+    description:
+      "Hala, którą właśnie oddaliście, czyta się dopiero z góry. Z poziomu ziemi nie widać ani układu placu, ani skali, ani tego, jak obiekt siedzi w otoczeniu. Fotografuję obiekty w dwóch perspektywach z jednego dnia zdjęciowego: ujęcia lotnicze pokazują bryłę, dach i kontekst lokalizacji, kadry naziemne pokazują elewację, wjazd i detal wykonania. Do tego blok wnętrz, jeśli budynek ma je czym pokazać. Każde zdjęcie przechodzi retusz architektoniczny: korekta perspektywy, prostowanie linii, czyszczenie kadru. Pliki dostajecie w dwóch wersjach, do druku i pod stronę.",
+    forWhom: [
+      "Generalni wykonawcy hal i obiektów przemysłowych",
+      "Deweloperzy mieszkaniowi i komercyjni",
+      "Zarządcy i agencje nieruchomości komercyjnych",
+      "Producenci z własnymi zakładami",
+      "Hotele, gastronomia i przestrzenie eventowe",
+    ],
+    icon: (
+      <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+      </svg>
+    ),
+    heroImage: "/images/galeria/dron/dron-03-nowoczesny-budynek-poznan.jpg",
+    price: "od 900 zł netto",
+    heroPriceLabel: "pakiety od 900 zł",
+    wide: true,
+    process: [
+      { num: 1, title: "Ustalenia", desc: "Co ma być widać: bryła, elewacja, wnętrza, kontekst lokalizacji" },
+      { num: 2, title: "Zgody", desc: "Strefę lotu sprawdzam i koordynuję przed potwierdzeniem daty" },
+      { num: 3, title: "Dzień zdjęciowy", desc: "Ujęcia z powietrza i z poziomu ziemi, statyw i światło zastane" },
+      { num: 4, title: "Dostawa", desc: "Retusz architektoniczny, pliki do druku i pod www" },
+    ],
+    pricingBlurb:
+      "Wycena zależy od liczby ujęć i od tego, czy dochodzą kadry z poziomu ziemi oraz blok wnętrz. Drugi obiekt tego samego typu w tym samym dniu jest tańszy, bo profil korekcji perspektywy jest już gotowy. Przy obiektach w strefach kontrolowanych koordynację lotu biorę na siebie.",
+    priceFaqQuestion: "Ile kosztuje sesja obiektu?",
+    priceFaqIntro: "Pakiety obiektowe zaczynają się",
+    faqs: [
+      { q: "Czym to się różni od zdjęć z drona?", a: "Sesja dronowa to ujęcia z powietrza i tyle. Sesja obiektu łączy powietrze z poziomem ziemi i dokłada retusz architektoniczny, czyli korektę perspektywy i prostowanie linii. Przy budynku to jest różnica między ładnym ujęciem a dokumentacją, którą wstawicie do oferty i do katalogu. Jeśli potrzebujecie samego ujęcia terenu albo panoramy, tańsza będzie sesja dronowa." },
+      { q: "Ile ujęć dostanę?", a: "Pakiet podstawowy to do 8 ujęć z powietrza. Kompletny to do 14: osiem z powietrza i sześć z poziomu ziemi. Pełny to do 24 ujęć, z blokiem wnętrz. Każde dodatkowe ujęcie ponad pakiet wyceniam osobno." },
+      { q: "Mamy dwa takie same budynki. Płacę dwa razy?", a: "Nie. Drugi obiekt tego samego typu, fotografowany tego samego dnia, jest tańszy o 300 zł, bo profil korekcji perspektywy jest gotowy z pierwszego i postprodukcja idzie szybciej. Warunek to ten sam dzień zdjęciowy. Osobny wyjazd to pełna stawka plus dojazd." },
+      { q: "Czy dron poleci nad naszą halą?", a: "W standardowych lokalizacjach tak, bez dopłat. W strefach kontrolowanych, na przykład w sąsiedztwie lotniska albo jednostki wojskowej, koordynację biorę na siebie i sprawdzam ją przed potwierdzeniem daty. Zgoda bywa terminowa, więc warto zgłosić się z wyprzedzeniem. Jeśli pogoda albo brak zgody uniemożliwi wylot, wracam raz w ramach ustalonej kwoty." },
+      { q: "Kiedy najlepiej fotografować obiekt?", a: "Tuż przed odbiorem albo zaraz po nim. Elewacja jest wtedy czysta, plac jeszcze niezastawiony, a w środku nie ma jeszcze rzeczy najemcy. Przy budowie, którą chcecie dokumentować w czasie, umawiamy stały punkt i stałą porę, żeby ujęcia złożyły się w jedną sekwencję zamiast w zbiór przypadkowych zdjęć." },
+      { q: "Czy fotografujecie też wnętrza biur i lokali?", a: "Tak, jako blok wnętrz do 10 ujęć w jednym obiekcie. Pracuję ze światłem zastanym, żeby wnętrze wyglądało jak w rzeczywistości, a nie jak wizualizacja. Blok wnętrz można dołożyć do sesji obiektu albo zamówić osobno." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro z sensorem 1 cala i matrycą 50 Mpix, certyfikat operatora A1/A3 i ubezpieczenie OC. Z poziomu ziemi Canon R6 na statywie, obiektywy szerokie do wnętrz i elewacji." },
+    ],
+    seo: {
+      title: "Fotografia hal, obiektów i wnętrz, Poznań | Szabunia",
+      description: "Zdjęcia hal, budynków i wnętrz z powietrza i z poziomu ziemi. Retusz architektoniczny, pliki do druku i pod www. Poznań i cała Polska.",
     },
   },
 ];
@@ -476,6 +534,7 @@ const SERVICE_DISPLAY_ORDER: string[] = [
   "wideo-marketing",
   "fotografia-produktowa",
   "zdjecia-wideo-z-drona",
+  "wnetrza-obiekty-architektura",
   "pakiety-foto-wideo",
 ];
 
@@ -514,7 +573,8 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
   // Wersja 4:3 z rozmytym wypełnieniem — pełny napis „E-COMMERCE All in"
   // widoczny, bez ucinania i bez pustych marginesów (oryginał 16:9).
   "wideo-marketing": "/images/portfolio/woohoo-ecommerce-4x3.jpg",
-  "zdjecia-wideo-z-drona": "/images/galeria/dron/dron-04-biurowiec-poznan.jpg",
+  "zdjecia-wideo-z-drona": "/images/galeria/dron/dron-05-panorama-poznania-zachod-slonca.jpg",
+  "wnetrza-obiekty-architektura": "/images/galeria/dron/dron-08-inwestycja-tereny-zielone-poznan.jpg",
 };
 
 // Punkt kadrowania miniatury (object-position). Wizerunek kadrujemy nieco wyżej
@@ -535,6 +595,7 @@ export const serviceItems = serviceCategories.map((s) => ({
   icon: s.icon,
   desc: s.subtitle,
   price: s.price,
+  wide: s.wide === true,
   image: SERVICE_TILE_IMAGES[s.slug],
   imagePos: SERVICE_TILE_POS[s.slug] ?? "center",
 }));

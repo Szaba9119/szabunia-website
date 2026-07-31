@@ -137,7 +137,7 @@ export default function Navigation() {
           <Link
             href="/kontakt"
             data-cta="wycena_navbar"
-            className="bg-gradient-to-br from-blue to-blue-light text-white px-5 py-2 rounded-full font-barlow font-semibold text-xs btn-glow whitespace-nowrap"
+            className="bg-gradient-to-br from-blue to-blue text-white px-5 py-2 rounded-full font-barlow font-semibold text-xs btn-glow whitespace-nowrap"
           >
             Zapytaj o ofertę
           </Link>
@@ -247,7 +247,7 @@ export default function Navigation() {
             href="/kontakt"
             data-cta="wycena_navbar"
             onClick={() => closeMobileMenu()}
-            className="mt-5 block bg-gradient-to-br from-blue to-blue-light text-white px-5 py-3.5 rounded-xl font-barlow font-semibold text-[15px] text-center btn-glow"
+            className="mt-5 block bg-gradient-to-br from-blue to-blue text-white px-5 py-3.5 rounded-xl font-barlow font-semibold text-[15px] text-center btn-glow"
           >
             Zapytaj o ofertę
           </Link>

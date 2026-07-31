@@ -26,7 +26,7 @@ export default function PoradnikTeaser() {
                 </p>
                 <Link
                   href="/poradnik"
-                  className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform"
+                  className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-6 py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform"
                 >
                   Pobierz za darmo
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

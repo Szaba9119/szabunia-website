@@ -71,17 +71,18 @@ export default function CookieConsent() {
           </p>
         </div>
         <div className="flex gap-2 shrink-0">
-          {/* Odrzuć wizualnie równorzędny z Akceptuję (wytyczne EDPB dot. dark patterns):
-              ta sama waga typograficzna, pełne obramowanie, ten sam efekt hover — różni się tylko kolorem. */}
+          {/* Odrzuć równorzędny z Akceptuję: 2026-07-31 zrównana także waga wizualna (oba wypełnione)
+              i szerokość (min-w), oraz wysokość do 44 px. Wcześniej Odrzuć był 80x38 px w wariancie
+              wtórnym, a Akceptuję 96x38 px z gradientem — finding UX2607-06. */}
           <button
             onClick={decline}
-            className="px-4 py-2 text-[13px] font-barlow font-semibold text-navy dark:text-white bg-gray-bg dark:bg-dark-card-hover border border-navy/30 dark:border-white/30 rounded-xl hover:scale-[1.02] transition-transform"
+            className="min-w-[112px] px-4 py-3 text-[13px] font-barlow font-semibold text-white bg-navy dark:bg-dark-card-hover border border-navy dark:border-white/30 rounded-xl hover:scale-[1.02] transition-transform"
           >
             Odrzuć
           </button>
           <button
             onClick={accept}
-            className="px-4 py-2 text-[13px] font-barlow font-semibold text-white bg-gradient-to-br from-blue to-blue-light rounded-xl hover:scale-[1.02] transition-transform"
+            className="min-w-[112px] px-4 py-3 text-[13px] font-barlow font-semibold text-white bg-blue rounded-xl hover:scale-[1.02] transition-transform"
           >
             Akceptuję
           </button>

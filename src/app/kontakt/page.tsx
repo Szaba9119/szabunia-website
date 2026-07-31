@@ -112,7 +112,7 @@ export default function KontaktPage() {
               <a
                 href="tel:+48514900688"
                 data-cta="tel_kontakt_hero"
-                className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-5 py-2.5 rounded-full font-barlow font-semibold text-sm btn-glow"
+                className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-5 py-2.5 rounded-full font-barlow font-semibold text-sm btn-glow"
               >
                 Zadzwoń: +48 514 900 688
               </a>
@@ -152,7 +152,7 @@ export default function KontaktPage() {
                 <h2 className="font-barlow font-extrabold text-lg text-navy dark:text-white mb-1">
                   Nie wiesz, czego potrzebujesz?
                 </h2>
-                <p className="text-[14px] text-steel dark:text-dark-text-muted leading-relaxed">
+                <p className="text-[14px] text-text-body dark:text-dark-text-muted leading-relaxed">
                   Przejrzyj pełną ofertę dla firm i napisz, co Cię interesuje,
                   wstępną wycenę przygotuję w 24h.
                 </p>
@@ -160,7 +160,7 @@ export default function KontaktPage() {
               <div className="flex flex-wrap gap-3 shrink-0">
                 <Link
                   href="/uslugi"
-                  className="bg-gradient-to-br from-blue to-blue-light text-white px-5 py-2.5 rounded-full font-barlow font-semibold text-sm btn-glow"
+                  className="bg-gradient-to-br from-blue to-blue text-white px-5 py-2.5 rounded-full font-barlow font-semibold text-sm btn-glow"
                 >
                   Oferta dla firm →
                 </Link>

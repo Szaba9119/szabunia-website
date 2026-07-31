@@ -30,6 +30,11 @@ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string
     sub: "Wybrane kadry z powietrza: biurowce, osiedla i inwestycje w Poznaniu.",
     alt: "Zdjęcia z drona, Poznań, Marcin Szabunia",
   },
+  obiekty: {
+    label: "Przykłady z galerii: obiekty i architektura",
+    sub: "Budynki, osiedla i inwestycje w Poznaniu, fotografowane z powietrza.",
+    alt: "Fotografia obiektu i architektury, Marcin Szabunia, Poznań",
+  },
   zespolowe: {
     label: "Przykłady z sesji zespołowej",
     sub: "Ten sam standard światła i retuszu, trzy tła: białe, czarne z niebieskim światłem i kremowe. Realizacja dla IDcom Group.",
@@ -65,6 +70,19 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
     "dron-07-osiedle-mieszkaniowe-poznan",
     "dron-05-panorama-poznania-zachod-slonca",
   ].map((n) => `/images/galeria/dron/${n}.jpg`),
+  // Te same pliki co w galerii dronowej: osiem z dziewięciu kadrów w folderze `dron`
+  // to budynki i inwestycje, nie tereny (sprawdzone 2026-07-31). Wskazujemy je stąd
+  // zamiast kopiować pliki: jeden plik na dysku, dwa konteksty użycia. Panorama
+  // (`dron-05`) świadomie NIE wchodzi tutaj, bo to jedyny kadr, który jest terenem,
+  // i zostaje wyróżnikiem galerii dronowej.
+  obiekty: [
+    "dron-02-wiezowiec-biurowy-poznan",
+    "dron-04-biurowiec-poznan",
+    "dron-08-inwestycja-tereny-zielone-poznan",
+    "dron-01-centrum-poznania-biurowce",
+    "dron-06-apartamenty-nad-rzeka-poznan",
+    "dron-09-nowoczesne-osiedle-poznan",
+  ].map((n) => `/images/galeria/dron/${n}.jpg`),
   // Sesja dla IDcom: po kolei trzy tła (białe, czarne z niebieskim, kremowe), jedna osoba na kadr.
   zespolowe: [
     "/images/portfolio/idcom/_F2A9424-Edit-2.jpg", // 1. białe tło
@@ -78,7 +96,13 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
 
 export default function ServiceGalleryStrip({ category }: { category: GalleryCategoryKey }) {
   const meta = META[category];
-  const href = category === "zespolowe" ? "/portfolio/idcom-headshoty-zespolu" : `/galeria?kat=${category}`;
+  // `obiekty` nie ma własnego folderu w public/images/galeria, bo korzysta z plików
+  // kategorii `dron` (patrz CURATED). Link „zobacz więcej" musi prowadzić tam, gdzie
+  // te zdjęcia faktycznie są, inaczej trafia na pustą filtrowaną galerię.
+  const href =
+    category === "zespolowe"
+      ? "/portfolio/idcom-headshoty-zespolu"
+      : `/galeria?kat=${category === "obiekty" ? "dron" : category}`;
 
   if (category === "wideo") {
     const vids = galleryVideos.slice(0, 4);
@@ -125,7 +149,7 @@ export default function ServiceGalleryStrip({ category }: { category: GalleryCat
         aspectClass={
           category === "portrety" || category === "zespolowe"
             ? "aspect-[3/4]"
-            : category === "eventy" || category === "dron"
+            : category === "eventy" || category === "dron" || category === "obiekty"
             ? "aspect-[4/3]"
             : "aspect-square"
         }

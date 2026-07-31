@@ -66,7 +66,7 @@ export default function PortfolioVideoShowcase({
               <div className="mt-7 flex flex-wrap gap-3 justify-center md:justify-start">
                 <a
                   href="#kontakt"
-                  className="bg-gradient-to-br from-blue to-blue-light text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
+                  className="bg-gradient-to-br from-blue to-blue text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
                 >
                   Zapytaj o podobną realizację
                 </a>

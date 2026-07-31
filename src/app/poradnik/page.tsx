@@ -168,7 +168,7 @@ export default function PoradnikPage() {
                     Wolisz od razu umówić sesję?
                   </p>
                   <div className="flex flex-wrap gap-3">
-                    <Link href="/uslugi/wizerunek-portrety" className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue-light text-white px-5 py-2.5 rounded-xl font-barlow font-bold text-[13px] btn-glow hover:scale-[1.02] transition-transform">
+                    <Link href="/uslugi/wizerunek-portrety" className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-5 py-2.5 rounded-xl font-barlow font-bold text-[13px] btn-glow hover:scale-[1.02] transition-transform">
                       Zobacz ofertę portretów <span className="text-white/80">→</span>
                     </Link>
                     <Link href="/galeria" className="inline-flex items-center gap-2 border border-border dark:border-dark-border text-navy dark:text-white px-5 py-2.5 rounded-xl font-barlow font-semibold text-[13px] hover:border-blue dark:hover:border-blue transition-colors">

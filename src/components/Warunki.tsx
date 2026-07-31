@@ -7,6 +7,10 @@ import AnimatedSection from "./AnimatedSection";
 // wydzielone z Process.tsx i przeniesione na koniec ścieżki decyzyjnej
 // (home: po FAQ, przed formularzem; /galeria: po cenniku). Treść w jednym
 // miejscu — to NIE jest powrót starego, zduplikowanego Warunki.tsx.
+// 2026-07-31: sześć kart przepisanych wg cennik_2026_07_v3 (findingi UX2607-08).
+// Doszły: definicja tury poprawek, stawka 200 zł/h, RAW +30%, licencja niewyłączna,
+// limit jednej bezpłatnej zmiany terminu, kara 100% w dniu realizacji.
+// Model rozliczenia zostaje „po pierwszym retuszu" z opcją wcześniejszej proformy (decyzja Marcina 31.07).
 export default function Warunki() {
   // Mobile: 6 kart zwiniętych za przyciskiem (~1 ekran telefonu mniej);
   // na md+ zawsze rozwinięte.
@@ -51,7 +55,7 @@ export default function Warunki() {
                 Rozliczenia
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Po pierwszym retuszu wysyłam proformę razem z podglądem materiału, jeszcze ze znakiem wodnym. Masz 7 dni na akceptację, brak odpowiedzi oznacza akceptację. Po opłacie dostajesz komplet plików bez znaku wodnego, w pełnej rozdzielczości, oraz fakturę VAT przez Useme.
+                Po pierwszym retuszu wysyłam proformę razem z podglądem materiału, jeszcze ze znakiem wodnym. Masz 7 dni na akceptację, brak odpowiedzi oznacza akceptację. Po opłacie dostajesz komplet plików bez znaku wodnego, w pełnej rozdzielczości, oraz fakturę VAT przez Useme. Jeśli wolisz rozliczyć się wcześniej, wystawiam proformę od razu po akceptacji wyceny.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">
@@ -62,7 +66,7 @@ export default function Warunki() {
                 Czas realizacji
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Zdjęcia: 14 dni. Wideo: 21 dni. Ekspres do 48h: +50% wartości zlecenia.
+                Zdjęcia: 14 dni kalendarzowych. Wideo: 21 dni kalendarzowych. Ekspres do 48h: +50% wartości zlecenia. Poprawki realizuję w ciągu 7 dni od zgłoszenia i nie liczę terminu podstawowego od nowa.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">
@@ -73,7 +77,7 @@ export default function Warunki() {
                 Poprawki
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Zdjęcia: 2 tury w cenie. Wideo: 3 tury w cenie. Dodatkowe poprawki: wyceniane indywidualnie.
+                Zdjęcia: 2 tury w cenie. Wideo: 3 tury w cenie. Tura to korekta w obrębie już wybranego materiału: jasność, kadrowanie, retusz detalu, tempo montażu, napisy, muzyka. Zmiana wyboru kadrów po rozpoczęciu pracy to nowy zakres, nie poprawka. Praca nad zmianami ponad limit: 200 zł netto za rozpoczętą godzinę.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">
@@ -84,7 +88,7 @@ export default function Warunki() {
                 Pliki
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Pełna jakość + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku. Nie udostępniam RAW.
+                Pełna jakość + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku. Pliki surowe (RAW) nie wchodzą w cenę, pełny zestaw to +30% wartości zlecenia i decyzja przed sesją. Licencja niewyłączna, bez limitu czasowego, na własny użytek; przeniesienie praw majątkowych +50%.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">
@@ -95,7 +99,7 @@ export default function Warunki() {
                 Odwołanie
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Bezpłatna zmiana terminu min. 48h przed sesją. Odwołanie &lt;48h: 50% wartości. Archiwizacja gotowych plików: 1 rok. Po pełnej akceptacji dzieła masz do 7 dni na dodatkowe poprawki.
+                Zmiana terminu min. 48h przed sesją: bezpłatna jednorazowo, każda kolejna 20% wartości zlecenia. Odwołanie &lt;48h: 50% wartości. Odwołanie w dniu realizacji albo niestawienie się osób fotografowanych: 100% wartości. Archiwizacja gotowych plików: 1 rok.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">
@@ -107,7 +111,7 @@ export default function Warunki() {
                 Dojazd
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Poznań i okolice: 0 zł. Poza Poznaniem: 2,50 zł/km (w obie strony). Europa i zagranica: koszty ustalane indywidualnie.
+                Poznań: 0 zł. Poza Poznaniem: 2,50 zł/km (w obie strony), liczone od granic miasta. Europa i zagranica: koszty ustalane indywidualnie.
               </p>
             </div>
           </div>
