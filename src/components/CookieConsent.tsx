@@ -57,7 +57,7 @@ export default function CookieConsent() {
       aria-label="Informacja o plikach cookie"
       className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"
     >
-      <div className="max-w-3xl mx-auto bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border shadow-xl shadow-navy/10 dark:shadow-black/30 p-5 md:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <div className="max-w-3xl mx-auto bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border shadow-xl shadow-navy/10 dark:shadow-black/30 p-5 md:p-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
         <div className="flex-1 min-w-0">
           <p className="text-[13px] text-text-body dark:text-dark-text leading-relaxed">
             Ta strona korzysta z plików cookie w celu zapewnienia prawidłowego
@@ -70,19 +70,22 @@ export default function CookieConsent() {
             </a>
           </p>
         </div>
-        <div className="flex gap-2 shrink-0">
+        {/* Mobile: przyciski na pełną szerokość karty, po połowie. Wcześniej trzymały się
+              lewej krawędzi z pustym miejscem po prawej, co odstawało od reszty strony
+              (zgłoszone przez Marcina 31.07). Od sm w górę bez zmian. */}
+        <div className="flex gap-2 w-full sm:w-auto shrink-0">
           {/* Odrzuć równorzędny z Akceptuję: 2026-07-31 zrównana także waga wizualna (oba wypełnione)
               i szerokość (min-w), oraz wysokość do 44 px. Wcześniej Odrzuć był 80x38 px w wariancie
               wtórnym, a Akceptuję 96x38 px z gradientem — finding UX2607-06. */}
           <button
             onClick={decline}
-            className="min-w-[112px] px-4 py-3 text-[13px] font-barlow font-semibold text-white bg-navy dark:bg-dark-card-hover border border-navy dark:border-white/30 rounded-xl hover:scale-[1.02] transition-transform"
+            className="flex-1 sm:flex-none min-w-[112px] px-4 py-3 text-[13px] font-barlow font-semibold text-white bg-navy dark:bg-dark-card-hover border border-navy dark:border-white/30 rounded-xl hover:scale-[1.02] transition-transform"
           >
             Odrzuć
           </button>
           <button
             onClick={accept}
-            className="min-w-[112px] px-4 py-3 text-[13px] font-barlow font-semibold text-white bg-blue rounded-xl hover:scale-[1.02] transition-transform"
+            className="flex-1 sm:flex-none min-w-[112px] px-4 py-3 text-[13px] font-barlow font-semibold text-white bg-blue rounded-xl hover:scale-[1.02] transition-transform"
           >
             Akceptuję
           </button>

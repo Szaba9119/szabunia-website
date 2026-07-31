@@ -394,12 +394,13 @@ const serviceCategoriesRaw: ServiceData[] = [
     videoNote: "Film z eventu dla Woohoo. Ujęcia z drona łączą się tu z materiałem z poziomu ziemi w jeden spójny film.",
     title: "Zdjęcia i wideo z drona",
     subtitle:
-      "Ujęcia z powietrza: tereny, place, panoramy i skala wydarzeń. Foto i wideo w 4K.",
+      "Ujęcia z powietrza: hale i magazyny, tereny, place, panoramy i skala wydarzeń. Foto i wideo w 4K.",
     description:
-      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: tereny i place, panoramy, skala wydarzeń oraz przebitki 4K do montażu własnego. Jeśli fotografujecie konkretny budynek, a nie teren, właściwsza będzie sesja obiektu: dochodzą do niej kadry z poziomu ziemi i retusz architektoniczny. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego dnia powstaje spójny komplet zdjęć i wideo.",
+      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: hale i magazyny, tereny przemysłowe i place, inwestycje w budowie, panoramy, skala wydarzeń oraz przebitki 4K do montażu własnego. Przy obiektach kubaturowych robię komplet ujęć: bryła, dach, otoczenie i drogi dojazdowe. Na życzenie dokładam kadry z poziomu ziemi oraz retusz architektoniczny, czyli korektę perspektywy i prostowanie linii. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego dnia powstaje spójny komplet zdjęć i wideo.",
     forWhom: [
       "Hotele, ośrodki i obiekty turystyczne",
-      "Firmy przemysłowe i logistyczne (tereny, hale, place)",
+      "Firmy przemysłowe i logistyczne (hale, magazyny, tereny, place)",
+      "Deweloperzy i inwestycje w budowie (postęp prac, bryła, otoczenie)",
       "Organizatorzy eventów (skala wydarzenia)",
       "Agencje nieruchomości i marketingu",
     ],
@@ -538,9 +539,26 @@ const SERVICE_DISPLAY_ORDER: string[] = [
   "pakiety-foto-wideo",
 ];
 
-export const serviceCategories: ServiceData[] = [...serviceCategoriesRaw].sort(
-  (a, b) => SERVICE_DISPLAY_ORDER.indexOf(a.slug) - SERVICE_DISPLAY_ORDER.indexOf(b.slug)
-);
+// Usługi gotowe w danych, ale świadomie niepublikowane. Ten sam wzorzec, co
+// DRAFT_SLUGS w portfolio.ts. Wpis tutaj powoduje, że usługa znika z kafelków
+// na stronie głównej i na /uslugi, z generateStaticParams (trasa zwraca 404)
+// i z sitemapy. Dane zostają nietknięte — powrót to usunięcie jednej linii.
+const DRAFT_SERVICE_SLUGS = new Set<string>([
+  // Linia obiektowa: zbudowana 31.07.2026, wyłączona tego samego dnia decyzją
+  // Marcina przed pierwszym deployem. Kotwica 900 zł, pakiety 900/1300/1900,
+  // uzasadnienie ceny w 01_Biznes/_System/02_Cenniki/brief_linia_obiektowa_2026-07-31.md.
+  // Po włączeniu sprawdź geometrię siatki: przy ośmiu usługach dwa dolne
+  // kafelki muszą mieć wide: true, inaczej w ostatnim rzędzie zostaje sierota.
+  "wnetrza-obiekty-architektura",
+]);
+
+export function isServiceDraft(slug: string): boolean {
+  return DRAFT_SERVICE_SLUGS.has(slug);
+}
+
+export const serviceCategories: ServiceData[] = [...serviceCategoriesRaw]
+  .filter((s) => !DRAFT_SERVICE_SLUGS.has(s.slug))
+  .sort((a, b) => SERVICE_DISPLAY_ORDER.indexOf(a.slug) - SERVICE_DISPLAY_ORDER.indexOf(b.slug));
 
 /* ── Helpers ── */
 
