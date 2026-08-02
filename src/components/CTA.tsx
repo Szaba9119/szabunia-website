@@ -155,8 +155,7 @@ export default function CTA() {
                   Twój wizerunek
                 </h2>
                 <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mb-4">
-                  Odpowiadam w ciągu 24h ze wstępną wyceną dopasowaną
-                  do Twojego budżetu.
+                  Odpowiadam w ciągu 24h, ze wstępną wyceną i propozycją terminu.
                 </p>
 
                 {/* Zbijanie ryzyka */}
@@ -289,7 +288,7 @@ export default function CTA() {
                 {/* Social proof */}
                 <div className="flex items-center gap-3">
                   <p className="text-xs text-steel dark:text-dark-text-muted">
-                    100+ zadowolonych firm B2B
+                    100+ firm B2B z całej Polski
                   </p>
                 </div>
               </div>

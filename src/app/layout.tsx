@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Marcin Szabunia, fotograf eventowy i biznesowy",
     description:
-      "Obsługa wydarzeń firmowych i wizerunek zespołów. Jeden twórca, spójny materiał, krótka droga od briefu do dostawy.",
+      "Obsługa wydarzeń firmowych i wizerunek zespołów. Jeden twórca, spójny materiał, krótka droga od pierwszej rozmowy do dostawy.",
     url: "https://szabunia.pl",
     siteName: "Marcin Szabunia",
     locale: "pl_PL",
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Marcin Szabunia, fotograf eventowy i biznesowy",
     description:
-      "Obsługa wydarzeń firmowych i wizerunek zespołów. Jeden twórca, spójny materiał, krótka droga od briefu do dostawy.",
+      "Obsługa wydarzeń firmowych i wizerunek zespołów. Jeden twórca, spójny materiał, krótka droga od pierwszej rozmowy do dostawy.",
     images: ["/images/og/strony/home.jpg"],
   },
   robots: {

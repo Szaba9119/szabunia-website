@@ -215,7 +215,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Fotografia produktowa półfabrykatów i detali z tworzyw sztucznych na stronę i do katalogu oraz film z hali produkcyjnej do prezentacji oferty klientom.",
     description:
-      "Artech Group to poznańskie centrum obróbki tworzyw sztucznych: frezowanie, toczenie i cięcie CNC płyt, wałków i detali dla przemysłu. Dla Artech zrealizowałem dwa rodzaje materiału. Pierwszy to packshoty na białym tle, czyli półfabrykaty i detale z różnych tworzyw przygotowane pod stronę internetową, katalog i sklep internetowy. Drugi to film z hali produkcyjnej, który pokazuje park maszynowy i sposób pracy firmy. Wideo pracuje na stronie i w rozmowach handlowych: zamiast opisywać możliwości produkcyjne, Artech po prostu je pokazuje.",
+      "Artech Group to poznańskie centrum obróbki tworzyw sztucznych: frezowanie, toczenie i cięcie CNC płyt, wałków i detali dla przemysłu. Dla Artech zrealizowałem dwa rodzaje materiału. Pierwszy to packshoty na białym tle, czyli półfabrykaty i detale z różnych tworzyw przygotowane pod stronę, katalog i sklep. Drugi to film z hali produkcyjnej, który pokazuje park maszynowy i sposób pracy firmy. Wideo pracuje na stronie i w rozmowach handlowych: zamiast opisywać możliwości produkcyjne, Artech po prostu je pokazuje.",
     badge: "Realizacja foto + wideo",
     scope: [
       "Packshoty na białym tle",
@@ -251,7 +251,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       client: "Artech Group",
       industry: "Centrum obróbki tworzyw sztucznych CNC, Poznań",
       challenge:
-        "Spójne packshoty półfabrykatów i detali z tworzyw pod stronę internetową, katalog i sklep internetowy oraz film, który pokaże park maszynowy i sposób pracy firmom z przemysłu.",
+        "Spójne packshoty półfabrykatów i detali z tworzyw pod stronę, katalog i sklep oraz film, który pokaże park maszynowy i sposób pracy firmom z przemysłu.",
       solution:
         "Packshoty płyt, wałków i detali z różnych tworzyw na białym tle, w powtarzalnym setupie, oraz film z hali produkcyjnej do prezentacji oferty. Spójna stylistyka pozwala rozbudowywać katalog o kolejne produkty.",
       results: [
@@ -321,7 +321,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Wnętrza, nagrodzony stek i portrety szefa kuchni dla steakhouse'u w poznańskich Starych Koszarach. Zdjęcia trafiły na profil restauracji w przewodniku Michelin.",
     description:
-      "Yes Butcher! Shop & Bistro to steakhouse i sklep mięsny w Starych Koszarach, poznański oddział warszawskiej marki, obecny w przewodniku Michelin. Brief obejmował komplet materiału w jeden dzień zdjęciowy, w działającym lokalu: budynek z drona, wnętrza obu sal (od baru i otwartej kuchni po szafę do sezonowania mięsa), portrety szefa kuchni oraz bohatera karty, czyli stek ribeye nagrodzony w World Steak Challenge 2025, w firmowym pudełku z certyfikatem. Jedna sesja pokryła cztery rodzaje fotografii, a zdjęcia pracują na profilu Michelin i w reklamach restauracji.",
+      "Yes Butcher! Shop & Bistro to steakhouse i sklep mięsny w Starych Koszarach, poznański oddział warszawskiej marki, obecny w przewodniku Michelin. Klient potrzebował kompletu materiału w jeden dzień zdjęciowy, w działającym lokalu: budynek z drona, wnętrza obu sal (od baru i otwartej kuchni po szafę do sezonowania mięsa), portrety szefa kuchni oraz bohatera karty, czyli stek ribeye nagrodzony w World Steak Challenge 2025, w firmowym pudełku z certyfikatem. Jedna sesja pokryła cztery rodzaje fotografii, a zdjęcia pracują na profilu Michelin i w reklamach restauracji.",
     thumbnail: "/images/portfolio/yes-butcher/yes-butcher-43.jpg",
     heroAspect: "portrait",
     tileImage: "/images/portfolio/yes-butcher/yes-butcher-tile.jpg",
@@ -376,14 +376,14 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Profesjonalne portrety biznesowe, headshoty i zdjęcia do personal brandingu dla kadry zarządzającej i liderów.",
     description:
-      "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Każda sesja poprzedzona jest konsultacją wizerunkową, dzięki której dobieramy stylizację, oświetlenie i klimat dopasowany do branży.",
+      "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a przed sesją dostajesz poseboard z referencjami.",
     thumbnail: "/images/portfolio-1.jpg",
     gallery: [
       { src: "/images/portfolio/sesja-wizerunkowa/01.jpg", alt: "Sesja wizerunkowa firmy, portret biznesowy CEO w studiu, Poznań" },
     ],
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
-      { num: 2, title: "Poseboard", desc: "Przygotowuję moodboard z referencjami" },
+      { num: 2, title: "Poseboard", desc: "Przygotowuję poseboard z referencjami" },
       { num: 3, title: "Sesja", desc: "Profesjonalna sesja w studiu lub biurze" },
       { num: 4, title: "Dostawa", desc: "Wyselekcjonowane zdjęcia w 14 dni" },
     ],

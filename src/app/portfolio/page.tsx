@@ -75,9 +75,8 @@ export default function PortfolioPage() {
               Portfolio realizacji foto i wideo
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-              Wybrane realizacje dla firm:
-              sesje wizerunkowe, reportaże z eventów, sesje korporacyjne i
-              fotografia produktowa.
+              Wybrane realizacje dla firm: event firmowy, headshoty zespołu,
+              packshoty i film z produkcji oraz sesja do przewodnika Michelin.
             </p>
           </AnimatedSection>
 

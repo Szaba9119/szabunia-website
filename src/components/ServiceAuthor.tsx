@@ -53,10 +53,10 @@ export default function ServiceAuthor() {
                     w Poznaniu, pracuję w całej Polsce i Europie.
                   </p>
                   <p>
-                    Zdjęcia, film i dron robię sam. Dostajesz jeden termin, jedną
-                    fakturę i materiał, który się ze sobą klei. Skończyłem studia
-                    z zarządzania, więc patrzę na sesję też od strony celu, któremu
-                    ma służyć.
+                    Zdjęcia, film i ujęcia z drona robię sam. Dostajesz jeden
+                    termin, jedną fakturę i spójny materiał. Ukończyłem studia
+                    z zarządzania, więc patrzę nie tylko na kadr, ale i na cel,
+                    któremu zdjęcia mają służyć.
                   </p>
                 </div>
               </div>

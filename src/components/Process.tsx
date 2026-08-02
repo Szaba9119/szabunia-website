@@ -59,7 +59,7 @@ export default function Process() {
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-14 max-w-md mx-auto">
-            4 proste kroki od pierwszego kontaktu do gotowych materiałów.
+            4 kroki od pierwszego kontaktu do gotowych materiałów.
           </p>
         </AnimatedSection>
 
