@@ -1,0 +1,27 @@
+diff --git a/src/components/ServiceHero.tsx b/src/components/ServiceHero.tsx
+index ad11850..0677968 100644
+--- a/src/components/ServiceHero.tsx
++++ b/src/components/ServiceHero.tsx
+@@ -10,6 +10,13 @@ interface Props {
+ }
+ 
+ export default function ServiceHero({ service, crumbs }: Props) {
++  // `price` w services.tsx niesie już słowo „netto" („od 600 zł netto"),
++  // a `heroPriceLabel` nie („pakiety od 1 100 zł"). Doklejanie „ netto" w JSX
++  // dawało na sześciu z siedmiu opublikowanych podstron „od 600 zł netto netto"
++  // (na produkcji od 2026-07-23). Doklejamy tylko wtedy, gdy słowa jeszcze nie ma.
++  const rawPrice = service.heroPriceLabel ?? service.price;
++  const priceLabel = rawPrice.includes("netto") ? rawPrice : `${rawPrice} netto`;
++
+   return (
+     <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4">
+       {/* max-w-6xl (nie standardowe max-w-5xl podstron usług): hero na pełną
+@@ -39,7 +46,7 @@ export default function ServiceHero({ service, crumbs }: Props) {
+             </h1>
+             {/* Kotwica cenowa, mały element typograficzny — nie badge (brief-22 §3). */}
+             <p className="font-barlow font-semibold text-sm text-steel dark:text-dark-text-muted tracking-wide mb-4">
+-              {service.heroPriceLabel ?? service.price} netto
++              {priceLabel}
+             </p>
+             <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed">
+               {service.subtitle}

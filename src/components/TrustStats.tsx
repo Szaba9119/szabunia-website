@@ -3,7 +3,10 @@ import CountUp from "./CountUp";
 
 // Pasek zaufania — twarde liczby budujące wiarygodność (te same co w sekcji "O mnie",
 // dla spójności). Animowane CountUp, czysty CSS, bez obrazków — nie obciąża LCP.
-const STATS = [
+// Eksportowane, bo od 2026-08-02 te same liczby renderuje karta autorska na
+// podstronach usług (ServiceAuthor.tsx). Jedno źródło, żeby nie rozjechały się
+// jak kiedyś FAQ w dwóch kopiach.
+export const TRUST_STATS = [
   { end: 250000, suffix: "+", label: "wykonanych zdjęć" },
   { end: 1000, suffix: "+", label: "zrealizowanych sesji i eventów" },
   { end: 100, suffix: "+", label: "obsłużonych marek i firm" },
@@ -17,7 +20,7 @@ export default function TrustStats() {
         <AnimatedSection>
           <div className="rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card px-6 py-8 md:py-9">
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-              {STATS.map((s) => (
+              {TRUST_STATS.map((s) => (
                 <div key={s.label} className="text-center">
                   <p className="font-barlow font-extrabold text-3xl md:text-[40px] leading-none tracking-tight text-blue dark:text-blue-light mb-1.5">
                     <CountUp end={s.end} suffix={s.suffix} duration={s.end > 10000 ? 2500 : 1800} />

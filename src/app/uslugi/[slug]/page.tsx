@@ -5,8 +5,8 @@ import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import ServiceHero from "@/components/ServiceHero";
 import ServiceGalleryStrip from "@/components/ServiceGalleryStrip";
+import ServiceAuthor from "@/components/ServiceAuthor";
 import LogoBar from "@/components/LogoBar";
-import TrustStats from "@/components/TrustStats";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import PortfolioProcess from "@/components/PortfolioProcess";
 import PortfolioFAQ from "@/components/PortfolioFAQ";
@@ -137,6 +137,13 @@ export default async function ServicePage({ params }: PageProps) {
         <ErrorBoundary>
           <ServiceHero service={service} crumbs={crumbs} />
         </ErrorBoundary>
+        {/* Logotypy zaraz pod hero (analiza lejka 2026-08-02). Wcześniej pasek
+            wchodził dopiero za galerią i sekcją wideo, czyli na 1 979 px na
+            /uslugi/eventy-reportaze. Teraz dowód marki jest w drugim ekranie
+            na każdej podstronie, tak jak na desktopowej stronie głównej. */}
+        <ErrorBoundary>
+          <LogoBar />
+        </ErrorBoundary>
         {service.galleryCategory && (
           <ErrorBoundary>
             <ServiceGalleryStrip category={service.galleryCategory} />
@@ -157,11 +164,15 @@ export default async function ServicePage({ params }: PageProps) {
             </section>
           </ErrorBoundary>
         )}
+        {/* Blok autorski: pierwszy raz na podstronach usług pada „Cześć, jestem
+            Marcin" (analiza lejka 2026-08-02). About.tsx renderuje się wyłącznie
+            na stronie głównej, więc wchodzący z reklamy nie wiedział, z kim ma
+            do czynienia. Karta wchłonęła liczby z <TrustStats />, żeby nie
+            wydłużać strony o cały nowy ekran. Dane nadal z jednego źródła
+            (TRUST_STATS w TrustStats.tsx). Sam komponent TrustStats nie jest już
+            nigdzie renderowany, ale plik zostaje: usunięcie to osobna decyzja. */}
         <ErrorBoundary>
-          <LogoBar />
-        </ErrorBoundary>
-        <ErrorBoundary>
-          <TrustStats />
+          <ServiceAuthor />
         </ErrorBoundary>
         <ErrorBoundary>
           <PortfolioProcess steps={service.process} heading={service.h2Process} />

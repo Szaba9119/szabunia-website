@@ -10,6 +10,13 @@ interface Props {
 }
 
 export default function ServiceHero({ service, crumbs }: Props) {
+  // `price` w services.tsx niesie już słowo „netto" („od 600 zł netto"),
+  // a `heroPriceLabel` nie („pakiety od 1 100 zł"). Doklejanie „ netto" w JSX
+  // dawało na sześciu z siedmiu opublikowanych podstron „od 600 zł netto netto"
+  // (na produkcji od 2026-07-23). Doklejamy tylko wtedy, gdy słowa jeszcze nie ma.
+  const rawPrice = service.heroPriceLabel ?? service.price;
+  const priceLabel = rawPrice.includes("netto") ? rawPrice : `${rawPrice} netto`;
+
   return (
     <section className="pt-28 pb-12 md:pt-36 md:pb-20 px-4">
       {/* max-w-6xl (nie standardowe max-w-5xl podstron usług): hero na pełną
@@ -34,13 +41,9 @@ export default function ServiceHero({ service, crumbs }: Props) {
               (Hero.tsx:35). Wcześniej przycisk „Zapytaj o ofertę" siedział przy
               lewej krawędzi z 202 px pustki obok (pomiar @375 px, 2026-07-30). */}
           <AnimatedSection className="md:col-start-1 md:row-start-1 text-center md:text-left">
-            <h1 className="font-barlow font-black text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-2">
+            <h1 className="font-barlow font-black text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-4">
               {service.h1 ?? service.title}
             </h1>
-            {/* Kotwica cenowa, mały element typograficzny — nie badge (brief-22 §3). */}
-            <p className="font-barlow font-semibold text-sm text-steel dark:text-dark-text-muted tracking-wide mb-4">
-              {service.heroPriceLabel ?? service.price} netto
-            </p>
             <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed">
               {service.subtitle}
             </p>
@@ -71,6 +74,15 @@ export default function ServiceHero({ service, crumbs }: Props) {
           <AnimatedSection className="md:col-start-1 md:row-start-2 text-center md:text-left">
             <p className="text-text-body dark:text-dark-text text-[14px] leading-relaxed">
               {service.description}
+            </p>
+            {/* Kotwica cenowa, mały element typograficzny, nie badge (brief-22 §3).
+                Przeniesiona spod H1 pod opis (analiza lejka 2026-08-02): na
+                telefonie była drugim elementem strony, przed jakimkolwiek
+                zdaniem o wartości, a 67% budżetu Ads ląduje właśnie tu.
+                Zostaje w hero i nad foldem na desktopie. Powrót pod H1: przenieść
+                ten akapit z powrotem do bloku 1, nad {service.subtitle}. */}
+            <p className="mt-4 font-barlow font-semibold text-sm text-steel dark:text-dark-text-muted tracking-wide">
+              {priceLabel}
             </p>
             {/* Chipy zaufania — spójne z hero strony głównej (audyt podstron
                 2026-07-07). Poprzedni zlepek z kropkami łamał się przypadkowo,
