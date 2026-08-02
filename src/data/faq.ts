@@ -49,7 +49,7 @@ export const homeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Czy przekazujesz surowe pliki RAW?",
-    a: "Standardowo nie przekazuję surowych plików RAW. Otrzymujesz starannie wyselekcjonowane i poddane autorskiej postprodukcji materiały, które stanowią gotowy, spójny produkt. Przekazanie plików RAW jest możliwe tylko przy specjalnych ustaleniach licencyjnych.",
+    a: "Standardowo nie przekazuję surowych plików RAW. Otrzymujesz starannie wyselekcjonowane i poddane autorskiej postprodukcji materiały, które stanowią gotowy, spójny produkt. Jeśli potrzebujesz pełnej kontroli nad postprodukcją, udostępnienie kompletu plików RAW jest dostępne jako opcja dodatkowa: +30% wartości zlecenia, z decyzją przed sesją.",
   },
   {
     q: "W jakich formatach otrzymam pliki?",

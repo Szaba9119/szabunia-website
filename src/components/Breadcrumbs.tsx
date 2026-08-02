@@ -44,6 +44,8 @@ export default function Breadcrumbs({
     >
       <ol className="flex flex-wrap items-center gap-x-1.5 gap-y-1">
         {items.map((c, i) => (
+          // min-h-[24px] na elementach klikalnych: WCAG 2.2 SC 2.5.8 (AA) wymaga
+          // celu 24x24 CSS px. Sam tekst 12 px dawał 18 px wysokości (UX2607-05).
           <li key={c.name} className="flex items-center gap-x-1.5">
             {i > 0 && (
               <span aria-hidden="true" className="text-steel dark:text-dark-text-muted">
@@ -53,12 +55,12 @@ export default function Breadcrumbs({
             {c.href ? (
               <Link
                 href={c.href}
-                className="hover:text-navy dark:hover:text-white transition-colors"
+                className="inline-flex items-center min-h-[24px] hover:text-navy dark:hover:text-white transition-colors"
               >
                 {c.name}
               </Link>
             ) : (
-              <span className="text-navy dark:text-white" aria-current="page">
+              <span className="inline-flex items-center min-h-[24px] text-navy dark:text-white" aria-current="page">
                 {c.name}
               </span>
             )}

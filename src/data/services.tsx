@@ -394,13 +394,13 @@ const serviceCategoriesRaw: ServiceData[] = [
     videoNote: "Film z eventu dla Woohoo. Ujęcia z drona łączą się tu z materiałem z poziomu ziemi w jeden spójny film.",
     title: "Zdjęcia i wideo z drona",
     subtitle:
-      "Ujęcia z powietrza: hale i magazyny, tereny, place, panoramy i skala wydarzeń. Foto i wideo w 4K.",
+      "Ujęcia z powietrza: budynki i obiekty firmowe, hale i magazyny, tereny, eventy i architektura. Foto i wideo w 4K.",
     description:
-      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: hale i magazyny, tereny przemysłowe i place, inwestycje w budowie, panoramy, skala wydarzeń oraz przebitki 4K do montażu własnego. Przy obiektach kubaturowych robię komplet ujęć: bryła, dach, otoczenie i drogi dojazdowe. Na życzenie dokładam kadry z poziomu ziemi oraz retusz architektoniczny, czyli korektę perspektywy i prostowanie linii. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego dnia powstaje spójny komplet zdjęć i wideo.",
+      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, hale i magazyny, tereny i place, inwestycje budowlane, architektura oraz ujęcia eventowe. Przy dużych obiektach robię komplet ujęć: bryła, dach, otoczenie i drogi dojazdowe. Dostarczam gotowe zdjęcia, zmontowane wideo 4K albo same przebitki do montażu własnego. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego dnia powstaje spójny komplet zdjęć i wideo.",
     forWhom: [
+      "Deweloperzy i firmy budowlane (postęp prac, inwestycje, bryła i otoczenie)",
       "Hotele, ośrodki i obiekty turystyczne",
       "Firmy przemysłowe i logistyczne (hale, magazyny, tereny, place)",
-      "Deweloperzy i inwestycje w budowie (postęp prac, bryła, otoczenie)",
       "Organizatorzy eventów (skala wydarzenia)",
       "Agencje nieruchomości i marketingu",
     ],
@@ -439,7 +439,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     portfolioSlug: "woohoo-autopay",
     seo: {
       title: "Zdjęcia i wideo z drona dla firm | Szabunia",
-      description: "Ujęcia 4K terenów, placów, panoram i eventów. Certyfikat A1/A3 i OC operatora. Dron w cenie pakietów hybrydowych. Poznań i cała Polska.",
+      description: "Ujęcia 4K budynków, hal i magazynów, terenów, inwestycji i eventów. Certyfikat A1/A3 i OC operatora. Dron w cenie pakietów hybrydowych. Poznań i cała Polska.",
     },
   },
   {

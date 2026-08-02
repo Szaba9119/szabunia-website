@@ -356,7 +356,7 @@ export const blogPosts: BlogPost[] = [
       <p>Zdjęcia z hali dobrze uzupełnić portretami zespołu, zwłaszcza gdy materiał ma pracować w rekrutacji. Przywożę mobilne studio, rozstawiam je w sali konferencyjnej albo na korytarzu, potrzebuję około 3 m² i gniazdka. Setup zajmuje jakieś 20 minut, a każda osoba jest w kadrze przez 10 do 15 minut. W jeden dzień da się w ten sposób sfotografować do 40 osób, wszystkie w tym samym świetle i retuszu. Osoby nieobecne w dniu sesji dogrywam w osobnym, krótszym terminie, w tym samym standardzie. Więcej o organizacji takiej sesji piszę w tekście o <a href="/blog/headshoty-zespolu-w-jeden-dzien">headshotach całego zespołu w jeden dzień</a>.</p>
 
       <h2>Co dostajesz po sesji</h2>
-      <p>Zdjęcia w pełnej jakości plus wersje zoptymalizowane pod web, na życzenie także PNG z przezroczystym tłem i TIFF do druku (przydaje się przy katalogach i materiałach targowych). Surowych plików RAW nie przekazuję.</p>
+      <p>Zdjęcia w pełnej jakości plus wersje zoptymalizowane pod web, na życzenie także PNG z przezroczystym tłem i TIFF do druku (przydaje się przy katalogach i materiałach targowych). Surowych plików RAW nie przekazuję w cenie, ale są dostępne jako opcja dodatkowa za 30 procent wartości zlecenia, jeśli zdecydujesz przed sesją.</p>
       <ul>
         <li><strong>Terminy:</strong> zdjęcia w 14 dni kalendarzowych, wideo w 21 dni. Tryb ekspresowy do 48 godzin za dopłatą 50 procent.</li>
         <li><strong>Poprawki:</strong> 2 tury przy zdjęciach, 3 tury przy wideo, realizowane w 7 dni od zgłoszenia.</li>
@@ -570,7 +570,7 @@ export const blogPosts: BlogPost[] = [
       <p>Nie musisz jechać do Poznania z pudłem asortymentu. Przyjmuję przesyłki do studia, a koszt przesyłki zwrotnej ustalamy przy wycenie, zależnie od gabarytu i liczby pozycji. To wygodne zwłaszcza przy pierwszej współpracy, kiedy chcesz sprawdzić efekt na kilkunastu pozycjach, zanim zdecydujesz o całym katalogu.</p>
 
       <h2>Jakie pliki dostajesz</h2>
-      <p>Standardowo JPEG w pełnej rozdzielczości plus wersja zoptymalizowana pod web, żeby karta produktu nie ładowała się w nieskończoność. Na życzenie dokładam PNG z przezroczystym tłem i TIFF do druku. Surowych plików RAW nie przekazuję: dostajesz materiał po autorskiej postprodukcji, czyli gotowy produkt, a nie półprodukt do obróbki po Twojej stronie.</p>
+      <p>Standardowo JPEG w pełnej rozdzielczości plus wersja zoptymalizowana pod web, żeby karta produktu nie ładowała się w nieskończoność. Na życzenie dokładam PNG z przezroczystym tłem i TIFF do druku. Surowych plików RAW nie przekazuję w cenie: dostajesz materiał po autorskiej postprodukcji, czyli gotowy produkt, a nie półprodukt do obróbki po Twojej stronie. Jeśli potrzebujesz RAW-ów, są dostępne jako opcja dodatkowa za 30 procent wartości zlecenia, z decyzją przed sesją.</p>
       <p>Licencja komercyjna jest w cenie i nie ma limitów czasowych. Zdjęcia możesz używać na stronie, w sklepie, na Social Media, w materiałach drukowanych i w reklamie online, bez pilnowania dat.</p>
 
       <h2>Terminy i poprawki</h2>
@@ -965,7 +965,7 @@ export const blogPosts: BlogPost[] = [
     slug: "co-to-jest-packshot",
     faq: [
       { q: "Co to jest packshot?", a: "Packshot to zdjęcie produktu na jednolitym, najczęściej białym tle: czyste, powtarzalne i pozbawione rozpraszaczy. Odpowiada na pytanie, jak dokładnie wygląda dana rzecz. To podstawa karty produktu w sklepie internetowym i standard wymagany przez większość marketplace'ów." },
-      { q: "Czy fotograf przekazuje klientowi pliki RAW?", a: "Standardowo nie. RAW to surowy plik z aparatu, cyfrowy odpowiednik negatywu. Zawiera pełne dane obrazu, ale wymaga obróbki i nie nadaje się do bezpośredniej publikacji. Klient otrzymuje gotowy, spójny materiał po autorskiej postprodukcji, podobnie jak drukarnia nie oddaje projektów otwartych." },
+      { q: "Czy fotograf przekazuje klientowi pliki RAW?", a: "Standardowo nie. RAW to surowy plik z aparatu, cyfrowy odpowiednik negatywu. Zawiera pełne dane obrazu, ale wymaga obróbki i nie nadaje się do bezpośredniej publikacji. Klient otrzymuje gotowy, spójny materiał po autorskiej postprodukcji, podobnie jak drukarnia nie oddaje projektów otwartych. Udostępnienie plików RAW jest natomiast dostępne jako opcja dodatkowa za 30 procent wartości zlecenia, z decyzją przed sesją." },
       { q: "Co obejmuje licencja na zdjęcia biznesowe?", a: "Licencja określa, gdzie i jak można używać zdjęć. Standardowo obejmuje pełny użytek komercyjny: stronę internetową, social media, druk i reklamę online, bez limitów czasowych. Szerszy zakres, na przykład ogólnopolską kampanię outdoor, ustala się indywidualnie przy wycenie." },
     ],
     title: "Co to jest packshot? Słownik pojęć fotografii, które warto znać",
@@ -1007,7 +1007,7 @@ export const blogPosts: BlogPost[] = [
       <p>Pełny zestaw studyjny (tło, oświetlenie, stanowisko), który przywożę do Twojego biura. Rozstawienie zajmuje około 20 minut, a zespół fotografuje się na miejscu, bez wysyłania ludzi przez pół miasta. Bazuję w Poznaniu, gdzie dojazd jest w cenie (0 zł); poza miastem doliczam 2,50 zł netto za kilometr, licząc od granic miasta w obie strony. Podstawa <a href="/uslugi/sesje-zespolowe">sesji zespołowych</a>.</p>
 
       <h2>RAW</h2>
-      <p>Surowy plik z aparatu, cyfrowy odpowiednik negatywu. Zawiera pełne dane obrazu, ale wymaga obróbki i nie nadaje się do bezpośredniej publikacji. Fotografowie standardowo nie przekazują RAW-ów, tak jak drukarnia nie oddaje projektów otwartych: oddaję gotowy, spójny materiał po autorskiej postprodukcji.</p>
+      <p>Surowy plik z aparatu, cyfrowy odpowiednik negatywu. Zawiera pełne dane obrazu, ale wymaga obróbki i nie nadaje się do bezpośredniej publikacji. Fotografowie standardowo nie przekazują RAW-ów, tak jak drukarnia nie oddaje projektów otwartych: oddaję gotowy, spójny materiał po autorskiej postprodukcji. Jeśli jednak potrzebujesz pełnej kontroli nad postprodukcją, udostępnienie plików RAW jest dostępne jako opcja dodatkowa za 30 procent wartości zlecenia. Decyzję trzeba podjąć przed sesją, bo uwzględniam ją w umowie.</p>
 
       <h2>Retusz i postprodukcja</h2>
       <p>Postprodukcja to cała obróbka po sesji: selekcja, kolory, kontrast, kadrowanie. Retusz to jej precyzyjna część dotycząca detali: niedoskonałości skóry, refleksy na okularach, drobne poprawki tła. W moich pakietach każde finalne zdjęcie przechodzi oba etapy, a w cenie masz ustalone tury poprawek.</p>

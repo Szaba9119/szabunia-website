@@ -256,7 +256,7 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                       "@type": "Service",
                       name: "Zdjęcia i wideo z drona",
                       description:
-                        "Ujęcia z powietrza: budynki i obiekty firmowe, tereny, eventy i architektura, foto i wideo w 4K",
+                        "Ujęcia z powietrza: budynki i obiekty firmowe, hale i magazyny, tereny, inwestycje i eventy, foto i wideo w 4K",
                     },
                   },
                 ],
