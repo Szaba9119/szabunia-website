@@ -574,9 +574,15 @@ const PRICE_FAQ_CLOSING = "Napisz w kilku zdaniach, czego potrzebujesz. Wstępn�
 // hardkodowane per usługa — zmiana ceny lub pricingBlurb aktualizuje FAQ
 // wszędzie naraz (brief-22 zad. 4).
 export function getPriceFaq(service: ServiceData): FAQItem {
+  // Drugie miejsce z tym samym błędem co hero (analiza lejka 2026-08-02):
+  // pola `price` niosą już słowo „netto" od czasu wyrównania kotwic cenowych,
+  // a szablon doklejał je jeszcze raz. Efekt na produkcji: „Reportaże zaczynają
+  // się od 600 zł netto netto." w widocznym FAQ ORAZ w JSON-LD typu FAQPage,
+  // czyli w danych, które czyta Google. Doklejamy tylko, gdy słowa brakuje.
+  const cena = service.price.includes("netto") ? service.price : `${service.price} netto`;
   return {
     q: service.priceFaqQuestion,
-    a: `${service.priceFaqIntro} ${service.price} netto${service.priceFaqSuffix ?? ""}. ${service.pricingBlurb} ${PRICE_FAQ_CLOSING}`,
+    a: `${service.priceFaqIntro} ${cena}${service.priceFaqSuffix ?? ""}. ${service.pricingBlurb} ${PRICE_FAQ_CLOSING}`,
   };
 }
 
