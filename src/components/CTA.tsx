@@ -194,7 +194,7 @@ export default function CTA() {
                     </div>
                     <div>
                       <p className="text-[10px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-0.5 font-barlow font-semibold">
-                        Email
+                        E-mail
                       </p>
                       <p className="text-navy dark:text-white text-sm group-hover:text-blue transition-colors">
                         marcin@szabunia.pl

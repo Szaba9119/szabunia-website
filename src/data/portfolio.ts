@@ -374,9 +374,9 @@ export const portfolioCategories: PortfolioCategory[] = [
     label: "Sesja wizerunkowa firmy",
     heroTitle: "Sesja wizerunkowa firmy",
     heroSubtitle:
-      "Profesjonalne portrety biznesowe, headshoty i zdjęcia personal branding dla kadry zarządzającej i liderów.",
+      "Profesjonalne portrety biznesowe, headshoty i zdjęcia do personal brandingu dla kadry zarządzającej i liderów.",
     description:
-      "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe na: na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Każda sesja poprzedzona jest konsultacją wizerunkową, dzięki której dobieramy stylizację, oświetlenie i klimat dopasowany do branży.",
+      "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Każda sesja poprzedzona jest konsultacją wizerunkową, dzięki której dobieramy stylizację, oświetlenie i klimat dopasowany do branży.",
     thumbnail: "/images/portfolio-1.jpg",
     gallery: [
       { src: "/images/portfolio/sesja-wizerunkowa/01.jpg", alt: "Sesja wizerunkowa firmy, portret biznesowy CEO w studiu, Poznań" },
@@ -400,7 +400,7 @@ export const portfolioCategories: PortfolioCategory[] = [
         a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3 m² wolnej przestrzeni i dostępu do gniazdka. Rozstawienie sprzętu zajmuje ok. 20 minut.",
       },
       {
-        q: "Ile osób mogę sfotografować w jeden dzień?",
+        q: "Ile osób możesz sfotografować w jeden dzień?",
         a: "Przy portretach biznesowych: do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 10-15 minut.",
       },
       {
@@ -509,7 +509,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Headshoty dla całego zespołu, zdjęcia biura i przestrzeni firmowej. Mobilne studio w Twoim biurze.",
     description:
-      "Headshoty zespołu to fundament employer branding. Przyjeżdżam z mobilnym studiem do Twojego biura, każda osoba potrzebuje zaledwie 10-15 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
+      "Headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura, każda osoba potrzebuje zaledwie 10-15 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
     thumbnail: "/images/portfolio-4.jpg",
     gallery: [
       { src: "/images/portfolio/sesja-korporacyjna/01.jpg", alt: "Sesja korporacyjna, headshoty zespołu w biurze, Poznań" },
@@ -524,7 +524,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     pricingType: "table",
     faqs: [
       {
-        q: "Ile osób mogę sfotografować w jeden dzień?",
+        q: "Ile osób możesz sfotografować w jeden dzień?",
         a: "Do 40 osób dziennie przy setupie mobilnego studia w biurze. Każda osoba potrzebuje ok. 10-15 minut na sesję.",
       },
       {
@@ -537,7 +537,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Czy robisz też zdjęcia biura i wspólnej pracy?",
-        a: "Tak, oprócz indywidualnych headshotów mogę sfotografować przestrzeń biurową, teamwork i klimat firmy. Idealny materiał na stronę karriery i Social Media.",
+        a: "Tak, oprócz indywidualnych headshotów mogę sfotografować przestrzeń biurową, teamwork i klimat firmy. Idealny materiał na stronę kariery i Social Media.",
       },
     ],
     seo: {

@@ -145,7 +145,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne.",
     description:
-      "Spójne headshoty zespołu to fundament employer branding. Przyjeżdżam z mobilnym studiem do Twojego biura albo rezerwuję studio, rozstawienie zajmuje 20 minut, a każda osoba potrzebuje 10-15 minut na sesję. Efekt: spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
+      "Spójne headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura albo rezerwuję studio, rozstawienie zajmuje 20 minut, a każda osoba potrzebuje 10-15 minut na sesję. Efekt: spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
     forWhom: [
       "Zespoły korporacyjne i działy HR",
       "Kancelarie prawne i firmy doradcze",
@@ -173,7 +173,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqSuffix: " przy zespołach od 31 osób (przy mniejszych grupach stawka za osobę jest wyższa)",
     faqs: [
       { q: "Co z osobami, których nie ma w dniu sesji?", a: "Brakujące osoby dograć można w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu, żeby portrety całego zespołu były spójne. To częsta sytuacja przy większych zespołach i pracy zdalnej." },
-      { q: "Ile osób mogę sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studiu. Każda osoba potrzebuje ok. 10-15 minut." },
+      { q: "Ile osób możesz sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studiu. Każda osoba potrzebuje ok. 10-15 minut." },
       { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 3 m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
       { q: "Czy zdjęcia będą spójne dla całego zespołu?", a: "Tak, identyczne oświetlenie i tło. Spójne headshoty na stronie i w materiałach firmowych." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 3 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
@@ -297,7 +297,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Filmy korporacyjne i promocyjne, reelsy, relacje z eventów. Formaty pionowe i poziome dopasowane do platformy.",
     description:
-      "Wideo to najskuteczniejsza forma komunikacji w Social Media. Tworzę krótkie formy (Reels, TikTok, YouTube Shorts), filmy promocyjne i reklamowe, relacje z eventów i materiały szkoleniowe. Wideo reklamowe przygotowuję pod konkretne miejsce emisji, od spotów do Social Media po materiały do kampanii online. Od nagrania po montaż, dostajesz gotowy materiał do publikacji.",
+      "Wideo to najskuteczniejsza forma komunikacji w social mediach. Tworzę krótkie formy (Reels, TikTok, YouTube Shorts), filmy promocyjne i reklamowe, relacje z eventów i materiały szkoleniowe. Wideo reklamowe przygotowuję pod konkretne miejsce emisji, od spotów do social mediów po materiały do kampanii online. Od nagrania po montaż, dostajesz gotowy materiał do publikacji.",
     forWhom: [
       "Firmy budujące obecność w Social Media",
       "Marki e-commerce (wideo produktowe)",
@@ -327,7 +327,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Czy montujesz też materiał z telefonu?", a: "Tak, jeśli masz surowe nagrania z telefonu, mogę je zmontować (cięcie, kolor, napisy, muzyka)." },
       { q: "W jakich formatach dostarczasz wideo?", a: "MP4 w rozdzielczości do 4K. Formaty: 9:16 (Reels/TikTok), 16:9 (YouTube/strona), 1:1 (feed). Dowolna kombinacja." },
       { q: "Czy mogę zamówić sam montaż bez nagrywania?", a: "Tak, wystarczy przesłać surowe pliki. Wycena zależy od długości i złożoności finalnego materiału." },
-      { q: "Czy realizujesz wideo reklamowe i spoty?", a: "Tak, krótkie filmy reklamowe pod kampanie w Social Media i online (15-60 s). Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii." },
+      { q: "Czy realizujesz wideo reklamowe i spoty?", a: "Tak, krótkie filmy reklamowe pod kampanie w social mediach i online (15-60 s). Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 do nagrań, obiektywy od 16 do 200 mm, oświetlenie ciągłe LED Godox, dźwięk Rode Wireless PRO, VideoMicro II i rejestrator Zoom oraz dron DJI do ujęć z powietrza. Sprzęt pozwala nagrać i zmontować materiał od reelsa po dłuższy film." },
     ],
     seo: {
@@ -344,7 +344,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Packshoty na białym tle z retuszem w cenie, zdjęcia kreatywne i aranżacje pod e-commerce, katalogi i Social Media.",
     description:
-      "Zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową, kreatywne ujęcia z aranżacją i rekwizytami, przygotowane pod konkretną kampanię: od internetu i Social Media po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym. Każde zdjęcie dostajesz z retuszem w cenie: produkt precyzyjnie wycięty z tła, czyste białe tło zgodne z wymogami Allegro i Amazon, a na życzenie przezroczyste tło (PNG).",
+      "Zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową, kreatywne ujęcia z aranżacją i rekwizytami, przygotowane pod konkretną kampanię: od internetu i social mediów po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym. Każde zdjęcie dostajesz z retuszem w cenie: produkt precyzyjnie wycięty z tła, czyste białe tło zgodne z wymogami Allegro i Amazon, a na życzenie przezroczyste tło (PNG).",
     forWhom: [
       "Sklepy internetowe i marketplace'y",
       "Marki kosmetyczne i modowe",
@@ -396,7 +396,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Ujęcia z powietrza: budynki i obiekty firmowe, hale i magazyny, tereny, eventy i architektura. Foto i wideo w 4K.",
     description:
-      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, hale i magazyny, tereny i place, inwestycje budowlane, architektura oraz ujęcia eventowe. Przy dużych obiektach robię komplet ujęć: bryła, dach, otoczenie i drogi dojazdowe. Dostarczam gotowe zdjęcia, zmontowane wideo 4K albo same przebitki do montażu własnego. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego dnia powstaje spójny komplet zdjęć i wideo.",
+      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, hale i magazyny, tereny i place, inwestycje budowlane, architekturę oraz ujęcia eventowe. Przy dużych obiektach robię komplet ujęć: bryła, dach, otoczenie i drogi dojazdowe. Dostarczam gotowe zdjęcia, zmontowane wideo 4K albo same przebitki do montażu własnego. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego dnia powstaje spójny komplet zdjęć i wideo.",
     forWhom: [
       "Deweloperzy i firmy budowlane (postęp prac, inwestycje, bryła i otoczenie)",
       "Hotele, ośrodki i obiekty turystyczne",

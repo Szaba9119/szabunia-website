@@ -28,7 +28,7 @@ export const homeFaqs: HomeFaqItem[] = [
     a: "Tak, realizuję zlecenia na terenie całej Polski oraz Europy. Dojazd w Poznaniu: 0 zł. Poza Poznaniem: 2,50 zł netto za kilometr, liczony od granicy miasta w obie strony według Google Maps. Przy dłuższych wyjazdach (powyżej jednego dnia pracy) doliczany jest również nocleg.",
   },
   {
-    q: "Czy wystawiam fakturę VAT?",
+    q: "Czy wystawiasz fakturę VAT?",
     a: "Tak. Rozliczenie prowadzę przez platformę Useme, która wystawia fakturę VAT za zrealizowane zlecenie. Termin płatności: 7 dni. Dla Twojej księgowości to standardowa faktura VAT z pełnymi danymi wystawcy.",
   },
   {
@@ -60,7 +60,7 @@ export const homeFaqs: HomeFaqItem[] = [
     a: "Tak. Wszystkie licencje obejmują użytek komercyjny: strona www, social media, materiały drukowane, reklama online. Bez limitów czasowych.",
   },
   {
-    q: "Ile osób mogę sfotografować w jeden dzień?",
+    q: "Ile osób możesz sfotografować w jeden dzień?",
     a: "Przy portretach biznesowych fotografuję do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 10-15 minut. Mogę przyjechać do biura z mobilnym studiem.",
   },
   {

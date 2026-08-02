@@ -21,7 +21,7 @@ export default function Warunki() {
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <h3 className="font-barlow font-bold text-xl text-navy dark:text-white mb-8 text-center">
-            Warunki Współpracy
+            Warunki współpracy
           </h3>
           <div className="md:hidden mb-4">
             <button
