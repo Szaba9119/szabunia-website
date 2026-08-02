@@ -108,6 +108,20 @@ export default function UslugiPage() {
             ))}
           </div>
 
+          {/* Mierzalne CTA na hubie (LEJ2608-02, audyt lejka 2026-08-02). Kafle
+              prowadzą dalej w lejek, ale strona nie miała ani jednego elementu
+              z `data-cta`, a to najlepiej rankująca strona w całym serwisie.
+              Dla kogoś, kto już wie, czego chce, to skrót prosto do formularza. */}
+          <div className="pt-10 text-center">
+            <a
+              href="#kontakt"
+              data-cta="wycena_hub_uslugi"
+              className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
+            >
+              Zapytaj o ofertę
+              <span className="text-white/80">→</span>
+            </a>
+          </div>
         </div>
         <div className="mt-12">
           <ErrorBoundary>

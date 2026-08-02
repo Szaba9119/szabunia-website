@@ -1,0 +1,47 @@
+diff --git a/src/app/layout.tsx b/src/app/layout.tsx
+index 420cce1..e3abb9a 100644
+--- a/src/app/layout.tsx
++++ b/src/app/layout.tsx
+@@ -166,18 +166,30 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
+               // 2026-07-29): po cenniku v3 wartość "od 300 zł" przestała odpowiadać
+               // czemukolwiek w ofercie, a strona działa w modelu "cena na zapytanie".
+               // Nie przywracać bez decyzji — pusta wartość jest lepsza niż zła.
+-              openingHoursSpecification: {
+-                "@type": "OpeningHoursSpecification",
+-                dayOfWeek: [
+-                  "Monday",
+-                  "Tuesday",
+-                  "Wednesday",
+-                  "Thursday",
+-                  "Friday",
+-                ],
+-                opens: "09:00",
+-                closes: "18:00",
+-              },
++              // Godziny muszą być identyczne z wizytówką Google (NAP consistency)
++              // i nie węższe niż harmonogram reklam. Decyzja Marcina 2026-08-02:
++              // pon–pt 08:00–20:00, sob 10:00–16:00, niedziela zamknięte.
++              // Zmiana tutaj = zmiana w wizytówce w tym samym ruchu, nigdy osobno.
++              openingHoursSpecification: [
++                {
++                  "@type": "OpeningHoursSpecification",
++                  dayOfWeek: [
++                    "Monday",
++                    "Tuesday",
++                    "Wednesday",
++                    "Thursday",
++                    "Friday",
++                  ],
++                  opens: "08:00",
++                  closes: "20:00",
++                },
++                {
++                  "@type": "OpeningHoursSpecification",
++                  dayOfWeek: ["Saturday"],
++                  opens: "10:00",
++                  closes: "16:00",
++                },
++              ],
+               // aggregateRating + review[] usunięte świadomie (audyt 2026-07-06,
+               // decyzja Marcina): wytyczne Google zabraniają markupu opinii
+               // dodawanego przez samą firmę (self-serving reviews) — gwiazdek

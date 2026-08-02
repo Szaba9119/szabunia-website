@@ -12,6 +12,7 @@ import PortfolioCaseStudy from "@/components/PortfolioCaseStudy";
 import PortfolioVideoShowcase from "@/components/PortfolioVideoShowcase";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import MobileFAB from "@/components/MobileFAB";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
@@ -118,6 +119,24 @@ export default async function PortfolioPage({ params }: PageProps) {
           : []),
       ];
 
+  // Przycisk do kontaktu w połowie strony (LEJ2608-01, audyt lejka 2026-08-02).
+  // Case studies miały dotąd wyłącznie formularz na samym dole, żadnego przycisku
+  // wcześniej i żadnego `data-cta`, więc ruch z wpisów w wizytówce Google — a on
+  // ląduje właśnie tutaj — nie miał czego kliknąć i nie dało się go zmierzyć.
+  // Ten sam wzorzec i ta sama etykieta co `wycena_uslugi` na /uslugi/[slug].
+  const midCta = (
+    <div className="px-4 pt-4 pb-12 text-center">
+      <a
+        href="#kontakt"
+        data-cta="wycena_case"
+        className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
+      >
+        Zapytaj o ofertę
+        <span className="text-white/80">→</span>
+      </a>
+    </div>
+  );
+
   return (
     <>
       <ScrollProgress />
@@ -143,6 +162,7 @@ export default async function PortfolioPage({ params }: PageProps) {
                 <PortfolioCaseStudy data={category.caseStudy} />
               </ErrorBoundary>
             )}
+            {midCta}
           </>
         ) : (
           <>
@@ -173,6 +193,7 @@ export default async function PortfolioPage({ params }: PageProps) {
                 note={category.pricingNote}
               />
             </ErrorBoundary>
+            {midCta}
             <ErrorBoundary>
               <PortfolioFAQ faqs={category.faqs} />
             </ErrorBoundary>
@@ -183,6 +204,10 @@ export default async function PortfolioPage({ params }: PageProps) {
         </ErrorBoundary>
       </main>
       <Footer />
+      {/* Przyklejony pasek mobilny renderuje się na wszystkich stronach lejka
+          poza /kontakt (tam formularz jest treścią strony). Case studies były
+          jedynym wyjątkiem bez uzasadnienia — LEJ2608-01. */}
+      <MobileFAB />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
