@@ -462,6 +462,7 @@ export const blogPosts: BlogPost[] = [
       { q: "Od jakiej kwoty zaczyna się sesja wizerunkowa dla firmy?", a: "Pojedynczy portret biznesowy zaczyna się od 1 100 zł. To punkt wyjścia dla jednej osoby i podstawowego zestawu ujęć. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek." },
       { q: "Co wpływa na cenę sesji wizerunkowej?", a: "Sześć policzalnych czynników: liczba osób, liczba finalnych ujęć z autorskim retuszem, lokalizacja i dojazd (na terenie Poznania wliczony), sceneria i przygotowanie planu, zakres licencji na wykorzystanie zdjęć oraz ewentualny tryb ekspresowy, gdy materiał jest potrzebny szybciej niż standardowo." },
       { q: "Ile czasu trwa portret jednej osoby przy sesji zespołowej?", a: "Realnie 10-15 minut na dobry portret jednej osoby, wliczając ustawienie i kilka prób. Właśnie dlatego liczba osób to główny czynnik wyceny przy sesjach zespołowych: czas pracy rośnie wraz z wielkością grupy." },
+      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Ceny są opublikowane na stronie usługi Wizerunek i portrety, w sekcji Cennik. Portret biznesowy zaczyna się od 1 100 zł netto, a przy sesjach zespołowych stawka jest liczona za osobę i zależy od wielkości grupy. Wycenę dostajesz na piśmie przed sesją." },
     ],
     title: "Ile kosztuje sesja wizerunkowa dla firmy: co realnie wpływa na cenę",
     excerpt:
@@ -495,6 +496,9 @@ export const blogPosts: BlogPost[] = [
       <h2>6. Tryb ekspresowy</h2>
       <p>Standardowo gotowe zdjęcia dostajesz w ustalonym terminie. Jeśli materiał jest potrzebny „na wczoraj", możliwy jest tryb przyśpieszony. To dodatkowa opcja, a nie ukryty koszt.</p>
 
+      <h2>Gdzie znajdziesz cennik</h2>
+      <p>Ceny wszystkich pakietów portretowych są opublikowane na stronie usługi, w sekcji Cennik. Nie musisz o nie pytać mailem. Zobacz <a href="/uslugi/wizerunek-portrety">cennik sesji wizerunkowej</a>: portret biznesowy zaczyna się od 1 100 zł netto, a przy sesjach zespołowych rozliczam się za osobę, ze stawką zależną od wielkości grupy.</p>
+
       <h2>Jak zaplanować budżet</h2>
       <p>Zamiast zgadywać, opisz zakres: liczbę osób, miejsce i to, gdzie zdjęcia będą używane. Wstępną wycenę odeślę w 24h.</p>
       <p>Zanim umówimy sesję, zobacz, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, a gdy będziesz gotowy, <a href="/kontakt">napisz, czego potrzebujesz</a>.</p>
@@ -502,7 +506,7 @@ export const blogPosts: BlogPost[] = [
     seo: {
       title: "Ile kosztuje sesja wizerunkowa dla firmy | Szabunia",
       description:
-        "Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja, licencja. Od 1 100 zł, sprawdź, jak zaplanować budżet.",
+        "Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja, licencja. Cennik od 1 100 zł netto i jak zaplanować budżet.",
     },
   },
   {

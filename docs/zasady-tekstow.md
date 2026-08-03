@@ -78,6 +78,15 @@ w H1 nie kumuluje się.
 Miasto w nagłówku **tylko wtedy, gdy wychodzi naturalnie w zdaniu**, jak „Obsługa eventów
 firmowych w Poznaniu". W `title` zostaje, tam jego miejsce jest właściwe.
 
+**Ta reguła nie obejmuje nagłówków reklam Google Ads** (dopisane 02.08.2026). Nagłówek RSA
+ma 30 znaków i konkuruje o dopasowanie do wpisanej frazy, a nie o brzmienie zdania na
+stronie. „Fotografia produktowa Poznań" i „Zdjęcia firmowe Poznań" są tam poprawne
+i potrzebne: Google jawnie liczy obecność słowa kluczowego w nagłówku jako składową
+Wyniku Jakości. Dowód z tego samego dnia: usunięcie trzech nagłówków ze słowem
+„produktowa" zbiło Skuteczność reklamy z „Dobra" na „Średnia", a ich przywrócenie
+podniosło ją na „Świetna". Reszta zasad (czarna lista, brak Title Case, brak długich
+myślników, zapis liczb) obowiązuje w reklamach tak samo jak na stronie.
+
 ## Czego nie wolno redagować (dodane 30.07.2026)
 
 **Cytatów klientów.** Opinie w `Testimonials.tsx` i w `portfolio.ts` zawierają frazy

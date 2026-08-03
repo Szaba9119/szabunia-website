@@ -172,7 +172,12 @@ export default function PortfolioPricing({ pricingType, tiers, tables, note }: P
 
         <AnimatedSection>
           <p className="text-center text-[12px] text-steel dark:text-dark-text-muted mt-6">
-            Dojazd: Poznań i okolice 0 zł. Poza Poznaniem: 2,50 zł/km netto, liczone od granicy miasta w obie strony.
+            {/* Kanon Z-07 (`02_Cenniki/kanon.json`): darmowy dojazd obejmuje teren
+                Poznania, nie „okolice". Cennik v3 linia 42: „Dojazd na terenie
+                Poznania: 0 zł. Poza miastem: 2,50 zł/km." Poprzednia wersja tego
+                zdania przeczyła sama sobie: dawała okolicom dojazd gratis i zaraz
+                liczyła im 2,50 zł/km od granicy miasta. */}
+            Dojazd na terenie Poznania: 0 zł. Poza miastem: 2,50 zł/km netto, liczone od granicy Poznania w obie strony.
           </p>
         </AnimatedSection>
       </div>

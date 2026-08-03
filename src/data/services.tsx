@@ -97,7 +97,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Dokumentacja konferencji, targów, gal i wydarzeń firmowych. Zdjęcia na social media jeszcze w trakcie eventu.",
     description:
-      "Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing, zdjęcia gotowe do publikacji na Social Media jeszcze w trakcie eventu. Fotografię eventową robię od początku działalności. Przez ponad osiem lat dokumentowałem wydarzenia w Poznaniu, nierzadko kilka różnych miejsc jednego wieczoru. Sprawne tempo i logistyka dużych eventów to dla mnie naturalny grunt.",
+      "Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing, zdjęcia gotowe do publikacji na social media jeszcze w trakcie eventu. Fotografię eventową robię od początku działalności. Przez ponad osiem lat dokumentowałem wydarzenia w Poznaniu, nierzadko kilka różnych miejsc jednego wieczoru. Sprawne tempo i logistyka dużych eventów to dla mnie naturalny grunt.",
     forWhom: [
       "Organizatorzy konferencji i targów",
       "Firmy organizujące wydarzenia firmowe",
@@ -116,16 +116,16 @@ const serviceCategoriesRaw: ServiceData[] = [
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
       { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
-      { num: 3, title: "Live edit", desc: "Zdjęcia na Social Media w trakcie eventu" },
+      { num: 3, title: "Live edit", desc: "Zdjęcia na social media w trakcie eventu" },
       { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni" },
     ],
     pricingBlurb:
-      "Wycenę reportażu ustalam na podstawie liczby godzin obecności na evencie oraz opcji dodatkowych: live editing na Social Media w trakcie wydarzenia i ujęcia z drona.",
+      "Wycenę reportażu ustalam na podstawie liczby godzin obecności na evencie oraz opcji dodatkowych: live editing na social media w trakcie wydarzenia i ujęcia z drona.",
     priceFaqQuestion: "Ile kosztuje fotograf na event firmowy?",
     priceFaqIntro: "Reportaże zaczynają się",
     faqs: [
       { q: "Czy fotografujesz też wieczorne gale przy słabym świetle?", a: "Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają fotografować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie. Reportaż z gali, konferencji czy bankietu wygląda naturalnie." },
-      { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media." },
+      { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na social media." },
       { q: "Ile zdjęć otrzymam?", a: "Około 20 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
       { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
@@ -199,7 +199,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       "Pakiet hybrydowy to jeden dzień zdjęciowy i dwa formaty na wyjściu. Podczas jednego wydarzenia lub sesji powstają i zdjęcia, i materiał wideo. Rezultat: spójny wizualnie content na wszystkie kanały, bez koordynowania dwóch ekip.",
     forWhom: [
       "Firmy organizujące eventy (konferencje, gale)",
-      "Marki potrzebujące contentu na Social Media",
+      "Marki potrzebujące contentu na social media",
       "Firmy eventowe i agencje PR",
       "Organizatorzy szkoleń i warsztatów",
       "Firmy z regularnymi potrzebami contentowymi",
@@ -242,7 +242,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     galleryCategory: "portrety",
     title: "Wizerunek & Portrety",
     subtitle:
-      "Portrety biznesowe, headshoty na LinkedIn i zdjęcia do personal brandingu. Prowadzę przez pozowanie, nie musisz nic umieć.",
+      "Portrety biznesowe, headshoty na LinkedIn i zdjęcia do personal brandingu. Prowadzę przez pozowanie, nie musisz nic umieć. Portrety robiłem też przy realizacji dla przewodnika Michelin.",
     description:
       "Portret biznesowy to Twoja wizytówka na LinkedIn i na stronie firmy. Tworzę zdjęcia, które oddają charakter i kompetencje, na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a przed sesją dostajesz poseboard z referencjami.",
     forWhom: [
@@ -277,6 +277,15 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni. Ekspres do 48h za dodatkową opłatą (+50%)." },
       { q: "Czy mogę użyć zdjęć na LinkedIn i stronie?", a: "Tak. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), jasne obiektywy stałoogniskowe Sigma Art 35 i 50 mm f/1.4 do naturalnych portretów oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
+      // Dodane 02.08.2026. Powód policzalny, nie estetyczny: w GSC klaster cenowy tej
+      // usługi ma 402 wyświetlenia w 90 dni, ale rozkłada się nierówno. Warianty ze
+      // słowem „kosztuje" stoją na pozycji 17,2 i 17,9, a warianty ze słowem „cena",
+      // „ceny" i „cennik" na 32,0, 37,4 i 38,8. Słowo „cennik" nie występowało na tej
+      // stronie ani razu, „cena" i „ceny" też nie. To pytanie wprowadza je w treść.
+      // Zgodne z regułą z docs/zasady-tekstow.md: „użyj tego, którego ludzie faktycznie
+      // wpisują". Kwota 1 100 zł jest kanoniczna (cennik v3 sekcja 1) i występuje już
+      // na tej stronie dwa razy, więc nie wprowadza nowej liczby do kanonu.
+      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Ceny są na tej stronie, w sekcji Cennik, więc nie musisz o nie pytać mailem. Portret biznesowy zaczyna się od 1 100 zł netto. Przy sesjach zespołowych rozliczam się za osobę, a stawka zależy od wielkości grupy. Wycenę dostajesz na piśmie przed sesją." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
@@ -299,7 +308,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     description:
       "Tworzę krótkie formy (Reels, TikTok, YouTube Shorts), filmy promocyjne i reklamowe, relacje z eventów i materiały szkoleniowe. Wideo reklamowe przygotowuję pod konkretne miejsce emisji, od spotów do social mediów po materiały do kampanii online. Od nagrania po montaż, dostajesz gotowy materiał do publikacji.",
     forWhom: [
-      "Firmy budujące obecność w Social Media",
+      "Firmy budujące obecność w social media",
       "Marki e-commerce (wideo produktowe)",
       "Organizatorzy eventów (recap video)",
       "Trenerzy i edukatorzy (kursy, webinary)",
@@ -342,9 +351,9 @@ const serviceCategoriesRaw: ServiceData[] = [
     galleryCategory: "produktowe",
     title: "Fotografia produktowa",
     subtitle:
-      "Packshoty na białym tle z retuszem w cenie, zdjęcia kreatywne i aranżacje pod e-commerce, katalogi i Social Media.",
+      "Packshoty na białym tle z retuszem w cenie, zdjęcia kreatywne i aranżacje pod e-commerce, katalogi i social media.",
     description:
-      "Zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową pod konkretną kampanię: od internetu i social mediów po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym. Każde zdjęcie dostajesz z retuszem w cenie: produkt precyzyjnie wycięty z tła, czyste białe tło zgodne z wymogami Allegro i Amazon, a na życzenie przezroczyste tło (PNG).",
+      "Zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (social media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową pod konkretną kampanię: od internetu i social mediów po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym. Każde zdjęcie dostajesz z retuszem w cenie: produkt precyzyjnie wycięty z tła, czyste białe tło zgodne z wymogami Allegro i Amazon, a na życzenie przezroczyste tło (PNG).",
     forWhom: [
       "Sklepy internetowe i marketplace'y",
       "Marki kosmetyczne i modowe",
@@ -366,7 +375,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 4, title: "Dostawa", desc: "Pliki gotowe do użycia w 14 dni" },
     ],
     pricingBlurb:
-      "Wycena zależy od liczby produktów, rodzaju ujęć (packshot na białym tle albo zdjęcia kreatywne z aranżacją) oraz pola eksploatacji: inaczej wyceniam zdjęcia na Social Media, inaczej do druku i outdooru. Większe zamówienia rozliczam progresywnie.",
+      "Wycena zależy od liczby produktów, rodzaju ujęć (packshot na białym tle albo zdjęcia kreatywne z aranżacją) oraz pola eksploatacji: inaczej wyceniam zdjęcia na social media, inaczej do druku i outdooru. Większe zamówienia rozliczam progresywnie.",
     priceFaqQuestion: "Ile kosztuje packshot i sesja produktowa?",
     priceFaqIntro: "Sesje produktowe zaczynają się",
     priceFaqSuffix: " i tyle wynosi też minimalna wartość zamówienia",
@@ -374,7 +383,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Czy mogę przysłać produkty kurierem?", a: "Tak, przyjmuję przesyłki do studia. Koszt przesyłki zwrotnej ustalamy przy wycenie, zależnie od gabarytu i liczby pozycji." },
       { q: "Jakie formaty plików otrzymam?", a: "JPEG w pełnej rozdzielczości + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku." },
       { q: "Ile produktów dziennie jesteś w stanie zrealizować?", a: "Packshoty na białym tle: 30-50 produktów/dzień. Zdjęcia kreatywne: 8-15 ujęć/dzień." },
-      { q: "Czym różni się fotografia produktowa od fotografii reklamowej?", a: "Fotografia produktowa pokazuje produkt wprost, packshot na białym tle do sklepu czy katalogu. Fotografia reklamowa buduje wokół produktu historię: aranżacja, rekwizyty, światło pod konkretną kampanię. Zdjęcia reklamowe wyceniam według pola eksploatacji, inaczej na Social Media, inaczej do druku i na outdoor." },
+      { q: "Czym różni się fotografia produktowa od fotografii reklamowej?", a: "Fotografia produktowa pokazuje produkt wprost, packshot na białym tle do sklepu czy katalogu. Fotografia reklamowa buduje wokół produktu historię: aranżacja, rekwizyty, światło pod konkretną kampanię. Zdjęcia reklamowe wyceniam według pola eksploatacji, inaczej na social media, inaczej do druku i na outdoor." },
       { q: "Czy retusz jest wliczony w cenę zdjęcia?", a: "Tak. Każdy packshot dostajesz wyretuszowany: czyste białe tło, produkt precyzyjnie wycięty z tła, korekta kolorów i usunięcie drobnych skaz. Nie dopłacasz za obróbkę osobno, w przeciwieństwie do wielu studiów, gdzie retusz to dodatkowy koszt." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Aparat Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce." },
     ],

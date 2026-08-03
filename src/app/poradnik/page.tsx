@@ -39,7 +39,7 @@ export const metadata: Metadata = {
 };
 
 const inside = [
-  "Checklisty: 48 h przed i w dniu sesji",
+  "Checklisty: 48 godzin przed i w dniu sesji",
   "Planer stylizacji na 2–3 zestawy",
   "Ściąga kolorów: co działa, czego unikać",
   "Jak wyglądać naturalnie przed obiektywem",

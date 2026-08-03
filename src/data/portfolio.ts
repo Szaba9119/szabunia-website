@@ -421,7 +421,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Reportaże z konferencji, targów, gal i bankietów. Profesjonalna dokumentacja wydarzeń biznesowych.",
     description:
-      "Konferencje, targi, gale, spotkania firmowe: każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing: zdjęcia gotowe do publikacji na Social Media jeszcze w trakcie eventu.",
+      "Konferencje, targi, gale, spotkania firmowe: każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing: zdjęcia gotowe do publikacji na social media jeszcze w trakcie eventu.",
     thumbnail: "/images/portfolio-2.jpg",
     gallery: [
       { src: "/images/portfolio/fotografia-eventowa/01.jpg", alt: "Fotografia eventowa, relacja z konferencji biznesowej w Poznaniu" },
@@ -429,7 +429,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda eventu, kluczowe momenty, VIP-y" },
       { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
-      { num: 3, title: "Live edit", desc: "Zdjęcia na Social Media w trakcie eventu" },
+      { num: 3, title: "Live edit", desc: "Zdjęcia na social media w trakcie eventu" },
       { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni" },
     ],
     // Cennik celowo usunięty z draftu (audyt 2026-07-06) — kanon: services.tsx.
@@ -437,7 +437,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [
       {
         q: "Czy mogę otrzymać zdjęcia jeszcze w trakcie eventu?",
-        a: "Tak, oferuję usługę live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na Social Media w trakcie wydarzenia.",
+        a: "Tak, oferuję usługę live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na social media w trakcie wydarzenia.",
       },
       {
         q: "Ile zdjęć otrzymam z eventu?",
@@ -463,9 +463,9 @@ export const portfolioCategories: PortfolioCategory[] = [
     label: "Packshoty produktowe",
     heroTitle: "Fotografia produktowa",
     heroSubtitle:
-      "Packshoty na białym tle, zdjęcia kreatywne i aranżacje na e-commerce, katalogi i Social Media.",
+      "Packshoty na białym tle, zdjęcia kreatywne i aranżacje na e-commerce, katalogi i social media.",
     description:
-      "Zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (idealne na marketplace), zdjęcia kreatywne z aranżacją (Social Media, reklamy) oraz zdjęcia katalogowe. Pracuję w studiu z pełnym zapleczem oświetleniowym: drobne produkty, meble, elektronika, kosmetyki.",
+      "Zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (idealne na marketplace), zdjęcia kreatywne z aranżacją (social media, reklamy) oraz zdjęcia katalogowe. Pracuję w studiu z pełnym zapleczem oświetleniowym: drobne produkty, meble, elektronika, kosmetyki.",
     thumbnail: "/images/portfolio-3.jpg",
     gallery: [
       { src: "/images/portfolio/packshoty-produktowe/01.jpg", alt: "Packshot produktowy na białym tle, fotografia produktowa e-commerce, Poznań" },
@@ -537,7 +537,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Czy robisz też zdjęcia biura i wspólnej pracy?",
-        a: "Tak, oprócz indywidualnych headshotów mogę sfotografować przestrzeń biurową, teamwork i klimat firmy. Idealny materiał na stronę kariery i Social Media.",
+        a: "Tak, oprócz indywidualnych headshotów mogę sfotografować przestrzeń biurową, teamwork i klimat firmy. Idealny materiał na stronę kariery i social media.",
       },
     ],
     seo: {

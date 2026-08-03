@@ -113,7 +113,7 @@ export default function PortfolioVideoShowcase({
               Pionowe reelsy z wywiadami
             </h2>
             <p className="text-steel dark:text-dark-text-muted text-[14px] mb-6">
-              Trzy pionowe formaty pod Social Media. Kliknij, żeby obejrzeć na Instagramie.
+              Trzy pionowe formaty pod social media. Kliknij, żeby obejrzeć na Instagramie.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-4 gap-y-8">
               {reels.map((r) => (
