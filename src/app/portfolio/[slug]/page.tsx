@@ -6,7 +6,6 @@ import ScrollProgress from "@/components/ScrollProgress";
 import PortfolioHero from "@/components/PortfolioHero";
 import PortfolioGallery from "@/components/PortfolioGallery";
 import PortfolioProcess from "@/components/PortfolioProcess";
-import PortfolioPricing from "@/components/PortfolioPricing";
 import PortfolioFAQ from "@/components/PortfolioFAQ";
 import PortfolioCaseStudy from "@/components/PortfolioCaseStudy";
 import PortfolioVideoShowcase from "@/components/PortfolioVideoShowcase";
@@ -184,14 +183,6 @@ export default async function PortfolioPage({ params }: PageProps) {
             )}
             <ErrorBoundary>
               <PortfolioProcess steps={category.process} />
-            </ErrorBoundary>
-            <ErrorBoundary>
-              <PortfolioPricing
-                pricingType={category.pricingType}
-                tiers={category.tiers}
-                tables={category.tables}
-                note={category.pricingNote}
-              />
             </ErrorBoundary>
             {midCta}
             <ErrorBoundary>
