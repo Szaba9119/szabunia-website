@@ -497,7 +497,7 @@ export const blogPosts: BlogPost[] = [
       <p>Standardowo gotowe zdjęcia dostajesz w ustalonym terminie. Jeśli materiał jest potrzebny „na wczoraj", możliwy jest tryb przyśpieszony. To dodatkowa opcja, a nie ukryty koszt.</p>
 
       <h2>Cennik: jak dostać konkretną kwotę</h2>
-      <p>Punkt wyjścia jest jeden: <a href="/uslugi/wizerunek-portrety">portret biznesowy</a> zaczyna się od 1 100 zł netto. Dalej wszystko zależy od tego, ile osób fotografujemy, ile ujęć ma zostać po selekcji i gdzie zdjęcia będą używane. Dlatego zamiast tabeli, która i tak rzadko trafia w konkretny przypadek, wolę policzyć to raz, a dobrze. <a href="/kontakt">Napisz w kilku zdaniach, czego potrzebujesz</a>, a wstępną wycenę dostaniesz na piśmie w 24 godziny. Mailem, bez umawiania rozmowy na start, jeśli tak Ci wygodniej.</p>
+      <p>Punkt wyjścia jest jeden: <a href="/uslugi/wizerunek-portrety">portret biznesowy</a> zaczyna się od 1 100 zł netto. Dalej wszystko zależy od tego, ile osób fotografujemy, ile ujęć ma zostać po selekcji i gdzie zdjęcia będą używane. Dlatego zamiast tabeli, która i tak rzadko trafia w konkretny przypadek, wolę policzyć to raz, a dobrze. <a href="/kontakt">Napisz w kilku zdaniach, czego potrzebujesz</a>, a wstępną wycenę z rozpisanymi pozycjami odeślę mailem w 24 godziny. Bez umawiania rozmowy na start, jeśli tak Ci wygodniej.</p>
 
       <h2>Jak zaplanować budżet</h2>
       <p>Zamiast zgadywać, opisz zakres: liczbę osób, miejsce i to, gdzie zdjęcia będą używane. Wstępną wycenę odeślę w 24h.</p>
@@ -506,7 +506,7 @@ export const blogPosts: BlogPost[] = [
     seo: {
       title: "Ile kosztuje sesja wizerunkowa dla firmy | Szabunia",
       description:
-        "Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja, licencja. Ceny od 1 100 zł netto, wycena na piśmie w 24 godziny.",
+        "Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja, licencja. Ceny od 1 100 zł netto, wycena mailem w 24 godziny.",
     },
   },
   {

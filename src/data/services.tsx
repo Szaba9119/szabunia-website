@@ -285,7 +285,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       // Zgodne z regułą z docs/zasady-tekstow.md: „użyj tego, którego ludzie faktycznie
       // wpisują". Kwota 1 100 zł jest kanoniczna (cennik v3 sekcja 1) i występuje już
       // na tej stronie dwa razy, więc nie wprowadza nowej liczby do kanonu.
-      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Portret biznesowy zaczyna się od 1 100 zł netto, a przy sesjach zespołowych rozliczam się za osobę, ze stawką zależną od wielkości grupy. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu. Napisz w dwóch zdaniach, kogo i do czego fotografujemy, a wycenę odeślę na piśmie w 24 godziny." },
+      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Portret biznesowy zaczyna się od 1 100 zł netto, a przy sesjach zespołowych rozliczam się za osobę, ze stawką zależną od wielkości grupy. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu. Napisz w dwóch zdaniach, kogo i do czego fotografujemy, a wycenę odeślę mailem w 24 godziny." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {

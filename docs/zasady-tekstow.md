@@ -105,3 +105,35 @@ zaindeksowany.
 - „Słyszę to bardzo często i za każdym razem efekt pozytywnie zaskakuje."
 - „Jeden twórca, spójny materiał i krótka droga od briefu do dostawy."
 - „Zdjęcia, film i dron od jednej osoby." (30.07.2026, zastąpiło „z jednego wejścia")
+
+## Cennik: zamknięta decyzja (03.08.2026)
+
+⛔ **Na stronie nie ma i nie będzie tabeli cen, pakietów z kwotami ani sekcji „Cennik".**
+Klient ma napisać po wycenę. Decyzja Marcina z 03.08.2026, podjęta świadomie po
+przedstawieniu trzech wariantów. **Nie proponować cennika jako ulepszenia SEO.**
+
+**Kotwice „od X zł" zostają** i są jedynym miejscem, gdzie na stronie pada kwota:
+1 100 zł netto portrety, 120 zł za osobę sesje zespołowe, 600 zł produktowa i eventy.
+Kotwica nie jest cennikiem. Filtruje zapytania bez budżetu i niesie pozycje
+na zapytaniach cenowych, których jest w GSC cały klaster.
+
+**Słowo „cennik" zostaje w nagłówkach i w pytaniach FAQ**, bo to ono jest wpisywane
+w wyszukiwarkę. Zmienia się obietnica, nie słownictwo: zamiast „tu masz ceny" jest
+„napisz po wycenę". Potwierdzenie z rynku: najwyżej rankująca strona konkurencji
+na tym klastrze nie podaje ani jednej kwoty i cały tekst buduje wokół pytania
+„za co płacisz".
+
+⚠️ **Pułapka, w którą wpadłem 03.08:** napisałem w FAQ „ceny są na tej stronie,
+w sekcji Cennik", nie sprawdziwszy, czy taka sekcja się renderuje. Nie renderowała się
+nigdzie, bo `PortfolioPricing` zwracał `null` przy braku danych cenowych, usuniętych
+przy audycie 06.07. **Zanim odeślesz czytelnika do sekcji na stronie, otwórz tę stronę
+i sprawdź, że sekcja tam jest.**
+
+## Słowa, które brzmią urzędowo (dodane 03.08.2026)
+
+**„na piśmie"** przy wycenie. Miało znaczyć „konkretna kwota, nie rzucona przez telefon",
+a brzmi jak pismo procesowe. Zamiast tego: **„mailem"**, a gdy trzeba oddać konkretność,
+**„wycena z rozpisanymi pozycjami"**.
+
+Reguła ogólna: jeśli słowo pasowałoby do urzędowego pisma, nie przechodzi testu
+nadrzędnego. Marcin nie powie klientowi przez telefon „prześlę wycenę na piśmie".
