@@ -18,7 +18,7 @@ export default function Footer() {
               MARCIN SZABUNIA
             </div>
             <p className="text-xs text-text-body dark:text-dark-text-muted">
-              Fotograf biznesowy & twórca wideo
+              Fotograf biznesowy i twórca wideo
             </p>
             <p className="text-xs text-text-body dark:text-dark-text-muted">Poznań, Polska</p>
           </div>

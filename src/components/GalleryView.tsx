@@ -28,11 +28,26 @@ export interface GalleryCategory {
   uniformTiles?: boolean;
 }
 
-/** Alt dla i-tego zdjęcia: wariant z listy (rotacyjnie) z numerem kadru dla unikalności. */
-function altFor(cat: { alt: string; altVariants?: string[] } | undefined, i: number): string {
+/**
+ * Alt dla i-tego zdjęcia.
+ *
+ * ZDJ2608-04 (04.08.2026): gdy wariantów jest tyle co kadrów, opis jest już unikalny
+ * i opisuje TEN kadr, więc dopisek „, kadr N" tylko zaśmieca i wraca wzorzec opisu
+ * pozycji zamiast obrazu. Numer zostaje wyłącznie tam, gdzie lista jest krótsza od
+ * galerii i rotuje (dziś tylko `produktowe`), bo bez niego powtórzyłby się ten sam tekst.
+ */
+function altFor(
+  cat: { alt: string; altVariants?: string[]; images?: SizedImage[] } | undefined,
+  i: number
+): string {
   if (!cat) return `Fotografia ${i + 1}`;
-  const base = cat.altVariants?.length ? cat.altVariants[i % cat.altVariants.length] : cat.alt;
-  return `${base}, kadr ${i + 1}`;
+  const variants = cat.altVariants;
+  if (variants?.length) {
+    const rotating = !cat.images || variants.length < cat.images.length;
+    const base = variants[i % variants.length];
+    return rotating ? `${base}, kadr ${i + 1}` : base;
+  }
+  return `${cat.alt}, kadr ${i + 1}`;
 }
 
 // Liczba kolumn galerii zależna od szerokości (SSR-safe, bez setState-in-effect):

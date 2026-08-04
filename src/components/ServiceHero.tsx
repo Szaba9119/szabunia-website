@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { galleryAlt } from "@/data/galleryAlts";
 import AnimatedSection from "./AnimatedSection";
 import type { ServiceData } from "@/data/services";
 import Breadcrumbs, { type Crumb } from "./Breadcrumbs";
@@ -55,7 +56,11 @@ export default function ServiceHero({ service, crumbs }: Props) {
             <div className="relative aspect-square rounded-3xl overflow-hidden bg-border dark:bg-dark-card">
               <Image
                 src={service.heroImage}
-                alt={`${service.title}, Poznań`}
+                /* ZDJ2608-11 (04.08.2026): opis z obejrzanego kadru zamiast szablonu
+                   `${service.title}, Poznań`, który opisywał usługę, a nie zdjęcie,
+                   i doklejał miasto przecinkiem wbrew docs/zasady-tekstow.md.
+                   Bez wpisu w mapie zostaje stary szablon, żeby nic nie zniknęło. */
+                alt={galleryAlt(service.heroImage, `${service.title}, Poznań`)}
                 fill
                 className="object-cover"
                 style={{ objectPosition: service.heroImagePos ?? "center" }}

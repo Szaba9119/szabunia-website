@@ -1,0 +1,1608 @@
+diff --git a/CLAUDE.md b/CLAUDE.md
+index 2798434..23380d4 100644
+--- a/CLAUDE.md
++++ b/CLAUDE.md
+@@ -188,9 +188,12 @@ kalendarzowych** (zdjęcia 14, wideo 21), poprawki w 7 dni od zgłoszenia.
+ Pełna siatka cen żyje w `public/llms.txt` i we wpisach `src/data/blog.ts` — **kanon kotwic
+ to `src/data/services.tsx`**.
+ 
+-**Box17:** case study `box17-budki-akustyczne` jest w `DRAFT_SLUGS` (`src/data/portfolio.ts`),
+-bo brakuje miniatury. Po wgraniu `public/images/portfolio/box17/box17.jpg` wystarczy usunąć
+-jedną linię, reszta danych jest gotowa.
++**Box17:** case study `box17-budki-akustyczne` jest w `DRAFT_SLUGS` (`src/data/portfolio.ts`)
++**świadomie, decyzją Marcina z 04.08.2026**, mimo kompletu zdjęć. W `public/images/portfolio/box17/`
++leży 10 plików JPG od commita `9fc7ff4`, razem z miniaturą, a dane case study są kompletne.
++Poprzedni zapis („brakuje miniatury, po wgraniu wystarczy usunąć jedną linię") był nieprawdziwy
++od 04.08 i podnosił ten sam finding w każdym kolejnym audycie (ZDJ2608-02b). Warunek publikacji
++ma podać Marcin; do tego czasu **nie proponować publikacji Box17**.
+ 
+ **Znany rozjazd historyczny:** folder/zip `Strona z google ai` był reliktem eksperymentu z Gemini —
+ **już go w repo nie ma** (wpis w `tsconfig.exclude` jest wyłącznie historyczny).
+diff --git a/next.config.ts b/next.config.ts
+index 6a550d3..4999fb0 100644
+--- a/next.config.ts
++++ b/next.config.ts
+@@ -49,7 +49,7 @@ const nextConfig: NextConfig = {
+         headers: [
+           {
+             key: "Cache-Control",
+-            value: "public, max-age=31536000, immutable",
++            value: "public, max-age=31536000, must-revalidate",
+           },
+         ],
+       },
+diff --git a/public/images/galeria/eventy/event-01.jpg b/public/images/galeria/eventy/event-01.jpg
+deleted file mode 100644
+index e3ebe76..0000000
+Binary files a/public/images/galeria/eventy/event-01.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-02.jpg b/public/images/galeria/eventy/event-02.jpg
+deleted file mode 100644
+index e6f5189..0000000
+Binary files a/public/images/galeria/eventy/event-02.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-03.jpg b/public/images/galeria/eventy/event-03.jpg
+deleted file mode 100644
+index 1e99392..0000000
+Binary files a/public/images/galeria/eventy/event-03.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-04.jpg b/public/images/galeria/eventy/event-04.jpg
+deleted file mode 100644
+index fb6e081..0000000
+Binary files a/public/images/galeria/eventy/event-04.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-05.jpg b/public/images/galeria/eventy/event-05.jpg
+deleted file mode 100644
+index 602d37b..0000000
+Binary files a/public/images/galeria/eventy/event-05.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-06.jpg b/public/images/galeria/eventy/event-06.jpg
+deleted file mode 100644
+index 5878735..0000000
+Binary files a/public/images/galeria/eventy/event-06.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-07.jpg b/public/images/galeria/eventy/event-07.jpg
+deleted file mode 100644
+index 29887d1..0000000
+Binary files a/public/images/galeria/eventy/event-07.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-09.jpg b/public/images/galeria/eventy/event-09.jpg
+deleted file mode 100644
+index 2a6014f..0000000
+Binary files a/public/images/galeria/eventy/event-09.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-10.jpg b/public/images/galeria/eventy/event-10.jpg
+deleted file mode 100644
+index 1238cdb..0000000
+Binary files a/public/images/galeria/eventy/event-10.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-12.jpg b/public/images/galeria/eventy/event-12.jpg
+deleted file mode 100644
+index d6a1716..0000000
+Binary files a/public/images/galeria/eventy/event-12.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-13.jpg b/public/images/galeria/eventy/event-13.jpg
+deleted file mode 100644
+index f7a0b78..0000000
+Binary files a/public/images/galeria/eventy/event-13.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-14.jpg b/public/images/galeria/eventy/event-14.jpg
+deleted file mode 100644
+index 9b0964e..0000000
+Binary files a/public/images/galeria/eventy/event-14.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-15.jpg b/public/images/galeria/eventy/event-15.jpg
+deleted file mode 100644
+index b8f76c5..0000000
+Binary files a/public/images/galeria/eventy/event-15.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-16.jpg b/public/images/galeria/eventy/event-16.jpg
+deleted file mode 100644
+index 1550f6b..0000000
+Binary files a/public/images/galeria/eventy/event-16.jpg and /dev/null differ
+diff --git a/public/images/galeria/eventy/event-17.jpg b/public/images/galeria/eventy/event-17.jpg
+deleted file mode 100644
+index 06ba049..0000000
+Binary files a/public/images/galeria/eventy/event-17.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-01.jpg b/public/images/galeria/portrety/portret-01.jpg
+deleted file mode 100644
+index ad3cbe0..0000000
+Binary files a/public/images/galeria/portrety/portret-01.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-02.jpg b/public/images/galeria/portrety/portret-02.jpg
+deleted file mode 100644
+index f12db5a..0000000
+Binary files a/public/images/galeria/portrety/portret-02.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-03.jpg b/public/images/galeria/portrety/portret-03.jpg
+deleted file mode 100644
+index bb6e1e3..0000000
+Binary files a/public/images/galeria/portrety/portret-03.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-04.jpg b/public/images/galeria/portrety/portret-04.jpg
+deleted file mode 100644
+index 725197f..0000000
+Binary files a/public/images/galeria/portrety/portret-04.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-05.jpg b/public/images/galeria/portrety/portret-05.jpg
+deleted file mode 100644
+index 61265b0..0000000
+Binary files a/public/images/galeria/portrety/portret-05.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-06.jpg b/public/images/galeria/portrety/portret-06.jpg
+deleted file mode 100644
+index 3cab917..0000000
+Binary files a/public/images/galeria/portrety/portret-06.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-07.jpg b/public/images/galeria/portrety/portret-07.jpg
+deleted file mode 100644
+index 6db4fb7..0000000
+Binary files a/public/images/galeria/portrety/portret-07.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-08.jpg b/public/images/galeria/portrety/portret-08.jpg
+deleted file mode 100644
+index c468d8f..0000000
+Binary files a/public/images/galeria/portrety/portret-08.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-09.jpg b/public/images/galeria/portrety/portret-09.jpg
+deleted file mode 100644
+index a887fa4..0000000
+Binary files a/public/images/galeria/portrety/portret-09.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-10.jpg b/public/images/galeria/portrety/portret-10.jpg
+deleted file mode 100644
+index 82e4616..0000000
+Binary files a/public/images/galeria/portrety/portret-10.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-11.jpg b/public/images/galeria/portrety/portret-11.jpg
+deleted file mode 100644
+index 6869daa..0000000
+Binary files a/public/images/galeria/portrety/portret-11.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-12.jpg b/public/images/galeria/portrety/portret-12.jpg
+deleted file mode 100644
+index 13936d1..0000000
+Binary files a/public/images/galeria/portrety/portret-12.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-13.jpg b/public/images/galeria/portrety/portret-13.jpg
+deleted file mode 100644
+index 13642c9..0000000
+Binary files a/public/images/galeria/portrety/portret-13.jpg and /dev/null differ
+diff --git a/public/images/galeria/portrety/portret-14.jpg b/public/images/galeria/portrety/portret-14.jpg
+deleted file mode 100644
+index bd2bbb2..0000000
+Binary files a/public/images/galeria/portrety/portret-14.jpg and /dev/null differ
+diff --git a/public/images/galeria/wnetrza/wnetrze-01.jpg b/public/images/galeria/wnetrza/wnetrze-01.jpg
+deleted file mode 100644
+index 80c92bc..0000000
+Binary files a/public/images/galeria/wnetrza/wnetrze-01.jpg and /dev/null differ
+diff --git a/public/images/galeria/wnetrza/wnetrze-02.jpg b/public/images/galeria/wnetrza/wnetrze-02.jpg
+deleted file mode 100644
+index f29b255..0000000
+Binary files a/public/images/galeria/wnetrza/wnetrze-02.jpg and /dev/null differ
+diff --git a/public/images/galeria/wnetrza/wnetrze-03.jpg b/public/images/galeria/wnetrza/wnetrze-03.jpg
+deleted file mode 100644
+index aa100af..0000000
+Binary files a/public/images/galeria/wnetrza/wnetrze-03.jpg and /dev/null differ
+diff --git a/public/images/galeria/wnetrza/wnetrze-04.jpg b/public/images/galeria/wnetrza/wnetrze-04.jpg
+deleted file mode 100644
+index 932be3c..0000000
+Binary files a/public/images/galeria/wnetrza/wnetrze-04.jpg and /dev/null differ
+diff --git a/public/images/galeria/wnetrza/wnetrze-05.jpg b/public/images/galeria/wnetrza/wnetrze-05.jpg
+deleted file mode 100644
+index fcfd897..0000000
+Binary files a/public/images/galeria/wnetrza/wnetrze-05.jpg and /dev/null differ
+diff --git a/public/images/galeria/wnetrza/wnetrze-06.jpg b/public/images/galeria/wnetrza/wnetrze-06.jpg
+deleted file mode 100644
+index bfda531..0000000
+Binary files a/public/images/galeria/wnetrza/wnetrze-06.jpg and /dev/null differ
+diff --git a/public/images/galeria/wnetrza/wnetrze-07.jpg b/public/images/galeria/wnetrza/wnetrze-07.jpg
+deleted file mode 100644
+index f2ef0d1..0000000
+Binary files a/public/images/galeria/wnetrza/wnetrze-07.jpg and /dev/null differ
+diff --git a/public/images/galeria/wnetrza/wnetrze-08.jpg b/public/images/galeria/wnetrza/wnetrze-08.jpg
+deleted file mode 100644
+index 3cbdf5a..0000000
+Binary files a/public/images/galeria/wnetrza/wnetrze-08.jpg and /dev/null differ
+diff --git a/public/images/galeria/wnetrza/wnetrze-09.jpg b/public/images/galeria/wnetrza/wnetrze-09.jpg
+deleted file mode 100644
+index 1917e97..0000000
+Binary files a/public/images/galeria/wnetrza/wnetrze-09.jpg and /dev/null differ
+diff --git a/public/images/galeria/wnetrza/wnetrze-10.jpg b/public/images/galeria/wnetrza/wnetrze-10.jpg
+deleted file mode 100644
+index 03a5137..0000000
+Binary files a/public/images/galeria/wnetrza/wnetrze-10.jpg and /dev/null differ
+diff --git a/public/images/galeria/wnetrza/wnetrze-11.jpg b/public/images/galeria/wnetrza/wnetrze-11.jpg
+deleted file mode 100644
+index c5ddb60..0000000
+Binary files a/public/images/galeria/wnetrza/wnetrze-11.jpg and /dev/null differ
+diff --git a/public/images/galeria/wnetrza/wnetrze-12.jpg b/public/images/galeria/wnetrza/wnetrze-12.jpg
+deleted file mode 100644
+index 8f6f67e..0000000
+Binary files a/public/images/galeria/wnetrza/wnetrze-12.jpg and /dev/null differ
+diff --git a/public/images/portfolio-1.jpg b/public/images/portfolio-1.jpg
+deleted file mode 100644
+index 7e24415..0000000
+Binary files a/public/images/portfolio-1.jpg and /dev/null differ
+diff --git a/public/images/portfolio/artech/2.jpg b/public/images/portfolio/artech/2.jpg
+deleted file mode 100755
+index d50eef6..0000000
+Binary files a/public/images/portfolio/artech/2.jpg and /dev/null differ
+diff --git a/public/images/portfolio/box17/_WRZUC-TU-ZDJECIA.txt b/public/images/portfolio/box17/_WRZUC-TU-ZDJECIA.txt
+deleted file mode 100644
+index eb04fa7..0000000
+--- a/public/images/portfolio/box17/_WRZUC-TU-ZDJECIA.txt
++++ /dev/null
+@@ -1,12 +0,0 @@
+-Box17 — zdjęcia do case study
+-==============================
+-
+-1) MINIATURA (wymagana, bez niej kafel na /portfolio będzie pusty):
+-   nazwa pliku:  box17.jpg
+-   proporcje:    poziome ~4:3 (np. 1600x1200), najlepszy kadr budki
+-
+-2) GALERIA (opcjonalnie — wpis działa też bez niej):
+-   wrzuć pliki tutaj, a potem dodamy je w polu "gallery" w src/data/portfolio.ts
+-   (slug: box17-budki-akustyczne). Sugerowane: 6-10 najlepszych kadrów.
+-
+-Po wrzuceniu plików daj znać — podepnę je w danych i opiszę alt-teksty pod SEO.
+diff --git a/public/images/portfolio/box17/box17-01.jpg b/public/images/portfolio/box17/box17-01.jpg
+deleted file mode 100644
+index 6112e20..0000000
+Binary files a/public/images/portfolio/box17/box17-01.jpg and /dev/null differ
+diff --git a/public/images/portfolio/box17/box17-02.jpg b/public/images/portfolio/box17/box17-02.jpg
+deleted file mode 100644
+index db29231..0000000
+Binary files a/public/images/portfolio/box17/box17-02.jpg and /dev/null differ
+diff --git a/public/images/portfolio/box17/box17-03.jpg b/public/images/portfolio/box17/box17-03.jpg
+deleted file mode 100644
+index 46651d5..0000000
+Binary files a/public/images/portfolio/box17/box17-03.jpg and /dev/null differ
+diff --git a/public/images/portfolio/box17/box17-04.jpg b/public/images/portfolio/box17/box17-04.jpg
+deleted file mode 100644
+index c338227..0000000
+Binary files a/public/images/portfolio/box17/box17-04.jpg and /dev/null differ
+diff --git a/public/images/portfolio/box17/box17-05.jpg b/public/images/portfolio/box17/box17-05.jpg
+deleted file mode 100644
+index 88ac416..0000000
+Binary files a/public/images/portfolio/box17/box17-05.jpg and /dev/null differ
+diff --git a/public/images/portfolio/box17/box17-06.jpg b/public/images/portfolio/box17/box17-06.jpg
+deleted file mode 100644
+index 52f5396..0000000
+Binary files a/public/images/portfolio/box17/box17-06.jpg and /dev/null differ
+diff --git a/public/images/portfolio/box17/box17-07.jpg b/public/images/portfolio/box17/box17-07.jpg
+deleted file mode 100644
+index bfda531..0000000
+Binary files a/public/images/portfolio/box17/box17-07.jpg and /dev/null differ
+diff --git a/public/images/portfolio/box17/box17-08.jpg b/public/images/portfolio/box17/box17-08.jpg
+deleted file mode 100644
+index c5d414b..0000000
+Binary files a/public/images/portfolio/box17/box17-08.jpg and /dev/null differ
+diff --git a/public/images/portfolio/box17/box17-09.jpg b/public/images/portfolio/box17/box17-09.jpg
+deleted file mode 100644
+index 2741afb..0000000
+Binary files a/public/images/portfolio/box17/box17-09.jpg and /dev/null differ
+diff --git a/public/images/portfolio/box17/box17.jpg b/public/images/portfolio/box17/box17.jpg
+deleted file mode 100644
+index 063ae29..0000000
+Binary files a/public/images/portfolio/box17/box17.jpg and /dev/null differ
+diff --git a/public/images/portfolio/sesja-wizerunkowa/01.jpg b/public/images/portfolio/sesja-wizerunkowa/01.jpg
+deleted file mode 100644
+index 7e24415..0000000
+Binary files a/public/images/portfolio/sesja-wizerunkowa/01.jpg and /dev/null differ
+diff --git a/public/llms.txt b/public/llms.txt
+index e980e0d..d3c7ae5 100644
+--- a/public/llms.txt
++++ b/public/llms.txt
+@@ -4,7 +4,7 @@
+ 
+ ## O mnie
+ - Imię: Marcin Szabunia
+-- Specjalizacja: obsługa wydarzeń firmowych (foto, wideo, dron), wizerunek zespołów, portrety biznesowe, wideo marketing, fotografia produktowa
++- Specjalizacja: obsługa wydarzeń firmowych (foto, wideo, dron), wizerunek zespołów, portrety biznesowe, wideo marketing, fotografia produktowa, fotografia hal, obiektów i wnętrz
+ - Działa od: 2018
+ - Lokalizacja: Poznań, Polska (dojazd: 0 zł w Poznaniu, 2,50 zł netto/km poza Poznaniem, cała Polska i Europa)
+ - Współpracowałem z: H&M, Warner Music Poland, Santander Bank Polska, John Deere, IQOS, Amica, Grupa Forte S.A., Centrum Posnania, Woohoo
+@@ -14,13 +14,14 @@
+ - Sprzęt: 2x Canon R6, obiektywy Sigma / Tamron / Tokina (16-200 mm), oświetlenie Godox, dźwięk Rode i Zoom, dron DJI Mini 5 Pro (certyfikat A1/A3, ubezpieczenie OC operatora)
+ 
+ ## Usługi i cennik (netto)
+-- [Obsługa eventów firmowych](https://szabunia.pl/uslugi/eventy-reportaze): 600 zł pierwsza godzina, 350 zł każda kolejna, pakiet 4 h 1 500 zł, całodniowy 8 h 2 600 zł; live editing 20 zł/zdjęcie, dostawa tego samego dnia 400 zł (partia do 15 zdjęć), express do 48 h +50%, ujęcia z drona +200 zł
+-- [Sesje zespołowe](https://szabunia.pl/uslugi/sesje-zespolowe): sesje od 4 osób, stawka progresywna za osobę: osoby 4-10 po 180 zł, osoby 11-30 po 150 zł, osoby od 31 po 120 zł (niższa stawka dotyczy tylko osób w danym przedziale, nie całej grupy); dodatkowe ujęcie 100 zł; rozstawienie mobilnego studia w biurze klienta 450 zł; alternatywnie wynajem studia zewnętrznego: do 2 h 400 zł, do 4 h 800 zł, dzień zdjęciowy 1 300 zł
+-- [Pakiety foto + wideo](https://szabunia.pl/uslugi/pakiety-foto-wideo): EVENT STANDARD 2 100 zł (3 h, 60+ zdjęć, Reels 30 s, dron), EVENT PRO 3 600 zł (6 h, 120+ zdjęć, film 60 s, teaser 15 s, dron), EVENT PRO MAX 5 000 zł (do 8 h, 160+ zdjęć, film 60 s, teaser, 2 wywiady, dron); dodatkowa godzina 400 zł
+-- [Wizerunek & Portrety](https://szabunia.pl/uslugi/wizerunek-portrety): PORTRET STANDARD 1 100 zł (1 osoba, 90 min, 5 wyretuszowanych zdjęć), PORTRET PRO 1 400 zł (1 osoba, 2 h, 8 zdjęć), PORTRET PRO MAX 1 800 zł (1 osoba, do 3 h, 10 zdjęć)
++- [Obsługa eventów firmowych](https://szabunia.pl/uslugi/eventy-reportaze): 600 zł pierwsza godzina, 350 zł każda kolejna, pakiet 4h 1 500 zł, całodniowy 8h 2 600 zł; live editing 20 zł/zdjęcie, dostawa tego samego dnia 400 zł (partia do 15 zdjęć), express do 48h +50%, ujęcia z drona +200 zł
++- [Sesje zespołowe](https://szabunia.pl/uslugi/sesje-zespolowe): sesje od 4 osób, stawka progresywna za osobę: osoby 4-10 po 180 zł, osoby 11-30 po 150 zł, osoby od 31 po 120 zł (niższa stawka dotyczy tylko osób w danym przedziale, nie całej grupy); dodatkowe ujęcie 100 zł; rozstawienie mobilnego studia w biurze klienta 450 zł; alternatywnie wynajem studia zewnętrznego: do 2h 400 zł, do 4h 800 zł, dzień zdjęciowy 1 300 zł
++- [Pakiety foto + wideo](https://szabunia.pl/uslugi/pakiety-foto-wideo): EVENT STANDARD 2 100 zł (3h, 60+ zdjęć, Reels 30 s, dron), EVENT PRO 3 600 zł (6h, 120+ zdjęć, film 60 s, teaser 15 s, dron), EVENT PRO MAX 5 000 zł (do 8h, 160+ zdjęć, film 60 s, teaser, 2 wywiady, dron); dodatkowa godzina 400 zł
++- [Wizerunek & Portrety](https://szabunia.pl/uslugi/wizerunek-portrety): PORTRET STANDARD 1 100 zł (1 osoba, 90 min, 5 wyretuszowanych zdjęć), PORTRET PRO 1 400 zł (1 osoba, 2h, 8 zdjęć), PORTRET PRO MAX 1 800 zł (1 osoba, do 3h, 10 zdjęć)
+ - [Wideo marketing](https://szabunia.pl/uslugi/wideo-marketing): praca operatora 400 zł (pierwsza godzina) / 200 zł (każda kolejna); pakiety montażowe: XS Teaser do 15 s 300 zł (wyłącznie jako dodatek do zlecenia), montaż wywiadu do 30 s 450 zł, S Reels do 30 s 1 200 zł, M Event recap do 60 s 1 800 zł, L Promo 1-2 min i XL Dokument ok. 3 min wyceniane indywidualnie. Pakiety montażowe obejmują samą postprodukcję: jeśli materiał nagrywam ja, dochodzi praca operatora; jeśli przynosisz własne ujęcia, płacisz tylko za montaż
+ - [Fotografia produktowa](https://szabunia.pl/uslugi/fotografia-produktowa): packshot progresywnie: sztuki 1-20 po 90 zł, sztuki 21-50 po 70 zł, sztuki od 51 po 55 zł (niższa stawka tylko dla sztuk w danym przedziale); minimalne zamówienie 600 zł; zdjęcia kreatywne internet od 200 zł/szt., druk/outdoor od 600 zł/szt.
+ - [Zdjęcia i wideo z drona](https://szabunia.pl/uslugi/zdjecia-wideo-z-drona): samodzielna usługa od 700 zł. Zdjęcia z drona (do 8 wyretuszowanych ujęć, 50 Mpix) 900 zł, przebitki 4K do montażu własnego 700 zł, zmontowane wideo 4K do 60 s 1 200 zł; komplet zdjęcia + przebitki 1 300 zł lub zdjęcia + wideo 1 700 zł; kolejny wylot/godzina 300 zł, dodatkowe zdjęcie 80 zł, dron jako dodatek do innej sesji (do 3 ujęć) 200 zł (dron DJI Mini 5 Pro, certyfikat operatora A1/A3, ubezpieczenie OC)
++- [Fotografia hal, obiektów i wnętrz](https://szabunia.pl/uslugi/wnetrza-obiekty-architektura): pakiety obiektowe 900/1300/1900 zł (do 8 ujęć z powietrza / do 14 z poziomem ziemi / do 24 z blokiem wnętrz), retusz architektoniczny, pliki do druku i pod www, drugi obiekt tego samego typu w tym samym dniu taniej o 300 zł
+ 
+ ## Warunki współpracy
+ - Wszystkie ceny netto (+23% VAT). Rozliczenie przez platformę Useme, w modelu B2B, z fakturą VAT za zrealizowane zlecenie. Termin płatności: 7 dni
+@@ -44,7 +45,7 @@
+ 
+ ## Kontakt
+ - Strona: https://szabunia.pl
+-- Email: marcin@szabunia.pl
++- E-mail: marcin@szabunia.pl
+ - Telefon: +48 514 900 688
+ - Instagram: https://instagram.com/szabunia.biz
+ 
+diff --git a/scripts/generate-blog-covers.py b/scripts/generate-blog-covers.py
+index 026593f..539a5ae 100644
+--- a/scripts/generate-blog-covers.py
++++ b/scripts/generate-blog-covers.py
+@@ -21,19 +21,19 @@ W, H = 1600, 900
+ 
+ # slug: (ścieżka względem public/images, focus_y)
+ COVERS = {
+-    "jak-przygotowac-sie-do-sesji-biznesowej": ("galeria/portrety/portret-02.jpg", 0.26),
+-    "headshoty-linkedin-konwersja": ("galeria/portrety/portret-09.jpg", 0.24),
+-    "fotografia-eventowa-vs-reportaz": ("galeria/eventy/event-04.jpg", 0.45),
++    "jak-przygotowac-sie-do-sesji-biznesowej": ("galeria/portrety/portret-02-kobieta-z-laptopem.jpg", 0.26),
++    "headshoty-linkedin-konwersja": ("galeria/portrety/portret-09-mezczyzna-czarny-tshirt.jpg", 0.24),
++    "fotografia-eventowa-vs-reportaz": ("galeria/eventy/event-04-gala-wreczenie-wyroznien.jpg", 0.45),
+     "fotografia-produktowa-ecommerce": ("galeria/produktowe/produkt-11.jpg", 0.42),
+     "fotografia-przemyslowa-fabryka": ("galeria/produktowe/produkt-21.jpg", 0.50),
+-    "ile-kosztuje-sesja-wizerunkowa-dla-firmy": ("galeria/portrety/portret-05.jpg", 0.26),
+-    "co-zalozyc-na-sesje-biznesowa": ("galeria/portrety/portret-06.jpg", 0.24),
+-    "bledy-zdjecia-zespolu": ("galeria/eventy/event-02.jpg", 0.45),
+-    "sesja-wizerunkowa-poznan": ("galeria/portrety/portret-14.jpg", 0.32),
+-    "wideo-marketing-dla-firm-formaty": ("galeria/eventy/event-17.jpg", 0.45),
+-    "zdjecie-do-cv-w-domu": ("galeria/portrety/portret-10.jpg", 0.24),
+-    "zdjecia-ai-vs-profesjonalna-sesja": ("galeria/portrety/portret-03.jpg", 0.28),
+-    "zdjecia-na-strone-firmowa": ("galeria/portrety/portret-13.jpg", 0.30),
++    "ile-kosztuje-sesja-wizerunkowa-dla-firmy": ("galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg", 0.26),
++    "co-zalozyc-na-sesje-biznesowa": ("galeria/portrety/portret-06-dwie-osoby-duet.jpg", 0.24),
++    "bledy-zdjecia-zespolu": ("galeria/eventy/event-02-zdjecie-grupowe-tor.jpg", 0.45),
++    "sesja-wizerunkowa-poznan": ("galeria/portrety/portret-14-mezczyzna-z-telefonem.jpg", 0.32),
++    "wideo-marketing-dla-firm-formaty": ("galeria/eventy/event-17-dj-slupy-ognia.jpg", 0.45),
++    "zdjecie-do-cv-w-domu": ("galeria/portrety/portret-10-kobieta-bezowa-marynarka.jpg", 0.24),
++    "zdjecia-ai-vs-profesjonalna-sesja": ("galeria/portrety/portret-03-mezczyzna-czarne-tlo.jpg", 0.28),
++    "zdjecia-na-strone-firmowa": ("galeria/portrety/portret-13-kobieta-przy-oknie.jpg", 0.30),
+ }
+ 
+ 
+diff --git a/src/app/api/contact/route.ts b/src/app/api/contact/route.ts
+index 74a0c80..6aeca4a 100644
+--- a/src/app/api/contact/route.ts
++++ b/src/app/api/contact/route.ts
+@@ -90,6 +90,9 @@ export async function POST(req: Request) {
+     wideo: "Wideo marketing",
+     pakiet: "Pakiet foto + wideo",
+     dron: "Zdjęcia i wideo z drona",
++    // TRESC2608-03 (04.08.2026): bez tej linii wysyłka formularza z ósmą usługą
++    // kończyła się błędem 400 „Nieznany rodzaj usługi" (twarda lista niżej).
++    obiekty: "Fotografia hal, obiektów i wnętrz",
+     inne: "Inne zapytanie",
+   };
+   // Twarda lista kodów usług — bez niej pole `service` przyjmowało dowolne
+diff --git a/src/app/api/lead/route.ts b/src/app/api/lead/route.ts
+index 2db5e56..1802258 100644
+--- a/src/app/api/lead/route.ts
++++ b/src/app/api/lead/route.ts
+@@ -90,7 +90,7 @@ export async function POST(req: Request) {
+   const guideHtml = `
+     <div style="font-family:Arial,Helvetica,sans-serif;color:#334155;max-width:520px;line-height:1.55">
+       <h2 style="color:#0F172A;margin:0 0 12px">Twój pakiet przygotowania do sesji</h2>
+-      <p>Cześć! Dzięki za pobranie poradnika. Znajdziesz w nim checklisty, planer stylizacji, ściągę kolorów i mini-brief: wszystko, żeby wejść na plan spokojnie i z głową.</p>
++      <p>Cześć! Dzięki za pobranie poradnika. Znajdziesz w nim checklisty, planer stylizacji, ściągę kolorów i gotową listę pytań: wszystko, żeby wejść na plan spokojnie i z głową.</p>
+       <p style="margin:22px 0">
+         <a href="${PDF_URL}" style="background:#2563EB;color:#ffffff;text-decoration:none;padding:12px 22px;border-radius:8px;font-weight:bold;display:inline-block">Pobierz poradnik (PDF)</a>
+       </p>
+diff --git a/src/app/galeria/page.tsx b/src/app/galeria/page.tsx
+index d8c3119..79e33e9 100644
+--- a/src/app/galeria/page.tsx
++++ b/src/app/galeria/page.tsx
+@@ -17,6 +17,7 @@ import PoradnikTeaser from "@/components/PoradnikTeaser";
+ import MobileFAB from "@/components/MobileFAB";
+ import { galleryVideos } from "@/data/galeria";
+ import { listGalleryImagesSized } from "@/lib/galleryImages";
++import { galleryAlt } from "@/data/galleryAlts";
+ import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
+ 
+ export const metadata: Metadata = {
+@@ -62,26 +63,17 @@ export default async function GaleriaPage({
+       label: "Portrety",
+       folder: "portrety",
+       alt: "Portret biznesowy, Marcin Szabunia, Poznań",
+-      altVariants: [
+-        "Portret biznesowy w studio, fotograf Marcin Szabunia, Poznań",
+-        "Headshot biznesowy do LinkedIn, sesja wizerunkowa, Poznań",
+-        "Zdjęcie wizerunkowe dla firmy, fotografia korporacyjna, Poznań",
+-        "Portret pracownika z sesji biznesowej, Marcin Szabunia",
+-        "Sesja personal branding, portret eksperta, fotograf Poznań",
+-      ],
++      // ZDJ2608-04: pięć wariantów na czternaście kadrów zniknęło. Opisy per plik
++      // są w `src/data/galleryAlts.ts` i dokładają się niżej, w kolejności plików.
+     },
+     {
+       key: "eventy",
+       label: "Eventy",
+       folder: "eventy",
+       alt: "Fotografia eventowa, Marcin Szabunia, Poznań",
+-      altVariants: [
+-        "Reportaż z eventu firmowego, fotograf eventowy Poznań",
+-        "Fotografia konferencyjna, relacja z wydarzenia biznesowego",
+-        "Zdjęcie z gali firmowej, fotograf Marcin Szabunia",
+-        "Fotoreportaż z eventu korporacyjnego, Poznań",
+-        "Relacja zdjęciowa z targów i wydarzeń firmowych",
+-      ],
++      // ZDJ2608-04: pięć wariantów na piętnaście kadrów zniknęło. To one nazywały
++      // osła „fotografią konferencyjną", a DJ-a „zdjęciem z gali". Opisy per plik
++      // są w `src/data/galleryAlts.ts`.
+     },
+     {
+       key: "produktowe",
+@@ -100,63 +92,49 @@ export default async function GaleriaPage({
+     },
+     {
+       key: "wnetrza",
+-      label: "Wnętrza i hale",
++      // ZDJ2608-06 (04.08.2026): etykieta poszerzona z „Wnętrza i hale". Cztery z dwunastu
++      // kadrów w tej zakładce to zewnętrza (czwarty rząd, obiekty z powietrza), a nazwa
++      // usługi brzmi „Wnętrza, obiekty i architektura". Klucz `kat=wnetrza` BEZ ZMIAN: to adres.
++      label: "Wnętrza, hale i obiekty",
+       folder: "wnetrza",
+       alt: "Fotografia wnętrz i hal, Marcin Szabunia, Poznań",
+-      // Dwanaście wariantów pod dwanaście konkretnych kadrów w folderze
+-      // (kolejność plików = kolejność tej listy), żeby opis alternatywny
+-      // opisywał to, co naprawdę jest na zdjęciu, a nie rotował losowo.
+-      // Kolejność ustawiona przez Marcina 04.08.2026 pod siatkę /galeria, która ma
+-      // trzy kolumny i układa zdjęcia rzędami: rząd 1 to hale, rząd 2 obiekt
+-      // z zewnątrz i strefy wspólne, rząd 3 lokale gastronomiczne, rząd 4 obiekty
+-      // z powietrza (pliki skopiowane z folderu `dron`, bo listGalleryImages czyta
+-      // katalog, a nie listę ścieżek — te trzy kadry leżą na dysku dwa razy).
+-      altVariants: [
+-        "Wnętrze hali magazynowej, regały i ciąg komunikacyjny, Poznań",
+-        "Hala logistyczna, stanowiska pracy i strefa kompletacji",
+-        "Hala magazynowa od środka, bramki i otwarta powierzchnia składowania",
+-        "Elewacja budynku biurowego o zmierzchu, fotografia architektury",
+-        "Siłownia w biurze, strefa dla pracowników w budynku biurowym",
+-        "Wnętrze kabiny akustycznej w biurze, wykończenie i oświetlenie",
+-        "Wnętrze lokalu gastronomicznego, sala restauracyjna, Poznań",
+-        "Wnętrze restauracji, bar i sala, fotografia lokalu",
+-        "Sala lokalu użytkowego w świetle dziennym, fotografia wnętrza",
+-        "Wieżowiec biurowy w Poznaniu z powietrza, fotografia obiektu",
+-        "Biurowiec z lotu ptaka, bryła i otoczenie inwestycji, Poznań",
+-        "Nowoczesny budynek komercyjny z drona, elewacja i kontekst lokalizacji",
+-      ],
++      // ZDJ2608-04 / ZDJ2608-12: dwanaście opisów pod dwanaście kadrów przeniesione
++      // 04.08.2026 do `src/data/galleryAlts.ts`, bez zmiany treści. Powód przenosin:
++      // pasek „Przykłady z galerii" na podstronie obiektowej pokazuje te same pliki
++      // i musi mieć te same opisy, a nie drugi zestaw. Kolejność ustawiona przez
++      // Marcina 04.08.2026 (rząd 1 hale, rząd 2 obiekt z zewnątrz i strefy wspólne,
++      // rząd 3 lokale gastronomiczne, rząd 4 obiekty z powietrza) zostaje bez zmian.
+     },
+     {
+       key: "dron",
+       label: "Dron",
+       folder: "dron",
+       alt: "Zdjęcia z drona, Poznań, Marcin Szabunia",
+-      // Dziewięć wariantów pod dziewięć kadrów w folderze, w kolejności plików.
+-      // Wieżowiec zszedł na koniec 04.08.2026 (prośba Marcina), więc opisy poszły
+-      // za nim — bez tego drugi kadr dostawał opis wieżowca, którego już tam nie ma.
+-      altVariants: [
+-        "Zdjęcia z drona, biurowce w centrum Poznania z lotu ptaka",
+-        "Fotografia z drona dla firm, nowoczesny budynek komercyjny, Poznań",
+-        "Biurowiec z lotu ptaka, bryła i otoczenie inwestycji, Poznań",
+-        "Panorama Poznania z drona o zachodzie słońca",
+-        "Zdjęcia z drona nieruchomości, apartamenty nad rzeką, Poznań",
+-        "Zdjęcia z drona osiedla mieszkaniowego, Poznań",
+-        "Zdjęcia z drona inwestycji i terenów zielonych, Poznań i okolice",
+-        "Nowoczesne osiedle z lotu ptaka, fotografia dla dewelopera",
+-        "Wideo i zdjęcia z drona, wieżowiec biurowy w Poznaniu",
+-      ],
++      // ZDJ2608-04 / ZDJ2608-12: dziewięć opisów pod dziewięć kadrów przeniesione
++      // 04.08.2026 do `src/data/galleryAlts.ts`, bez zmiany treści. Kategoria
++      // `obiekty` w pasku usług wskazuje te same pliki, więc korzysta z tych samych
++      // opisów. Wieżowiec zszedł na koniec 04.08.2026 (prośba Marcina), a opisy idą
++      // teraz za plikiem, nie za pozycją, więc taka zmiana ich nie rozjeżdża.
+     },
+   ];
+ 
++  // ZDJ2608-04 (04.08.2026): opis alternatywny bierze się z pliku, nie z pozycji.
++  // Kategoria, która nie ma własnej listy w `defs`, dostaje po jednym opisie na kadr
++  // z `GALLERY_ALTS` (klucz to nazwa pliku), w kolejności plików. Kategoria z własną,
++  // krótszą listą (dziś tylko `produktowe`, 4 warianty na 24 kadry) zostaje na rotacji
++  // do czasu własnej rundy: jej kadrów ta tura nie oglądała.
+   const categories: GalleryCategory[] = defs
+-    .map((d) => ({
+-      key: d.key,
+-      label: d.label,
+-      images: listGalleryImagesSized(d.folder),
+-      alt: d.alt,
+-      altVariants: d.altVariants,
+-      uniformTiles: d.uniformTiles,
+-    }))
++    .map((d) => {
++      const images = listGalleryImagesSized(d.folder);
++      return {
++        key: d.key,
++        label: d.label,
++        images,
++        alt: d.alt,
++        altVariants: d.altVariants ?? images.map((img) => galleryAlt(img.src, d.alt)),
++        uniformTiles: d.uniformTiles,
++      };
++    })
+     .filter((c) => c.images.length > 0);
+ 
+   const validKeys = [...categories.map((c) => c.key), "wideo"];
+diff --git a/src/app/poradnik/page.tsx b/src/app/poradnik/page.tsx
+index cbedd81..283a363 100644
+--- a/src/app/poradnik/page.tsx
++++ b/src/app/poradnik/page.tsx
+@@ -13,12 +13,12 @@ import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcru
+ export const metadata: Metadata = {
+   title: "Darmowy poradnik: sesja biznesowa | Szabunia",
+   description:
+-    "Checklisty, planer stylizacji, ściąga kolorów i mini-brief. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
++    "Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
+   alternates: { canonical: "/poradnik" },
+   openGraph: {
+     title: "Darmowy poradnik: sesja biznesowa | Szabunia",
+     description:
+-      "Checklisty, planer stylizacji, ściąga kolorów i mini-brief. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
++      "Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
+     url: "https://szabunia.pl/poradnik",
+     images: [
+       {
+@@ -33,7 +33,7 @@ export const metadata: Metadata = {
+     card: "summary_large_image",
+     title: "Darmowy poradnik: sesja biznesowa | Szabunia",
+     description:
+-      "Checklisty, planer stylizacji, ściąga kolorów i mini-brief. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
++      "Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
+     images: ["/images/og/strony/poradnik.jpg"],
+   },
+ };
+@@ -43,7 +43,7 @@ const inside = [
+   "Planer stylizacji na 2–3 zestawy",
+   "Ściąga kolorów: co działa, czego unikać",
+   "Jak wyglądać naturalnie przed obiektywem",
+-  "Mini-brief, który wyślesz mi w 2 minuty",
++  "Gotowa lista pytań, którą wyślesz mi w 2 minuty",
+ ];
+ 
+ // Rozpiska sekcji PDF-a (8 stron treści na 4 stronach A4). Kolejność i nazwy
+@@ -80,7 +80,7 @@ const sections: { title: string; desc: string }[] = [
+     desc: "Galeria online ze wszystkimi ujęciami i Twój wybór kadrów do retuszu. Terminy dostawy i tryb ekspresowy. Pliki w pełnej jakości plus wersja web oraz licencja komercyjna bez limitów czasowych.",
+   },
+   {
+-    title: "Mini-brief, który wyślesz mi w 2 minuty",
++    title: "Gotowa lista pytań, którą wyślesz mi w 2 minuty",
+     desc: "Pięć punktów do skopiowania do maila: cel zdjęć, styl i nastrój z linkami, liczba osób, termin i miejsce, dodatkowe uwagi. Im więcej wiem, tym celniejsza wycena wraca do Ciebie.",
+   },
+ ];
+@@ -114,7 +114,7 @@ export default function PoradnikPage() {
+               Pakiet przygotowania do sesji biznesowej
+             </h1>
+             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto">
+-              Checklisty, planer stylizacji, ściąga kolorów i mini-brief: wszystko, żeby
++              Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań: wszystko, żeby
+               wyjść na zdjęciach pewnie i naturalnie, nawet jeśli zwykle nie lubisz się
+               fotografować.
+             </p>
+diff --git a/src/app/portfolio/page.tsx b/src/app/portfolio/page.tsx
+index 86a7806..957266b 100644
+--- a/src/app/portfolio/page.tsx
++++ b/src/app/portfolio/page.tsx
+@@ -2,6 +2,7 @@ import type { Metadata } from "next";
+ import Image from "next/image";
+ import Link from "next/link";
+ import { portfolioCategories, portfolioItems } from "@/data/portfolio";
++import { galleryAlt } from "@/data/galleryAlts";
+ import Navigation from "@/components/Navigation";
+ import ScrollProgress from "@/components/ScrollProgress";
+ import AnimatedSection from "@/components/AnimatedSection";
+@@ -86,7 +87,8 @@ export default function PortfolioPage() {
+                 <>
+                   <Image
+                     src={item.image}
+-                    alt={item.label}
++                    /* ZDJ2608-11: opis obejrzanego kadru zamiast etykiety kafelka. */
++                    alt={galleryAlt(item.image, item.label)}
+                     fill
+                     className={`object-cover ${item.imagePosition === "top" ? "object-top" : ""} transition-transform duration-500 group-hover:scale-105`}
+                     sizes="(max-width: 1024px) 50vw, 33vw"
+diff --git a/src/app/uslugi/[slug]/page.tsx b/src/app/uslugi/[slug]/page.tsx
+index 589f164..a73d5bd 100644
+--- a/src/app/uslugi/[slug]/page.tsx
++++ b/src/app/uslugi/[slug]/page.tsx
+@@ -168,7 +168,7 @@ export default async function ServicePage({ params }: PageProps) {
+         {service.videoFirst && videoSection}
+         {service.galleryCategory && (
+           <ErrorBoundary>
+-            <ServiceGalleryStrip category={service.galleryCategory} />
++            <ServiceGalleryStrip category={service.galleryCategory} exclude={service.heroImage} />
+           </ErrorBoundary>
+         )}
+         {!service.videoFirst && videoSection}
+@@ -179,6 +179,7 @@ export default async function ServicePage({ params }: PageProps) {
+               ctaLabel={service.extraGallery.ctaLabel}
+               href={service.extraGallery.href}
+               sub={service.extraGallery.sub}
++              exclude={service.heroImage}
+             />
+           </ErrorBoundary>
+         )}
+diff --git a/src/app/uslugi/page.tsx b/src/app/uslugi/page.tsx
+index de3ea29..a8a6573 100644
+--- a/src/app/uslugi/page.tsx
++++ b/src/app/uslugi/page.tsx
+@@ -12,8 +12,10 @@ import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcru
+ 
+ export const metadata: Metadata = {
+   title: "Usługi foto i wideo dla firm, Poznań | Szabunia",
++  // TRESC2608-03 (04.08.2026), TEKST WŁASNY DO AKCEPTACJI: dopisana linia obiektowa,
++  // ósma usługa. 151 znaków przy progu 155, policzone skryptem.
+   description:
+-    "Obsługa eventów firmowych, sesje zespołowe, portrety, wideo i dron. Jeden twórca, jedna faktura, jeden termin. Poznań i cała Polska.",
++    "Obsługa eventów firmowych, sesje zespołowe, portrety, wideo, dron oraz hale i wnętrza. Jeden twórca, jedna faktura, jeden termin. Poznań i cała Polska.",
+   alternates: { canonical: "/uslugi" },
+   openGraph: {
+     title: "Usługi foto i wideo dla firm, Poznań | Szabunia",
+diff --git a/src/components/About.tsx b/src/components/About.tsx
+index eb33f95..f02c519 100644
+--- a/src/components/About.tsx
++++ b/src/components/About.tsx
+@@ -20,7 +20,10 @@ export default function About() {
+                     alt="Marcin Szabunia, fotograf biznesowy, portret, Poznań"
+                     fill
+                     className="object-cover"
+-                    sizes="(max-width: 1024px) 0px, 520px"
++                    // ZDJ2608-25 (04.08.2026): kolumna w max-w-6xl z gap-16 to (1152-64)/2 = 544 px,
++                    // a obraz siedzi w scale-[1.15] (wyżej), czyli renderuje się na ~626 px.
++                    // Poprzednie 520 px kazało przeglądarce pobrać węższy wariant, niż potrzeba.
++                    sizes="(max-width: 1024px) 0px, 630px"
+                     quality={80}
+                     placeholder="blur"
+                     blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg=="
+diff --git a/src/components/BlogCard.tsx b/src/components/BlogCard.tsx
+index 88148da..1788102 100644
+--- a/src/components/BlogCard.tsx
++++ b/src/components/BlogCard.tsx
+@@ -1,5 +1,6 @@
+ import Link from "next/link";
+ import Image from "next/image";
++import { galleryAlt } from "@/data/galleryAlts";
+ import type { BlogPost } from "@/data/blog";
+ 
+ const blurPlaceholder =
+@@ -20,7 +21,8 @@ export default function BlogCard({ post }: { post: BlogPost }) {
+       <div className="relative aspect-[16/9] bg-border dark:bg-dark-card">
+         <Image
+           src={post.thumbnail}
+-          alt={post.title}
++          /* ZDJ2608-11: opis obejrzanego kadru zamiast tytułu wpisu. Nie dotyka blog.ts. */
++          alt={galleryAlt(post.thumbnail, post.title)}
+           fill
+           className="object-cover transition-transform duration-500 group-hover:scale-105"
+           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
+diff --git a/src/components/CTA.tsx b/src/components/CTA.tsx
+index 7734118..0e0be34 100644
+--- a/src/components/CTA.tsx
++++ b/src/components/CTA.tsx
+@@ -450,6 +450,12 @@ export default function CTA() {
+                           <option value="dron" className="bg-white dark:bg-navy">
+                             Zdjęcia i wideo z drona
+                           </option>
++                          {/* TRESC2608-03 (04.08.2026): ósma usługa, opublikowana 04.08,
++                              nie istniała na żadnej z list pisanych ręcznie, w tym
++                              w formularzu, przez co jej leady spadały do „Inne zapytanie". */}
++                          <option value="obiekty" className="bg-white dark:bg-navy">
++                            Fotografia hal, obiektów i wnętrz
++                          </option>
+                           <option value="inne" className="bg-white dark:bg-navy">
+                             Inne zapytanie
+                           </option>
+diff --git a/src/components/Footer.tsx b/src/components/Footer.tsx
+index c380657..af7a9ff 100644
+--- a/src/components/Footer.tsx
++++ b/src/components/Footer.tsx
+@@ -18,7 +18,7 @@ export default function Footer() {
+               MARCIN SZABUNIA
+             </div>
+             <p className="text-xs text-text-body dark:text-dark-text-muted">
+-              Fotograf biznesowy & twórca wideo
++              Fotograf biznesowy i twórca wideo
+             </p>
+             <p className="text-xs text-text-body dark:text-dark-text-muted">Poznań, Polska</p>
+           </div>
+diff --git a/src/components/GalleryView.tsx b/src/components/GalleryView.tsx
+index 42c9b64..edb097b 100644
+--- a/src/components/GalleryView.tsx
++++ b/src/components/GalleryView.tsx
+@@ -28,11 +28,26 @@ export interface GalleryCategory {
+   uniformTiles?: boolean;
+ }
+ 
+-/** Alt dla i-tego zdjęcia: wariant z listy (rotacyjnie) z numerem kadru dla unikalności. */
+-function altFor(cat: { alt: string; altVariants?: string[] } | undefined, i: number): string {
++/**
++ * Alt dla i-tego zdjęcia.
++ *
++ * ZDJ2608-04 (04.08.2026): gdy wariantów jest tyle co kadrów, opis jest już unikalny
++ * i opisuje TEN kadr, więc dopisek „, kadr N" tylko zaśmieca i wraca wzorzec opisu
++ * pozycji zamiast obrazu. Numer zostaje wyłącznie tam, gdzie lista jest krótsza od
++ * galerii i rotuje (dziś tylko `produktowe`), bo bez niego powtórzyłby się ten sam tekst.
++ */
++function altFor(
++  cat: { alt: string; altVariants?: string[]; images?: SizedImage[] } | undefined,
++  i: number
++): string {
+   if (!cat) return `Fotografia ${i + 1}`;
+-  const base = cat.altVariants?.length ? cat.altVariants[i % cat.altVariants.length] : cat.alt;
+-  return `${base}, kadr ${i + 1}`;
++  const variants = cat.altVariants;
++  if (variants?.length) {
++    const rotating = !cat.images || variants.length < cat.images.length;
++    const base = variants[i % variants.length];
++    return rotating ? `${base}, kadr ${i + 1}` : base;
++  }
++  return `${cat.alt}, kadr ${i + 1}`;
+ }
+ 
+ // Liczba kolumn galerii zależna od szerokości (SSR-safe, bez setState-in-effect):
+diff --git a/src/components/PoradnikBlogCTA.tsx b/src/components/PoradnikBlogCTA.tsx
+index c3e0e52..a8bc092 100644
+--- a/src/components/PoradnikBlogCTA.tsx
++++ b/src/components/PoradnikBlogCTA.tsx
+@@ -23,7 +23,7 @@ export default function PoradnikBlogCTA() {
+           Przygotuj się do sesji jak zawodowiec
+         </h3>
+         <p className="text-[13px] text-steel dark:text-dark-text-muted mb-4 leading-relaxed">
+-          Checklisty, planer stylizacji, ściąga kolorów i mini-brief: pobierz cały
++          Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań: pobierz cały
+           pakiet PDF za darmo.
+         </p>
+         <Link
+diff --git a/src/components/PoradnikTeaser.tsx b/src/components/PoradnikTeaser.tsx
+index 63658f1..e31858f 100644
+--- a/src/components/PoradnikTeaser.tsx
++++ b/src/components/PoradnikTeaser.tsx
+@@ -20,7 +20,7 @@ export default function PoradnikTeaser() {
+                   jak zawodowiec
+                 </h2>
+                 <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mb-7 max-w-md">
+-                  Checklisty, planer stylizacji, ściąga kolorów i mini-brief w jednym
++                  Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań w jednym
+                   pliku PDF. Wyjdziesz na zdjęciach pewnie i naturalnie, nawet jeśli
+                   zwykle nie lubisz się fotografować.
+                 </p>
+diff --git a/src/components/Portfolio.tsx b/src/components/Portfolio.tsx
+index 5ed072f..71f9a56 100644
+--- a/src/components/Portfolio.tsx
++++ b/src/components/Portfolio.tsx
+@@ -4,17 +4,24 @@ import AnimatedSection from "./AnimatedSection";
+ import Parallax from "./Parallax";
+ import { PARALLAX } from "@/lib/motion";
+ import { portfolioItems } from "@/data/portfolio";
++import { galleryAlt } from "@/data/galleryAlts";
+ import type { PortfolioItem } from "@/data/portfolio";
+ 
+ const blurPlaceholder =
+   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
+ 
+ // Na home pokazujemy dopracowane case studies (podstrony realizacji gotowe).
++// ZDJ2608-32 (DZ2 = A, decyzja Marcina 04.08.2026): woohoo-autopay schodzi z pierwszego
++// miejsca. Wszystkie pięć jego obrazów to grafiki i klatki z filmu (plansza „E-COMMERCE
++// All in", okładki reelsów), a `gallery` jest puste, więc pierwszym, co widział klient
++// szukający zdjęć, była plansza tytułowa. Film nie znika, przestaje tylko otwierać sekcję.
++// Wariant B (dołożenie kadrów foto z tego eventu) wymaga plików spoza repo.
++// Aby cofnąć: przywrócić kolejność woohoo, artech, idcom, yes-butcher.
+ const FEATURED_SLUGS = [
+-  "woohoo-autopay",
+-  "artech-fotografia-produktowa",
+   "idcom-headshoty-zespolu",
+   "yes-butcher-przewodnik-michelin",
++  "woohoo-autopay",
++  "artech-fotografia-produktowa",
+ ];
+ 
+ export default function Portfolio() {
+@@ -29,7 +36,8 @@ export default function Portfolio() {
+         <div className="absolute inset-0 scale-[1.15]">
+           <Image
+             src={item.image}
+-            alt={`Zdjęcie z realizacji: ${item.label}`}
++            /* ZDJ2608-11: opis obejrzanego kadru zamiast etykiety realizacji. */
++            alt={galleryAlt(item.image, `Zdjęcie z realizacji: ${item.label}`)}
+             fill
+             className={`object-cover ${item.imagePosition === "top" ? "object-top" : ""} transition-transform duration-500 group-hover:scale-105`}
+             sizes="(max-width: 768px) 100vw, 576px"
+diff --git a/src/components/PortfolioHero.tsx b/src/components/PortfolioHero.tsx
+index 2612ea3..a33a8e8 100644
+--- a/src/components/PortfolioHero.tsx
++++ b/src/components/PortfolioHero.tsx
+@@ -1,4 +1,5 @@
+ import Image from "next/image";
++import { galleryAlt } from "@/data/galleryAlts";
+ import AnimatedSection from "./AnimatedSection";
+ import Parallax from "./Parallax";
+ import { PARALLAX } from "@/lib/motion";
+@@ -124,7 +125,8 @@ export default function PortfolioHero({ category, crumbs }: Props) {
+               <div className={`relative ${heroAspect} rounded-2xl overflow-hidden bg-border dark:bg-dark-card`}>
+                 <Image
+                   src={category.thumbnail}
+-                  alt={category.label}
++                  /* ZDJ2608-11: opis obejrzanego kadru zamiast etykiety realizacji. */
++                  alt={galleryAlt(category.thumbnail, category.label)}
+                   fill
+                   priority
+                   className={`object-cover ${heroObjectPosition}`}
+diff --git a/src/components/Publications.tsx b/src/components/Publications.tsx
+index b030c1c..cfc8c7f 100644
+--- a/src/components/Publications.tsx
++++ b/src/components/Publications.tsx
+@@ -58,7 +58,7 @@ export default function Publications() {
+               Kwiecień 2026, wydanie z Forte na okładce
+             </p>
+             <p className="text-[15px] text-steel dark:text-dark-text-muted leading-relaxed mb-6">
+-              Zdjęcia, które wykonałem dla <strong className="text-navy dark:text-white font-semibold">Grupa Forte S.A.</strong> na targach meblowych w Poznaniu, trafiły do kwietniowego wydania Big Furniture Group Magazine, brytyjskiego pisma branży meblarskiej audytowanego przez ABC. Jedno z nich znalazło się na okładce.
++              Zdjęcia, które wykonałem dla <strong className="text-navy dark:text-white font-semibold">Grupy Forte S.A.</strong> na targach meblowych w Poznaniu, trafiły do kwietniowego wydania Big Furniture Group Magazine, brytyjskiego pisma branży meblarskiej audytowanego przez ABC. Jedno z nich znalazło się na okładce.
+             </p>
+             <a
+               href="https://bigfurnituregroup.com/big-furniture-group-magazine-april-2026-now-live/"
+diff --git a/src/components/ServiceGalleryLightbox.tsx b/src/components/ServiceGalleryLightbox.tsx
+index 16195d6..3a86b57 100644
+--- a/src/components/ServiceGalleryLightbox.tsx
++++ b/src/components/ServiceGalleryLightbox.tsx
+@@ -13,6 +13,15 @@ interface Props {
+   aspectClass?: string;
+   /** Klasy siatki miniatur (domyślnie 3 kolumny na mobile, 6 na desktopie). */
+   gridClass?: string;
++  /** ZDJ2608-12: opis alternatywny per kadr, w kolejności `images`. Bez tego pasek
++      sklejał alt jako `${altBase} ${i + 1}`, czyli opisywał POZYCJĘ, nie obraz.
++      Brakujący wpis (undefined) spada do `altBase`, ale już bez numeru. */
++  alts?: (string | undefined)[];
++  /** ZDJ2608-07: `sizes` miniatur, liczone z siatki i z kontenera `max-w-5xl` paska.
++      Ostatni człon MUSI być w pikselach: powyżej ~1056 px kafelki przestają rosnąć,
++      a `sizes` liczone w `vw` rosłoby dalej i kazało pobierać warianty ~70% za duże.
++      Domyślna wartość jest zachowawcza i pasuje do siatki 3/6 kolumn. */
++  sizes?: string;
+ }
+ 
+ // Siatka miniatur z podglądem (lightbox) otwieranym na miejscu — bez wychodzenia
+@@ -20,9 +29,11 @@ interface Props {
+ export default function ServiceGalleryLightbox({
+   images,
+   altBase,
++  alts,
+   thumbPosition = "center",
+   aspectClass = "aspect-square",
+   gridClass = "grid grid-cols-3 sm:grid-cols-6 gap-2.5",
++  sizes = "(max-width: 640px) 33vw, (max-width: 1056px) 16vw, 165px",
+ }: Props) {
+   const [open, setOpen] = useState<number | null>(null);
+   const touchX = useRef<number | null>(null);
+@@ -69,9 +80,9 @@ export default function ServiceGalleryLightbox({
+           >
+             <Image
+               src={src}
+-              alt={`${altBase} ${i + 1}`}
++              alt={alts?.[i] ?? altBase}
+               fill
+-              sizes="(max-width: 640px) 33vw, 16vw"
++              sizes={sizes}
+               style={{ objectPosition: thumbPosition }}
+               className="object-cover transition-transform duration-500 group-hover:scale-105"
+             />
+@@ -141,7 +152,7 @@ export default function ServiceGalleryLightbox({
+           >
+             <Image
+               src={images[open]}
+-              alt={`${altBase} ${open + 1}`}
++              alt={alts?.[open] ?? altBase}
+               fill
+               sizes="92vw"
+               className="object-contain"
+diff --git a/src/components/ServiceGalleryStrip.tsx b/src/components/ServiceGalleryStrip.tsx
+index 91d586a..7fd3930 100644
+--- a/src/components/ServiceGalleryStrip.tsx
++++ b/src/components/ServiceGalleryStrip.tsx
+@@ -3,6 +3,7 @@ import AnimatedSection from "./AnimatedSection";
+ import ServiceGalleryLightbox from "./ServiceGalleryLightbox";
+ import ServiceVideoGrid from "./ServiceVideoGrid";
+ import { listGalleryImages, type GalleryCategoryKey } from "@/lib/galleryImages";
++import { GALLERY_ALTS, imageKey } from "@/data/galleryAlts";
+ import { galleryVideos } from "@/data/galeria";
+ 
+ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string }> = {
+@@ -13,7 +14,11 @@ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string
+   },
+   eventy: {
+     label: "Przykłady z galerii: eventy",
+-    sub: "Wybrane kadry z konferencji, targów i gal firmowych.",
++    // ZDJ2608-05b (04.08.2026, decyzja Marcina): eventy to także integracje i imprezy
++    // firmowe. Obejrzane 15 z 15 kadrów w folderze: 3 konferencje i gale, 4 integracje
++    // i pikniki, 6 koncertów i klubów, 2 pozostałe. Zestaw kadrów zostaje, podpis się
++    // poszerza, żeby obietnica pokrywała to, co widać.
++    sub: "Wybrane kadry z konferencji, gal, integracji i imprez firmowych.",
+     alt: "Fotografia eventowa, Marcin Szabunia, Poznań",
+   },
+   produktowe: {
+@@ -56,13 +61,31 @@ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string
+ // Wyselekcjonowane najlepsze 6 kadrów per kategoria (zamiast pierwszych z
+ // brzegu). Dobrane pod B2B: różnorodność i jakość. Reszta kategorii → fallback.
+ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
+-  // portret-07 wypadł 04.08.2026: to ta sama osoba w tej samej marynarce co
+-  // `_F2A9376-Edit-2` z sesji IDcom, więc na podstronie sesji zespołowych ta sama
+-  // twarz wychodziła dwa razy, raz w każdym pasku (zgłoszone przez Marcina).
+-  portrety: ["portret-12", "portret-03", "portret-10", "portret-11", "portret-05", "portret-08"].map(
++  // portret-07 (dziś `portret-07-kobieta-czarna-marynarka`) wypadł 04.08.2026: to ta sama
++  // osoba w tej samej marynarce co `_F2A9376-Edit-2` z sesji IDcom, więc na podstronie
++  // sesji zespołowych ta sama twarz wychodziła dwa razy, raz w każdym pasku (Marcin).
++  // Nazwy plików dostały opis 04.08.2026 (ZDJ2608-01), numery NN bez zmian, więc
++  // kolejność i skład tej listy są takie same jak przed zmianą nazw.
++  portrety: [
++    "portret-12-kobieta-w-plenerze",
++    "portret-03-mezczyzna-czarne-tlo",
++    "portret-10-kobieta-bezowa-marynarka",
++    "portret-11-mezczyzna-w-fotelu",
++    "portret-05-mezczyzna-zielony-garnitur",
++    "portret-08-kobieta-morski-kombinezon",
++  ].map(
+     (n) => `/images/galeria/portrety/${n}.jpg`
+   ),
+-  eventy: ["event-04", "event-05", "event-15", "event-14", "event-09", "event-17"].map(
++  // Nazwy plików dostały opis 04.08.2026 (ZDJ2608-01), numery NN bez zmian, więc skład
++  // i kolejność tej listy są identyczne jak przed zmianą nazw.
++  eventy: [
++    "event-04-gala-wreczenie-wyroznien",
++    "event-05-networking-foyer",
++    "event-15-goscie-przy-stole",
++    "event-14-saksofonista-bankiet",
++    "event-09-dj-za-konsoleta",
++    "event-17-dj-slupy-ognia",
++  ].map(
+     (n) => `/images/galeria/eventy/${n}.jpg`
+   ),
+   produktowe: [
+@@ -145,10 +168,13 @@ export default function ServiceGalleryStrip({
+   ctaLabel: ctaLabelProp,
+   href: hrefProp,
+   sub: subProp,
++  exclude,
+ }: {
+   category: GalleryCategoryKey;
+   ctaLabel?: string;
+   href?: string;
++  /** ZDJ2608-27: ścieżka kadru do pominięcia w pasku (zwykle `service.heroImage`). */
++  exclude?: string;
+   /** Nadpisuje domyślny podtytuł paska. Używane, gdy pasek stoi na obcej
+       podstronie i musi tłumaczyć, po co tam jest (np. sesja zespołowa
+       na podstronie eventowej). */
+@@ -196,7 +222,16 @@ export default function ServiceGalleryStrip({
+     );
+   }
+ 
+-  const images = (CURATED[category] ?? listGalleryImages(category)).slice(0, category === "produktowe" ? 8 : 6);
++  const limit = category === "produktowe" ? 8 : 6;
++  const pool = CURATED[category] ?? listGalleryImages(category);
++  // ZDJ2608-27 (04.08.2026): hero podstrony nie może wracać w pasku tej samej podstrony.
++  // Bez tego na trzech podstronach ten sam kadr stał trzy razy w jednym przewinięciu:
++  // kafelek, hero i pasek. Filtr wchodzi TYLKO wtedy, gdy po odjęciu hero zostaje
++  // dość kadrów na pełny pasek. Listy CURATED mają dokładnie tyle pozycji, ile pasek
++  // pokazuje, więc dla `eventy` i `portrety` filtr skróciłby pasek z 6 na 5, a dobranie
++  // siódmego kadru to zmiana ręcznie ułożonej listy Marcina, czyli osobna decyzja.
++  const filtered = exclude ? pool.filter((src) => src !== exclude) : pool;
++  const images = (filtered.length >= limit ? filtered : pool).slice(0, limit);
+   if (images.length === 0) return null;
+ 
+   return (
+@@ -204,6 +239,11 @@ export default function ServiceGalleryStrip({
+       <ServiceGalleryLightbox
+         images={images}
+         altBase={meta.alt}
++        /* ZDJ2608-12 (04.08.2026): opis bierze się z pliku, nie z pozycji w pasku.
++           Ten sam kadr ma ten sam opis w `/galeria` i tutaj, bo obie powierzchnie
++           czytają `GALLERY_ALTS`. Kategoria bez wpisów (dziś `produktowe`) dostaje
++           `altBase`, czyli opis kategorii, ale już bez doklejanego numeru. */
++        alts={images.map((src) => GALLERY_ALTS[imageKey(src)])}
+         aspectClass={
+           category === "portrety" || category === "zespolowe"
+             ? "aspect-[3/4]"
+@@ -217,6 +257,22 @@ export default function ServiceGalleryStrip({
+             ? "grid grid-cols-2 sm:grid-cols-4 gap-2.5"
+             : "grid grid-cols-3 sm:grid-cols-6 gap-2.5"
+         }
++        /* ZDJ2608-07 (04.08.2026): `sizes` policzone z siatki I z kontenera, potem
++           ZMIERZONE w przeglądarce na 390, 900 i 1728 px przy DPR 2 (localhost, dev).
++           Pasek siedzi w `max-w-5xl mx-auto` (Shell niżej), czyli 1056 px minus padding.
++           Zmierzone szerokości kafla: produktowa 174 / 210 / 249 px, reszta 113 / 136 / 162 px.
++           Ostatni człon MUSI być w pikselach, bo powyżej ~1056 px kafelki przestają rosnąć.
++
++           Wartości są o kilka procent NIŻSZE od zmierzonych i to jest celowe. Next generuje
++           kandydatów tylko z siatki 128 / 256 / 384 / 640 px, więc deklaracja większa o jeden
++           piksel przeskakuje na kolejnego kandydata i każe pobrać obraz 1,5 do 1,8 razy
++           szerszy, niż potrzeba. Przy tych liczbach każdy kafel mieści się w paśmie
++           0,85 <= pobrane / (CSS x DPR) <= 1,4 na wszystkich trzech szerokościach. */
++        sizes={
++          category === "produktowe"
++            ? "(max-width: 640px) 45vw, (max-width: 1056px) 21vw, 250px"
++            : "(max-width: 640px) 32vw, (max-width: 1056px) 14vw, 165px"
++        }
+       />
+     </Shell>
+   );
+diff --git a/src/components/ServiceHero.tsx b/src/components/ServiceHero.tsx
+index 33dfffb..81b6c10 100644
+--- a/src/components/ServiceHero.tsx
++++ b/src/components/ServiceHero.tsx
+@@ -1,4 +1,5 @@
+ import Image from "next/image";
++import { galleryAlt } from "@/data/galleryAlts";
+ import AnimatedSection from "./AnimatedSection";
+ import type { ServiceData } from "@/data/services";
+ import Breadcrumbs, { type Crumb } from "./Breadcrumbs";
+@@ -55,7 +56,11 @@ export default function ServiceHero({ service, crumbs }: Props) {
+             <div className="relative aspect-square rounded-3xl overflow-hidden bg-border dark:bg-dark-card">
+               <Image
+                 src={service.heroImage}
+-                alt={`${service.title}, Poznań`}
++                /* ZDJ2608-11 (04.08.2026): opis z obejrzanego kadru zamiast szablonu
++                   `${service.title}, Poznań`, który opisywał usługę, a nie zdjęcie,
++                   i doklejał miasto przecinkiem wbrew docs/zasady-tekstow.md.
++                   Bez wpisu w mapie zostaje stary szablon, żeby nic nie zniknęło. */
++                alt={galleryAlt(service.heroImage, `${service.title}, Poznań`)}
+                 fill
+                 className="object-cover"
+                 style={{ objectPosition: service.heroImagePos ?? "center" }}
+diff --git a/src/components/ServiceVideoGrid.tsx b/src/components/ServiceVideoGrid.tsx
+index 2fb0b96..211614f 100644
+--- a/src/components/ServiceVideoGrid.tsx
++++ b/src/components/ServiceVideoGrid.tsx
+@@ -1,5 +1,6 @@
+ "use client";
+ 
++import Image from "next/image";
+ import { useCallback, useEffect, useRef, useState } from "react";
+ import { useFocusTrap } from "@/hooks/useFocusTrap";
+ import { gtagEvent } from "@/lib/gtag";
+@@ -31,6 +32,12 @@ export default function ServiceVideoGrid({
+ }) {
+   const [open, setOpen] = useState<number | null>(null);
+   const dialogRef = useRef<HTMLDivElement | null>(null);
++  // ZDJ2608-24 (04.08.2026): miniatura idzie z `maxresdefault` (1280x720, 16:9), a nie
++  // z `hqdefault` (480x360, czyli 4:3 z czarnymi pasami dla materiału 16:9). Sprawdzone
++  // kodem odpowiedzi 04.08.2026: wszystkie 9 osadzonych filmów zwraca 200 na maxres.
++  // Fallback jest realny, nie zadeklarowany: gdy YouTube kiedyś nie wygeneruje maxres,
++  // `onError` przełącza TEN film na hqdefault i stan zostaje do końca sesji.
++  const [hqOnly, setHqOnly] = useState<Record<string, boolean>>({});
+ 
+   const close = useCallback(() => setOpen(null), []);
+ 
+@@ -66,11 +73,17 @@ export default function ServiceVideoGrid({
+             aria-label={`Odtwórz film: ${v.title}`}
+             className="group relative aspect-square rounded-xl overflow-hidden bg-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
+           >
+-            {/* eslint-disable-next-line @next/next/no-img-element */}
+-            <img
+-              src={`https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`}
+-              alt={v.title}
+-              loading="lazy"
++            <Image
++              src={`https://i.ytimg.com/vi/${v.youtubeId}/${hqOnly[v.youtubeId] ? "hqdefault" : "maxresdefault"}.jpg`}
++              alt={`Kadr otwierający z filmu: ${v.title}`}
++              width={1280}
++              height={720}
++              /* Miniatury YouTube nie przechodzą przez optymalizator Next (to już jest
++                 skompresowany JPEG z CDN-u), więc `unoptimized` zamiast dopisywania
++                 i.ytimg.com do images.remotePatterns w next.config.ts. Domena jest
++                 dopuszczona w CSP `img-src`. */
++              unoptimized
++              onError={() => setHqOnly((s) => (s[v.youtubeId] ? s : { ...s, [v.youtubeId]: true }))}
+               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+             />
+             <span className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
+diff --git a/src/components/Services.tsx b/src/components/Services.tsx
+index f0fe5a0..f699c5b 100644
+--- a/src/components/Services.tsx
++++ b/src/components/Services.tsx
+@@ -1,5 +1,6 @@
+ import Link from "next/link";
+ import Image from "next/image";
++import { galleryAlt } from "@/data/galleryAlts";
+ import AnimatedSection from "./AnimatedSection";
+ import Parallax from "./Parallax";
+ import { PARALLAX } from "@/lib/motion";
+@@ -62,7 +63,8 @@ export default function Services() {
+                       >
+                         <Image
+                           src={s.image}
+-                          alt={`${s.title}, przykładowa realizacja`}
++                          /* ZDJ2608-11: opis obejrzanego kadru zamiast szablonu z nazwy usługi. */
++                          alt={galleryAlt(s.image, `${s.title}, przykładowa realizacja`)}
+                           fill
+                           sizes={
+                             isWide
+diff --git a/src/components/Warunki.tsx b/src/components/Warunki.tsx
+index 8b12b33..4a51774 100644
+--- a/src/components/Warunki.tsx
++++ b/src/components/Warunki.tsx
+@@ -88,7 +88,7 @@ export default function Warunki() {
+                 Pliki
+               </p>
+               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
+-                Pełna jakość + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku. Pliki surowe (RAW) nie wchodzą w cenę, pełny zestaw to +30% wartości zlecenia i decyzja przed sesją. Licencja niewyłączna, bez limitu czasowego, na własny użytek; przeniesienie praw majątkowych +50%.
++                Pełna jakość + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku. Pliki surowe (RAW) nie wchodzą w cenę, pełny zestaw to +30% wartości zlecenia i decyzja przed sesją. Licencja niewyłączna, bez limitu czasowego, na użytek komercyjny Twojej firmy: strona, social media, druk i reklama online. Przeniesienie praw majątkowych albo przekazanie materiału podmiotom trzecim: +50%.
+               </p>
+             </div>
+             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">
+diff --git a/src/components/YouTubeFacade.tsx b/src/components/YouTubeFacade.tsx
+index 5d64523..f0e02cb 100644
+--- a/src/components/YouTubeFacade.tsx
++++ b/src/components/YouTubeFacade.tsx
+@@ -1,5 +1,6 @@
+ "use client";
+ 
++import Image from "next/image";
+ import { useState } from "react";
+ import { gtagEvent } from "@/lib/gtag";
+ 
+@@ -21,6 +22,9 @@ export default function YouTubeFacade({
+   className?: string;
+ }) {
+   const [play, setPlay] = useState(false);
++  // ZDJ2608-24 (04.08.2026): fallback przeniesiony z mutacji `currentTarget.src` na stan,
++  // bo przy ponownym renderze przeglądarka wracała do adresu z propsa i pętliła żądanie.
++  const [hqOnly, setHqOnly] = useState(false);
+ 
+   return (
+     <div
+@@ -45,14 +49,15 @@ export default function YouTubeFacade({
+           aria-label={`Odtwórz film: ${title}`}
+           className="group absolute inset-0 w-full h-full cursor-pointer"
+         >
+-          {/* eslint-disable-next-line @next/next/no-img-element */}
+-          <img
+-            src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+-            alt={title}
+-            loading="lazy"
+-            onError={(e) => {
+-              e.currentTarget.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+-            }}
++          <Image
++            src={`https://i.ytimg.com/vi/${id}/${hqOnly ? "hqdefault" : "maxresdefault"}.jpg`}
++            alt={`Kadr otwierający z filmu: ${title}`}
++            width={1280}
++            height={720}
++            /* Bez optymalizatora Next: to gotowy JPEG z CDN-u YouTube, a dopisanie domeny
++               do images.remotePatterns w next.config.ts jest osobną decyzją. */
++            unoptimized
++            onError={() => setHqOnly(true)}
+             className="absolute inset-0 w-full h-full object-cover"
+           />
+           <span className="absolute inset-0 bg-black/25 group-hover:bg-black/35 transition-colors" />
+diff --git a/src/data/blog.ts b/src/data/blog.ts
+index e923f54..f9ca127 100644
+--- a/src/data/blog.ts
++++ b/src/data/blog.ts
+@@ -912,7 +912,7 @@ export const blogPosts: BlogPost[] = [
+     seo: {
+       title: "Jakie zdjęcia na stronę firmową: lista | Szabunia",
+       description:
+-        "Jakich zdjęć potrzebuje strona internetowa firmy: hero, zespół, biuro, produkty, realizacje. Lista sekcja po sekcji i dlaczego warto zrezygnować ze stocków.",
++        "Jakich zdjęć potrzebuje strona internetowa firmy: hero, zespół, biuro, produkty, realizacje. Lista sekcja po sekcji i dlaczego lepiej odpuścić stocki.",
+     },
+   },
+   {
+@@ -1571,7 +1571,7 @@ export const blogPosts: BlogPost[] = [
+     seo: {
+       title: "Headshoty całego zespołu w jeden dzień | Szabunia",
+       description:
+-        "Jak zorganizować headshoty całego zespołu w jeden dzień: mobilne studio w biurze, harmonogram 5-15 minut na osobę, przygotowanie zespołu i spójność. Poznań.",
++        "Jak zrobić headshoty całego zespołu w jeden dzień: mobilne studio w biurze, harmonogram 5-15 minut na osobę, przygotowanie zespołu i spójność. Poznań.",
+     },
+   },
+   {
+@@ -1624,7 +1624,7 @@ export const blogPosts: BlogPost[] = [
+     seo: {
+       title: "Spójne portrety zespołu: jeden standard | Szabunia",
+       description:
+-        "Dlaczego warto fotografować cały zespół w jednym standardzie: spójne światło, kadr, tło i retusz. Jak utrzymać spójność przy rotacji. Przykład IDcom, Poznań.",
++        "Dlaczego fotografować cały zespół w jednym standardzie: spójne światło, kadr, tło i retusz. Jak utrzymać spójność przy rotacji. Przykład IDcom, Poznań.",
+     },
+   },
+   {
+@@ -1692,6 +1692,12 @@ export const blogCategories = ["poradnik", "realizacja", "branża"] as const;
+ /* ── Linkowanie wewnętrzne blog ↔ usługi ──
+    Mapa: slug wpisu → slug najbardziej powiązanej usługi (z src/data/services.tsx).
+    Trzymamy slug usługi jako string, żeby nie tworzyć zależności blog→services. */
++// TRESC2608-03 (04.08.2026): ósma usługa `wnetrza-obiekty-architektura` NIE MA tu wpisu
++// i to jest świadoma luka, nie przeoczenie. Żaden z 26 wpisów nie dotyczy hal ani wnętrz;
++// jedyny kandydat, `fotografia-przemyslowa-fabryka` (1 046 słów, hale produkcyjne), jest
++// dziś przypisany do `fotografia-produktowa` i przepięcie go ZABRAŁOBY wpis tamtej usłudze.
++// To decyzja redakcyjna Marcina, nie poprawka techniczna. Blok „Z bloga" na podstronie
++// obiektowej i tak się renderuje, bo `getPostsForService` ma fallback na kategorię.
+ export const blogServiceMap: Record<string, string> = {
+   "jak-przygotowac-sie-do-sesji-biznesowej": "wizerunek-portrety",
+   "headshoty-linkedin-konwersja": "wizerunek-portrety",
+diff --git a/src/data/portfolio.ts b/src/data/portfolio.ts
+index 8d16950..9a5e527 100644
+--- a/src/data/portfolio.ts
++++ b/src/data/portfolio.ts
+@@ -175,17 +175,17 @@ export const portfolioCategories: PortfolioCategory[] = [
+       "Dwa filmy produktowe",
+       "Montaż i postprodukcja",
+     ],
+-    thumbnail: "/images/portfolio/box17/box17.jpg",
++    thumbnail: "/images/portfolio/box17/box17-budka-konferencyjna-katowa.jpg",
+     gallery: [
+-      { src: "/images/portfolio/box17/box17-01.jpg", alt: "Budka akustyczna Box XL na cykloramie, spotkanie zespołu w środku (Box17)" },
+-      { src: "/images/portfolio/box17/box17-02.jpg", alt: "Wnętrze budki akustycznej Box XL: stół, krzesła i ekran do wideokonferencji" },
+-      { src: "/images/portfolio/box17/box17-03.jpg", alt: "Budka akustyczna ustawiona w biurze, stanowisko do pracy w skupieniu (Box17)" },
+-      { src: "/images/portfolio/box17/box17-04.jpg", alt: "Jednoosobowa budka akustyczna Box 1, packshot na białym tle" },
+-      { src: "/images/portfolio/box17/box17-05.jpg", alt: "Budka akustyczna w przestrzeni biurowej, rozmowa telefoniczna bez hałasu" },
+-      { src: "/images/portfolio/box17/box17-06.jpg", alt: "Budka akustyczna jednoosobowa w użyciu, zdjęcie produktowe z modelem" },
+-      { src: "/images/portfolio/box17/box17-07.jpg", alt: "Wnętrze budki akustycznej: wykończenie ścian i wykładzina podłogowa" },
+-      { src: "/images/portfolio/box17/box17-08.jpg", alt: "Detal sufitu budki akustycznej: oświetlenie liniowe i wentylacja" },
+-      { src: "/images/portfolio/box17/box17-09.jpg", alt: "Detal blatu i gniazd elektrycznych w budce akustycznej Box17" },
++      { src: "/images/portfolio/box17/box17-01-budka-konferencyjna-z-zespolem.jpg", alt: "Budka akustyczna Box XL na cykloramie, spotkanie zespołu w środku (Box17)" },
++      { src: "/images/portfolio/box17/box17-02-pusta-sala-konferencyjna.jpg", alt: "Wnętrze budki akustycznej Box XL: stół, krzesła i ekran do wideokonferencji" },
++      { src: "/images/portfolio/box17/box17-03-budka-do-pracy-z-laptopem.jpg", alt: "Budka akustyczna ustawiona w biurze, stanowisko do pracy w skupieniu (Box17)" },
++      { src: "/images/portfolio/box17/box17-04-budka-telefoniczna-pusta.jpg", alt: "Jednoosobowa budka akustyczna Box 1, packshot na białym tle" },
++      { src: "/images/portfolio/box17/box17-05-czarna-budka-w-biurze.jpg", alt: "Budka akustyczna w przestrzeni biurowej, rozmowa telefoniczna bez hałasu" },
++      { src: "/images/portfolio/box17/box17-06-rozmowa-telefoniczna-w-budce.jpg", alt: "Budka akustyczna jednoosobowa w użyciu, zdjęcie produktowe z modelem" },
++      { src: "/images/portfolio/box17/box17-07-wnetrze-kabiny-akustycznej.jpg", alt: "Wnętrze budki akustycznej: wykończenie ścian i wykładzina podłogowa" },
++      { src: "/images/portfolio/box17/box17-08-detal-filcu-i-wentylacji.jpg", alt: "Detal sufitu budki akustycznej: oświetlenie liniowe i wentylacja" },
++      { src: "/images/portfolio/box17/box17-09-skladany-blat-i-gniazda.jpg", alt: "Detal blatu i gniazd elektrycznych w budce akustycznej Box17" },
+     ],
+     gallerySubtitle:
+       "Wybrane kadry z sesji dla Box17: budki akustyczne na cykloramie i w showroomie, ujęcia całości i detali.",
+@@ -297,10 +297,13 @@ export const portfolioCategories: PortfolioCategory[] = [
+       { src: "/images/portfolio/idcom/_F0I9883-Edit-2.jpg", alt: "Portret członkini zespołu na kremowym tle, zdjęcia zespołu na stronę firmową" },
+       { src: "/images/portfolio/idcom/_F2A9433-Edit-2.jpg", alt: "Headshot członka zespołu na białym tle, spójne portrety pracowników firmy IT" },
+       { src: "/images/portfolio/idcom/_F2A9264-Edit-2.jpg", alt: "Headshot na czarnym tle z niebieskim akcentem światła, portrety zespołu software house'u" },
+-      { src: "/images/portfolio/idcom/_F2A9376-Edit-2.jpg", alt: "Naturalny, uśmiechnięty portret na kremowym tle, sesja wizerunkowa zespołu IT" },
++      // ZDJ2608-34 (04.08.2026): szósty kadr był powtórką `_F2A9376-Edit-2.jpg`, czyli tego
++      // samego pliku, który jest miniaturą i hero tej realizacji. W galerii sześcioelementowej
++      // jedno miejsce z sześciu szło na powtórkę, a folder `idcom/` ma dokładnie sześć plików,
++      // więc nie ma z czego dobrać siódmego. Zostaje pięć różnych kadrów.
+     ],
+     gallerySubtitle:
+-      "Sześć kadrów z sesji dla IDcom Group: ten sam zespół na trzech tłach, białym, czarnym z niebieskim światłem i kremowym.",
++      "Pięć kadrów z sesji dla IDcom Group: ten sam zespół na trzech tłach, białym, czarnym z niebieskim światłem i kremowym.",
+     galleryAspect: "portrait",
+     tileImagePosition: "top",
+     process: [],
+@@ -387,7 +390,12 @@ export const portfolioCategories: PortfolioCategory[] = [
+       "Profesjonalne portrety biznesowe, headshoty i zdjęcia do personal brandingu dla kadry zarządzającej i liderów.",
+     description:
+       "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a przed sesją dostajesz poseboard z referencjami.",
+-    thumbnail: "/images/portfolio-1.jpg",
++    // ZDJ2608-17 (04.08.2026), WARIANT B. Poprzednia miniatura (plik `portfolio-1`, dziś
++    // w `_to_delete/`) to zdjęcie grupowe przy autach sportowych, czyli ten sam kadr, który 04.08 wyleciał
++    // z galerii tej realizacji jako obcy. Wariant A briefu (portret-05) odpadł: portret-05
++    // jest już hero usługi „Wizerunek i portrety" i kafelkiem tej usługi, więc stanąłby
++    // trzeci raz, a ta sama tura usuwa powtórzenia (ZDJ2608-27, ZDJ2608-34).
++    thumbnail: "/images/galeria/portrety/portret-12-kobieta-w-plenerze.jpg",
+     gallery: [
+       // Zdjęcie grupowe przy samochodach sportowych przeniesione 04.08.2026: na sesji
+       // wizerunkowej było obce, a ten sam kadr żyje już w galerii eventowej (event-02)
+@@ -395,12 +403,12 @@ export const portfolioCategories: PortfolioCategory[] = [
+       // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
+       // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
+       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
+-      { src: "/images/galeria/portrety/portret-05.jpg", alt: "Portret wizerunkowy mężczyzny w garniturze, sesja dla firmy, Poznań" },
+-      { src: "/images/galeria/portrety/portret-07.jpg", alt: "Portret biznesowy kobiety w marynarce, sesja wizerunkowa, Poznań" },
+-      { src: "/images/galeria/portrety/portret-03.jpg", alt: "Portret wizerunkowy na czarnym tle, personal branding, Poznań" },
+-      { src: "/images/galeria/portrety/portret-08.jpg", alt: "Portret biznesowy kobiety na jasnym tle, sesja wizerunkowa dla firmy" },
+-      { src: "/images/galeria/portrety/portret-14.jpg", alt: "Portret wizerunkowy w naturalnym świetle, sesja dla firmy, Poznań" },
+-      { src: "/images/galeria/portrety/portret-10.jpg", alt: "Portret biznesowy kobiety, zdjęcie na stronę firmy i LinkedIn" },
++      { src: "/images/galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg", alt: "Portret wizerunkowy mężczyzny w garniturze, sesja dla firmy, Poznań" },
++      { src: "/images/galeria/portrety/portret-07-kobieta-czarna-marynarka.jpg", alt: "Portret biznesowy kobiety w marynarce, sesja wizerunkowa, Poznań" },
++      { src: "/images/galeria/portrety/portret-03-mezczyzna-czarne-tlo.jpg", alt: "Portret wizerunkowy na czarnym tle, personal branding, Poznań" },
++      { src: "/images/galeria/portrety/portret-08-kobieta-morski-kombinezon.jpg", alt: "Portret biznesowy kobiety na jasnym tle, sesja wizerunkowa dla firmy" },
++      { src: "/images/galeria/portrety/portret-14-mezczyzna-z-telefonem.jpg", alt: "Portret wizerunkowy w naturalnym świetle, sesja dla firmy, Poznań" },
++      { src: "/images/galeria/portrety/portret-10-kobieta-bezowa-marynarka.jpg", alt: "Portret biznesowy kobiety, zdjęcie na stronę firmy i LinkedIn" },
+     ],
+     process: [
+       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
+@@ -449,13 +457,13 @@ export const portfolioCategories: PortfolioCategory[] = [
+       // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
+       // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
+       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
+-      { src: "/images/galeria/eventy/event-05.jpg", alt: "Rozmowy uczestników konferencji firmowej, fotografia eventowa, Poznań" },
+-      { src: "/images/galeria/eventy/event-04.jpg", alt: "Gala firmowa, wręczenie wyróżnień, reportaż z wydarzenia, Poznań" },
+-      { src: "/images/galeria/eventy/event-15.jpg", alt: "Networking na evencie biznesowym, fotografia reportażowa, Poznań" },
+-      { src: "/images/galeria/eventy/event-14.jpg", alt: "Oprawa muzyczna gali firmowej, reportaż z wydarzenia" },
+-      { src: "/images/galeria/eventy/event-01.jpg", alt: "Scena podczas eventu firmowego, fotografia w trudnym świetle" },
+-      { src: "/images/galeria/eventy/event-02.jpg", alt: "Zdjęcie grupowe uczestników wydarzenia firmowego na torze" },
+-      { src: "/images/galeria/eventy/event-03.jpg", alt: "Integracja firmowa w plenerze, reportaż z wydarzenia" },
++      { src: "/images/galeria/eventy/event-05-networking-foyer.jpg", alt: "Rozmowy uczestników konferencji firmowej, fotografia eventowa, Poznań" },
++      { src: "/images/galeria/eventy/event-04-gala-wreczenie-wyroznien.jpg", alt: "Gala firmowa, wręczenie wyróżnień, reportaż z wydarzenia, Poznań" },
++      { src: "/images/galeria/eventy/event-15-goscie-przy-stole.jpg", alt: "Networking na evencie biznesowym, fotografia reportażowa, Poznań" },
++      { src: "/images/galeria/eventy/event-14-saksofonista-bankiet.jpg", alt: "Oprawa muzyczna gali firmowej, reportaż z wydarzenia" },
++      { src: "/images/galeria/eventy/event-01-zespol-na-scenie.jpg", alt: "Scena podczas eventu firmowego, fotografia w trudnym świetle" },
++      { src: "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg", alt: "Zdjęcie grupowe uczestników wydarzenia firmowego na torze" },
++      { src: "/images/galeria/eventy/event-03-integracja-przybicie-piatki.jpg", alt: "Integracja firmowa w plenerze, reportaż z wydarzenia" },
+     ],
+     process: [
+       { num: 1, title: "Rozmowa", desc: "Agenda eventu, kluczowe momenty, VIP-y" },
+@@ -499,7 +507,9 @@ export const portfolioCategories: PortfolioCategory[] = [
+       "Zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (idealne na marketplace), zdjęcia kreatywne z aranżacją (social media, reklamy) oraz zdjęcia katalogowe. Pracuję w studiu z pełnym zapleczem oświetleniowym: drobne produkty, meble, elektronika, kosmetyki.",
+     thumbnail: "/images/portfolio-3.jpg",
+     gallery: [
+-      { src: "/images/portfolio/packshoty-produktowe/01.jpg", alt: "Packshot produktowy na białym tle, fotografia produktowa e-commerce, Poznań" },
++      // ZDJ2608-08 (04.08.2026): plik to szklanka drinka z limonką na jaskrawożółtym tle
++      // z liśćmi monstery (1600x1600), nie packshot na bieli. Opis poprawiony na kadr.
++      { src: "/images/portfolio/packshoty-produktowe/01.jpg", alt: "Zdjęcie produktowe drinka na żółtym tle, aranżacja reklamowa na social media" },
+       // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
+       // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
+       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
+@@ -554,16 +564,18 @@ export const portfolioCategories: PortfolioCategory[] = [
+       "Headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura, każda osoba potrzebuje zaledwie 5-15 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
+     thumbnail: "/images/portfolio-4.jpg",
+     gallery: [
+-      { src: "/images/portfolio/sesja-korporacyjna/01.jpg", alt: "Sesja korporacyjna, headshoty zespołu w biurze, Poznań" },
++      // ZDJ2608-09 (04.08.2026): na kadrze jest JEDNA kobieta w błękitnej koszuli
++      // z czerwonym notatnikiem przy oknie, nie „headshoty zespołu" w liczbie mnogiej.
++      { src: "/images/portfolio/sesja-korporacyjna/01.jpg", alt: "Portret korporacyjny kobiety przy oknie w biurze, zdjęcie na stronę firmy, Poznań" },
+       // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
+       // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
+       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
+       { src: "/images/portfolio/idcom/_F2A9424-Edit-2.jpg", alt: "Headshot korporacyjny na białym tle, sesja dla zespołu IDcom Group" },
+       { src: "/images/portfolio/idcom/_F0I9883-Edit-2.jpg", alt: "Headshot korporacyjny na kremowym tle, spójny standard dla zespołu" },
+-      { src: "/images/galeria/portrety/portret-02.jpg", alt: "Portret korporacyjny kobiety, zdjęcie na stronę firmy" },
+-      { src: "/images/galeria/portrety/portret-11.jpg", alt: "Portret korporacyjny mężczyzny w garniturze, zdjęcie dla firmy" },
+-      { src: "/images/galeria/portrety/portret-13.jpg", alt: "Portret korporacyjny w naturalnym świetle, zdjęcie na LinkedIn" },
+-      { src: "/images/galeria/portrety/portret-12.jpg", alt: "Portret korporacyjny w plenerze, zdjęcie na stronę firmową" },
++      { src: "/images/galeria/portrety/portret-02-kobieta-z-laptopem.jpg", alt: "Portret korporacyjny kobiety, zdjęcie na stronę firmy" },
++      { src: "/images/galeria/portrety/portret-11-mezczyzna-w-fotelu.jpg", alt: "Portret korporacyjny mężczyzny w garniturze, zdjęcie dla firmy" },
++      { src: "/images/galeria/portrety/portret-13-kobieta-przy-oknie.jpg", alt: "Portret korporacyjny w naturalnym świetle, zdjęcie na LinkedIn" },
++      { src: "/images/galeria/portrety/portret-12-kobieta-w-plenerze.jpg", alt: "Portret korporacyjny w plenerze, zdjęcie na stronę firmową" },
+     ],
+     process: [
+       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram sesji w biurze" },
+@@ -618,23 +630,50 @@ export interface PortfolioItem {
+ // wkrótce"). Ukryte z indeksu /portfolio, z sitemap i z indeksacji do czasu
+ // uzupełnienia galerii. Aby pokazać realizację — usuń jej slug z tego zbioru.
+ const DRAFT_SLUGS = new Set<string>([
+-  // Box17: brak miniatury (public/images/portfolio/box17/ ma tylko placeholder .txt),
+-  // przez co kafel na /portfolio był pusty, a og:image zwracał 404 (audyt PELNY2907-01).
+-  // Decyzja Marcina 2026-07-29: nie upubliczniamy do czasu zdjęć. Po wgraniu
+-  // `box17.jpg` wystarczy usunąć tę linię — reszta danych case study jest gotowa.
++  // Box17: zdjęcia SĄ. W public/images/portfolio/box17/ leży 10 plików JPG od commita
++  // 9fc7ff4 (04.08.2026), łącznie z miniaturą (dziś `box17-budka-konferencyjna-katowa.jpg`,
++  // przemianowaną w ZDJ2608-01), a dane case study są kompletne.
++  // Decyzja Marcina z 04.08.2026: realizacja mimo to zostaje ukryta. Poprzedni warunek
++  // wyjścia („po wgraniu miniatury wystarczy usunąć tę linię") jest spełniony i dlatego
++  // został usunięty — inaczej każdy kolejny audyt podnosi to samo (ZDJ2608-02b).
++  // TODO (Marcin): wpisać realny warunek publikacji, np. zgoda klienta albo publikacja
++  // u klienta. Bez niego ten wiersz nie ma kryterium wyjścia i sytuacja się powtórzy.
+   "box17-budki-akustyczne",
+-  "sesja-wizerunkowa",
+-  "fotografia-eventowa",
+-  "packshoty-produktowe",
+-  "sesja-korporacyjna",
++  // ZDJ2608-31 (DZ1 = A, decyzja Marcina 04.08.2026): cztery realizacje zdjęte z draftu.
++  // Galerie uzupełniono 04.08 (sesja-wizerunkowa 6 kadrów, fotografia-eventowa 8,
++  // packshoty-produktowe 9, sesja-korporacyjna 7), więc próg placeholdera „Więcej zdjęć
++  // wkrótce" (PortfolioGallery.tsx, images.length < 3) nie łapie żadnej z nich, a pliki OG
++  // leżą w public/images/og/portfolio/ od 30.07. /portfolio idzie z 4 na 8 pozycji.
++  // Aby cofnąć: dopisać te cztery slugi z powrotem do tego zbioru.
+ ]);
+ 
+ export function isPortfolioDraft(slug: string): boolean {
+   return DRAFT_SLUGS.has(slug);
+ }
+ 
++// ZDJ2608-32 + ZDJ2608-03 (DZ2 = A, 04.08.2026): kolejność pierwszych czterech kafli
++// na /portfolio, ta sama co FEATURED_SLUGS na stronie głównej. Bez tego /portfolio
++// otwierałby dalej `woohoo-autopay` (gallery puste, kafelek to plansza tytułowa),
++// czyli poprawka działałaby na home, a nie działała jedno kliknięcie dalej.
++// Slugi spoza listy idą po niej, w kolejności z `portfolioCategories`.
++// Kafelek Artechu zostaje klatką z filmu: to osobna decyzja Marcina (ZDJ2608-03).
++// Aby cofnąć: usunąć tę stałą i `.sort(...)` niżej.
++const PORTFOLIO_DISPLAY_ORDER: string[] = [
++  "idcom-headshoty-zespolu",
++  "yes-butcher-przewodnik-michelin",
++  "woohoo-autopay",
++  "artech-fotografia-produktowa",
++];
++
++const displayRank = (slug: string) => {
++  const i = PORTFOLIO_DISPLAY_ORDER.indexOf(slug);
++  return i === -1 ? PORTFOLIO_DISPLAY_ORDER.length : i;
++};
++
+ export const portfolioItems: PortfolioItem[] = portfolioCategories
+   .filter((c) => !DRAFT_SLUGS.has(c.slug))
++  .slice()
++  .sort((a, b) => displayRank(a.slug) - displayRank(b.slug))
+   .map((c) => ({
+     label: c.label,
+     image: c.tileImage ?? c.thumbnail,
+diff --git a/src/data/services.tsx b/src/data/services.tsx
+index 052d941..b09b37e 100644
+--- a/src/data/services.tsx
++++ b/src/data/services.tsx
+@@ -153,7 +153,7 @@ const serviceCategoriesRaw: ServiceData[] = [
+         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+       </svg>
+     ),
+-    heroImage: "/images/galeria/eventy/event-05.jpg",
++    heroImage: "/images/galeria/eventy/event-05-networking-foyer.jpg",
+     heroImagePos: "center 20%",
+     price: "od 600 zł netto",
+     process: [
+@@ -172,7 +172,7 @@ const serviceCategoriesRaw: ServiceData[] = [
+       { q: "Ile zdjęć otrzymam?", a: "Około 20 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
+       { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
+       { q: "Czy przy okazji eventu zrobisz zdjęcia całego zespołu?", a: "Tak. Na wydarzenie mogę przywieźć mobilne studio: potrzebuję około 5 m² wolnej przestrzeni i gniazdka, rozstawienie zajmuje 20 minut, a potem fotografuję kolejne osoby po 5 do 15 minut, między prelekcjami albo w kuluarach. Event to zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu, więc headshoty przy tej okazji nie wymagają osobnego terminu ani osobnego dojazdu." },
+-      { q: "Kto robi zdjęcia i film, gdy event jest duży?", a: "Przy standardowym wydarzeniu robię wszystko sam. Przy dużym evencie, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora do zdjęć albo do wideo. Postprodukcja zostaje u mnie: retusz zdjęć i montaż filmu robię osobiście, więc materiał wychodzi w jednym standardzie. Dla Was to nadal jedna osoba kontaktowa, jeden brief i jedna faktura." },
++      { q: "Kto robi zdjęcia i film, gdy event jest duży?", a: "Przy standardowym wydarzeniu robię wszystko sam. Przy dużym evencie, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora do zdjęć albo do wideo. Postprodukcja zostaje u mnie: retusz zdjęć i montaż filmu robię osobiście, więc materiał wychodzi w jednym standardzie. Dla Ciebie to nadal jedna osoba kontaktowa, jedne ustalenia i jedna faktura." },
+       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
+     ],
+     portfolioSlug: "woohoo-autopay",
+@@ -262,7 +262,7 @@ const serviceCategoriesRaw: ServiceData[] = [
+         <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+       </svg>
+     ),
+-    heroImage: "/images/galeria/eventy/event-01.jpg",
++    heroImage: "/images/galeria/eventy/event-01-zespol-na-scenie.jpg",
+     price: "od 2 100 zł netto",
+     wide: true,
+     process: [
+@@ -276,10 +276,10 @@ const serviceCategoriesRaw: ServiceData[] = [
+     priceFaqQuestion: "Ile kosztuje pakiet foto + wideo?",
+     priceFaqIntro: "Pakiety zaczynają się",
+     faqs: [
+-      { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkim briefie podaję jedną, konkretną wycenę w kilku wariantach." },
++      { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkiej rozmowie podaję jedną, konkretną wycenę w kilku wariantach." },
+       { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Przy standardowym wydarzeniu tak: zdjęcia, film i dron robię sam. Przy dużym evencie, gdzie dwie rzeczy dzieją się w tym samym momencie, dokładam drugiego operatora do zdjęć albo do wideo. Postprodukcja zostaje u mnie, retusz i montaż robię osobiście, więc finalny materiał ma jeden standard. Ty i tak masz jedną osobę kontaktową zamiast dwóch ekip." },
+-      { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak. Przy serii wydarzeń koryguję zakres do realnych potrzeb projektu. Jeśli realizacje wracają co roku, możemy ustalić liczbę wydarzeń z góry: rezerwuję terminy i trzymam dzisiejsze ceny na całość. Wycena po krótkim briefie." },
+-      { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Dogrywamy dodatkowe godziny przed eventem, dokładam je do wyceny na etapie briefu." },
++      { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak. Przy serii wydarzeń koryguję zakres do realnych potrzeb projektu. Jeśli realizacje wracają co roku, możemy ustalić liczbę wydarzeń z góry: rezerwuję terminy i trzymam dzisiejsze ceny na całość. Wycenę odsyłam po krótkiej rozmowie." },
++      { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Dogrywamy dodatkowe godziny przed eventem, dokładam je do wyceny przy ustalaniu zakresu." },
+       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 (foto i wideo równolegle, z zapisem na dwie karty), obiektywy Sigma, Tamron i Tokina od 16 do 200 mm, oświetlenie Godox, dźwięk Rode i Zoom oraz dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC. Jeden zestaw obsługuje zdjęcia, film i dron." },
+     ],
+     seo: {
+@@ -314,7 +314,7 @@ const serviceCategoriesRaw: ServiceData[] = [
+         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+       </svg>
+     ),
+-    heroImage: "/images/galeria/portrety/portret-05.jpg",
++    heroImage: "/images/galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg",
+     heroImagePos: "center 20%",
+     price: "od 1 100 zł netto",
+     heroPriceLabel: "pakiety od 1 100 zł netto",
+@@ -386,7 +386,7 @@ const serviceCategoriesRaw: ServiceData[] = [
+     // Piątka na evencie: ludzie zamiast sprzętu i zamiast planszy z tytułem filmu
+     // (Marcin, 04.08.2026: „to gdzie dają sobie piątkę jest po wejściu na usługę,
+     // przy tekście"). Poprzednio kadr z reelsa.
+-    heroImage: "/images/galeria/eventy/event-03.jpg",
++    heroImage: "/images/galeria/eventy/event-03-integracja-przybicie-piatki.jpg",
+     price: "od 400 zł netto",
+     process: [
+       { num: 1, title: "Concept", desc: "Cel, format, platforma docelowa" },
+@@ -479,13 +479,13 @@ const serviceCategoriesRaw: ServiceData[] = [
+     videoNote: "Film z eventu dla Woohoo. Ujęcia z drona łączą się tu z materiałem z poziomu ziemi w jeden spójny film.",
+     title: "Zdjęcia i wideo z drona",
+     subtitle:
+-      "Ujęcia z powietrza: budynki i obiekty firmowe, hale i magazyny, tereny, eventy i architektura. Foto i wideo w 4K.",
++      "Ujęcia z powietrza: tereny, place, eventy i krajobraz. Foto i wideo w 4K.",
+     description:
+       "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, hale i magazyny, tereny i place, inwestycje budowlane, architekturę oraz ujęcia eventowe. Przy dużych obiektach robię komplet ujęć: bryła, dach, otoczenie i drogi dojazdowe. Dostarczam gotowe zdjęcia, zmontowane wideo 4K albo same przebitki do montażu własnego. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego dnia powstaje spójny komplet zdjęć i wideo.",
+     forWhom: [
+-      "Deweloperzy i firmy budowlane (postęp prac, inwestycje, bryła i otoczenie)",
++      "Organizatorzy wydarzeń plenerowych (skala, ujęcia otwierające, kadr z góry)",
+       "Hotele, ośrodki i obiekty turystyczne",
+-      "Firmy przemysłowe i logistyczne (hale, magazyny, tereny, place)",
++      "Firmy potrzebujące ujęcia terenu albo placu (bez dokumentacji obiektu)",
+       "Organizatorzy eventów (skala wydarzenia)",
+       "Agencje nieruchomości i marketingu",
+     ],
+@@ -507,7 +507,7 @@ const serviceCategoriesRaw: ServiceData[] = [
+     heroImage: "/images/galeria/dron/dron-04-biurowiec-poznan.jpg",
+     price: "od 700 zł netto",
+     process: [
+-      { num: 1, title: "Brief i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
++      { num: 1, title: "Ustalenia i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
+       { num: 2, title: "Lot", desc: "Zdjęcia i wideo 4K z powietrza" },
+       { num: 3, title: "Postprodukcja", desc: "Obróbka zdjęć lub montaż wideo" },
+       { num: 4, title: "Dostawa", desc: "Zdjęcia w 14 dni, wideo do 21 dni" },
+@@ -518,7 +518,11 @@ const serviceCategoriesRaw: ServiceData[] = [
+     priceFaqIntro: "Zdjęcia i wideo z drona zaczynają się",
+     faqs: [
+       { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
+-      { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji bezpłatnie przekładamy termin na najbliższy możliwy." },
++      // TRESC2608-53 (04.08.2026): serwis obiecywał bezterminowe darmowe przekładanie,
++      // cennik v3 (:388) mówi „wracam raz w ramach ustalonej kwoty, kolejne podejście
++      // 300 zł plus dojazd". Dwa inne miejsca serwisu (llms.txt:36 i FAQ obiektowe)
++      // miały wersję zgodną z kanonem, więc rozjazd był lokalny.
++      { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji wracam raz w ramach ustalonej kwoty; kolejne podejście to 300 zł plus dojazd." },
+       { q: "W jakiej jakości dostarczasz materiał?", a: "Wideo do 4K, zdjęcia w pełnej rozdzielczości. Formaty dobieram pod stronę WWW i social media (poziome i pionowe)." },
+       { q: "Czy mogę połączyć drona z sesją naziemną?", a: "Tak. Dron działa jako dodatek do eventu, sesji produktowej lub wizerunkowej: kilka dodatkowych zdjęć lub ujęć wideo z powietrza przy okazji innej sesji. Z jednej sesji powstaje spójny komplet." },
+       { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro do zdjęć i wideo w 4K. Mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona łączę z naziemnym zestawem Canon, gdy potrzebny jest komplet foto i wideo." },
+@@ -526,7 +530,12 @@ const serviceCategoriesRaw: ServiceData[] = [
+     portfolioSlug: "woohoo-autopay",
+     seo: {
+       title: "Zdjęcia i wideo z drona dla firm | Szabunia",
+-      description: "Ujęcia 4K budynków, hal i magazynów, terenów, inwestycji i eventów. Certyfikat A1/A3 i OC operatora. Dron w cenie pakietów hybrydowych. Poznań i cała Polska.",
++      // TRESC2608-22 + TRESC2608-38 (04.08.2026), jedna linia domyka oba. Poprzedni opis
++      // miał 157 znaków przy progu 155 i obiecywał „dron w cenie pakietów hybrydowych",
++      // czego na tej podstronie nie ma: fraza „w cenie" nie pada tu ani razu, a llms.txt
++      // mówi „+200 zł". Sprzedawał też zakres sekcji 8 cennika (budynki, hale, magazyny),
++      // czyli linii obiektowej, przy kotwicy o 200 do 1 200 zł niższej.
++      description: "Ujęcia 4K terenów, placów, inwestycji i eventów. Certyfikat A1/A3 i OC operatora. Dron łączę z sesją naziemną. Poznań i cała Polska.",
+     },
+   },
+   {
+@@ -557,10 +566,16 @@ const serviceCategoriesRaw: ServiceData[] = [
+     // z jednego planu: z powietrza i z poziomu ziemi") stawiał drona na pierwszym
+     // miejscu, a podstrona pokazuje dziś wnętrza i film z hali. Ten sam tekst leci
+     // na kafelek na stronie głównej i na /uslugi.
++    // TRESC2608-51 (04.08.2026), TEKST WŁASNY DO AKCEPTACJI. Poprzedni podtytuł
++    // („Z zewnątrz i od środka, w jednym dniu zdjęciowym") stał w hero obok kotwicy
++    // „pakiety od 900 zł netto", a za 900 zł nie ma ani jednego kadru naziemnego:
++    // OBIEKT PODSTAWOWY to do 8 ujęć z powietrza, blok wnętrz to osobne 600 zł.
++    // Nowy podtytuł stawia powietrze jako punkt wyjścia, a ziemię i wnętrza jako
++    // dokładkę. `heroPriceLabel` NIE ruszony: to komunikat cenowy i osobna decyzja.
+     subtitle:
+-      "Hale, lokale użytkowe i wnętrza obiektów. Z zewnątrz i od środka, w jednym dniu zdjęciowym.",
++      "Hale, lokale użytkowe i wnętrza obiektów. Zaczynam od ujęć z powietrza, kadry z poziomu ziemi i wnętrza dokładam w tym samym dniu zdjęciowym.",
+     description:
+-      "Halę widać dopiero od środka: ile naprawdę jest miejsca między regałami, jak szeroki jest ciąg komunikacyjny, czy w lokalu da się posadzić trzydzieści osób. Tego nie pokaże żadne ujęcie z powietrza. Fotografuję obiekty od środka i z zewnątrz w jednym dniu zdjęciowym: wnętrze hali, lokalu albo biura, elewację i wjazd z poziomu ziemi, a gdy trzeba pokazać bryłę i otoczenie, dokładam ujęcia z powietrza. Wnętrza, które fotografowałem dla steakhouse\'u Yes Butcher! w Starych Koszarach, trafiły na profil restauracji w przewodniku Michelin. Każde zdjęcie przechodzi retusz architektoniczny: korekta perspektywy, prostowanie linii, czyszczenie kadru. Pliki dostajecie w dwóch wersjach, do druku i pod www.",
++      "Halę widać dopiero od środka: ile naprawdę jest miejsca między regałami, jak szeroki jest ciąg komunikacyjny, czy w lokalu da się posadzić trzydzieści osób. Tego nie pokaże żadne ujęcie z powietrza. Fotografuję obiekty od środka i z zewnątrz w jednym dniu zdjęciowym: wnętrze hali, lokalu albo biura, elewację i wjazd z poziomu ziemi, a gdy trzeba pokazać bryłę i otoczenie, dokładam ujęcia z powietrza. Wnętrza, które fotografowałem dla steakhouse\'u Yes Butcher! w Starych Koszarach, trafiły na profil restauracji w przewodniku Michelin. Każde zdjęcie przechodzi retusz architektoniczny: korekta perspektywy, prostowanie linii, czyszczenie kadru. Pliki dostajesz w dwóch wersjach, do druku i na stronę WWW.",
+     forWhom: [
+       "Generalni wykonawcy hal i obiektów przemysłowych",
+       "Deweloperzy mieszkaniowi i komercyjni",
+@@ -578,7 +593,7 @@ const serviceCategoriesRaw: ServiceData[] = [
+     // UWAGA: ten sam plik stoi trzeci w galerii wnętrz (układ ustawiony przez
+     // Marcina 04.08.2026: rząd 1 hale, rząd 2 obiekt i strefy wspólne, rząd 3 lokale).
+     // Przy przenumerowaniu folderu sprawdź tę ścieżkę, bo się rozjedzie po cichu.
+-    heroImage: "/images/galeria/wnetrza/wnetrze-03.jpg",
++    heroImage: "/images/galeria/wnetrza/wnetrze-03-hala-bramki-wejsciowe.jpg",
+     price: "od 900 zł netto",
+     heroPriceLabel: "pakiety od 900 zł netto",
+     wide: true,
+@@ -593,13 +608,19 @@ const serviceCategoriesRaw: ServiceData[] = [
+     priceFaqQuestion: "Ile kosztuje sesja obiektu?",
+     priceFaqIntro: "Pakiety obiektowe zaczynają się",
+     faqs: [
+-      { q: "Czym to się różni od zdjęć z drona?", a: "Sesja dronowa to ujęcia z powietrza i tyle. Sesja obiektu łączy powietrze z poziomem ziemi i dokłada retusz architektoniczny, czyli korektę perspektywy i prostowanie linii. Przy budynku to jest różnica między ładnym ujęciem a dokumentacją, którą wstawicie do oferty i do katalogu. Jeśli potrzebujecie samego ujęcia terenu albo panoramy, tańsza będzie sesja dronowa." },
++      // TRESC2608-09 (04.08.2026). Tekst zatwierdzony przez Marcina tego dnia i on
++      // rozstrzyga fakt handlowy, nie brief: różnica NIE polega na tym, że dron to
++      // „tylko powietrze", a obiekt dokłada ziemię i retusz. Sesja dronowa od 700 zł
++      // to materiał przebitkowy, sesja obiektu od 900 zł to zdjęcia konkretnego
++      // budynku z powietrza, a ziemia, wnętrza i wideo są dokładką powyżej tej kwoty.
++      // Zdanie zamienne z briefu było błędne i świadomie NIE zostało użyte.
++      { q: "Czym to się różni od zdjęć z drona?", a: "Sesja dronowa od 700 zł to materiał przebitkowy: ujęcia z powietrza, którymi uzupełniasz film, stronę albo ofertę. Sesja obiektu od 900 zł zaczyna się od zdjęć konkretnego budynku lub hali z powietrza i rośnie o to, czego z góry nie widać: kadry z poziomu ziemi, wnętrza, produkcję, film o firmie. Jeśli potrzebujesz samej panoramy terenu, tańsza będzie sesja dronowa." },
+       { q: "Ile ujęć dostanę?", a: "Pakiet podstawowy to do 8 ujęć z powietrza. Kompletny to do 14: osiem z powietrza i sześć z poziomu ziemi. Pełny to do 24 ujęć, z blokiem wnętrz. Każde dodatkowe ujęcie ponad pakiet wyceniam osobno." },
+       { q: "Mamy dwa takie same budynki. Płacę dwa razy?", a: "Nie. Drugi obiekt tego samego typu, fotografowany tego samego dnia, jest wyraźnie tańszy, bo profil korekcji perspektywy jest gotowy z pierwszego i postprodukcja idzie szybciej. Warunek to ten sam dzień zdjęciowy. Osobny wyjazd to pełna stawka plus dojazd." },
+       { q: "Czy dron poleci nad naszą halą?", a: "W standardowych lokalizacjach tak, bez dopłat. W strefach kontrolowanych, na przykład w sąsiedztwie lotniska albo jednostki wojskowej, koordynację biorę na siebie i sprawdzam ją przed potwierdzeniem daty. Zgoda bywa terminowa, więc warto zgłosić się z wyprzedzeniem. Jeśli pogoda albo brak zgody uniemożliwi wylot, wracam raz w ramach ustalonej kwoty." },
+-      { q: "Kiedy najlepiej fotografować obiekt?", a: "Tuż przed odbiorem albo zaraz po nim. Elewacja jest wtedy czysta, plac jeszcze niezastawiony, a w środku nie ma jeszcze rzeczy najemcy. Przy budowie, którą chcecie dokumentować w czasie, umawiamy stały punkt i stałą porę, żeby ujęcia złożyły się w jedną sekwencję zamiast w zbiór przypadkowych zdjęć." },
+-      { q: "Fotografujecie hale magazynowe i lokale użytkowe pod wynajem?", a: "Tak. Przy powierzchni pod wynajem sensowny komplet to bryła i plac manewrowy z powietrza, elewacja i wjazd z poziomu ziemi oraz wnętrze hali albo lokalu. Wszystko z jednego dnia zdjęciowego, bo materiał i tak trafia potem do jednej oferty. Pliki dostajecie w dwóch wersjach: do druku i pod ogłoszenie." },
+-      { q: "Czy fotografujecie też wnętrza biur i lokali?", a: "Tak, jako blok wnętrz do 10 ujęć w jednym obiekcie. Pracuję ze światłem zastanym, żeby wnętrze wyglądało jak w rzeczywistości, a nie jak wizualizacja. Blok wnętrz można dołożyć do sesji obiektu albo zamówić osobno." },
++      { q: "Kiedy najlepiej fotografować obiekt?", a: "Tuż przed odbiorem albo zaraz po nim. Elewacja jest wtedy czysta, plac jeszcze niezastawiony, a w środku nie ma jeszcze rzeczy najemcy. Przy budowie, którą chcesz dokumentować w czasie, umawiamy stały punkt i stałą porę, żeby ujęcia złożyły się w jedną sekwencję zamiast w zbiór przypadkowych zdjęć." },
++      { q: "Fotografujesz hale magazynowe i lokale użytkowe pod wynajem?", a: "Tak. Przy powierzchni pod wynajem sensowny komplet to bryła i plac manewrowy z powietrza, elewacja i wjazd z poziomu ziemi oraz wnętrze hali albo lokalu. Wszystko z jednego dnia zdjęciowego, bo materiał i tak trafia potem do jednej oferty. Pliki dostajesz w dwóch wersjach: do druku i pod ogłoszenie." },
++      { q: "Czy fotografujesz też wnętrza biur i lokali?", a: "Tak, jako blok wnętrz do 10 ujęć w jednym obiekcie. Pracuję ze światłem zastanym, żeby wnętrze wyglądało jak w rzeczywistości, a nie jak wizualizacja. Blok wnętrz można dołożyć do sesji obiektu albo zamówić osobno." },
+       { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro z calową matrycą 50 Mpix, certyfikat operatora A1/A3 i ubezpieczenie OC. Z poziomu ziemi Canon R6 na statywie, obiektywy szerokie do wnętrz i elewacji." },
+     ],
+     seo: {
+@@ -708,9 +729,9 @@ export function getPriceFaq(service: ServiceData): FAQItem {
+ // Reprezentacyjne zdjęcie pokazywane na kafelku usługi (sekcja „Czym mogę Ci
+ // pomóc"). Łatwo podmienić ścieżkę, jeśli chcesz inne ujęcie.
+ const SERVICE_TILE_IMAGES: Record<string, string> = {
+-  "eventy-reportaze": "/images/galeria/eventy/event-05.jpg",
+-  "wizerunek-portrety": "/images/galeria/portrety/portret-05.jpg",
+-  "pakiety-foto-wideo": "/images/galeria/eventy/event-02.jpg",
++  "eventy-reportaze": "/images/galeria/eventy/event-05-networking-foyer.jpg",
++  "wizerunek-portrety": "/images/galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg",
++  "pakiety-foto-wideo": "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
+   "fotografia-produktowa": "/images/galeria/produktowe/produkt-02-amarula.jpg",
+   "sesje-zespolowe": "/images/portfolio/sesje-zespolowe-cover.jpg",
+   // Wersja 4:3 z rozmytym wypełnieniem — pełny napis „E-COMMERCE All in"
+@@ -723,7 +744,7 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
+   // z drona, czyli zielone pole z lotu ptaka: nie mówiła nic o halach ani o wnętrzach
+   // i powielała kafelek dronowy obok. Teraz ta sama jasna hala, co okładka podstrony,
+   // żeby cała linia miała jeden obraz (Marcin, 04.08.2026).
+-  "wnetrza-obiekty-architektura": "/images/galeria/wnetrza/wnetrze-03.jpg",
++  "wnetrza-obiekty-architektura": "/images/galeria/wnetrza/wnetrze-03-hala-bramki-wejsciowe.jpg",
+ };
+ 
+ // Punkt kadrowania miniatury (object-position). Wizerunek kadrujemy nieco wyżej
+@@ -733,8 +754,10 @@ const SERVICE_TILE_POS: Record<string, string> = {
+   "wizerunek-portrety": "center 29%",
+   // Kadr niżej: esencja zdjęcia (auta + grupa) jest w dolnych 2/3, góra to niebo.
+   "pakiety-foto-wideo": "center 70%",
+-  // Pionowy portret pary w kadrze 16:9 (mobile) ciął głowy przy center —
+-  // kotwiczymy wyżej (audyt mobile 2026-07-07).
++  // ZDJ2608-22 (04.08.2026): plik `portfolio/sesje-zespolowe-cover.jpg` jest POZIOMY
++  // (1120x840, jedna wersja od cb2bd52), więc poprzednie „pionowy portret pary" myliło.
++  // Mechanizm bez zmian: kadr 4:3 w kafelku 16:9 (mobile, Services.tsx) ciął głowy
++  // przy center — kotwiczymy wyżej (audyt mobile 2026-07-07).
+   "sesje-zespolowe": "center 20%",
+ };
+ 
+@@ -797,4 +820,8 @@ export const SERVICE_TESTIMONIALS: Record<string, ServiceTestimonial> = {
+   "wizerunek-portrety": T.burzynska,
+   "sesje-zespolowe": T.fortuniak,
+   "zdjecia-wideo-z-drona": T.maja,
++  // TRESC2608-03 (04.08.2026), WARIANT B: `wnetrza-obiekty-architektura` świadomie
++  // BEZ opinii. Nie ma cytatu od klienta z linii obiektowej, a podpięcie tu opinii
++  // Yes Butcher (wariant A briefu) przypisywałoby cudzą wypowiedź do usługi, której
++  // nie dotyczyła. Wpis dojdzie po pierwszej realizacji obiektowej z referencją.
+ };

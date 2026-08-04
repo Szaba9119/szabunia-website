@@ -12,8 +12,10 @@ import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcru
 
 export const metadata: Metadata = {
   title: "Usługi foto i wideo dla firm, Poznań | Szabunia",
+  // TRESC2608-03 (04.08.2026), TEKST WŁASNY DO AKCEPTACJI: dopisana linia obiektowa,
+  // ósma usługa. 151 znaków przy progu 155, policzone skryptem.
   description:
-    "Obsługa eventów firmowych, sesje zespołowe, portrety, wideo i dron. Jeden twórca, jedna faktura, jeden termin. Poznań i cała Polska.",
+    "Obsługa eventów firmowych, sesje zespołowe, portrety, wideo, dron oraz hale i wnętrza. Jeden twórca, jedna faktura, jeden termin. Poznań i cała Polska.",
   alternates: { canonical: "/uslugi" },
   openGraph: {
     title: "Usługi foto i wideo dla firm, Poznań | Szabunia",

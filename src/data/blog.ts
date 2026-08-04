@@ -912,7 +912,7 @@ export const blogPosts: BlogPost[] = [
     seo: {
       title: "Jakie zdjęcia na stronę firmową: lista | Szabunia",
       description:
-        "Jakich zdjęć potrzebuje strona internetowa firmy: hero, zespół, biuro, produkty, realizacje. Lista sekcja po sekcji i dlaczego warto zrezygnować ze stocków.",
+        "Jakich zdjęć potrzebuje strona internetowa firmy: hero, zespół, biuro, produkty, realizacje. Lista sekcja po sekcji i dlaczego lepiej odpuścić stocki.",
     },
   },
   {
@@ -1571,7 +1571,7 @@ export const blogPosts: BlogPost[] = [
     seo: {
       title: "Headshoty całego zespołu w jeden dzień | Szabunia",
       description:
-        "Jak zorganizować headshoty całego zespołu w jeden dzień: mobilne studio w biurze, harmonogram 5-15 minut na osobę, przygotowanie zespołu i spójność. Poznań.",
+        "Jak zrobić headshoty całego zespołu w jeden dzień: mobilne studio w biurze, harmonogram 5-15 minut na osobę, przygotowanie zespołu i spójność. Poznań.",
     },
   },
   {
@@ -1624,7 +1624,7 @@ export const blogPosts: BlogPost[] = [
     seo: {
       title: "Spójne portrety zespołu: jeden standard | Szabunia",
       description:
-        "Dlaczego warto fotografować cały zespół w jednym standardzie: spójne światło, kadr, tło i retusz. Jak utrzymać spójność przy rotacji. Przykład IDcom, Poznań.",
+        "Dlaczego fotografować cały zespół w jednym standardzie: spójne światło, kadr, tło i retusz. Jak utrzymać spójność przy rotacji. Przykład IDcom, Poznań.",
     },
   },
   {
@@ -1692,6 +1692,12 @@ export const blogCategories = ["poradnik", "realizacja", "branża"] as const;
 /* ── Linkowanie wewnętrzne blog ↔ usługi ──
    Mapa: slug wpisu → slug najbardziej powiązanej usługi (z src/data/services.tsx).
    Trzymamy slug usługi jako string, żeby nie tworzyć zależności blog→services. */
+// TRESC2608-03 (04.08.2026): ósma usługa `wnetrza-obiekty-architektura` NIE MA tu wpisu
+// i to jest świadoma luka, nie przeoczenie. Żaden z 26 wpisów nie dotyczy hal ani wnętrz;
+// jedyny kandydat, `fotografia-przemyslowa-fabryka` (1 046 słów, hale produkcyjne), jest
+// dziś przypisany do `fotografia-produktowa` i przepięcie go ZABRAŁOBY wpis tamtej usłudze.
+// To decyzja redakcyjna Marcina, nie poprawka techniczna. Blok „Z bloga" na podstronie
+// obiektowej i tak się renderuje, bo `getPostsForService` ma fallback na kategorię.
 export const blogServiceMap: Record<string, string> = {
   "jak-przygotowac-sie-do-sesji-biznesowej": "wizerunek-portrety",
   "headshoty-linkedin-konwersja": "wizerunek-portrety",

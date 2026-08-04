@@ -168,7 +168,7 @@ export default async function ServicePage({ params }: PageProps) {
         {service.videoFirst && videoSection}
         {service.galleryCategory && (
           <ErrorBoundary>
-            <ServiceGalleryStrip category={service.galleryCategory} />
+            <ServiceGalleryStrip category={service.galleryCategory} exclude={service.heroImage} />
           </ErrorBoundary>
         )}
         {!service.videoFirst && videoSection}
@@ -179,6 +179,7 @@ export default async function ServicePage({ params }: PageProps) {
               ctaLabel={service.extraGallery.ctaLabel}
               href={service.extraGallery.href}
               sub={service.extraGallery.sub}
+              exclude={service.heroImage}
             />
           </ErrorBoundary>
         )}

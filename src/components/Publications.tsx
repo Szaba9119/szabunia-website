@@ -58,7 +58,7 @@ export default function Publications() {
               Kwiecień 2026, wydanie z Forte na okładce
             </p>
             <p className="text-[15px] text-steel dark:text-dark-text-muted leading-relaxed mb-6">
-              Zdjęcia, które wykonałem dla <strong className="text-navy dark:text-white font-semibold">Grupa Forte S.A.</strong> na targach meblowych w Poznaniu, trafiły do kwietniowego wydania Big Furniture Group Magazine, brytyjskiego pisma branży meblarskiej audytowanego przez ABC. Jedno z nich znalazło się na okładce.
+              Zdjęcia, które wykonałem dla <strong className="text-navy dark:text-white font-semibold">Grupy Forte S.A.</strong> na targach meblowych w Poznaniu, trafiły do kwietniowego wydania Big Furniture Group Magazine, brytyjskiego pisma branży meblarskiej audytowanego przez ABC. Jedno z nich znalazło się na okładce.
             </p>
             <a
               href="https://bigfurnituregroup.com/big-furniture-group-magazine-april-2026-now-live/"

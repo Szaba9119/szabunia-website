@@ -1,0 +1,22 @@
+diff --git a/src/data/blog.ts b/src/data/blog.ts
+index 68b613d..1a7d891 100644
+--- a/src/data/blog.ts
++++ b/src/data/blog.ts
+@@ -634,7 +634,7 @@ export const blogPosts: BlogPost[] = [
+       <p>Produkt w ruchu, obracany, rozkładany, używany. Pokazuje to, czego nie odda zdjęcie: mechanizm, skalę, fakturę w ruchu. Naturalne uzupełnienie <a href="/uslugi/fotografia-produktowa">fotografii produktowej</a> na karcie produktu.</p>
+ 
+       <h2>5. Relacja z eventu</h2>
+-      <p>Aftermovie z konferencji, targów czy gali firmowej to energia wydarzenia zamknięta w 60–90 sekundach. Działa jako podsumowanie dla uczestników i zaproszenie na kolejną edycję. Jeśli organizujesz event, zaplanuj wideo razem z <a href="/blog/fotografia-eventowa-vs-reportaz">fotografią eventową</a>.</p>
++      <p>Aftermovie z konferencji, targów czy gali firmowej to energia wydarzenia zamknięta w materiale do 60 sekund; dłuższe formaty wyceniam indywidualnie. Działa jako podsumowanie dla uczestników i zaproszenie na kolejną edycję. Jeśli organizujesz event, zaplanuj wideo razem z <a href="/blog/fotografia-eventowa-vs-reportaz">fotografią eventową</a>.</p>
+ 
+       <h2>Jeden event, kilka formatów naraz</h2>
+       <p>Formaty z tej listy nie wykluczają się, tylko powstają z tego samego materiału. Dobrym przykładem jest realizacja dla Woohoo z wydarzenia E-commerce All In na Enea Stadion w Poznaniu. Z jednego wieczoru powstał poziomy film podsumowujący na YouTube oraz trzy pionowe reelsy z wywiadami na profil firmy.</p>
+@@ -927,7 +927,7 @@ export const blogPosts: BlogPost[] = [
+       <p>Bardzo krótka zapowiedź, do 15 sekund. Pojedyncze najmocniejsze ujęcia, dynamiczny montaż, logo i data. Idealny do podgrzania atmosfery przed wydarzeniem albo jako szybka reklama. Robię go jako dodatek do większego zlecenia.</p>
+ 
+       <h2>Event recap (aftermovie)</h2>
+-      <p>Film podsumowujący wydarzenie, zwykle do 60-90 sekund: najlepsze momenty, emocje, skala. Pokazuje sponsorom i przyszłym uczestnikom, dlaczego warto być na kolejnej edycji. Przykład znajdziesz w <a href="/portfolio/woohoo-autopay">realizacji dla E-commerce All In</a>.</p>
++      <p>Film podsumowujący wydarzenie, zwykle do 60 sekund (dłuższe formaty na wycenę indywidualną): najlepsze momenty, emocje, skala. Pokazuje sponsorom i przyszłym uczestnikom, dlaczego warto być na kolejnej edycji. Przykład znajdziesz w <a href="/portfolio/woohoo-autopay">realizacji dla E-commerce All In</a>.</p>
+ 
+       <h2>Film wizerunkowy</h2>
+       <p>Dłuższa forma o firmie: kim jesteście, jak pracujecie, dlaczego warto Wam zaufać. Działa na stronie internetowej i w rozmowach handlowych. Dobry przykład to <a href="/portfolio/artech-fotografia-produktowa">film z hali produkcyjnej dla Artech Group</a>: zamiast opisywać park maszynowy, firma po prostu go pokazuje.</p>

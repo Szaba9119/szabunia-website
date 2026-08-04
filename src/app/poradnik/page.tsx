@@ -13,12 +13,12 @@ import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcru
 export const metadata: Metadata = {
   title: "Darmowy poradnik: sesja biznesowa | Szabunia",
   description:
-    "Checklisty, planer stylizacji, ściąga kolorów i mini-brief. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
+    "Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
   alternates: { canonical: "/poradnik" },
   openGraph: {
     title: "Darmowy poradnik: sesja biznesowa | Szabunia",
     description:
-      "Checklisty, planer stylizacji, ściąga kolorów i mini-brief. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
+      "Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
     url: "https://szabunia.pl/poradnik",
     images: [
       {
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Darmowy poradnik: sesja biznesowa | Szabunia",
     description:
-      "Checklisty, planer stylizacji, ściąga kolorów i mini-brief. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
+      "Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
     images: ["/images/og/strony/poradnik.jpg"],
   },
 };
@@ -43,7 +43,7 @@ const inside = [
   "Planer stylizacji na 2–3 zestawy",
   "Ściąga kolorów: co działa, czego unikać",
   "Jak wyglądać naturalnie przed obiektywem",
-  "Mini-brief, który wyślesz mi w 2 minuty",
+  "Gotowa lista pytań, którą wyślesz mi w 2 minuty",
 ];
 
 // Rozpiska sekcji PDF-a (8 stron treści na 4 stronach A4). Kolejność i nazwy
@@ -80,7 +80,7 @@ const sections: { title: string; desc: string }[] = [
     desc: "Galeria online ze wszystkimi ujęciami i Twój wybór kadrów do retuszu. Terminy dostawy i tryb ekspresowy. Pliki w pełnej jakości plus wersja web oraz licencja komercyjna bez limitów czasowych.",
   },
   {
-    title: "Mini-brief, który wyślesz mi w 2 minuty",
+    title: "Gotowa lista pytań, którą wyślesz mi w 2 minuty",
     desc: "Pięć punktów do skopiowania do maila: cel zdjęć, styl i nastrój z linkami, liczba osób, termin i miejsce, dodatkowe uwagi. Im więcej wiem, tym celniejsza wycena wraca do Ciebie.",
   },
 ];
@@ -114,7 +114,7 @@ export default function PoradnikPage() {
               Pakiet przygotowania do sesji biznesowej
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto">
-              Checklisty, planer stylizacji, ściąga kolorów i mini-brief: wszystko, żeby
+              Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań: wszystko, żeby
               wyjść na zdjęciach pewnie i naturalnie, nawet jeśli zwykle nie lubisz się
               fotografować.
             </p>

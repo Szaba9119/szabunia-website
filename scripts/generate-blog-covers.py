@@ -21,19 +21,19 @@ W, H = 1600, 900
 
 # slug: (ścieżka względem public/images, focus_y)
 COVERS = {
-    "jak-przygotowac-sie-do-sesji-biznesowej": ("galeria/portrety/portret-02.jpg", 0.26),
-    "headshoty-linkedin-konwersja": ("galeria/portrety/portret-09.jpg", 0.24),
-    "fotografia-eventowa-vs-reportaz": ("galeria/eventy/event-04.jpg", 0.45),
+    "jak-przygotowac-sie-do-sesji-biznesowej": ("galeria/portrety/portret-02-kobieta-z-laptopem.jpg", 0.26),
+    "headshoty-linkedin-konwersja": ("galeria/portrety/portret-09-mezczyzna-czarny-tshirt.jpg", 0.24),
+    "fotografia-eventowa-vs-reportaz": ("galeria/eventy/event-04-gala-wreczenie-wyroznien.jpg", 0.45),
     "fotografia-produktowa-ecommerce": ("galeria/produktowe/produkt-11.jpg", 0.42),
     "fotografia-przemyslowa-fabryka": ("galeria/produktowe/produkt-21.jpg", 0.50),
-    "ile-kosztuje-sesja-wizerunkowa-dla-firmy": ("galeria/portrety/portret-05.jpg", 0.26),
-    "co-zalozyc-na-sesje-biznesowa": ("galeria/portrety/portret-06.jpg", 0.24),
-    "bledy-zdjecia-zespolu": ("galeria/eventy/event-02.jpg", 0.45),
-    "sesja-wizerunkowa-poznan": ("galeria/portrety/portret-14.jpg", 0.32),
-    "wideo-marketing-dla-firm-formaty": ("galeria/eventy/event-17.jpg", 0.45),
-    "zdjecie-do-cv-w-domu": ("galeria/portrety/portret-10.jpg", 0.24),
-    "zdjecia-ai-vs-profesjonalna-sesja": ("galeria/portrety/portret-03.jpg", 0.28),
-    "zdjecia-na-strone-firmowa": ("galeria/portrety/portret-13.jpg", 0.30),
+    "ile-kosztuje-sesja-wizerunkowa-dla-firmy": ("galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg", 0.26),
+    "co-zalozyc-na-sesje-biznesowa": ("galeria/portrety/portret-06-dwie-osoby-duet.jpg", 0.24),
+    "bledy-zdjecia-zespolu": ("galeria/eventy/event-02-zdjecie-grupowe-tor.jpg", 0.45),
+    "sesja-wizerunkowa-poznan": ("galeria/portrety/portret-14-mezczyzna-z-telefonem.jpg", 0.32),
+    "wideo-marketing-dla-firm-formaty": ("galeria/eventy/event-17-dj-slupy-ognia.jpg", 0.45),
+    "zdjecie-do-cv-w-domu": ("galeria/portrety/portret-10-kobieta-bezowa-marynarka.jpg", 0.24),
+    "zdjecia-ai-vs-profesjonalna-sesja": ("galeria/portrety/portret-03-mezczyzna-czarne-tlo.jpg", 0.28),
+    "zdjecia-na-strone-firmowa": ("galeria/portrety/portret-13-kobieta-przy-oknie.jpg", 0.30),
 }
 
 

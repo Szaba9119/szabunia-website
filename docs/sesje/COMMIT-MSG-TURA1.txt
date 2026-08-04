@@ -1,0 +1,29 @@
+feat(zdjecia+tresc): tura poprawek z audytow 04.08, 36 ID
+
+ZDJECIA
+ZDJ2608-31, -32, -03, -26: publikacja czterech realizacji (portfolio 4 -> 8),
+  woohoo-autopay schodzi z pierwszego miejsca na home i na /portfolio,
+  sierota w siatce znika przy osmiu kaflach
+ZDJ2608-01 + DZ4: konwencja kategoria-NN-opis dla 51 plikow w czterech folderach,
+  numery NN bez zmian wiec kolejnosc wyswietlania identyczna,
+  must-revalidate zamiast immutable w naglowku cache dla /images/*
+ZDJ2608-04, -12, -11: opis alternatywny per plik zamiast rotacji po 5 wariantach
+  i szablonu z tytulu; 89 kadrow obejrzanych, 59 z 59 powierzchni;
+  nowy src/data/galleryAlts.ts jako jedyne zrodlo opisow
+ZDJ2608-22, -06, -25, -05b, -08, -09, -17, -34, -02b, -27, -07, -24, -18:
+  alty i komentarze zgodne z kadrem, sizes zgodne z siatka i kontenerem max-w-5xl,
+  hero nie wraca w pasku podstrony obiektowej, miniatury filmow na next/image
+  z maxresdefault i realnym fallbackiem, cztery sieroty do _to_delete
+
+TRESC
+TRESC2608-50, -09, -22, -51: granica dron kontra linia obiektowa; zdanie o roznicy
+  wg sprostowania Marcina z 04.08, nie wg briefu
+TRESC2608-01: licencja w Warunkach na uzytek komercyjny (DT1 = A)
+TRESC2608-03: osma usluga na szesciu listach pisanych recznie
+TRESC2608-02, -08, -48: forma pojedyncza zamiast "Wy", zargon "brief" i "mini-brief" out
+TRESC2608-53, -27, -32, -33, -36, -38: quick winy
+
+Bramki: lint PASS, tsc PASS, next build PASS (59 stron, 04.08).
+Raport: docs/sesje/POPRAWKI-WDROZONE-2026-08-04.md
+Tabela nazw: docs/sesje/TABELA-NAZW-51-2026-08-04.md
+Decyzje otwarte: docs/sesje/DECYZJE-DO-PODJECIA-2026-08-04.md

@@ -23,7 +23,7 @@ export default function PoradnikBlogCTA() {
           Przygotuj się do sesji jak zawodowiec
         </h3>
         <p className="text-[13px] text-steel dark:text-dark-text-muted mb-4 leading-relaxed">
-          Checklisty, planer stylizacji, ściąga kolorów i mini-brief: pobierz cały
+          Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań: pobierz cały
           pakiet PDF za darmo.
         </p>
         <Link

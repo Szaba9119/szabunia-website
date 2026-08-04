@@ -90,6 +90,9 @@ export async function POST(req: Request) {
     wideo: "Wideo marketing",
     pakiet: "Pakiet foto + wideo",
     dron: "Zdjęcia i wideo z drona",
+    // TRESC2608-03 (04.08.2026): bez tej linii wysyłka formularza z ósmą usługą
+    // kończyła się błędem 400 „Nieznany rodzaj usługi" (twarda lista niżej).
+    obiekty: "Fotografia hal, obiektów i wnętrz",
     inne: "Inne zapytanie",
   };
   // Twarda lista kodów usług — bez niej pole `service` przyjmowało dowolne

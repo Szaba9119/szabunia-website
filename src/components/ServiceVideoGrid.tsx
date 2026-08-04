@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
 import { gtagEvent } from "@/lib/gtag";
@@ -31,6 +32,12 @@ export default function ServiceVideoGrid({
 }) {
   const [open, setOpen] = useState<number | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
+  // ZDJ2608-24 (04.08.2026): miniatura idzie z `maxresdefault` (1280x720, 16:9), a nie
+  // z `hqdefault` (480x360, czyli 4:3 z czarnymi pasami dla materiału 16:9). Sprawdzone
+  // kodem odpowiedzi 04.08.2026: wszystkie 9 osadzonych filmów zwraca 200 na maxres.
+  // Fallback jest realny, nie zadeklarowany: gdy YouTube kiedyś nie wygeneruje maxres,
+  // `onError` przełącza TEN film na hqdefault i stan zostaje do końca sesji.
+  const [hqOnly, setHqOnly] = useState<Record<string, boolean>>({});
 
   const close = useCallback(() => setOpen(null), []);
 
@@ -66,11 +73,17 @@ export default function ServiceVideoGrid({
             aria-label={`Odtwórz film: ${v.title}`}
             className="group relative aspect-square rounded-xl overflow-hidden bg-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={`https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`}
-              alt={v.title}
-              loading="lazy"
+            <Image
+              src={`https://i.ytimg.com/vi/${v.youtubeId}/${hqOnly[v.youtubeId] ? "hqdefault" : "maxresdefault"}.jpg`}
+              alt={`Kadr otwierający z filmu: ${v.title}`}
+              width={1280}
+              height={720}
+              /* Miniatury YouTube nie przechodzą przez optymalizator Next (to już jest
+                 skompresowany JPEG z CDN-u), więc `unoptimized` zamiast dopisywania
+                 i.ytimg.com do images.remotePatterns w next.config.ts. Domena jest
+                 dopuszczona w CSP `img-src`. */
+              unoptimized
+              onError={() => setHqOnly((s) => (s[v.youtubeId] ? s : { ...s, [v.youtubeId]: true }))}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <span className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />

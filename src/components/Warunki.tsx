@@ -88,7 +88,7 @@ export default function Warunki() {
                 Pliki
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Pełna jakość + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku. Pliki surowe (RAW) nie wchodzą w cenę, pełny zestaw to +30% wartości zlecenia i decyzja przed sesją. Licencja niewyłączna, bez limitu czasowego, na własny użytek; przeniesienie praw majątkowych +50%.
+                Pełna jakość + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku. Pliki surowe (RAW) nie wchodzą w cenę, pełny zestaw to +30% wartości zlecenia i decyzja przed sesją. Licencja niewyłączna, bez limitu czasowego, na użytek komercyjny Twojej firmy: strona, social media, druk i reklama online. Przeniesienie praw majątkowych albo przekazanie materiału podmiotom trzecim: +50%.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">

@@ -450,6 +450,12 @@ export default function CTA() {
                           <option value="dron" className="bg-white dark:bg-navy">
                             Zdjęcia i wideo z drona
                           </option>
+                          {/* TRESC2608-03 (04.08.2026): ósma usługa, opublikowana 04.08,
+                              nie istniała na żadnej z list pisanych ręcznie, w tym
+                              w formularzu, przez co jej leady spadały do „Inne zapytanie". */}
+                          <option value="obiekty" className="bg-white dark:bg-navy">
+                            Fotografia hal, obiektów i wnętrz
+                          </option>
                           <option value="inne" className="bg-white dark:bg-navy">
                             Inne zapytanie
                           </option>

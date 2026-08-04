@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { portfolioCategories, portfolioItems } from "@/data/portfolio";
+import { galleryAlt } from "@/data/galleryAlts";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import AnimatedSection from "@/components/AnimatedSection";
@@ -86,7 +87,8 @@ export default function PortfolioPage() {
                 <>
                   <Image
                     src={item.image}
-                    alt={item.label}
+                    /* ZDJ2608-11: opis obejrzanego kadru zamiast etykiety kafelka. */
+                    alt={galleryAlt(item.image, item.label)}
                     fill
                     className={`object-cover ${item.imagePosition === "top" ? "object-top" : ""} transition-transform duration-500 group-hover:scale-105`}
                     sizes="(max-width: 1024px) 50vw, 33vw"

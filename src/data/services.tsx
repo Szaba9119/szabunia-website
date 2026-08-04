@@ -153,7 +153,7 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
       </svg>
     ),
-    heroImage: "/images/galeria/eventy/event-05.jpg",
+    heroImage: "/images/galeria/eventy/event-05-networking-foyer.jpg",
     heroImagePos: "center 20%",
     price: "od 600 zł netto",
     process: [
@@ -172,7 +172,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Ile zdjęć otrzymam?", a: "Około 20 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
       { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
       { q: "Czy przy okazji eventu zrobisz zdjęcia całego zespołu?", a: "Tak. Na wydarzenie mogę przywieźć mobilne studio: potrzebuję około 5 m² wolnej przestrzeni i gniazdka, rozstawienie zajmuje 20 minut, a potem fotografuję kolejne osoby po 5 do 15 minut, między prelekcjami albo w kuluarach. Event to zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu, więc headshoty przy tej okazji nie wymagają osobnego terminu ani osobnego dojazdu." },
-      { q: "Kto robi zdjęcia i film, gdy event jest duży?", a: "Przy standardowym wydarzeniu robię wszystko sam. Przy dużym evencie, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora do zdjęć albo do wideo. Postprodukcja zostaje u mnie: retusz zdjęć i montaż filmu robię osobiście, więc materiał wychodzi w jednym standardzie. Dla Was to nadal jedna osoba kontaktowa, jeden brief i jedna faktura." },
+      { q: "Kto robi zdjęcia i film, gdy event jest duży?", a: "Przy standardowym wydarzeniu robię wszystko sam. Przy dużym evencie, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora do zdjęć albo do wideo. Postprodukcja zostaje u mnie: retusz zdjęć i montaż filmu robię osobiście, więc materiał wychodzi w jednym standardzie. Dla Ciebie to nadal jedna osoba kontaktowa, jedne ustalenia i jedna faktura." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
     ],
     portfolioSlug: "woohoo-autopay",
@@ -262,7 +262,7 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
       </svg>
     ),
-    heroImage: "/images/galeria/eventy/event-01.jpg",
+    heroImage: "/images/galeria/eventy/event-01-zespol-na-scenie.jpg",
     price: "od 2 100 zł netto",
     wide: true,
     process: [
@@ -276,10 +276,10 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqQuestion: "Ile kosztuje pakiet foto + wideo?",
     priceFaqIntro: "Pakiety zaczynają się",
     faqs: [
-      { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkim briefie podaję jedną, konkretną wycenę w kilku wariantach." },
+      { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkiej rozmowie podaję jedną, konkretną wycenę w kilku wariantach." },
       { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Przy standardowym wydarzeniu tak: zdjęcia, film i dron robię sam. Przy dużym evencie, gdzie dwie rzeczy dzieją się w tym samym momencie, dokładam drugiego operatora do zdjęć albo do wideo. Postprodukcja zostaje u mnie, retusz i montaż robię osobiście, więc finalny materiał ma jeden standard. Ty i tak masz jedną osobę kontaktową zamiast dwóch ekip." },
-      { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak. Przy serii wydarzeń koryguję zakres do realnych potrzeb projektu. Jeśli realizacje wracają co roku, możemy ustalić liczbę wydarzeń z góry: rezerwuję terminy i trzymam dzisiejsze ceny na całość. Wycena po krótkim briefie." },
-      { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Dogrywamy dodatkowe godziny przed eventem, dokładam je do wyceny na etapie briefu." },
+      { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak. Przy serii wydarzeń koryguję zakres do realnych potrzeb projektu. Jeśli realizacje wracają co roku, możemy ustalić liczbę wydarzeń z góry: rezerwuję terminy i trzymam dzisiejsze ceny na całość. Wycenę odsyłam po krótkiej rozmowie." },
+      { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Dogrywamy dodatkowe godziny przed eventem, dokładam je do wyceny przy ustalaniu zakresu." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 (foto i wideo równolegle, z zapisem na dwie karty), obiektywy Sigma, Tamron i Tokina od 16 do 200 mm, oświetlenie Godox, dźwięk Rode i Zoom oraz dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC. Jeden zestaw obsługuje zdjęcia, film i dron." },
     ],
     seo: {
@@ -314,7 +314,7 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
       </svg>
     ),
-    heroImage: "/images/galeria/portrety/portret-05.jpg",
+    heroImage: "/images/galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg",
     heroImagePos: "center 20%",
     price: "od 1 100 zł netto",
     heroPriceLabel: "pakiety od 1 100 zł netto",
@@ -386,7 +386,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     // Piątka na evencie: ludzie zamiast sprzętu i zamiast planszy z tytułem filmu
     // (Marcin, 04.08.2026: „to gdzie dają sobie piątkę jest po wejściu na usługę,
     // przy tekście"). Poprzednio kadr z reelsa.
-    heroImage: "/images/galeria/eventy/event-03.jpg",
+    heroImage: "/images/galeria/eventy/event-03-integracja-przybicie-piatki.jpg",
     price: "od 400 zł netto",
     process: [
       { num: 1, title: "Concept", desc: "Cel, format, platforma docelowa" },
@@ -479,13 +479,13 @@ const serviceCategoriesRaw: ServiceData[] = [
     videoNote: "Film z eventu dla Woohoo. Ujęcia z drona łączą się tu z materiałem z poziomu ziemi w jeden spójny film.",
     title: "Zdjęcia i wideo z drona",
     subtitle:
-      "Ujęcia z powietrza: budynki i obiekty firmowe, hale i magazyny, tereny, eventy i architektura. Foto i wideo w 4K.",
+      "Ujęcia z powietrza: tereny, place, eventy i krajobraz. Foto i wideo w 4K.",
     description:
       "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, hale i magazyny, tereny i place, inwestycje budowlane, architekturę oraz ujęcia eventowe. Przy dużych obiektach robię komplet ujęć: bryła, dach, otoczenie i drogi dojazdowe. Dostarczam gotowe zdjęcia, zmontowane wideo 4K albo same przebitki do montażu własnego. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego dnia powstaje spójny komplet zdjęć i wideo.",
     forWhom: [
-      "Deweloperzy i firmy budowlane (postęp prac, inwestycje, bryła i otoczenie)",
+      "Organizatorzy wydarzeń plenerowych (skala, ujęcia otwierające, kadr z góry)",
       "Hotele, ośrodki i obiekty turystyczne",
-      "Firmy przemysłowe i logistyczne (hale, magazyny, tereny, place)",
+      "Firmy potrzebujące ujęcia terenu albo placu (bez dokumentacji obiektu)",
       "Organizatorzy eventów (skala wydarzenia)",
       "Agencje nieruchomości i marketingu",
     ],
@@ -507,7 +507,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     heroImage: "/images/galeria/dron/dron-04-biurowiec-poznan.jpg",
     price: "od 700 zł netto",
     process: [
-      { num: 1, title: "Brief i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
+      { num: 1, title: "Ustalenia i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
       { num: 2, title: "Lot", desc: "Zdjęcia i wideo 4K z powietrza" },
       { num: 3, title: "Postprodukcja", desc: "Obróbka zdjęć lub montaż wideo" },
       { num: 4, title: "Dostawa", desc: "Zdjęcia w 14 dni, wideo do 21 dni" },
@@ -518,7 +518,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqIntro: "Zdjęcia i wideo z drona zaczynają się",
     faqs: [
       { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
-      { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji bezpłatnie przekładamy termin na najbliższy możliwy." },
+      // TRESC2608-53 (04.08.2026): serwis obiecywał bezterminowe darmowe przekładanie,
+      // cennik v3 (:388) mówi „wracam raz w ramach ustalonej kwoty, kolejne podejście
+      // 300 zł plus dojazd". Dwa inne miejsca serwisu (llms.txt:36 i FAQ obiektowe)
+      // miały wersję zgodną z kanonem, więc rozjazd był lokalny.
+      { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji wracam raz w ramach ustalonej kwoty; kolejne podejście to 300 zł plus dojazd." },
       { q: "W jakiej jakości dostarczasz materiał?", a: "Wideo do 4K, zdjęcia w pełnej rozdzielczości. Formaty dobieram pod stronę WWW i social media (poziome i pionowe)." },
       { q: "Czy mogę połączyć drona z sesją naziemną?", a: "Tak. Dron działa jako dodatek do eventu, sesji produktowej lub wizerunkowej: kilka dodatkowych zdjęć lub ujęć wideo z powietrza przy okazji innej sesji. Z jednej sesji powstaje spójny komplet." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro do zdjęć i wideo w 4K. Mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona łączę z naziemnym zestawem Canon, gdy potrzebny jest komplet foto i wideo." },
@@ -526,7 +530,12 @@ const serviceCategoriesRaw: ServiceData[] = [
     portfolioSlug: "woohoo-autopay",
     seo: {
       title: "Zdjęcia i wideo z drona dla firm | Szabunia",
-      description: "Ujęcia 4K budynków, hal i magazynów, terenów, inwestycji i eventów. Certyfikat A1/A3 i OC operatora. Dron w cenie pakietów hybrydowych. Poznań i cała Polska.",
+      // TRESC2608-22 + TRESC2608-38 (04.08.2026), jedna linia domyka oba. Poprzedni opis
+      // miał 157 znaków przy progu 155 i obiecywał „dron w cenie pakietów hybrydowych",
+      // czego na tej podstronie nie ma: fraza „w cenie" nie pada tu ani razu, a llms.txt
+      // mówi „+200 zł". Sprzedawał też zakres sekcji 8 cennika (budynki, hale, magazyny),
+      // czyli linii obiektowej, przy kotwicy o 200 do 1 200 zł niższej.
+      description: "Ujęcia 4K terenów, placów, inwestycji i eventów. Certyfikat A1/A3 i OC operatora. Dron łączę z sesją naziemną. Poznań i cała Polska.",
     },
   },
   {
@@ -557,10 +566,16 @@ const serviceCategoriesRaw: ServiceData[] = [
     // z jednego planu: z powietrza i z poziomu ziemi") stawiał drona na pierwszym
     // miejscu, a podstrona pokazuje dziś wnętrza i film z hali. Ten sam tekst leci
     // na kafelek na stronie głównej i na /uslugi.
+    // TRESC2608-51 (04.08.2026), TEKST WŁASNY DO AKCEPTACJI. Poprzedni podtytuł
+    // („Z zewnątrz i od środka, w jednym dniu zdjęciowym") stał w hero obok kotwicy
+    // „pakiety od 900 zł netto", a za 900 zł nie ma ani jednego kadru naziemnego:
+    // OBIEKT PODSTAWOWY to do 8 ujęć z powietrza, blok wnętrz to osobne 600 zł.
+    // Nowy podtytuł stawia powietrze jako punkt wyjścia, a ziemię i wnętrza jako
+    // dokładkę. `heroPriceLabel` NIE ruszony: to komunikat cenowy i osobna decyzja.
     subtitle:
-      "Hale, lokale użytkowe i wnętrza obiektów. Z zewnątrz i od środka, w jednym dniu zdjęciowym.",
+      "Hale, lokale użytkowe i wnętrza obiektów. Zaczynam od ujęć z powietrza, kadry z poziomu ziemi i wnętrza dokładam w tym samym dniu zdjęciowym.",
     description:
-      "Halę widać dopiero od środka: ile naprawdę jest miejsca między regałami, jak szeroki jest ciąg komunikacyjny, czy w lokalu da się posadzić trzydzieści osób. Tego nie pokaże żadne ujęcie z powietrza. Fotografuję obiekty od środka i z zewnątrz w jednym dniu zdjęciowym: wnętrze hali, lokalu albo biura, elewację i wjazd z poziomu ziemi, a gdy trzeba pokazać bryłę i otoczenie, dokładam ujęcia z powietrza. Wnętrza, które fotografowałem dla steakhouse\'u Yes Butcher! w Starych Koszarach, trafiły na profil restauracji w przewodniku Michelin. Każde zdjęcie przechodzi retusz architektoniczny: korekta perspektywy, prostowanie linii, czyszczenie kadru. Pliki dostajecie w dwóch wersjach, do druku i pod www.",
+      "Halę widać dopiero od środka: ile naprawdę jest miejsca między regałami, jak szeroki jest ciąg komunikacyjny, czy w lokalu da się posadzić trzydzieści osób. Tego nie pokaże żadne ujęcie z powietrza. Fotografuję obiekty od środka i z zewnątrz w jednym dniu zdjęciowym: wnętrze hali, lokalu albo biura, elewację i wjazd z poziomu ziemi, a gdy trzeba pokazać bryłę i otoczenie, dokładam ujęcia z powietrza. Wnętrza, które fotografowałem dla steakhouse\'u Yes Butcher! w Starych Koszarach, trafiły na profil restauracji w przewodniku Michelin. Każde zdjęcie przechodzi retusz architektoniczny: korekta perspektywy, prostowanie linii, czyszczenie kadru. Pliki dostajesz w dwóch wersjach, do druku i na stronę WWW.",
     forWhom: [
       "Generalni wykonawcy hal i obiektów przemysłowych",
       "Deweloperzy mieszkaniowi i komercyjni",
@@ -578,7 +593,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     // UWAGA: ten sam plik stoi trzeci w galerii wnętrz (układ ustawiony przez
     // Marcina 04.08.2026: rząd 1 hale, rząd 2 obiekt i strefy wspólne, rząd 3 lokale).
     // Przy przenumerowaniu folderu sprawdź tę ścieżkę, bo się rozjedzie po cichu.
-    heroImage: "/images/galeria/wnetrza/wnetrze-03.jpg",
+    heroImage: "/images/galeria/wnetrza/wnetrze-03-hala-bramki-wejsciowe.jpg",
     price: "od 900 zł netto",
     heroPriceLabel: "pakiety od 900 zł netto",
     wide: true,
@@ -593,13 +608,19 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqQuestion: "Ile kosztuje sesja obiektu?",
     priceFaqIntro: "Pakiety obiektowe zaczynają się",
     faqs: [
-      { q: "Czym to się różni od zdjęć z drona?", a: "Sesja dronowa to ujęcia z powietrza i tyle. Sesja obiektu łączy powietrze z poziomem ziemi i dokłada retusz architektoniczny, czyli korektę perspektywy i prostowanie linii. Przy budynku to jest różnica między ładnym ujęciem a dokumentacją, którą wstawicie do oferty i do katalogu. Jeśli potrzebujecie samego ujęcia terenu albo panoramy, tańsza będzie sesja dronowa." },
+      // TRESC2608-09 (04.08.2026). Tekst zatwierdzony przez Marcina tego dnia i on
+      // rozstrzyga fakt handlowy, nie brief: różnica NIE polega na tym, że dron to
+      // „tylko powietrze", a obiekt dokłada ziemię i retusz. Sesja dronowa od 700 zł
+      // to materiał przebitkowy, sesja obiektu od 900 zł to zdjęcia konkretnego
+      // budynku z powietrza, a ziemia, wnętrza i wideo są dokładką powyżej tej kwoty.
+      // Zdanie zamienne z briefu było błędne i świadomie NIE zostało użyte.
+      { q: "Czym to się różni od zdjęć z drona?", a: "Sesja dronowa od 700 zł to materiał przebitkowy: ujęcia z powietrza, którymi uzupełniasz film, stronę albo ofertę. Sesja obiektu od 900 zł zaczyna się od zdjęć konkretnego budynku lub hali z powietrza i rośnie o to, czego z góry nie widać: kadry z poziomu ziemi, wnętrza, produkcję, film o firmie. Jeśli potrzebujesz samej panoramy terenu, tańsza będzie sesja dronowa." },
       { q: "Ile ujęć dostanę?", a: "Pakiet podstawowy to do 8 ujęć z powietrza. Kompletny to do 14: osiem z powietrza i sześć z poziomu ziemi. Pełny to do 24 ujęć, z blokiem wnętrz. Każde dodatkowe ujęcie ponad pakiet wyceniam osobno." },
       { q: "Mamy dwa takie same budynki. Płacę dwa razy?", a: "Nie. Drugi obiekt tego samego typu, fotografowany tego samego dnia, jest wyraźnie tańszy, bo profil korekcji perspektywy jest gotowy z pierwszego i postprodukcja idzie szybciej. Warunek to ten sam dzień zdjęciowy. Osobny wyjazd to pełna stawka plus dojazd." },
       { q: "Czy dron poleci nad naszą halą?", a: "W standardowych lokalizacjach tak, bez dopłat. W strefach kontrolowanych, na przykład w sąsiedztwie lotniska albo jednostki wojskowej, koordynację biorę na siebie i sprawdzam ją przed potwierdzeniem daty. Zgoda bywa terminowa, więc warto zgłosić się z wyprzedzeniem. Jeśli pogoda albo brak zgody uniemożliwi wylot, wracam raz w ramach ustalonej kwoty." },
-      { q: "Kiedy najlepiej fotografować obiekt?", a: "Tuż przed odbiorem albo zaraz po nim. Elewacja jest wtedy czysta, plac jeszcze niezastawiony, a w środku nie ma jeszcze rzeczy najemcy. Przy budowie, którą chcecie dokumentować w czasie, umawiamy stały punkt i stałą porę, żeby ujęcia złożyły się w jedną sekwencję zamiast w zbiór przypadkowych zdjęć." },
-      { q: "Fotografujecie hale magazynowe i lokale użytkowe pod wynajem?", a: "Tak. Przy powierzchni pod wynajem sensowny komplet to bryła i plac manewrowy z powietrza, elewacja i wjazd z poziomu ziemi oraz wnętrze hali albo lokalu. Wszystko z jednego dnia zdjęciowego, bo materiał i tak trafia potem do jednej oferty. Pliki dostajecie w dwóch wersjach: do druku i pod ogłoszenie." },
-      { q: "Czy fotografujecie też wnętrza biur i lokali?", a: "Tak, jako blok wnętrz do 10 ujęć w jednym obiekcie. Pracuję ze światłem zastanym, żeby wnętrze wyglądało jak w rzeczywistości, a nie jak wizualizacja. Blok wnętrz można dołożyć do sesji obiektu albo zamówić osobno." },
+      { q: "Kiedy najlepiej fotografować obiekt?", a: "Tuż przed odbiorem albo zaraz po nim. Elewacja jest wtedy czysta, plac jeszcze niezastawiony, a w środku nie ma jeszcze rzeczy najemcy. Przy budowie, którą chcesz dokumentować w czasie, umawiamy stały punkt i stałą porę, żeby ujęcia złożyły się w jedną sekwencję zamiast w zbiór przypadkowych zdjęć." },
+      { q: "Fotografujesz hale magazynowe i lokale użytkowe pod wynajem?", a: "Tak. Przy powierzchni pod wynajem sensowny komplet to bryła i plac manewrowy z powietrza, elewacja i wjazd z poziomu ziemi oraz wnętrze hali albo lokalu. Wszystko z jednego dnia zdjęciowego, bo materiał i tak trafia potem do jednej oferty. Pliki dostajesz w dwóch wersjach: do druku i pod ogłoszenie." },
+      { q: "Czy fotografujesz też wnętrza biur i lokali?", a: "Tak, jako blok wnętrz do 10 ujęć w jednym obiekcie. Pracuję ze światłem zastanym, żeby wnętrze wyglądało jak w rzeczywistości, a nie jak wizualizacja. Blok wnętrz można dołożyć do sesji obiektu albo zamówić osobno." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro z calową matrycą 50 Mpix, certyfikat operatora A1/A3 i ubezpieczenie OC. Z poziomu ziemi Canon R6 na statywie, obiektywy szerokie do wnętrz i elewacji." },
     ],
     seo: {
@@ -708,9 +729,9 @@ export function getPriceFaq(service: ServiceData): FAQItem {
 // Reprezentacyjne zdjęcie pokazywane na kafelku usługi (sekcja „Czym mogę Ci
 // pomóc"). Łatwo podmienić ścieżkę, jeśli chcesz inne ujęcie.
 const SERVICE_TILE_IMAGES: Record<string, string> = {
-  "eventy-reportaze": "/images/galeria/eventy/event-05.jpg",
-  "wizerunek-portrety": "/images/galeria/portrety/portret-05.jpg",
-  "pakiety-foto-wideo": "/images/galeria/eventy/event-02.jpg",
+  "eventy-reportaze": "/images/galeria/eventy/event-05-networking-foyer.jpg",
+  "wizerunek-portrety": "/images/galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg",
+  "pakiety-foto-wideo": "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
   "fotografia-produktowa": "/images/galeria/produktowe/produkt-02-amarula.jpg",
   "sesje-zespolowe": "/images/portfolio/sesje-zespolowe-cover.jpg",
   // Wersja 4:3 z rozmytym wypełnieniem — pełny napis „E-COMMERCE All in"
@@ -723,7 +744,7 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
   // z drona, czyli zielone pole z lotu ptaka: nie mówiła nic o halach ani o wnętrzach
   // i powielała kafelek dronowy obok. Teraz ta sama jasna hala, co okładka podstrony,
   // żeby cała linia miała jeden obraz (Marcin, 04.08.2026).
-  "wnetrza-obiekty-architektura": "/images/galeria/wnetrza/wnetrze-03.jpg",
+  "wnetrza-obiekty-architektura": "/images/galeria/wnetrza/wnetrze-03-hala-bramki-wejsciowe.jpg",
 };
 
 // Punkt kadrowania miniatury (object-position). Wizerunek kadrujemy nieco wyżej
@@ -733,8 +754,10 @@ const SERVICE_TILE_POS: Record<string, string> = {
   "wizerunek-portrety": "center 29%",
   // Kadr niżej: esencja zdjęcia (auta + grupa) jest w dolnych 2/3, góra to niebo.
   "pakiety-foto-wideo": "center 70%",
-  // Pionowy portret pary w kadrze 16:9 (mobile) ciął głowy przy center —
-  // kotwiczymy wyżej (audyt mobile 2026-07-07).
+  // ZDJ2608-22 (04.08.2026): plik `portfolio/sesje-zespolowe-cover.jpg` jest POZIOMY
+  // (1120x840, jedna wersja od cb2bd52), więc poprzednie „pionowy portret pary" myliło.
+  // Mechanizm bez zmian: kadr 4:3 w kafelku 16:9 (mobile, Services.tsx) ciął głowy
+  // przy center — kotwiczymy wyżej (audyt mobile 2026-07-07).
   "sesje-zespolowe": "center 20%",
 };
 
@@ -797,4 +820,8 @@ export const SERVICE_TESTIMONIALS: Record<string, ServiceTestimonial> = {
   "wizerunek-portrety": T.burzynska,
   "sesje-zespolowe": T.fortuniak,
   "zdjecia-wideo-z-drona": T.maja,
+  // TRESC2608-03 (04.08.2026), WARIANT B: `wnetrza-obiekty-architektura` świadomie
+  // BEZ opinii. Nie ma cytatu od klienta z linii obiektowej, a podpięcie tu opinii
+  // Yes Butcher (wariant A briefu) przypisywałoby cudzą wypowiedź do usługi, której
+  // nie dotyczyła. Wpis dojdzie po pierwszej realizacji obiektowej z referencją.
 };

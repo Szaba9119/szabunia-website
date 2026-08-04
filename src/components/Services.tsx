@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { galleryAlt } from "@/data/galleryAlts";
 import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
@@ -62,7 +63,8 @@ export default function Services() {
                       >
                         <Image
                           src={s.image}
-                          alt={`${s.title}, przykładowa realizacja`}
+                          /* ZDJ2608-11: opis obejrzanego kadru zamiast szablonu z nazwy usługi. */
+                          alt={galleryAlt(s.image, `${s.title}, przykładowa realizacja`)}
                           fill
                           sizes={
                             isWide

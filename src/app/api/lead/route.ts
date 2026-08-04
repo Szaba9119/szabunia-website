@@ -90,7 +90,7 @@ export async function POST(req: Request) {
   const guideHtml = `
     <div style="font-family:Arial,Helvetica,sans-serif;color:#334155;max-width:520px;line-height:1.55">
       <h2 style="color:#0F172A;margin:0 0 12px">Twój pakiet przygotowania do sesji</h2>
-      <p>Cześć! Dzięki za pobranie poradnika. Znajdziesz w nim checklisty, planer stylizacji, ściągę kolorów i mini-brief: wszystko, żeby wejść na plan spokojnie i z głową.</p>
+      <p>Cześć! Dzięki za pobranie poradnika. Znajdziesz w nim checklisty, planer stylizacji, ściągę kolorów i gotową listę pytań: wszystko, żeby wejść na plan spokojnie i z głową.</p>
       <p style="margin:22px 0">
         <a href="${PDF_URL}" style="background:#2563EB;color:#ffffff;text-decoration:none;padding:12px 22px;border-radius:8px;font-weight:bold;display:inline-block">Pobierz poradnik (PDF)</a>
       </p>

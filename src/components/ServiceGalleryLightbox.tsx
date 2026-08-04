@@ -13,6 +13,15 @@ interface Props {
   aspectClass?: string;
   /** Klasy siatki miniatur (domyślnie 3 kolumny na mobile, 6 na desktopie). */
   gridClass?: string;
+  /** ZDJ2608-12: opis alternatywny per kadr, w kolejności `images`. Bez tego pasek
+      sklejał alt jako `${altBase} ${i + 1}`, czyli opisywał POZYCJĘ, nie obraz.
+      Brakujący wpis (undefined) spada do `altBase`, ale już bez numeru. */
+  alts?: (string | undefined)[];
+  /** ZDJ2608-07: `sizes` miniatur, liczone z siatki i z kontenera `max-w-5xl` paska.
+      Ostatni człon MUSI być w pikselach: powyżej ~1056 px kafelki przestają rosnąć,
+      a `sizes` liczone w `vw` rosłoby dalej i kazało pobierać warianty ~70% za duże.
+      Domyślna wartość jest zachowawcza i pasuje do siatki 3/6 kolumn. */
+  sizes?: string;
 }
 
 // Siatka miniatur z podglądem (lightbox) otwieranym na miejscu — bez wychodzenia
@@ -20,9 +29,11 @@ interface Props {
 export default function ServiceGalleryLightbox({
   images,
   altBase,
+  alts,
   thumbPosition = "center",
   aspectClass = "aspect-square",
   gridClass = "grid grid-cols-3 sm:grid-cols-6 gap-2.5",
+  sizes = "(max-width: 640px) 33vw, (max-width: 1056px) 16vw, 165px",
 }: Props) {
   const [open, setOpen] = useState<number | null>(null);
   const touchX = useRef<number | null>(null);
@@ -69,9 +80,9 @@ export default function ServiceGalleryLightbox({
           >
             <Image
               src={src}
-              alt={`${altBase} ${i + 1}`}
+              alt={alts?.[i] ?? altBase}
               fill
-              sizes="(max-width: 640px) 33vw, 16vw"
+              sizes={sizes}
               style={{ objectPosition: thumbPosition }}
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -141,7 +152,7 @@ export default function ServiceGalleryLightbox({
           >
             <Image
               src={images[open]}
-              alt={`${altBase} ${open + 1}`}
+              alt={alts?.[open] ?? altBase}
               fill
               sizes="92vw"
               className="object-contain"

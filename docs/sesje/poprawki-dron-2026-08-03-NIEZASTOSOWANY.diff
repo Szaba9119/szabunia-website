@@ -1,0 +1,21 @@
+diff --git a/src/data/services.tsx b/src/data/services.tsx
+index 881a67e..663b1e8 100644
+--- a/src/data/services.tsx
++++ b/src/data/services.tsx
+@@ -403,13 +403,13 @@ const serviceCategoriesRaw: ServiceData[] = [
+     videoNote: "Film z eventu dla Woohoo. Ujęcia z drona łączą się tu z materiałem z poziomu ziemi w jeden spójny film.",
+     title: "Zdjęcia i wideo z drona",
+     subtitle:
+-      "Ujęcia z powietrza: budynki i obiekty firmowe, hale i magazyny, tereny, eventy i architektura. Foto i wideo w 4K.",
++      "Ujęcia z powietrza: tereny, place, eventy i krajobraz. Foto i wideo w 4K.",
+     description:
+       "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, hale i magazyny, tereny i place, inwestycje budowlane, architekturę oraz ujęcia eventowe. Przy dużych obiektach robię komplet ujęć: bryła, dach, otoczenie i drogi dojazdowe. Dostarczam gotowe zdjęcia, zmontowane wideo 4K albo same przebitki do montażu własnego. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego dnia powstaje spójny komplet zdjęć i wideo.",
+     forWhom: [
+-      "Deweloperzy i firmy budowlane (postęp prac, inwestycje, bryła i otoczenie)",
++      "Organizatorzy wydarzeń plenerowych (skala, ujęcia otwierające, kadr z góry)",
+       "Hotele, ośrodki i obiekty turystyczne",
+-      "Firmy przemysłowe i logistyczne (hale, magazyny, tereny, place)",
++      "Firmy potrzebujące ujęcia terenu albo placu (bez dokumentacji obiektu)",
+       "Organizatorzy eventów (skala wydarzenia)",
+       "Agencje nieruchomości i marketingu",
+     ],

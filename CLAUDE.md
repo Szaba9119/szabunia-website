@@ -188,9 +188,12 @@ kalendarzowych** (zdjęcia 14, wideo 21), poprawki w 7 dni od zgłoszenia.
 Pełna siatka cen żyje w `public/llms.txt` i we wpisach `src/data/blog.ts` — **kanon kotwic
 to `src/data/services.tsx`**.
 
-**Box17:** case study `box17-budki-akustyczne` jest w `DRAFT_SLUGS` (`src/data/portfolio.ts`),
-bo brakuje miniatury. Po wgraniu `public/images/portfolio/box17/box17.jpg` wystarczy usunąć
-jedną linię, reszta danych jest gotowa.
+**Box17:** case study `box17-budki-akustyczne` jest w `DRAFT_SLUGS` (`src/data/portfolio.ts`)
+**świadomie, decyzją Marcina z 04.08.2026**, mimo kompletu zdjęć. W `public/images/portfolio/box17/`
+leży 10 plików JPG od commita `9fc7ff4`, razem z miniaturą, a dane case study są kompletne.
+Poprzedni zapis („brakuje miniatury, po wgraniu wystarczy usunąć jedną linię") był nieprawdziwy
+od 04.08 i podnosił ten sam finding w każdym kolejnym audycie (ZDJ2608-02b). Warunek publikacji
+ma podać Marcin; do tego czasu **nie proponować publikacji Box17**.
 
 **Znany rozjazd historyczny:** folder/zip `Strona z google ai` był reliktem eksperymentu z Gemini —
 **już go w repo nie ma** (wpis w `tsconfig.exclude` jest wyłącznie historyczny).

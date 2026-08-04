@@ -20,7 +20,10 @@ export default function About() {
                     alt="Marcin Szabunia, fotograf biznesowy, portret, Poznań"
                     fill
                     className="object-cover"
-                    sizes="(max-width: 1024px) 0px, 520px"
+                    // ZDJ2608-25 (04.08.2026): kolumna w max-w-6xl z gap-16 to (1152-64)/2 = 544 px,
+                    // a obraz siedzi w scale-[1.15] (wyżej), czyli renderuje się na ~626 px.
+                    // Poprzednie 520 px kazało przeglądarce pobrać węższy wariant, niż potrzeba.
+                    sizes="(max-width: 1024px) 0px, 630px"
                     quality={80}
                     placeholder="blur"
                     blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg=="

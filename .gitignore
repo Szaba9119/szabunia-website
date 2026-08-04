@@ -53,3 +53,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# katalogi robocze agenta (2026-08-04) — NIE commitujemy
+# _to_delete/ to pliki wycofane z public/, czekajace na reczne skasowanie (157 MB)
+# docs/sesje/_backup-*/ to kopia folderow obrazow sprzed zmiany nazw (19 MB);
+# po zacommitowaniu zmiany nazw rolback daje git, wiec kopia jest zbedna
+_to_delete/
+docs/sesje/_backup-*/
+*.tgz

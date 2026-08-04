@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { galleryAlt } from "@/data/galleryAlts";
 import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
@@ -124,7 +125,8 @@ export default function PortfolioHero({ category, crumbs }: Props) {
               <div className={`relative ${heroAspect} rounded-2xl overflow-hidden bg-border dark:bg-dark-card`}>
                 <Image
                   src={category.thumbnail}
-                  alt={category.label}
+                  /* ZDJ2608-11: opis obejrzanego kadru zamiast etykiety realizacji. */
+                  alt={galleryAlt(category.thumbnail, category.label)}
                   fill
                   priority
                   className={`object-cover ${heroObjectPosition}`}

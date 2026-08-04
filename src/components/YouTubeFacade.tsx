@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useState } from "react";
 import { gtagEvent } from "@/lib/gtag";
 
@@ -21,6 +22,9 @@ export default function YouTubeFacade({
   className?: string;
 }) {
   const [play, setPlay] = useState(false);
+  // ZDJ2608-24 (04.08.2026): fallback przeniesiony z mutacji `currentTarget.src` na stan,
+  // bo przy ponownym renderze przeglądarka wracała do adresu z propsa i pętliła żądanie.
+  const [hqOnly, setHqOnly] = useState(false);
 
   return (
     <div
@@ -45,14 +49,15 @@ export default function YouTubeFacade({
           aria-label={`Odtwórz film: ${title}`}
           className="group absolute inset-0 w-full h-full cursor-pointer"
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
-            alt={title}
-            loading="lazy"
-            onError={(e) => {
-              e.currentTarget.src = `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
-            }}
+          <Image
+            src={`https://i.ytimg.com/vi/${id}/${hqOnly ? "hqdefault" : "maxresdefault"}.jpg`}
+            alt={`Kadr otwierający z filmu: ${title}`}
+            width={1280}
+            height={720}
+            /* Bez optymalizatora Next: to gotowy JPEG z CDN-u YouTube, a dopisanie domeny
+               do images.remotePatterns w next.config.ts jest osobną decyzją. */
+            unoptimized
+            onError={() => setHqOnly(true)}
             className="absolute inset-0 w-full h-full object-cover"
           />
           <span className="absolute inset-0 bg-black/25 group-hover:bg-black/35 transition-colors" />

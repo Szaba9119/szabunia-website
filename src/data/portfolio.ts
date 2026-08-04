@@ -175,17 +175,17 @@ export const portfolioCategories: PortfolioCategory[] = [
       "Dwa filmy produktowe",
       "Montaż i postprodukcja",
     ],
-    thumbnail: "/images/portfolio/box17/box17.jpg",
+    thumbnail: "/images/portfolio/box17/box17-budka-konferencyjna-katowa.jpg",
     gallery: [
-      { src: "/images/portfolio/box17/box17-01.jpg", alt: "Budka akustyczna Box XL na cykloramie, spotkanie zespołu w środku (Box17)" },
-      { src: "/images/portfolio/box17/box17-02.jpg", alt: "Wnętrze budki akustycznej Box XL: stół, krzesła i ekran do wideokonferencji" },
-      { src: "/images/portfolio/box17/box17-03.jpg", alt: "Budka akustyczna ustawiona w biurze, stanowisko do pracy w skupieniu (Box17)" },
-      { src: "/images/portfolio/box17/box17-04.jpg", alt: "Jednoosobowa budka akustyczna Box 1, packshot na białym tle" },
-      { src: "/images/portfolio/box17/box17-05.jpg", alt: "Budka akustyczna w przestrzeni biurowej, rozmowa telefoniczna bez hałasu" },
-      { src: "/images/portfolio/box17/box17-06.jpg", alt: "Budka akustyczna jednoosobowa w użyciu, zdjęcie produktowe z modelem" },
-      { src: "/images/portfolio/box17/box17-07.jpg", alt: "Wnętrze budki akustycznej: wykończenie ścian i wykładzina podłogowa" },
-      { src: "/images/portfolio/box17/box17-08.jpg", alt: "Detal sufitu budki akustycznej: oświetlenie liniowe i wentylacja" },
-      { src: "/images/portfolio/box17/box17-09.jpg", alt: "Detal blatu i gniazd elektrycznych w budce akustycznej Box17" },
+      { src: "/images/portfolio/box17/box17-01-budka-konferencyjna-z-zespolem.jpg", alt: "Budka akustyczna Box XL na cykloramie, spotkanie zespołu w środku (Box17)" },
+      { src: "/images/portfolio/box17/box17-02-pusta-sala-konferencyjna.jpg", alt: "Wnętrze budki akustycznej Box XL: stół, krzesła i ekran do wideokonferencji" },
+      { src: "/images/portfolio/box17/box17-03-budka-do-pracy-z-laptopem.jpg", alt: "Budka akustyczna ustawiona w biurze, stanowisko do pracy w skupieniu (Box17)" },
+      { src: "/images/portfolio/box17/box17-04-budka-telefoniczna-pusta.jpg", alt: "Jednoosobowa budka akustyczna Box 1, packshot na białym tle" },
+      { src: "/images/portfolio/box17/box17-05-czarna-budka-w-biurze.jpg", alt: "Budka akustyczna w przestrzeni biurowej, rozmowa telefoniczna bez hałasu" },
+      { src: "/images/portfolio/box17/box17-06-rozmowa-telefoniczna-w-budce.jpg", alt: "Budka akustyczna jednoosobowa w użyciu, zdjęcie produktowe z modelem" },
+      { src: "/images/portfolio/box17/box17-07-wnetrze-kabiny-akustycznej.jpg", alt: "Wnętrze budki akustycznej: wykończenie ścian i wykładzina podłogowa" },
+      { src: "/images/portfolio/box17/box17-08-detal-filcu-i-wentylacji.jpg", alt: "Detal sufitu budki akustycznej: oświetlenie liniowe i wentylacja" },
+      { src: "/images/portfolio/box17/box17-09-skladany-blat-i-gniazda.jpg", alt: "Detal blatu i gniazd elektrycznych w budce akustycznej Box17" },
     ],
     gallerySubtitle:
       "Wybrane kadry z sesji dla Box17: budki akustyczne na cykloramie i w showroomie, ujęcia całości i detali.",
@@ -297,10 +297,13 @@ export const portfolioCategories: PortfolioCategory[] = [
       { src: "/images/portfolio/idcom/_F0I9883-Edit-2.jpg", alt: "Portret członkini zespołu na kremowym tle, zdjęcia zespołu na stronę firmową" },
       { src: "/images/portfolio/idcom/_F2A9433-Edit-2.jpg", alt: "Headshot członka zespołu na białym tle, spójne portrety pracowników firmy IT" },
       { src: "/images/portfolio/idcom/_F2A9264-Edit-2.jpg", alt: "Headshot na czarnym tle z niebieskim akcentem światła, portrety zespołu software house'u" },
-      { src: "/images/portfolio/idcom/_F2A9376-Edit-2.jpg", alt: "Naturalny, uśmiechnięty portret na kremowym tle, sesja wizerunkowa zespołu IT" },
+      // ZDJ2608-34 (04.08.2026): szósty kadr był powtórką `_F2A9376-Edit-2.jpg`, czyli tego
+      // samego pliku, który jest miniaturą i hero tej realizacji. W galerii sześcioelementowej
+      // jedno miejsce z sześciu szło na powtórkę, a folder `idcom/` ma dokładnie sześć plików,
+      // więc nie ma z czego dobrać siódmego. Zostaje pięć różnych kadrów.
     ],
     gallerySubtitle:
-      "Sześć kadrów z sesji dla IDcom Group: ten sam zespół na trzech tłach, białym, czarnym z niebieskim światłem i kremowym.",
+      "Pięć kadrów z sesji dla IDcom Group: ten sam zespół na trzech tłach, białym, czarnym z niebieskim światłem i kremowym.",
     galleryAspect: "portrait",
     tileImagePosition: "top",
     process: [],
@@ -387,7 +390,12 @@ export const portfolioCategories: PortfolioCategory[] = [
       "Profesjonalne portrety biznesowe, headshoty i zdjęcia do personal brandingu dla kadry zarządzającej i liderów.",
     description:
       "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a przed sesją dostajesz poseboard z referencjami.",
-    thumbnail: "/images/portfolio-1.jpg",
+    // ZDJ2608-17 (04.08.2026), WARIANT B. Poprzednia miniatura (plik `portfolio-1`, dziś
+    // w `_to_delete/`) to zdjęcie grupowe przy autach sportowych, czyli ten sam kadr, który 04.08 wyleciał
+    // z galerii tej realizacji jako obcy. Wariant A briefu (portret-05) odpadł: portret-05
+    // jest już hero usługi „Wizerunek i portrety" i kafelkiem tej usługi, więc stanąłby
+    // trzeci raz, a ta sama tura usuwa powtórzenia (ZDJ2608-27, ZDJ2608-34).
+    thumbnail: "/images/galeria/portrety/portret-12-kobieta-w-plenerze.jpg",
     gallery: [
       // Zdjęcie grupowe przy samochodach sportowych przeniesione 04.08.2026: na sesji
       // wizerunkowej było obce, a ten sam kadr żyje już w galerii eventowej (event-02)
@@ -395,12 +403,12 @@ export const portfolioCategories: PortfolioCategory[] = [
       // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
       // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
-      { src: "/images/galeria/portrety/portret-05.jpg", alt: "Portret wizerunkowy mężczyzny w garniturze, sesja dla firmy, Poznań" },
-      { src: "/images/galeria/portrety/portret-07.jpg", alt: "Portret biznesowy kobiety w marynarce, sesja wizerunkowa, Poznań" },
-      { src: "/images/galeria/portrety/portret-03.jpg", alt: "Portret wizerunkowy na czarnym tle, personal branding, Poznań" },
-      { src: "/images/galeria/portrety/portret-08.jpg", alt: "Portret biznesowy kobiety na jasnym tle, sesja wizerunkowa dla firmy" },
-      { src: "/images/galeria/portrety/portret-14.jpg", alt: "Portret wizerunkowy w naturalnym świetle, sesja dla firmy, Poznań" },
-      { src: "/images/galeria/portrety/portret-10.jpg", alt: "Portret biznesowy kobiety, zdjęcie na stronę firmy i LinkedIn" },
+      { src: "/images/galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg", alt: "Portret wizerunkowy mężczyzny w garniturze, sesja dla firmy, Poznań" },
+      { src: "/images/galeria/portrety/portret-07-kobieta-czarna-marynarka.jpg", alt: "Portret biznesowy kobiety w marynarce, sesja wizerunkowa, Poznań" },
+      { src: "/images/galeria/portrety/portret-03-mezczyzna-czarne-tlo.jpg", alt: "Portret wizerunkowy na czarnym tle, personal branding, Poznań" },
+      { src: "/images/galeria/portrety/portret-08-kobieta-morski-kombinezon.jpg", alt: "Portret biznesowy kobiety na jasnym tle, sesja wizerunkowa dla firmy" },
+      { src: "/images/galeria/portrety/portret-14-mezczyzna-z-telefonem.jpg", alt: "Portret wizerunkowy w naturalnym świetle, sesja dla firmy, Poznań" },
+      { src: "/images/galeria/portrety/portret-10-kobieta-bezowa-marynarka.jpg", alt: "Portret biznesowy kobiety, zdjęcie na stronę firmy i LinkedIn" },
     ],
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
@@ -449,13 +457,13 @@ export const portfolioCategories: PortfolioCategory[] = [
       // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
       // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
-      { src: "/images/galeria/eventy/event-05.jpg", alt: "Rozmowy uczestników konferencji firmowej, fotografia eventowa, Poznań" },
-      { src: "/images/galeria/eventy/event-04.jpg", alt: "Gala firmowa, wręczenie wyróżnień, reportaż z wydarzenia, Poznań" },
-      { src: "/images/galeria/eventy/event-15.jpg", alt: "Networking na evencie biznesowym, fotografia reportażowa, Poznań" },
-      { src: "/images/galeria/eventy/event-14.jpg", alt: "Oprawa muzyczna gali firmowej, reportaż z wydarzenia" },
-      { src: "/images/galeria/eventy/event-01.jpg", alt: "Scena podczas eventu firmowego, fotografia w trudnym świetle" },
-      { src: "/images/galeria/eventy/event-02.jpg", alt: "Zdjęcie grupowe uczestników wydarzenia firmowego na torze" },
-      { src: "/images/galeria/eventy/event-03.jpg", alt: "Integracja firmowa w plenerze, reportaż z wydarzenia" },
+      { src: "/images/galeria/eventy/event-05-networking-foyer.jpg", alt: "Rozmowy uczestników konferencji firmowej, fotografia eventowa, Poznań" },
+      { src: "/images/galeria/eventy/event-04-gala-wreczenie-wyroznien.jpg", alt: "Gala firmowa, wręczenie wyróżnień, reportaż z wydarzenia, Poznań" },
+      { src: "/images/galeria/eventy/event-15-goscie-przy-stole.jpg", alt: "Networking na evencie biznesowym, fotografia reportażowa, Poznań" },
+      { src: "/images/galeria/eventy/event-14-saksofonista-bankiet.jpg", alt: "Oprawa muzyczna gali firmowej, reportaż z wydarzenia" },
+      { src: "/images/galeria/eventy/event-01-zespol-na-scenie.jpg", alt: "Scena podczas eventu firmowego, fotografia w trudnym świetle" },
+      { src: "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg", alt: "Zdjęcie grupowe uczestników wydarzenia firmowego na torze" },
+      { src: "/images/galeria/eventy/event-03-integracja-przybicie-piatki.jpg", alt: "Integracja firmowa w plenerze, reportaż z wydarzenia" },
     ],
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda eventu, kluczowe momenty, VIP-y" },
@@ -499,7 +507,9 @@ export const portfolioCategories: PortfolioCategory[] = [
       "Zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (idealne na marketplace), zdjęcia kreatywne z aranżacją (social media, reklamy) oraz zdjęcia katalogowe. Pracuję w studiu z pełnym zapleczem oświetleniowym: drobne produkty, meble, elektronika, kosmetyki.",
     thumbnail: "/images/portfolio-3.jpg",
     gallery: [
-      { src: "/images/portfolio/packshoty-produktowe/01.jpg", alt: "Packshot produktowy na białym tle, fotografia produktowa e-commerce, Poznań" },
+      // ZDJ2608-08 (04.08.2026): plik to szklanka drinka z limonką na jaskrawożółtym tle
+      // z liśćmi monstery (1600x1600), nie packshot na bieli. Opis poprawiony na kadr.
+      { src: "/images/portfolio/packshoty-produktowe/01.jpg", alt: "Zdjęcie produktowe drinka na żółtym tle, aranżacja reklamowa na social media" },
       // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
       // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
@@ -554,16 +564,18 @@ export const portfolioCategories: PortfolioCategory[] = [
       "Headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura, każda osoba potrzebuje zaledwie 5-15 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
     thumbnail: "/images/portfolio-4.jpg",
     gallery: [
-      { src: "/images/portfolio/sesja-korporacyjna/01.jpg", alt: "Sesja korporacyjna, headshoty zespołu w biurze, Poznań" },
+      // ZDJ2608-09 (04.08.2026): na kadrze jest JEDNA kobieta w błękitnej koszuli
+      // z czerwonym notatnikiem przy oknie, nie „headshoty zespołu" w liczbie mnogiej.
+      { src: "/images/portfolio/sesja-korporacyjna/01.jpg", alt: "Portret korporacyjny kobiety przy oknie w biurze, zdjęcie na stronę firmy, Poznań" },
       // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
       // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
       { src: "/images/portfolio/idcom/_F2A9424-Edit-2.jpg", alt: "Headshot korporacyjny na białym tle, sesja dla zespołu IDcom Group" },
       { src: "/images/portfolio/idcom/_F0I9883-Edit-2.jpg", alt: "Headshot korporacyjny na kremowym tle, spójny standard dla zespołu" },
-      { src: "/images/galeria/portrety/portret-02.jpg", alt: "Portret korporacyjny kobiety, zdjęcie na stronę firmy" },
-      { src: "/images/galeria/portrety/portret-11.jpg", alt: "Portret korporacyjny mężczyzny w garniturze, zdjęcie dla firmy" },
-      { src: "/images/galeria/portrety/portret-13.jpg", alt: "Portret korporacyjny w naturalnym świetle, zdjęcie na LinkedIn" },
-      { src: "/images/galeria/portrety/portret-12.jpg", alt: "Portret korporacyjny w plenerze, zdjęcie na stronę firmową" },
+      { src: "/images/galeria/portrety/portret-02-kobieta-z-laptopem.jpg", alt: "Portret korporacyjny kobiety, zdjęcie na stronę firmy" },
+      { src: "/images/galeria/portrety/portret-11-mezczyzna-w-fotelu.jpg", alt: "Portret korporacyjny mężczyzny w garniturze, zdjęcie dla firmy" },
+      { src: "/images/galeria/portrety/portret-13-kobieta-przy-oknie.jpg", alt: "Portret korporacyjny w naturalnym świetle, zdjęcie na LinkedIn" },
+      { src: "/images/galeria/portrety/portret-12-kobieta-w-plenerze.jpg", alt: "Portret korporacyjny w plenerze, zdjęcie na stronę firmową" },
     ],
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram sesji w biurze" },
@@ -618,23 +630,50 @@ export interface PortfolioItem {
 // wkrótce"). Ukryte z indeksu /portfolio, z sitemap i z indeksacji do czasu
 // uzupełnienia galerii. Aby pokazać realizację — usuń jej slug z tego zbioru.
 const DRAFT_SLUGS = new Set<string>([
-  // Box17: brak miniatury (public/images/portfolio/box17/ ma tylko placeholder .txt),
-  // przez co kafel na /portfolio był pusty, a og:image zwracał 404 (audyt PELNY2907-01).
-  // Decyzja Marcina 2026-07-29: nie upubliczniamy do czasu zdjęć. Po wgraniu
-  // `box17.jpg` wystarczy usunąć tę linię — reszta danych case study jest gotowa.
+  // Box17: zdjęcia SĄ. W public/images/portfolio/box17/ leży 10 plików JPG od commita
+  // 9fc7ff4 (04.08.2026), łącznie z miniaturą (dziś `box17-budka-konferencyjna-katowa.jpg`,
+  // przemianowaną w ZDJ2608-01), a dane case study są kompletne.
+  // Decyzja Marcina z 04.08.2026: realizacja mimo to zostaje ukryta. Poprzedni warunek
+  // wyjścia („po wgraniu miniatury wystarczy usunąć tę linię") jest spełniony i dlatego
+  // został usunięty — inaczej każdy kolejny audyt podnosi to samo (ZDJ2608-02b).
+  // TODO (Marcin): wpisać realny warunek publikacji, np. zgoda klienta albo publikacja
+  // u klienta. Bez niego ten wiersz nie ma kryterium wyjścia i sytuacja się powtórzy.
   "box17-budki-akustyczne",
-  "sesja-wizerunkowa",
-  "fotografia-eventowa",
-  "packshoty-produktowe",
-  "sesja-korporacyjna",
+  // ZDJ2608-31 (DZ1 = A, decyzja Marcina 04.08.2026): cztery realizacje zdjęte z draftu.
+  // Galerie uzupełniono 04.08 (sesja-wizerunkowa 6 kadrów, fotografia-eventowa 8,
+  // packshoty-produktowe 9, sesja-korporacyjna 7), więc próg placeholdera „Więcej zdjęć
+  // wkrótce" (PortfolioGallery.tsx, images.length < 3) nie łapie żadnej z nich, a pliki OG
+  // leżą w public/images/og/portfolio/ od 30.07. /portfolio idzie z 4 na 8 pozycji.
+  // Aby cofnąć: dopisać te cztery slugi z powrotem do tego zbioru.
 ]);
 
 export function isPortfolioDraft(slug: string): boolean {
   return DRAFT_SLUGS.has(slug);
 }
 
+// ZDJ2608-32 + ZDJ2608-03 (DZ2 = A, 04.08.2026): kolejność pierwszych czterech kafli
+// na /portfolio, ta sama co FEATURED_SLUGS na stronie głównej. Bez tego /portfolio
+// otwierałby dalej `woohoo-autopay` (gallery puste, kafelek to plansza tytułowa),
+// czyli poprawka działałaby na home, a nie działała jedno kliknięcie dalej.
+// Slugi spoza listy idą po niej, w kolejności z `portfolioCategories`.
+// Kafelek Artechu zostaje klatką z filmu: to osobna decyzja Marcina (ZDJ2608-03).
+// Aby cofnąć: usunąć tę stałą i `.sort(...)` niżej.
+const PORTFOLIO_DISPLAY_ORDER: string[] = [
+  "idcom-headshoty-zespolu",
+  "yes-butcher-przewodnik-michelin",
+  "woohoo-autopay",
+  "artech-fotografia-produktowa",
+];
+
+const displayRank = (slug: string) => {
+  const i = PORTFOLIO_DISPLAY_ORDER.indexOf(slug);
+  return i === -1 ? PORTFOLIO_DISPLAY_ORDER.length : i;
+};
+
 export const portfolioItems: PortfolioItem[] = portfolioCategories
   .filter((c) => !DRAFT_SLUGS.has(c.slug))
+  .slice()
+  .sort((a, b) => displayRank(a.slug) - displayRank(b.slug))
   .map((c) => ({
     label: c.label,
     image: c.tileImage ?? c.thumbnail,

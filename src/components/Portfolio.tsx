@@ -4,17 +4,24 @@ import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
 import { portfolioItems } from "@/data/portfolio";
+import { galleryAlt } from "@/data/galleryAlts";
 import type { PortfolioItem } from "@/data/portfolio";
 
 const blurPlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
 
 // Na home pokazujemy dopracowane case studies (podstrony realizacji gotowe).
+// ZDJ2608-32 (DZ2 = A, decyzja Marcina 04.08.2026): woohoo-autopay schodzi z pierwszego
+// miejsca. Wszystkie pięć jego obrazów to grafiki i klatki z filmu (plansza „E-COMMERCE
+// All in", okładki reelsów), a `gallery` jest puste, więc pierwszym, co widział klient
+// szukający zdjęć, była plansza tytułowa. Film nie znika, przestaje tylko otwierać sekcję.
+// Wariant B (dołożenie kadrów foto z tego eventu) wymaga plików spoza repo.
+// Aby cofnąć: przywrócić kolejność woohoo, artech, idcom, yes-butcher.
 const FEATURED_SLUGS = [
-  "woohoo-autopay",
-  "artech-fotografia-produktowa",
   "idcom-headshoty-zespolu",
   "yes-butcher-przewodnik-michelin",
+  "woohoo-autopay",
+  "artech-fotografia-produktowa",
 ];
 
 export default function Portfolio() {
@@ -29,7 +36,8 @@ export default function Portfolio() {
         <div className="absolute inset-0 scale-[1.15]">
           <Image
             src={item.image}
-            alt={`Zdjęcie z realizacji: ${item.label}`}
+            /* ZDJ2608-11: opis obejrzanego kadru zamiast etykiety realizacji. */
+            alt={galleryAlt(item.image, `Zdjęcie z realizacji: ${item.label}`)}
             fill
             className={`object-cover ${item.imagePosition === "top" ? "object-top" : ""} transition-transform duration-500 group-hover:scale-105`}
             sizes="(max-width: 768px) 100vw, 576px"

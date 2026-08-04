@@ -20,7 +20,7 @@ export default function PoradnikTeaser() {
                   jak zawodowiec
                 </h2>
                 <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mb-7 max-w-md">
-                  Checklisty, planer stylizacji, ściąga kolorów i mini-brief w jednym
+                  Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań w jednym
                   pliku PDF. Wyjdziesz na zdjęciach pewnie i naturalnie, nawet jeśli
                   zwykle nie lubisz się fotografować.
                 </p>

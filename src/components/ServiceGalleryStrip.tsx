@@ -3,6 +3,7 @@ import AnimatedSection from "./AnimatedSection";
 import ServiceGalleryLightbox from "./ServiceGalleryLightbox";
 import ServiceVideoGrid from "./ServiceVideoGrid";
 import { listGalleryImages, type GalleryCategoryKey } from "@/lib/galleryImages";
+import { GALLERY_ALTS, imageKey } from "@/data/galleryAlts";
 import { galleryVideos } from "@/data/galeria";
 
 const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string }> = {
@@ -13,7 +14,11 @@ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string
   },
   eventy: {
     label: "Przykłady z galerii: eventy",
-    sub: "Wybrane kadry z konferencji, targów i gal firmowych.",
+    // ZDJ2608-05b (04.08.2026, decyzja Marcina): eventy to także integracje i imprezy
+    // firmowe. Obejrzane 15 z 15 kadrów w folderze: 3 konferencje i gale, 4 integracje
+    // i pikniki, 6 koncertów i klubów, 2 pozostałe. Zestaw kadrów zostaje, podpis się
+    // poszerza, żeby obietnica pokrywała to, co widać.
+    sub: "Wybrane kadry z konferencji, gal, integracji i imprez firmowych.",
     alt: "Fotografia eventowa, Marcin Szabunia, Poznań",
   },
   produktowe: {
@@ -56,13 +61,31 @@ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string
 // Wyselekcjonowane najlepsze 6 kadrów per kategoria (zamiast pierwszych z
 // brzegu). Dobrane pod B2B: różnorodność i jakość. Reszta kategorii → fallback.
 const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
-  // portret-07 wypadł 04.08.2026: to ta sama osoba w tej samej marynarce co
-  // `_F2A9376-Edit-2` z sesji IDcom, więc na podstronie sesji zespołowych ta sama
-  // twarz wychodziła dwa razy, raz w każdym pasku (zgłoszone przez Marcina).
-  portrety: ["portret-12", "portret-03", "portret-10", "portret-11", "portret-05", "portret-08"].map(
+  // portret-07 (dziś `portret-07-kobieta-czarna-marynarka`) wypadł 04.08.2026: to ta sama
+  // osoba w tej samej marynarce co `_F2A9376-Edit-2` z sesji IDcom, więc na podstronie
+  // sesji zespołowych ta sama twarz wychodziła dwa razy, raz w każdym pasku (Marcin).
+  // Nazwy plików dostały opis 04.08.2026 (ZDJ2608-01), numery NN bez zmian, więc
+  // kolejność i skład tej listy są takie same jak przed zmianą nazw.
+  portrety: [
+    "portret-12-kobieta-w-plenerze",
+    "portret-03-mezczyzna-czarne-tlo",
+    "portret-10-kobieta-bezowa-marynarka",
+    "portret-11-mezczyzna-w-fotelu",
+    "portret-05-mezczyzna-zielony-garnitur",
+    "portret-08-kobieta-morski-kombinezon",
+  ].map(
     (n) => `/images/galeria/portrety/${n}.jpg`
   ),
-  eventy: ["event-04", "event-05", "event-15", "event-14", "event-09", "event-17"].map(
+  // Nazwy plików dostały opis 04.08.2026 (ZDJ2608-01), numery NN bez zmian, więc skład
+  // i kolejność tej listy są identyczne jak przed zmianą nazw.
+  eventy: [
+    "event-04-gala-wreczenie-wyroznien",
+    "event-05-networking-foyer",
+    "event-15-goscie-przy-stole",
+    "event-14-saksofonista-bankiet",
+    "event-09-dj-za-konsoleta",
+    "event-17-dj-slupy-ognia",
+  ].map(
     (n) => `/images/galeria/eventy/${n}.jpg`
   ),
   produktowe: [
@@ -145,10 +168,13 @@ export default function ServiceGalleryStrip({
   ctaLabel: ctaLabelProp,
   href: hrefProp,
   sub: subProp,
+  exclude,
 }: {
   category: GalleryCategoryKey;
   ctaLabel?: string;
   href?: string;
+  /** ZDJ2608-27: ścieżka kadru do pominięcia w pasku (zwykle `service.heroImage`). */
+  exclude?: string;
   /** Nadpisuje domyślny podtytuł paska. Używane, gdy pasek stoi na obcej
       podstronie i musi tłumaczyć, po co tam jest (np. sesja zespołowa
       na podstronie eventowej). */
@@ -196,7 +222,16 @@ export default function ServiceGalleryStrip({
     );
   }
 
-  const images = (CURATED[category] ?? listGalleryImages(category)).slice(0, category === "produktowe" ? 8 : 6);
+  const limit = category === "produktowe" ? 8 : 6;
+  const pool = CURATED[category] ?? listGalleryImages(category);
+  // ZDJ2608-27 (04.08.2026): hero podstrony nie może wracać w pasku tej samej podstrony.
+  // Bez tego na trzech podstronach ten sam kadr stał trzy razy w jednym przewinięciu:
+  // kafelek, hero i pasek. Filtr wchodzi TYLKO wtedy, gdy po odjęciu hero zostaje
+  // dość kadrów na pełny pasek. Listy CURATED mają dokładnie tyle pozycji, ile pasek
+  // pokazuje, więc dla `eventy` i `portrety` filtr skróciłby pasek z 6 na 5, a dobranie
+  // siódmego kadru to zmiana ręcznie ułożonej listy Marcina, czyli osobna decyzja.
+  const filtered = exclude ? pool.filter((src) => src !== exclude) : pool;
+  const images = (filtered.length >= limit ? filtered : pool).slice(0, limit);
   if (images.length === 0) return null;
 
   return (
@@ -204,6 +239,11 @@ export default function ServiceGalleryStrip({
       <ServiceGalleryLightbox
         images={images}
         altBase={meta.alt}
+        /* ZDJ2608-12 (04.08.2026): opis bierze się z pliku, nie z pozycji w pasku.
+           Ten sam kadr ma ten sam opis w `/galeria` i tutaj, bo obie powierzchnie
+           czytają `GALLERY_ALTS`. Kategoria bez wpisów (dziś `produktowe`) dostaje
+           `altBase`, czyli opis kategorii, ale już bez doklejanego numeru. */
+        alts={images.map((src) => GALLERY_ALTS[imageKey(src)])}
         aspectClass={
           category === "portrety" || category === "zespolowe"
             ? "aspect-[3/4]"
@@ -216,6 +256,22 @@ export default function ServiceGalleryStrip({
           category === "produktowe"
             ? "grid grid-cols-2 sm:grid-cols-4 gap-2.5"
             : "grid grid-cols-3 sm:grid-cols-6 gap-2.5"
+        }
+        /* ZDJ2608-07 (04.08.2026): `sizes` policzone z siatki I z kontenera, potem
+           ZMIERZONE w przeglądarce na 390, 900 i 1728 px przy DPR 2 (localhost, dev).
+           Pasek siedzi w `max-w-5xl mx-auto` (Shell niżej), czyli 1056 px minus padding.
+           Zmierzone szerokości kafla: produktowa 174 / 210 / 249 px, reszta 113 / 136 / 162 px.
+           Ostatni człon MUSI być w pikselach, bo powyżej ~1056 px kafelki przestają rosnąć.
+
+           Wartości są o kilka procent NIŻSZE od zmierzonych i to jest celowe. Next generuje
+           kandydatów tylko z siatki 128 / 256 / 384 / 640 px, więc deklaracja większa o jeden
+           piksel przeskakuje na kolejnego kandydata i każe pobrać obraz 1,5 do 1,8 razy
+           szerszy, niż potrzeba. Przy tych liczbach każdy kafel mieści się w paśmie
+           0,85 <= pobrane / (CSS x DPR) <= 1,4 na wszystkich trzech szerokościach. */
+        sizes={
+          category === "produktowe"
+            ? "(max-width: 640px) 45vw, (max-width: 1056px) 21vw, 250px"
+            : "(max-width: 640px) 32vw, (max-width: 1056px) 14vw, 165px"
         }
       />
     </Shell>

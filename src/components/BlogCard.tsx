@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { galleryAlt } from "@/data/galleryAlts";
 import type { BlogPost } from "@/data/blog";
 
 const blurPlaceholder =
@@ -20,7 +21,8 @@ export default function BlogCard({ post }: { post: BlogPost }) {
       <div className="relative aspect-[16/9] bg-border dark:bg-dark-card">
         <Image
           src={post.thumbnail}
-          alt={post.title}
+          /* ZDJ2608-11: opis obejrzanego kadru zamiast tytułu wpisu. Nie dotyka blog.ts. */
+          alt={galleryAlt(post.thumbnail, post.title)}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"

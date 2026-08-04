@@ -17,6 +17,7 @@ import PoradnikTeaser from "@/components/PoradnikTeaser";
 import MobileFAB from "@/components/MobileFAB";
 import { galleryVideos } from "@/data/galeria";
 import { listGalleryImagesSized } from "@/lib/galleryImages";
+import { galleryAlt } from "@/data/galleryAlts";
 import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
@@ -62,26 +63,17 @@ export default async function GaleriaPage({
       label: "Portrety",
       folder: "portrety",
       alt: "Portret biznesowy, Marcin Szabunia, Poznań",
-      altVariants: [
-        "Portret biznesowy w studio, fotograf Marcin Szabunia, Poznań",
-        "Headshot biznesowy do LinkedIn, sesja wizerunkowa, Poznań",
-        "Zdjęcie wizerunkowe dla firmy, fotografia korporacyjna, Poznań",
-        "Portret pracownika z sesji biznesowej, Marcin Szabunia",
-        "Sesja personal branding, portret eksperta, fotograf Poznań",
-      ],
+      // ZDJ2608-04: pięć wariantów na czternaście kadrów zniknęło. Opisy per plik
+      // są w `src/data/galleryAlts.ts` i dokładają się niżej, w kolejności plików.
     },
     {
       key: "eventy",
       label: "Eventy",
       folder: "eventy",
       alt: "Fotografia eventowa, Marcin Szabunia, Poznań",
-      altVariants: [
-        "Reportaż z eventu firmowego, fotograf eventowy Poznań",
-        "Fotografia konferencyjna, relacja z wydarzenia biznesowego",
-        "Zdjęcie z gali firmowej, fotograf Marcin Szabunia",
-        "Fotoreportaż z eventu korporacyjnego, Poznań",
-        "Relacja zdjęciowa z targów i wydarzeń firmowych",
-      ],
+      // ZDJ2608-04: pięć wariantów na piętnaście kadrów zniknęło. To one nazywały
+      // osła „fotografią konferencyjną", a DJ-a „zdjęciem z gali". Opisy per plik
+      // są w `src/data/galleryAlts.ts`.
     },
     {
       key: "produktowe",
@@ -100,63 +92,49 @@ export default async function GaleriaPage({
     },
     {
       key: "wnetrza",
-      label: "Wnętrza i hale",
+      // ZDJ2608-06 (04.08.2026): etykieta poszerzona z „Wnętrza i hale". Cztery z dwunastu
+      // kadrów w tej zakładce to zewnętrza (czwarty rząd, obiekty z powietrza), a nazwa
+      // usługi brzmi „Wnętrza, obiekty i architektura". Klucz `kat=wnetrza` BEZ ZMIAN: to adres.
+      label: "Wnętrza, hale i obiekty",
       folder: "wnetrza",
       alt: "Fotografia wnętrz i hal, Marcin Szabunia, Poznań",
-      // Dwanaście wariantów pod dwanaście konkretnych kadrów w folderze
-      // (kolejność plików = kolejność tej listy), żeby opis alternatywny
-      // opisywał to, co naprawdę jest na zdjęciu, a nie rotował losowo.
-      // Kolejność ustawiona przez Marcina 04.08.2026 pod siatkę /galeria, która ma
-      // trzy kolumny i układa zdjęcia rzędami: rząd 1 to hale, rząd 2 obiekt
-      // z zewnątrz i strefy wspólne, rząd 3 lokale gastronomiczne, rząd 4 obiekty
-      // z powietrza (pliki skopiowane z folderu `dron`, bo listGalleryImages czyta
-      // katalog, a nie listę ścieżek — te trzy kadry leżą na dysku dwa razy).
-      altVariants: [
-        "Wnętrze hali magazynowej, regały i ciąg komunikacyjny, Poznań",
-        "Hala logistyczna, stanowiska pracy i strefa kompletacji",
-        "Hala magazynowa od środka, bramki i otwarta powierzchnia składowania",
-        "Elewacja budynku biurowego o zmierzchu, fotografia architektury",
-        "Siłownia w biurze, strefa dla pracowników w budynku biurowym",
-        "Wnętrze kabiny akustycznej w biurze, wykończenie i oświetlenie",
-        "Wnętrze lokalu gastronomicznego, sala restauracyjna, Poznań",
-        "Wnętrze restauracji, bar i sala, fotografia lokalu",
-        "Sala lokalu użytkowego w świetle dziennym, fotografia wnętrza",
-        "Wieżowiec biurowy w Poznaniu z powietrza, fotografia obiektu",
-        "Biurowiec z lotu ptaka, bryła i otoczenie inwestycji, Poznań",
-        "Nowoczesny budynek komercyjny z drona, elewacja i kontekst lokalizacji",
-      ],
+      // ZDJ2608-04 / ZDJ2608-12: dwanaście opisów pod dwanaście kadrów przeniesione
+      // 04.08.2026 do `src/data/galleryAlts.ts`, bez zmiany treści. Powód przenosin:
+      // pasek „Przykłady z galerii" na podstronie obiektowej pokazuje te same pliki
+      // i musi mieć te same opisy, a nie drugi zestaw. Kolejność ustawiona przez
+      // Marcina 04.08.2026 (rząd 1 hale, rząd 2 obiekt z zewnątrz i strefy wspólne,
+      // rząd 3 lokale gastronomiczne, rząd 4 obiekty z powietrza) zostaje bez zmian.
     },
     {
       key: "dron",
       label: "Dron",
       folder: "dron",
       alt: "Zdjęcia z drona, Poznań, Marcin Szabunia",
-      // Dziewięć wariantów pod dziewięć kadrów w folderze, w kolejności plików.
-      // Wieżowiec zszedł na koniec 04.08.2026 (prośba Marcina), więc opisy poszły
-      // za nim — bez tego drugi kadr dostawał opis wieżowca, którego już tam nie ma.
-      altVariants: [
-        "Zdjęcia z drona, biurowce w centrum Poznania z lotu ptaka",
-        "Fotografia z drona dla firm, nowoczesny budynek komercyjny, Poznań",
-        "Biurowiec z lotu ptaka, bryła i otoczenie inwestycji, Poznań",
-        "Panorama Poznania z drona o zachodzie słońca",
-        "Zdjęcia z drona nieruchomości, apartamenty nad rzeką, Poznań",
-        "Zdjęcia z drona osiedla mieszkaniowego, Poznań",
-        "Zdjęcia z drona inwestycji i terenów zielonych, Poznań i okolice",
-        "Nowoczesne osiedle z lotu ptaka, fotografia dla dewelopera",
-        "Wideo i zdjęcia z drona, wieżowiec biurowy w Poznaniu",
-      ],
+      // ZDJ2608-04 / ZDJ2608-12: dziewięć opisów pod dziewięć kadrów przeniesione
+      // 04.08.2026 do `src/data/galleryAlts.ts`, bez zmiany treści. Kategoria
+      // `obiekty` w pasku usług wskazuje te same pliki, więc korzysta z tych samych
+      // opisów. Wieżowiec zszedł na koniec 04.08.2026 (prośba Marcina), a opisy idą
+      // teraz za plikiem, nie za pozycją, więc taka zmiana ich nie rozjeżdża.
     },
   ];
 
+  // ZDJ2608-04 (04.08.2026): opis alternatywny bierze się z pliku, nie z pozycji.
+  // Kategoria, która nie ma własnej listy w `defs`, dostaje po jednym opisie na kadr
+  // z `GALLERY_ALTS` (klucz to nazwa pliku), w kolejności plików. Kategoria z własną,
+  // krótszą listą (dziś tylko `produktowe`, 4 warianty na 24 kadry) zostaje na rotacji
+  // do czasu własnej rundy: jej kadrów ta tura nie oglądała.
   const categories: GalleryCategory[] = defs
-    .map((d) => ({
-      key: d.key,
-      label: d.label,
-      images: listGalleryImagesSized(d.folder),
-      alt: d.alt,
-      altVariants: d.altVariants,
-      uniformTiles: d.uniformTiles,
-    }))
+    .map((d) => {
+      const images = listGalleryImagesSized(d.folder);
+      return {
+        key: d.key,
+        label: d.label,
+        images,
+        alt: d.alt,
+        altVariants: d.altVariants ?? images.map((img) => galleryAlt(img.src, d.alt)),
+        uniformTiles: d.uniformTiles,
+      };
+    })
     .filter((c) => c.images.length > 0);
 
   const validKeys = [...categories.map((c) => c.key), "wideo"];
