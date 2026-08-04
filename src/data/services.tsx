@@ -418,7 +418,7 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
       </svg>
     ),
-    heroImage: "/images/galeria/produktowe/produkt-13.jpg",
+    heroImage: "/images/galeria/produktowe/produkt-02.jpg",
     price: "od 600 zł netto",
     process: [
       { num: 1, title: "Rozmowa", desc: "Cel, platforma sprzedaży, wytyczne marki" },
@@ -690,7 +690,7 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
   "eventy-reportaze": "/images/galeria/eventy/event-05.jpg",
   "wizerunek-portrety": "/images/galeria/portrety/portret-05.jpg",
   "pakiety-foto-wideo": "/images/galeria/eventy/event-02.jpg",
-  "fotografia-produktowa": "/images/galeria/produktowe/produkt-13.jpg",
+  "fotografia-produktowa": "/images/galeria/produktowe/produkt-02.jpg",
   "sesje-zespolowe": "/images/portfolio/sesje-zespolowe-cover.jpg",
   // Piątka na evencie zamiast klatki z napisem „E-COMMERCE All in" (Marcin,
   // 04.08.2026). Kafelek pokazuje teraz ludzi, a nie planszę z tytułem filmu.

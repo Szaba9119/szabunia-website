@@ -66,14 +66,14 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
     (n) => `/images/galeria/eventy/${n}.jpg`
   ),
   produktowe: [
-    "produkt-00b-kieliszki", // toast kieliszkami wódki
-    "produkt-03", // auto w środku lasu
-    "produkt-06", // danie z fasolką na białym talerzu
-    "produkt-08", // bransoletka na dłoni
-    "produkt-14", // kobieta w żółtej sukience
-    "produkt-18", // koszulka na ciemnym tle
-    "produkt-20", // patyczek do makijażu
-    "produkt-11", // grejfrutowy koktajl / alkohol
+    "produkt-05", // toast kieliszkami wódki
+    "produkt-26", // auto w środku lasu
+    "produkt-08", // danie z fasolką na białym talerzu
+    "produkt-22", // bransoletka na dłoni
+    "produkt-10", // kobieta w żółtej sukience
+    "produkt-17", // koszulka na ciemnym tle
+    "produkt-19", // patyczek do makijażu
+    "produkt-01", // grejfrutowy koktajl / alkohol
   ].map((n) => `/images/galeria/produktowe/${n}.jpg`),
   // 6 różnych obiektów (bez powtórki tego samego budynku, np. Bałtyk z dwóch stron).
   dron: [

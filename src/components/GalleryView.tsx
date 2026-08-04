@@ -64,6 +64,7 @@ export default function GalleryView({
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const tabsRef = useRef<HTMLDivElement | null>(null);
+  const tabsWrapRef = useRef<HTMLDivElement | null>(null);
   const touchX = useRef<number | null>(null);
 
   const activeCat = categories.find((c) => c.key === active);
@@ -97,6 +98,16 @@ export default function GalleryView({
     tabsRef.current
       ?.querySelector<HTMLElement>(`[data-tab="${key}"]`)
       ?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
+    // Powrót na górę sekcji. Bez tego po przełączeniu kategorii w połowie galerii
+    // lądujesz w środku nowego zestawu i nie wiadomo, gdzie jest początek
+    // (Marcin 04.08.2026: „żeby dawało go do góry, by mógł dalej scrolować w dół").
+    // 96 px to offset przyklejonego paska (`top-24`), inaczej pasek zasłania
+    // pierwszy rząd miniatur.
+    const wrap = tabsWrapRef.current;
+    if (wrap) {
+      const y = wrap.getBoundingClientRect().top + window.scrollY - 96;
+      if (window.scrollY > y) window.scrollTo({ top: y, behavior: "smooth" });
+    }
     if (typeof window !== "undefined") {
       window.history.replaceState(null, "", `/galeria?kat=${key}`);
     }
@@ -142,7 +153,7 @@ export default function GalleryView({
           `z-30` trzyma je pod nawigacją (z-50) i pod lightboxem (z-100).
           Na telefonie jeden rząd z przewijaniem w poziomie zamiast zawijania
           do trzech rzędów, które po przyklejeniu zjadałyby pół ekranu. */}
-      <div className="sticky top-24 z-30 -mx-4 px-4 mb-8">
+      <div ref={tabsWrapRef} className="sticky top-24 z-30 -mx-4 px-4 mb-8">
         <div
           ref={tabsRef}
           aria-label="Kategorie galerii"
@@ -188,7 +199,7 @@ export default function GalleryView({
           </div>
 
           <div
-            className={`mt-8 grid grid-cols-2 gap-5 ${
+            className={`mt-8 grid grid-cols-1 gap-5 ${
               videos.filter((v) => v.vertical).length >= 5 ? "md:grid-cols-5" : "md:grid-cols-4"
             }`}
           >
