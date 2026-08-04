@@ -25,7 +25,12 @@ export default function Services() {
             „Bestseller" (audyt UX 2026-07-06). Obrazy na mobile w 16:9 zamiast
             4:3 — sekcja zajmowała ~6,4 ekranu telefonu. */}
         <AnimatedSection>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          {/* Siatka sześciokolumnowa (04.08.2026, po włączeniu linii obiektowej).
+              Wcześniej: trzy kolumny i dwa kafelki na pełną szerokość jeden pod
+              drugim, co dawało dwie płyty z pustym polem obok tekstu. Teraz zwykły
+              kafelek zajmuje 2 z 6 kolumn, a dwa zamykające po 3 z 6, więc ostatni
+              rząd jest pełny, a wyróżnienie zostaje: są półtora raza szersze od reszty. */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-4">
             {serviceItems.map((s) => {
               // Kafelek na pełną szerokość: flaga `wide` w danych usługi, nie nazwa slug.
               // Od 31.07.2026 szerokie są dwie usługi (obiekty i pakiety), więc twarde
@@ -40,21 +45,19 @@ export default function Services() {
                 <div
                   key={s.title}
                   className={`bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5 group overflow-hidden${
-                    isWide ? " sm:col-span-2 md:col-span-3" : ""
+                    isWide ? " sm:col-span-2 md:col-span-3" : " md:col-span-2"
                   }`}
                 >
                   <Link
                     href={`/uslugi/${s.slug}`}
-                    className={isWide ? "block md:flex md:items-stretch" : "block"}
+                    className="block"
                   >
                     {s.image && (
                       <div
                         className={`relative overflow-hidden bg-border dark:bg-dark-border ${
-                          isWide
-                            ? // 3:2 na md+ = natywna proporcja zdjęcia (zero przycinania);
-                              // objectPosition dla mobile ustawiony w SERVICE_TILE_POS.
-                              "aspect-video md:aspect-[3/2] md:w-2/5"
-                            : "aspect-video sm:aspect-[4/3]"
+                          // 3:2 przy kafelkach zamykających = natywna proporcja zdjęcia
+                          // (zero przycinania); objectPosition dla mobile w SERVICE_TILE_POS.
+                          isWide ? "aspect-video sm:aspect-[3/2]" : "aspect-video sm:aspect-[4/3]"
                         }`}
                       >
                         <Image
@@ -63,7 +66,7 @@ export default function Services() {
                           fill
                           sizes={
                             isWide
-                              ? "(max-width: 768px) 100vw, 40vw"
+                              ? "(max-width: 640px) 100vw, (max-width: 768px) 50vw, 50vw"
                               : "(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                           }
                           style={{ objectPosition: s.imagePos }}
@@ -85,7 +88,7 @@ export default function Services() {
                         )}
                       </div>
                     )}
-                    <div className={isWide ? "p-6 md:p-8 md:flex-1 md:self-center" : "p-6"}>
+                    <div className="p-6">
                       <div className="flex items-center gap-2.5 mb-2">
                         <div className="w-9 h-9 rounded-lg bg-blue-pale dark:bg-blue/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform" aria-hidden="true">
                           {s.icon}

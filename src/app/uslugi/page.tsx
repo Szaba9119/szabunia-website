@@ -77,9 +77,14 @@ export default function UslugiPage() {
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {/* Siatka sześciokolumnowa, nie trzykolumnowa (04.08.2026). Przy ośmiu
+              usługach układ 3+3+2 zostawiał dziurę w prawym dolnym rogu. Zwykły
+              kafelek zajmuje 2 z 6 kolumn (czyli trzy w rzędzie), a dwa zamykające
+              (`wide`) po 3 z 6, więc ostatni rząd wypełnia się w całości i czyta
+              jak domknięcie, a nie jak brakujący element. */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
             {serviceCategories.map((s, i) => (
-              <AnimatedSection key={s.slug} delay={i * 0.06}>
+              <AnimatedSection key={s.slug} delay={i * 0.06} className={s.wide ? "lg:col-span-3" : "lg:col-span-2"}>
                 <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5 group h-full">
                   <Link href={`/uslugi/${s.slug}`} className="flex flex-col p-6 h-full">
                     <div
