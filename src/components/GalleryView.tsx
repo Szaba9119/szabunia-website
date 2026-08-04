@@ -29,7 +29,9 @@ function altFor(cat: { alt: string; altVariants?: string[] } | undefined, i: num
   return `${base}, kadr ${i + 1}`;
 }
 
-// Liczba kolumn galerii zależna od szerokości (SSR-safe, bez setState-in-effect): 2 na mobile, 3 od 640px.
+// Liczba kolumn galerii zależna od szerokości (SSR-safe, bez setState-in-effect):
+// JEDNA na telefonie, trzy od 640 px. Prośba Marcina 04.08.2026: dwie kolumny na
+// telefonie robiły ze zdjęć znaczki, a to galeria fotografa, nie lista produktów.
 function useGalleryColumns(): number {
   return useSyncExternalStore(
     (onChange) => {
@@ -37,7 +39,7 @@ function useGalleryColumns(): number {
       mql.addEventListener("change", onChange);
       return () => mql.removeEventListener("change", onChange);
     },
-    () => (window.matchMedia("(min-width: 640px)").matches ? 3 : 2),
+    () => (window.matchMedia("(min-width: 640px)").matches ? 3 : 1),
     () => 3
   );
 }
@@ -61,6 +63,7 @@ export default function GalleryView({
 
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
+  const tabsRef = useRef<HTMLDivElement | null>(null);
   const touchX = useRef<number | null>(null);
 
   const activeCat = categories.find((c) => c.key === active);
@@ -89,6 +92,11 @@ export default function GalleryView({
   const selectTab = (key: string) => {
     setActive(key);
     setLightbox(null);
+    // Na telefonie pasek przewija się w poziomie: dosuwamy klikniętą zakładkę,
+    // żeby po zmianie kategorii było widać, która jest aktywna.
+    tabsRef.current
+      ?.querySelector<HTMLElement>(`[data-tab="${key}"]`)
+      ?.scrollIntoView({ block: "nearest", inline: "center", behavior: "smooth" });
     if (typeof window !== "undefined") {
       window.history.replaceState(null, "", `/galeria?kat=${key}`);
     }
@@ -128,23 +136,35 @@ export default function GalleryView({
 
   return (
     <div>
-      {/* Zakładki kategorii */}
-      <div className="flex flex-wrap justify-center gap-2 mb-8">
-        {tabs.map((t) => (
-          <button
-            key={t.key}
-            type="button"
-            onClick={() => selectTab(t.key)}
-            aria-pressed={active === t.key}
-            className={`px-4 py-2 rounded-full text-[13px] font-barlow font-semibold transition-colors ${
-              active === t.key
-                ? "bg-blue text-white"
-                : "bg-blue-pale dark:bg-dark-card text-text-body dark:text-dark-text-muted hover:text-navy dark:hover:text-white border border-transparent dark:border-dark-border"
-            }`}
-          >
-            {t.label}
-          </button>
-        ))}
+      {/* Zakładki kategorii — przyklejone pod nawigacją, żeby dało się zmienić
+          kategorię bez wracania na górę (prośba Marcina 04.08.2026).
+          `top-24` mija pływający pasek nawigacji (`fixed top-0` + `pt-4`).
+          `z-30` trzyma je pod nawigacją (z-50) i pod lightboxem (z-100).
+          Na telefonie jeden rząd z przewijaniem w poziomie zamiast zawijania
+          do trzech rzędów, które po przyklejeniu zjadałyby pół ekranu. */}
+      <div className="sticky top-24 z-30 -mx-4 px-4 mb-8">
+        <div
+          ref={tabsRef}
+          aria-label="Kategorie galerii"
+          className="flex sm:flex-wrap sm:justify-center gap-2 overflow-x-auto sm:overflow-visible scrollbar-none snap-x snap-mandatory py-2 px-3 rounded-full bg-white/85 dark:bg-[rgba(11,15,26,0.9)] backdrop-blur-xl border border-border/70 dark:border-dark-border shadow-sm"
+        >
+          {tabs.map((t) => (
+            <button
+              key={t.key}
+              type="button"
+              data-tab={t.key}
+              onClick={() => selectTab(t.key)}
+              aria-pressed={active === t.key}
+              className={`shrink-0 snap-start px-4 py-2 rounded-full text-[13px] font-barlow font-semibold transition-colors ${
+                active === t.key
+                  ? "bg-blue text-white"
+                  : "bg-blue-pale dark:bg-dark-card text-text-body dark:text-dark-text-muted hover:text-navy dark:hover:text-white border border-transparent dark:border-dark-border"
+              }`}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Wideo — odtwarzanie na miejscu (fasada), bez wyrzucania na YouTube */}
@@ -224,7 +244,7 @@ export default function GalleryView({
                     width={img.width}
                     height={img.height}
                     loading="lazy"
-                    sizes="(max-width: 640px) 50vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, 33vw"
                     className="w-full h-auto transition-opacity group-hover:opacity-90"
                   />
                 </button>

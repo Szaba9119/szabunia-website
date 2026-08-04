@@ -240,3 +240,14 @@ input:focus, textarea:focus, select:focus {
     transform: none;
   }
 }
+
+/* Poziomy pasek zakładek galerii na telefonie przewija się palcem — chowamy
+   systemowy scrollbar, bo pasek i tak ma tylko jeden rząd i widać, że jedzie.
+   Tailwind 4 nie ma tego w standardzie, stąd własna utility. */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

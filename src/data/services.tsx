@@ -519,11 +519,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     // główny pasek pokazywał bryły z powietrza, bo wnętrz w serwisie nie było wcale,
     // a podstrona o wnętrzach pokazywała sześć budynków z lotu ptaka.
     galleryCategory: "wnetrza",
-    extraGallery: {
-      category: "obiekty",
-      ctaLabel: "Zobacz ujęcia z drona",
-      href: "/uslugi/zdjecia-wideo-z-drona",
-    },
+    // Bez drugiego paska. Pasek „obiekty i architektura" (te same pliki co galeria
+    // dronowa) stał tu do 04.08.2026 i zniknął na prośbę Marcina: „nie potrzeba
+    // przykładów z galerii Obiekty i architektura". Podstrona ma teraz jeden pasek
+    // z wnętrzami i film z hali Artechu, i tyle. Ujęcia z powietrza pokazuje
+    // czwarty rząd galerii wnętrz oraz osobna usługa dronowa.
     // Artech Group: jedyny materiał w portfolio nakręcony WEWNĄTRZ zakładu
     // produkcyjnego, a nie z powietrza. Do czasu wrzucenia zdjęć wnętrz jest to
     // na tej podstronie jedyny dowód, że wnętrza obiektów faktycznie fotografuję
@@ -533,10 +533,14 @@ const serviceCategoriesRaw: ServiceData[] = [
     videoNote:
       "Hala Artech Group od środka: park maszynowy, obróbka CNC i to, jak zakład naprawdę pracuje. Zakład da się pokazać tak samo zdjęciami, jak i filmem, w tym samym dniu zdjęciowym.",
     title: "Wnętrza, obiekty i architektura",
+    // Podtytuł przepisany 04.08.2026 razem z opisem. Poprzedni („Dwie perspektywy
+    // z jednego planu: z powietrza i z poziomu ziemi") stawiał drona na pierwszym
+    // miejscu, a podstrona pokazuje dziś wnętrza i film z hali. Ten sam tekst leci
+    // na kafelek na stronie głównej i na /uslugi.
     subtitle:
-      "Dokumentacja hal, budynków i wnętrz. Dwie perspektywy z jednego planu: z powietrza i z poziomu ziemi.",
+      "Hale, lokale użytkowe i wnętrza obiektów. Z zewnątrz i od środka, w jednym dniu zdjęciowym.",
     description:
-      "Hala, którą właśnie oddaliście, czyta się dopiero z góry. Z poziomu ziemi nie widać ani układu placu, ani skali, ani tego, jak obiekt siedzi w otoczeniu. Fotografuję obiekty w dwóch perspektywach z jednego dnia zdjęciowego: ujęcia lotnicze pokazują bryłę, dach i kontekst lokalizacji, kadry naziemne pokazują elewację, wjazd i detal wykonania. Do tego blok wnętrz, jeśli w środku jest co pokazywać. Każde zdjęcie przechodzi retusz architektoniczny: korekta perspektywy, prostowanie linii, czyszczenie kadru. Pliki dostajecie w dwóch wersjach, do druku i pod stronę. Wnętrza, które fotografowałem dla steakhouse'u Yes Butcher! w Starych Koszarach, trafiły na profil restauracji w przewodniku Michelin.",
+      "Halę widać dopiero od środka: ile naprawdę jest miejsca między regałami, jak szeroki jest ciąg komunikacyjny, czy w lokalu da się posadzić trzydzieści osób. Tego nie pokaże żadne ujęcie z powietrza. Fotografuję obiekty od środka i z zewnątrz w jednym dniu zdjęciowym: wnętrze hali, lokalu albo biura, elewację i wjazd z poziomu ziemi, a gdy trzeba pokazać bryłę i otoczenie, dokładam ujęcia z powietrza. Wnętrza, które fotografowałem dla steakhouse\'u Yes Butcher! w Starych Koszarach, trafiły na profil restauracji w przewodniku Michelin. Każde zdjęcie przechodzi retusz architektoniczny: korekta perspektywy, prostowanie linii, czyszczenie kadru. Pliki dostajecie w dwóch wersjach, do druku i pod www.",
     forWhom: [
       "Generalni wykonawcy hal i obiektów przemysłowych",
       "Deweloperzy mieszkaniowi i komercyjni",
