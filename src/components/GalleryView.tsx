@@ -20,6 +20,12 @@ export interface GalleryCategory {
   alt: string;
   /** Rotujące opisowe alt teksty; i-te zdjęcie dostaje wariant i % length. */
   altVariants?: string[];
+  /** Kafelki o stałej proporcji zamiast siatki murowanej.
+      Włączone tam, gdzie zdjęcia mają bardzo różne proporcje (produktowe: od 0,56
+      do 1,50), przez co kolumny kończyły się na różnych wysokościach i rzędy
+      przestawały być rzędami. Kolejność w tych kategoriach jest ułożona
+      tematycznie po trzy, więc rząd musi wyglądać jak rząd. */
+  uniformTiles?: boolean;
 }
 
 /** Alt dla i-tego zdjęcia: wariant z listy (rotacyjnie) z numerem kadru dla unikalności. */
@@ -64,7 +70,7 @@ export default function GalleryView({
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
   const tabsRef = useRef<HTMLDivElement | null>(null);
-  const tabsWrapRef = useRef<HTMLDivElement | null>(null);
+  const sectionRef = useRef<HTMLDivElement | null>(null);
   const touchX = useRef<number | null>(null);
 
   const activeCat = categories.find((c) => c.key === active);
@@ -101,12 +107,16 @@ export default function GalleryView({
     // Powrót na górę sekcji. Bez tego po przełączeniu kategorii w połowie galerii
     // lądujesz w środku nowego zestawu i nie wiadomo, gdzie jest początek
     // (Marcin 04.08.2026: „żeby dawało go do góry, by mógł dalej scrolować w dół").
-    // 96 px to offset przyklejonego paska (`top-24`), inaczej pasek zasłania
-    // pierwszy rząd miniatur.
-    const wrap = tabsWrapRef.current;
-    if (wrap) {
-      const y = wrap.getBoundingClientRect().top + window.scrollY - 96;
-      if (window.scrollY > y) window.scrollTo({ top: y, behavior: "smooth" });
+    //
+    // UWAGA: mierzymy korzeń sekcji, NIE przyklejony pasek. Element `sticky`
+    // w stanie przyklejonym raportuje pozycję przyklejoną (96 px od góry), więc
+    // liczony z niego cel wychodził równy bieżącemu scrollY i przewijanie nigdy
+    // się nie odpalało (zgłoszone przez Marcina: „na komputerach nie przesuwa
+    // do góry"). Korzeń sekcji nie jest przyklejony, więc podaje prawdę.
+    const root = sectionRef.current;
+    if (root) {
+      const y = root.getBoundingClientRect().top + window.scrollY - 96;
+      if (window.scrollY > y + 4) window.scrollTo({ top: y, behavior: "smooth" });
     }
     if (typeof window !== "undefined") {
       window.history.replaceState(null, "", `/galeria?kat=${key}`);
@@ -146,14 +156,14 @@ export default function GalleryView({
   }, [lightbox, imageCount, active]);
 
   return (
-    <div>
+    <div ref={sectionRef}>
       {/* Zakładki kategorii — przyklejone pod nawigacją, żeby dało się zmienić
           kategorię bez wracania na górę (prośba Marcina 04.08.2026).
           `top-24` mija pływający pasek nawigacji (`fixed top-0` + `pt-4`).
           `z-30` trzyma je pod nawigacją (z-50) i pod lightboxem (z-100).
           Na telefonie jeden rząd z przewijaniem w poziomie zamiast zawijania
           do trzech rzędów, które po przyklejeniu zjadałyby pół ekranu. */}
-      <div ref={tabsWrapRef} className="sticky top-24 z-30 -mx-4 px-4 mb-8">
+      <div className="sticky top-24 z-30 -mx-4 px-4 mb-8">
         <div
           ref={tabsRef}
           aria-label="Kategorie galerii"
@@ -234,6 +244,34 @@ export default function GalleryView({
           </p>
         </div>
       ) : (
+        activeCat?.uniformTiles ? (
+        /* Zdjęcia — równe kafelki 4:5, rzędy po trzy. Proporcja 4:5 to ta, którą ma
+           większość kadrów produktowych, więc trzynaście z dwudziestu czterech nie jest
+           w ogóle przycinanych. Pełny kadr widać po kliknięciu, w podglądzie. */
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {images.map((img, i) => (
+            <button
+              key={img.src}
+              type="button"
+              onClick={(e) => {
+                triggerRef.current = e.currentTarget;
+                setLightbox(i);
+              }}
+              aria-label={`Powiększ zdjęcie ${i + 1}`}
+              className="relative block w-full aspect-[4/5] rounded-xl overflow-hidden bg-border dark:bg-dark-card group"
+            >
+              <Image
+                src={img.src}
+                alt={altFor(activeCat, i)}
+                fill
+                loading="lazy"
+                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-cover transition-opacity group-hover:opacity-90"
+              />
+            </button>
+          ))}
+        </div>
+      ) : (
         /* Zdjęcia — masonry z kolejnością rzędami */
         <div className="flex gap-3 items-start">
           {masonryColumns.map((col, ci) => (
@@ -263,6 +301,7 @@ export default function GalleryView({
             </div>
           ))}
         </div>
+      )
       )}
 
       {/* Lightbox */}

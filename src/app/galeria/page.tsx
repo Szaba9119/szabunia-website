@@ -87,6 +87,9 @@ export default async function GaleriaPage({
       key: "produktowe",
       label: "Produktowe",
       folder: "produktowe",
+      // Jedyna kategoria z tak rozstrzelonymi proporcjami (0,56 do 1,50), więc
+      // jako jedyna dostaje równe kafelki zamiast siatki murowanej.
+      uniformTiles: true,
       alt: "Fotografia produktowa, packshot, Marcin Szabunia",
       altVariants: [
         "Packshot produktu na białym tle, fotografia e-commerce",
@@ -152,6 +155,7 @@ export default async function GaleriaPage({
       images: listGalleryImagesSized(d.folder),
       alt: d.alt,
       altVariants: d.altVariants,
+      uniformTiles: d.uniformTiles,
     }))
     .filter((c) => c.images.length > 0);
 
