@@ -456,7 +456,6 @@ export const portfolioCategories: PortfolioCategory[] = [
       { src: "/images/galeria/eventy/event-01.jpg", alt: "Scena podczas eventu firmowego, fotografia w trudnym świetle" },
       { src: "/images/galeria/eventy/event-02.jpg", alt: "Zdjęcie grupowe uczestników wydarzenia firmowego na torze" },
       { src: "/images/galeria/eventy/event-03.jpg", alt: "Integracja firmowa w plenerze, reportaż z wydarzenia" },
-      { src: "/images/galeria/eventy/event-18.jpg", alt: "Koncert na evencie firmowym, reportaż wieczorny" },
     ],
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda eventu, kluczowe momenty, VIP-y" },

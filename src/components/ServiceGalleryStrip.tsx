@@ -90,7 +90,7 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
   // (`dron-05`) świadomie NIE wchodzi tutaj, bo to jedyny kadr, który jest terenem,
   // i zostaje wyróżnikiem galerii dronowej.
   obiekty: [
-    "dron-02-wiezowiec-biurowy-poznan",
+    "dron-10-wiezowiec-biurowy-poznan",
     "dron-04-biurowiec-poznan",
     "dron-08-inwestycja-tereny-zielone-poznan",
     "dron-01-centrum-poznania-biurowce",

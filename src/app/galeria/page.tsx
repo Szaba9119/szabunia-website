@@ -128,13 +128,19 @@ export default async function GaleriaPage({
       label: "Dron",
       folder: "dron",
       alt: "Zdjęcia z drona, Poznań, Marcin Szabunia",
+      // Dziewięć wariantów pod dziewięć kadrów w folderze, w kolejności plików.
+      // Wieżowiec zszedł na koniec 04.08.2026 (prośba Marcina), więc opisy poszły
+      // za nim — bez tego drugi kadr dostawał opis wieżowca, którego już tam nie ma.
       altVariants: [
         "Zdjęcia z drona, biurowce w centrum Poznania z lotu ptaka",
-        "Wideo i zdjęcia z drona, wieżowiec biurowy w Poznaniu",
         "Fotografia z drona dla firm, nowoczesny budynek komercyjny, Poznań",
-        "Zdjęcia z drona nieruchomości, osiedle mieszkaniowe, Poznań",
+        "Biurowiec z lotu ptaka, bryła i otoczenie inwestycji, Poznań",
         "Panorama Poznania z drona o zachodzie słońca",
-        "Zdjęcia z drona inwestycji i terenów, Poznań i okolice",
+        "Zdjęcia z drona nieruchomości, apartamenty nad rzeką, Poznań",
+        "Zdjęcia z drona osiedla mieszkaniowego, Poznań",
+        "Zdjęcia z drona inwestycji i terenów zielonych, Poznań i okolice",
+        "Nowoczesne osiedle z lotu ptaka, fotografia dla dewelopera",
+        "Wideo i zdjęcia z drona, wieżowiec biurowy w Poznaniu",
       ],
     },
   ];
