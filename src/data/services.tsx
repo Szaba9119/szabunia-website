@@ -131,7 +131,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       category: "portrety",
       ctaLabel: "Zobacz sesje zespołowe",
       href: "/uslugi/sesje-zespolowe",
-      sub: "Planujesz event firmowy? To zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu. Przy okazji wydarzenia mogę zrobić sesję portretową dla całego zespołu: przywożę mobilne studio, a jedna osoba to 10 do 15 minut między prelekcjami.",
+      sub: "Planujesz event firmowy? To zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu. Przy okazji wydarzenia mogę zrobić sesję portretową dla całego zespołu: przywożę mobilne studio, a jedna osoba to około 5 do 15 minut, między prelekcjami albo w luźniejszym oknie agendy.",
     },
     videoId: "m42ywMWjthw",
     videoTitle: "Film z eventu firmowego dla Woohoo",
@@ -171,7 +171,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na social media." },
       { q: "Ile zdjęć otrzymam?", a: "Około 20 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
       { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
-      { q: "Czy przy okazji eventu zrobisz zdjęcia całego zespołu?", a: "Tak. Na wydarzenie mogę przywieźć mobilne studio: potrzebuję około 3 m² wolnej przestrzeni i gniazdka, rozstawienie zajmuje 20 minut, a potem fotografuję kolejne osoby po 10 do 15 minut, między prelekcjami albo w kuluarach. Event to zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu, więc headshoty przy tej okazji nie wymagają osobnego terminu ani osobnego dojazdu." },
+      { q: "Czy przy okazji eventu zrobisz zdjęcia całego zespołu?", a: "Tak. Na wydarzenie mogę przywieźć mobilne studio: potrzebuję około 5 m² wolnej przestrzeni i gniazdka, rozstawienie zajmuje 20 minut, a potem fotografuję kolejne osoby po 5 do 15 minut, między prelekcjami albo w kuluarach. Event to zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu, więc headshoty przy tej okazji nie wymagają osobnego terminu ani osobnego dojazdu." },
       { q: "Kto robi zdjęcia i film, gdy event jest duży?", a: "Przy standardowym wydarzeniu robię wszystko sam. Przy dużym evencie, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora do zdjęć albo do wideo. Postprodukcja zostaje u mnie: retusz zdjęć i montaż filmu robię osobiście, więc materiał wychodzi w jednym standardzie. Dla Was to nadal jedna osoba kontaktowa, jeden brief i jedna faktura." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
     ],
@@ -191,7 +191,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne.",
     description:
-      "Spójne headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura albo rezerwuję studio, rozstawienie zajmuje 20 minut, a każda osoba potrzebuje 10-15 minut na sesję. Efekt: spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
+      "Spójne headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura albo rezerwuję studio, rozstawienie zajmuje 20 minut, a każda osoba potrzebuje 5-15 minut na sesję. Efekt: spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
     forWhom: [
       "Zespoły korporacyjne i działy HR",
       "Kancelarie prawne i firmy doradcze",
@@ -210,7 +210,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram i liczbę osób" },
       { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio w biurze (20 min)" },
-      { num: 3, title: "Sesja", desc: "10-15 min na osobę, headshot + opcja team" },
+      { num: 3, title: "Sesja", desc: "5-15 min na osobę, headshot + opcja team" },
       { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
     ],
     pricingBlurb:
@@ -220,15 +220,15 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqSuffix: " przy zespołach od 31 osób (przy mniejszych grupach stawka za osobę jest wyższa)",
     faqs: [
       { q: "Co z osobami, których nie ma w dniu sesji?", a: "Brakujące osoby dogrywam w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu, żeby portrety całego zespołu były spójne. To częsta sytuacja przy większych zespołach i pracy zdalnej." },
-      { q: "Ile osób możesz sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studiu. Każda osoba potrzebuje ok. 10-15 minut." },
-      { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 3 m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
+      { q: "Ile osób możesz sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studiu. Każda osoba potrzebuje ok. 5-15 minut." },
+      { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 5 m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
       { q: "Czy zdjęcia będą spójne dla całego zespołu?", a: "Tak, identyczne oświetlenie i tło. Spójne headshoty na stronie i w materiałach firmowych." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 3 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy Sigma 70-200 mm f/2.8 i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 5 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
       title: "Headshoty zespołu w biurze i w studiu | Szabunia",
-      description: "Spójne portrety całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne, 10 do 15 minut na osobę. Poznań i cała Polska.",
+      description: "Spójne portrety całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne, 5 do 15 minut na osobę. Poznań i cała Polska.",
     },
   },  {
     slug: "pakiety-foto-wideo",
@@ -327,13 +327,17 @@ const serviceCategoriesRaw: ServiceData[] = [
     pricingBlurb:
       "Wycenę portretu ustalam na podstawie liczby stylizacji, długości sesji i liczby wyretuszowanych zdjęć do wyboru. Każda sesja obejmuje darmowy poseboard z referencjami przed spotkaniem oraz studio dopasowane do Twojego projektu.",
     priceFaqQuestion: "Ile kosztuje sesja wizerunkowa dla firmy?",
-    priceFaqIntro: "Sesje portretowe zaczynają się",
+    priceFaqIntro: "Pakiety portretowe zaczynają się",
+    // Dodane 04.08.2026. Dwie kotwice cenowe czytane obok siebie („od 120 zł/os."
+    // przy sesjach zespołowych i „od 1 100 zł" przy portretach) wyglądały jak
+    // sprzeczność, bo jedna jest za osobę, a druga za pakiet. Suffix mówi to wprost.
+    priceFaqSuffix: ", a sesja zespołowa od 120 zł netto za osobę, bo przy grupie płacisz za liczbę osób, a nie za długość jednej sesji",
     faqs: [
       { q: "Ile trwa sesja wizerunkowa?", a: "Sama sesja może trwać od 30 minut. Najważniejsze, że przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło, więc nie czekasz na moje przygotowania. Dłuższe pakiety dają po prostu więcej czasu na ujęcia i zmiany stylizacji." },
-      { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3 m² wolnej przestrzeni i dostępu do gniazdka." },
+      { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 5 m² wolnej przestrzeni i dostępu do gniazdka." },
       { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni. Ekspres do 48h za dodatkową opłatą (+50%)." },
       { q: "Czy mogę użyć zdjęć na LinkedIn i stronie?", a: "Tak. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), jasne obiektywy stałoogniskowe Sigma Art 35 i 50 mm f/1.4 do naturalnych portretów oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), Sigma 70-200 mm f/2.8 Sport jako podstawowy obiektyw portretowy (dłuższa ogniskowa nie zniekształca rysów twarzy i ładnie oddziela osobę od tła) oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
       // Dodane 02.08.2026. Powód policzalny, nie estetyczny: w GSC klaster cenowy tej
       // usługi ma 402 wyświetlenia w 90 dni, ale rozkłada się nierówno. Warianty ze
       // słowem „kosztuje" stoją na pozycji 17,2 i 17,9, a warianty ze słowem „cena",
@@ -342,7 +346,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       // Zgodne z regułą z docs/zasady-tekstow.md: „użyj tego, którego ludzie faktycznie
       // wpisują". Kwota 1 100 zł jest kanoniczna (cennik v3 sekcja 1) i występuje już
       // na tej stronie dwa razy, więc nie wprowadza nowej liczby do kanonu.
-      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Portret biznesowy zaczyna się od 1 100 zł netto, a przy sesjach zespołowych rozliczam się za osobę, ze stawką zależną od wielkości grupy. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu. Napisz w dwóch zdaniach, kogo i do czego fotografujemy, a wycenę odeślę mailem w 24 godziny." },
+      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Pakiety portretowe zaczynają się od 1 100 zł netto, a przy sesjach zespołowych rozliczam się za osobę, od 120 zł netto, ze stawką zależną od wielkości grupy. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu. Napisz w dwóch zdaniach, kogo i do czego fotografujemy, a wycenę odeślę mailem w 24 godziny." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
@@ -591,7 +595,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     faqs: [
       { q: "Czym to się różni od zdjęć z drona?", a: "Sesja dronowa to ujęcia z powietrza i tyle. Sesja obiektu łączy powietrze z poziomem ziemi i dokłada retusz architektoniczny, czyli korektę perspektywy i prostowanie linii. Przy budynku to jest różnica między ładnym ujęciem a dokumentacją, którą wstawicie do oferty i do katalogu. Jeśli potrzebujecie samego ujęcia terenu albo panoramy, tańsza będzie sesja dronowa." },
       { q: "Ile ujęć dostanę?", a: "Pakiet podstawowy to do 8 ujęć z powietrza. Kompletny to do 14: osiem z powietrza i sześć z poziomu ziemi. Pełny to do 24 ujęć, z blokiem wnętrz. Każde dodatkowe ujęcie ponad pakiet wyceniam osobno." },
-      { q: "Mamy dwa takie same budynki. Płacę dwa razy?", a: "Nie. Drugi obiekt tego samego typu, fotografowany tego samego dnia, jest tańszy o 300 zł, bo profil korekcji perspektywy jest gotowy z pierwszego i postprodukcja idzie szybciej. Warunek to ten sam dzień zdjęciowy. Osobny wyjazd to pełna stawka plus dojazd." },
+      { q: "Mamy dwa takie same budynki. Płacę dwa razy?", a: "Nie. Drugi obiekt tego samego typu, fotografowany tego samego dnia, jest wyraźnie tańszy, bo profil korekcji perspektywy jest gotowy z pierwszego i postprodukcja idzie szybciej. Warunek to ten sam dzień zdjęciowy. Osobny wyjazd to pełna stawka plus dojazd." },
       { q: "Czy dron poleci nad naszą halą?", a: "W standardowych lokalizacjach tak, bez dopłat. W strefach kontrolowanych, na przykład w sąsiedztwie lotniska albo jednostki wojskowej, koordynację biorę na siebie i sprawdzam ją przed potwierdzeniem daty. Zgoda bywa terminowa, więc warto zgłosić się z wyprzedzeniem. Jeśli pogoda albo brak zgody uniemożliwi wylot, wracam raz w ramach ustalonej kwoty." },
       { q: "Kiedy najlepiej fotografować obiekt?", a: "Tuż przed odbiorem albo zaraz po nim. Elewacja jest wtedy czysta, plac jeszcze niezastawiony, a w środku nie ma jeszcze rzeczy najemcy. Przy budowie, którą chcecie dokumentować w czasie, umawiamy stały punkt i stałą porę, żeby ujęcia złożyły się w jedną sekwencję zamiast w zbiór przypadkowych zdjęć." },
       { q: "Fotografujecie hale magazynowe i lokale użytkowe pod wynajem?", a: "Tak. Przy powierzchni pod wynajem sensowny komplet to bryła i plac manewrowy z powietrza, elewacja i wjazd z poziomu ziemi oraz wnętrze hali albo lokalu. Wszystko z jednego dnia zdjęciowego, bo materiał i tak trafia potem do jednej oferty. Pliki dostajecie w dwóch wersjach: do druku i pod ogłoszenie." },

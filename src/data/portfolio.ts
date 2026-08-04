@@ -418,11 +418,11 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Czy mogę mieć sesję w swoim biurze?",
-        a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 3 m² wolnej przestrzeni i dostępu do gniazdka. Rozstawienie sprzętu zajmuje ok. 20 minut.",
+        a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 5 m² wolnej przestrzeni i dostępu do gniazdka. Rozstawienie sprzętu zajmuje ok. 20 minut.",
       },
       {
         q: "Ile osób możesz sfotografować w jeden dzień?",
-        a: "Przy portretach biznesowych: do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 10-15 minut.",
+        a: "Przy portretach biznesowych: do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 5-15 minut.",
       },
       {
         q: "Jak szybko otrzymam gotowe zdjęcia?",
@@ -551,7 +551,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Headshoty dla całego zespołu, zdjęcia biura i przestrzeni firmowej. Mobilne studio w Twoim biurze.",
     description:
-      "Headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura, każda osoba potrzebuje zaledwie 10-15 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
+      "Headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura, każda osoba potrzebuje zaledwie 5-15 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
     thumbnail: "/images/portfolio-4.jpg",
     gallery: [
       { src: "/images/portfolio/sesja-korporacyjna/01.jpg", alt: "Sesja korporacyjna, headshoty zespołu w biurze, Poznań" },
@@ -568,7 +568,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram sesji w biurze" },
       { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio (20 min)" },
-      { num: 3, title: "Sesja", desc: "10-15 min na osobę, headshoty + opcja team" },
+      { num: 3, title: "Sesja", desc: "5-15 min na osobę, headshoty + opcja team" },
       { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
     ],
     // Cennik celowo usunięty z draftu (audyt 2026-07-06) — kanon: services.tsx.
@@ -576,11 +576,11 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [
       {
         q: "Ile osób możesz sfotografować w jeden dzień?",
-        a: "Do 40 osób dziennie przy setupie mobilnego studia w biurze. Każda osoba potrzebuje ok. 10-15 minut na sesję.",
+        a: "Do 40 osób dziennie przy setupie mobilnego studia w biurze. Każda osoba potrzebuje ok. 5-15 minut na sesję.",
       },
       {
         q: "Ile miejsca potrzebujesz w biurze?",
-        a: "Minimum 3 m² wolnej przestrzeni i dostęp do gniazdka. Mogę ustawić się w sali konferencyjnej, holu lub nawet na korytarzu.",
+        a: "Minimum 5 m² wolnej przestrzeni i dostęp do gniazdka. Mogę ustawić się w sali konferencyjnej, holu lub nawet na korytarzu.",
       },
       {
         q: "Czy zdjęcia będą spójne dla całego zespołu?",

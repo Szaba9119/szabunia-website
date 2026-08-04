@@ -13,7 +13,7 @@ export interface HomeFaqItem {
 export const homeFaqs: HomeFaqItem[] = [
   {
     q: "Ile kosztuje sesja?",
-    a: "Sesje portretowe zaczynają się od 1 100 zł netto. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24h. Cena zależy od liczby osób, lokalizacji i zakresu postprodukcji. Zawsze wyceniam indywidualnie, żeby nie przepłacać za to, czego nie potrzebujesz.",
+    a: "Pakiety portretowe zaczynają się od 1 100 zł netto, a sesja zespołowa od 120 zł netto za osobę: przy grupie płacisz za liczbę osób, a nie za długość jednej sesji. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24h. Cena zależy od liczby osób, lokalizacji i zakresu postprodukcji. Zawsze wyceniam indywidualnie, żeby nie przepłacać za to, czego nie potrzebujesz.",
   },
   {
     q: "Jak szybko otrzymam gotowe materiały?",
@@ -61,7 +61,7 @@ export const homeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Ile osób możesz sfotografować w jeden dzień?",
-    a: "Przy portretach biznesowych fotografuję do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 10-15 minut. Mogę przyjechać do biura z mobilnym studiem.",
+    a: "Przy portretach biznesowych fotografuję do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 5-15 minut. Mogę przyjechać do biura z mobilnym studiem.",
   },
   {
     q: "Jak wygląda rozliczenie krok po kroku?",
