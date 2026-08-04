@@ -481,14 +481,14 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "ile-kosztuje-sesja-wizerunkowa-dla-firmy",
     faq: [
-      { q: "Od jakiej kwoty zaczyna się sesja wizerunkowa dla firmy?", a: "Pakiety portretowe zaczynają się od 1 100 zł netto. To punkt wyjścia dla jednej osoby i podstawowego zestawu ujęć. Sesja zespołowa liczona jest inaczej, za osobę, od 120 zł netto, więc tych dwóch kwot nie da się porównywać wprost. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek." },
+      { q: "Od jakiej kwoty zaczyna się sesja wizerunkowa dla firmy?", a: "Portrety zaczynają się od 700 zł netto za jedno ujęcie w studiu, a pakiet z pięcioma zdjęciami i dłuższą sesją to 1 100 zł netto. Sesja zespołowa liczona jest inaczej, za osobę, od 120 zł netto, więc tych dwóch kwot nie da się porównywać wprost. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek." },
       { q: "Co wpływa na cenę sesji wizerunkowej?", a: "Sześć policzalnych czynników: liczba osób, liczba finalnych ujęć z autorskim retuszem, lokalizacja i dojazd (na terenie Poznania wliczony), sceneria i przygotowanie planu, zakres licencji na wykorzystanie zdjęć oraz ewentualny tryb ekspresowy, gdy materiał jest potrzebny szybciej niż standardowo." },
       { q: "Ile czasu trwa portret jednej osoby przy sesji zespołowej?", a: "Realnie 5-15 minut na dobry portret jednej osoby, wliczając ustawienie i kilka prób. Właśnie dlatego liczba osób to główny czynnik wyceny przy sesjach zespołowych: czas pracy rośnie wraz z wielkością grupy." },
-      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Pakiety portretowe zaczynają się od 1 100 zł netto, a przy sesjach zespołowych stawka jest liczona za osobę, od 120 zł netto, i zależy od wielkości grupy. Cennika w formie tabeli nie ma, bo cena zależy od liczby osób, liczby ujęć i tego, gdzie zdjęcia będą używane. Opisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24 godziny." },
+      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Portrety zaczynają się od 700 zł netto za jedno ujęcie, pakiet z pięcioma zdjęciami to 1 100 zł netto, a przy sesjach zespołowych stawka jest liczona za osobę, od 120 zł netto, i zależy od wielkości grupy. Cennika w formie tabeli nie ma, bo cena zależy od liczby osób, liczby ujęć i tego, gdzie zdjęcia będą używane. Opisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24 godziny." },
     ],
     title: "Ile kosztuje sesja wizerunkowa dla firmy: co realnie wpływa na cenę",
     excerpt:
-      "Cena sesji wizerunkowej zaczyna się od 1 100 zł, ale finalna wycena zależy od kilku policzalnych czynników. Tłumaczę, za co realnie płacisz i jak zaplanować budżet.",
+      "Cena sesji wizerunkowej zaczyna się od 700 zł za jedno ujęcie, a pakiet od 1 100 zł. Tłumaczę, za co realnie płacisz i jak zaplanować budżet.",
     category: "poradnik",
     date: "2026-03-10",
     updated: "2026-07-29",

@@ -316,8 +316,13 @@ const serviceCategoriesRaw: ServiceData[] = [
     ),
     heroImage: "/images/galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg",
     heroImagePos: "center 20%",
-    price: "od 1 100 zł netto",
-    heroPriceLabel: "pakiety od 1 100 zł netto",
+    // Próg wejściowy obniżony 04.08.2026 decyzją Marcina: PORTRET JEDNO UJĘCIE 700 zł netto
+    // (1 osoba, sesja do 30 min w studiu zewnętrznym w Poznaniu, 1 wyretuszowane zdjęcie,
+    // każde kolejne ujęcie 200 zł). Kanon: cennik_2026_07_v3.md §1.
+    // UWAGA: to pole zasila też `minPrice` w JSON-LD (uslugi/[slug]/page.tsx wyciąga regexem
+    // pierwszą liczbę), więc dane strukturalne schodzą z 1100 na 700. Zamierzone i prawdziwe.
+    price: "od 700 zł netto",
+    heroPriceLabel: "od 700 zł netto za jedno ujęcie",
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
       { num: 2, title: "Poseboard", desc: "Przygotowuję poseboard z referencjami" },
@@ -325,15 +330,24 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 4, title: "Dostawa", desc: "Wybrane, wyretuszowane zdjęcia w 14 dni." },
     ],
     pricingBlurb:
-      "Wycenę portretu ustalam na podstawie liczby stylizacji, długości sesji i liczby wyretuszowanych zdjęć do wyboru. Każda sesja obejmuje darmowy poseboard z referencjami przed spotkaniem oraz studio dopasowane do Twojego projektu.",
+      // „Każda sesja" → „Pakiety": od 04.08.2026 istnieje próg 700 zł BEZ poseboardu
+      // i bez konsultacji stylizacyjnej, więc poprzednie zdanie przestało być prawdziwe.
+      // Fragment o studiu zostaje nietknięty: to osobna pozycja TRESC2608-52, owner Marcin.
+      "Wycenę portretu ustalam na podstawie liczby stylizacji, długości sesji i liczby wyretuszowanych zdjęć do wyboru. Pakiety obejmują darmowy poseboard z referencjami przed spotkaniem oraz studio dopasowane do Twojego projektu.",
     priceFaqQuestion: "Ile kosztuje sesja wizerunkowa dla firmy?",
-    priceFaqIntro: "Pakiety portretowe zaczynają się",
-    // Dodane 04.08.2026. Dwie kotwice cenowe czytane obok siebie („od 120 zł/os."
-    // przy sesjach zespołowych i „od 1 100 zł" przy portretach) wyglądały jak
-    // sprzeczność, bo jedna jest za osobę, a druga za pakiet. Suffix mówi to wprost.
-    priceFaqSuffix: ", a sesja zespołowa od 120 zł netto za osobę, bo przy grupie płacisz za liczbę osób, a nie za długość jednej sesji",
+    priceFaqIntro: "Portrety zaczynają się",
+    // Dodane 04.08.2026, przepisane tego samego dnia po obniżeniu progu do 700 zł.
+    // Suffix rozwija kotwicę na trzy poziomy, bo bez tego „od 700 zł" czytało się jak
+    // cena pakietu, a to cena jednego ujęcia: 700 za jedno zdjęcie, 1 100 za pakiet
+    // z pięcioma, 120 za osobę przy zespole. Trzy różne jednostki obok siebie wyglądały
+    // jak sprzeczność, dopóki zdanie ich nie rozdzielało.
+    priceFaqSuffix: " za jedno ujęcie w studiu, a pakiet z pięcioma zdjęciami i dłuższą sesją to 1 100 zł netto; sesja zespołowa idzie za osobę, od 120 zł netto, bo przy grupie płacisz za liczbę osób, a nie za długość jednej sesji",
     faqs: [
-      { q: "Ile trwa sesja wizerunkowa?", a: "Sama sesja może trwać od 30 minut. Najważniejsze, że przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło, więc nie czekasz na moje przygotowania. Dłuższe pakiety dają po prostu więcej czasu na ujęcia i zmiany stylizacji." },
+      // TRESC2608-05 zamknięty 04.08.2026 BEZ zmiany tego zdania. Audyt zgłaszał je jako
+      // sprzeczne z cennikiem („od 30 minut" przy najkrótszym pakiecie 90-minutowym), a decyzja
+      // Marcina z 04.08 wprowadziła próg 700 zł za sesję do 30 minut, czyli zdanie stało się
+      // prawdziwe. Dopisana została sama kwota, żeby czas i cena stały obok siebie.
+      { q: "Ile trwa sesja wizerunkowa?", a: "Sama sesja może trwać od 30 minut i taka, z jednym wyretuszowanym zdjęciem, kosztuje 700 zł netto. Przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło, więc nie czekasz na moje przygotowania. Dłuższe pakiety dają więcej czasu na ujęcia i zmiany stylizacji." },
       { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 5 m² wolnej przestrzeni i dostępu do gniazdka." },
       { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni. Ekspres do 48h za dodatkową opłatą (+50%)." },
       { q: "Czy mogę użyć zdjęć na LinkedIn i stronie?", a: "Tak. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
@@ -346,7 +360,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       // Zgodne z regułą z docs/zasady-tekstow.md: „użyj tego, którego ludzie faktycznie
       // wpisują". Kwota 1 100 zł jest kanoniczna (cennik v3 sekcja 1) i występuje już
       // na tej stronie dwa razy, więc nie wprowadza nowej liczby do kanonu.
-      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Pakiety portretowe zaczynają się od 1 100 zł netto, a przy sesjach zespołowych rozliczam się za osobę, od 120 zł netto, ze stawką zależną od wielkości grupy. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu. Napisz w dwóch zdaniach, kogo i do czego fotografujemy, a wycenę odeślę mailem w 24 godziny." },
+      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Jedno ujęcie w studiu to 700 zł netto, każde kolejne 200 zł, a pakiet z pięcioma zdjęciami i dłuższą sesją 1 100 zł. Przy sesjach zespołowych rozliczam się za osobę, od 120 zł netto, ze stawką zależną od wielkości grupy. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu. Napisz w dwóch zdaniach, kogo i do czego fotografujemy, a wycenę odeślę mailem w 24 godziny." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
