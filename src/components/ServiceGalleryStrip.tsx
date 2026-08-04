@@ -73,7 +73,7 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
     "produkt-07", // kobieta w żółtej sukience
     "produkt-14", // koszulka na ciemnym tle
     "produkt-16", // patyczek do makijażu
-    "produkt-02", // grejfrutowy koktajl / alkohol
+    "produkt-03", // grejfrutowy koktajl / alkohol
   ].map((n) => `/images/galeria/produktowe/${n}.jpg`),
   // 6 różnych obiektów (bez powtórki tego samego budynku, np. Bałtyk z dwóch stron).
   dron: [

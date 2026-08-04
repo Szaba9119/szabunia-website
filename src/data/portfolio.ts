@@ -508,8 +508,8 @@ export const portfolioCategories: PortfolioCategory[] = [
       { src: "/images/galeria/produktowe/produkt-17.jpg", alt: "Packshot produktu na białym tle, zdjęcie katalogowe" },
       { src: "/images/galeria/produktowe/produkt-18.jpg", alt: "Packshot produktu technicznego na białym tle, zdjęcie do katalogu" },
       { src: "/images/galeria/produktowe/produkt-14.jpg", alt: "Zdjęcie produktowe koszulki na ciemnym tle, fotografia reklamowa" },
-      { src: "/images/galeria/produktowe/produkt-02.jpg", alt: "Aranżacja produktowa napojów, zdjęcia kreatywne na social media" },
-      { src: "/images/galeria/produktowe/produkt-03.jpg", alt: "Aranżacja produktowa z butelką, fotografia reklamowa produktu" },
+      { src: "/images/galeria/produktowe/produkt-03.jpg", alt: "Aranżacja produktowa napojów, zdjęcia kreatywne na social media" },
+      { src: "/images/galeria/produktowe/produkt-02.jpg", alt: "Aranżacja produktowa z butelką, fotografia reklamowa produktu" },
       { src: "/images/galeria/produktowe/produkt-01.jpg", alt: "Zdjęcie produktowe alkoholu w scenerii, fotografia reklamowa" },
     ],
     process: [
