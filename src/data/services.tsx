@@ -88,6 +88,10 @@ export interface ServiceData {
   videoTitle?: string;
   /** Opcjonalny podpis pod sekcją wideo (domyślnie tekst o foto + wideo). */
   videoNote?: string;
+  /** Film przed paskami galerii zamiast między nimi. Włączone tylko tam, gdzie
+      film jest produktem, a nie ilustracją (wideo marketing). Reszta podstron ma
+      układ: główny pasek, film, drugi pasek. */
+  videoFirst?: boolean;
   seo: {
     title: string;
     description: string;
@@ -347,6 +351,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     // Bez drugiego paska. Pasek „Przykłady z galerii: produktowe" zniknął 04.08.2026
     // na prośbę Marcina. Podstrona ma pokazywać wideo, a nie zdjęcia produktów.
     videoId: "4INLtKcKcZk",
+    videoFirst: true,
     videoTitle: "E-commerce All-in dla Woohoo: film z wydarzenia ICEA i Autopay",
     videoNote: "Komplet materiału wideo z jednego dnia: film podsumowujący, trzy pionowe reelsy z wywiadami i ujęcia z drona wewnątrz stadionu.",
     title: "Wideo marketing",

@@ -129,6 +129,22 @@ export default async function ServicePage({ params }: PageProps) {
     },
   ];
 
+  const videoSection = service.videoId ? (
+    <ErrorBoundary>
+      <section className="py-12 md:py-16 px-4">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-barlow font-extrabold text-2xl md:text-[32px] leading-tight tracking-tight text-navy dark:text-white mb-2 text-center">
+            Przykładowa realizacja wideo
+          </h2>
+          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-8">
+            {service.videoNote ?? "Tak wygląda materiał wideo z sesji, na której powstały też zdjęcia."}
+          </p>
+          <YouTubeFacade id={service.videoId} title={service.videoTitle ?? service.title} className="" />
+        </div>
+      </section>
+    </ErrorBoundary>
+  ) : null;
+
   return (
     <>
       <ScrollProgress />
@@ -144,33 +160,18 @@ export default async function ServicePage({ params }: PageProps) {
         <ErrorBoundary>
           <LogoBar />
         </ErrorBoundary>
-        {/* Sekcja wideo otwiera blok przykładów, pod nią paski galerii (Marcin,
-            04.08.2026: „niech przykłady z galerii rozpoczyna przykładowa realizacja
-            wideo, a poniżej będą przykłady z galerii"). Film jest mocniejszym
-            dowodem niż siatka miniatur, więc idzie pierwszy. */}
-        {service.videoId && (
-          <ErrorBoundary>
-            <section className="py-12 md:py-16 px-4">
-              <div className="max-w-4xl mx-auto">
-                <h2 className="font-barlow font-extrabold text-2xl md:text-[32px] leading-tight tracking-tight text-navy dark:text-white mb-2 text-center">
-                  Przykładowa realizacja wideo
-                </h2>
-                <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-8">
-                  {service.videoNote ?? "Tak wygląda materiał wideo z sesji, na której powstały też zdjęcia."}
-                </p>
-                <YouTubeFacade id={service.videoId} title={service.videoTitle ?? service.title} className="" />
-              </div>
-            </section>
-          </ErrorBoundary>
-        )}
+        {/* Kolejność bloku przykładów (Marcin, 04.08.2026):
+            domyślnie GŁÓWNY PASEK → FILM → DRUGI PASEK, czyli film rozdziela dwie
+            siatki miniatur, zamiast stać obok drugiej. Wyjątek to podstrona wideo,
+            gdzie film musi otwierać, bo jest tym, co ta usługa sprzedaje — steruje
+            tym `videoFirst` w danych usługi. */}
+        {service.videoFirst && videoSection}
         {service.galleryCategory && (
           <ErrorBoundary>
             <ServiceGalleryStrip category={service.galleryCategory} />
           </ErrorBoundary>
         )}
-        {/* Drugi pasek galerii stoi POD przykładową realizacją wideo (Marcin,
-            04.08.2026). Wcześniej wchodził zaraz po głównym pasku, przez co dwie
-            siatki miniatur leciały jedna za drugą, a film ginął pod nimi. */}
+        {!service.videoFirst && videoSection}
         {service.extraGallery && (
           <ErrorBoundary>
             <ServiceGalleryStrip
