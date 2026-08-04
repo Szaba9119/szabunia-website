@@ -504,14 +504,14 @@ export const portfolioCategories: PortfolioCategory[] = [
       // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
       // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
-      { src: "/images/galeria/produktowe/produkt-16.jpg", alt: "Packshot koszulki na białym tle, zdjęcie produktowe do sklepu internetowego" },
-      { src: "/images/galeria/produktowe/produkt-18.jpg", alt: "Packshot czapki na białym tle, fotografia produktowa e-commerce" },
-      { src: "/images/galeria/produktowe/produkt-20.jpg", alt: "Packshot produktu na białym tle, zdjęcie katalogowe" },
-      { src: "/images/galeria/produktowe/produkt-21.jpg", alt: "Packshot produktu technicznego na białym tle, zdjęcie do katalogu" },
-      { src: "/images/galeria/produktowe/produkt-17.jpg", alt: "Zdjęcie produktowe koszulki na ciemnym tle, fotografia reklamowa" },
-      { src: "/images/galeria/produktowe/produkt-01.jpg", alt: "Aranżacja produktowa napojów, zdjęcia kreatywne na social media" },
-      { src: "/images/galeria/produktowe/produkt-02.jpg", alt: "Aranżacja produktowa z butelką, fotografia reklamowa produktu" },
-      { src: "/images/galeria/produktowe/produkt-03.jpg", alt: "Zdjęcie produktowe alkoholu w scenerii, fotografia reklamowa" },
+      { src: "/images/galeria/produktowe/produkt-13.jpg", alt: "Packshot koszulki na białym tle, zdjęcie produktowe do sklepu internetowego" },
+      { src: "/images/galeria/produktowe/produkt-15.jpg", alt: "Packshot czapki na białym tle, fotografia produktowa e-commerce" },
+      { src: "/images/galeria/produktowe/produkt-17.jpg", alt: "Packshot produktu na białym tle, zdjęcie katalogowe" },
+      { src: "/images/galeria/produktowe/produkt-18.jpg", alt: "Packshot produktu technicznego na białym tle, zdjęcie do katalogu" },
+      { src: "/images/galeria/produktowe/produkt-14.jpg", alt: "Zdjęcie produktowe koszulki na ciemnym tle, fotografia reklamowa" },
+      { src: "/images/galeria/produktowe/produkt-02.jpg", alt: "Aranżacja produktowa napojów, zdjęcia kreatywne na social media" },
+      { src: "/images/galeria/produktowe/produkt-03.jpg", alt: "Aranżacja produktowa z butelką, fotografia reklamowa produktu" },
+      { src: "/images/galeria/produktowe/produkt-01.jpg", alt: "Zdjęcie produktowe alkoholu w scenerii, fotografia reklamowa" },
     ],
     process: [
       { num: 1, title: "Rozmowa", desc: "Cel, platforma sprzedaży, wytyczne marki" },

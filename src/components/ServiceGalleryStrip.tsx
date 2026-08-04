@@ -66,14 +66,14 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
     (n) => `/images/galeria/eventy/${n}.jpg`
   ),
   produktowe: [
-    "produkt-05", // toast kieliszkami wódki
-    "produkt-26", // auto w środku lasu
-    "produkt-08", // danie z fasolką na białym talerzu
-    "produkt-22", // bransoletka na dłoni
-    "produkt-10", // kobieta w żółtej sukience
-    "produkt-17", // koszulka na ciemnym tle
-    "produkt-19", // patyczek do makijażu
-    "produkt-01", // grejfrutowy koktajl / alkohol
+    "produkt-01", // toast kieliszkami wódki
+    "produkt-23", // auto w środku lasu
+    "produkt-05", // danie z fasolką na białym talerzu
+    "produkt-19", // bransoletka na dłoni
+    "produkt-07", // kobieta w żółtej sukience
+    "produkt-14", // koszulka na ciemnym tle
+    "produkt-16", // patyczek do makijażu
+    "produkt-02", // grejfrutowy koktajl / alkohol
   ].map((n) => `/images/galeria/produktowe/${n}.jpg`),
   // 6 różnych obiektów (bez powtórki tego samego budynku, np. Bałtyk z dwóch stron).
   dron: [
@@ -250,7 +250,11 @@ function Shell({
                 kategorii, więc dostaje wagę zdania, nie szarej linijki pod nagłówkiem
                 (Marcin 04.08.2026: „chciałbym, żeby to zdanie bardziej wybrzmiało"). */}
             {prominentSub ? (
-              <p className="text-navy dark:text-white text-[16px] md:text-[17px] leading-relaxed mt-3 max-w-2xl">
+              // Ten sam rozmiar i kolor co podpis pod „Przykładowa realizacja wideo"
+              // (15 px, steel), żeby na jednej podstronie nie było dwóch różnych
+              // formatowań tego samego rodzaju zdania. Wyróżnia go tylko oddech:
+              // szersza interlinia i węższa kolumna (Marcin, 04.08.2026).
+              <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mt-2 max-w-2xl">
                 {sub}
               </p>
             ) : (

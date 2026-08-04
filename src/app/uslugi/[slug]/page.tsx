@@ -144,11 +144,10 @@ export default async function ServicePage({ params }: PageProps) {
         <ErrorBoundary>
           <LogoBar />
         </ErrorBoundary>
-        {service.galleryCategory && (
-          <ErrorBoundary>
-            <ServiceGalleryStrip category={service.galleryCategory} />
-          </ErrorBoundary>
-        )}
+        {/* Sekcja wideo otwiera blok przykładów, pod nią paski galerii (Marcin,
+            04.08.2026: „niech przykłady z galerii rozpoczyna przykładowa realizacja
+            wideo, a poniżej będą przykłady z galerii"). Film jest mocniejszym
+            dowodem niż siatka miniatur, więc idzie pierwszy. */}
         {service.videoId && (
           <ErrorBoundary>
             <section className="py-12 md:py-16 px-4">
@@ -162,6 +161,11 @@ export default async function ServicePage({ params }: PageProps) {
                 <YouTubeFacade id={service.videoId} title={service.videoTitle ?? service.title} className="" />
               </div>
             </section>
+          </ErrorBoundary>
+        )}
+        {service.galleryCategory && (
+          <ErrorBoundary>
+            <ServiceGalleryStrip category={service.galleryCategory} />
           </ErrorBoundary>
         )}
         {/* Drugi pasek galerii stoi POD przykładową realizacją wideo (Marcin,
