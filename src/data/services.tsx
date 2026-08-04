@@ -515,6 +515,14 @@ const serviceCategoriesRaw: ServiceData[] = [
       category: "wnetrza",
       ctaLabel: "Zobacz wnętrza i hale",
     },
+    // Artech Group: jedyny materiał w portfolio nakręcony WEWNĄTRZ zakładu
+    // produkcyjnego, a nie z powietrza. Do czasu wrzucenia zdjęć wnętrz jest to
+    // na tej podstronie jedyny dowód, że wnętrza obiektów faktycznie fotografuję
+    // i filmuję. Ten sam film stoi w case study `artech-fotografia-produktowa`.
+    videoId: "ivvZQ5lQ7FE",
+    videoTitle: "Artech Group: film z hali produkcyjnej",
+    videoNote:
+      "Hala Artech Group od środka: park maszynowy, obróbka CNC i to, jak zakład naprawdę pracuje. Zakład da się pokazać tak samo zdjęciami, jak i filmem, w tym samym dniu zdjęciowym.",
     title: "Wnętrza, obiekty i architektura",
     subtitle:
       "Dokumentacja hal, budynków i wnętrz. Dwie perspektywy z jednego planu: z powietrza i z poziomu ziemi.",
