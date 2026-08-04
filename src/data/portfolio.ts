@@ -379,7 +379,18 @@ export const portfolioCategories: PortfolioCategory[] = [
       "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a przed sesją dostajesz poseboard z referencjami.",
     thumbnail: "/images/portfolio-1.jpg",
     gallery: [
-      { src: "/images/portfolio/sesja-wizerunkowa/01.jpg", alt: "Sesja wizerunkowa firmy, portret biznesowy CEO w studiu, Poznań" },
+      // Zdjęcie grupowe przy samochodach sportowych przeniesione 04.08.2026: na sesji
+      // wizerunkowej było obce, a ten sam kadr żyje już w galerii eventowej (event-02)
+      // i przez nią trafia na eventy, pakiety foto + wideo i portfolio eventowe.
+      // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
+      // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
+      // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
+      { src: "/images/galeria/portrety/portret-05.jpg", alt: "Portret wizerunkowy mężczyzny w garniturze, sesja dla firmy, Poznań" },
+      { src: "/images/galeria/portrety/portret-07.jpg", alt: "Portret biznesowy kobiety w marynarce, sesja wizerunkowa, Poznań" },
+      { src: "/images/galeria/portrety/portret-03.jpg", alt: "Portret wizerunkowy na czarnym tle, personal branding, Poznań" },
+      { src: "/images/galeria/portrety/portret-08.jpg", alt: "Portret biznesowy kobiety na jasnym tle, sesja wizerunkowa dla firmy" },
+      { src: "/images/galeria/portrety/portret-14.jpg", alt: "Portret wizerunkowy w naturalnym świetle, sesja dla firmy, Poznań" },
+      { src: "/images/galeria/portrety/portret-10.jpg", alt: "Portret biznesowy kobiety, zdjęcie na stronę firmy i LinkedIn" },
     ],
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
@@ -425,6 +436,17 @@ export const portfolioCategories: PortfolioCategory[] = [
     thumbnail: "/images/portfolio-2.jpg",
     gallery: [
       { src: "/images/portfolio/fotografia-eventowa/01.jpg", alt: "Fotografia eventowa, relacja z konferencji biznesowej w Poznaniu" },
+      // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
+      // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
+      // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
+      { src: "/images/galeria/eventy/event-05.jpg", alt: "Rozmowy uczestników konferencji firmowej, fotografia eventowa, Poznań" },
+      { src: "/images/galeria/eventy/event-04.jpg", alt: "Gala firmowa, wręczenie wyróżnień, reportaż z wydarzenia, Poznań" },
+      { src: "/images/galeria/eventy/event-15.jpg", alt: "Networking na evencie biznesowym, fotografia reportażowa, Poznań" },
+      { src: "/images/galeria/eventy/event-14.jpg", alt: "Oprawa muzyczna gali firmowej, reportaż z wydarzenia" },
+      { src: "/images/galeria/eventy/event-01.jpg", alt: "Scena podczas eventu firmowego, fotografia w trudnym świetle" },
+      { src: "/images/galeria/eventy/event-02.jpg", alt: "Zdjęcie grupowe uczestników wydarzenia firmowego na torze" },
+      { src: "/images/galeria/eventy/event-03.jpg", alt: "Integracja firmowa w plenerze, reportaż z wydarzenia" },
+      { src: "/images/galeria/eventy/event-18.jpg", alt: "Koncert na evencie firmowym, reportaż wieczorny" },
     ],
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda eventu, kluczowe momenty, VIP-y" },
@@ -469,6 +491,17 @@ export const portfolioCategories: PortfolioCategory[] = [
     thumbnail: "/images/portfolio-3.jpg",
     gallery: [
       { src: "/images/portfolio/packshoty-produktowe/01.jpg", alt: "Packshot produktowy na białym tle, fotografia produktowa e-commerce, Poznań" },
+      // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
+      // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
+      // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
+      { src: "/images/galeria/produktowe/produkt-17.jpg", alt: "Packshot koszulki na białym tle, zdjęcie produktowe do sklepu internetowego" },
+      { src: "/images/galeria/produktowe/produkt-19.jpg", alt: "Packshot czapki na białym tle, fotografia produktowa e-commerce" },
+      { src: "/images/galeria/produktowe/produkt-21.jpg", alt: "Packshot produktu na białym tle, zdjęcie katalogowe" },
+      { src: "/images/galeria/produktowe/produkt-22.jpg", alt: "Packshot produktu technicznego na białym tle, zdjęcie do katalogu" },
+      { src: "/images/galeria/produktowe/produkt-18.jpg", alt: "Zdjęcie produktowe koszulki na ciemnym tle, fotografia reklamowa" },
+      { src: "/images/galeria/produktowe/produkt-11.jpg", alt: "Aranżacja produktowa napojów, zdjęcia kreatywne na social media" },
+      { src: "/images/galeria/produktowe/produkt-13.jpg", alt: "Aranżacja produktowa z butelką, fotografia reklamowa produktu" },
+      { src: "/images/galeria/produktowe/produkt-01.jpg", alt: "Zdjęcie produktowe alkoholu w scenerii, fotografia reklamowa" },
     ],
     process: [
       { num: 1, title: "Rozmowa", desc: "Cel, platforma sprzedaży, wytyczne marki" },
@@ -513,6 +546,15 @@ export const portfolioCategories: PortfolioCategory[] = [
     thumbnail: "/images/portfolio-4.jpg",
     gallery: [
       { src: "/images/portfolio/sesja-korporacyjna/01.jpg", alt: "Sesja korporacyjna, headshoty zespołu w biurze, Poznań" },
+      // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
+      // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
+      // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
+      { src: "/images/portfolio/idcom/_F2A9424-Edit-2.jpg", alt: "Headshot korporacyjny na białym tle, sesja dla zespołu IDcom Group" },
+      { src: "/images/portfolio/idcom/_F0I9883-Edit-2.jpg", alt: "Headshot korporacyjny na kremowym tle, spójny standard dla zespołu" },
+      { src: "/images/galeria/portrety/portret-02.jpg", alt: "Portret korporacyjny kobiety, zdjęcie na stronę firmy" },
+      { src: "/images/galeria/portrety/portret-11.jpg", alt: "Portret korporacyjny mężczyzny w garniturze, zdjęcie dla firmy" },
+      { src: "/images/galeria/portrety/portret-13.jpg", alt: "Portret korporacyjny w naturalnym świetle, zdjęcie na LinkedIn" },
+      { src: "/images/galeria/portrety/portret-12.jpg", alt: "Portret korporacyjny w plenerze, zdjęcie na stronę firmową" },
     ],
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram sesji w biurze" },

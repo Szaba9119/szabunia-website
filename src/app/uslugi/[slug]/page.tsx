@@ -149,6 +149,15 @@ export default async function ServicePage({ params }: PageProps) {
             <ServiceGalleryStrip category={service.galleryCategory} />
           </ErrorBoundary>
         )}
+        {service.extraGallery && (
+          <ErrorBoundary>
+            <ServiceGalleryStrip
+              category={service.extraGallery.category}
+              ctaLabel={service.extraGallery.ctaLabel}
+              href={service.extraGallery.href}
+            />
+          </ErrorBoundary>
+        )}
         {service.videoId && (
           <ErrorBoundary>
             <section className="py-12 md:py-16 px-4">

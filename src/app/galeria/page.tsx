@@ -96,6 +96,19 @@ export default async function GaleriaPage({
       ],
     },
     {
+      key: "wnetrza",
+      label: "Wnętrza i hale",
+      folder: "wnetrza",
+      alt: "Fotografia wnętrz i hal, Marcin Szabunia, Poznań",
+      altVariants: [
+        "Wnętrze hali magazynowej, fotografia obiektu, Poznań",
+        "Lokal użytkowy pod wynajem, zdjęcia wnętrza, Poznań",
+        "Wnętrze biura, fotografia wnętrz komercyjnych, Poznań",
+        "Część wspólna budynku, fotografia architektury wnętrz",
+        "Detal wykończenia wnętrza, fotografia obiektu",
+      ],
+    },
+    {
       key: "dron",
       label: "Dron",
       folder: "dron",

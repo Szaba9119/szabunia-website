@@ -58,7 +58,26 @@ export interface ServiceData {
   wide?: boolean;
   faqs: FAQItem[];
   portfolioSlug?: string;
-  galleryCategory?: "portrety" | "eventy" | "produktowe" | "wideo" | "dron" | "zespolowe" | "obiekty";
+  galleryCategory?:
+    | "portrety"
+    | "eventy"
+    | "produktowe"
+    | "wideo"
+    | "dron"
+    | "zespolowe"
+    | "obiekty"
+    | "wnetrza";
+  /** Drugi pasek „Przykłady z galerii" pod głównym. Dodane 03.08.2026 dla sesji
+      zespołowych: strona pokazywała wyłącznie sześć kadrów z jednej realizacji
+      (IDcom), więc ktoś, kto chciał zobaczyć więcej twarzy i teł, nie miał dokąd
+      kliknąć. Kategoria wskazuje istniejące pliki, nie kopiuje ich na dysk. */
+  extraGallery?: {
+    category: NonNullable<ServiceData["galleryCategory"]>;
+    ctaLabel?: string;
+    /** Nadpisuje domyślny cel przycisku. Używane, gdy pasek ma prowadzić
+        na sąsiednią usługę, a nie do filtrowanej galerii. */
+    href?: string;
+  };
   /** YouTube ID przykładowego filmu pokazywanego na podstronie usługi. */
   videoId?: string;
   videoTitle?: string;
@@ -90,6 +109,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     h2Faq: "Obsługa eventów: najczęstsze pytania",
     h1: "Obsługa eventów firmowych w Poznaniu",
     galleryCategory: "eventy",
+    extraGallery: {
+      category: "zespolowe",
+      ctaLabel: "Zobacz sesje zespołowe",
+      href: "/uslugi/sesje-zespolowe",
+    },
     videoId: "m42ywMWjthw",
     videoTitle: "Film z eventu firmowego dla Woohoo",
     videoNote: "Tak wygląda film z eventu: dynamiczne podsumowanie wydarzenia, gotowe do social mediów.",
@@ -141,6 +165,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     h2Faq: "Headshoty zespołu: najczęstsze pytania",
     h1: "Headshoty zespołu w biurze albo w studiu",
     galleryCategory: "zespolowe",
+    extraGallery: { category: "portrety", ctaLabel: "Zobacz więcej portretów" },
     title: "Sesje zespołowe",
     subtitle:
       "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne.",
@@ -190,6 +215,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     h1: "Zdjęcia, film i dron od jednej osoby",
     portfolioSlug: "woohoo-autopay",
     galleryCategory: "eventy",
+    extraGallery: {
+      category: "dron",
+      ctaLabel: "Zobacz ujęcia z drona",
+      href: "/uslugi/zdjecia-wideo-z-drona",
+    },
     videoId: "4INLtKcKcZk",
     videoTitle: "E-commerce All-in, film z eventu dla Woohoo",
     title: "Pakiety Foto + Wideo + Dron",
@@ -240,9 +270,14 @@ const serviceCategoriesRaw: ServiceData[] = [
     h2Faq: "Portrety biznesowe: najczęstsze pytania",
     h1: "Portrety biznesowe i headshoty",
     galleryCategory: "portrety",
+    extraGallery: {
+      category: "zespolowe",
+      ctaLabel: "Zobacz sesje zespołowe",
+      href: "/uslugi/sesje-zespolowe",
+    },
     title: "Wizerunek & Portrety",
     subtitle:
-      "Portrety biznesowe, headshoty na LinkedIn i zdjęcia do personal brandingu. Prowadzę przez pozowanie, nie musisz nic umieć. Portrety robiłem też przy realizacji dla przewodnika Michelin.",
+      "Portrety biznesowe, headshoty na LinkedIn i zdjęcia do personal brandingu. Prowadzę przez pozowanie, nie musisz nic umieć.",
     description:
       "Portret biznesowy to Twoja wizytówka na LinkedIn i na stronie firmy. Tworzę zdjęcia, które oddają charakter i kompetencje, na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a przed sesją dostajesz poseboard z referencjami.",
     forWhom: [
@@ -299,9 +334,14 @@ const serviceCategoriesRaw: ServiceData[] = [
     h1: "Wideo dla firm i filmy korporacyjne",
     portfolioSlug: "woohoo-autopay",
     galleryCategory: "wideo",
-    videoId: "hLO5iInREaI",
-    videoTitle: "Film firmowy z produkcji dla Artech Group",
-    videoNote: "Przykład filmu firmowego: pokazuje park maszynowy i sposób pracy, zamiast go opisywać.",
+    extraGallery: {
+      category: "produktowe",
+      ctaLabel: "Zobacz fotografię produktową",
+      href: "/uslugi/fotografia-produktowa",
+    },
+    videoId: "4INLtKcKcZk",
+    videoTitle: "E-commerce All-in dla Woohoo: film z wydarzenia ICEA i Autopay",
+    videoNote: "Komplet materiału wideo z jednego dnia: film podsumowujący, trzy pionowe reelsy z wywiadami i ujęcia z drona wewnątrz stadionu.",
     title: "Wideo marketing",
     subtitle:
       "Filmy korporacyjne i promocyjne, reelsy, relacje z eventów. Formaty pionowe i poziome dopasowane do platformy.",
@@ -319,8 +359,8 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-2.625 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-1.5A1.125 1.125 0 0118 18.375M20.625 4.5H3.375m17.25 0c.621 0 1.125.504 1.125 1.125M20.625 4.5h-1.5C18.504 4.5 18 5.004 18 5.625m3.75 0v1.5c0 .621-.504 1.125-1.125 1.125M3.375 4.5c-.621 0-1.125.504-1.125 1.125M3.375 4.5h1.5C5.496 4.5 6 5.004 6 5.625m-2.625 0v1.5c0 .621.504 1.125 1.125 1.125m0 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m1.5-3.75C5.496 8.25 6 7.746 6 7.125v-1.5M4.875 8.25C5.496 8.25 6 8.754 6 9.375v1.5m0-5.25v5.25m0-5.25C6 5.004 6.504 4.5 7.125 4.5h9.75c.621 0 1.125.504 1.125 1.125m1.125 2.625h1.5m-1.5 0A1.125 1.125 0 0118 7.125v-1.5m1.125 2.625c-.621 0-1.125.504-1.125 1.125v1.5m2.625-2.625c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125M18 5.625v5.25M7.125 12h9.75m-9.75 0A1.125 1.125 0 016 10.875M7.125 12C6.504 12 6 12.504 6 13.125m0-2.25C6 11.496 5.496 12 4.875 12M18 10.875c0 .621-.504 1.125-1.125 1.125M18 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m-12 5.25v-5.25m0 5.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125m-12 0v-1.5c0-.621-.504-1.125-1.125-1.125M18 18.375v-5.25m0 5.25v-1.5c0-.621.504-1.125 1.125-1.125M18 13.125v1.5c0 .621.504 1.125 1.125 1.125M18 13.125c0-.621.504-1.125 1.125-1.125M6 13.125v1.5c0 .621-.504 1.125-1.125 1.125M6 13.125C6 12.504 5.496 12 4.875 12m-1.5 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M19.125 12h1.5m0 0c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h1.5m14.25 0h1.5" />
       </svg>
     ),
-    heroImage: "/images/galeria/eventy/event-16.jpg",
-    heroImagePos: "40% center",
+    heroImage: "/images/portfolio/reel-1.jpg",
+    heroImagePos: "center 35%",
     price: "od 400 zł netto",
     process: [
       { num: 1, title: "Concept", desc: "Cel, format, platforma docelowa" },
@@ -349,6 +389,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     h2Faq: "Packshoty: najczęstsze pytania",
     h1: "Packshot i fotografia produktowa",
     galleryCategory: "produktowe",
+    extraGallery: {
+      category: "wideo",
+      ctaLabel: "Zobacz realizacje wideo",
+      href: "/uslugi/wideo-marketing",
+    },
     title: "Fotografia produktowa",
     subtitle:
       "Packshoty na białym tle z retuszem w cenie, zdjęcia kreatywne i aranżacje pod e-commerce, katalogi i social media.",
@@ -398,6 +443,13 @@ const serviceCategoriesRaw: ServiceData[] = [
     h2Faq: "Zdjęcia z drona: najczęstsze pytania",
     h1: "Zdjęcia i wideo z drona dla firm",
     galleryCategory: "dron",
+    // Pasek włączy się sam, gdy w public/images/galeria/wnetrza pojawią się pliki.
+    // Do tego czasu komponent zwraca null i podstrona wygląda jak dziś.
+    extraGallery: {
+      category: "wnetrza",
+      ctaLabel: "Zobacz wnętrza i hale",
+      href: "/uslugi/wnetrza-obiekty-architektura",
+    },
     videoId: "4INLtKcKcZk",
     videoTitle: "Film z eventu dla Woohoo z ujęciami z drona",
     videoNote: "Film z eventu dla Woohoo. Ujęcia z drona łączą się tu z materiałem z poziomu ziemi w jeden spójny film.",
@@ -457,11 +509,17 @@ const serviceCategoriesRaw: ServiceData[] = [
     h2Faq: "Fotografia obiektów: najczęstsze pytania",
     h1: "Fotografia wnętrz, obiektów i architektury",
     galleryCategory: "obiekty",
+    // Po wrzuceniu zdjęć wnętrz zamienić kolejność: wnętrza jako główny pasek,
+    // bryły z powietrza jako drugi. Dziś odwrotnie, żeby nie zostawiać pustej sekcji.
+    extraGallery: {
+      category: "wnetrza",
+      ctaLabel: "Zobacz wnętrza i hale",
+    },
     title: "Wnętrza, obiekty i architektura",
     subtitle:
       "Dokumentacja hal, budynków i wnętrz. Dwie perspektywy z jednego planu: z powietrza i z poziomu ziemi.",
     description:
-      "Hala, którą właśnie oddaliście, czyta się dopiero z góry. Z poziomu ziemi nie widać ani układu placu, ani skali, ani tego, jak obiekt siedzi w otoczeniu. Fotografuję obiekty w dwóch perspektywach z jednego dnia zdjęciowego: ujęcia lotnicze pokazują bryłę, dach i kontekst lokalizacji, kadry naziemne pokazują elewację, wjazd i detal wykonania. Do tego blok wnętrz, jeśli budynek ma je czym pokazać. Każde zdjęcie przechodzi retusz architektoniczny: korekta perspektywy, prostowanie linii, czyszczenie kadru. Pliki dostajecie w dwóch wersjach, do druku i pod stronę.",
+      "Hala, którą właśnie oddaliście, czyta się dopiero z góry. Z poziomu ziemi nie widać ani układu placu, ani skali, ani tego, jak obiekt siedzi w otoczeniu. Fotografuję obiekty w dwóch perspektywach z jednego dnia zdjęciowego: ujęcia lotnicze pokazują bryłę, dach i kontekst lokalizacji, kadry naziemne pokazują elewację, wjazd i detal wykonania. Do tego blok wnętrz, jeśli budynek ma je czym pokazać. Każde zdjęcie przechodzi retusz architektoniczny: korekta perspektywy, prostowanie linii, czyszczenie kadru. Pliki dostajecie w dwóch wersjach, do druku i pod stronę. Wnętrza, które fotografowałem dla steakhouse'u Yes Butcher! w Starych Koszarach, trafiły na profil restauracji w przewodniku Michelin.",
     forWhom: [
       "Generalni wykonawcy hal i obiektów przemysłowych",
       "Deweloperzy mieszkaniowi i komercyjni",
@@ -494,6 +552,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Mamy dwa takie same budynki. Płacę dwa razy?", a: "Nie. Drugi obiekt tego samego typu, fotografowany tego samego dnia, jest tańszy o 300 zł, bo profil korekcji perspektywy jest gotowy z pierwszego i postprodukcja idzie szybciej. Warunek to ten sam dzień zdjęciowy. Osobny wyjazd to pełna stawka plus dojazd." },
       { q: "Czy dron poleci nad naszą halą?", a: "W standardowych lokalizacjach tak, bez dopłat. W strefach kontrolowanych, na przykład w sąsiedztwie lotniska albo jednostki wojskowej, koordynację biorę na siebie i sprawdzam ją przed potwierdzeniem daty. Zgoda bywa terminowa, więc warto zgłosić się z wyprzedzeniem. Jeśli pogoda albo brak zgody uniemożliwi wylot, wracam raz w ramach ustalonej kwoty." },
       { q: "Kiedy najlepiej fotografować obiekt?", a: "Tuż przed odbiorem albo zaraz po nim. Elewacja jest wtedy czysta, plac jeszcze niezastawiony, a w środku nie ma jeszcze rzeczy najemcy. Przy budowie, którą chcecie dokumentować w czasie, umawiamy stały punkt i stałą porę, żeby ujęcia złożyły się w jedną sekwencję zamiast w zbiór przypadkowych zdjęć." },
+      { q: "Fotografujecie hale magazynowe i lokale użytkowe pod wynajem?", a: "Tak. Przy powierzchni pod wynajem sensowny komplet to bryła i plac manewrowy z powietrza, elewacja i wjazd z poziomu ziemi oraz wnętrze hali albo lokalu. Wszystko z jednego dnia zdjęciowego, bo materiał i tak trafia potem do jednej oferty. Pliki dostajecie w dwóch wersjach: do druku i pod ogłoszenie." },
       { q: "Czy fotografujecie też wnętrza biur i lokali?", a: "Tak, jako blok wnętrz do 10 ujęć w jednym obiekcie. Pracuję ze światłem zastanym, żeby wnętrze wyglądało jak w rzeczywistości, a nie jak wizualizacja. Blok wnętrz można dołożyć do sesji obiektu albo zamówić osobno." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro z sensorem 1 cala i matrycą 50 Mpix, certyfikat operatora A1/A3 i ubezpieczenie OC. Z poziomu ziemi Canon R6 na statywie, obiektywy szerokie do wnętrz i elewacji." },
     ],
@@ -553,12 +612,13 @@ const SERVICE_DISPLAY_ORDER: string[] = [
 // na stronie głównej i na /uslugi, z generateStaticParams (trasa zwraca 404)
 // i z sitemapy. Dane zostają nietknięte — powrót to usunięcie jednej linii.
 const DRAFT_SERVICE_SLUGS = new Set<string>([
-  // Linia obiektowa: zbudowana 31.07.2026, wyłączona tego samego dnia decyzją
-  // Marcina przed pierwszym deployem. Kotwica 900 zł, pakiety 900/1300/1900,
-  // uzasadnienie ceny w 01_Biznes/_System/02_Cenniki/brief_linia_obiektowa_2026-07-31.md.
-  // Po włączeniu sprawdź geometrię siatki: przy ośmiu usługach dwa dolne
-  // kafelki muszą mieć wide: true, inaczej w ostatnim rzędzie zostaje sierota.
-  "wnetrza-obiekty-architektura",
+  // Pusty od 04.08.2026. Linia obiektowa („Wnętrza, obiekty i architektura")
+  // była tu od 31.07.2026, wyłączona decyzją Marcina przed pierwszym deployem.
+  // Włączona z powrotem na jego prośbę 04.08.2026. Warunek z pierwotnej notatki
+  // sprawdzony przed włączeniem: przy ośmiu usługach dwa dolne kafelki mają
+  // wide: true (obiekty i pakiety), więc w ostatnim rzędzie nie ma sieroty.
+  // Kotwica 900 zł, pakiety 900/1300/1900, uzasadnienie ceny w
+  // 01_Biznes/_System/02_Cenniki/brief_linia_obiektowa_2026-07-31.md.
 ]);
 
 export function isServiceDraft(slug: string): boolean {

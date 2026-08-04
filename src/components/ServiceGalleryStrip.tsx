@@ -35,6 +35,11 @@ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string
     sub: "Budynki, osiedla i inwestycje w Poznaniu, fotografowane z powietrza.",
     alt: "Fotografia obiektu i architektury, Marcin Szabunia, Poznań",
   },
+  wnetrza: {
+    label: "Przykłady z galerii: wnętrza i hale",
+    sub: "Hale, lokale użytkowe i wnętrza obiektów, fotografowane ze światłem zastanym.",
+    alt: "Fotografia wnętrza obiektu, hala i lokal użytkowy, Marcin Szabunia, Poznań",
+  },
   zespolowe: {
     label: "Przykłady z sesji zespołowej",
     sub: "Ten sam standard światła i retuszu, trzy tła: białe, czarne z niebieskim światłem i kremowe. Realizacja dla IDcom Group.",
@@ -94,21 +99,35 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
   ],
 };
 
-export default function ServiceGalleryStrip({ category }: { category: GalleryCategoryKey }) {
+export default function ServiceGalleryStrip({
+  category,
+  ctaLabel: ctaLabelProp,
+  href: hrefProp,
+}: {
+  category: GalleryCategoryKey;
+  ctaLabel?: string;
+  href?: string;
+}) {
   const meta = META[category];
   // `obiekty` nie ma własnego folderu w public/images/galeria, bo korzysta z plików
   // kategorii `dron` (patrz CURATED). Link „zobacz więcej" musi prowadzić tam, gdzie
   // te zdjęcia faktycznie są, inaczej trafia na pustą filtrowaną galerię.
   const href =
-    category === "zespolowe"
+    hrefProp ??
+    (category === "zespolowe"
       ? "/portfolio/idcom-headshoty-zespolu"
-      : `/galeria?kat=${category === "obiekty" ? "dron" : category}`;
+      : `/galeria?kat=${category === "obiekty" ? "dron" : category}`);
+
+  // Kategoria `zespolowe` prowadzi do case study, nie do filtrowanej galerii,
+  // więc przycisk nie może obiecywać galerii.
+  const ctaLabel =
+    ctaLabelProp ?? (category === "zespolowe" ? "Zobacz całą realizację" : "Zobacz całą galerię");
 
   if (category === "wideo") {
     const vids = galleryVideos.slice(0, 4);
     if (vids.length === 0) return null;
     return (
-      <Shell label={meta.label} sub={meta.sub} href={href}>
+      <Shell label={meta.label} sub={meta.sub} href={href} ctaLabel={ctaLabel}>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
           {vids.map((v) => (
             <Link
@@ -142,7 +161,7 @@ export default function ServiceGalleryStrip({ category }: { category: GalleryCat
   if (images.length === 0) return null;
 
   return (
-    <Shell label={meta.label} sub={meta.sub} href={href}>
+    <Shell label={meta.label} sub={meta.sub} href={href} ctaLabel={ctaLabel}>
       <ServiceGalleryLightbox
         images={images}
         altBase={meta.alt}
@@ -168,36 +187,44 @@ function Shell({
   label,
   sub,
   href,
+  ctaLabel = "Zobacz całą galerię",
   children,
 }: {
   label: string;
   sub: string;
   href: string;
+  ctaLabel?: string;
   children: React.ReactNode;
 }) {
   return (
     <section className="py-12 md:py-16 px-4">
       <div className="max-w-5xl mx-auto">
         <AnimatedSection>
-          <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-6">
-            <div>
-              <h2 className="font-barlow font-extrabold text-2xl md:text-3xl tracking-tight text-navy dark:text-white">
-                {label}
-              </h2>
-              <p className="text-steel dark:text-dark-text-muted text-[14px] mt-1">{sub}</p>
-            </div>
+          <div className="mb-6">
+            <h2 className="font-barlow font-extrabold text-2xl md:text-3xl tracking-tight text-navy dark:text-white">
+              {label}
+            </h2>
+            <p className="text-steel dark:text-dark-text-muted text-[14px] mt-1">{sub}</p>
+          </div>
+        </AnimatedSection>
+        <AnimatedSection>{children}</AnimatedSection>
+        {/* Przycisk pod przykładami, a nie w nagłówku (decyzja Marcina, 03.08.2026):
+            po obejrzeniu kadrów, a nie przed. Wariant obrysowany, ten sam co
+            „Zapytaj o ofertę" w PortfolioVideoShowcase, żeby nie konkurował
+            z głównym CTA kontaktowym na tej samej podstronie. */}
+        <AnimatedSection>
+          <div className="mt-8 flex justify-center">
             <Link
               href={href}
-              className="shrink-0 inline-flex items-center gap-1.5 text-blue dark:text-blue-light font-barlow font-semibold text-sm hover:gap-2.5 transition-all"
+              className="inline-flex items-center gap-2 border border-border dark:border-dark-border text-navy dark:text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:border-blue hover:text-blue dark:hover:border-blue-light dark:hover:text-blue-light transition-colors"
             >
-              Zobacz całą galerię
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              {ctaLabel}
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
             </Link>
           </div>
         </AnimatedSection>
-        <AnimatedSection>{children}</AnimatedSection>
       </div>
     </section>
   );
