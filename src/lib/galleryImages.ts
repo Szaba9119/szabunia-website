@@ -17,6 +17,16 @@ export type GalleryCategoryKey =
   | "wideo-produktowe";
 
 /**
+ * NAZEWNICTWO PLIKÓW: `kategoria-NN-krotki-opis.jpg`, nie samo `kategoria-NN.jpg`.
+ *
+ * Powód z 04.08.2026, kosztował jeden realny błąd na produkcji. Galeria produktowa
+ * była przenumerowana trzy razy w ciągu godziny i za każdym razem ten sam adres
+ * (np. `produkt-13.jpg`) zaczynał pokazywać inne zdjęcie: najpierw Amarulę, potem
+ * budkę, potem koszulkę. Przeglądarka i optymalizator obrazów Vercela cache'ują
+ * po ADRESIE, więc w miejscu koszulki wyświetlała się Amarula ze starego cache'u.
+ * Nazwa z opisem sprawia, że zmiana kolejności tworzy NOWY adres, a stary znika,
+ * zamiast po cichu zacząć znaczyć co innego. Folder `dron` ma tę konwencję od dawna.
+ *
  * Listuje zdjęcia z public/images/galeria/<folder> w kolejności alfabetycznej nazw plików.
  * Pliki są nazwane wg docelowej kolejności (portret-01, portret-02, …), więc sort = kolejność wyświetlania.
  * Tylko serwer (fs) — nie importować w komponentach klienckich.
