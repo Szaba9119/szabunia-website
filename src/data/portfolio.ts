@@ -176,7 +176,17 @@ export const portfolioCategories: PortfolioCategory[] = [
       "Montaż i postprodukcja",
     ],
     thumbnail: "/images/portfolio/box17/box17.jpg",
-    gallery: [],
+    gallery: [
+      { src: "/images/portfolio/box17/box17-01.jpg", alt: "Budka akustyczna Box XL na cykloramie, spotkanie zespołu w środku (Box17)" },
+      { src: "/images/portfolio/box17/box17-02.jpg", alt: "Wnętrze budki akustycznej Box XL: stół, krzesła i ekran do wideokonferencji" },
+      { src: "/images/portfolio/box17/box17-03.jpg", alt: "Budka akustyczna ustawiona w biurze, stanowisko do pracy w skupieniu (Box17)" },
+      { src: "/images/portfolio/box17/box17-04.jpg", alt: "Jednoosobowa budka akustyczna Box 1, packshot na białym tle" },
+      { src: "/images/portfolio/box17/box17-05.jpg", alt: "Budka akustyczna w przestrzeni biurowej, rozmowa telefoniczna bez hałasu" },
+      { src: "/images/portfolio/box17/box17-06.jpg", alt: "Budka akustyczna jednoosobowa w użyciu, zdjęcie produktowe z modelem" },
+      { src: "/images/portfolio/box17/box17-07.jpg", alt: "Wnętrze budki akustycznej: wykończenie ścian i wykładzina podłogowa" },
+      { src: "/images/portfolio/box17/box17-08.jpg", alt: "Detal sufitu budki akustycznej: oświetlenie liniowe i wentylacja" },
+      { src: "/images/portfolio/box17/box17-09.jpg", alt: "Detal blatu i gniazd elektrycznych w budce akustycznej Box17" },
+    ],
     gallerySubtitle:
       "Wybrane kadry z sesji dla Box17: budki akustyczne na cykloramie i w showroomie, ujęcia całości i detali.",
     process: [],

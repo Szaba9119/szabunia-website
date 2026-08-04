@@ -100,12 +100,22 @@ export default async function GaleriaPage({
       label: "Wnętrza i hale",
       folder: "wnetrza",
       alt: "Fotografia wnętrz i hal, Marcin Szabunia, Poznań",
+      // Dwanaście wariantów pod dwanaście konkretnych kadrów w folderze
+      // (kolejność plików = kolejność tej listy), żeby opis alternatywny
+      // opisywał to, co naprawdę jest na zdjęciu, a nie rotował losowo.
       altVariants: [
-        "Wnętrze hali magazynowej, fotografia obiektu, Poznań",
-        "Lokal użytkowy pod wynajem, zdjęcia wnętrza, Poznań",
-        "Wnętrze biura, fotografia wnętrz komercyjnych, Poznań",
-        "Część wspólna budynku, fotografia architektury wnętrz",
-        "Detal wykończenia wnętrza, fotografia obiektu",
+        "Wnętrze hali magazynowej, regały i ciąg komunikacyjny, Poznań",
+        "Wnętrze lokalu gastronomicznego, sala restauracyjna, Poznań",
+        "Hala magazynowa, regały wysokiego składowania, fotografia obiektu",
+        "Wnętrze lokalu użytkowego, część barowa, Poznań",
+        "Hala logistyczna, stanowiska pracy i strefa kompletacji",
+        "Lada chłodnicza w lokalu gastronomicznym, fotografia wnętrza",
+        "Wnętrze magazynu, alejka między regałami, skala obiektu",
+        "Lokal użytkowy od strony ulicy, elewacja i witryna, Poznań",
+        "Wnętrze restauracji, bar i sala, fotografia lokalu",
+        "Wjazd do centrum logistycznego, brama i strefa dostaw",
+        "Elewacja lokalu gastronomicznego w budynku z cegły, Poznań",
+        "Sala lokalu użytkowego w świetle dziennym, fotografia wnętrza",
       ],
     },
     {

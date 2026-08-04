@@ -516,12 +516,15 @@ const serviceCategoriesRaw: ServiceData[] = [
     h2Process: "Jak wygląda sesja obiektu",
     h2Faq: "Fotografia obiektów: najczęstsze pytania",
     h1: "Fotografia wnętrz, obiektów i architektury",
-    galleryCategory: "obiekty",
-    // Po wrzuceniu zdjęć wnętrz zamienić kolejność: wnętrza jako główny pasek,
-    // bryły z powietrza jako drugi. Dziś odwrotnie, żeby nie zostawiać pustej sekcji.
+    // Zamienione 04.08.2026, gdy do public/images/galeria/wnetrza trafiło 12 kadrów
+    // (magazyn H&M/Sellpy, lokal Yes Butcher, lokal Domu). Wcześniej odwrotnie:
+    // główny pasek pokazywał bryły z powietrza, bo wnętrz w serwisie nie było wcale,
+    // a podstrona o wnętrzach pokazywała sześć budynków z lotu ptaka.
+    galleryCategory: "wnetrza",
     extraGallery: {
-      category: "wnetrza",
-      ctaLabel: "Zobacz wnętrza i hale",
+      category: "obiekty",
+      ctaLabel: "Zobacz ujęcia z drona",
+      href: "/uslugi/zdjecia-wideo-z-drona",
     },
     // Artech Group: jedyny materiał w portfolio nakręcony WEWNĄTRZ zakładu
     // produkcyjnego, a nie z powietrza. Do czasu wrzucenia zdjęć wnętrz jest to

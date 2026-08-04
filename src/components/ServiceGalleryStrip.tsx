@@ -1,6 +1,7 @@
 import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
 import ServiceGalleryLightbox from "./ServiceGalleryLightbox";
+import ServiceVideoGrid from "./ServiceVideoGrid";
 import { listGalleryImages, type GalleryCategoryKey } from "@/lib/galleryImages";
 import { galleryVideos } from "@/data/galeria";
 
@@ -112,6 +113,16 @@ const VIDEO_CATEGORIES: GalleryCategoryKey[] = ["wideo", "wideo-produktowe"];
 // Bez tej listy pasek brał pierwsze cztery pozycje z galleryVideos, czyli
 // film z eventu i film z hali produkcyjnej.
 const CURATED_VIDEOS: Partial<Record<GalleryCategoryKey, string[]>> = {
+  // Podstrona „Wideo dla firm”. Wcześniej pasek brał pierwsze cztery pozycje
+  // z galleryVideos, przez co na stronie o filmach korporacyjnych stała
+  // zapowiedź imprezy w Klubie 58. Zestaw ułożony pod to, co ta podstrona
+  // sprzedaje: event firmowy, film o zakładzie, reklama produktu, krótka forma.
+  wideo: [
+    "m42ywMWjthw", // Film eventowy dla Woohoo
+    "hLO5iInREaI", // Film z produkcji dla Artech Group
+    "CmHUCptLu90", // Reklama kamerki samochodowej 70mai
+    "xByfmDzNPMI", // Reels dla śniadaniowni Sunday
+  ],
   "wideo-produktowe": [
     "fRoffxZ1tVM", // Reels dla Pizzerii Sicilia Marco Giuliano
     "xByfmDzNPMI", // Reels dla śniadaniowni Sunday
@@ -170,31 +181,14 @@ export default function ServiceGalleryStrip({
     if (vids.length === 0) return null;
     return (
       <Shell label={meta.label} sub={subProp ?? meta.sub} href={href} ctaLabel={ctaLabel}>
-        <div className={vids.length === 3 ? "grid grid-cols-1 sm:grid-cols-3 gap-2.5" : "grid grid-cols-2 sm:grid-cols-4 gap-2.5"}>
-          {vids.map((v) => (
-            <Link
-              key={v.youtubeId}
-              href={href}
-              aria-label={`Wideo: ${v.title}`}
-              className="group relative aspect-square rounded-xl overflow-hidden bg-navy"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={`https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`}
-                alt={v.title}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
-              <span className="absolute inset-0 flex items-center justify-center">
-                <span className="w-10 h-10 rounded-full bg-white/15 backdrop-blur-sm border border-white/40 flex items-center justify-center text-white group-hover:bg-blue group-hover:border-blue transition-colors">
-                  <svg className="w-4 h-4 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </span>
-              </span>
-            </Link>
-          ))}
-        </div>
+        <ServiceVideoGrid
+          videos={vids.map((v) => ({ youtubeId: v.youtubeId, title: v.title, vertical: v.vertical }))}
+          gridClass={
+            vids.length === 3
+              ? "grid grid-cols-1 sm:grid-cols-3 gap-2.5"
+              : "grid grid-cols-2 sm:grid-cols-4 gap-2.5"
+          }
+        />
       </Shell>
     );
   }
@@ -210,7 +204,7 @@ export default function ServiceGalleryStrip({
         aspectClass={
           category === "portrety" || category === "zespolowe"
             ? "aspect-[3/4]"
-            : category === "eventy" || category === "dron" || category === "obiekty"
+            : category === "eventy" || category === "dron" || category === "obiekty" || category === "wnetrza"
             ? "aspect-[4/3]"
             : "aspect-square"
         }
