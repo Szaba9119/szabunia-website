@@ -1,0 +1,20 @@
+refactor(cennik): PORTRET START zamiast PORTRET JEDNO UJECIE, lzejsza kotwica
+
+Poprawka do e2a0cd3, wg uwag Marcina z 04.08.2026.
+
+1. Kotwica podaje sama kwote: "od 700 zl netto", bez dopisku "za jedno ujecie".
+   Prosba wprost: nie kotwiczyc klienta stosem liczb w pierwszym zdaniu.
+2. Tam gdzie trzeba doprecyzowac, jest "za pierwsze zdjecie", nie "za jedno".
+   Powod merytoryczny: doplata za kazde kolejne jest inna (200 zl), wiec slowo
+   "jedno" sugerowalo cene jednostkowa, ktorej nie ma.
+3. FAQ cenowe przepisane: 700 zl i 120 zl za osobe zostaja w pierwszym zdaniu,
+   kwoty pakietow schodza do rozwiniecia i sa opisane slowami (wiecej czasu,
+   wiecej stylizacji, wiekszy wybor kadrow), nie kolejna liczba.
+4. Nazwa produktu PORTRET JEDNO UJECIE -> PORTRET START. Poprzednia mowila
+   doslownie to, czego kotwica miala nie mowic.
+
+Powierzchnie: services.tsx (heroPriceLabel, priceFaqSuffix, FAQ o cenniku,
+FAQ o czasie trwania), faq.ts, llms.txt, blog.ts (2 odpowiedzi FAQ + description).
+Kanon zaktualizowany rownolegle: cennik_2026_07_v3.md (PORTRET START, od 700 zl),
+kalkulator_zlecenia.md, cennik_B2C_2026.md, BRIEF-REPO-PROG-700.
+Kontroler spojnosci: kod 0. lint PASS, tsc PASS.

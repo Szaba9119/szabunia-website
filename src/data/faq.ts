@@ -13,7 +13,7 @@ export interface HomeFaqItem {
 export const homeFaqs: HomeFaqItem[] = [
   {
     q: "Ile kosztuje sesja?",
-    a: "Portrety zaczynają się od 700 zł netto za jedno ujęcie w studiu, pakiet z pięcioma zdjęciami to 1 100 zł, a sesja zespołowa 120 zł netto za osobę: przy grupie płacisz za liczbę osób, a nie za długość jednej sesji. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24h. Cena zależy od liczby osób, lokalizacji i zakresu postprodukcji. Zawsze wyceniam indywidualnie, żeby nie przepłacać za to, czego nie potrzebujesz.",
+    a: "Portrety zaczynają się od 700 zł netto za pierwsze zdjęcie, a sesja zespołowa od 120 zł netto za osobę: przy grupie płacisz za liczbę osób, a nie za długość jednej sesji. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24h. Cena zależy od liczby osób, lokalizacji i zakresu postprodukcji. Zawsze wyceniam indywidualnie, żeby nie przepłacać za to, czego nie potrzebujesz.",
   },
   {
     q: "Jak szybko otrzymam gotowe materiały?",
