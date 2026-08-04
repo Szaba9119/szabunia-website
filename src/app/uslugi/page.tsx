@@ -101,7 +101,7 @@ export default function UslugiPage() {
                     </p>
                     <div className="flex items-center justify-between pt-3 border-t border-border dark:border-dark-border">
                       <span className="text-blue dark:text-blue-light text-[12px] font-barlow font-semibold">
-                        {s.price}
+                        {s.heroPriceLabel ?? s.price}
                       </span>
                       <span className="text-blue dark:text-blue-light text-[12px] font-barlow font-semibold group-hover:translate-x-0.5 transition-transform">
                         Zobacz szczegóły →

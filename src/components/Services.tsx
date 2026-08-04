@@ -101,7 +101,7 @@ export default function Services() {
                         {s.desc}
                       </p>
                       <p className="text-blue dark:text-blue-light text-[12px] font-barlow font-semibold">
-                        {s.price}
+                        {s.priceLabel}
                       </p>
                     </div>
                   </Link>

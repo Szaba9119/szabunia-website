@@ -36,9 +36,16 @@ export interface ServiceData {
   /** object-position dla heroImage, dobrane per kadr. Domyślnie "center". */
   heroImagePos?: string;
   price: string;
-  /** Etykieta ceny TYLKO do nagłówka hero (np. "pakiety od 1 000 zł").
+  /** Etykieta ceny do nagłówka hero ORAZ do kafelka w Usługach i na stronie głównej.
       NIE zmienia `price`, którego używa FAQ (priceFaqIntro + price) i JSON-LD Offer.
-      Domyślnie (gdy brak) hero pokazuje `price`. Prośba Marcina 2026-07-23. */
+      Domyślnie (gdy brak) oba miejsca pokazują `price`. Prośba Marcina 2026-07-23,
+      rozszerzone na kafelki 04.08.2026.
+
+      Powód rozszerzenia: na siatce usług stały obok siebie „od 120 zł netto/os."
+      (sesje zespołowe) i „od 1 100 zł netto" (portrety). Dziesięciokrotna różnica
+      przy dwóch usługach, które z kafelka wyglądają tak samo, czytała się jak błąd.
+      Etykieta pozwala dopisać JEDNOSTKĘ, nie zmieniając kwoty: „za osobę" kontra
+      „pakiety". Kwot nie ruszamy, są w kanonie (`01_Biznes/_System/02_Cenniki`). */
   heroPriceLabel?: string;
   process: ProcessStep[];
   /** 2-3 zdania: co wpływa na wycenę tej usługi. Bez kwot (źródło pytania cenowego w FAQ, brief-22 zad. 4). */
@@ -124,7 +131,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       category: "portrety",
       ctaLabel: "Zobacz sesje zespołowe",
       href: "/uslugi/sesje-zespolowe",
-      sub: "Planujesz event firmowy? To zwykle jedyny dzień, kiedy cała firma jest w jednym miejscu. Przy okazji wydarzenia robię headshoty i portrety całemu zespołowi, bez osobnego terminu i osobnego dojazdu.",
+      sub: "Planujesz event firmowy? To zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu. Przy okazji wydarzenia mogę zrobić sesję portretową dla całego zespołu: przywożę mobilne studio, a jedna osoba to 10 do 15 minut między prelekcjami.",
     },
     videoId: "m42ywMWjthw",
     videoTitle: "Film z eventu firmowego dla Woohoo",
@@ -199,6 +206,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ),
     heroImage: "/images/portfolio/sesje-zespolowe-cover.jpg",
     price: "od 120 zł netto/os.",
+    heroPriceLabel: "od 120 zł netto za osobę",
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram i liczbę osób" },
       { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio w biurze (20 min)" },
@@ -309,7 +317,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     heroImage: "/images/galeria/portrety/portret-05.jpg",
     heroImagePos: "center 20%",
     price: "od 1 100 zł netto",
-    heroPriceLabel: "pakiety od 1 100 zł",
+    heroPriceLabel: "pakiety od 1 100 zł netto",
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
       { num: 2, title: "Poseboard", desc: "Przygotowuję poseboard z referencjami" },
@@ -568,7 +576,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     // Przy przenumerowaniu folderu sprawdź tę ścieżkę, bo się rozjedzie po cichu.
     heroImage: "/images/galeria/wnetrza/wnetrze-03.jpg",
     price: "od 900 zł netto",
-    heroPriceLabel: "pakiety od 900 zł",
+    heroPriceLabel: "pakiety od 900 zł netto",
     wide: true,
     process: [
       { num: 1, title: "Ustalenia", desc: "Co ma być widać: bryła, elewacja, wnętrza, kontekst lokalizacji" },
@@ -732,6 +740,10 @@ export const serviceItems = serviceCategories.map((s) => ({
   icon: s.icon,
   desc: s.subtitle,
   price: s.price,
+  /** Etykieta na kafelku: `heroPriceLabel`, gdy usługa go ma, inaczej `price`.
+      Dzięki temu kafelek może powiedzieć „za osobę" albo „pakiety", a kwota
+      i tak pochodzi z jednego miejsca. */
+  priceLabel: s.heroPriceLabel ?? s.price,
   wide: s.wide === true,
   image: SERVICE_TILE_IMAGES[s.slug],
   imagePos: SERVICE_TILE_POS[s.slug] ?? "center",
