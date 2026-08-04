@@ -489,8 +489,10 @@ const serviceCategoriesRaw: ServiceData[] = [
     ),
     // Cennik dronowy v3 (2026-07-29): samodzielna linia usług od 700 zł (przebitki 4K).
     // Sprzedajemy deliverable, nie czas lotu — bez „1h lotu w cenie".
-    heroImage: "/images/galeria/dron/dron-05-panorama-poznania-zachod-slonca.jpg",
-    heroImagePos: "65% center",
+    // Jeden biurowiec w zieleni zamiast panoramy całego miasta (Marcin, 04.08.2026).
+    // Panorama pokazywała miasto, a nie obiekt klienta, więc nie mówiła nic o tym,
+    // co ta usługa robi dla firmy. Ten sam kadr jest na kafelku w Usługach.
+    heroImage: "/images/galeria/dron/dron-04-biurowiec-poznan.jpg",
     price: "od 700 zł netto",
     process: [
       { num: 1, title: "Brief i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
@@ -704,7 +706,7 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
   // Wróciła 04.08.2026 po krótkiej podmianie na piątkę z eventu: Marcin uznał,
   // że na kafelku lepiej działa Autopay, a piątka ma stać w hero podstrony.
   "wideo-marketing": "/images/portfolio/woohoo-ecommerce-4x3.jpg",
-  "zdjecia-wideo-z-drona": "/images/galeria/dron/dron-05-panorama-poznania-zachod-slonca.jpg",
+  "zdjecia-wideo-z-drona": "/images/galeria/dron/dron-04-biurowiec-poznan.jpg",
   // Kafelek linii obiektowej na stronie głównej i na /uslugi. Wcześniej inwestycja
   // z drona, czyli zielone pole z lotu ptaka: nie mówiła nic o halach ani o wnętrzach
   // i powielała kafelek dronowy obok. Teraz ta sama jasna hala, co okładka podstrony,
