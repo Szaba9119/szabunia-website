@@ -103,17 +103,20 @@ export default async function GaleriaPage({
       // Dwanaście wariantów pod dwanaście konkretnych kadrów w folderze
       // (kolejność plików = kolejność tej listy), żeby opis alternatywny
       // opisywał to, co naprawdę jest na zdjęciu, a nie rotował losowo.
+      // Kolejność ustawiona przez Marcina 04.08.2026 pod siatkę /galeria, która ma
+      // trzy kolumny i układa zdjęcia rzędami: rząd 1 to hale, rząd 2 obiekt
+      // z zewnątrz i strefy wspólne, rząd 3 lokale gastronomiczne.
       altVariants: [
         "Wnętrze hali magazynowej, regały i ciąg komunikacyjny, Poznań",
-        "Wnętrze lokalu gastronomicznego, sala restauracyjna, Poznań",
-        "Hala magazynowa od środka, bramki i otwarta powierzchnia składowania",
-        "Wnętrze lokalu użytkowego, część barowa, Poznań",
         "Hala logistyczna, stanowiska pracy i strefa kompletacji",
-        "Wnętrze restauracji, bar i sala, fotografia lokalu",
-        "Strefa wspólna w budynku biurowym, sala do ćwiczeń dla najemców",
-        "Sala lokalu użytkowego w świetle dziennym, fotografia wnętrza",
+        "Hala magazynowa od środka, bramki i otwarta powierzchnia składowania",
         "Elewacja budynku biurowego o zmierzchu, fotografia architektury",
+        "Siłownia w biurze, strefa dla pracowników w budynku biurowym",
         "Wnętrze kabiny akustycznej w biurze, wykończenie i oświetlenie",
+        "Wnętrze lokalu gastronomicznego, sala restauracyjna, Poznań",
+        "Wnętrze restauracji, bar i sala, fotografia lokalu",
+        "Sala lokalu użytkowego w świetle dziennym, fotografia wnętrza",
+        "Hala magazynowa, alejka między regałami wysokiego składowania",
       ],
     },
     {

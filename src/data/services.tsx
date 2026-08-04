@@ -451,13 +451,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     h2Faq: "Zdjęcia z drona: najczęstsze pytania",
     h1: "Zdjęcia i wideo z drona dla firm",
     galleryCategory: "dron",
-    // Pasek włączy się sam, gdy w public/images/galeria/wnetrza pojawią się pliki.
-    // Do tego czasu komponent zwraca null i podstrona wygląda jak dziś.
-    extraGallery: {
-      category: "wnetrza",
-      ctaLabel: "Zobacz wnętrza i hale",
-      href: "/uslugi/wnetrza-obiekty-architektura",
-    },
+    // Bez drugiego paska. Pasek „wnętrza i hale" stał tu od 04.08.2026 i zniknął
+    // tego samego dnia na prośbę Marcina: „na zdjęciach z drona nie wyglądają dobrze
+    // te wnętrza i hale, można to usunąć stamtąd". Kadry z wnętrz obok ujęć
+    // z powietrza czytały się jak z innej strony. Spięcie z linią obiektową zostaje
+    // w drugą stronę: to podstrona obiektowa linkuje tutaj przyciskiem pod kadrami.
     videoId: "4INLtKcKcZk",
     videoTitle: "Film z eventu dla Woohoo z ujęciami z drona",
     videoNote: "Film z eventu dla Woohoo. Ujęcia z drona łączą się tu z materiałem z poziomu ziemi w jeden spójny film.",
@@ -553,6 +551,9 @@ const serviceCategoriesRaw: ServiceData[] = [
     ),
     // Okładka: jasna hala magazynowa z bramkami (wybór Marcina, 04.08.2026).
     // Wcześniej biurowiec z drona, czyli ta sama historia co pasek obiektowy niżej.
+    // UWAGA: ten sam plik stoi trzeci w galerii wnętrz (układ ustawiony przez
+    // Marcina 04.08.2026: rząd 1 hale, rząd 2 obiekt i strefy wspólne, rząd 3 lokale).
+    // Przy przenumerowaniu folderu sprawdź tę ścieżkę, bo się rozjedzie po cichu.
     heroImage: "/images/galeria/wnetrza/wnetrze-03.jpg",
     price: "od 900 zł netto",
     heroPriceLabel: "pakiety od 900 zł",
@@ -688,7 +689,11 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
   // widoczny, bez ucinania i bez pustych marginesów (oryginał 16:9).
   "wideo-marketing": "/images/portfolio/woohoo-ecommerce-4x3.jpg",
   "zdjecia-wideo-z-drona": "/images/galeria/dron/dron-05-panorama-poznania-zachod-slonca.jpg",
-  "wnetrza-obiekty-architektura": "/images/galeria/dron/dron-08-inwestycja-tereny-zielone-poznan.jpg",
+  // Kafelek linii obiektowej na stronie głównej i na /uslugi. Wcześniej inwestycja
+  // z drona, czyli zielone pole z lotu ptaka: nie mówiła nic o halach ani o wnętrzach
+  // i powielała kafelek dronowy obok. Teraz ta sama jasna hala, co okładka podstrony,
+  // żeby cała linia miała jeden obraz (Marcin, 04.08.2026).
+  "wnetrza-obiekty-architektura": "/images/galeria/wnetrza/wnetrze-03.jpg",
 };
 
 // Punkt kadrowania miniatury (object-position). Wizerunek kadrujemy nieco wyżej
