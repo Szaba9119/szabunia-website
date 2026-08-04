@@ -119,9 +119,16 @@ export default function ServiceGalleryStrip({
       : `/galeria?kat=${category === "obiekty" ? "dron" : category}`);
 
   // Kategoria `zespolowe` prowadzi do case study, nie do filtrowanej galerii,
-  // więc przycisk nie może obiecywać galerii.
+  // więc przycisk nie może obiecywać galerii. `obiekty` prowadzi do zakładki
+  // „Zdjęcia z drona" (patrz `href` wyżej), więc też nie może mówić „cała galeria" —
+  // klient kliknąłby po wnętrza, a trafiłby na ujęcia lotnicze.
   const ctaLabel =
-    ctaLabelProp ?? (category === "zespolowe" ? "Zobacz całą realizację" : "Zobacz całą galerię");
+    ctaLabelProp ??
+    (category === "zespolowe"
+      ? "Zobacz całą realizację"
+      : category === "obiekty"
+      ? "Zobacz obiekty z powietrza"
+      : "Zobacz całą galerię");
 
   if (category === "wideo") {
     const vids = galleryVideos.slice(0, 4);

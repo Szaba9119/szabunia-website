@@ -519,7 +519,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Dokumentacja hal, budynków i wnętrz. Dwie perspektywy z jednego planu: z powietrza i z poziomu ziemi.",
     description:
-      "Hala, którą właśnie oddaliście, czyta się dopiero z góry. Z poziomu ziemi nie widać ani układu placu, ani skali, ani tego, jak obiekt siedzi w otoczeniu. Fotografuję obiekty w dwóch perspektywach z jednego dnia zdjęciowego: ujęcia lotnicze pokazują bryłę, dach i kontekst lokalizacji, kadry naziemne pokazują elewację, wjazd i detal wykonania. Do tego blok wnętrz, jeśli budynek ma je czym pokazać. Każde zdjęcie przechodzi retusz architektoniczny: korekta perspektywy, prostowanie linii, czyszczenie kadru. Pliki dostajecie w dwóch wersjach, do druku i pod stronę. Wnętrza, które fotografowałem dla steakhouse'u Yes Butcher! w Starych Koszarach, trafiły na profil restauracji w przewodniku Michelin.",
+      "Hala, którą właśnie oddaliście, czyta się dopiero z góry. Z poziomu ziemi nie widać ani układu placu, ani skali, ani tego, jak obiekt siedzi w otoczeniu. Fotografuję obiekty w dwóch perspektywach z jednego dnia zdjęciowego: ujęcia lotnicze pokazują bryłę, dach i kontekst lokalizacji, kadry naziemne pokazują elewację, wjazd i detal wykonania. Do tego blok wnętrz, jeśli w środku jest co pokazywać. Każde zdjęcie przechodzi retusz architektoniczny: korekta perspektywy, prostowanie linii, czyszczenie kadru. Pliki dostajecie w dwóch wersjach, do druku i pod stronę. Wnętrza, które fotografowałem dla steakhouse'u Yes Butcher! w Starych Koszarach, trafiły na profil restauracji w przewodniku Michelin.",
     forWhom: [
       "Generalni wykonawcy hal i obiektów przemysłowych",
       "Deweloperzy mieszkaniowi i komercyjni",
@@ -554,7 +554,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Kiedy najlepiej fotografować obiekt?", a: "Tuż przed odbiorem albo zaraz po nim. Elewacja jest wtedy czysta, plac jeszcze niezastawiony, a w środku nie ma jeszcze rzeczy najemcy. Przy budowie, którą chcecie dokumentować w czasie, umawiamy stały punkt i stałą porę, żeby ujęcia złożyły się w jedną sekwencję zamiast w zbiór przypadkowych zdjęć." },
       { q: "Fotografujecie hale magazynowe i lokale użytkowe pod wynajem?", a: "Tak. Przy powierzchni pod wynajem sensowny komplet to bryła i plac manewrowy z powietrza, elewacja i wjazd z poziomu ziemi oraz wnętrze hali albo lokalu. Wszystko z jednego dnia zdjęciowego, bo materiał i tak trafia potem do jednej oferty. Pliki dostajecie w dwóch wersjach: do druku i pod ogłoszenie." },
       { q: "Czy fotografujecie też wnętrza biur i lokali?", a: "Tak, jako blok wnętrz do 10 ujęć w jednym obiekcie. Pracuję ze światłem zastanym, żeby wnętrze wyglądało jak w rzeczywistości, a nie jak wizualizacja. Blok wnętrz można dołożyć do sesji obiektu albo zamówić osobno." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro z sensorem 1 cala i matrycą 50 Mpix, certyfikat operatora A1/A3 i ubezpieczenie OC. Z poziomu ziemi Canon R6 na statywie, obiektywy szerokie do wnętrz i elewacji." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro z calową matrycą 50 Mpix, certyfikat operatora A1/A3 i ubezpieczenie OC. Z poziomu ziemi Canon R6 na statywie, obiektywy szerokie do wnętrz i elewacji." },
     ],
     seo: {
       title: "Fotografia hal, obiektów i wnętrz, Poznań | Szabunia",
