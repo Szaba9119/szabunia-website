@@ -56,7 +56,10 @@ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string
 // Wyselekcjonowane najlepsze 6 kadrów per kategoria (zamiast pierwszych z
 // brzegu). Dobrane pod B2B: różnorodność i jakość. Reszta kategorii → fallback.
 const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
-  portrety: ["portret-12", "portret-03", "portret-07", "portret-11", "portret-05", "portret-08"].map(
+  // portret-07 wypadł 04.08.2026: to ta sama osoba w tej samej marynarce co
+  // `_F2A9376-Edit-2` z sesji IDcom, więc na podstronie sesji zespołowych ta sama
+  // twarz wychodziła dwa razy, raz w każdym pasku (zgłoszone przez Marcina).
+  portrety: ["portret-12", "portret-03", "portret-10", "portret-11", "portret-05", "portret-08"].map(
     (n) => `/images/galeria/portrety/${n}.jpg`
   ),
   eventy: ["event-04", "event-05", "event-15", "event-14", "event-09", "event-17"].map(
@@ -180,7 +183,7 @@ export default function ServiceGalleryStrip({
       : galleryVideos.slice(0, 4);
     if (vids.length === 0) return null;
     return (
-      <Shell label={meta.label} sub={subProp ?? meta.sub} href={href} ctaLabel={ctaLabel}>
+      <Shell label={meta.label} sub={subProp ?? meta.sub} href={href} ctaLabel={ctaLabel} prominentSub={!!subProp}>
         <ServiceVideoGrid
           videos={vids.map((v) => ({ youtubeId: v.youtubeId, title: v.title, vertical: v.vertical }))}
           gridClass={
@@ -197,7 +200,7 @@ export default function ServiceGalleryStrip({
   if (images.length === 0) return null;
 
   return (
-    <Shell label={meta.label} sub={subProp ?? meta.sub} href={href} ctaLabel={ctaLabel}>
+    <Shell label={meta.label} sub={subProp ?? meta.sub} href={href} ctaLabel={ctaLabel} prominentSub={!!subProp}>
       <ServiceGalleryLightbox
         images={images}
         altBase={meta.alt}
@@ -224,12 +227,15 @@ function Shell({
   sub,
   href,
   ctaLabel = "Zobacz całą galerię",
+  prominentSub = false,
   children,
 }: {
   label: string;
   sub: string;
   href: string;
   ctaLabel?: string;
+  /** Podtytuł pochodzi z podstrony, nie z META — renderuj go jak zdanie, nie jak podpis. */
+  prominentSub?: boolean;
   children: React.ReactNode;
 }) {
   return (
@@ -240,7 +246,16 @@ function Shell({
             <h2 className="font-barlow font-extrabold text-2xl md:text-3xl tracking-tight text-navy dark:text-white">
               {label}
             </h2>
-            <p className="text-steel dark:text-dark-text-muted text-[14px] mt-1">{sub}</p>
+            {/* Podtytuł nadpisany z podstrony niesie argument sprzedażowy, a nie opis
+                kategorii, więc dostaje wagę zdania, nie szarej linijki pod nagłówkiem
+                (Marcin 04.08.2026: „chciałbym, żeby to zdanie bardziej wybrzmiało"). */}
+            {prominentSub ? (
+              <p className="text-navy dark:text-white text-[16px] md:text-[17px] leading-relaxed mt-3 max-w-2xl">
+                {sub}
+              </p>
+            ) : (
+              <p className="text-steel dark:text-dark-text-muted text-[14px] mt-1">{sub}</p>
+            )}
           </div>
         </AnimatedSection>
         <AnimatedSection>{children}</AnimatedSection>

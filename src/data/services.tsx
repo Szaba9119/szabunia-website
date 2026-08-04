@@ -115,7 +115,9 @@ const serviceCategoriesRaw: ServiceData[] = [
     h1: "Obsługa eventów firmowych w Poznaniu",
     galleryCategory: "eventy",
     extraGallery: {
-      category: "zespolowe",
+      // Portrety zamiast kadrów z sesji IDcom (Marcin, 04.08.2026). Sekcja renderuje
+      // się POD przykładową realizacją wideo, patrz kolejność w uslugi/[slug]/page.tsx.
+      category: "portrety",
       ctaLabel: "Zobacz sesje zespołowe",
       href: "/uslugi/sesje-zespolowe",
       sub: "Planujesz event firmowy? To zwykle jedyny dzień, kiedy cała firma jest w jednym miejscu. Przy okazji wydarzenia robię headshoty i portrety całemu zespołowi, bez osobnego terminu i osobnego dojazdu.",
@@ -342,11 +344,8 @@ const serviceCategoriesRaw: ServiceData[] = [
     h1: "Wideo dla firm i filmy korporacyjne",
     portfolioSlug: "woohoo-autopay",
     galleryCategory: "wideo",
-    extraGallery: {
-      category: "produktowe",
-      ctaLabel: "Zobacz fotografię produktową",
-      href: "/uslugi/fotografia-produktowa",
-    },
+    // Bez drugiego paska. Pasek „Przykłady z galerii: produktowe" zniknął 04.08.2026
+    // na prośbę Marcina. Podstrona ma pokazywać wideo, a nie zdjęcia produktów.
     videoId: "4INLtKcKcZk",
     videoTitle: "E-commerce All-in dla Woohoo: film z wydarzenia ICEA i Autopay",
     videoNote: "Komplet materiału wideo z jednego dnia: film podsumowujący, trzy pionowe reelsy z wywiadami i ujęcia z drona wewnątrz stadionu.",
@@ -622,12 +621,16 @@ const serviceCategoriesRaw: ServiceData[] = [
 // na drona (Marcin, 30.07). Plakietka „Bestseller" jest prawdziwa dla pakietów
 // hybrydowych (cennik v3 §2), a nie dla drona, i wypromowałoby to wizualnie usługę
 // z ostatniego miejsca listy.
+// Kolejność ustawiona przez Marcina 04.08.2026. Wcześniej portrety stały na trzecim
+// miejscu, przed wideo i produktową. GEOMETRIA BEZ ZMIAN: dwie usługi z `wide: true`
+// (obiekty i pakiety) nadal zamykają listę na miejscach 7 i 8, więc sześć wąskich
+// kafelków daje dwa pełne rzędy, a dwa szerokie domykają trzeci.
 const SERVICE_DISPLAY_ORDER: string[] = [
   "eventy-reportaze",
   "sesje-zespolowe",
-  "wizerunek-portrety",
   "wideo-marketing",
   "fotografia-produktowa",
+  "wizerunek-portrety",
   "zdjecia-wideo-z-drona",
   "wnetrza-obiekty-architektura",
   "pakiety-foto-wideo",
@@ -689,9 +692,10 @@ const SERVICE_TILE_IMAGES: Record<string, string> = {
   "pakiety-foto-wideo": "/images/galeria/eventy/event-02.jpg",
   "fotografia-produktowa": "/images/galeria/produktowe/produkt-13.jpg",
   "sesje-zespolowe": "/images/portfolio/sesje-zespolowe-cover.jpg",
-  // Wersja 4:3 z rozmytym wypełnieniem — pełny napis „E-COMMERCE All in"
-  // widoczny, bez ucinania i bez pustych marginesów (oryginał 16:9).
-  "wideo-marketing": "/images/portfolio/woohoo-ecommerce-4x3.jpg",
+  // Piątka na evencie zamiast klatki z napisem „E-COMMERCE All in" (Marcin,
+  // 04.08.2026). Kafelek pokazuje teraz ludzi, a nie planszę z tytułem filmu.
+  // Plik `portfolio/woohoo-ecommerce-4x3.jpg` zostaje na dysku, nieużywany.
+  "wideo-marketing": "/images/galeria/eventy/event-03.jpg",
   "zdjecia-wideo-z-drona": "/images/galeria/dron/dron-05-panorama-poznania-zachod-slonca.jpg",
   // Kafelek linii obiektowej na stronie głównej i na /uslugi. Wcześniej inwestycja
   // z drona, czyli zielone pole z lotu ptaka: nie mówiła nic o halach ani o wnętrzach

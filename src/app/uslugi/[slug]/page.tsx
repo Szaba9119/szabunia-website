@@ -149,16 +149,6 @@ export default async function ServicePage({ params }: PageProps) {
             <ServiceGalleryStrip category={service.galleryCategory} />
           </ErrorBoundary>
         )}
-        {service.extraGallery && (
-          <ErrorBoundary>
-            <ServiceGalleryStrip
-              category={service.extraGallery.category}
-              ctaLabel={service.extraGallery.ctaLabel}
-              href={service.extraGallery.href}
-              sub={service.extraGallery.sub}
-            />
-          </ErrorBoundary>
-        )}
         {service.videoId && (
           <ErrorBoundary>
             <section className="py-12 md:py-16 px-4">
@@ -172,6 +162,19 @@ export default async function ServicePage({ params }: PageProps) {
                 <YouTubeFacade id={service.videoId} title={service.videoTitle ?? service.title} className="" />
               </div>
             </section>
+          </ErrorBoundary>
+        )}
+        {/* Drugi pasek galerii stoi POD przykładową realizacją wideo (Marcin,
+            04.08.2026). Wcześniej wchodził zaraz po głównym pasku, przez co dwie
+            siatki miniatur leciały jedna za drugą, a film ginął pod nimi. */}
+        {service.extraGallery && (
+          <ErrorBoundary>
+            <ServiceGalleryStrip
+              category={service.extraGallery.category}
+              ctaLabel={service.extraGallery.ctaLabel}
+              href={service.extraGallery.href}
+              sub={service.extraGallery.sub}
+            />
           </ErrorBoundary>
         )}
         {/* Blok autorski: pierwszy raz na podstronach usług pada „Cześć, jestem
