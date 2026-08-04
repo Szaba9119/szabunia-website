@@ -37,6 +37,34 @@ export const PORADNIK_CTA_SLUGS = [
   "headshoty-zespolu-w-jeden-dzien",
 ] as const;
 
+/**
+ * Data, którą widzi czytelnik, i po której sortujemy listę wpisów.
+ *
+ * Powód (04.08.2026): interfejs pokazywał wyłącznie `date`, czyli datę publikacji.
+ * Dziesięć wpisów ma tę samą datę 28.06.2026, bo powstały jedną serią, więc lista
+ * wyglądała jak zrzut treści, a najnowsza pozycja miała pięć tygodni. Siedemnaście
+ * wpisów ma prawdziwą datę korekty (`updated`, 29.07.2026), która nigdzie się nie
+ * wyświetlała. Pokazujemy ją, bo jest świeższa i prawdziwa.
+ *
+ * Czego tu NIE robimy: nie ruszamy `date`. To `datePublished` w danych
+ * strukturalnych, Google je zna, a podnoszenie daty publikacji przy korekcie jest
+ * przepisywaniem historii (zasada zapisana przy polu `date` w interfejsie wyżej).
+ */
+export function postDate(post: Pick<BlogPost, "date" | "updated">): {
+  iso: string;
+  /** Czy pokazujemy datę aktualizacji, a nie publikacji (do etykiety w UI). */
+  isUpdate: boolean;
+} {
+  return post.updated ? { iso: post.updated, isUpdate: true } : { iso: post.date, isUpdate: false };
+}
+
+/** Sortowanie listy: najpierw data widoczna, przy remisie starsza publikacja niżej. */
+export function byNewest(a: BlogPost, b: BlogPost): number {
+  const da = postDate(a).iso, db = postDate(b).iso;
+  if (da !== db) return db.localeCompare(da);
+  return b.date.localeCompare(a.date);
+}
+
 export const blogPosts: BlogPost[] = [
   {
     slug: "jak-przygotowac-sie-do-sesji-biznesowej",

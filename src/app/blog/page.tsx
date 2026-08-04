@@ -7,7 +7,7 @@ import AnimatedSection from "@/components/AnimatedSection";
 import BlogCard from "@/components/BlogCard";
 import CTA from "@/components/CTA";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import { blogPosts } from "@/data/blog";
+import { blogPosts, byNewest } from "@/data/blog";
 import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
 export const metadata: Metadata = {
@@ -66,7 +66,7 @@ export default function BlogPage() {
             Najnowsze wpisy
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).map((post, i) => (
+            {[...blogPosts].sort(byNewest).map((post, i) => (
               <AnimatedSection key={post.slug} delay={0.08 * i}>
                 <BlogCard post={post} />
               </AnimatedSection>

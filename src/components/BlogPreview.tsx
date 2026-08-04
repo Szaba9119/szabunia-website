@@ -3,7 +3,7 @@ import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
 import BlogCard from "./BlogCard";
-import { blogPosts } from "@/data/blog";
+import { blogPosts, byNewest } from "@/data/blog";
 
 // Na home pokazujemy wpisy z największym potencjałem kliknięć
 // (cena = intencja zakupowa, AI = ciekawość, przygotowanie = praktyczny evergreen).
@@ -20,9 +20,7 @@ export default function BlogPreview() {
   const latest =
     featured.length === 3
       ? featured
-      : [...blogPosts]
-          .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-          .slice(0, 3);
+      : [...blogPosts].sort(byNewest).slice(0, 3);
 
   return (
     <section id="blog" className="py-12 md:py-16 px-4">

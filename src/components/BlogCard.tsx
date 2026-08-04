@@ -43,13 +43,11 @@ export default function BlogCard({ post }: { post: BlogPost }) {
         <p className="text-steel dark:text-dark-text-muted text-[13px] leading-relaxed line-clamp-2">
           {post.excerpt}
         </p>
-        <time dateTime={post.date} className="block text-[12px] text-steel dark:text-dark-text-muted/60 mt-3">
-          {new Date(post.date).toLocaleDateString("pl-PL", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          })}
-        </time>
+        {/* Bez daty na kafelku (04.08.2026). Siedemnaście wpisów ma tę samą datę
+            korekty, a dziesięć tę samą datę publikacji, więc lista wyświetlała
+            ścianę identycznych dat i wyglądała jak zrzut treści. To są poradniki,
+            nie newsy: data ma znaczenie przy czytaniu artykułu, nie przy wyborze
+            z listy. Data została na podstronie wpisu i w danych strukturalnych. */}
       </div>
     </Link>
   );

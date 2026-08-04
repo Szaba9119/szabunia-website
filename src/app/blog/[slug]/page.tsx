@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { blogPosts, getBlogPostBySlug, getServiceSlugForPost, getRelatedPosts, PORADNIK_CTA_SLUGS } from "@/data/blog";
+import { blogPosts, getBlogPostBySlug, getServiceSlugForPost, getRelatedPosts, postDate, PORADNIK_CTA_SLUGS } from "@/data/blog";
 import { getServiceBySlug } from "@/data/services";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -136,8 +136,9 @@ export default async function BlogPostPage({ params }: PageProps) {
               <span className="text-[12px] text-steel dark:text-dark-text-muted">
                 {post.readTime} min czytania
               </span>
-              <time dateTime={post.date} className="text-[12px] text-steel dark:text-dark-text-muted/60">
-                {new Date(post.date).toLocaleDateString("pl-PL", {
+              <time dateTime={postDate(post).iso} className="text-[12px] text-steel dark:text-dark-text-muted/60">
+                {postDate(post).isUpdate ? "Zaktualizowano " : ""}
+                {new Date(postDate(post).iso).toLocaleDateString("pl-PL", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
