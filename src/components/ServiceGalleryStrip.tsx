@@ -25,6 +25,11 @@ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string
     sub: "Wybrane realizacje wideo i reelsy.",
     alt: "Realizacja wideo, Marcin Szabunia",
   },
+  "wideo-produktowe": {
+    label: "Przykłady z galerii: wideo produktowe",
+    sub: "Pionowe reelsy i krótkie reklamy produktu, kręcone dla marek i lokali.",
+    alt: "Wideo produktowe i reels, Marcin Szabunia",
+  },
   dron: {
     label: "Przykłady z galerii: zdjęcia z drona",
     sub: "Wybrane kadry z powietrza: biurowce, osiedla i inwestycje w Poznaniu.",
@@ -99,14 +104,41 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
   ],
 };
 
+// Kategorie oparte na filmach, nie na plikach z dysku.
+const VIDEO_CATEGORIES: GalleryCategoryKey[] = ["wideo", "wideo-produktowe"];
+
+// Kolejność filmów w pasku produktowym ustawiona przez Marcina 04.08.2026:
+// najpierw pizzeria, potem śniadaniownia, na końcu reklama kamerki.
+// Bez tej listy pasek brał pierwsze cztery pozycje z galleryVideos, czyli
+// film z eventu i film z hali produkcyjnej.
+const CURATED_VIDEOS: Partial<Record<GalleryCategoryKey, string[]>> = {
+  "wideo-produktowe": [
+    "fRoffxZ1tVM", // Reels dla Pizzerii Sicilia Marco Giuliano
+    "xByfmDzNPMI", // Reels dla śniadaniowni Sunday
+    "CmHUCptLu90", // Reklama kamerki samochodowej 70mai
+  ],
+};
+
+// Kategorie bez własnej zakładki na /galeria muszą prowadzić tam, gdzie
+// te materiały faktycznie są, inaczej przycisk trafia na pustą galerię.
+const GALLERY_TAB: Partial<Record<GalleryCategoryKey, string>> = {
+  obiekty: "dron",
+  "wideo-produktowe": "wideo",
+};
+
 export default function ServiceGalleryStrip({
   category,
   ctaLabel: ctaLabelProp,
   href: hrefProp,
+  sub: subProp,
 }: {
   category: GalleryCategoryKey;
   ctaLabel?: string;
   href?: string;
+  /** Nadpisuje domyślny podtytuł paska. Używane, gdy pasek stoi na obcej
+      podstronie i musi tłumaczyć, po co tam jest (np. sesja zespołowa
+      na podstronie eventowej). */
+  sub?: string;
 }) {
   const meta = META[category];
   // `obiekty` nie ma własnego folderu w public/images/galeria, bo korzysta z plików
@@ -116,7 +148,7 @@ export default function ServiceGalleryStrip({
     hrefProp ??
     (category === "zespolowe"
       ? "/portfolio/idcom-headshoty-zespolu"
-      : `/galeria?kat=${category === "obiekty" ? "dron" : category}`);
+      : `/galeria?kat=${GALLERY_TAB[category] ?? category}`);
 
   // Kategoria `zespolowe` prowadzi do case study, nie do filtrowanej galerii,
   // więc przycisk nie może obiecywać galerii. `obiekty` prowadzi do zakładki
@@ -130,12 +162,15 @@ export default function ServiceGalleryStrip({
       ? "Zobacz obiekty z powietrza"
       : "Zobacz całą galerię");
 
-  if (category === "wideo") {
-    const vids = galleryVideos.slice(0, 4);
+  if (VIDEO_CATEGORIES.includes(category)) {
+    const ids = CURATED_VIDEOS[category];
+    const vids = ids
+      ? ids.map((id) => galleryVideos.find((v) => v.youtubeId === id)).filter((v) => !!v)
+      : galleryVideos.slice(0, 4);
     if (vids.length === 0) return null;
     return (
-      <Shell label={meta.label} sub={meta.sub} href={href} ctaLabel={ctaLabel}>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+      <Shell label={meta.label} sub={subProp ?? meta.sub} href={href} ctaLabel={ctaLabel}>
+        <div className={vids.length === 3 ? "grid grid-cols-1 sm:grid-cols-3 gap-2.5" : "grid grid-cols-2 sm:grid-cols-4 gap-2.5"}>
           {vids.map((v) => (
             <Link
               key={v.youtubeId}
@@ -168,7 +203,7 @@ export default function ServiceGalleryStrip({
   if (images.length === 0) return null;
 
   return (
-    <Shell label={meta.label} sub={meta.sub} href={href} ctaLabel={ctaLabel}>
+    <Shell label={meta.label} sub={subProp ?? meta.sub} href={href} ctaLabel={ctaLabel}>
       <ServiceGalleryLightbox
         images={images}
         altBase={meta.alt}

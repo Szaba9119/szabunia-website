@@ -66,7 +66,8 @@ export interface ServiceData {
     | "dron"
     | "zespolowe"
     | "obiekty"
-    | "wnetrza";
+    | "wnetrza"
+    | "wideo-produktowe";
   /** Drugi pasek „Przykłady z galerii" pod głównym. Dodane 03.08.2026 dla sesji
       zespołowych: strona pokazywała wyłącznie sześć kadrów z jednej realizacji
       (IDcom), więc ktoś, kto chciał zobaczyć więcej twarzy i teł, nie miał dokąd
@@ -77,6 +78,10 @@ export interface ServiceData {
     /** Nadpisuje domyślny cel przycisku. Używane, gdy pasek ma prowadzić
         na sąsiednią usługę, a nie do filtrowanej galerii. */
     href?: string;
+    /** Nadpisuje podtytuł paska. Potrzebne, gdy pasek stoi na obcej podstronie
+        i sam z siebie nie tłumaczy, po co tam jest (Marcin, 04.08.2026:
+        „przykłady sesji zespołowej dałbym w innym miejscu"). */
+    sub?: string;
   };
   /** YouTube ID przykładowego filmu pokazywanego na podstronie usługi. */
   videoId?: string;
@@ -113,6 +118,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       category: "zespolowe",
       ctaLabel: "Zobacz sesje zespołowe",
       href: "/uslugi/sesje-zespolowe",
+      sub: "Planujesz event firmowy? To zwykle jedyny dzień, kiedy cała firma jest w jednym miejscu. Przy okazji wydarzenia robię headshoty i portrety całemu zespołowi, bez osobnego terminu i osobnego dojazdu.",
     },
     videoId: "m42ywMWjthw",
     videoTitle: "Film z eventu firmowego dla Woohoo",
@@ -152,6 +158,8 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na social media." },
       { q: "Ile zdjęć otrzymam?", a: "Około 20 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
       { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
+      { q: "Czy przy okazji eventu zrobisz zdjęcia całego zespołu?", a: "Tak. Na wydarzenie mogę przywieźć mobilne studio: potrzebuję około 3 m² wolnej przestrzeni i gniazdka, rozstawienie zajmuje 20 minut, a potem fotografuję kolejne osoby po 10 do 15 minut, między prelekcjami albo w kuluarach. Event to zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu, więc headshoty przy tej okazji nie wymagają osobnego terminu ani osobnego dojazdu." },
+      { q: "Kto robi zdjęcia i film, gdy event jest duży?", a: "Przy standardowym wydarzeniu robię wszystko sam. Przy dużym evencie, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora do zdjęć albo do wideo. Postprodukcja zostaje u mnie: retusz zdjęć i montaż filmu robię osobiście, więc materiał wychodzi w jednym standardzie. Dla Was to nadal jedna osoba kontaktowa, jeden brief i jedna faktura." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
     ],
     portfolioSlug: "woohoo-autopay",
@@ -212,7 +220,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     slug: "pakiety-foto-wideo",
     h2Process: "Jak wygląda dzień zdjęciowy",
     h2Faq: "Zdjęcia i film razem: najczęstsze pytania",
-    h1: "Zdjęcia, film i dron od jednej osoby",
+    h1: "Zdjęcia, film i dron na event firmowy",
     portfolioSlug: "woohoo-autopay",
     galleryCategory: "eventy",
     extraGallery: {
@@ -222,7 +230,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     },
     videoId: "4INLtKcKcZk",
     videoTitle: "E-commerce All-in, film z eventu dla Woohoo",
-    title: "Pakiety Foto + Wideo + Dron",
+    title: "Pakiety eventowe: foto + wideo + dron",
     subtitle:
       "Zdjęcia, film i ujęcia z drona od jednej osoby: spójny materiał i mniej logistyki. Bestseller wśród klientów korporacyjnych.",
     description:
@@ -255,13 +263,13 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqIntro: "Pakiety zaczynają się",
     faqs: [
       { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkim briefie podaję jedną, konkretną wycenę w kilku wariantach." },
-      { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Tak, zdjęcia, film i dron robię sam. Dzięki temu materiał jest spójny wizualnie, a Ty masz jedną osobę kontaktową zamiast dwóch ekip." },
+      { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Przy standardowym wydarzeniu tak: zdjęcia, film i dron robię sam. Przy dużym evencie, gdzie dwie rzeczy dzieją się w tym samym momencie, dokładam drugiego operatora do zdjęć albo do wideo. Postprodukcja zostaje u mnie, retusz i montaż robię osobiście, więc finalny materiał ma jeden standard. Ty i tak masz jedną osobę kontaktową zamiast dwóch ekip." },
       { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak. Przy serii wydarzeń koryguję zakres do realnych potrzeb projektu. Jeśli realizacje wracają co roku, możemy ustalić liczbę wydarzeń z góry: rezerwuję terminy i trzymam dzisiejsze ceny na całość. Wycena po krótkim briefie." },
       { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Dogrywamy dodatkowe godziny przed eventem, dokładam je do wyceny na etapie briefu." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 (foto i wideo równolegle, z zapisem na dwie karty), obiektywy Sigma, Tamron i Tokina od 16 do 200 mm, oświetlenie Godox, dźwięk Rode i Zoom oraz dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC. Jeden zestaw obsługuje zdjęcia, film i dron." },
     ],
     seo: {
-      title: "Zdjęcia, film i dron od jednej osoby | Szabunia",
+      title: "Pakiety eventowe: foto, wideo i dron | Szabunia",
       description: "Jeden twórca zamiast dwóch ekip, jedna faktura, jeden termin. Zdjęcia, film i ujęcia z drona z tego samego dnia. Eventy firmowe, Poznań.",
     },
   },  {
@@ -390,7 +398,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     h1: "Packshot i fotografia produktowa",
     galleryCategory: "produktowe",
     extraGallery: {
-      category: "wideo",
+      category: "wideo-produktowe",
       ctaLabel: "Zobacz realizacje wideo",
       href: "/uslugi/wideo-marketing",
     },

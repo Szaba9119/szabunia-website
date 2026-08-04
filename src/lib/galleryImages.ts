@@ -9,7 +9,12 @@ export type GalleryCategoryKey =
   | "dron"
   | "zespolowe"
   | "obiekty"
-  | "wnetrza";
+  | "wnetrza"
+  // Kategoria wyłącznie wideo, bez folderu w public/images/galeria: pasek bierze
+  // filmy z galleryVideos wg listy CURATED_VIDEOS w ServiceGalleryStrip.
+  // Powód: na podstronie produktowej pasek „wideo" pokazywał film z eventu,
+  // film z hali Artechu i zapowiedź imprezy, czyli nic produktowego.
+  | "wideo-produktowe";
 
 /**
  * Listuje zdjęcia z public/images/galeria/<folder> w kolejności alfabetycznej nazw plików.

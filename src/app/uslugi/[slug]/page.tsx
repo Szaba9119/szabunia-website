@@ -155,6 +155,7 @@ export default async function ServicePage({ params }: PageProps) {
               category={service.extraGallery.category}
               ctaLabel={service.extraGallery.ctaLabel}
               href={service.extraGallery.href}
+              sub={service.extraGallery.sub}
             />
           </ErrorBoundary>
         )}
