@@ -389,7 +389,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Profesjonalne portrety biznesowe, headshoty i zdjęcia do personal brandingu dla kadry zarządzającej i liderów.",
     description:
-      "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a przed sesją dostajesz poseboard z referencjami.",
+      "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a w pakietach przed sesją dostajesz poseboard z referencjami.",
     // ZDJ2608-17 (04.08.2026), WARIANT B. Poprzednia miniatura (plik `portfolio-1`, dziś
     // w `_to_delete/`) to zdjęcie grupowe przy autach sportowych, czyli ten sam kadr, który 04.08 wyleciał
     // z galerii tej realizacji jako obcy. Wariant A briefu (portret-05) odpadł: portret-05
@@ -412,7 +412,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     ],
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
-      { num: 2, title: "Poseboard", desc: "Przygotowuję poseboard z referencjami" },
+      { num: 2, title: "Poseboard", desc: "W pakietach przygotowuję poseboard z referencjami" },
       { num: 3, title: "Sesja", desc: "Profesjonalna sesja w studiu lub biurze" },
       { num: 4, title: "Dostawa", desc: "Wyselekcjonowane zdjęcia w 14 dni" },
     ],
@@ -422,7 +422,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [
       {
         q: "Ile trwa sesja wizerunkowa?",
-        a: "W zależności od pakietu, od 90 minut do 3 godzin. Czas obejmuje przygotowanie oświetlenia, sesję oraz ewentualne zmiany stylizacji.",
+        a: "W zależności od pakietu: od 30 minut w progu startowym do 3 godzin w najszerszym pakiecie. Czas obejmuje przygotowanie oświetlenia, sesję oraz ewentualne zmiany stylizacji.",
       },
       {
         q: "Czy mogę mieć sesję w swoim biurze?",
@@ -484,7 +484,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Czy realizujesz eventy poza Poznaniem?",
-        a: "Tak, realizuję zlecenia na terenie całej Polski i Europy. Koszty dojazdu doliczane indywidualnie (2,50 zł/km lub bilety).",
+        a: "Tak, realizuję zlecenia na terenie całej Polski i Europy. W Poznaniu dojazd jest bezpłatny, poza miastem 2,50 zł netto za kilometr w obie strony, liczone od granic miasta. Przy wyjazdach zagranicznych koszty ustalamy indywidualnie.",
       },
       {
         q: "Czy pakiet całodniowy się opłaca?",

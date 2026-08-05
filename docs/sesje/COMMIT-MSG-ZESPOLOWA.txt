@@ -1,0 +1,32 @@
+fix(tresc): jedna kwota "od" wszedzie, nowe brzmienie kotwicy, domkniecie progu 700
+
+Kotwica portretowa, brzmienie podyktowane przez Marcina 04.08.2026:
+"Ceny portretow dla jednej osoby zaczynaja sie od 700 zl netto, a dla zespolow
+od 120 zl netto za osobe." Zwroty "za pierwsze zdjecie" i "za jedno ujecie"
+usuniete ze wszystkich powierzchni; zakaz zapisany w CLAUDE.md i w komentarzu.
+
+Cena i zakres progu 700:
+- services.tsx, faq.ts, blog.ts, llms.txt: nowe brzmienie kotwicy
+- prog 700 obejmuje takze dojazd z mobilnym studiem do klienta, nie tylko studio
+  zewnetrzne w Poznaniu (services.tsx, blog.ts, llms.txt, cennik v3 sekcja 1)
+- llms.txt: osiem linii uslugowych na jedna kwote "od" na usluge, bez drabinek
+
+Domkniecie rozjazdow z przegladu tresci (04.08.2026):
+- blog.ts, pole content, 4 akapity: 1 100 -> 700 zl. ZGODA MARCINA "popraw tak jak
+  uwazasz" znosi wczesniejszy zakaz edycji pola content
+- poseboard: obietnica bezwarunkowa -> "w pakietach" w services.tsx, portfolio.ts,
+  faq.ts, blog.ts (akapit, krok procesu, haslo w slowniku pojec)
+- portfolio.ts, case sesja-wizerunkowa: "od 90 minut do 3 godzin" -> "od 30 minut
+  w progu startowym do 3 godzin" (bylo sprzeczne z services.tsx na to samo pytanie)
+- portfolio.ts, case fotografia-eventowa: dojazd bez informacji o 0 zl w Poznaniu
+- faq.ts: termin poprawek mial odwrotny kierunek niz cennik i blok warunkow
+- cennik v3: mobilne studio ~3 m2 -> ~5 m2, decyzja Marcina
+
+Pamiec antyregresyjna (najwazniejsze dla kolejnych sesji):
+- CLAUDE.md: kotwica portretowa 1 100 -> 700, dopisany zakres progu START,
+  doslowne brzmienie kotwicy i zakaz zwrotu "za pierwsze zdjecie"
+- docs/zasady-tekstow.md: to samo w regule o kotwicach + zasada jednej kwoty "od"
+  Bez tego kolejna sesja czytajaca CLAUDE.md cofnelaby 700 z powrotem na 1 100.
+
+Kontrola: tsc czysty, sprawdz_spojnosc.mjs 0 bledow na 17 powierzchniach.
+Kwota 1 100 zl nie wystepuje juz w zadnej tresci publicznej ani w dokumentacji projektu.

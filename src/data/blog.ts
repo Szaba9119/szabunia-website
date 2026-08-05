@@ -168,7 +168,7 @@ export const blogPosts: BlogPost[] = [
       <p>Sesja portretowa nie musi zjeść pół dnia. Sama sesja może trwać od 30 minut, a przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło. Nie siedzisz i nie czekasz, aż fotograf się rozstawi.</p>
       <ul>
         <li><strong>1. Konsultacja.</strong> Omawiamy cel, styl i to, gdzie zdjęcia mają pracować.</li>
-        <li><strong>2. Poseboard.</strong> Przygotowuję moodboard z referencjami, żebyśmy oboje wiedzieli, do czego dążymy.</li>
+        <li><strong>2. Poseboard.</strong> W pakietach przygotowuję moodboard z referencjami, żebyśmy oboje wiedzieli, do czego dążymy.</li>
         <li><strong>3. Sesja.</strong> Prowadzę Cię przez pozowanie, w studiu albo w Twoim biurze.</li>
         <li><strong>4. Dostawa.</strong> Wybrane, wyretuszowane zdjęcia w 14 dni kalendarzowych.</li>
       </ul>
@@ -196,7 +196,7 @@ export const blogPosts: BlogPost[] = [
       <p>Pliki dostajesz w pełnej jakości plus wersje zoptymalizowane pod web, a na życzenie także PNG z przezroczystym tłem i TIFF do druku. W cenie są dwie tury poprawek, realizowane w ciągu 7 dni od zgłoszenia.</p>
 
       <h2>ROI profesjonalnego headshota</h2>
-      <p><a href="/uslugi/wizerunek-portrety">Sesja portretowa</a> kosztuje od 1 100 zł netto. Na wycenę pracują trzy rzeczy: liczba stylizacji, długość sesji i liczba wyretuszowanych zdjęć do wyboru. Każda sesja obejmuje poseboard z referencjami przed spotkaniem, bez dopłaty.</p>
+      <p>Ceny <a href="/uslugi/wizerunek-portrety">portretów</a> dla jednej osoby zaczynają się od 700 zł netto. Na wycenę pracują trzy rzeczy: liczba stylizacji, długość sesji i liczba wyretuszowanych zdjęć do wyboru. Pakiety obejmują poseboard z referencjami przed spotkaniem, bez dopłaty.</p>
       <p>Jeden nowy klient pozyskany dzięki lepszemu profilowi na LinkedIn zwraca tę inwestycję wielokrotnie, a zdjęcie pracuje przez najbliższe dwa lata w każdym miejscu, w którym ktoś sprawdza, z kim ma do czynienia. Pracuję z bazy w Poznaniu, na terenie miasta dojazd jest wliczony w cenę, poza miastem doliczam 2,50 zł netto za kilometr w obie strony, a sesje realizuję w całej Polsce i Europie. Napisz w kilku zdaniach, czego potrzebujesz. Wstępną wycenę odsyłam w 24h.</p>
       <p>Zanim umówisz sesję, sprawdź, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, pobierz <a href="/poradnik">darmowy poradnik przygotowania do sesji</a> i zobacz <a href="/galeria?kat=portrety">przykładowe realizacje sesji wizerunkowych</a>.</p>
     `,
@@ -273,7 +273,7 @@ export const blogPosts: BlogPost[] = [
     faq: [
       { q: "Jakie światło jest najlepsze do zdjęcia do CV w domu?", a: "Naturalne, rozproszone światło dzienne. Stań twarzą do dużego okna, z jednolitą ścianą za plecami, najlepiej w godzinach przedpołudniowych. Unikaj sztucznego oświetlenia sufitowego, które tworzy cienie pod oczami, a pochmurny dzień daje najmiększe i najbardziej równomierne światło." },
       { q: "Jak ustawić telefon do zdjęcia do CV?", a: "Postaw telefon pionowo na statywie lub stabilnym podparciu na wysokości oczu, w odległości około 1-1,5 metra. Użyj tylnego aparatu (ma lepszą jakość) i samowyzwalacza na 3-10 sekund. Kadruj od klatki piersiowej w górę, z twarzą w centrum, a jeśli telefon ma tryb portretowy, włącz go." },
-      { q: "Kiedy zamiast zdjęcia z telefonu wybrać fotografa?", a: "Zdjęcie z telefonu wystarczy na szybką aplikację. Jeśli jednak zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), profesjonalna sesja portretowa zwróci się wielokrotnie. Zaczyna się od 1 100 zł, a jedno dobre zdjęcie posłuży na LinkedIn, stronę firmową i materiały branżowe." },
+      { q: "Kiedy zamiast zdjęcia z telefonu wybrać fotografa?", a: "Zdjęcie z telefonu wystarczy na szybką aplikację. Jeśli jednak zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), profesjonalna sesja portretowa zwróci się wielokrotnie. Zaczyna się od 700 zł netto, a taki portret posłuży Ci na LinkedIn, stronę firmową i materiały branżowe." },
     ],
     title: "Jak zrobić profesjonalne zdjęcie do CV w domu: kompletny poradnik",
     excerpt:
@@ -312,7 +312,7 @@ export const blogPosts: BlogPost[] = [
       <p>Użyj bezpłatnych aplikacji jak Snapseed lub Lightroom Mobile. Wystarczy: lekko podnieść jasność, wyrównać balans bieli, przyciąć kadr do proporcji paszportowych. Nie przesadzaj z filtrami: zdjęcie do CV ma wyglądać naturalnie.</p>
 
       <h2>Kiedy lepiej iść do fotografa?</h2>
-      <p>Zdjęcie z telefonu wystarczy na szybką aplikację. Ale jeśli zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), <a href="/uslugi/wizerunek-portrety">profesjonalna sesja portretowa</a> zwróci się wielokrotnie. Sesja headshot zaczyna się od 1 100 zł, a jedno dobrze zrobione zdjęcie posłuży Ci na LinkedIn, stronę firmową i materiały branżowe. Sesje realizuję w Poznaniu (dojazd na terenie miasta wliczony), a na zapytania odpowiadam w ciągu 24h.</p>
+      <p>Zdjęcie z telefonu wystarczy na szybką aplikację. Ale jeśli zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), <a href="/uslugi/wizerunek-portrety">profesjonalna sesja portretowa</a> zwróci się wielokrotnie. Sesja headshot zaczyna się od 700 zł netto, a jedno dobrze zrobione zdjęcie posłuży Ci na LinkedIn, stronę firmową i materiały branżowe. Sesje realizuję w Poznaniu (dojazd na terenie miasta wliczony), a na zapytania odpowiadam w ciągu 24h.</p>
       <p>Jeśli chcesz, żeby profil naprawdę pracował, przeczytaj, jak <a href="/blog/headshoty-linkedin-konwersja">headshoty zwiększają konwersję na LinkedIn</a>.</p>
     `,
     seo: {
@@ -481,14 +481,14 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "ile-kosztuje-sesja-wizerunkowa-dla-firmy",
     faq: [
-      { q: "Od jakiej kwoty zaczyna się sesja wizerunkowa dla firmy?", a: "Portrety zaczynają się od 700 zł netto za pierwsze zdjęcie ze studia. Wyżej wchodzą pakiety z dłuższą sesją i większym wyborem kadrów. Sesja zespołowa liczona jest inaczej, za osobę, od 120 zł netto, więc tych dwóch kwot nie da się porównywać wprost. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek." },
+      { q: "Od jakiej kwoty zaczyna się sesja wizerunkowa dla firmy?", a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a dla zespołów od 120 zł netto za osobę. W kwocie startowej jest sesja w studiu w Poznaniu albo dojazd z mobilnym studiem do Twojego biura. Wyżej wchodzą pakiety z dłuższą sesją i większym wyborem kadrów. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek." },
       { q: "Co wpływa na cenę sesji wizerunkowej?", a: "Sześć policzalnych czynników: liczba osób, liczba finalnych ujęć z autorskim retuszem, lokalizacja i dojazd (na terenie Poznania wliczony), sceneria i przygotowanie planu, zakres licencji na wykorzystanie zdjęć oraz ewentualny tryb ekspresowy, gdy materiał jest potrzebny szybciej niż standardowo." },
       { q: "Ile czasu trwa portret jednej osoby przy sesji zespołowej?", a: "Realnie 5-15 minut na dobry portret jednej osoby, wliczając ustawienie i kilka prób. Właśnie dlatego liczba osób to główny czynnik wyceny przy sesjach zespołowych: czas pracy rośnie wraz z wielkością grupy." },
-      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Portrety zaczynają się od 700 zł netto za pierwsze zdjęcie, a przy sesjach zespołowych stawka jest liczona za osobę, od 120 zł netto, i zależy od wielkości grupy. Cennika w formie tabeli nie ma, bo cena zależy od liczby osób, liczby ujęć i tego, gdzie zdjęcia będą używane. Opisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24 godziny." },
+      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a dla zespołów od 120 zł netto za osobę. Cennika w formie tabeli nie ma, bo cena zależy od liczby osób, liczby ujęć i tego, gdzie zdjęcia będą używane. Opisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24 godziny." },
     ],
     title: "Ile kosztuje sesja wizerunkowa dla firmy: co realnie wpływa na cenę",
     excerpt:
-      "Cena sesji wizerunkowej zaczyna się od 700 zł netto za pierwsze zdjęcie. Tłumaczę, za co realnie płacisz i jak zaplanować budżet sesji.",
+      "Cena sesji wizerunkowej dla jednej osoby zaczyna się od 700 zł netto. Tłumaczę, za co realnie płacisz i jak zaplanować budżet sesji.",
     category: "poradnik",
     date: "2026-03-10",
     updated: "2026-07-29",
@@ -498,7 +498,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">„Ile kosztuje sesja wizerunkowa?" to pytanie, które dostaję najczęściej. Uczciwa odpowiedź brzmi: to zależy, ale od konkretnych, policzalnych rzeczy. Poniżej tłumaczę, co realnie wpływa na cenę <a href="/uslugi/wizerunek-portrety">sesji wizerunkowej dla firmy</a>, żebyś wiedział, za co płacisz i jak zaplanować budżet.</p>
 
       <h2>Od czego zaczyna się wycena</h2>
-      <p>Pakiety portretowe zaczynają się od <strong>1 100 zł</strong> netto. To punkt wyjścia dla jednej osoby i podstawowego zestawu ujęć. <a href="/uslugi/sesje-zespolowe">Sesja zespołowa</a> liczona jest inaczej, za osobę, od 120 zł netto, więc tych dwóch kwot nie porównuj wprost. Im więcej elementów dochodzi, tym wyżej idzie wycena. Zawsze jednak ustalamy ją z góry, przed sesją, bez niespodzianek.</p>
+      <p>Ceny portretów dla jednej osoby zaczynają się od <strong>700 zł</strong> netto. Wyżej wchodzą pakiety z dłuższą sesją, większą liczbą stylizacji i szerszym wyborem kadrów do retuszu. <a href="/uslugi/sesje-zespolowe">Sesja zespołowa</a> liczona jest inaczej, za osobę, od 120 zł netto, więc tych dwóch kwot nie porównuj wprost. Im więcej elementów dochodzi, tym wyżej idzie wycena. Zawsze jednak ustalamy ją z góry, przed sesją, bez niespodzianek.</p>
 
       <h2>1. Liczba osób</h2>
       <p>Sesja jednej osoby to inny nakład pracy niż <a href="/uslugi/sesje-zespolowe">sesja całego zespołu</a>. Przy większej grupie liczy się czas na osobę: realnie 5–15 minut na dobry portret, wliczając ustawienie i kilka prób. To główny czynnik przy zespołach.</p>
@@ -519,7 +519,7 @@ export const blogPosts: BlogPost[] = [
       <p>Standardowo gotowe zdjęcia dostajesz w ustalonym terminie. Jeśli materiał jest potrzebny „na wczoraj", możliwy jest tryb przyśpieszony. To dodatkowa opcja, a nie ukryty koszt.</p>
 
       <h2>Cennik: jak dostać konkretną kwotę</h2>
-      <p>Punkt wyjścia jest jeden: <a href="/uslugi/wizerunek-portrety">portret biznesowy</a> zaczyna się od 1 100 zł netto. Dalej wszystko zależy od tego, ile osób fotografujemy, ile ujęć ma zostać po selekcji i gdzie zdjęcia będą używane. Dlatego zamiast tabeli, która i tak rzadko trafia w konkretny przypadek, wolę policzyć to raz, a dobrze. <a href="/kontakt">Napisz w kilku zdaniach, czego potrzebujesz</a>, a wstępną wycenę z rozpisanymi pozycjami odeślę mailem w 24 godziny. Bez umawiania rozmowy na start, jeśli tak Ci wygodniej.</p>
+      <p>Punkt wyjścia jest jeden: <a href="/uslugi/wizerunek-portrety">portret biznesowy</a> zaczyna się od 700 zł netto. Dalej wszystko zależy od tego, ile osób fotografujemy, ile ujęć ma zostać po selekcji i gdzie zdjęcia będą używane. Dlatego zamiast tabeli, która i tak rzadko trafia w konkretny przypadek, wolę policzyć to raz, a dobrze. <a href="/kontakt">Napisz w kilku zdaniach, czego potrzebujesz</a>, a wstępną wycenę z rozpisanymi pozycjami odeślę mailem w 24 godziny. Bez umawiania rozmowy na start, jeśli tak Ci wygodniej.</p>
 
       <h2>Jak zaplanować budżet</h2>
       <p>Zamiast zgadywać, opisz zakres: liczbę osób, miejsce i to, gdzie zdjęcia będą używane. Wstępną wycenę odeślę w 24h.</p>
@@ -528,7 +528,7 @@ export const blogPosts: BlogPost[] = [
     seo: {
       title: "Ile kosztuje sesja wizerunkowa dla firmy | Szabunia",
       description:
-        "Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja, licencja. Ceny od 1 100 zł netto, wycena mailem w 24 godziny.",
+        "Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja, licencja. Ceny od 700 zł netto, wycena mailem w 24 godziny.",
     },
   },
   {
@@ -1021,7 +1021,7 @@ export const blogPosts: BlogPost[] = [
       <p>Krótki opis tego, czego potrzebujesz: cel zdjęć, gdzie będą używane, termin, lokalizacja, liczba osób lub produktów. Nie musi być formalnym dokumentem, wystarczy kilka zdań w mailu. Dobry brief to połowa udanej sesji, bo fotograf od początku wie, na czym Ci zależy.</p>
 
       <h2>Poseboard</h2>
-      <p>Zestaw przykładowych póz i kadrów, który przygotowuję przed sesją portretową. Dzięki niemu nie musisz zastanawiać się, co zrobić z rękami: na planie po prostu odtwarzamy sprawdzone ustawienia dopasowane do Twojego celu. Dostajesz go gratis przy każdej sesji portretowej.</p>
+      <p>Zestaw przykładowych póz i kadrów, który przygotowuję przed sesją portretową. Dzięki niemu nie musisz zastanawiać się, co zrobić z rękami: na planie po prostu odtwarzamy sprawdzone ustawienia dopasowane do Twojego celu. Dostajesz go bez dopłaty w pakietach portretowych.</p>
 
       <h2>Reportaż (fotoreportaż)</h2>
       <p>Styl fotografowania wydarzeń, w którym fotograf dokumentuje to, co dzieje się naprawdę, bez ustawiania i pozowania. Naturalne emocje, networking, przemówienia, kuluary. Standard na konferencjach i galach. Porównanie z sesją eventową znajdziesz <a href="/blog/fotografia-eventowa-vs-reportaz">w osobnym wpisie</a>.</p>

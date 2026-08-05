@@ -13,7 +13,7 @@ export interface HomeFaqItem {
 export const homeFaqs: HomeFaqItem[] = [
   {
     q: "Ile kosztuje sesja?",
-    a: "Portrety zaczynają się od 700 zł netto za pierwsze zdjęcie, a sesja zespołowa od 120 zł netto za osobę: przy grupie płacisz za liczbę osób, a nie za długość jednej sesji. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24h. Cena zależy od liczby osób, lokalizacji i zakresu postprodukcji. Zawsze wyceniam indywidualnie, żeby nie przepłacać za to, czego nie potrzebujesz.",
+    a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a dla zespołów od 120 zł netto za osobę: przy grupie płacisz za liczbę osób, a nie za długość jednej sesji. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24h. Cena zależy od liczby osób, lokalizacji i zakresu postprodukcji. Zawsze wyceniam indywidualnie, żeby nie przepłacać za to, czego nie potrzebujesz.",
   },
   {
     q: "Jak szybko otrzymam gotowe materiały?",
@@ -21,7 +21,7 @@ export const homeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Jak wygląda sesja zdjęciowa krok po kroku?",
-    a: "Zaczynamy od krótkiej rozmowy (telefon lub mail), w której ustalamy cel, styl i logistykę. Przed sesją przygotowuję poseboard z przykładowymi kadrami. W dniu sesji prowadzę Cię przez pozowanie i dobór ujęć. Po sesji wybierasz zdjęcia z galerii online, a ja zajmuję się retuszem. Gotowe materiały dostajesz w ciągu 14 dni.",
+    a: "Zaczynamy od krótkiej rozmowy (telefon lub mail), w której ustalamy cel, styl i logistykę. W pakietach przed sesją przygotowuję poseboard z przykładowymi kadrami. W dniu sesji prowadzę Cię przez pozowanie i dobór ujęć. Po sesji wybierasz zdjęcia z galerii online, a ja zajmuję się retuszem. Gotowe materiały dostajesz w ciągu 14 dni.",
   },
   {
     q: "Czy dojeżdżasz poza Poznań?",
@@ -41,7 +41,7 @@ export const homeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Co jeśli muszę przełożyć albo odwołać sesję?",
-    a: "Zmiana terminu minimum 48h przed sesją jest bezpłatna. Odwołanie później niż 48h przed sesją: 50% wartości zlecenia. Gotowe pliki archiwizuję przez 1 rok, a po pełnej akceptacji dzieła masz do 7 dni na dodatkowe poprawki.",
+    a: "Zmiana terminu minimum 48h przed sesją jest bezpłatna. Odwołanie później niż 48h przed sesją: 50% wartości zlecenia. Gotowe pliki archiwizuję przez 1 rok, a poprawki realizuję w ciągu 7 dni od zgłoszenia i nie liczę terminu podstawowego od nowa.",
   },
   {
     q: "Czy mogę zobaczyć zdjęcia przed retuszem?",

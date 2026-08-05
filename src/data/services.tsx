@@ -301,7 +301,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Portrety biznesowe, headshoty na LinkedIn i zdjęcia do personal brandingu. Prowadzę przez pozowanie, nie musisz nic umieć.",
     description:
-      "Portret biznesowy to Twoja wizytówka na LinkedIn i na stronie firmy. Tworzę zdjęcia, które oddają charakter i kompetencje, na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a przed sesją dostajesz poseboard z referencjami.",
+      "Portret biznesowy to Twoja wizytówka na LinkedIn i na stronie firmy. Tworzę zdjęcia, które oddają charakter i kompetencje, na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a w pakietach przed sesją dostajesz poseboard z referencjami.",
     forWhom: [
       "CEO i kadra zarządzająca",
       "Eksperci i konsultanci",
@@ -316,16 +316,16 @@ const serviceCategoriesRaw: ServiceData[] = [
     ),
     heroImage: "/images/galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg",
     heroImagePos: "center 20%",
-    // Próg wejściowy obniżony 04.08.2026 decyzją Marcina: PORTRET JEDNO UJĘCIE 700 zł netto
-    // (1 osoba, sesja do 30 min w studiu zewnętrznym w Poznaniu, 1 wyretuszowane zdjęcie,
-    // każde kolejne ujęcie 200 zł). Kanon: cennik_2026_07_v3.md §1.
+    // Próg wejściowy obniżony 04.08.2026 decyzją Marcina: PORTRET START 700 zł netto
+    // (1 osoba, sesja do 30 min, w cenie studio zewnętrzne w Poznaniu ALBO dojazd
+    // z mobilnym studiem do klienta). Kanon: cennik_2026_07_v3.md §1.
     // UWAGA: to pole zasila też `minPrice` w JSON-LD (uslugi/[slug]/page.tsx wyciąga regexem
     // pierwszą liczbę), więc dane strukturalne schodzą z 1100 na 700. Zamierzone i prawdziwe.
     price: "od 700 zł netto",
     heroPriceLabel: "od 700 zł netto",
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
-      { num: 2, title: "Poseboard", desc: "Przygotowuję poseboard z referencjami" },
+      { num: 2, title: "Poseboard", desc: "W pakietach przygotowuję poseboard z referencjami" },
       { num: 3, title: "Sesja", desc: "Prowadzę Cię przez pozowanie, w studiu lub Twoim biurze. Nie musisz nic umieć." },
       { num: 4, title: "Dostawa", desc: "Wybrane, wyretuszowane zdjęcia w 14 dni." },
     ],
@@ -335,13 +335,13 @@ const serviceCategoriesRaw: ServiceData[] = [
       // Fragment o studiu zostaje nietknięty: to osobna pozycja TRESC2608-52, owner Marcin.
       "Wycenę portretu ustalam na podstawie liczby stylizacji, długości sesji i liczby wyretuszowanych zdjęć do wyboru. Pakiety obejmują darmowy poseboard z referencjami przed spotkaniem oraz studio dopasowane do Twojego projektu.",
     priceFaqQuestion: "Ile kosztuje sesja wizerunkowa dla firmy?",
-    priceFaqIntro: "Portrety zaczynają się",
-    // Dodane 04.08.2026, przepisane tego samego dnia po obniżeniu progu do 700 zł.
-    // Suffix mówi tylko dwie rzeczy: że 700 zł dotyczy PIERWSZEGO zdjęcia (nie „jednego",
-    // bo dopłata za kolejne jest inna) i że zespołowa liczy się za osobę. Kwoty pakietów
-    // świadomie tu nie wchodzą: prośba Marcina z 04.08, żeby nie kotwiczyć klienta
-    // stosem liczb w pierwszym zdaniu. Rozwinięcie jest niżej, w osobnym pytaniu FAQ.
-    priceFaqSuffix: " za pierwsze zdjęcie, a sesja zespołowa od 120 zł netto za osobę, bo przy grupie płacisz za liczbę osób, a nie za długość jednej sesji",
+    priceFaqIntro: "Ceny portretów dla jednej osoby zaczynają się",
+    // Brzmienie z 04.08.2026, podyktowane przez Marcina: „ceny portretów dla jednej osoby
+    // startują od 700 zł netto, a dla zespołów od 120". NIE dopisuj „za pierwsze zdjęcie"
+    // ani „za jedno ujęcie" — obie formy zostały wprost odrzucone. Kwoty pakietów świadomie
+    // tu nie wchodzą: prośba Marcina, żeby nie kotwiczyć klienta stosem liczb w pierwszym
+    // zdaniu. Rozwinięcie jest niżej, w osobnym pytaniu FAQ.
+    priceFaqSuffix: ", a dla zespołów od 120 zł netto za osobę",
     faqs: [
       // TRESC2608-05 zamknięty 04.08.2026 BEZ zmiany tego zdania. Audyt zgłaszał je jako
       // sprzeczne z cennikiem („od 30 minut" przy najkrótszym pakiecie 90-minutowym), a decyzja
@@ -358,9 +358,9 @@ const serviceCategoriesRaw: ServiceData[] = [
       // „ceny" i „cennik" na 32,0, 37,4 i 38,8. Słowo „cennik" nie występowało na tej
       // stronie ani razu, „cena" i „ceny" też nie. To pytanie wprowadza je w treść.
       // Zgodne z regułą z docs/zasady-tekstow.md: „użyj tego, którego ludzie faktycznie
-      // wpisują". Kwota 1 100 zł jest kanoniczna (cennik v3 sekcja 1) i występuje już
-      // na tej stronie dwa razy, więc nie wprowadza nowej liczby do kanonu.
-      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Portrety zaczynają się od 700 zł netto. W tej kwocie jest sesja w studiu w Poznaniu i pierwsze wyretuszowane zdjęcie, kolejne dobierasz pojedynczo. Wyżej wchodzą pakiety, w których dostajesz więcej czasu, więcej stylizacji i większy wybór kadrów do retuszu. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu. Napisz w dwóch zdaniach, kogo i do czego fotografujemy, a wycenę odeślę mailem w 24 godziny." },
+      // wpisują". Kwoty pakietów świadomie nie wchodzą do odpowiedzi: na stronie stoi
+      // wyłącznie kotwica „od 700 zł" i „od 120 zł za osobę" (decyzja Marcina z 04.08).
+      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a dla zespołów od 120 zł netto za osobę. W kwocie startowej masz sesję w studiu w Poznaniu albo dojazd z mobilnym studiem do Twojego biura, razem z retuszem. Wyżej wchodzą pakiety, w których dostajesz więcej czasu, więcej stylizacji i większy wybór kadrów do retuszu. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu. Napisz w dwóch zdaniach, kogo i do czego fotografujemy, a wycenę odeślę mailem w 24 godziny." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
