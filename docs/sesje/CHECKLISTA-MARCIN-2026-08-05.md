@@ -7,7 +7,13 @@ z 05.08.2026.
 **Zasada kolejności:** najpierw to, co odblokowuje resztę. Krok 4 (skrzynka) jest warunkiem
 sensu całego kanału płatnego. Krok 12 (stawka godzinowa) blokuje trzynaście decyzji cennikowych.
 
-Łącznie: **ok. 1 h klikania + 6 odpowiedzi jednoliterowych**. Reszta to decyzje, nie robota.
+> **Stan na 05.08.2026, 17:50.** Kroki 1, 2 i 7 **wykonane**: deploy poszedł
+> (`f5dd9f4..742beb7`), wszystkie dziesięć sprawdzeń produkcji zielone, hipotezy H1 i H2
+> obalone. Zostaje **krok 3** (siedem kliknięć) z bloku A oraz całe bloki B, C, D i E.
+> Rejestr odczytów: `POMIARY-2026-08-05.md`.
+
+Łącznie do zrobienia: **ok. 55 minut klikania + 6 odpowiedzi jednoliterowych.**
+Reszta to decyzje, nie robota.
 
 ---
 
@@ -21,27 +27,34 @@ Kontrole przeszły: `lint` 0/0, `tsc --noEmit` czysto, `build` sukces,
 
 Push do `main` = automatyczny deploy produkcyjny na Vercelu. **Nie odpalaj `vercel --prod`.**
 
-- [ ] przejrzeć diff
-- [ ] commit kodu
-- [ ] commit dokumentacji
-- [ ] push
+- [x] przejrzeć diff
+- [x] commit kodu → **`c51b875`**, 32 pliki
+- [x] commit dokumentacji → **`742beb7`**, 18 plików
+- [x] push → **`f5dd9f4..742beb7 main -> main`**, deploy produkcyjny odpalony
 
-Komendy w odpowiedzi w czacie.
+### 2. Weryfikacja po deployu ⏱ 5 min — ✅ **WSZYSTKIE DZIESIĘĆ ZIELONE**
 
-### 2. Weryfikacja po deployu ⏱ 5 min
+Odczyt 05.08.2026 ok. 17:50, `scripts/weryfikacja-po-deploy.sh`. Pełny rejestr:
+`POMIARY-2026-08-05.md §1`.
 
-Poczekać, aż Vercel pokaże `READY`, potem odpalić jeden blok komend (w czacie).
-Sprawdza dziewięć rzeczy naraz. **Każda linia ma powiedzieć to, co w nawiasie:**
+- [x] `q=80` na portrecie autora → **200**, zero żądań `q=78` na podstronie
+- [x] karta OG linii obiektowej → **200** (było 404 od dnia publikacji)
+- [x] sitemapa → **50 adresów, 24 pozycje z `lastmod` 2026-08-05, zero `box17`**
+- [x] `ItemList` na `/portfolio` → **8 realizacji, zero `box17`**
+- [x] `/blog` → `ItemList` obecny, `application/rss+xml` w `<head>`
+- [x] `lastBuildDate` w RSS → **Wed, 29 Jul 2026** (było 28.06)
+- [x] `llms.txt` → **5-15 min/os.**, zero wystąpień „10-15"
+- [x] `data-cta` → **23 unikalne** (przed turą 14)
+- [x] 404 → **`noindex, follow`**
 
-- [ ] `q=80` na portrecie autora → **200** (dziś `q=78` daje 400 na ośmiu podstronach usług)
-- [ ] karta OG linii obiektowej → **200** (dziś 404, a to jedyna linia z kotwicą 900 zł)
-- [ ] `lastmod` w sitemapie → **2026-08-05** (dziś 29.07, sprzed dwóch zmian cen)
-- [ ] `ItemList` na `/portfolio` → **8 pozycji, zero `box17`**
-- [ ] `/blog` → `ItemList` obecny + `application/rss+xml` w `<head>`
-- [ ] `lastBuildDate` w RSS → **29 lip 2026** (dziś 28.06, agregator uznaje kanał za martwy)
-- [ ] `llms.txt` → **5-15 min/os.** (dziś 10-15, jedyne miejsce w serwisie z tą liczbą)
-- [ ] `data-cta` → **23 unikalne** (przed: 14)
-- [ ] 404 → `noindex, follow`
+### 2b. Bonus: H1 i H2 rozstrzygnięte przy okazji ⏱ 0 min — ✅ **OBIE OBALONE**
+
+- [x] **H1:** `marcinszabunia.pl/portrety-biznesowe` → **`HTTP/2 308`**, nie 302.
+      Osiem lat historii starej domeny **przenosi się poprawnie**. Alarm był fałszywy
+- [x] **H2:** `www.szabunia.pl/` → **`HTTP/2 308`**. Zero ryzyka duplikatu treści
+
+Obie etykiety „302" pochodziły z warstwy pobierania agenta, nie z produkcji.
+To piąty fałszywy odczyt z tego samego źródła w tej sesji. **Do wykreślenia z `§6` audytu.**
 
 ### 3. Kliknięcia, których skrypt nie sprawdzi ⏱ 10 min
 
@@ -91,9 +104,8 @@ kliknięcia w link.
 
 ### 7. Dwa `curl`-e rozstrzygające hipotezy ⏱ 1 min
 
-- [ ] H1: `curl -sI https://marcinszabunia.pl/portrety-biznesowe` → czy **308**, czy 302.
-      Jeśli 302, osiem lat historii starej domeny nadal się nie przenosi
-- [ ] H2: `curl -sI https://www.szabunia.pl/` → czy przekierowuje, czy oddaje 200
+- [x] **ZROBIONE 05.08 przy weryfikacji po deployu.** Obie hipotezy obalone, obie 308.
+      Patrz krok 2b i `POMIARY-2026-08-05.md §2`
 
 ### 8. Konsola po kliknięciu „Akceptuję" ⏱ 2 min · **odblokowuje decyzję D7**
 

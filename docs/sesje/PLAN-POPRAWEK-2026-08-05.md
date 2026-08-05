@@ -14,11 +14,14 @@ raportami: każdy finding ma tu etap, właściciela i status. Raporty źródłow
 **Stan wyjściowy:** repo `f5dd9f4`, drzewo czyste poza nieśledzonymi raportami, `main == origin/main`,
 produkcja == `main` (deployment `dpl_GTb4YGhZ1btDkh4eDsLzjpWE19mN`, `READY`, 05.08 09:27 UTC).
 
-**Stan po sesji 05.08 wieczorem:** etapy 1 i 2 **wykonane w całości**, 28 plików zmienionych,
-3 nowe, lint i `tsc` czyste, build przechodzi, wszystko zweryfikowane na lokalnym serwerze
-produkcyjnym. **Nic nie zacommitowane** — git jest po stronie Marcina (`CLAUDE.md §7`).
+**Stan po sesji 05.08, 17:50: ETAPY 1 I 2 SĄ NA PRODUKCJI.**
+Commity `c51b875` (kod, 32 pliki) i `742beb7` (dokumentacja, 18 plików),
+push `f5dd9f4..742beb7`, deploy Vercela z pusha.
+**Wszystkie dziesięć sprawdzeń produkcji zielone** (`POMIARY-2026-08-05.md §1`).
+Przy okazji **obalone hipotezy H1 i H2**: oba przekierowania oddają 308, nie 302,
+więc historia starej domeny przenosi się poprawnie i nie ma duplikatu na `www`.
 
-**Sugerowany commit:**
+**Commit kodu:**
 `fix(audyt): tura poprawek z audytu pelnego 05.08, 22 ID (P1-P4)`
 
 ```
@@ -217,8 +220,8 @@ dołożenie `generate_lead` w `CTA.tsx` może podwoić liczenie zamiast naprawi�
 | Pomiar | Co rozstrzyga | Komenda albo miejsce |
 |---|---|---|
 | PageSpeed Insights, mobile i desktop | **szósty audyt z rzędu bez tej liczby** | `pagespeed.web.dev` dla `/`, `/uslugi/eventy-reportaze`, `/galeria` |
-| `curl -sI marcinszabunia.pl/portrety-biznesowe` | H1: 301/308 czy 302, czyli czy osiem lat historii domeny się przenosi | terminal |
-| `curl -sI www.szabunia.pl/` | H2: przekierowanie czy 200 | terminal |
+| ~~`curl -sI marcinszabunia.pl/portrety-biznesowe`~~ | ✅ **ZROBIONE 05.08: `HTTP/2 308`.** H1 obalona, historia domeny przenosi się poprawnie | — |
+| ~~`curl -sI www.szabunia.pl/`~~ | ✅ **ZROBIONE 05.08: `HTTP/2 308`.** H2 obalona, zero duplikatu | — |
 | Konsola po kliknięciu „Akceptuję" | H5 → **odblokowuje D7**; agent tego nie zrobi, to działanie w Twoim imieniu | DevTools → Console, szukać `Refused to connect` |
 | Rich Results Test dla `/` i `/kontakt` | czy Google widzi **dwie** encje `ProfessionalService` | `search.google.com/test/rich-results` |
 | `scrollHeight` mobile przy 390 px | H15, w **widocznym** oknie | device toolbar |
