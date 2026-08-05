@@ -380,7 +380,7 @@ export const blogPosts: BlogPost[] = [
       <p>Firmy produkcyjne często potrzebują dwóch rzeczy naraz: zdjęć z hali i zdjęć samych wyrobów. Dla Artech powstało 20 packshotów półfabrykatów i detali z tworzyw na białym tle, w powtarzalnym setupie, wykorzystywanych na stronie internetowej, w katalogu i w sklepie internetowym. Powtarzalny setup ma znaczenie praktyczne: katalog da się rozbudowywać o kolejne pozycje bez ponownego fotografowania wszystkiego. Szczegóły opisałem przy <a href="/uslugi/fotografia-produktowa">fotografii produktowej</a> oraz w <a href="/portfolio/artech-fotografia-produktowa">case study Artech</a>.</p>
 
       <h2>Portrety pracowników w jednym standardzie</h2>
-      <p>Zdjęcia z hali dobrze uzupełnić portretami zespołu, zwłaszcza gdy materiał ma pracować w rekrutacji. Przywożę mobilne studio, rozstawiam je w sali konferencyjnej albo na korytarzu, potrzebuję około 5 m² i gniazdka. Setup zajmuje jakieś 20 minut, a każda osoba jest w kadrze przez 5 do 15 minut. W jeden dzień da się w ten sposób sfotografować do 40 osób, wszystkie w tym samym świetle i retuszu. Osoby nieobecne w dniu sesji dogrywam w osobnym, krótszym terminie, w tym samym standardzie. Więcej o organizacji takiej sesji piszę w tekście o <a href="/blog/headshoty-zespolu-w-jeden-dzien">headshotach całego zespołu w jeden dzień</a>.</p>
+      <p>Zdjęcia z hali dobrze uzupełnić portretami zespołu, zwłaszcza gdy materiał ma pracować w rekrutacji. Przywożę mobilne studio, rozstawiam je w sali konferencyjnej albo na korytarzu, potrzebuję około 5 m² i gniazdka. Setup zajmuje jakieś 30 minut, a każda osoba jest w kadrze przez 5 do 15 minut. W jeden dzień da się w ten sposób sfotografować do 40 osób, wszystkie w tym samym świetle i retuszu. Osoby nieobecne w dniu sesji dogrywam w osobnym, krótszym terminie, w tym samym standardzie. Więcej o organizacji takiej sesji piszę w tekście o <a href="/blog/headshoty-zespolu-w-jeden-dzien">headshotach całego zespołu w jeden dzień</a>.</p>
 
       <h2>Co dostajesz po sesji</h2>
       <p>Zdjęcia w pełnej jakości plus wersje zoptymalizowane pod web, na życzenie także PNG z przezroczystym tłem i TIFF do druku (przydaje się przy katalogach i materiałach targowych). Surowych plików RAW nie przekazuję w cenie, ale są dostępne jako opcja dodatkowa za 30 procent wartości zlecenia, jeśli zdecydujesz przed sesją.</p>
@@ -443,7 +443,7 @@ export const blogPosts: BlogPost[] = [
       <p>Cała sesja rozkłada się na cztery etapy i większość pracy dzieje się przed nią, nie w jej trakcie:</p>
       <ul>
         <li><strong>1. Logistyka.</strong> Ustalamy harmonogram i liczbę osób. Najlepiej działa lista z godzinami, po dwie osoby na okienko, żeby kolejka się nie tworzyła i nikt nie stał pod salą.</li>
-        <li><strong>2. Setup.</strong> Rozstawiam mobilne studio w biurze, zajmuje to około 20 minut.</li>
+        <li><strong>2. Setup.</strong> Rozstawiam mobilne studio w biurze, zajmuje to około 30 minut.</li>
         <li><strong>3. Sesja.</strong> Od 5 do 15 minut na osobę: headshot plus opcjonalne ujęcie zespołowe.</li>
         <li><strong>4. Dostawa.</strong> Wyretuszowane zdjęcia w 14 dni kalendarzowych.</li>
       </ul>
@@ -469,7 +469,7 @@ export const blogPosts: BlogPost[] = [
       <p>Sesje zespołowe realizuję od 2 osób. Mniejszym grupom polecam pakiety z <a href="/uslugi/wizerunek-portrety">Wizerunku i Portretów</a>, bo przy dwóch czy trzech osobach indywidualna sesja portretowa daje więcej niż setup zespołowy. Podaj liczbę osób i miejsce, a wstępną wycenę odeślę w 24h.</p>
 
       <h2>Bonus: jak zorganizować sesję zespołową?</h2>
-      <p>Mogę przyjechać do Waszego biura z <a href="/uslugi/sesje-zespolowe">mobilnym studiem</a>. Bazuję w Poznaniu, gdzie dojazd jest bezpłatny, a poza miastem doliczam 2,50 zł netto/km od granic Poznania, w obie strony. Setup zajmuje ok. 20 minut, a potem fotografuję osoby jedna po drugiej. Zero stresu, zero logistyki po Waszej stronie. Gotowe zdjęcia w 14 dni.</p>
+      <p>Mogę przyjechać do Waszego biura z <a href="/uslugi/sesje-zespolowe">mobilnym studiem</a>. Bazuję w Poznaniu, gdzie dojazd jest bezpłatny, a poza miastem doliczam 2,50 zł netto/km od granic Poznania, w obie strony. Setup zajmuje ok. 30 minut, a potem fotografuję osoby jedna po drugiej. Zero stresu, zero logistyki po Waszej stronie. Gotowe zdjęcia w 14 dni.</p>
       <p>Przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje sesji korporacyjnych</a>, sprawdź, jak zaplanować <a href="/blog/headshoty-zespolu-w-jeden-dzien">headshoty całego zespołu w jeden dzień</a>, i daj znać, kiedy zaplanować sesję u Was.</p>
     `,
     seo: {
@@ -705,7 +705,7 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "sesja-wizerunkowa-poznan",
     faq: [
-      { q: "Studio czy własne biuro: gdzie zrobić sesję wizerunkową?", a: "Studio daje pełną kontrolę nad światłem i powtarzalny, ponadczasowy portret, idealny na headshoty, portrety zarządu i zdjęcia do mediów. Sesja w biurze pokazuje realną przestrzeń marki i nie wyrywa zespołu z pracy: fotograf przyjeżdża z mobilnym studiem, którego rozłożenie zajmuje około 20 minut." },
+      { q: "Studio czy własne biuro: gdzie zrobić sesję wizerunkową?", a: "Studio daje pełną kontrolę nad światłem i powtarzalny, ponadczasowy portret, idealny na headshoty, portrety zarządu i zdjęcia do mediów. Sesja w biurze pokazuje realną przestrzeń marki i nie wyrywa zespołu z pracy: fotograf przyjeżdża z mobilnym studiem, którego rozłożenie zajmuje około 30 minut." },
       { q: "Czy dojazd na sesję na terenie Poznania jest dodatkowo płatny?", a: "Nie. Fotograf bazuje w Poznaniu, więc dojazd na terenie miasta jest wliczony w cenę, niezależnie od tego, czy sesja odbywa się w studiu, w Twoim biurze, czy w plenerze. Realizacje poza Poznaniem ustalane są indywidualnie." },
       { q: "Dla kogo sprawdzi się sesja wizerunkowa w plenerze?", a: "Plener daje zdjęciom charakter i „oddech\". Świetnie sprawdza się w personal brandingu, u twórców i przy mniej formalnych wizerunkach. Poznań oferuje różnorodne tła: architekturę Starego Miasta, nowoczesne dzielnice biurowe czy zieleń nad Wartą. Minusem jest zależność od pogody i pory dnia." },
     ],
@@ -729,7 +729,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Twoje biuro: autentyczność i wygoda</h2>
-      <p>Sesja u Ciebie w firmie ma dwie wielkie zalety: pokazuje realną przestrzeń marki i nie wyrywa zespołu z pracy na pół dnia. Przyjeżdżam z mobilnym studiem, rozłożenie zajmuje ok. 20 minut, a potem fotografuję w Waszym rytmie. To naturalny wybór dla <a href="/uslugi/sesje-zespolowe">sesji zespołowych</a> i zdjęć pokazujących firmę „od środka".</p>
+      <p>Sesja u Ciebie w firmie ma dwie wielkie zalety: pokazuje realną przestrzeń marki i nie wyrywa zespołu z pracy na pół dnia. Przyjeżdżam z mobilnym studiem, rozłożenie zajmuje ok. 30 minut, a potem fotografuję w Waszym rytmie. To naturalny wybór dla <a href="/uslugi/sesje-zespolowe">sesji zespołowych</a> i zdjęć pokazujących firmę „od środka".</p>
       <ul>
         <li><strong>Dla kogo:</strong> zespoły, działy, zdjęcia pokazujące biuro i kulturę firmy</li>
         <li><strong>Plus:</strong> autentyczna przestrzeń, zero logistyki po Waszej stronie</li>
@@ -1030,7 +1030,7 @@ export const blogPosts: BlogPost[] = [
       <p>Obróbka i dostarczanie zdjęć jeszcze w trakcie wydarzenia. Organizator dostaje gotowe kadry do publikacji w social media, zanim event się skończy. Opcja dodatkowa przy <a href="/uslugi/eventy-reportaze">reportażach eventowych</a>, wyceniana za zdjęcie.</p>
 
       <h2>Mobilne studio</h2>
-      <p>Pełny zestaw studyjny (tło, oświetlenie, stanowisko), który przywożę do Twojego biura. Rozstawienie zajmuje około 20 minut, a zespół fotografuje się na miejscu, bez wysyłania ludzi przez pół miasta. Bazuję w Poznaniu, gdzie dojazd jest w cenie (0 zł); poza miastem doliczam 2,50 zł netto za kilometr, licząc od granic miasta w obie strony. Podstawa <a href="/uslugi/sesje-zespolowe">sesji zespołowych</a>.</p>
+      <p>Pełny zestaw studyjny (tło, oświetlenie, stanowisko), który przywożę do Twojego biura. Rozstawienie zajmuje około 30 minut, a zespół fotografuje się na miejscu, bez wysyłania ludzi przez pół miasta. Bazuję w Poznaniu, gdzie dojazd jest w cenie (0 zł); poza miastem doliczam 2,50 zł netto za kilometr, licząc od granic miasta w obie strony. Podstawa <a href="/uslugi/sesje-zespolowe">sesji zespołowych</a>.</p>
 
       <h2>RAW</h2>
       <p>Surowy plik z aparatu, cyfrowy odpowiednik negatywu. Zawiera pełne dane obrazu, ale wymaga obróbki i nie nadaje się do bezpośredniej publikacji. Fotografowie standardowo nie przekazują RAW-ów, tak jak drukarnia nie oddaje projektów otwartych: oddaję gotowy, spójny materiał po autorskiej postprodukcji. Jeśli jednak potrzebujesz pełnej kontroli nad postprodukcją, udostępnienie plików RAW jest dostępne jako opcja dodatkowa za 30 procent wartości zlecenia. Decyzję trzeba podjąć przed sesją, bo uwzględniam ją w umowie.</p>

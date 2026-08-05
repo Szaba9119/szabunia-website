@@ -1,0 +1,43 @@
+fix(tresc): rozstawienie mobilnego studia 30 minut zamiast 20
+
+Decyzja Marcina 05.08.2026, po audycie spojnosci. Ta sama czynnosc miala
+w systemie trzy rozne czasy: strona i szablony mailowe "20 minut",
+faq_klienta.md "30-45 min", a normatyw w system_wyceny_modulowej.md "1 h",
+po ktorym liczona jest rentownosc kazdego zlecenia z mobilnym studiem.
+Ujednolicone na 30 minut wszedzie.
+
+Powierzchnie klienckie (12 miejsc):
+- blog.ts x6: setup w tekstach o headshotach zespolu, sesji w biurze,
+  zdjeciach z hali, w FAQ "studio czy wlasne biuro" i w slowniku
+- services.tsx x4: FAQ eventowe, opis SEO sesji zespolowych, krok "Setup"
+  w procesie, FAQ o sprzecie
+- portfolio.ts x2: FAQ o mobilnym studiu i krok "Setup" w procesie
+
+CLAUDE.md: zapis antyregresyjny, zeby kolejna sesja nie cofnela na 20 minut.
+Przy okazji poprawiona kotwica zespolowa, ktora w CLAUDE.md nadal brzmiala
+"dla zespolow od 120 zl netto za osobe", czyli wedlug wycofanej taryfy.
+
+Poza repo, w tym samym audycie (pliki systemowe, nie wchodza w ten commit):
+- system_wyceny_modulowej.md: normatyw setupu 1 h -> 0,5 h + ostrzezenie,
+  ze ta zmiana PODNOSI policzone zl/h i wymaga pomiaru na pierwszej sesji
+- kalkulator_zlecenia.md: blok staly sesji zespolowej 7,5 h -> 7,0 h,
+  piec wierszy przeliczonych (157-168 -> 167-170 zl/h), OBIEKT KOMPLETNY
+  przestal byc opisany jako "linia wylaczona", wniosek strategiczny i
+  porownanie obiekty/zespolowe przeliczone na aktualna taryfe
+- cennik_2026_07_v3.md: kotwica produktowa 55 -> 600 zl i obiektowa
+  400 -> 900 zl (strona, llms.txt i wizytowka juz podawaly 600 i 900),
+  zapomniane "ok. 20 zdjec na godzine" w sekcji 8 -> 30
+- szablony_mailowe_v5.md: Szablon 14 mial zakazane "za jeden portret /
+  kazde kolejne ujecie 200 zl" i cene wejscia 1 353 zl brutto zamiast 861;
+  Szablon 15C ta sama cena wejscia; dwa miejsca z "211 zl/h na konto"
+  liczonym na wycofanej taryfie zespolowej
+- faq_klienta.md: "pakiety startuja od 1 100 zl" -> 700 zl
+- cennik_z_arkusza.csv: 20 -> 30 gotowych zdjec na godzine
+- cennik_B2C_2026.md: oznaczony jako wycofany (decyzja Marcina: klientow
+  prywatnych obsluguje cennik B2B przeliczony na brutto)
+
+Wizytowka Google: opis "Fotografia portretowa" przepisany z "portrety
+osobiste, aktorskie" na wizerunek biznesowy (zarzad, eksperci, LinkedIn),
+bo poprzedni ciagnal klienta prywatnego na cene netto z cennika B2B.
+
+Kontrola: tsc czysty, sprawdz_spojnosc.mjs 0 bledow i 0 kwot spoza kanonu.

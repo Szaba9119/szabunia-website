@@ -171,7 +171,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na social media." },
       { q: "Ile zdjęć otrzymam?", a: "Około 30 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
       { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
-      { q: "Czy przy okazji eventu zrobisz zdjęcia całego zespołu?", a: "Tak. Na wydarzenie mogę przywieźć mobilne studio: potrzebuję około 5 m² wolnej przestrzeni i gniazdka, rozstawienie zajmuje 20 minut, a potem fotografuję kolejne osoby po 5 do 15 minut, między prelekcjami albo w kuluarach. Event to zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu, więc headshoty przy tej okazji nie wymagają osobnego terminu ani osobnego dojazdu." },
+      { q: "Czy przy okazji eventu zrobisz zdjęcia całego zespołu?", a: "Tak. Na wydarzenie mogę przywieźć mobilne studio: potrzebuję około 5 m² wolnej przestrzeni i gniazdka, rozstawienie zajmuje 30 minut, a potem fotografuję kolejne osoby po 5 do 15 minut, między prelekcjami albo w kuluarach. Event to zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu, więc headshoty przy tej okazji nie wymagają osobnego terminu ani osobnego dojazdu." },
       { q: "Kto robi zdjęcia i film, gdy event jest duży?", a: "Przy standardowym wydarzeniu robię wszystko sam. Przy dużym evencie, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora do zdjęć albo do wideo. Postprodukcja zostaje u mnie: retusz zdjęć i montaż filmu robię osobiście, więc materiał wychodzi w jednym standardzie. Dla Ciebie to nadal jedna osoba kontaktowa, jedne ustalenia i jedna faktura." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
     ],
@@ -191,7 +191,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne.",
     description:
-      "Spójne headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura albo rezerwuję studio, rozstawienie zajmuje 20 minut, a każda osoba potrzebuje 5-15 minut na sesję. Efekt: spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
+      "Spójne headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura albo rezerwuję studio, rozstawienie zajmuje 30 minut, a każda osoba potrzebuje 5-15 minut na sesję. Efekt: spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
     forWhom: [
       "Zespoły korporacyjne i działy HR",
       "Kancelarie prawne i firmy doradcze",
@@ -213,7 +213,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     heroPriceLabel: "od 1 400 zł netto",
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram i liczbę osób" },
-      { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio w biurze (20 min)" },
+      { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio w biurze (30 min)" },
       { num: 3, title: "Sesja", desc: "5-15 min na osobę, headshot + opcja team" },
       { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
     ],
@@ -227,7 +227,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Ile osób możesz sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studiu. Każda osoba potrzebuje ok. 5-15 minut." },
       { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 5 m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
       { q: "Czy zdjęcia będą spójne dla całego zespołu?", a: "Tak, identyczne oświetlenie i tło. Spójne headshoty na stronie i w materiałach firmowych." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy Sigma 70-200 mm f/2.8 i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 20 minut i wystarczy około 5 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy Sigma 70-200 mm f/2.8 i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 30 minut i wystarczy około 5 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {

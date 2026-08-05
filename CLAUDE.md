@@ -189,7 +189,7 @@ sekcji cennika bez wyraźnej decyzji Marcina.
 z mobilnym studiem do klienta; pakiety od 1 100), pakiety hybrydowe 2 100, eventy 600,
 **sesje zespołowe 1 400 zł za dwie osoby + 120 zł za każdą kolejną** (dwa wyretuszowane
 zdjęcia na osobę; progi 180/150/120 zł za osobę WYCOFANE 05.08.2026 — rozkładały blok stały
-7,5 h dopiero od ósmej osoby), wideo 400,
+7 h dopiero od ósmej osoby), wideo 400,
 produktowa 600, dron 700, obiekty 900. Nazwy pakietów: **PORTRET/EVENT START** (tylko portrety)
 **/ STANDARD / PRO / PRO MAX**.
 
@@ -197,9 +197,13 @@ produktowa 600, dron 700, obiekty 900. Nazwy pakietów: **PORTRET/EVENT START** 
 z 05.08.2026, wcześniej 20). Minimalne liczby w pakietach hybrydowych zostają: 60+ / 120+ / 160+.
 
 ⛔ **Kotwica portretowa brzmi dosłownie:** „Ceny portretów dla jednej osoby zaczynają się
-od 700 zł netto, a dla zespołów od 120 zł netto za osobę". Zwroty **„za pierwsze zdjęcie"**
+od 700 zł netto, a sesja zespołowa od 1 400 zł netto za dwie osoby". Zwroty **„za pierwsze zdjęcie"**
 i **„za jedno ujęcie"** zostały przez Marcina odrzucone wprost (04.08.2026) — nie dopisywać.
 Na powierzchniach klienckich stoi **jedna kwota „od" na usługę**, bez drabinek i tabel.
+
+⛔ **Rozstawienie mobilnego studia to 30 minut** (decyzja Marcina z 05.08.2026). Wcześniej
+strona i szablony mówiły 20 minut, FAQ 30–45, a normatyw 1 h — trzy różne liczby na tę samą
+czynność. Nie wracać do „20 minut" w blog.ts, portfolio.ts i services.tsx.
 
 Terminy w **dniach kalendarzowych** (zdjęcia 14, wideo 21), poprawki w 7 dni od zgłoszenia.
 Pełna siatka cen żyje w `public/llms.txt` i we wpisach `src/data/blog.ts` — **kanon kotwic

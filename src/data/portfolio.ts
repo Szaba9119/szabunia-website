@@ -426,7 +426,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Czy mogę mieć sesję w swoim biurze?",
-        a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 5 m² wolnej przestrzeni i dostępu do gniazdka. Rozstawienie sprzętu zajmuje ok. 20 minut.",
+        a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 5 m² wolnej przestrzeni i dostępu do gniazdka. Rozstawienie sprzętu zajmuje ok. 30 minut.",
       },
       {
         q: "Ile osób możesz sfotografować w jeden dzień?",
@@ -579,7 +579,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     ],
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram sesji w biurze" },
-      { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio (20 min)" },
+      { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio (30 min)" },
       { num: 3, title: "Sesja", desc: "5-15 min na osobę, headshoty + opcja team" },
       { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
     ],
