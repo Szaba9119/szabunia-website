@@ -6,6 +6,7 @@ import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
+import { gtagEvent } from "@/lib/gtag";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
 import type { GalleryImage } from "@/data/portfolio";
 
@@ -74,8 +75,13 @@ export default function PortfolioGallery({ images, title, subtitle, aspect = "la
         <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
           {images.map((img, i) => (
             <AnimatedSection key={img.src} delay={0.08 * i}>
+              {/* Jawne zdarzenie, bo to `<button>`, a delegat w ContactClickTracker
+                  łapie wyłącznie `<a data-cta>` (PELNY2608-13). */}
               <button
-                onClick={() => setLightboxIndex(i)}
+                onClick={() => {
+                  gtagEvent("gallery_open", { position: i + 1 });
+                  setLightboxIndex(i);
+                }}
                 className={`group relative ${tileAspect} rounded-2xl overflow-hidden bg-border dark:bg-dark-card w-full cursor-pointer`}
                 aria-label={`Otwórz zdjęcie: ${img.alt}`}
               >

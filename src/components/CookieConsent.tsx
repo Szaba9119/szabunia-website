@@ -8,7 +8,14 @@ export default function CookieConsent() {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const consent = localStorage.getItem("cookie-consent");
+    // `try/catch` jak w ThemeProvider (PELNY2608-16). Fallback przy zablokowanym
+    // magazynie: baner ukryty, czyli stan bezpieczny — zgoda zostaje na `denied`.
+    let consent: string | null = null;
+    try {
+      consent = localStorage.getItem("cookie-consent");
+    } catch {
+      return;
+    }
     if (!consent) {
       // Small delay so it doesn't flash on page load
       const timer = setTimeout(() => setVisible(true), 1500);
@@ -36,14 +43,22 @@ export default function CookieConsent() {
     return () => window.removeEventListener("resize", emit);
   }, [visible]);
 
+  const remember = (value: "accepted" | "declined") => {
+    try {
+      localStorage.setItem("cookie-consent", value);
+    } catch {
+      // Zapis niedostępny — decyzja obowiązuje do końca sesji, baner wróci przy kolejnej.
+    }
+  };
+
   const accept = () => {
-    localStorage.setItem("cookie-consent", "accepted");
+    remember("accepted");
     updateAnalyticsConsent(true);
     setVisible(false);
   };
 
   const decline = () => {
-    localStorage.setItem("cookie-consent", "declined");
+    remember("declined");
     updateAnalyticsConsent(false);
     setVisible(false);
   };
@@ -55,9 +70,12 @@ export default function CookieConsent() {
       ref={ref}
       role="dialog"
       aria-label="Informacja o plikach cookie"
-      className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6"
+      // `pointer-events-none` na wrapperze: przezroczysty pas o pełnej szerokości
+      // przechwytywał kliknięcia w całym dolnym pasie (na 1920 px po ~576 px z każdej
+      // strony) i blokował BackToTopButton na /blog/[slug] (audyt PELNY2608-21).
+      className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6 pointer-events-none"
     >
-      <div className="max-w-3xl mx-auto bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border shadow-xl shadow-navy/10 dark:shadow-black/30 p-5 md:p-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+      <div className="pointer-events-auto max-w-3xl mx-auto bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border shadow-xl shadow-navy/10 dark:shadow-black/30 p-5 md:p-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
         <div className="flex-1 min-w-0">
           <p className="text-[13px] text-text-body dark:text-dark-text leading-relaxed">
             Ta strona korzysta z plików cookie w celu zapewnienia prawidłowego

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { portfolioCategories, portfolioItems } from "@/data/portfolio";
+import { portfolioItems } from "@/data/portfolio";
 import { galleryAlt } from "@/data/galleryAlts";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -52,7 +52,10 @@ export default function PortfolioPage() {
       "@context": "https://schema.org",
       "@type": "ItemList",
       name: "Portfolio — realizacje Marcina Szabuni",
-      itemListElement: portfolioCategories.map((c, i) => ({
+      // `portfolioItems`, nie `portfolioCategories`: lista niefiltrowana zawierała
+      // draft Box17 (`noindex`) i inną kolejność niż widoczna siatka, czyli dawała
+      // Googlebotowi ścieżkę odkrycia do strony świadomie ukrytej (PELNY2608-28).
+      itemListElement: portfolioItems.map((c, i) => ({
         "@type": "ListItem",
         position: i + 1,
         name: c.label,
@@ -113,12 +116,15 @@ export default function PortfolioPage() {
                       target="_blank"
                       rel="noopener noreferrer"
                       className="block w-full h-full"
+                      data-cta={`case_${item.slug}`}
                       aria-label={`${item.label}, otwiera się w nowej karcie`}
                     >
                       {overlay}
                     </a>
                   ) : (
-                    <Link href={`/portfolio/${item.slug}`} className="block w-full h-full">
+                    // `data-cta` tą samą konwencją co kafle na stronie głównej,
+                    // żeby oba huby dały się zsumować w jednym raporcie (PELNY2608-13).
+                    <Link href={`/portfolio/${item.slug}`} data-cta={`case_${item.slug}`} className="block w-full h-full">
                       {overlay}
                     </Link>
                   )}

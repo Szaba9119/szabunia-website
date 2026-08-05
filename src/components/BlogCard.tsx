@@ -16,7 +16,9 @@ export default function BlogCard({ post }: { post: BlogPost }) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className="group block bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border overflow-hidden hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5"
+      // `h-full flex flex-col`: karta wypełnia komórkę siatki, więc tytuły
+      // od jednej do trzech linii nie rozjeżdżają rzędu o ~40 px (PELNY2608-43).
+      className="group flex h-full flex-col bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border overflow-hidden hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5"
     >
       <div className="relative aspect-[16/9] bg-border dark:bg-dark-card">
         <Image
@@ -30,7 +32,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
           blurDataURL={blurPlaceholder}
         />
       </div>
-      <div className="p-5">
+      <div className="flex-1 p-5">
         <div className="flex items-center gap-3 mb-3">
           <span className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-blue dark:text-blue-light bg-blue-pale dark:bg-blue/15 px-2 py-0.5 rounded-full">
             {categoryLabels[post.category] ?? post.category}

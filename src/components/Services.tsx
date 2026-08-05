@@ -49,8 +49,13 @@ export default function Services() {
                     isWide ? " sm:col-span-2 md:col-span-3" : " md:col-span-2"
                   }`}
                 >
+                  {/* Kafel usługi to jedyne miejsce, gdzie klient deklaruje,
+                      czego chce, ZANIM dojdzie do formularza. Bez `data-cta`
+                      delegat go nie łapie i nie wiadomo, czy porzucenie następuje
+                      na wyborze usługi, czy na formularzu (PELNY2608-13). */}
                   <Link
                     href={`/uslugi/${s.slug}`}
+                    data-cta={`uslugi_karta_${s.slug}`}
                     className="block"
                   >
                     {s.image && (

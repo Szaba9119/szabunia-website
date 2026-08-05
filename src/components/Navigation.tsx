@@ -107,7 +107,9 @@ export default function Navigation() {
 
         <div className="hidden md:flex items-center gap-3">
           {navLinks.map((link) => {
-            const cls = `text-[13px] transition-colors font-inter ${
+            // `py-2`: cel dotykowy z ~16 px na 32 px (WCAG 2.2 SC 2.5.8).
+            // Wysokość paska bez zmian, bo przycisk CTA obok ma już `py-2`.
+            const cls = `text-[13px] py-2 transition-colors font-inter ${
               isActive(link)
                 ? "text-blue dark:text-blue-light font-semibold"
                 : "text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white"

@@ -89,13 +89,24 @@ export default function CTA() {
           consentTs: new Date().toISOString(),
           _gotcha: gotcha,
           turnstileToken,
+          // Formularz renderuje się na ośmiu typach stron, a mail nie mówił,
+          // z której przyszedł, więc „która podstrona dowozi leady" nie miało
+          // odpowiedzi poza GA4 (audyt PELNY2608-34).
+          page: typeof window !== "undefined" ? window.location.pathname : "",
           ...getUtmParams(),
         }),
       });
 
       if (res.ok) {
         setSubmitted(true);
-        gtagEvent("contact_submit", { service: formData.service || "(brak)" });
+        // Konwersję liczymy tylko wtedy, gdy serwer potwierdził wysyłkę. Trasa przy
+        // wypełnionym honeypocie zwraca 200 i nie wysyła maila, a samo `res.ok`
+        // liczyło to jako lead (audyt PELNY2608-33). Starsze odpowiedzi bez pola
+        // `sent` traktujemy jako wysłane, żeby zmiana nie gubiła konwersji.
+        const body: { sent?: boolean } | null = await res.json().catch(() => null);
+        if (body?.sent !== false) {
+          gtagEvent("contact_submit", { service: formData.service || "(brak)" });
+        }
       } else {
         const body: { error?: string } | null = await res.json().catch(() => null);
         setError(body?.error || GENERIC_ERROR);

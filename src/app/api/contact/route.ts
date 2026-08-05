@@ -42,8 +42,11 @@ export async function POST(req: Request) {
   }
 
   // Honeypot — boty wypełniają to pole; udajemy sukces i nic nie wysyłamy.
+  // `sent: false` (wzorzec `guideSent` z /api/lead): klient sprawdzał samo `res.ok`
+  // i liczył `contact_submit` także dla zgłoszeń wyrzuconych do kosza, przez co
+  // licznika w GA4 nie dało się uzgodnić ze skrzynką (audyt PELNY2608-33).
   if (typeof data._gotcha === "string" && data._gotcha.trim() !== "") {
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, sent: false });
   }
 
   const turnstileOk = await verifyTurnstile(String(data.turnstileToken ?? ""), ip);
@@ -74,7 +77,9 @@ export async function POST(req: Request) {
   }
 
   // Źródło ruchu (UTM/gclid) — opcjonalne, przechwycone z URL wejściowego (src/lib/utm.ts).
-  const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"] as const;
+  // `wbraid`/`gbraid`: Google Ads wysyła je zamiast `gclid` przy ograniczeniach
+  // prywatności (iOS, ruch z aplikacji). Lista musi być zgodna z UTM_KEYS w utm.ts.
+  const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "wbraid", "gbraid"] as const;
   const utm: Record<string, string> = {};
   for (const key of UTM_FIELDS) {
     const value = String(data[key] ?? "").trim();
@@ -133,6 +138,11 @@ export async function POST(req: Request) {
 
   const utmHtml = utmHtmlBlock(utm);
 
+  // Strona, z której poszło zgłoszenie — drugi, niezależny od GA4 sposób na
+  // pytanie „która podstrona dowozi leady" (audyt PELNY2608-34).
+  const page = String(data.page ?? "").trim().slice(0, 200);
+  const pageHtml = page ? `<p><strong>Strona wysyłki:</strong> ${escapeHtml(page)}</p>` : "";
+
   const html = `
     <h2>Nowe zgłoszenie z formularza szabunia.pl</h2>
     <p><strong>Imię / firma:</strong> ${escapeHtml(name)}</p>
@@ -143,6 +153,7 @@ export async function POST(req: Request) {
     <p><strong>Zgoda RODO:</strong> TAK${consentTs ? `, ${escapeHtml(consentTs)}` : ""}${
       consentText ? `<br><em>${escapeHtml(consentText)}</em>` : ""
     }</p>
+    ${pageHtml}
     ${utmHtml}
   `;
 
@@ -168,7 +179,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Nie udało się wysłać" }, { status: 502 });
     }
 
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, sent: true });
   } catch (err) {
     console.error("Błąd /api/contact:", err);
     return NextResponse.json({ error: "Błąd serwera" }, { status: 500 });

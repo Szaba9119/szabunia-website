@@ -24,8 +24,11 @@ export default function PoradnikTeaser() {
                   pliku PDF. Wyjdziesz na zdjęciach pewnie i naturalnie, nawet jeśli
                   zwykle nie lubisz się fotografować.
                 </p>
+                {/* Wejście na lead magnet było czwartym krokiem lejka bez zdarzenia
+                    (PELNY2608-13). Delegat łapie wyłącznie linki z `data-cta`. */}
                 <Link
                   href="/poradnik"
+                  data-cta="poradnik_wejscie"
                   className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-6 py-3.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform"
                 >
                   Pobierz za darmo

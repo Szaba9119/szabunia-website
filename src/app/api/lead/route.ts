@@ -70,7 +70,9 @@ export async function POST(req: Request) {
 
   // Źródło ruchu (UTM/gclid) — opcjonalne, przechwycone z URL wejściowego (src/lib/utm.ts).
   // Limit 200 zn./pole — ochrona przed sztucznie napompowanym payloadem.
-  const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid"] as const;
+  // `wbraid`/`gbraid`: Google Ads wysyła je zamiast `gclid` przy ograniczeniach
+  // prywatności (iOS, ruch z aplikacji). Lista zgodna z UTM_KEYS w utm.ts.
+  const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "wbraid", "gbraid"] as const;
   const utm: Record<string, string> = {};
   for (const key of UTM_FIELDS) {
     const value = String(data[key] ?? "").trim();

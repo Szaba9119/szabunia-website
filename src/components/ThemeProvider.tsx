@@ -27,7 +27,18 @@ export default function ThemeProvider({
 
   // Sync real theme from localStorage / system preference after hydration
   useEffect(() => {
-    const saved = localStorage.getItem("theme") as Theme | null;
+    // `try/catch`: przy zablokowanym zapisie danych witryny (Chrome „Blokuj
+    // wszystkie pliki cookie", polityka firmowa, część rozszerzeń) dostęp do
+    // localStorage rzuca SecurityError. Ten komponent owija {children} całej
+    // aplikacji, więc poniżej nie ma granicy, która by go złapała, i użytkownik
+    // z tego segmentu nie zobaczyłby strony w ogóle (audyt PELNY2608-16).
+    // Wzorzec z src/lib/utm.ts:33. Fallback: motyw jasny, czyli stan bezpieczny.
+    let saved: Theme | null = null;
+    try {
+      saved = localStorage.getItem("theme") as Theme | null;
+    } catch {
+      saved = null;
+    }
     // Domyślnie jasny motyw przy pierwszej wizycie; tylko jawny wybór "dark" go włącza.
     const resolved: Theme = saved === "dark" ? "dark" : "light";
     // eslint-disable-next-line react-hooks/set-state-in-effect -- post-hydration sync: localStorage/matchMedia unavailable during SSR render
@@ -42,7 +53,11 @@ export default function ThemeProvider({
   const toggle = () => {
     setTheme((prev) => {
       const next = prev === "light" ? "dark" : "light";
-      localStorage.setItem("theme", next);
+      try {
+        localStorage.setItem("theme", next);
+      } catch {
+        // Zapis niedostępny — motyw działa do końca sesji, po prostu się nie zapamięta.
+      }
       return next;
     });
   };

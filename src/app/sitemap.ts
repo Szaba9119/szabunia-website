@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Data ostatniej istotnej zmiany treści statycznych tras i stron usług.
   // Podnosić RĘCZNIE przy realnej zmianie treści — `new Date()` przy każdym
   // buildzie byłoby fałszywym sygnałem świeżości (audyt PELNY2907-29).
-  const SITE_UPDATED = new Date("2026-07-29");
+  const SITE_UPDATED = new Date("2026-08-05");
 
   const portfolioPages = portfolioCategories
     .filter((c) => !c.externalUrl && !isPortfolioDraft(c.slug))

@@ -6,7 +6,10 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "404: strona nie znaleziona | Szabunia",
   description: "Strona, której szukasz, nie istnieje lub została przeniesiona. Wróć na stronę główną.",
-  robots: { index: false, follow: false },
+  // `follow: true`: strony nie indeksujemy, ale cztery linki ratunkowe mają
+  // prowadzić dalej. Przy trwających przekierowaniach ze starej domeny
+  // odcinanie ich jest kosztem bez zysku (audyt PELNY2608-59).
+  robots: { index: false, follow: true },
 };
 
 export default function NotFound() {

@@ -88,7 +88,9 @@ export default function UslugiPage() {
             {serviceCategories.map((s, i) => (
               <AnimatedSection key={s.slug} delay={i * 0.06} className={s.wide ? "lg:col-span-3" : "lg:col-span-2"}>
                 <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5 group h-full">
-                  <Link href={`/uslugi/${s.slug}`} className="flex flex-col p-6 h-full">
+                  {/* Ta sama nazwa `data-cta` co na stronie głównej, żeby oba huby
+                      dały się zsumować w jednym raporcie (PELNY2608-13). */}
+                  <Link href={`/uslugi/${s.slug}`} data-cta={`uslugi_karta_${s.slug}`} className="flex flex-col p-6 h-full">
                     <div
                       className="w-10 h-10 rounded-xl bg-blue-pale dark:bg-blue/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
                       aria-hidden="true"

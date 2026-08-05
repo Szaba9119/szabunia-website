@@ -11,8 +11,10 @@ interface Props {
 }
 
 export default function ServiceHero({ service, crumbs }: Props) {
-  // `price` w services.tsx niesie już słowo „netto" („od 600 zł netto"),
-  // a `heroPriceLabel` nie („pakiety od 1 100 zł"). Doklejanie „ netto" w JSX
+  // `price` w services.tsx niesie już słowo „netto" („od 600 zł netto").
+  // Historycznie `heroPriceLabel` go nie niósł („pakiety od 1 100 zł") — dziś
+  // wszystkie trzy etykiety mają „netto", ale zabezpieczenie zostaje, bo nowa
+  // etykieta bez tego słowa wróciłaby do starego błędu. Doklejanie „ netto" w JSX
   // dawało na sześciu z siedmiu opublikowanych podstron „od 600 zł netto netto"
   // (na produkcji od 2026-07-23). Doklejamy tylko wtedy, gdy słowa jeszcze nie ma.
   const rawPrice = service.heroPriceLabel ?? service.price;

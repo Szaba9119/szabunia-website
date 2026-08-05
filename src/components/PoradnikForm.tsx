@@ -171,7 +171,7 @@ export default function PoradnikForm() {
           />
           <span className="text-[11px] text-steel dark:text-dark-text-muted leading-relaxed">
             Wyrażam zgodę na przetwarzanie mojego adresu e-mail w celu wysłania poradnika oraz okazjonalnych wskazówek związanych z sesją (zgodę mogę wycofać, pisząc na marcin@szabunia.pl), zgodnie z{" "}
-            <a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer" className="text-blue dark:text-blue-light hover:text-white underline transition-colors">
+            <a href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer" className="text-blue dark:text-blue-light hover:text-navy dark:hover:text-white underline transition-colors">
               polityką prywatności
             </a>.
           </span>

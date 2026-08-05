@@ -41,9 +41,11 @@ export interface ServiceData {
       Domyślnie (gdy brak) oba miejsca pokazują `price`. Prośba Marcina 2026-07-23,
       rozszerzone na kafelki 04.08.2026.
 
-      Powód rozszerzenia: na siatce usług stały obok siebie „od 120 zł netto/os."
-      (sesje zespołowe) i „od 1 100 zł netto" (portrety). Dziesięciokrotna różnica
-      przy dwóch usługach, które z kafelka wyglądają tak samo, czytała się jak błąd.
+      Powód rozszerzenia (kwoty HISTORYCZNE, stan na 04.08.2026): na siatce usług
+      stały obok siebie „od 120 zł netto/os." (sesje zespołowe) i „od 1 100 zł netto"
+      (portrety). Dziesięciokrotna różnica przy dwóch usługach, które z kafelka
+      wyglądają tak samo, czytała się jak błąd. Dziś kanon to 1 400 i 700 zł
+      (patrz `heroPriceLabel` niżej) — kwot z tego akapitu nie cytować.
       Etykieta pozwala dopisać JEDNOSTKĘ, nie zmieniając kwoty: „za osobę" kontra
       „pakiety". Kwot nie ruszamy, są w kanonie (`01_Biznes/_System/02_Cenniki`). */
   heroPriceLabel?: string;
@@ -490,8 +492,10 @@ const serviceCategoriesRaw: ServiceData[] = [
     // Bez drugiego paska. Pasek „wnętrza i hale" stał tu od 04.08.2026 i zniknął
     // tego samego dnia na prośbę Marcina: „na zdjęciach z drona nie wyglądają dobrze
     // te wnętrza i hale, można to usunąć stamtąd". Kadry z wnętrz obok ujęć
-    // z powietrza czytały się jak z innej strony. Spięcie z linią obiektową zostaje
-    // w drugą stronę: to podstrona obiektowa linkuje tutaj przyciskiem pod kadrami.
+    // z powietrza czytały się jak z innej strony. UWAGA: zapowiadanego spięcia
+    // zwrotnego NIE MA — jedyny link do tej podstrony w `services.tsx` idzie
+    // z pakietów foto-wideo, nie z linii obiektowej (sprawdzone 05.08.2026,
+    // audyt PELNY2608-61). Linia obiektowa nie ma dziś żadnego linku wychodzącego.
     videoId: "4INLtKcKcZk",
     videoTitle: "Film z eventu dla Woohoo z ujęciami z drona",
     videoNote: "Film z eventu dla Woohoo. Ujęcia z drona łączą się tu z materiałem z poziomu ziemi w jeden spójny film.",
@@ -550,8 +554,11 @@ const serviceCategoriesRaw: ServiceData[] = [
       title: "Zdjęcia i wideo z drona dla firm | Szabunia",
       // TRESC2608-22 + TRESC2608-38 (04.08.2026), jedna linia domyka oba. Poprzedni opis
       // miał 157 znaków przy progu 155 i obiecywał „dron w cenie pakietów hybrydowych",
-      // czego na tej podstronie nie ma: fraza „w cenie" nie pada tu ani razu, a llms.txt
-      // mówi „+200 zł". Sprzedawał też zakres sekcji 8 cennika (budynki, hale, magazyny),
+      // czego na tej podstronie nie ma: fraza „w cenie" nie pada tu ani razu.
+      // UWAGA: `llms.txt:19` mówi dziś „Dron w cenie każdego pakietu", czyli
+      // dokładnie odwrotnie niż ten komentarz twierdził („+200 zł"). Rozjazd jest
+      // otwarty jako decyzja D4 i NIE został tu rozstrzygnięty (audyt PELNY2608-27).
+      // Poprzedni opis sprzedawał też zakres sekcji 8 cennika (budynki, hale, magazyny),
       // czyli linii obiektowej, przy kotwicy o 200 do 1 200 zł niższej.
       description: "Ujęcia 4K terenów, placów, inwestycji i eventów. Certyfikat A1/A3 i OC operatora. Dron łączę z sesją naziemną. Poznań i cała Polska.",
     },

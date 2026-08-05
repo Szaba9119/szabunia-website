@@ -15,8 +15,21 @@ export default function CountUp({ end, duration = 2000, suffix = "", prefix = ""
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    // Pierwsze wywołanie obserwatora mówi, czy element JUŻ jest w widoku.
+    // Jeśli tak, animacji nie startujemy: SSR wyrenderował wartość końcową,
+    // a przejście na `count` = 0 dawało widoczne mrugnięcie „250 000+ → 0+
+    // → 250 000+" na stronie głównej i ośmiu podstronach usług (PELNY2608-45).
+    // Liczniki poniżej folda animują się jak wcześniej.
+    let first = true;
     const observer = new IntersectionObserver(
       ([entry]) => {
+        if (first) {
+          first = false;
+          if (entry.isIntersecting) {
+            observer.disconnect();
+            return;
+          }
+        }
         if (entry.isIntersecting && !started) {
           setStarted(true);
         }

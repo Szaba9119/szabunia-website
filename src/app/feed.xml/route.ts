@@ -1,4 +1,4 @@
-import { blogPosts } from "@/data/blog";
+import { blogPosts, byNewest, postDate } from "@/data/blog";
 
 const BASE_URL = "https://szabunia.pl";
 
@@ -18,9 +18,11 @@ const CATEGORY_LABELS: Record<string, string> = {
 };
 
 export async function GET() {
-  const sorted = [...blogPosts].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
+  // `byNewest` i `postDate`, nie surowe `date`: lista na /blog sortuje i datuje
+  // po `updated`, więc kanał na `date` pokazywał inne „najnowsze" niż serwis,
+  // a `lastBuildDate` stał na 28.06 przy treści zmienianej 29.07 i później —
+  // dla agregatora to kanał porzucony (audyt PELNY2608-58).
+  const sorted = [...blogPosts].sort(byNewest);
 
   const items = sorted
     .map((post) => {
@@ -29,7 +31,7 @@ export async function GET() {
       <title>${escapeXml(post.title)}</title>
       <link>${url}</link>
       <guid isPermaLink="true">${url}</guid>
-      <pubDate>${new Date(post.date).toUTCString()}</pubDate>
+      <pubDate>${new Date(postDate(post).iso).toUTCString()}</pubDate>
       <category>${escapeXml(CATEGORY_LABELS[post.category] ?? post.category)}</category>
       <description>${escapeXml(post.excerpt)}</description>
     </item>`;
@@ -37,7 +39,7 @@ export async function GET() {
     .join("\n");
 
   const lastBuildDate = sorted.length
-    ? new Date(sorted[0].date).toUTCString()
+    ? new Date(postDate(sorted[0]).iso).toUTCString()
     : new Date().toUTCString();
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

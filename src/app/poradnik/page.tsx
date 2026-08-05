@@ -159,7 +159,8 @@ export default function PoradnikPage() {
                   <PoradnikForm />
                 </ErrorBoundary>
 
-                <p className="text-[12px] text-steel dark:text-dark-text-muted/70 mt-4">
+                {/* Bez `/70`: obniżona alfa dawała 4,21:1 przy progu 4,5:1 (PELNY2608-41). */}
+                <p className="text-[12px] text-steel dark:text-dark-text-muted mt-4">
                   4 strony A4 · PDF · od Marcina Szabuni, fotografa biznesowego z Poznania.
                 </p>
 
@@ -171,7 +172,9 @@ export default function PoradnikPage() {
                     <Link href="/uslugi/wizerunek-portrety" className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-5 py-2.5 rounded-xl font-barlow font-bold text-[13px] btn-glow hover:scale-[1.02] transition-transform">
                       Zobacz ofertę portretów <span className="text-white/80">→</span>
                     </Link>
-                    <Link href="/galeria" className="inline-flex items-center gap-2 border border-border dark:border-dark-border text-navy dark:text-white px-5 py-2.5 rounded-xl font-barlow font-semibold text-[13px] hover:border-blue dark:hover:border-blue transition-colors">
+                    {/* `/portfolio`, nie `/galeria`: etykieta obiecuje portfolio,
+                        a to najcieplejszy ruch, jaki ta strona ma (PELNY2608-52). */}
+                    <Link href="/portfolio" className="inline-flex items-center gap-2 border border-border dark:border-dark-border text-navy dark:text-white px-5 py-2.5 rounded-xl font-barlow font-semibold text-[13px] hover:border-blue dark:hover:border-blue transition-colors">
                       Zobacz portfolio
                     </Link>
                   </div>

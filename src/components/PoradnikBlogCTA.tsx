@@ -26,8 +26,11 @@ export default function PoradnikBlogCTA() {
           Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań: pobierz cały
           pakiet PDF za darmo.
         </p>
+        {/* PELNY2608-13: ta sama nazwa co w `PoradnikTeaser`, żeby oba wejścia
+            na lead magnet liczyły się w jednej pozycji raportu. */}
         <Link
           href="/poradnik"
+          data-cta="poradnik_wejscie"
           className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-5 py-2.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform"
         >
           Pobierz poradnik

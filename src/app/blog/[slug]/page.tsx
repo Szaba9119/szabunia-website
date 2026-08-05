@@ -12,6 +12,7 @@ import MobileFAB from "@/components/MobileFAB";
 import BlogContent from "@/components/BlogContent";
 import BlogCard from "@/components/BlogCard";
 import AnimatedSection from "@/components/AnimatedSection";
+import ErrorBoundary from "@/components/ErrorBoundary";
 import PoradnikBlogCTA from "@/components/PoradnikBlogCTA";
 import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
@@ -136,7 +137,8 @@ export default async function BlogPostPage({ params }: PageProps) {
               <span className="text-[12px] text-steel dark:text-dark-text-muted">
                 {post.readTime} min czytania
               </span>
-              <time dateTime={postDate(post).iso} className="text-[12px] text-steel dark:text-dark-text-muted/60">
+              {/* Bez `/60`: obniżona alfa dawała 3,39:1 przy progu 4,5:1 (PELNY2608-41). */}
+              <time dateTime={postDate(post).iso} className="text-[12px] text-steel dark:text-dark-text-muted">
                 {postDate(post).isUpdate ? "Zaktualizowano " : ""}
                 {new Date(postDate(post).iso).toLocaleDateString("pl-PL", {
                   year: "numeric",
@@ -167,10 +169,14 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
           </AnimatedSection>
 
-          {/* Content */}
-          <AnimatedSection>
-            <BlogContent html={post.content} />
-          </AnimatedSection>
+          {/* Content — `ErrorBoundary` zgodnie z `CLAUDE.md §5` i `§11.10`.
+              To jedyna trasa, która nie miała ani jednego wrappera, a renderuje
+              `dangerouslySetInnerHTML` (audyt PELNY2608-31). */}
+          <ErrorBoundary>
+            <AnimatedSection>
+              <BlogContent html={post.content} />
+            </AnimatedSection>
+          </ErrorBoundary>
 
           {/* FAQ wpisu — widoczna treść odpowiadająca znacznikom FAQPage JSON-LD */}
           {post.faq && post.faq.length > 0 && (
@@ -244,6 +250,7 @@ export default async function BlogPostPage({ params }: PageProps) {
           )}
 
           {/* Kontakt CTA — prowadzi do końca lejka */}
+          <ErrorBoundary>
           <AnimatedSection className="mt-12">
             <div className="rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card p-6 md:p-8 text-center">
               <h2 className="font-barlow font-extrabold text-xl md:text-2xl text-navy dark:text-white mb-2">
@@ -261,6 +268,7 @@ export default async function BlogPostPage({ params }: PageProps) {
               </Link>
             </div>
           </AnimatedSection>
+          </ErrorBoundary>
 
           {/* Back link */}
           <AnimatedSection className="mt-12 pt-8 border-t border-border dark:border-dark-border">

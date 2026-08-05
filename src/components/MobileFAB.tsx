@@ -77,7 +77,10 @@ export default function MobileFAB() {
           href="/kontakt"
           onClick={handleCtaClick}
           data-cta="wycena_sticky"
-          aria-label="Przejdź do formularza kontaktowego"
+          // Dostępna nazwa musi zaczynać się od widocznego tekstu „Oferta",
+          // inaczej sterowanie głosem nie trafia w jedyny stały przycisk
+          // konwersji na telefonie (WCAG 2.1 SC 2.5.3, audyt PELNY2608-17).
+          aria-label="Oferta, zapytaj o wycenę"
           className="flex items-center gap-2 pl-4 pr-5 py-2.5 bg-gradient-to-br from-blue to-blue text-white rounded-full btn-glow font-barlow font-bold text-sm"
         >
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">

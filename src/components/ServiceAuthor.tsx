@@ -34,7 +34,10 @@ export default function ServiceAuthor() {
                   className="object-cover"
                   style={{ objectPosition: "center 12%" }}
                   sizes="(max-width: 640px) 112px, 160px"
-                  quality={78}
+                  // 80, nie 78: `images.qualities` w next.config.ts deklaruje
+                  // [72, 75, 80, 85, 90], a Next 16 odrzuca żądanie o jakości
+                  // spoza listy (HTTP 400 na ośmiu podstronach, audyt PELNY2608-01).
+                  quality={80}
                   placeholder="blur"
                   blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0YxRjVGOSIvPjwvc3ZnPg=="
                 />

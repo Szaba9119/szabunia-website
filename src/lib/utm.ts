@@ -9,6 +9,12 @@ const UTM_KEYS = [
   "utm_term",
   "utm_content",
   "gclid",
+  // Google Ads wysyła `wbraid` i `gbraid` ZAMIAST `gclid` w kontekstach
+  // z ograniczeniami prywatności (ruch z aplikacji, część ścieżek iOS).
+  // Bez nich taki lead przychodzi bez bloku „Źródło" i w skrzynce wygląda
+  // dokładnie jak organiczny: zaniża Ads, zawyża organic (audyt PELNY2608-35).
+  "wbraid",
+  "gbraid",
 ] as const;
 
 type UtmKey = (typeof UTM_KEYS)[number];
