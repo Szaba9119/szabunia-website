@@ -169,7 +169,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     faqs: [
       { q: "Czy fotografujesz też wieczorne gale przy słabym świetle?", a: "Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają fotografować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie. Reportaż z gali, konferencji czy bankietu wygląda naturalnie." },
       { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na social media." },
-      { q: "Ile zdjęć otrzymam?", a: "Około 20 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
+      { q: "Ile zdjęć otrzymam?", a: "Około 30 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
       { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
       { q: "Czy przy okazji eventu zrobisz zdjęcia całego zespołu?", a: "Tak. Na wydarzenie mogę przywieźć mobilne studio: potrzebuję około 5 m² wolnej przestrzeni i gniazdka, rozstawienie zajmuje 20 minut, a potem fotografuję kolejne osoby po 5 do 15 minut, między prelekcjami albo w kuluarach. Event to zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu, więc headshoty przy tej okazji nie wymagają osobnego terminu ani osobnego dojazdu." },
       { q: "Kto robi zdjęcia i film, gdy event jest duży?", a: "Przy standardowym wydarzeniu robię wszystko sam. Przy dużym evencie, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora do zdjęć albo do wideo. Postprodukcja zostaje u mnie: retusz zdjęć i montaż filmu robię osobiście, więc materiał wychodzi w jednym standardzie. Dla Ciebie to nadal jedna osoba kontaktowa, jedne ustalenia i jedna faktura." },
@@ -205,8 +205,12 @@ const serviceCategoriesRaw: ServiceData[] = [
       </svg>
     ),
     heroImage: "/images/portfolio/sesje-zespolowe-cover.jpg",
-    price: "od 120 zł netto/os.",
-    heroPriceLabel: "od 120 zł netto za osobę",
+    // Taryfa przepisana 05.08.2026 decyzją Marcina: 1 400 zł za dwie osoby + 120 zł za każdą
+    // kolejną, dwa wyretuszowane zdjęcia na osobę. Progi 180/150/120 zł za osobę ZNIKAJĄ
+    // z powierzchni klienckich — rozkładały blok stały 7,5 h dopiero od ósmej osoby, przez co
+    // sesja czteroosobowa dawała 76 zł/h. Kanon: cennik_2026_07_v3.md §6.
+    price: "od 1 400 zł netto",
+    heroPriceLabel: "od 1 400 zł netto",
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram i liczbę osób" },
       { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio w biurze (20 min)" },
@@ -214,10 +218,10 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
     ],
     pricingBlurb:
-      "Wycena zależy od liczby osób i miejsca sesji: Twoje biuro z mobilnym studiem albo studio zewnętrzne. Stawka za osobę maleje progresywnie wraz z wielkością zespołu. Sesje realizuję od 4 osób (mniejszym grupom polecam pakiety Wizerunek & Portrety).",
+      "Sesja zespołowa kosztuje 1 400 zł netto za dwie osoby, a każda kolejna osoba to 120 zł. W cenie są dwa wyretuszowane zdjęcia na osobę, dojazd i rozstawienie mobilnego studia w Twoim biurze. Im większy zespół, tym niżej schodzi kwota za osobę.",
     priceFaqQuestion: "Ile kosztuje sesja zdjęciowa zespołu?",
     priceFaqIntro: "Sesje zespołowe zaczynają się",
-    priceFaqSuffix: " przy zespołach od 31 osób (przy mniejszych grupach stawka za osobę jest wyższa)",
+    priceFaqSuffix: " za dwie osoby, a każda kolejna osoba to 120 zł, przy dwóch wyretuszowanych zdjęciach na osobę",
     faqs: [
       { q: "Co z osobami, których nie ma w dniu sesji?", a: "Brakujące osoby dogrywam w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu, żeby portrety całego zespołu były spójne. To częsta sytuacja przy większych zespołach i pracy zdalnej." },
       { q: "Ile osób możesz sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studiu. Każda osoba potrzebuje ok. 5-15 minut." },
@@ -341,7 +345,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     // ani „za jedno ujęcie" — obie formy zostały wprost odrzucone. Kwoty pakietów świadomie
     // tu nie wchodzą: prośba Marcina, żeby nie kotwiczyć klienta stosem liczb w pierwszym
     // zdaniu. Rozwinięcie jest niżej, w osobnym pytaniu FAQ.
-    priceFaqSuffix: ", a dla zespołów od 120 zł netto za osobę",
+    priceFaqSuffix: ", a sesja zespołowa od 1 400 zł netto za dwie osoby",
     faqs: [
       // TRESC2608-05 zamknięty 04.08.2026 BEZ zmiany tego zdania. Audyt zgłaszał je jako
       // sprzeczne z cennikiem („od 30 minut" przy najkrótszym pakiecie 90-minutowym), a decyzja
@@ -360,7 +364,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       // Zgodne z regułą z docs/zasady-tekstow.md: „użyj tego, którego ludzie faktycznie
       // wpisują". Kwoty pakietów świadomie nie wchodzą do odpowiedzi: na stronie stoi
       // wyłącznie kotwica „od 700 zł" i „od 120 zł za osobę" (decyzja Marcina z 04.08).
-      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a dla zespołów od 120 zł netto za osobę. W kwocie startowej masz sesję w studiu w Poznaniu albo dojazd z mobilnym studiem do Twojego biura, razem z retuszem. Wyżej wchodzą pakiety, w których dostajesz więcej czasu, więcej stylizacji i większy wybór kadrów do retuszu. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu. Napisz w dwóch zdaniach, kogo i do czego fotografujemy, a wycenę odeślę mailem w 24 godziny." },
+      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a sesja zespołowa od 1 400 zł netto za dwie osoby. W kwocie startowej masz sesję w studiu w Poznaniu albo dojazd z mobilnym studiem do Twojego biura, razem z retuszem. Wyżej wchodzą pakiety, w których dostajesz więcej czasu, więcej stylizacji i większy wybór kadrów do retuszu. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu. Napisz w dwóch zdaniach, kogo i do czego fotografujemy, a wycenę odeślę mailem w 24 godziny." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {

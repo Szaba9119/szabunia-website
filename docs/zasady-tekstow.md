@@ -113,7 +113,9 @@ Klient ma napisać po wycenę. Decyzja Marcina z 03.08.2026, podjęta świadomie
 przedstawieniu trzech wariantów. **Nie proponować cennika jako ulepszenia SEO.**
 
 **Kotwice „od X zł" zostają** i są jedynym miejscem, gdzie na stronie pada kwota:
-1 100 zł netto portrety, 120 zł za osobę sesje zespołowe, 600 zł produktowa i eventy.
+700 zł netto portrety (od 04.08.2026, wcześniej 1 100), 120 zł za osobę sesje zespołowe,
+600 zł produktowa i eventy. **Jedna kwota „od" na usługę** — bez drabinek, dopłat za kolejne
+ujęcia i tabel progresywnych (decyzja Marcina z 04.08.2026).
 Kotwica nie jest cennikiem. Filtruje zapytania bez budżetu i niesie pozycje
 na zapytaniach cenowych, których jest w GSC cały klaster.
 

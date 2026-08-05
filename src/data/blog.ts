@@ -465,8 +465,8 @@ export const blogPosts: BlogPost[] = [
       <p>W cenie są dwie tury poprawek, realizowane w ciągu 7 dni od zgłoszenia, bez liczenia terminu podstawowego od nowa. Licencja komercyjna nie ma limitów czasowych, więc zdjęcia mogą pracować na stronie, na LinkedIn, w materiałach drukowanych i w reklamie online tak długo, jak potrzebujecie.</p>
 
       <h2>Co wpływa na wycenę sesji zespołowej</h2>
-      <p>Dwie rzeczy: liczba osób i miejsce sesji. <a href="/uslugi/sesje-zespolowe">Sesje zespołowe</a> zaczynają się od 120 zł netto za osobę, przy czym stawka jest progresywna: spada wraz z wielkością zespołu, a niższy próg dotyczy tylko osób w danym przedziale, a nie całej grupy. W praktyce oznacza to, że przy kilkuosobowej grupie kwota za osobę jest wyraźnie wyższa niż przy trzydziestce.</p>
-      <p>Sesje zespołowe realizuję od 4 osób. Mniejszym grupom polecam pakiety z <a href="/uslugi/wizerunek-portrety">Wizerunku i Portretów</a>, bo przy dwóch czy trzech osobach indywidualna sesja portretowa daje więcej niż setup zespołowy. Podaj liczbę osób i miejsce, a wstępną wycenę odeślę w 24h.</p>
+      <p>Dwie rzeczy: liczba osób i miejsce sesji. <a href="/uslugi/sesje-zespolowe">Sesje zespołowe</a> kosztują 1 400 zł netto za dwie osoby, a każda kolejna osoba to 120 zł. W cenie są dwa wyretuszowane zdjęcia na osobę oraz dojazd z mobilnym studiem. Im większy zespół, tym niżej schodzi kwota za osobę.</p>
+      <p>Sesje zespołowe realizuję od 2 osób. Mniejszym grupom polecam pakiety z <a href="/uslugi/wizerunek-portrety">Wizerunku i Portretów</a>, bo przy dwóch czy trzech osobach indywidualna sesja portretowa daje więcej niż setup zespołowy. Podaj liczbę osób i miejsce, a wstępną wycenę odeślę w 24h.</p>
 
       <h2>Bonus: jak zorganizować sesję zespołową?</h2>
       <p>Mogę przyjechać do Waszego biura z <a href="/uslugi/sesje-zespolowe">mobilnym studiem</a>. Bazuję w Poznaniu, gdzie dojazd jest bezpłatny, a poza miastem doliczam 2,50 zł netto/km od granic Poznania, w obie strony. Setup zajmuje ok. 20 minut, a potem fotografuję osoby jedna po drugiej. Zero stresu, zero logistyki po Waszej stronie. Gotowe zdjęcia w 14 dni.</p>
@@ -481,10 +481,10 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "ile-kosztuje-sesja-wizerunkowa-dla-firmy",
     faq: [
-      { q: "Od jakiej kwoty zaczyna się sesja wizerunkowa dla firmy?", a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a dla zespołów od 120 zł netto za osobę. W kwocie startowej jest sesja w studiu w Poznaniu albo dojazd z mobilnym studiem do Twojego biura. Wyżej wchodzą pakiety z dłuższą sesją i większym wyborem kadrów. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek." },
+      { q: "Od jakiej kwoty zaczyna się sesja wizerunkowa dla firmy?", a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a sesja zespołowa od 1 400 zł netto za dwie osoby i 120 zł za każdą kolejną. W kwocie startowej jest sesja w studiu w Poznaniu albo dojazd z mobilnym studiem do Twojego biura. Wyżej wchodzą pakiety z dłuższą sesją i większym wyborem kadrów. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek." },
       { q: "Co wpływa na cenę sesji wizerunkowej?", a: "Sześć policzalnych czynników: liczba osób, liczba finalnych ujęć z autorskim retuszem, lokalizacja i dojazd (na terenie Poznania wliczony), sceneria i przygotowanie planu, zakres licencji na wykorzystanie zdjęć oraz ewentualny tryb ekspresowy, gdy materiał jest potrzebny szybciej niż standardowo." },
       { q: "Ile czasu trwa portret jednej osoby przy sesji zespołowej?", a: "Realnie 5-15 minut na dobry portret jednej osoby, wliczając ustawienie i kilka prób. Właśnie dlatego liczba osób to główny czynnik wyceny przy sesjach zespołowych: czas pracy rośnie wraz z wielkością grupy." },
-      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a dla zespołów od 120 zł netto za osobę. Cennika w formie tabeli nie ma, bo cena zależy od liczby osób, liczby ujęć i tego, gdzie zdjęcia będą używane. Opisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24 godziny." },
+      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a sesja zespołowa od 1 400 zł netto za dwie osoby. Cennika w formie tabeli nie ma, bo cena zależy od liczby osób, liczby ujęć i tego, gdzie zdjęcia będą używane. Opisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24 godziny." },
     ],
     title: "Ile kosztuje sesja wizerunkowa dla firmy: co realnie wpływa na cenę",
     excerpt:
@@ -498,7 +498,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">„Ile kosztuje sesja wizerunkowa?" to pytanie, które dostaję najczęściej. Uczciwa odpowiedź brzmi: to zależy, ale od konkretnych, policzalnych rzeczy. Poniżej tłumaczę, co realnie wpływa na cenę <a href="/uslugi/wizerunek-portrety">sesji wizerunkowej dla firmy</a>, żebyś wiedział, za co płacisz i jak zaplanować budżet.</p>
 
       <h2>Od czego zaczyna się wycena</h2>
-      <p>Ceny portretów dla jednej osoby zaczynają się od <strong>700 zł</strong> netto. Wyżej wchodzą pakiety z dłuższą sesją, większą liczbą stylizacji i szerszym wyborem kadrów do retuszu. <a href="/uslugi/sesje-zespolowe">Sesja zespołowa</a> liczona jest inaczej, za osobę, od 120 zł netto, więc tych dwóch kwot nie porównuj wprost. Im więcej elementów dochodzi, tym wyżej idzie wycena. Zawsze jednak ustalamy ją z góry, przed sesją, bez niespodzianek.</p>
+      <p>Ceny portretów dla jednej osoby zaczynają się od <strong>700 zł</strong> netto. Wyżej wchodzą pakiety z dłuższą sesją, większą liczbą stylizacji i szerszym wyborem kadrów do retuszu. <a href="/uslugi/sesje-zespolowe">Sesja zespołowa</a> liczona jest inaczej: 1 400 zł netto za dwie osoby i 120 zł za każdą kolejną, więc tych kwot nie porównuj wprost. Im więcej elementów dochodzi, tym wyżej idzie wycena. Zawsze jednak ustalamy ją z góry, przed sesją, bez niespodzianek.</p>
 
       <h2>1. Liczba osób</h2>
       <p>Sesja jednej osoby to inny nakład pracy niż <a href="/uslugi/sesje-zespolowe">sesja całego zespołu</a>. Przy większej grupie liczy się czas na osobę: realnie 5–15 minut na dobry portret, wliczając ustawienie i kilka prób. To główny czynnik przy zespołach.</p>

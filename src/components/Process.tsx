@@ -15,8 +15,14 @@ const steps = [
   },
   {
     num: 2,
-    title: "Sesja",
-    desc: "Przyjeżdżam do Twojej firmy lub umawiamy studio. Prowadzę Cię przez pozowanie.",
+    // Krok 2 był pisany pod portrety („Prowadzę Cię przez pozowanie") i czytał się
+    // absurdalnie w galerii wnętrz, hal, obiektów i drona — nikt nie pozuje hali.
+    // Ten komponent renderuje się na stronie głównej i na /galeria, czyli w miejscach
+    // opisujących CAŁĄ ofertę, więc opis musi być prawdziwy dla ośmiu usług naraz.
+    // Portretowa obietnica „nie musisz nic umieć" żyje tam, gdzie jest prawdziwa:
+    // `services.tsx`, proces usługi `wizerunek-portrety`. (Marcin, 05.08.2026)
+    title: "Realizacja",
+    desc: "Przyjeżdżam na miejsce albo umawiamy studio. Światło, sprzęt i logistykę zdjęciową biorę na siebie.",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />

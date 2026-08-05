@@ -1,0 +1,25 @@
+fix(strona glowna + galeria): uniwersalny krok "Realizacja", bez linku na Instagram
+
+Process.tsx, krok 2:
+  bylo: "Sesja — Przyjezdzam do Twojej firmy lub umawiamy studio. Prowadze Cie przez pozowanie."
+  jest: "Realizacja — Przyjezdzam na miejsce albo umawiamy studio. Swiatlo, sprzet
+         i logistyke zdjeciowa biore na siebie."
+Powod: komponent renderuje sie na stronie glownej i na /galeria, czyli tam, gdzie opisujemy
+CALA oferte. Opis byl pisany pod portrety i w galerii wnetrz, hal, obiektow i drona czytal
+sie absurdalnie — nikt nie pozuje hali. Portretowa obietnica "nie musisz nic umiec" zostaje
+tam, gdzie jest prawdziwa: services.tsx, proces uslugi wizerunek-portrety (nietkniety).
+Kroki 1, 3 i 4 byly juz uniwersalne — bez zmian.
+
+About.tsx: usuniete przejscie na Instagram z sekcji "O mnie" (link "@szabunia.biz ->").
+About renderuje sie wylacznie na stronie glownej, wiec zmiana nie dotyka innych podstron.
+Instagram zostaje w bloku kontaktowym (CTA.tsx) i w stopce (Footer.tsx) — te komponenty
+siedza na osmiu podstronach, ich usuniecie to osobna decyzja.
+
+CLAUDE.md: About.tsx wypisany osobno jako "sam email, bez Instagrama, nie przywracac".
+
+Dociagniete z poprzedniej tury (nie weszly do 7425bec, choc komunikat je zapowiadal):
+- CLAUDE.md: kotwica portretowa 1 100 -> 700, zakres progu START, doslowne brzmienie
+  kotwicy i zakaz zwrotu "za pierwsze zdjecie"
+- docs/zasady-tekstow.md: to samo w regule o kotwicach + zasada jednej kwoty "od"
+
+Kontrola: tsc czysty.

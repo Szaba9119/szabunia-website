@@ -170,7 +170,10 @@ Marka `szabunia.pl` / `marcin@szabunia.pl` / `@szabunia.biz` wdrożona we wszyst
 - `uslugi/[slug]/page.tsx`, `blog/page.tsx`, `blog/[slug]/page.tsx`, `portfolio/[slug]/page.tsx` — openGraph.url + JSON-LD
 - `src/app/sitemap.ts` — baseUrl
 - `src/app/polityka-prywatnosci/page.tsx` — email w treści + głos l. poj.
-- `src/components/Footer.tsx`, `CTA.tsx`, `About.tsx` — email + Instagram href/display
+- `src/components/Footer.tsx`, `CTA.tsx` — email + Instagram href/display
+- `src/components/About.tsx` — sam email. **Link do Instagrama usunięty 04.08.2026
+  decyzją Marcina** („ze strony głównej usuń przejście na Instagram"). `About` renderuje
+  się wyłącznie na stronie głównej. Nie przywracać.
 
 **Social: TYLKO Instagram** (`@szabunia.biz`) — decyzja D z 2026-06-09. `sameAs` w JSON-LD
 zawiera Instagram + wizytówkę Google, bez LinkedIn i Facebooka. Nie dodawać ich bez decyzji
@@ -181,10 +184,24 @@ zawiera Instagram + wizytówkę Google, bez LinkedIn i Facebooka. Nie dodawać i
 wyłącznie kotwice „od X zł" w kartach usług (`src/data/services.tsx`). Nie odbudowywać
 sekcji cennika bez wyraźnej decyzji Marcina.
 
-**Cennik v3 (2026-07-29):** kotwice = portrety 1 100, pakiety hybrydowe 2 100, eventy 600,
-sesje zespołowe 120 zł/os. (stawka od 31 osób; przy 4-10 osobach 180 zł), wideo 400,
-produktowa 600, dron 700. Nazwy pakietów: **STANDARD / PRO / PRO MAX**. Terminy w **dniach
-kalendarzowych** (zdjęcia 14, wideo 21), poprawki w 7 dni od zgłoszenia.
+**Cennik v3 (2026-07-29, próg portretowy zmieniony 04.08.2026):** kotwice = **portrety 700**
+(PORTRET START: 1 osoba, sesja do 30 min, w cenie studio zewnętrzne w Poznaniu ALBO dojazd
+z mobilnym studiem do klienta; pakiety od 1 100), pakiety hybrydowe 2 100, eventy 600,
+**sesje zespołowe 1 400 zł za dwie osoby + 120 zł za każdą kolejną** (dwa wyretuszowane
+zdjęcia na osobę; progi 180/150/120 zł za osobę WYCOFANE 05.08.2026 — rozkładały blok stały
+7,5 h dopiero od ósmej osoby), wideo 400,
+produktowa 600, dron 700, obiekty 900. Nazwy pakietów: **PORTRET/EVENT START** (tylko portrety)
+**/ STANDARD / PRO / PRO MAX**.
+
+⛔ **Linia eventowa oddaje ok. 30 gotowych zdjęć na godzinę obecności** (korekta Marcina
+z 05.08.2026, wcześniej 20). Minimalne liczby w pakietach hybrydowych zostają: 60+ / 120+ / 160+.
+
+⛔ **Kotwica portretowa brzmi dosłownie:** „Ceny portretów dla jednej osoby zaczynają się
+od 700 zł netto, a dla zespołów od 120 zł netto za osobę". Zwroty **„za pierwsze zdjęcie"**
+i **„za jedno ujęcie"** zostały przez Marcina odrzucone wprost (04.08.2026) — nie dopisywać.
+Na powierzchniach klienckich stoi **jedna kwota „od" na usługę**, bez drabinek i tabel.
+
+Terminy w **dniach kalendarzowych** (zdjęcia 14, wideo 21), poprawki w 7 dni od zgłoszenia.
 Pełna siatka cen żyje w `public/llms.txt` i we wpisach `src/data/blog.ts` — **kanon kotwic
 to `src/data/services.tsx`**.
 

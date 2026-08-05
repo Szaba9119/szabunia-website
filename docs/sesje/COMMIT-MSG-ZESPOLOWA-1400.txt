@@ -1,0 +1,45 @@
+feat(cennik): sesja zespolowa 1 400 zl za dwie osoby + 120 zl za kazda kolejna
+
+Decyzja Marcina 05.08.2026. Progi 180 / 150 / 120 zl za osobe WYCOFANE.
+Nowa formula: 1 400 zl za dwie osoby, 120 zl za kazda kolejna, DWA wyretuszowane
+zdjecia na osobe (bylo jedno). Sesje od 2 osob, bez minimum zlecenia.
+
+Powod: blok staly zlecenia (dojazd, rozstawienie i zlozenie mobilnego studia,
+ofertowanie, galeria, dwie tury poprawek, rozliczenie) to ok. 7,5 h niezaleznie
+od liczby osob. Stara taryfa rozkladala go dopiero od osmej osoby: sesja
+czteroosobowa dawala 76 zl/h w ofercie i 66 zl/h na koncie, dwuosobowej nie bylo
+w ofercie wcale. Nowa formula daje plaskie 157-169 zl/h od dwoch do piecdziesieciu
+osob. Zespoly 30- i 50-osobowe placa 40 zl mniej niz dotad, przy dwukrotnie
+wiekszej liczbie zdjec.
+
+Druga zmiana: linia eventowa oddaje ok. 30 gotowych zdjec na godzine obecnosci,
+nie 20 (korekta Marcina 05.08.2026). Minimalne liczby w pakietach hybrydowych
+zostaja bez zmian (60+ / 120+ / 160+), bo sa zapisane ze znakiem "+".
+
+Kanon:
+- cennik_2026_07_v3.md sekcja 6 przepisana, kotwica 120 -> 1 400 zl, tabela
+  pogladowa 2-50 osob, wyjatek na dogrywki (precedens SCALIO 400 zl), mobilne
+  studio wliczone w cene sesji zespolowej
+- cennik sekcja 3 i nota metodyczna: 20 -> 30 zdjec na godzine
+- kalkulator_zlecenia.md: piec wierszy sesji zespolowych przeliczonych, nota
+  o modelu (7,5 h blok staly + 0,70 h na osobe) i o jego walidacji na starych wierszach
+- kanon.json: kwoty wyliczone z formuly (1760/2360/3560/4760/7160) do ignorowanych
+- backup cennika: _bak_cennik_v3_przed_zespolowa_1400_2026-08-05.md
+
+Powierzchnie klienckie:
+- services.tsx: kotwica uslugi, etykieta hero, pricingBlurb, priceFaqSuffix,
+  zdanie o zespolach w kotwicy portretowej, FAQ "ile zdjec" 20 -> 30
+- faq.ts, blog.ts (2 odpowiedzi FAQ + 3 akapity content), portfolio.ts, llms.txt
+- blog.ts: "sesje realizuje od 4 osob" -> "od 2 osob"; usunieta drabinka kwot
+  za osobe, zgodnie z zasada jednej kwoty "od" na usluge
+- wizytowka Google: Fotografia korporacyjna 120 -> 1 400 zl + nowy opis
+
+CLAUDE.md: kotwica zespolowa i norma 30 zdjec/h zapisane jako pamiec antyregresyjna.
+
+W tym samym commicie zmiany z poprzedniej tury (nie weszly do 7425bec):
+- About.tsx: usuniete przejscie na Instagram ze strony glownej
+- Process.tsx: krok 2 "Sesja / prowadze Cie przez pozowanie" -> "Realizacja",
+  bo komponent renderuje sie tez na /galeria przy wnetrzach, halach i dronie
+- CLAUDE.md + docs/zasady-tekstow.md: kotwica portretowa 1 100 -> 700
+
+Kontrola: tsc czysty, sprawdz_spojnosc.mjs 0 bledow i 0 kwot spoza kanonu.
