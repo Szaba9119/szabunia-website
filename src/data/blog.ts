@@ -176,7 +176,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Studio, Twoje biuro czy sesja dla całego zespołu</h2>
       <p>Nie musisz nigdzie jechać. Na sesję w Twoim biurze przywożę mobilne studio: potrzebuję około 5 m² wolnej przestrzeni i dostępu do gniazdka. Sala konferencyjna w zupełności wystarczy.</p>
-      <p>Jeśli headshota potrzebuje więcej osób niż jedna, sensowniej wychodzi <a href="/uslugi/sesje-zespolowe">sesja zespołowa</a>: jeden dzień, to samo światło, ten sam retusz, a stawka za osobę spada wraz z wielkością grupy. Sesje zespołowe realizuję od 4 osób. Efekt uboczny jest taki, że profile Waszych ludzi na LinkedIn zaczynają wyglądać jak jedna firma, a nie jak zbiór przypadkowych zdjęć.</p>
+      <p>Jeśli headshota potrzebuje więcej osób niż jedna, sensowniej wychodzi <a href="/uslugi/sesje-zespolowe">sesja zespołowa</a>: jeden dzień, to samo światło, ten sam retusz, a stawka za osobę spada wraz z wielkością grupy. Sesje zespołowe realizuję od 2 osób. Efekt uboczny jest taki, że profile Waszych ludzi na LinkedIn zaczynają wyglądać jak jedna firma, a nie jak zbiór przypadkowych zdjęć.</p>
 
       <h2>„Nie jestem fotogeniczny" to nie jest przeszkoda</h2>
       <p>Słyszę to bardzo często i za każdym razem efekt pozytywnie zaskakuje. Prowadzę Cię przez całą sesję: pomagam z pozowaniem, ustawiam światło pod Twoją twarz, pilnuję naturalnego wyrazu. W studiu zawsze ustawiam lustro przed osobą fotografowaną, żebyś na bieżąco widział siebie i mógł poprawić drobne detale, zamiast dowiadywać się o nich dopiero z gotowych zdjęć. Nie musisz być modelem, wystarczy być sobą. Reszta to moja robota.</p>
@@ -370,7 +370,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Ujęcia z drona nad zakładem</h2>
       <p>Skali terenu, hal i placów manewrowych nie da się pokazać z poziomu ziemi. <a href="/uslugi/zdjecia-wideo-z-drona">Zdjęcia i wideo z drona</a> robię dronem DJI Mini 5 Pro, mam certyfikat operatora A1/A3 i ubezpieczenie OC, a w strefach kontrolowanych uzyskuję wymagane zgody przed lotem. Zakłady przemysłowe często leżą blisko lotnisk albo w strefach z ograniczeniami, więc tę część warto zgłosić z wyprzedzeniem, a nie w dniu sesji.</p>
-      <p>Materiał z powietrza dostajesz w 4K przy wideo i w pełnej rozdzielczości przy zdjęciach. Jeśli pogoda nie pozwala bezpiecznie latać (silny wiatr, opady), bezpłatnie przekładamy sam lot na najbliższy możliwy termin, bez ruszania reszty harmonogramu.</p>
+      <p>Materiał z powietrza dostajesz w 4K przy wideo i w pełnej rozdzielczości przy zdjęciach. Jeśli pogoda nie pozwala bezpiecznie latać (silny wiatr, opady), wracam raz w ramach ustalonej kwoty. Kolejne podejście kosztuje 300 zł plus dojazd.</p>
 
       <h2>Film z hali pracuje inaczej niż zdjęcia</h2>
       <p>Zdjęcie pokazuje moment, film pokazuje ruch: maszynę w pracy, rytm linii, sposób obsługi. Dla Artech Group, poznańskiego centrum obróbki tworzyw sztucznych CNC, powstał film z hali produkcyjnej pokazujący park maszynowy i sposób pracy firmy. Materiał pracuje na stronie i w rozmowach handlowych: zamiast opisywać możliwości produkcyjne, firma po prostu je pokazuje. To argument, który w B2B skraca rozmowę o kilka mejli.</p>
@@ -466,7 +466,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Co wpływa na wycenę sesji zespołowej</h2>
       <p>Dwie rzeczy: liczba osób i miejsce sesji. <a href="/uslugi/sesje-zespolowe">Sesje zespołowe</a> kosztują 1 400 zł netto za dwie osoby, a każda kolejna osoba to 120 zł. W cenie są dwa wyretuszowane zdjęcia na osobę oraz dojazd z mobilnym studiem. Im większy zespół, tym niżej schodzi kwota za osobę.</p>
-      <p>Sesje zespołowe realizuję od 2 osób. Mniejszym grupom polecam pakiety z <a href="/uslugi/wizerunek-portrety">Wizerunku i Portretów</a>, bo przy dwóch czy trzech osobach indywidualna sesja portretowa daje więcej niż setup zespołowy. Podaj liczbę osób i miejsce, a wstępną wycenę odeślę w 24h.</p>
+      <p>Sesje zespołowe realizuję od 2 osób, bez minimum zlecenia. W cenie są dwa wyretuszowane zdjęcia na osobę oraz dojazd z mobilnym studiem. Podaj liczbę osób i miejsce, a wstępną wycenę odeślę w 24h.</p>
 
       <h2>Bonus: jak zorganizować sesję zespołową?</h2>
       <p>Mogę przyjechać do Waszego biura z <a href="/uslugi/sesje-zespolowe">mobilnym studiem</a>. Bazuję w Poznaniu, gdzie dojazd jest bezpłatny, a poza miastem doliczam 2,50 zł netto/km od granic Poznania, w obie strony. Setup zajmuje ok. 30 minut, a potem fotografuję osoby jedna po drugiej. Zero stresu, zero logistyki po Waszej stronie. Gotowe zdjęcia w 14 dni.</p>

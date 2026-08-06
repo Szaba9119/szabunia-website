@@ -220,7 +220,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
     ],
     pricingBlurb:
-      "Sesja zespołowa kosztuje 1 400 zł netto za dwie osoby, a każda kolejna osoba to 120 zł. W cenie są dwa wyretuszowane zdjęcia na osobę, dojazd i rozstawienie mobilnego studia w Twoim biurze. Im większy zespół, tym niżej schodzi kwota za osobę.",
+      "W cenie są dwa wyretuszowane zdjęcia na osobę, dojazd i rozstawienie mobilnego studia w Twoim biurze. Im większy zespół, tym niżej schodzi kwota za osobę.",
     priceFaqQuestion: "Ile kosztuje sesja zdjęciowa zespołu?",
     priceFaqIntro: "Sesje zespołowe zaczynają się",
     priceFaqSuffix: " za dwie osoby, a każda kolejna osoba to 120 zł, przy dwóch wyretuszowanych zdjęciach na osobę",

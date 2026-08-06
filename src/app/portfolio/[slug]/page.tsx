@@ -94,11 +94,7 @@ export default async function PortfolioPage({ params }: PageProps) {
           "@type": "Service",
           name: category.label,
           description: category.seo.description,
-          provider: {
-            "@type": "ProfessionalService",
-            name: "Marcin Szabunia",
-            url: "https://szabunia.pl",
-          },
+          provider: { "@id": "https://szabunia.pl/#business" },
           areaServed: ["Poznań", "Polska", "Europa"],
           image: `https://szabunia.pl${category.thumbnail}`,
         },

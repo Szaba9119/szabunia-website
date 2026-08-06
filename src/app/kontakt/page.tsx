@@ -62,24 +62,7 @@ export default function KontaktPage() {
       url: "https://szabunia.pl/kontakt",
       description:
         "Kontakt w sprawie fotografii i wideo dla firm: portrety biznesowe, sesje zespołowe, eventy, fotografia produktowa, wideo marketing.",
-      mainEntity: {
-        "@type": "ProfessionalService",
-        name: "Marcin Szabunia",
-        url: "https://szabunia.pl",
-        email: "marcin@szabunia.pl",
-        telephone: "+48514900688",
-        image: "https://szabunia.pl/images/marcin-hero.jpg",
-        areaServed: ["Poznań", "Polska", "Europa"],
-        sameAs: [
-          "https://instagram.com/szabunia.biz",
-          // Kanoniczny adres wizytówki Google (Knowledge Graph, kgmid /g/11rcwdrdcl).
-          // Wcześniej był tu shortlink share.google — działa, ale to domena
-          // przekierowująca, nie adres samej encji, więc jako sygnał `sameAs`
-          // jest słabszy (audyt PELNY2907-10). Rozwinięcie zweryfikowane
-          // w przeglądarce 2026-07-29.
-          "https://www.google.com/search?kgmid=/g/11rcwdrdcl",
-        ],
-      },
+      mainEntity: { "@id": "https://szabunia.pl/#business" },
     },
     breadcrumbJsonLd(crumbs),
   ];

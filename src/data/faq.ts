@@ -41,7 +41,7 @@ export const homeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Co jeśli muszę przełożyć albo odwołać sesję?",
-    a: "Zmiana terminu minimum 48h przed sesją jest bezpłatna. Odwołanie później niż 48h przed sesją: 50% wartości zlecenia. Gotowe pliki archiwizuję przez 1 rok, a poprawki realizuję w ciągu 7 dni od zgłoszenia i nie liczę terminu podstawowego od nowa.",
+    a: "Zmiana terminu minimum 48h przed sesją jest bezpłatna jednorazowo, każda kolejna kosztuje 20% wartości zlecenia. Odwołanie później niż 48h przed sesją: 50% wartości zlecenia. Odwołanie w dniu realizacji albo niestawienie się osób fotografowanych: 100% wartości zlecenia. Gotowe pliki archiwizuję przez 1 rok, a poprawki realizuję w ciągu 7 dni od zgłoszenia i nie liczę terminu podstawowego od nowa.",
   },
   {
     q: "Czy mogę zobaczyć zdjęcia przed retuszem?",

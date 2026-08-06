@@ -93,11 +93,7 @@ export default async function ServicePage({ params }: PageProps) {
       "@type": "Service",
       name: service.title,
       description: service.seo.description,
-      provider: {
-        "@type": "ProfessionalService",
-        name: "Marcin Szabunia",
-        url: "https://szabunia.pl",
-      },
+      provider: { "@id": "https://szabunia.pl/#business" },
       areaServed: ["Poznań", "Polska", "Europa"],
       ...(startingPrice && {
         offers: {

@@ -271,6 +271,15 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                         "Ujęcia z powietrza: budynki i obiekty firmowe, hale i magazyny, tereny, inwestycje i eventy, foto i wideo w 4K",
                     },
                   },
+                  {
+                    "@type": "Offer",
+                    itemOffered: {
+                      "@type": "Service",
+                      name: "Fotografia wnętrz, obiektów i architektury",
+                      description:
+                        "Fotografia hal, lokali, wnętrz i obiektów z poziomu ziemi oraz z powietrza",
+                    },
+                  },
                 ],
               },
             }),
@@ -315,6 +324,8 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                 "Wideo marketing",
                 "Fotografia produktowa",
                 "Fotografia korporacyjna",
+                "Zdjęcia i wideo z drona",
+                "Fotografia wnętrz, obiektów i architektury",
               ],
               award: "Wyróżnienie w konkursie Portret 2022",
             }),

@@ -79,12 +79,14 @@ export default function PortfolioHero({ category, crumbs }: Props) {
             <div className="mt-8 flex flex-wrap gap-3 justify-center md:justify-start">
               <a
                 href="#kontakt"
+                data-cta="wycena_case_hero"
                 className="bg-gradient-to-br from-blue to-blue text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
               >
                 Zapytaj o ofertę
               </a>
               <a
                 href="#kontakt"
+                data-cta="termin_case_hero"
                 className="border border-border dark:border-dark-border text-navy dark:text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:border-blue dark:hover:border-blue-light transition-colors"
               >
                 Zapytaj o termin
