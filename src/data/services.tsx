@@ -142,7 +142,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Dokumentacja konferencji, targów, gal i wydarzeń firmowych. Zdjęcia na social media jeszcze w trakcie eventu.",
     description:
-      "Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing, zdjęcia gotowe do publikacji na social media jeszcze w trakcie eventu. Fotografię eventową robię od początku działalności. Przez ponad osiem lat dokumentowałem wydarzenia w Poznaniu, nierzadko kilka różnych miejsc jednego wieczoru. Sprawne tempo i logistyka dużych eventów to dla mnie naturalny grunt.",
+      "Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing, czyli zdjęcia gotowe do publikacji na social media jeszcze w trakcie eventu. Dokumentowałem wydarzenia dla takich marek jak H&M, Santander Bank Polska, Warner Music, John Deere czy Amica. Sprawne tempo i logistyka dużych eventów to dla mnie naturalny grunt.",
     forWhom: [
       "Organizatorzy konferencji i targów",
       "Firmy organizujące wydarzenia firmowe",
@@ -180,7 +180,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     portfolioSlug: "woohoo-autopay",
     seo: {
       title: "Obsługa eventów firmowych, Poznań | Szabunia",
-      description: "Konferencje, targi, gale i integracje. Zdjęcia, film i dron od jednej osoby. Fotografowałem eventy dla H&M i Santandera.",
+      description: "Konferencje, targi, gale i integracje. Zdjęcia, film i dron od jednej osoby. Obsługiwałem eventy dla H&M, Santandera i Warner Music.",
     },
   },  {
     slug: "sesje-zespolowe",
@@ -193,7 +193,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne.",
     description:
-      "Spójne headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura albo rezerwuję studio, rozstawienie zajmuje 30 minut, a każda osoba potrzebuje 5-15 minut na sesję. Efekt: spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
+      "Spójne headshoty zespołu to fundament employer brandingu. Realizowałem sesje zespołowe w biurach firm takich jak IDcom Group, Poznańskie Nieruchomości, Scalio czy 1st Place. Przyjeżdżam z mobilnym studiem do Twojego biura albo rezerwuję studio. Rozstawienie zajmuje 30 minut, a każda osoba potrzebuje 5-15 minut na sesję. Efekt: spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
     forWhom: [
       "Zespoły korporacyjne i działy HR",
       "Kancelarie prawne i firmy doradcze",
@@ -234,7 +234,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
       title: "Headshoty zespołu w biurze i w studiu | Szabunia",
-      description: "Spójne portrety całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne, 5 do 15 minut na osobę. Poznań i cała Polska.",
+      description: "Spójne portrety zespołu w jeden dzień. Mobilne studio w Twoim biurze. Realizacje dla IDcom, Poznańskich Nieruchomości i Scalio. Poznań i Polska.",
     },
   },  {
     slug: "pakiety-foto-wideo",
@@ -254,7 +254,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Zdjęcia, film i ujęcia z drona od jednej osoby: spójny materiał i mniej logistyki. Bestseller wśród klientów korporacyjnych.",
     description:
-      "Pakiet hybrydowy to jeden dzień zdjęciowy i dwa formaty na wyjściu. Podczas jednego wydarzenia lub sesji powstają i zdjęcia, i materiał wideo. Rezultat: spójny wizualnie content na wszystkie kanały, bez koordynowania dwóch ekip.",
+      "Pakiet hybrydowy to jeden dzień zdjęciowy i dwa formaty na wyjściu. Podczas jednego wydarzenia lub sesji powstają zdjęcia, film i ujęcia z drona. Fotografowałem i filmowałem eventy dla marek takich jak H&M, Santander, Warner Music i John Deere. Rezultat: spójny wizualnie content na wszystkie kanały, bez koordynowania dwóch osobnych ekip.",
     forWhom: [
       "Firmy organizujące eventy (konferencje, gale)",
       "Marki potrzebujące contentu na social media",
@@ -290,7 +290,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     ],
     seo: {
       title: "Pakiety eventowe: foto, wideo i dron | Szabunia",
-      description: "Jeden twórca zamiast dwóch ekip, jedna faktura, jeden termin. Zdjęcia, film i ujęcia z drona z tego samego dnia. Eventy firmowe, Poznań.",
+      description: "Jeden twórca zamiast dwóch ekip, jedna faktura. Zdjęcia, film i dron na eventy dla H&M, Santandera i Warner Music. Poznań i cała Polska.",
     },
   },  {
     slug: "wizerunek-portrety",
