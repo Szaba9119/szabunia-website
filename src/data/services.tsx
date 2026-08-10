@@ -154,7 +154,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     videoId: "m42ywMWjthw",
     videoTitle: "Film z eventu firmowego dla Woohoo",
     videoNote: "Tak wygląda film z eventu: dynamiczne podsumowanie wydarzenia, gotowe do social mediów.",
-    title: "Wydarzenia firmowe",
+    title: "Dokumentacja wydarzeń firmowych",
     subtitle:
       "Konferencje, targi, gale i integracje. Zdjęcia, film i dron z jednego dnia, część kadrów na social media jeszcze w trakcie wydarzenia.",
     // Lead przepisany 10.08.2026 (pakiet 4, wersja wybrana przez Marcina).
@@ -272,7 +272,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       ctaLabel: "Zobacz sesje zespołowe",
       sub: "Headshoty całego zespołu robię w jeden dzień: przywożę mobilne studio do Twojego biura, rozstawienie zajmuje 30 minut, a jedna osoba potrzebuje 5 do 15 minut.",
     },
-    title: "Wizerunek firmy",
+    title: "Fotografia i wideo wizerunkowe dla firm",
     subtitle:
       "Portrety biznesowe, headshoty całego zespołu i film wizerunkowy. Prowadzę przez pozowanie, nie musisz nic umieć.",
     // Lead przepisany 10.08.2026 (pakiet 4, zatwierdzony przez Marcina bez
@@ -442,7 +442,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       category: "wideo-produktowe",
       ctaLabel: "Zobacz realizacje wideo",
     },
-    title: "Fotografia produktowa",
+    title: "Fotografia i wideo produktowe",
     subtitle:
       "Packshoty na białym tle z retuszem w cenie, zdjęcia kreatywne i wideo produktowe pod e-commerce, katalogi i social media.",
     // Lead przepisany 10.08.2026 (pakiet 4, wersja zatwierdzona przez Marcina).
@@ -589,7 +589,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     videoTitle: "Artech Group: film z hali produkcyjnej",
     videoNote:
       "Hala Artech Group od środka: park maszynowy, obróbka CNC i to, jak zakład naprawdę pracuje. Zakład da się pokazać tak samo zdjęciami, jak i filmem, w tym samym dniu zdjęciowym.",
-    title: "Nieruchomości i przemysł",
+    title: "Fotografia i wideo nieruchomości i przemysłu",
     // Podtytuł przepisany 04.08.2026 razem z opisem. Poprzedni („Dwie perspektywy
     // z jednego planu: z powietrza i z poziomu ziemi") stawiał drona na pierwszym
     // miejscu, a podstrona pokazuje dziś wnętrza i film z hali. Ten sam tekst leci

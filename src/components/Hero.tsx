@@ -77,25 +77,27 @@ export default function Hero() {
                 czcionki niżej niż przy jednej długiej linii, przy mocniejszym
                 wrażeniu. Bez akcentu kolorystycznego: wyróżnienie jednego słowa
                 sugerowałoby hierarchię między usługami, której nie ma. */}
-            {/* ŁAMANIE RÓŻNE NA MOBILE I DESKTOPIE (korekta Marcina 10.08.2026).
-                Desktop: DWIE linie po dwa słowa. Cztery linie po jednym słowie
-                robiły z „LUDZIE." samotną krótką linię, marnowały szerokość
-                kolumny i wydłużały blok tekstowy o jedną linijkę za dużo.
-                Mobile: cztery linie zostają, bo przy 390 px dwa słowa w linii
-                zmusiłyby do zejścia z rozmiaru czcionki o jedną trzecią.
-                Steruje tym `br` z `md:hidden`, nie dwie kopie nagłówka.
+            {/* JEDNO SŁOWO NA LINIĘ, na wszystkich szerokościach (Marcin,
+                10.08.2026). Wariant z dwoma słowami w linii na desktopie był
+                próbą pośrednią i został wycofany.
 
-                ⚠ Rozmiar na desktopie jest ograniczony do 50 px NIE bez powodu:
-                najdłuższa linia („LUDZIE. WYDARZENIA.") ma 19 znaków i przy
-                większym stopniu wychodzi poza kolumnę. Sprawdzone na 1024,
-                1280 i 1440 przy kolumnie 1.1fr. */}
-            <h2 className="font-barlow font-black text-[clamp(38px,11vw,58px)] md:text-[clamp(32px,3.9vw,54px)] leading-[0.95] tracking-[-1.5px] md:tracking-[-2.5px] text-navy dark:text-white mb-6 md:mb-7">
-              LUDZIE.{" "}
-              <br className="md:hidden" />
+                Skutek uboczny, który tu działa NA KORZYŚĆ: cztery linie zamiast
+                dwóch wydłużają lewą kolumnę o dwie linijki, więc blok tekstu
+                zrównuje się wysokością ze zdjęciem zamiast kończyć 157 px nad nim.
+
+                Stopień pisma może być teraz WIĘKSZY niż przy dwóch słowach
+                w linii: najdłuższe słowo („WYDARZENIA.") ma 11 znaków zamiast
+                19, więc mieści się w kolumnie przy 76 px. Sprawdzone na 1024,
+                1280 i 1440.
+                Bez akcentu kolorystycznego na żadnym słowie: wyróżnienie
+                jednego sugerowałoby hierarchię między usługami, której nie ma. */}
+            <h2 className="font-barlow font-black text-[clamp(38px,11vw,58px)] md:text-[clamp(36px,5vw,76px)] leading-[0.95] tracking-[-1.5px] md:tracking-[-2.5px] text-navy dark:text-white mb-6 md:mb-7">
+              LUDZIE.
+              <br />
               WYDARZENIA.
               <br />
-              OBIEKTY.{" "}
-              <br className="md:hidden" />
+              OBIEKTY.
+              <br />
               PRODUKTY.
             </h2>
 
@@ -138,6 +140,7 @@ export default function Hero() {
                 pod przyciskiem („Odpowiem w 24h"), więc chip ją tylko dublował.
                 Dowód społeczny jest w hero mocniejszy niż powtórzony termin. */}
             <p className="mt-8 text-[13px] text-steel dark:text-dark-text-muted">
+              Zaufało mi{" "}
               <span className="font-semibold text-navy dark:text-dark-text">100+ firm</span>
               <span className="mx-2 text-steel-light" aria-hidden="true">·</span>
               realizacje w całej Polsce
