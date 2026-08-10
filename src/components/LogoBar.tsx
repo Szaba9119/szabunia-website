@@ -1,9 +1,14 @@
 import AnimatedSection from "./AnimatedSection";
 
+// ⚠ KOLEJNOŚĆ NIE JEST PRZYPADKOWA (decyzja Marcina, 10.08.2026).
+// Pasek przewija się w pętli, ale klient nie analizuje go w całości: widzi
+// pierwsze trzy do pięciu nazw. Dlatego na początku stoją marki najbardziej
+// rozpoznawalne, a lokalne i branżowe dalej. Nie sortować alfabetycznie ani
+// po długości nazwy.
 const clients = [
   "H&M",
-  "Warner Music",
   "Santander",
+  "Warner Music",
   "John Deere",
   "IQOS",
   "Amica",
@@ -23,8 +28,8 @@ export default function LogoBar() {
           ⚠ Mobile (py-8) BEZ ZMIAN: tam ten komponent renderuje się w innym
           miejscu, pod sekcją „O mnie" (decyzja Marcina 2026-07-07), więc
           zmiana odstępu dotyczyłaby zupełnie innego sąsiedztwa. */}
-      <section className="py-8 md:pt-8 md:pb-16">
-        <p className="text-center text-base md:text-lg font-barlow font-semibold uppercase tracking-[1.5px] text-steel dark:text-dark-text-muted mb-6">
+      <section className="py-8 md:pt-8 md:pb-12">
+        <p className="text-center text-[11px] md:text-xs font-barlow font-semibold uppercase tracking-[0.16em] text-steel dark:text-dark-text-muted mb-6">
           Współpracowałem m.in. z
         </p>
         <div
@@ -42,7 +47,7 @@ export default function LogoBar() {
             {[...clients, ...clients].map((client, i) => (
               <span
                 key={i}
-                className="font-barlow font-extrabold text-2xl md:text-3xl tracking-tight text-steel dark:text-dark-text-muted whitespace-nowrap flex-shrink-0"
+                className="font-barlow font-bold text-xl md:text-2xl tracking-tight text-steel-light dark:text-dark-text-muted whitespace-nowrap flex-shrink-0"
                 aria-hidden={i >= clients.length}
               >
                 {client}

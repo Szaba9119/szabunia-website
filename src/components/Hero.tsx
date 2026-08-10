@@ -61,7 +61,7 @@ export default function Hero() {
         {/* Kolumny 1.1 / 0.9, nie po równo (10.08.2026, trzecia tura).
             Szersza lewa kolumna pozwala podnieść stopień hasła z 50 na 54 px
             i skraca przewagę wysokości zdjęcia nad blokiem tekstu. */}
-        <div className="max-w-6xl mx-auto md:grid md:grid-cols-[1.1fr_0.9fr] md:gap-x-10 lg:gap-x-14 md:items-start">
+        <div className="max-w-6xl mx-auto md:grid md:grid-cols-[1.1fr_0.9fr] md:gap-x-12 lg:gap-x-20 md:items-start">
           {/* LEWA KOLUMNA */}
           <div className="hero-intro text-center md:text-left">
             {/* H1 niesie frazę, hasło zostaje w H2 (decyzja z 2026-07-30).
@@ -99,13 +99,27 @@ export default function Hero() {
               PRODUKTY.
             </h2>
 
-            {/* Lead skrócony 10.08.2026 (druga tura). Nazwy klientów zeszły
-                stąd do paska logotypów zaraz pod hero, żeby social proof był
-                odpowiedzią na hero, a nie dopiskiem w akapicie. */}
+            {/* Lead przepisany 10.08.2026 (czwarta tura). Hierarchia, o którą
+                chodziło Marcinowi:
+                  H1   → CO pokazuję (ludzie, wydarzenia, obiekty, produkty)
+                  LEAD → CO Z TEGO MA KLIENT (wizerunek firmy)
+                  niżej → JAK pracuję
+                Poprzedni lead zaczynał od „Zdjęcia i film dla firm", czyli od
+                usługi, i mieszał w jednym zdaniu efekt dla klienta ze sposobem
+                organizacji („od jednej osoby”).
+
+                ⚠ „profesjonalny” jest tu ŚWIADOMYM CLAIMEM MARKI, nie wypełniaczem.
+                Decyzja Marcina z 10.08.2026, wpisana do docs/zasady-tekstow.md.
+                To zdanie jest głównym komunikatem firmy i spina cztery filary.
+                Nie wycinać jako „słowo z czarnej listy”: reguła ma teraz wyjątek
+                opisany wprost.
+
+                „Od jednej osoby” zeszło z pierwszego zdania. Wraca niżej jako
+                argument organizacyjny, nie jako obietnica w pierwszych sekundach. */}
             <p className="font-inter text-[15px] md:text-base text-steel dark:text-dark-text-muted leading-relaxed max-w-md mx-auto md:mx-0">
-              Zdjęcia i film dla firm: ludzie, wydarzenia, obiekty i&nbsp;produkty.
-              Od&nbsp;jednej osoby, od&nbsp;pierwszej rozmowy do&nbsp;gotowego
-              materiału.
+              Pomagam firmom budować profesjonalny wizerunek poprzez zdjęcia
+              i&nbsp;film. Ludzie, wydarzenia, obiekty i&nbsp;produkty.
+              Od&nbsp;pierwszej rozmowy do&nbsp;gotowego materiału.
             </p>
 
             {/* ZDJĘCIE na telefonie wchodzi TUTAJ, między lead a resztę
@@ -124,10 +138,9 @@ export default function Hero() {
                 pod przyciskiem („Odpowiem w 24h"), więc chip ją tylko dublował.
                 Dowód społeczny jest w hero mocniejszy niż powtórzony termin. */}
             <p className="mt-8 text-[13px] text-steel dark:text-dark-text-muted">
-              Zaufało mi{" "}
               <span className="font-semibold text-navy dark:text-dark-text">100+ firm</span>
               <span className="mx-2 text-steel-light" aria-hidden="true">·</span>
-              Realizacje w całej Polsce
+              realizacje w całej Polsce
             </p>
 
             {/* DWIE ROZDZIELONE ŚCIEŻKI KONTAKTU (korekta Marcina 10.08.2026).
@@ -137,33 +150,46 @@ export default function Hero() {
                 Teraz: przycisk i pod nim jego własne zdanie, a niżej, po
                 odstępie, druga ścieżka z ikoną i podpisem, co się stanie
                 po kliknięciu. Użytkownik widzi wybór, nie dwa przyciski. */}
+            {/* TELEFON WRACA DO WIERSZA CTA (10.08.2026, czwarta tura).
+                Marcin: „telefon jest teraz za nisko, za dużo pionowych kroków,
+                powinien wyglądać jak druga opcja kontaktu, nie jak informacja
+                techniczna". Trzy kroki w pionie zeszły do dwóch.
+
+                ⚠ ROZBIEŻNOŚĆ W BRIEFIE, rozstrzygnięta na korzyść punktu 4:
+                punkt 4 kazał postawić telefon obok przycisku, a końcowe
+                zestawienie „jak ustawiłbym finalny hero" trzymało go w osobnej
+                linii. Wybrany punkt 4, bo to on opisywał PROBLEM, a zestawienie
+                tylko powtarzało ówczesny układ. Dopisek „lub zadzwoń
+                bezpośrednio" wypadł: obok przycisku ikona i numer tłumaczą się
+                same, a zdanie robiło z wiersza ścianę tekstu.
+
+                Mikrocopy: „Wstępną wycenę otrzymasz w 24h" zamiast „Odpowiem
+                w 24h". Klient nie chce odpowiedzi, chce wiedzieć, ile to
+                kosztuje (korekta Marcina). */}
             <div className="mt-7">
-              <a
-                href="#kontakt"
-                data-cta="wycena_home_hero"
-                className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-8 py-4 rounded-xl font-barlow font-bold text-base btn-glow transition-transform hover:scale-[1.02]"
-              >
-                Zapytaj o ofertę
-                <span className="text-white/80">→</span>
-              </a>
-              <p className="mt-3 text-[13px] text-steel dark:text-dark-text-muted">
-                Opisz, czego potrzebujesz. Odpowiem w 24h.
-              </p>
-              <div className="mt-5 flex items-center gap-2 justify-center md:justify-start">
-                <svg className="w-4 h-4 text-steel dark:text-dark-text-muted flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-                </svg>
+              <div className="flex flex-wrap items-center gap-x-6 gap-y-4 justify-center md:justify-start">
+                <a
+                  href="#kontakt"
+                  data-cta="wycena_home_hero"
+                  className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-8 py-4 rounded-xl font-barlow font-bold text-base btn-glow transition-transform hover:scale-[1.02]"
+                >
+                  Zapytaj o ofertę
+                  <span className="text-white/80">→</span>
+                </a>
                 <a
                   href="tel:+48514900688"
                   data-cta="tel_hero"
-                  className="font-barlow font-semibold text-[15px] text-navy dark:text-white hover:text-blue dark:hover:text-blue-light transition-colors"
+                  className="inline-flex items-center gap-2 font-barlow font-semibold text-[15px] text-navy dark:text-white hover:text-blue dark:hover:text-blue-light transition-colors"
                 >
+                  <svg className="w-4 h-4 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                  </svg>
                   514 900 688
                 </a>
-                <span className="text-[13px] text-steel dark:text-dark-text-muted">
-                  lub zadzwoń bezpośrednio
-                </span>
               </div>
+              <p className="mt-4 text-[13px] text-steel dark:text-dark-text-muted">
+                Wstępną wycenę otrzymasz w 24h.
+              </p>
             </div>
           </div>
 
@@ -186,7 +212,7 @@ export default function Hero() {
 function HeroPhoto() {
   return (
     <Parallax distance={PARALLAX.subtle} direction="up">
-      <div className="w-full aspect-square md:aspect-[4/5] md:max-h-[620px] md:ml-auto rounded-3xl md:rounded-r-none overflow-hidden bg-border dark:bg-dark-card relative">
+      <div className="w-full aspect-square md:aspect-[4/5] md:max-h-[580px] md:ml-auto rounded-3xl md:rounded-r-none overflow-hidden bg-border dark:bg-dark-card relative">
         <Image
           src="/images/marcin-hero-light-4.jpg"
           alt="Marcin Szabunia, fotograf biznesowy i twórca wideo, Poznań"

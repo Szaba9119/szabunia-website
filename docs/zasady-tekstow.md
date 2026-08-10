@@ -34,6 +34,24 @@ nie komunikuje, a zjada 14 znaków z limitu 155 w opisie meta. Przy audycie otwi
 osiem opisów. Zostaje tylko tam, gdzie coś rozróżnia (np. „profesjonalne zdjęcie do CV"
 kontra zdjęcie zrobione telefonem).
 
+**⚠ WYJĄTEK DOPISANY 10.08.2026 (decyzja Marcina).** Zdanie **„Pomagam firmom budować
+profesjonalny wizerunek"** jest wyłączone z tego zakazu i **zostaje na stronie**.
+
+Powód: to nie jest przypadkowy przymiotnik przy rzeczowniku, tylko **główny claim marki**,
+przeniesiony wprost z „FUNDAMENTY FIRMY.md" §1. Spina cztery filary oferty w jedno zdanie
+(wizerunek ← wydarzenia + ludzie + obiekty + produkty) i odpowiada na pytanie klienta
+„co ja z tego będę miał", zanim strona powie, co jest fotografowane. Stoi w leadzie hero
+(`Hero.tsx`).
+
+Zakaz obowiązuje **niezmieniony wszędzie indziej**: w opisach meta, w opisach usług,
+w FAQ i w treściach blogowych „profesjonalny" nadal nie może być jedynym określeniem.
+Dane, na których stoi reguła, się nie zmieniły: w 4 284 wyświetleniach na frazę „fotograf"
+w Google Ads nikt ani razu nie dopisał tego słowa (sprawdzone 10.08.2026, dane
+X 2025 – VIII 2026).
+
+**Przy audycie:** wystąpienie w leadzie hero to nie jest znalezisko. Wystąpienie
+gdziekolwiek indziej jest.
+
 ## Czarna lista konstrukcji
 
 - Triady przymiotników („naturalne, autentyczne i profesjonalne").
