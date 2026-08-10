@@ -45,8 +45,11 @@ export default function About() {
 
               <div className="space-y-5 text-steel dark:text-dark-text-muted text-[15px] leading-relaxed">
                 <p>
+                  {/* „wideo marketing" (nazwa usuniętej usługi) zdjęte 10.08.2026.
+                      Słowo „profesjonalny" świadomie NIE dopisane, mimo propozycji:
+                      docs/zasady-tekstow.md:31 zakazuje go jako jedynego określenia. */}
                   Cześć, jestem Marcin. <strong>Od 2018 roku</strong> buduję wizerunek firm poprzez
-                  fotografię biznesową i wideo marketing. Bazuję w Poznaniu,
+                  fotografię i wideo. Bazuję w Poznaniu,
                   pracuję w całej Polsce i Europie.
                 </p>
                 <p>
@@ -54,9 +57,18 @@ export default function About() {
                   ale i biznesowy cel, któremu zdjęcia mają służyć.
                   Specjalizuję się w obsłudze <strong>marek B2B i korporacji</strong>, które
                   potrzebują powtarzalnego standardu wizerunkowego między sesjami.
-                  Portrety biznesowe, reportaże z eventów, fotografia produktowa,
-                  wideo marketingowe. <strong>Jeden twórca</strong>, spójny materiał i krótka droga
-                  od pierwszej rozmowy do dostawy.
+                  {/* Lista przepisana 10.08.2026 na cztery filary. Poprzednia
+                      („Portrety biznesowe, reportaże z eventów, fotografia
+                      produktowa, wideo marketingowe") wymieniała cztery pozycje,
+                      ale ze STAREJ architektury: brakowało całego filaru
+                      nieruchomości i przemysłu, a była nazwa usuniętej usługi.
+                      Sekcja „O mnie" stoi NAD siatką usług, więc klient czytał
+                      najpierw starą listę, a potem nową.
+                      Wideo świadomie nie jest piątą pozycją: jest sposobem
+                      realizacji każdej z czterech, nie osobną kategorią. */}
+                  Portrety biznesowe, reportaże z eventów, fotografia nieruchomości
+                  i przemysłowa oraz fotografia produktowa. <strong>Jeden twórca</strong>,
+                  spójny materiał i krótka droga od pierwszej rozmowy do dostawy.
                 </p>
                 <p>
                   Współpracowałem m.in. z <strong>H&amp;M</strong>,{" "}

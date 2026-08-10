@@ -480,7 +480,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Ile zdjęć otrzymam z eventu?",
-        a: "To zależy od długości wydarzenia. Około 30 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji (autorska selekcja najlepszych momentów). Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie.",
+        a: "To zależy od długości wydarzenia. Około 30 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji (autorska selekcja najlepszych momentów). Przy realizacji z wideo jest ich mniej, bo część czasu idzie na nagrywanie.",
       },
       {
         q: "Czy realizujesz eventy poza Poznaniem?",

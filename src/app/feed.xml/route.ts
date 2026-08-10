@@ -47,7 +47,7 @@ export async function GET() {
   <channel>
     <title>Blog — Marcin Szabunia | Fotografia i wideo B2B</title>
     <link>${BASE_URL}/blog</link>
-    <description>Poradniki, realizacje i wiedza branżowa: fotografia biznesowa, eventowa, produktowa i wideo marketing dla firm.</description>
+    <description>Poradniki, realizacje i wiedza branżowa: fotografia i wideo dla firm, wydarzenia, wizerunek, nieruchomości, przemysł i produkty.</description>
     <language>pl-PL</language>
     <lastBuildDate>${lastBuildDate}</lastBuildDate>
     <atom:link href="${BASE_URL}/feed.xml" rel="self" type="application/rss+xml" />

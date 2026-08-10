@@ -61,7 +61,9 @@ export default function KontaktPage() {
       name: "Kontakt — Marcin Szabunia",
       url: "https://szabunia.pl/kontakt",
       description:
-        "Kontakt w sprawie fotografii i wideo dla firm: portrety biznesowe, sesje zespołowe, eventy, fotografia produktowa, wideo marketing.",
+        // Przepisane 10.08.2026: lista pięciu starych usług zeszła do czterech
+      // filarów, tych samych co w liście rozwijanej formularza pod spodem.
+      "Kontakt w sprawie fotografii i wideo dla firm: wydarzenia firmowe, wizerunek firmy, nieruchomości i przemysł oraz fotografia produktowa.",
       mainEntity: { "@id": "https://szabunia.pl/#business" },
     },
     breadcrumbJsonLd(crumbs),
@@ -83,8 +85,14 @@ export default function KontaktPage() {
               Porozmawiajmy o Twoim projekcie
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-8 max-w-2xl mx-auto leading-relaxed">
-              Fotografia i wideo dla firm: portrety biznesowe, sesje zespołowe,
-              reportaże z eventów, fotografia produktowa i wideo marketing. Napisz
+              {/* Przepisane 10.08.2026. Poprzednia wersja wymieniała PIĘĆ starych
+                  usług („portrety biznesowe, sesje zespołowe, reportaże z eventów,
+                  fotografia produktowa i wideo marketing") dokładnie NAD polem
+                  wyboru usługi, które ma cztery filary. Klient czytał pięć nazw
+                  i wybierał z czterech innych. Ta lista musi zostać zgodna
+                  z listą rozwijaną w CTA.tsx — zmiana jednej wymaga drugiej. */}
+              Fotografia i wideo dla firm: wydarzenia firmowe, wizerunek firmy,
+              nieruchomości i przemysł oraz fotografia produktowa. Napisz
               w kilku zdaniach, czego potrzebujesz, a odezwę się w ciągu 24 godzin
               ze wstępną wyceną i terminem.
             </p>
