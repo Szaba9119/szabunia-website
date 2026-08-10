@@ -297,12 +297,13 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
       </svg>
     ),
-    // ZDJĘCIE HERO: grupa przed dwoma autami sportowymi na torze.
-    // Decyzja Marcina 10.08.2026, ostateczna dla tego etapu.
+    // ZDJĘCIE HERO: gala z wręczeniem wyróżnień.
+    // Decyzja Marcina 10.08.2026: kadr grupowy przeszedł na KAFELEK strony głównej,
+    // więc hero wzięło galę. Zamiana miejscami, nie nowy wybór.
     //
     // ⚠ HERO I KAFELEK MUSZĄ BYĆ RÓŻNE i to jest jedyna twarda reguła tego pola.
     // Kafelek „Wydarzenia firmowe" na stronie głównej trzyma `SERVICE_TILE_IMAGES`
-    // na dole tego pliku i ma dziś `event-04-gala-wreczenie-wyroznien`. Zmieniając
+    // na dole tego pliku i ma dziś `event-02-zdjecie-grupowe-tor`. Zmieniając
     // cokolwiek tutaj, sprawdź tamtą wartość, inaczej klik z kafelka prowadzi do
     // powiększenia miniatury, którą klient przed chwilą kliknął (finding UXUI2608-04).
     //
@@ -316,11 +317,14 @@ const serviceCategoriesRaw: ServiceData[] = [
     // `object-fit: cover` pokazuje więc tylko środkowe 67% szerokości klatki
     // i obcina po 16,7% z każdej strony.
     // Sprawdzone wycinkiem 1280×1280 z pliku, nie na oko: przy domyślnym
-    // wyśrodkowaniu oba auta zostają w kadrze, cała grupa jest widoczna, a tracone
-    // są wyłącznie skrajne osoby z lewej i prawej. Marcin zaakceptował ten kadr
-    // wprost („ten środkowy kadr 1:1 jest wystarczająco dobry"), więc nie dorabiać
-    // tu `heroImagePos` ani osobnego pliku 1:1 bez nowej decyzji.
-    heroImage: "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
+    // wyśrodkowaniu wszystkie trzy osoby nagrodzone mieszczą się z twarzami
+    // w całości, uścisk dłoni zostaje w kadrze, a logo na torbie jest czytelne.
+    // Przesunięcie w prawo (testowane 68%) urywa mężczyznę w okularach i połowę
+    // torby, więc jest gorsze. Nie dodawać `heroImagePos` „dla pewności".
+    //
+    // To samo ograniczenie 67% dotyczy kadru grupowego, gdyby kiedyś tu wrócił:
+    // tam ginęły skrajne osoby z lewej i prawej, oba auta zostawały.
+    heroImage: "/images/galeria/eventy/event-04-gala-wreczenie-wyroznien.jpg",
     price: "od 600 zł netto",
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
@@ -938,18 +942,20 @@ export function getPriceFaq(service: ServiceData): FAQItem {
 // pomóc"). Łatwo podmienić ścieżkę, jeśli chcesz inne ujęcie.
 // Trzy okładki wymienione 10.08.2026 na prośbę Marcina po deployu.
 const SERVICE_TILE_IMAGES: Record<string, string> = {
-  // Gala z wręczeniem wyróżnień. Decyzja Marcina 10.08.2026.
+  // Kadr grupowy na torze. Decyzja Marcina 10.08.2026, ZAMIANA MIEJSCAMI z hero.
   //
-  // ⚠ MUSI BYĆ INNE NIŻ `heroImage` usługi `eventy-reportaze` (dziś kadr grupowy
-  // na torze). Kafelek i hero to dwie powierzchnie jednego kliknięcia: jeśli
-  // pokażą ten sam plik, przejście z kafelka nie wnosi nowego obrazu.
-  // To był finding UXUI2608-04 i już raz wszedł na produkcję.
+  // ⚠ MUSI BYĆ INNE NIŻ `heroImage` usługi `eventy-reportaze` (dziś gala).
+  // Kafelek i hero to dwie powierzchnie jednego kliknięcia: jeśli pokażą ten sam
+  // plik, przejście z kafelka nie wnosi nowego obrazu. To był finding UXUI2608-04
+  // i już raz wszedł na produkcję.
   //
-  // Kadr grupowy stał tu wcześniej z uzasadnieniem „pokazuje SKALĘ wydarzenia".
-  // Ten argument nie zniknął, tylko przeniósł się na hero, gdzie jest więcej
-  // miejsca. Kafelek dostał galę, bo na małej miniaturze ludzie i moment
-  // wręczenia czytają się lepiej niż kilkudziesięcioosobowa grupa.
-  "eventy-reportaze": "/images/galeria/eventy/event-04-gala-wreczenie-wyroznien.jpg",
+  // Historia tej pary w jeden dzień, żeby nikt nie kręcił nią w kółko:
+  //   1. kafelek grupowe + hero grupowe → duplikat, naprawiony wariantem C
+  //   2. kafelek grupowe + hero gala
+  //   3. kafelek gala + hero grupowe
+  //   4. TERAZ: kafelek grupowe + hero gala (powrót do stanu 2)
+  // Za każdym razem zmieniała się tylko strona przypisania, nigdy reguła.
+  "eventy-reportaze": "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
   "wizerunek-portrety": "/images/galeria/portrety/portret-02-kobieta-z-laptopem.jpg",
   "fotografia-produktowa": "/images/galeria/produktowe/produkt-01-toast-belvedere.jpg",
   // Kafelek linii obiektowej na stronie głównej i na /uslugi. Ta sama jasna hala,
