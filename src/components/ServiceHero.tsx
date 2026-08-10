@@ -94,8 +94,28 @@ export default function ServiceHero({ service, crumbs }: Props) {
           </AnimatedSection>
 
           {/* 2. Zdjęcie usługi (mobile: zaraz po krótkim opisie; desktop: prawa
-              kolumna przez oba rzędy) — priority, LCP element strony. */}
-          <AnimatedSection delay={0.15} className="md:col-start-2 md:row-start-1 md:row-span-2 md:h-full">
+              kolumna przez oba rzędy) — priority, LCP element strony.
+
+              ⛔ TU NIE WOLNO UŻYĆ `AnimatedSection`. Zmierzone Lighthouse 12 na
+              produkcji 10.08.2026, `/uslugi/eventy-reportaze` na telefonie:
+              LCP 6,4 s, z czego **Render Delay 5,07 s, czyli 79%**. Sam obraz
+              pobierał się w 374 ms — problem nie był w zdjęciu, tylko w tym,
+              że element LCP startował z `opacity: 0`.
+
+              `AnimatedSection` nadaje klasę `.reveal` (`globals.css`), a ta ustawia
+              `opacity: 0` i czeka na hydratację, `IntersectionObserver`, 0,15 s
+              `transitionDelay` i 0,5 s przejścia. Na dławionym CPU telefonu składa
+              się to na te pięć sekund.
+
+              Zamiast tego `.hero-intro`: animacja WYŁĄCZNIE na `transform`, czysty
+              CSS, bez opacity i bez obserwatora. Dokładnie ten sam wzorzec, którego
+              używa hero strony głównej (`Hero.tsx:67`) i który jest opisany
+              w `globals.css` przy definicji `@keyframes heroIntro`. Dowód, że
+              działa: Render Delay na stronie głównej wynosił 663 ms wobec 5072 ms tutaj.
+
+              Wjazd wizualny zostaje, znika tylko wygaszanie. `prefers-reduced-motion`
+              nadal wyłącza ruch globalną regułą z `globals.css`. */}
+          <div className="hero-intro md:col-start-2 md:row-start-1 md:row-span-2 md:h-full">
             {/* Kwadrat tylko na telefonie. Na desktopie kadr bierze pełną
                 wysokość kolumny tekstowej (`md:h-full` na komórce siatki, która
                 jest rozciągnięta przez `items-stretch`), więc dolne krawędzie
@@ -120,7 +140,7 @@ export default function ServiceHero({ service, crumbs }: Props) {
                 blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0YxRjVGOSIvPjwvc3ZnPg=="
               />
             </div>
-          </AnimatedSection>
+          </div>
 
           {/* 3. Dowód społeczny + cena + CTA (mobile: pod zdjęciem; desktop:
               lewa kolumna, dolny rząd). Opis przeniesiony wyżej, do bloku 1,

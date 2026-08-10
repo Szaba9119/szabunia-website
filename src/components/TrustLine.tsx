@@ -17,17 +17,26 @@
 // „100+ firm B2B z całej Polski" w CTA.tsx zostało sprowadzone do „100+
 // obsłużonych firm"). Zmiana tekstu tutaj zmienia go wszędzie i o to chodzi.
 //
-// ⛔ TRZECIA POZYCJA, „Foto, wideo i dron w jednym zleceniu", dodana 10.08.2026
-// (runda CRO, decyzja Marcina). Komunikuje ZAKRES JEDNEJ WSPÓŁPRACY.
+// TRZECIA POZYCJA, „Foto, wideo i dron od jednej osoby", dodana 10.08.2026
+// (runda CRO). Powód dodania: na stronie głównej słowo „dron" padało dotąd
+// 2 razy, wyłącznie wewnątrz opisu jednej usługi, więc argument o pełnym
+// zakresie nie istniał jako samodzielny komunikat.
 //
-// ⚠ NIE WOLNO przepisać jej na „jedna osoba", „jeden twórca", „sam robię
-// wszystko" ani żaden wariant sugerujący liczbę ludzi na planie. Marcin
-// odrzucił to wprost dwa razy 10.08.2026: przy większych realizacjach pracuje
-// z ekipą, a FAQ podstrony eventowej mówi to samo („przy dużym biorę drugiego
-// operatora"). Claim ma dotyczyć ZLECENIA, nie obsady.
-// Powód dodania: na stronie głównej słowo „dron" padało dotąd 2 razy, wyłącznie
-// wewnątrz opisu jednej usługi, więc argument „zamówisz wszystko w jednym
-// zleceniu" nie istniał jako samodzielny komunikat.
+// ⚠ HISTORIA TEGO SFORMUŁOWANIA, żeby nie kręcić nim czwarty raz.
+// 10.08.2026 rano Marcin odrzucił „jeden twórca" jako nieprawdziwe („przy
+// większych realizacjach pracuję z ekipą") i usunęliśmy je z `About.tsx`.
+// Tego samego dnia wieczorem Marcin przywrócił ten kierunek jako świadomy USP
+// i zaakceptował warianty „od jednej osoby" / „jeden twórca".
+//
+// Co rozstrzygnęło: claim NIE BYŁ nowy. „Od jednej osoby" stało już wtedy
+// na powierzchniach klienckich, m.in. w `Services.tsx` („Zdjęcia i film dla firm
+// w czterech obszarach, od jednej osoby") i w opisie usługi eventowej.
+// Usunięcie go z jednego miejsca zrobiło niespójność, a nie porządek.
+//
+// ⚠ Granica, która nadal obowiązuje: to claim o ŹRÓDLE zlecenia (jeden dostawca,
+// jedne ustalenia, jedna faktura), nie deklaracja obsady na planie. FAQ podstrony
+// eventowej mówi wprost, że przy dużym wydarzeniu dochodzi drugi operator,
+// i te dwa zdania mają prawo współistnieć. Nie dopisywać „wszystko robię sam".
 export default function TrustLine({ className = "" }: { className?: string }) {
   return (
     <ul
@@ -55,7 +64,7 @@ export default function TrustLine({ className = "" }: { className?: string }) {
         <svg className="w-4 h-4 flex-shrink-0 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" />
         </svg>
-        Foto, wideo i dron w jednym zleceniu
+        Foto, wideo i dron od jednej osoby
       </li>
     </ul>
   );
