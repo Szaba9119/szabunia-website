@@ -1224,7 +1224,7 @@ export const blogPosts: BlogPost[] = [
         <li><strong>Reportaż zdjęciowy</strong> po selekcji i pełnej obróbce.</li>
         <li><strong>Film podsumowujący</strong> (recap) i krótszy teaser do social mediów.</li>
         <li><strong>Reelsy pionowe</strong>, jeśli content ma trafić na Instagram czy TikTok.</li>
-        <li><strong>Live editing:</strong> wybrane zdjęcia obrobione na bieżąco, jeszcze w trakcie eventu, gotowe do publikacji tego samego dnia.</li>
+        <li><strong>Live editing (opcja dodatkowa):</strong> wybrane zdjęcia obrobione na bieżąco, jeszcze w trakcie eventu, gotowe do publikacji tego samego dnia.</li>
       </ul>
 
       <h2>Podsumowanie</h2>

@@ -200,7 +200,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     title: "Dokumentacja wydarzeń firmowych",
     shortTitle: "Wydarzenia firmowe",
     subtitle:
-      "Konferencje, targi, gale i integracje. Zdjęcia, film i dron z jednego dnia, część kadrów na social media jeszcze w trakcie wydarzenia.",
+      // LIVE EDITING = OPCJA DODATKOWO PŁATNA (decyzja Marcina 10.08.2026).
+      // Kafelek mówił „część kadrów na social media jeszcze w trakcie wydarzenia"
+      // bez żadnego zastrzeżenia, czyli obiecywał to w standardzie.
+      // Ta sama zasada obowiązuje w `scope`, `process`, `faqs` i w `portfolio.ts`.
+      "Konferencje, targi, gale i integracje. Zdjęcia, film i dron z jednego dnia, a w opcji dodatkowej część kadrów na social media jeszcze w trakcie wydarzenia.",
     heroLabel: "Dokumentacja wydarzeń",
     // Lead ukryty w hero 10.08.2026 (ósma tura). Treść ZOSTAJE w danych, bo
     // renderuje ją kafelek na `/uslugi` i karta pod wpisem blogowym.
@@ -235,15 +239,25 @@ const serviceCategoriesRaw: ServiceData[] = [
         "Szkolenia i warsztaty",
         "Premiery produktów",
         "Spotkania firmowe i integracje",
+        // Dodane 10.08.2026 (decyzja Marcina). „Spotkania firmowe i integracje"
+        // czytało się jak impreza w siedzibie, a realizacje wyjazdowe są realną
+        // częścią portfolio (integracja na torze, wyjazd firmowy w galerii eventowej).
+        "Wyjazdy integracyjne",
         "Wydarzenia branżowe i networkingowe",
       ],
       usesHeading: "Gdzie materiał pracuje dalej",
       // Lista celowo krótka i bez rozwinięć (Marcin, 10.08.2026: „nie
-      // rozbudowujmy jej w kolejny blok SEO").
+      // rozbudowujmy jej w kolejny blok SEO"). Reguła obowiązuje dalej:
+      // przy kolejnym pomyśle na rozbudowę tej listy najpierw zapytaj.
       uses: [
         "Relacja na LinkedIn i Instagram",
         "Podsumowanie roku i materiały wewnętrzne",
         "Promocja kolejnej edycji",
+        // Dodane 10.08.2026 (decyzja Marcina), JEDNA pozycja, świadomie nie pięć.
+        // Zdjęcia z wydarzeń firmowych trafiają do ogłoszeń o pracę i na strony
+        // kariery częściej niż do materiałów prasowych, a to argument, że materiał
+        // nie kończy życia w galerii po evencie.
+        "Rekrutacja i employer branding",
         "Materiały prasowe i raporty",
         "Strona wydarzenia",
       ],
@@ -255,12 +269,12 @@ const serviceCategoriesRaw: ServiceData[] = [
           desc: "Wystąpienia, prelegenci, uczestnicy, rozmowy w kuluarach, branding i przestrzeń wydarzenia. Około 30 gotowych zdjęć na każdą godzinę obecności, po selekcji i obróbce.",
         },
         {
-          title: "Zdjęcia w trakcie wydarzenia",
+          title: "Zdjęcia w trakcie wydarzenia (opcja dodatkowa)",
           // Dopisany kanał publikacji (Marcin, 10.08.2026). Poprzednia wersja
           // mówiła „przesyłam do publikacji", czyli nie nazywała miejsca, w którym
           // ta publikacja ma się wydarzyć. Social media są tu konkretem: to jedyny
           // kanał, w którym zdjęcie z eventu ma sens tego samego dnia.
-          desc: "Wybrane kadry obrabiam na miejscu i przesyłam w trakcie wydarzenia, więc relację na LinkedInie i Instagramie publikujesz, zanim goście wrócą do domu.",
+          desc: "Wybrane kadry obrabiam na miejscu i przesyłam w trakcie wydarzenia, więc relację na LinkedInie i Instagramie publikujesz, zanim goście wrócą do domu. Zamawiana osobno, poza podstawowym zakresem.",
         },
         {
           title: "Wideo",
@@ -283,44 +297,35 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
       </svg>
     ),
-    // ZDJĘCIE HERO: gala z wręczeniem wyróżnień (decyzja Marcina 10.08.2026,
-    // finding UXUI2608-04, wariant C).
+    // ZDJĘCIE HERO: grupa przed dwoma autami sportowymi na torze.
+    // Decyzja Marcina 10.08.2026, ostateczna dla tego etapu.
     //
-    // Historia tego pola w jeden dzień, żeby nikt nie cofnął tego trzeci raz:
-    //   1. `event-05-networking-foyer.jpg` + `heroImagePos: "center 20%"`
-    //   2. ósma tura podmieniła na `event-02-zdjecie-grupowe-tor.jpg` NA ZAŁOŻENIE,
-    //      bo do repo nie trafił żaden nowy plik. Trafiło to w kadr, który Marcin
-    //      faktycznie wybrał, ale DLA KAFELKA, nie dla hero.
-    //   3. Skutek: kafelek na stronie głównej i hero tej podstrony pokazywały
-    //      TEN SAM plik, więc klik z kafelka nie wnosił nowego obrazu.
-    //
-    // ⚠ HERO I KAFELEK MUSZĄ BYĆ RÓŻNE. Kafelek trzyma `SERVICE_TILE_IMAGES`
-    // na dole tego pliku (`event-02-zdjecie-grupowe-tor`). Zmieniając cokolwiek
-    // tutaj, sprawdź tamtą wartość.
+    // ⚠ HERO I KAFELEK MUSZĄ BYĆ RÓŻNE i to jest jedyna twarda reguła tego pola.
+    // Kafelek „Wydarzenia firmowe" na stronie głównej trzyma `SERVICE_TILE_IMAGES`
+    // na dole tego pliku i ma dziś `event-04-gala-wreczenie-wyroznien`. Zmieniając
+    // cokolwiek tutaj, sprawdź tamtą wartość, inaczej klik z kafelka prowadzi do
+    // powiększenia miniatury, którą klient przed chwilą kliknął (finding UXUI2608-04).
     //
     // ⚠ HERO NIE MOŻE BYĆ Z LISTY `SERVICE_GALLERY.eventy` w `ServiceGalleryStrip.tsx`,
-    // bo tamten pas renderuje się NIŻEJ NA TEJ SAMEJ STRONIE. Dlatego razem z tą
-    // zmianą `event-04` wyszło z tamtej listy, a weszło `event-16`.
+    // bo tamten pas renderuje się NIŻEJ NA TEJ SAMEJ STRONIE. Formalnie chroni przed
+    // tym prop `exclude={service.heroImage}`, ale nie polegaj na nim przy wyborze:
+    // wycięcie kadru z paska zmniejsza pasek do pięciu pozycji.
     //
-    // Dlaczego gala, a nie scena czy networking: linia sprzedaje konferencje
-    // i gale klientowi korporacyjnemu, a ten kadr pokazuje ludzi i moment
-    // wyróżnienia, nie samą scenografię.
-    //
-    // ⚠ BRAK `heroImagePos` JEST CELOWY, nie przeoczeniem. Kontener hero jest
-    // KWADRATOWY (zmierzone: 517×517 na 1280 px i 358×358 na 390 px), a plik ma
-    // 1920×1280, czyli 3:2. `object-fit: cover` pokazuje więc tylko środkowe 67%
-    // szerokości klatki i obcina po 16,7% z każdej strony.
-    // Sprawdziłem to wycinkiem 1280×1280 z pliku, a nie na oko: przy domyślnym
-    // wyśrodkowaniu w kadrze zostają wszystkie trzy osoby nagrodzone z twarzami
-    // w całości, uścisk dłoni i czytelne logo na torbie. Przesunięcie w prawo
-    // (testowane 68%) urywa mężczyznę w okularach i połowę torby, więc jest gorsze.
-    // Nie dodawać `heroImagePos` „dla pewności".
-    heroImage: "/images/galeria/eventy/event-04-gala-wreczenie-wyroznien.jpg",
+    // ⚠ BRAK `heroImagePos` JEST CELOWY. Kontener hero jest KWADRATOWY (zmierzone:
+    // 517×517 na 1280 px i 358×358 na 390 px), a plik ma 1920×1280, czyli 3:2.
+    // `object-fit: cover` pokazuje więc tylko środkowe 67% szerokości klatki
+    // i obcina po 16,7% z każdej strony.
+    // Sprawdzone wycinkiem 1280×1280 z pliku, nie na oko: przy domyślnym
+    // wyśrodkowaniu oba auta zostają w kadrze, cała grupa jest widoczna, a tracone
+    // są wyłącznie skrajne osoby z lewej i prawej. Marcin zaakceptował ten kadr
+    // wprost („ten środkowy kadr 1:1 jest wystarczająco dobry"), więc nie dorabiać
+    // tu `heroImagePos` ani osobnego pliku 1:1 bez nowej decyzji.
+    heroImage: "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
     price: "od 600 zł netto",
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
       { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
-      { num: 3, title: "Live edit", desc: "Zdjęcia na social media w trakcie eventu" },
+      { num: 3, title: "Live edit", desc: "Opcja dodatkowa: zdjęcia na social media w trakcie eventu" },
       { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni" },
     ],
     // Przepisane 10.08.2026. Poprzednia wersja mówiła „rozliczenie dniówką
@@ -342,7 +347,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     //    co pytanie cenowe, tylko innymi słowami.
     faqs: [
       { q: "Ile zdjęć dostanę?", a: "Około 30 gotowych zdjęć na każdą godzinę obecności, po selekcji i obróbce. Przy realizacji z wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali wydarzenia i dodatkowych zadań w trakcie. To autorski wybór najlepszych momentów, a nie wszystkie wykonane kadry." },
-      { q: "Czy mogę dostać zdjęcia jeszcze w trakcie wydarzenia?", a: "Tak. Wybrane kadry obrabiam na miejscu i przesyłam do publikacji. Relacja wychodzi wtedy, kiedy ludzie jeszcze siedzą na sali, a nie trzy dni później." },
+      { q: "Czy mogę dostać zdjęcia jeszcze w trakcie wydarzenia?", a: "Tak, w opcji dodatkowej. Wybrane kadry obrabiam na miejscu i przesyłam do publikacji, więc relacja wychodzi wtedy, kiedy ludzie jeszcze siedzą na sali, a nie trzy dni później. To osobna pozycja w wycenie, poza podstawowym zakresem, więc zgłoś ją przy ustalaniu szczegółów." },
       { q: "Kto robi zdjęcia i film, gdy wydarzenie jest duże?", a: "Przy standardowym wydarzeniu robię wszystko sam. Przy dużym, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora. Retusz i montaż robię osobiście, więc materiał wychodzi w jednym standardzie. Dla Ciebie to nadal jedna osoba kontaktowa, jedne ustalenia i jedna faktura." },
       { q: "Zrobisz przy okazji zdjęcia całego zespołu?", a: "Tak. Przywożę mobilne studio: 5 m², gniazdko, 30 minut na rozstawienie. Potem fotografuję kolejne osoby po 5 do 15 minut, między prelekcjami albo w luźniejszym oknie agendy. Bez osobnego terminu i bez osobnego dojazdu." },
       { q: "Obsłużysz cykl wydarzeń?", a: "Tak. Jeśli realizacje wracają co roku, ustalamy liczbę wydarzeń z góry: rezerwuję terminy i trzymam dzisiejsze ceny na całość." },
@@ -923,10 +928,18 @@ export function getPriceFaq(service: ServiceData): FAQItem {
 // pomóc"). Łatwo podmienić ścieżkę, jeśli chcesz inne ujęcie.
 // Trzy okładki wymienione 10.08.2026 na prośbę Marcina po deployu.
 const SERVICE_TILE_IMAGES: Record<string, string> = {
-  // Ujęcie z góry: dwa auta sportowe i kilkudziesięcioosobowa grupa na torze.
-  // Wcześniej networking w foyer. Ten kadr pokazuje SKALĘ wydarzenia, czego
-  // zdjęcie z rozmowy dwóch osób nie robi.
-  "eventy-reportaze": "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
+  // Gala z wręczeniem wyróżnień. Decyzja Marcina 10.08.2026.
+  //
+  // ⚠ MUSI BYĆ INNE NIŻ `heroImage` usługi `eventy-reportaze` (dziś kadr grupowy
+  // na torze). Kafelek i hero to dwie powierzchnie jednego kliknięcia: jeśli
+  // pokażą ten sam plik, przejście z kafelka nie wnosi nowego obrazu.
+  // To był finding UXUI2608-04 i już raz wszedł na produkcję.
+  //
+  // Kadr grupowy stał tu wcześniej z uzasadnieniem „pokazuje SKALĘ wydarzenia".
+  // Ten argument nie zniknął, tylko przeniósł się na hero, gdzie jest więcej
+  // miejsca. Kafelek dostał galę, bo na małej miniaturze ludzie i moment
+  // wręczenia czytają się lepiej niż kilkudziesięcioosobowa grupa.
+  "eventy-reportaze": "/images/galeria/eventy/event-04-gala-wreczenie-wyroznien.jpg",
   "wizerunek-portrety": "/images/galeria/portrety/portret-02-kobieta-z-laptopem.jpg",
   "fotografia-produktowa": "/images/galeria/produktowe/produkt-01-toast-belvedere.jpg",
   // Kafelek linii obiektowej na stronie głównej i na /uslugi. Ta sama jasna hala,

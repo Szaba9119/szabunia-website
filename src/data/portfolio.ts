@@ -468,7 +468,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda eventu, kluczowe momenty, VIP-y" },
       { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
-      { num: 3, title: "Live edit", desc: "Zdjęcia na social media w trakcie eventu" },
+      { num: 3, title: "Live edit", desc: "Opcja dodatkowa: zdjęcia na social media w trakcie eventu" },
       { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni" },
     ],
     // Cennik celowo usunięty z draftu (audyt 2026-07-06) — kanon: services.tsx.
@@ -476,7 +476,10 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [
       {
         q: "Czy mogę otrzymać zdjęcia jeszcze w trakcie eventu?",
-        a: "Tak, oferuję usługę live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na social media w trakcie wydarzenia.",
+        // LIVE EDITING = OPCJA DODATKOWO PŁATNA (decyzja Marcina 10.08.2026).
+        // Ujednolicone z `services.tsx`; wcześniej to zdanie brzmiało jak element
+        // usługi w standardzie („oferuję usługę live editing").
+        a: "Tak, jako opcję dodatkową. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na social media w trakcie wydarzenia. To osobna pozycja w wycenie, poza podstawowym zakresem.",
       },
       {
         q: "Ile zdjęć otrzymam z eventu?",

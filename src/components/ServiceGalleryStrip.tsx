@@ -179,9 +179,9 @@ const CURATED_VIDEOS: Partial<Record<GalleryCategoryKey, string[]>> = {
   // Kolejność 10.08.2026 (decyzja Marcina): najpierw produkt techniczny, potem
   // drugi produkt, dopiero na końcu gastronomia. Klient szukający fotografa
   // produktowego ma zobaczyć produkt, a nie dwa reelsy z jedzeniem.
+  // Film Box17 USUNIĘTY 10.08.2026 (decyzja Marcina). Zostają trzy pozycje.
   "wideo-produktowe": [
     "CmHUCptLu90", // Reklama kamerki samochodowej 70mai
-    "vjpUby-NZsY", // Box17: film produktowy budki akustycznej
     "fRoffxZ1tVM", // Reels dla Pizzerii Sicilia Marco Giuliano
     "xByfmDzNPMI", // Reels dla śniadaniowni Sunday
   ],
@@ -329,7 +329,14 @@ function Shell({
     <section className="py-12 md:py-16 px-4">
       <div className="max-w-5xl mx-auto">
         <AnimatedSection>
-          <div className="mb-6">
+          {/* WYŚRODKOWANE 10.08.2026 (decyzja Marcina). Ten blok jako jedyny na
+              podstronie usługi dziedziczył domyślne wyrównanie do lewej, a że pasek
+              renderuje się DWA RAZY i między nimi stoi wyśrodkowana „Przykładowa
+              realizacja wideo", użytkownik schodząc w dół dostawał lewa → środek → lewa.
+              To nigdy nie było decyzją projektową: w tym pliku są zapisane ustalenia
+              o rozmiarze podtytułu (04.08) i pozycji przycisku (03.08), o wyrównaniu
+              nie ma ani słowa. Jeden system dla wszystkich sekcji treści. */}
+          <div className="mb-6 text-center">
             <h2 className="font-barlow font-extrabold text-2xl md:text-3xl tracking-tight text-navy dark:text-white">
               {label}
             </h2>
@@ -341,7 +348,10 @@ function Shell({
               // (15 px, steel), żeby na jednej podstronie nie było dwóch różnych
               // formatowań tego samego rodzaju zdania. Wyróżnia go tylko oddech:
               // szersza interlinia i węższa kolumna (Marcin, 04.08.2026).
-              <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mt-2 max-w-2xl">
+              // `mx-auto` dołożone razem z wyśrodkowaniem bloku: `max-w-2xl` ogranicza
+              // szerokość, więc bez tego sam tekst byłby wyśrodkowany, a kolumna nadal
+              // dosunięta do lewej krawędzi kontenera.
+              <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mt-2 max-w-2xl mx-auto">
                 {sub}
               </p>
             ) : (

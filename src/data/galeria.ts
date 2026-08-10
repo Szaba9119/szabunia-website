@@ -21,11 +21,13 @@ export const galleryVideos: GalleryVideo[] = [
   { youtubeId: "fRoffxZ1tVM", vertical: true, title: "Reels dla Pizzerii Sicilia Marco Giuliano" },
   { youtubeId: "v5Klr4TeO5E", vertical: true, title: "1. urodziny Pizzerii Sicilia Marco Giuliano" },
   { youtubeId: "CmHUCptLu90", vertical: true, title: "Reklama kamerki samochodowej 70mai" },
-  // Dodane 10.08.2026 (decyzja Marcina, pakiet 4). Film leżał dotąd wyłącznie
-  // w case study `box17-budki-akustyczne`, które jest w DRAFT_SLUGS i zostaje
-  // nieopublikowane. To NIE jest publikacja tamtego case study: trzy zdjęcia
-  // Box17 stoją już w galerii produktowej (`produkt-07/08/09`), więc marka jest
-  // na stronie od dawna. Film dokłada czwarty, niegastronomiczny i poziomy
-  // przykład do paska wideo produktowego.
-  { youtubeId: "vjpUby-NZsY", vertical: false, title: "Box17: film produktowy budki akustycznej" },
+  // Film Box17 (`vjpUby-NZsY`) WYCOFANY 10.08.2026, decyzją Marcina, tego samego dnia,
+  // którego został dodany. Wchodził tu po to, żeby zasilić pasek wideo produktowego
+  // (`ServiceGalleryStrip.CURATED_VIDEOS["wideo-produktowe"]`), a że wypadł i stamtąd,
+  // zostawienie go tutaj oznaczałoby film widoczny w zakładce wideo na `/galeria`
+  // bez żadnego innego miejsca w serwisie.
+  //
+  // Nadal istnieje w `portfolio.ts` wewnątrz case study `box17-budki-akustyczne`,
+  // ale to case jest w `DRAFT_SLUGS` i pozostaje nieopublikowane, więc nikt go nie zobaczy.
+  // Trzy ZDJĘCIA Box17 zostają w galerii produktowej (`produkt-07/08/09`) bez zmian.
 ];

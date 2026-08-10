@@ -1,6 +1,13 @@
 # Poprawki wdrożone — runda 2, 10 sierpnia 2026
 
-**Status:** zmiany w drzewie roboczym, **niezacommitowane, NIE wdrożone na produkcję**.
+**Status:** ✅ **zacommitowane i wdrożone na produkcję** jako `b35b0ae`, 10.08.2026.
+Weryfikacja po deployu na `szabunia.pl`: hero eventów, brak duplikatów zdjęć, ścieżka CTA
+na pięciu trasach w obu breakpointach. Szczegóły w §H na końcu.
+
+~~Status pierwotny: zmiany w drzewie roboczym, niezacommitowane, NIE wdrożone.~~
+Ten zapis był prawdziwy w chwili pisania i nieprawdziwy dwadzieścia minut później.
+Zostawiam go przekreślonego, bo raport wdrożenia bez daty ważności jest dokładnie tym
+mechanizmem, który w tym projekcie już raz kosztował (`UXUI2608-03b`).
 **Źródło:** `BRIEFY-UX-UI-R2-2026-08-10.md`, autoryzacja Marcina 10.08.2026: **C, A, A**.
 **Diff:** 3 pliki, +102 / −17 · **lint: PASS (0/0)** · **tsc: PASS** · build: do uruchomienia u Marcina.
 **Punkt wyjścia:** `df6b1a2`, drzewo `src/` czyste, produkcja == `main`.
@@ -179,6 +186,53 @@ na Twoją zgodę od rana.
 
 ---
 
+---
+
+## H. Runda 3 — domknięcie `/uslugi/eventy-reportaze` (10.08.2026, po deployu `b35b0ae`)
+
+Dziesięć decyzji Marcina, wykonane w jednej turze. Diff: 7 plików, +114 / −67 ·
+lint PASS · tsc PASS · **build PASS (55/55 stron)**.
+
+| # | Zmiana | Plik |
+|---|---|---|
+| 1 | Oba paski galerii wyśrodkowane; było jedyne miejsce z wyrównaniem do lewej, przez co układ szedł lewa → środek → lewa | `ServiceGalleryStrip.tsx` |
+| 2 | Film Box17 usunięty z paska wideo produktowego i z zakładki wideo `/galerii` | `ServiceGalleryStrip.tsx`, `galeria.ts` |
+| 3 | „Usługi" w nawigacji i okruszku → `/uslugi` | **bez zmian, już tak było** |
+| 4 | Hero eventów → kadr grupowy na torze | `services.tsx` |
+| 5 | Kafelek eventów na stronie głównej → gala | `services.tsx` |
+| 6 | **Live editing = opcja dodatkowo płatna**, ujednolicone | 7 miejsc, patrz niżej |
+| 7 | „Wyjazdy integracyjne" w „Dla jakich wydarzeń" | `services.tsx` |
+| 8 | „Rekrutacja i employer branding" w „Gdzie materiał pracuje dalej" | `services.tsx` |
+| 9 | Galeria portretów przesunięta za „Zakres realizacji" | `uslugi/[slug]/page.tsx` |
+| 10 | Bez nowych sekcji | nadal 10 sekcji |
+
+**Kolejność „Wybranych realizacji"** zmieniona osobno, tą samą turą: E-commerce All-in →
+IDcom → Yes Butcher → Artech. ⚠ To **cofa `ZDJ2608-32`** z 04.08: woohoo zszedł wtedy
+z pierwszego miejsca, bo wszystkie pięć jego obrazów to grafiki i klatki z filmu, a `gallery`
+jest puste. Marcin zna ten koszt. Właściwym docelowym rozwiązaniem jest dołożenie do tego
+case study prawdziwych kadrów foto, nie przestawianie kolejności w tę i z powrotem.
+
+**Live editing, siedem poprawionych miejsc:** kafelek usługi, tytuł i opis pozycji
+w „Zakresie realizacji", krok „Live edit" w procesie (`services.tsx` i `portfolio.ts`),
+FAQ w obu tych plikach, lista „Co dostajesz po evencie" w `blog.ts`.
+
+**Trzy miejsca celowo nietknięte, bo były poprawne od początku:** `llms.txt`
+(„Opcjonalnie"), słowniczek blogowy („Opcja dodatkowa, wyceniana za zdjęcie"), artykuł
+o live editingu („wyceniam ją jako opcję"). Listy typu „na wycenę wpływa" też zostają:
+bycie czynnikiem cenowym samo w sobie znaczy, że to dodatek.
+
+**Zmierzone po zmianie** na `/uslugi/eventy-reportaze`: 7 zdjęć eventowych i 6 portretowych,
+**każde dokładnie raz**; hero (`event-02`) różne od kafelka na stronie głównej (`event-04`);
+wszystkie sekcje treści wyrównane do środka. Sekcja kontaktowa zostaje do lewej, bo to blok
+formularza w dwóch kolumnach, a nie sekcja treści.
+
+**Własny błąd w trakcie:** wstawiłem komentarz `{/* */}` w pozycję wyrażenia w ternary,
+co wywaliło parsowanie JSX. Wyłapał `tsc`, naprawione w tej samej turze. Odnotowuję,
+bo przez chwilę build był czerwony.
+
+---
+
 *Wdrożenie: Claude Code, 10.08.2026. Dowody: pomiar DOM na dev serverze (390 i 1280 px,
 oba motywy), podsłuch `scrollIntoView` dla obu gałęzi CTA, wycinek 1280×1280 z pliku hero
-dla oceny kadrowania, lint i tsc lokalnie. Git po stronie Marcina.*
+dla oceny kadrowania, lint, tsc i build lokalnie, weryfikacja produkcji po deployu.
+Commity `b35b0ae` i kolejny z rundy 3 wykonane za wyraźną zgodą Marcina.*

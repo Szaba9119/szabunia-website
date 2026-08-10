@@ -167,9 +167,11 @@ export default async function ServicePage({ params }: PageProps) {
           <LogoBar />
         </ErrorBoundary>
         {/* KOLEJNOŚĆ SEKCJI ustalona 10.08.2026 (pakiet 4, decyzja Marcina po
-            przedstawieniu argumentu):
-              hero → logotypy → ZASTOSOWANIA → portfolio → ZAKRES → kto to zrobi
-              → jak pracujemy → opinia → FAQ → blog → CTA
+            przedstawieniu argumentu), doprecyzowana tego samego dnia o pozycję
+            drugiego paska galerii:
+              hero → logotypy → ZASTOSOWANIA → galeria główna → film → ZAKRES
+              → galeria dodatkowa → kto to zrobi → jak pracujemy → opinia → FAQ
+              → blog → CTA
 
             Dwie zmiany wobec układu sprzed tej daty:
             1. Doszły dwie sekcje tekstowe: `applications` i `scope`. Obie są
@@ -199,6 +201,21 @@ export default async function ServicePage({ params }: PageProps) {
           </ErrorBoundary>
         )}
         {videoSection}
+        {service.scope && (
+          <ErrorBoundary>
+            <ServiceScope data={service.scope} />
+          </ErrorBoundary>
+        )}
+        {/* DRUGI PASEK GALERII PRZESUNIĘTY ZA „ZAKRES REALIZACJI" 10.08.2026
+            (decyzja Marcina). Wcześniej stał zaraz po filmie, czyli układ szedł
+            galeria główna → film → galeria portretów → zakres.
+            Problem był narracyjny, nie wizualny: drugi pasek to INNA kategoria
+            (portrety zespołu przy okazji eventu), czyli dosprzedaż, a wchodziła
+            w środek wątku o samym wydarzeniu, zanim strona zdążyła powiedzieć,
+            co w ogóle obejmuje usługa.
+            Teraz: dowód usługi podstawowej → co dokładnie obejmuje → dopiero
+            potem „przy okazji możemy zrobić też portrety zespołu".
+            Aby cofnąć: przenieś ten blok z powrotem nad `service.scope`. */}
         {service.extraGallery && (
           <ErrorBoundary>
             <ServiceGalleryStrip
@@ -208,11 +225,6 @@ export default async function ServicePage({ params }: PageProps) {
               sub={service.extraGallery.sub}
               exclude={service.heroImage}
             />
-          </ErrorBoundary>
-        )}
-        {service.scope && (
-          <ErrorBoundary>
-            <ServiceScope data={service.scope} />
           </ErrorBoundary>
         )}
         {/* Blok autorski: pierwszy raz na podstronach usług pada „Cześć, jestem

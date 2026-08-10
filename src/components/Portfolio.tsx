@@ -11,16 +11,23 @@ const blurPlaceholder =
   "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
 
 // Na home pokazujemy dopracowane case studies (podstrony realizacji gotowe).
-// ZDJ2608-32 (DZ2 = A, decyzja Marcina 04.08.2026): woohoo-autopay schodzi z pierwszego
-// miejsca. Wszystkie pięć jego obrazów to grafiki i klatki z filmu (plansza „E-COMMERCE
-// All in", okładki reelsów), a `gallery` jest puste, więc pierwszym, co widział klient
-// szukający zdjęć, była plansza tytułowa. Film nie znika, przestaje tylko otwierać sekcję.
-// Wariant B (dołożenie kadrów foto z tego eventu) wymaga plików spoza repo.
-// Aby cofnąć: przywrócić kolejność woohoo, artech, idcom, yes-butcher.
+// KOLEJNOŚĆ USTALONA PRZEZ MARCINA 10.08.2026: E-commerce All-in otwiera sekcję,
+// potem IDcom, Yes Butcher, Artech.
+//
+// ⚠ To ŚWIADOMIE COFA ZDJ2608-32 (decyzja z 04.08.2026), która zdjęła woohoo-autopay
+// z pierwszego miejsca. Powód tamtej decyzji zostaje tu zapisany, żeby nie zniknął:
+// wszystkie pięć obrazów tego case study to grafiki i klatki z filmu (plansza
+// „E-COMMERCE All in", okładki reelsów), a `gallery` jest puste, więc klient szukający
+// ZDJĘĆ widział jako pierwszą planszę tytułową, nie fotografię.
+// Marcin zna ten koszt i mimo to chce tej kolejności.
+//
+// Gdyby to miało wrócić do dyskusji, właściwym rozwiązaniem jest wariant B z tamtego
+// audytu: dołożyć do tego case study prawdziwe kadry foto z eventu (pliki spoza repo),
+// a nie przestawiać kolejność w tę i z powrotem.
 const FEATURED_SLUGS = [
+  "woohoo-autopay",
   "idcom-headshoty-zespolu",
   "yes-butcher-przewodnik-michelin",
-  "woohoo-autopay",
   "artech-fotografia-produktowa",
 ];
 
