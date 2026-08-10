@@ -206,6 +206,34 @@ export default async function ServicePage({ params }: PageProps) {
             <ServiceScope data={service.scope} />
           </ErrorBoundary>
         )}
+        {/* PUNKT WYJŚCIA PO „ZAKRESIE REALIZACJI", 10.08.2026 (audyt aktualnej
+            wersji, punkt 4, zgoda Marcina).
+
+            Powód, zmierzony na renderze 1280 px: CTA stały na 9% (hero) i dopiero
+            na 59% (po opinii). Między nimi pół strony bez żadnego wyjścia, i to
+            akurat ten odcinek, na którym klient ogląda galerie, zakres realizacji
+            i kartę autorską, czyli przekonuje się. Na telefonie luki nie było,
+            bo łapie ją `MobileFAB` od 200 px scrolla, ale FAB jest `md:hidden`,
+            więc desktop zostawał bez niczego. Ten blok siada na ~34%.
+
+            ⚠ WARIANT OBRYSOWANY, nie gradientowy, i to jest celowe. Ta sama klasa
+            co przyciski pod paskami galerii („Zobacz całą galerię”), o których
+            `ServiceGalleryStrip.tsx` mówi wprost, że mają nie konkurować z głównym
+            CTA kontaktowym. Solidny przycisk byłby tu TRZECIM identycznym
+            z rzędu i przesuwałby wagę z hero.
+
+            Etykieta świadomie ta sama co w pozostałych punktach: spójność wygrywa
+            z wariantowaniem, a `data-cta` i tak rozdziela je w pomiarze. */}
+        <div className="px-4 pb-12 flex justify-center">
+          <a
+            href="#kontakt"
+            data-cta="wycena_uslugi_zakres"
+            className="inline-flex items-center gap-2 border border-border dark:border-dark-border text-navy dark:text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:border-blue hover:text-blue dark:hover:border-blue-light dark:hover:text-blue-light transition-colors"
+          >
+            Zapytaj o ofertę
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
         {/* DRUGI PASEK GALERII PRZESUNIĘTY ZA „ZAKRES REALIZACJI" 10.08.2026
             (decyzja Marcina). Wcześniej stał zaraz po filmie, czyli układ szedł
             galeria główna → film → galeria portretów → zakres.

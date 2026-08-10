@@ -167,6 +167,33 @@ export const GALLERY_ALTS: Record<string, string> = {
     "Kadr z filmu z hali produkcyjnej, nóż tokarski skrawa obracający się element",
   "_F2A8937":
     "Dwie ażurowe kule z druku 3D na białym tle, większa w gradiencie różu i błękitu",
+  /* ── sesja zespołowa IDcom Group (10.08.2026) ──
+     Pięć poniższych opisów NIE jest nowych: to 1:1 alty z galerii case study
+     `idcom-headshoty-zespolu` w `portfolio.ts`. Do 10.08.2026 tych kluczy tu nie
+     było, więc pasek „Przykłady z sesji zespołowej" na `/uslugi/wizerunek-portrety`
+     schodził na fallback kategorii i pięć z sześciu kadrów miało IDENTYCZNY opis
+     („Headshot z sesji zespołowej dla IDcom Group, Marcin Szabunia”). Czytnik ekranu
+     czytał to samo zdanie pięć razy, a dobre opisy leżały obok, w `portfolio.ts`.
+
+     Opisy niosą kolor tła, bo to jest sedno tej realizacji (jedna sesja, trzy tła)
+     i bez tego pasek nie tłumaczy sam siebie. */
+  "_F2A9424-Edit-2":
+    "Portret członkini zespołu na białym tle, sesja wizerunkowa zespołu IDcom Group",
+  "_F2A9229-Edit-2":
+    "Portret biznesowy na czarnym tle z niebieskim światłem, sesja zespołowa IDcom Group",
+  "_F0I9883-Edit-2":
+    "Portret członkini zespołu na kremowym tle, zdjęcia zespołu na stronę firmową",
+  "_F2A9433-Edit-2":
+    "Headshot członka zespołu na białym tle, spójne portrety pracowników firmy IT",
+  "_F2A9264-Edit-2":
+    "Headshot na czarnym tle z niebieskim akcentem światła, portrety zespołu software house'u",
+  // ⚠ SZÓSTY KADR ZOSTAJE BEZ ZMIAN, świadomie. `_F2A9376-Edit-2` jest miniaturą
+  // i hero case study, a nie pozycją jego galerii, więc w `portfolio.ts` NIE MA
+  // dla niego alta, który dałoby się tu przepiąć. Brief zakazywał wymyślania
+  // nowych opisów, więc został ten z 04.08.2026, powstały po obejrzeniu kadru.
+  // Opisuje obraz poprawnie, ale jako jedyny w pasku nie mówi „sesja zespołowa"
+  // ani „IDcom Group", i mówi „beżowe tło" tam, gdzie reszta mówi „kremowe".
+  // Do decyzji Marcina, nie do samodzielnej poprawki.
   "_F2A9376-Edit-2":
     "Roześmiana kobieta w czarnej marynarce ze skrzyżowanymi rękami na beżowym tle",
   "box17-budka-konferencyjna-katowa":

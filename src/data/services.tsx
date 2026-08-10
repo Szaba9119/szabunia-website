@@ -305,10 +305,21 @@ const serviceCategoriesRaw: ServiceData[] = [
           desc: "Film podsumowujący, pionowe reelsy, wywiady z uczestnikami i prelegentami, przebitki do dalszego montażu.",
         },
         {
-          // Certyfikat A1/A3 i OC świadomie TYLKO w FAQ (Marcin, 10.08.2026):
-          // sekcja zakresu nie ma być obciążona technikaliami dwa razy.
+          // ⛔ ŻADNYCH TECHNIKALIÓW W TYM BLOKU. Model drona, certyfikat A1/A3
+          // i OC zostają WYŁĄCZNIE w FAQ (Marcin, 10.08.2026). Tego samego dnia
+          // wypadło stąd również „Latam dronem DJI": marka sprzętu to technikalia,
+          // a blok zakresu ma mówić, co klient dostaje. Nie przywracać.
+          //
+          // ⛔ „parking" USUNIĘTY 10.08.2026 na polecenie Marcina. Był jedyną
+          // pozycją w tym wyliczeniu, której nikt nie zamawia: reszta nazywa
+          // rzeczy, które z góry wyglądają dobrze, a parking to logistyka.
+          // Nie przywracać.
+          //
+          // Drugie zdanie wiąże ten blok z blokiem „Wideo" stojącym bezpośrednio
+          // wyżej: ujęcie z powietrza to typowe otwarcie filmu podsumowującego,
+          // więc obie pozycje przestają być osobnymi wyspami.
           title: "Ujęcia z powietrza",
-          desc: "Skala wydarzenia plenerowego, teren, parking, ustawienie sceny. Latam dronem DJI.",
+          desc: "Skala wydarzenia plenerowego, teren i ustawienie sceny. Ujęcia z powietrza mogą być również częścią filmu podsumowującego.",
         },
         {
           title: "Portrety zespołu przy okazji",
@@ -465,8 +476,26 @@ const serviceCategoriesRaw: ServiceData[] = [
     //
     // Ta strona odpowiada na INNE pytanie niż Wydarzenia. Tam: „co zostaje po
     // wydarzeniu". Tu: spójność zespołu i logistyka, bo to one blokują decyzję.
+    // ⛔ „TO SAMO TŁO" ZDJĘTE Z LEADU 10.08.2026. To trzecie i ostatnie miejsce
+    // na tej stronie z tą obietnicą: karta „Sesja całego zespołu" i FAQ o spójności
+    // straciły ją wcześniej tego samego dnia, a lead został wtedy pominięty.
+    // Powód jest ten sam: realizacja IDcom to jedna sesja na TRZECH tłach, a pas
+    // galerii dwie sekcje niżej mówi to wprost („trzy tła: białe, czarne
+    // z niebieskim światłem i kremowe"). Lead obiecywał odwrotnie, na tym samym
+    // ekranie przewinięcia. Brzmienie zrównane z kartą zakresu, żeby całe trzy
+    // miejsca mówiły jednym głosem. Nie przywracać.
+    //
+    // ⛔ „SCALIO" I „1ST PLACE" USUNIĘTE 10.08.2026 na wyraźne polecenie Marcina
+    // („niech nie wspominamy nigdzie na stronie, nie ma czym się chwalić na razie").
+    // Obie nazwy nie miały pokrycia nigdzie poza tym jednym zdaniem, w odróżnieniu
+    // od IDcom (case study + galeria) i Poznańskich Nieruchomości (opinia
+    // Burzyńskiej pod tą samą usługą). Ta sama reguła stoi przy usłudze produktowej
+    // niżej w tym pliku: klienta bez źródła się nie nazywa.
+    //
+    // NIE dopisywać tu nowych nazw bez potwierdzenia u Marcina. Sama wzmianka
+    // w komentarzu albo w pliku wewnętrznym NIE jest źródłem.
     description:
-      "Na zakładce „Zespół” widać wszystko: kto ma zdjęcie z sesji, kto przycięty kadr z wesela, a kto szare kółko z inicjałami. Fotografuję ludzi w firmie tak, żeby cały zespół wyglądał jak jedna firma: to samo światło, to samo tło, ten sam standard retuszu. Przyjeżdżam z mobilnym studiem do biura, więc nikt nie traci pół dnia na dojazd. Sesje zespołowe robiłem między innymi dla IDcom Group, Poznańskich Nieruchomości, Scalio i 1st Place.",
+      "Na zakładce „Zespół” widać wszystko: kto ma zdjęcie z sesji, kto przycięty kadr z wesela, a kto szare kółko z inicjałami. Fotografuję ludzi w firmie tak, żeby cały zespół wyglądał jak jedna firma: ten sam standard światła i retuszu. Przyjeżdżam z mobilnym studiem do biura, więc nikt nie traci pół dnia na dojazd. Sesje zespołowe robiłem między innymi dla IDcom Group i Poznańskich Nieruchomości.",
     applications: {
       heading: "Kogo fotografuję",
       items: [
@@ -502,7 +531,15 @@ const serviceCategoriesRaw: ServiceData[] = [
           // Uwaga: to warunek SESJI ZESPOŁOWEJ. PORTRET START (jedna osoba)
           // ma jedno zdjęcie (:97), więc nie mieszać tych liczb.
           title: "Sesja całego zespołu",
-          desc: "Do 40 osób w jeden dzień, 5 do 15 minut na osobę. To samo tło i światło dla wszystkich, dwa wyretuszowane zdjęcia na osobę.",
+          // ⚠ „To samo tło" ZDJĘTE 10.08.2026 (audyt aktualnej wersji, punkt 1,
+          // zgoda Marcina). Obietnica była za mocna wobec tego, co pokazuje pasek
+          // galerii dwie sekcje niżej: realizacja dla IDcom to jedna sesja na
+          // TRZECH tłach (białym, kremowym, czarnym z niebieskim światłem), bo
+          // klient potrzebował różnych klimatów do różnych kontekstów.
+          // Sformułowanie „ten sam standard światła i retuszu" jest wzięte
+          // z domyślnego podpisu kategorii `zespolowe` w `ServiceGalleryStrip.tsx`
+          // i opisuje to, co realnie dowozisz przy każdej liczbie teł.
+          desc: "Do 40 osób w jeden dzień, 5 do 15 minut na osobę. Ten sam standard światła i retuszu dla wszystkich, dwa wyretuszowane zdjęcia na osobę.",
         },
         {
           title: "Mobilne studio w Twoim biurze",
@@ -598,7 +635,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     faqs: [
       { q: "Ile osób sfotografujesz w jeden dzień?", a: "Do 40 przy mobilnym studiu. Jedna osoba potrzebuje 5 do 15 minut, więc sesja wchodzi między spotkania i nie blokuje nikomu dnia." },
       { q: "Co z osobami, których nie ma w dniu sesji?", a: "Dogrywam je w osobnym, krótszym terminie, w tym samym świetle i tym samym retuszu. To częsta sytuacja przy pracy zdalnej i większych zespołach." },
-      { q: "Czy zdjęcia całego zespołu będą wyglądać spójnie?", a: "Tak, i to jest właściwie cały sens tej usługi. Identyczne oświetlenie, to samo tło, ten sam standard obróbki. Na stronie widać wtedy firmę, a nie zbiór przypadkowych zdjęć." },
+      // ⚠ „to samo tło" ZDJĘTE 10.08.2026, ta sama zmiana co w karcie „Sesja
+      // całego zespołu" wyżej (audyt aktualnej wersji, punkt 1, zgoda Marcina).
+      // Trójka „światła, kadrowania i retuszu" nie jest nowa: tak samo opisuje
+      // to `caseStudy.solution` realizacji IDcom w `portfolio.ts`.
+      { q: "Czy zdjęcia całego zespołu będą wyglądać spójnie?", a: "Tak, i to jest właściwie cały sens tej usługi. Ten sam standard światła, kadrowania i retuszu dla każdej osoby. Na stronie widać wtedy firmę, a nie zbiór przypadkowych zdjęć." },
       // Zdanie o studiu przepisane przez Marcina 10.08.2026. Poprzednia wersja
       // („w cenie startowej masz studio…") dawała się czytać tak, jakby studio
       // było dostępne WYŁĄCZNIE w progu startowym.
