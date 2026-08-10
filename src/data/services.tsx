@@ -941,40 +941,45 @@ export function getPriceFaq(service: ServiceData): FAQItem {
   };
 }
 
-// Reprezentacyjne zdjęcie pokazywane na kafelku usługi (sekcja „Czym mogę Ci
-// pomóc"). Łatwo podmienić ścieżkę, jeśli chcesz inne ujęcie.
-// Trzy okładki wymienione 10.08.2026 na prośbę Marcina po deployu.
-const SERVICE_TILE_IMAGES: Record<string, string> = {
-  // Kadr grupowy na torze.
-  //
-  // ⛔ TEN SAM PLIK CO W HERO podstrony `/uslugi/eventy-reportaze`. Świadome,
-  // decyzja Marcina z 10.08.2026: „na obydwu ma być to z samochodami".
-  // Pełne uzasadnienie i uchylenie reguły „hero i kafelek muszą być różne"
-  // stoi przy polu `heroImage` tej usługi, wyżej w tym pliku. Nie rozjeżdżać
-  // tych dwóch wartości bez decyzji Marcina i nie zgłaszać jako duplikatu.
-  //
-  // Historia tej pary w jeden dzień, żeby nikt nie kręcił nią w kółko:
-  //   1. kafelek grupowe + hero grupowe → zgłoszone jako UXUI2608-04
-  //   2. kafelek grupowe + hero gala
-  //   3. kafelek gala + hero grupowe
-  //   4. kafelek grupowe + hero gala
-  //   5. TERAZ: oba grupowe, na wyraźne polecenie, z pełną świadomością kosztu
-  "eventy-reportaze": "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
-  "wizerunek-portrety": "/images/galeria/portrety/portret-02-kobieta-z-laptopem.jpg",
-  "fotografia-produktowa": "/images/galeria/produktowe/produkt-01-toast-belvedere.jpg",
-  // Kafelek linii obiektowej na stronie głównej i na /uslugi. Ta sama jasna hala,
-  // co okładka podstrony, żeby cała linia miała jeden obraz (Marcin, 04.08.2026).
-  // Klucz zmieniony 10.08.2026 razem ze slugiem usługi.
-  "nieruchomosci-przemysl": "/images/galeria/wnetrza/wnetrze-03-hala-bramki-wejsciowe.jpg",
-};
+// ⛔ MAPA `SERVICE_TILE_IMAGES` USUNIĘTA 10.08.2026.
+//
+// Reguła Marcina, podana wprost: „hero i kafelek mają być takie same na wszystkich
+// usługach", „masz brać te zdjęcia z hero do tego". Kafelek nie ma już własnego
+// zdjęcia: bierze `heroImage` tej samej usługi (patrz `serviceItems` niżej).
+//
+// Dlaczego przez wyprowadzenie, a nie przez wpisanie tych samych ścieżek w dwóch
+// miejscach: dwie niezależne listy rozjeżdżały się w tę i z powrotem przez cały
+// dzień. Przy jednym źródle rozjazd jest niemożliwy, a zmiana `heroImage`
+// automatycznie przechodzi na kafelek.
+//
+// ⚠ To ODWRACA wcześniejszą regułę „hero i kafelek muszą być różne" (finding
+// UXUI2608-04). Tamta reguła NIE OBOWIĄZUJE. Nie zgłaszać identycznych zdjęć
+// na kafelku i w hero jako duplikatu — to jest stan docelowy.
+//
+// Kadry, które kafelki miały wcześniej i które przestały być używane, gdyby
+// kiedyś miały wrócić: wizerunek `portret-02-kobieta-z-laptopem`,
+// produktowa `produkt-01-toast-belvedere`. Eventy i nieruchomości i tak
+// pokazywały już ten sam plik co hero.
 
 // Punkt kadrowania miniatury (object-position). Kafelek jest POZIOMY (3:2 na
 // sm+, 16:9 na mobile), a dwa nowe pliki są PIONOWE, więc bez tych wartości
 // kadr ucinałby to, co w zdjęciu najważniejsze.
 const SERVICE_TILE_POS: Record<string, string> = {
-  // Twarz i laptop w górnej części pionowego kadru.
+  // ⚠ WARTOŚCI ZWERYFIKOWANE PONOWNIE 10.08.2026, po tym jak kafelki przejęły
+  // pliki z `heroImage`. Wcześniejsze opisy dotyczyły INNYCH zdjęć
+  // (`portret-02-kobieta-z-laptopem`, `produkt-01-toast-belvedere`) i po podmianie
+  // były już nieprawdziwe.
+  //
+  // Sprawdzone wycinkiem, nie na oko: kafelek to 16:9 (zmierzone 356×200 px),
+  // a oba te pliki są pionowe 1536×1920 (0,80:1), więc widać tylko 45% wysokości
+  // kadru. Przy poniższych wartościach obie kompozycje trzymają się w kadrze,
+  // więc liczb nie ruszałem.
+
+  // `portret-05-mezczyzna-zielony-garnitur`: twarz i cała sylwetka w marynarce
+  // mieszczą się w oknie, nad głową zostaje oddech.
   "wizerunek-portrety": "center 25%",
-  // Kieliszki i butelka w środkowo-dolnej części; góra to ciemne tło lokalu.
+  // `produkt-02-amarula`: butelka z czytelną etykietą i szklanka w kadrze,
+  // odcięta zostaje wyłącznie pusta góra tła.
   "fotografia-produktowa": "center 45%",
   // Auta i grupa w dolnych dwóch trzecich, góra to niebo. Istotne wyłącznie
   // na mobile, gdzie kafelek jest 16:9 — na sm+ proporcja pliku i kafelka
@@ -992,7 +997,9 @@ export const serviceItems = serviceCategories.map((s) => ({
       Dzięki temu kafelek może powiedzieć „za osobę" albo „pakiety", a kwota
       i tak pochodzi z jednego miejsca. */
   priceLabel: s.heroPriceLabel ?? s.price,
-  image: SERVICE_TILE_IMAGES[s.slug],
+  /** Kafelek bierze DOKŁADNIE to samo zdjęcie co hero podstrony (reguła Marcina
+      z 10.08.2026). Jedno źródło, więc te dwie powierzchnie nie mogą się rozjechać. */
+  image: s.heroImage,
   imagePos: SERVICE_TILE_POS[s.slug] ?? "center",
 }));
 
