@@ -3,6 +3,7 @@ import { galleryAlt } from "@/data/galleryAlts";
 import AnimatedSection from "./AnimatedSection";
 import type { ServiceData } from "@/data/services";
 import Breadcrumbs, { type Crumb } from "./Breadcrumbs";
+import TrustLine from "./TrustLine";
 
 interface Props {
   service: ServiceData;
@@ -59,12 +60,11 @@ export default function ServiceHero({ service, crumbs }: Props) {
                 (wersaliki, tracking 0.16em, 11-12 px, kolor steel). Renderuje
                 się tylko tam, gdzie usługa ma `heroLabel`. Wersalik robi CSS,
                 a nie dane, więc czytnik ekranu dostaje normalny zapis. */}
+            {/* Bez ikony (ósma tura, punkt 1). Kicker na stronie głównej też jej
+                nie ma: to sam tekst wersalikami. Ikona robiła z etykiety trzeci
+                element graficzny w pierwszych 200 px sekcji. */}
             {service.heroLabel && (
-              <p className="inline-flex items-center gap-2 mb-3 md:mb-4 font-barlow font-semibold text-[11px] md:text-xs tracking-[0.16em] uppercase text-steel dark:text-dark-text-muted">
-                <svg className="w-4 h-4 flex-shrink-0 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
-                </svg>
+              <p className="mb-3 md:mb-4 font-barlow font-semibold text-[11px] md:text-xs tracking-[0.16em] uppercase text-steel dark:text-dark-text-muted">
                 {service.heroLabel}
               </p>
             )}
@@ -75,10 +75,21 @@ export default function ServiceHero({ service, crumbs }: Props) {
             <h1 className="font-barlow font-black text-[clamp(30px,8vw,34px)] md:text-[clamp(38px,3.9vw,52px)] leading-[1.04] tracking-[-1px] md:tracking-[-1.6px] text-navy dark:text-white text-balance">
               {service.h1 ?? service.title}
             </h1>
-            {/* Lead: wyraźny podtytuł H1, ale trzymany w ryzach szerokością
-                (46ch), żeby nie rozlewał się na całą kolumnę (brief, punkt 4). */}
-            <p className="mt-4 md:mt-5 text-steel dark:text-dark-text-muted text-[15px] md:text-base leading-relaxed md:max-w-[46ch]">
-              {service.subtitle}
+            {/* Lead renderuje się tylko tam, gdzie usługa go nie wyłączyła.
+                Eventy mają `heroHideSubtitle`, bo tamten akapit powtarzał to,
+                co stoi niżej w „Dla jakich wydarzeń" i w „Zakresie" (ósma tura,
+                punkt 3). Trzy pozostałe usługi mają lead jak dotąd. */}
+            {!service.heroHideSubtitle && (
+              <p className="mt-4 md:mt-5 text-steel dark:text-dark-text-muted text-[15px] md:text-base leading-relaxed md:max-w-[46ch]">
+                {service.subtitle}
+              </p>
+            )}
+            {/* JEDEN akapit opisowy, przeniesiony tu z dolnego bloku (ósma tura,
+                punkt 10): hierarchia ma iść kicker → H1 → opis → zdjęcie, a na
+                telefonie to właśnie kolejność DOM. Dolny blok trzyma już tylko
+                dowód społeczny i wywołanie do działania. */}
+            <p className="mt-4 md:mt-5 text-text-body dark:text-dark-text text-[15px] leading-relaxed md:max-w-[52ch]">
+              {service.description}
             </p>
           </AnimatedSection>
 
@@ -111,41 +122,15 @@ export default function ServiceHero({ service, crumbs }: Props) {
             </div>
           </AnimatedSection>
 
-          {/* 3. Długi opis + chipy + CTA (mobile: pod zdjęciem; desktop: lewa
-              kolumna, dolny rząd) */}
+          {/* 3. Dowód społeczny + cena + CTA (mobile: pod zdjęciem; desktop:
+              lewa kolumna, dolny rząd). Opis przeniesiony wyżej, do bloku 1,
+              a trzy korzyści usunięte bez zastępnika (ósma tura, punkt 5). */}
           <AnimatedSection className="md:col-start-1 md:row-start-2 text-center md:text-left">
-            <p className="text-text-body dark:text-dark-text text-[14px] leading-relaxed md:max-w-[52ch]">
-              {service.description}
-            </p>
-
-            {/* KORZYŚCI (brief hero, punkt 6). Trzy pozycje w jednym rzędzie od
-                `sm`, na telefonie jedna pod drugą. Ikona NAD tekstem, nie obok:
-                w kolumnie szerokiej na ~550 px trzy pozycje obok siebie dają
-                ~170 px na pozycję, a przy ikonie w linii na tekst zostaje ~145 px
-                i każda korzyść łamie się na cztery linijki.
-                Wizualnie lekkie: bez ramek, bez tła, bez kapsułek. Ta sama
-                zasada, która obowiązuje w hero strony głównej. */}
-            {service.heroBenefits && service.heroBenefits.length > 0 && (
-              <ul className="mt-6 md:mt-7 grid grid-cols-1 sm:grid-cols-3 gap-x-5 gap-y-4">
-                {service.heroBenefits.map((b) => (
-                  <li
-                    key={b.text}
-                    /* Na telefonie ikona OBOK tekstu i całość wyśrodkowana, bo
-                       reszta kolumny na mobile też jest wyśrodkowana i lista
-                       dosunięta do lewej wyglądała jak wypadnięta z osi.
-                       Od `sm` ikona wskakuje NAD tekst i rząd idzie do lewej. */
-                    className="flex sm:flex-col items-center sm:items-start justify-center sm:justify-start gap-2.5 sm:gap-2 text-center sm:text-left"
-                  >
-                    <span className="w-5 h-5 flex-shrink-0 text-blue dark:text-blue-light [&>svg]:w-5 [&>svg]:h-5">
-                      {b.icon}
-                    </span>
-                    <span className="text-[12.5px] md:text-[13px] leading-snug text-steel dark:text-dark-text-muted">
-                      {b.text}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            )}
+            {/* DOKŁADNIE ten sam element co w hero strony głównej, ten sam plik.
+                Marcin: „nie twórz nowego komponentu wizualnego tylko dla
+                podstrony". Typografia, ikony i odstępy wewnętrzne przychodzą
+                z `TrustLine.tsx`, tutaj ustawiamy wyłącznie margines górny. */}
+            <TrustLine />
             {/* BLOK CENA → KONTAKT (brief hero, punkty 7 i 8).
                 Zastąpił trzy osobne kapsułki („Wstępna wycena w 24h",
                 „Faktura VAT", numer w ramce) plus stojący pod nimi przycisk.
@@ -161,14 +146,17 @@ export default function ServiceHero({ service, crumbs }: Props) {
                 (`wycena_hero`, `tel_service_hero`) — po tych atrybutach chodzi
                 pomiar konwersji, podmiana nazwy zrywa ciągłość danych. */}
             {/* Kotwica cenowa, mały element typograficzny, nie badge (brief-22 §3).
-                Podniesiona z „steel semibold sm" na granat i font-bold: ma być
-                ostatnim przystankiem przed CTA, a nie przypisem pod opisem.
+                ZESZŁA Z 17-18 px BOLD NA 15 px SEMIBOLD (ósma tura, punkt 8):
+                w poprzedniej turze podniosłem ją tak, że razem z własnym
+                marginesem tworzyła osobne piętro między opisem a przyciskiem.
+                Teraz jest pierwszą linijką bloku CTA i przykleja się do przycisku
+                (12 px), a nie do tekstu wyżej.
                 Kwota i jej zapis bez zmian, z `heroPriceLabel ?? price`. */}
-            <div className="mt-7 md:mt-8">
-              <p className="font-barlow font-bold text-[17px] md:text-lg text-navy dark:text-white tracking-tight">
+            <div className="mt-6 md:mt-7">
+              <p className="font-barlow font-semibold text-[15px] text-navy dark:text-white">
                 {priceLabel}
               </p>
-              <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3 justify-center md:justify-start">
+              <div className="mt-3 flex flex-wrap items-center gap-x-5 gap-y-3 justify-center md:justify-start">
                 <a
                   href="#kontakt"
                   data-cta="wycena_hero"

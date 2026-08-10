@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Parallax from "./Parallax";
+import TrustLine from "./TrustLine";
 import { PARALLAX } from "@/lib/motion";
 
 // Hero przebudowane 10.08.2026 (druga tura, po obejrzeniu deployu przez Marcina).
@@ -158,31 +159,12 @@ export default function Hero() {
                 JEDNO brzmienie w całym serwisie, a zasięg geograficzny jest
                 osobnym komunikatem i żyje wyłącznie w tym miejscu.
 
-                ⚠ IKONY WRACAJĄ, ALE BEZ KAPSUŁEK. Wyżej stoi decyzja z trzeciej
-                tury, że obramowane pigułki z ikonami robiły z hero landing SaaS.
-                Ona obowiązuje dalej i dlatego tu NIE MA ramek, tła ani
-                zaokrągleń: jest ikona akcentowa i zwykły tekst. Jeśli ktoś
-                kiedyś dorobi do tych dwóch pozycji `border` i `rounded-full`,
-                wróci dokładnie ten problem, który kazał je zdjąć. */}
-            <ul className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-x-7 gap-y-3 text-[13px] text-steel dark:text-dark-text-muted">
-              <li className="inline-flex items-center gap-2">
-                {/* budynek = firmy */}
-                <svg className="w-4 h-4 flex-shrink-0 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
-                </svg>
-                <span>
-                  <span className="font-semibold text-navy dark:text-dark-text">100+</span>{" "}
-                  obsłużonych firm
-                </span>
-              </li>
-              <li className="inline-flex items-center gap-2">
-                {/* globus = zasięg geograficzny */}
-                <svg className="w-4 h-4 flex-shrink-0 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 0c2.485 0 4.5-4.03 4.5-9s-2.015-9-4.5-9-4.5 4.03-4.5 9 2.015 9 4.5 9zM3.6 9h16.8M3.6 15h16.8" />
-                </svg>
-                Realizacje w Polsce i Europie
-              </li>
-            </ul>
+                ÓSMA TURA, 10.08.2026: sam wiersz wyprowadzony do `TrustLine.tsx`,
+                bo ten sam element wchodzi teraz do hero podstron usług. Treść,
+                ikony i typografia mieszkają tam; tutaj zostaje tylko margines.
+                Powód decyzji „ikony tak, kapsułki nie" jest opisany w tamtym
+                pliku i nadal obowiązuje. */}
+            <TrustLine className="mt-8" />
 
             {/* DWIE ROZDZIELONE ŚCIEŻKI KONTAKTU (korekta Marcina 10.08.2026).
                 Poprzednio telefon stał jako goły numer OBOK przycisku i czytał

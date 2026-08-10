@@ -59,15 +59,19 @@ export interface ServiceData {
       z długiej nazwy marketingowej („FOTOGRAFIA I WIDEO NIERUCHOMOŚCI
       I PRZEMYSŁU") przestaje być etykietą, a staje się drugim nagłówkiem. */
   heroLabel?: string;
-  /** Trzy krótkie korzyści pod leadem w hero, każda z ikoną. Też opcjonalne
-      i też tylko dla eventów (10.08.2026). Świadomie TRZY: rząd na desktopie
-      dzieli się wtedy równo, a przy czterech pozycjach tekst schodzi do rozmiaru,
-      w którym przestaje być czytany.
+  /** Ukrywa `subtitle` w hero podstrony usługi. Dodane 10.08.2026 dla eventów
+      (ósma tura): tamten lead powtarzał to, co i tak stoi niżej w sekcjach
+      „Dla jakich wydarzeń" i „Zakres", więc hero miało dwa akapity mówiące
+      to samo.
 
-      To NIE jest miejsce na powtórzenie zakresu usługi (`scope`) ani listy
-      zastosowań (`applications`). Korzyść mówi, co klient z tego ma; tamte
-      sekcje mówią, co dostaje. Duplikat zrobi z hero spis treści strony. */
-  heroBenefits?: { icon: ReactNode; text: string }[];
+      ⚠ Flaga dotyczy WYŁĄCZNIE hero. Pola `subtitle` NIE WOLNO usunąć z danych,
+      bo renderują je jeszcze dwa miejsca: kafelek na hubie `/uslugi`
+      (`uslugi/page.tsx`) i karta „Powiązana usługa" pod wpisem blogowym
+      (`blog/[slug]/page.tsx`). Skasowanie treści zostawiłoby tam puste miejsce.
+
+      Domyślnie (brak wartości) lead renderuje się jak dotąd, więc trzy pozostałe
+      usługi zostają nietknięte. */
+  heroHideSubtitle?: boolean;
   icon: ReactNode;
   /** Zdjęcie hero podstrony usługi, z istniejących bibliotek /images (brief-22 zad. 8). */
   heroImage: string;
@@ -198,54 +202,24 @@ const serviceCategoriesRaw: ServiceData[] = [
     subtitle:
       "Konferencje, targi, gale i integracje. Zdjęcia, film i dron z jednego dnia, część kadrów na social media jeszcze w trakcie wydarzenia.",
     heroLabel: "Dokumentacja wydarzeń",
-    // Trzy korzyści, nie trzy elementy zakresu. Treść podana przez Marcina
-    // 10.08.2026 co do słowa, nie skracać „na oko": każda z nich odpowiada na
-    // inne pytanie klienta (ile ekip, kiedy dostanę, co z relacją na żywo).
-    heroBenefits: [
-      {
-        // aparat
-        icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
-            <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
-          </svg>
-        ),
-        text: "Zdjęcia i wideo z jednego dnia",
-      },
-      {
-        // błyskawica = tempo dostawy
-        icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
-          </svg>
-        ),
-        text: "Materiały gotowe do szybkiej publikacji",
-      },
-      {
-        // sygnał nadawania = relacja na żywo
-        icon: (
-          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M9.348 14.652a3.75 3.75 0 010-5.304m5.304 0a3.75 3.75 0 010 5.304m-7.425 2.121a6.75 6.75 0 010-9.546m9.546 0a6.75 6.75 0 010 9.546M5.106 18.894c-3.808-3.807-3.808-9.98 0-13.788m13.788 0c3.808 3.807 3.808 9.98 0 13.788M12 12h.008v.008H12V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
-          </svg>
-        ),
-        text: "Relacja na social media podczas wydarzenia",
-      },
-    ],
+    // Lead ukryty w hero 10.08.2026 (ósma tura). Treść ZOSTAJE w danych, bo
+    // renderuje ją kafelek na `/uslugi` i karta pod wpisem blogowym.
+    heroHideSubtitle: true,
     // Lead przepisany 10.08.2026 (pakiet 4, wersja wybrana przez Marcina).
     // Poprzedni opisywał SPOSÓB pracy („fotografuję dyskretnie, reportażowo").
     // Nowy sprzedaje WARTOŚĆ MATERIAŁU PO wydarzeniu, bo to jest argument
     // biznesowy, a nie estetyczny.
     //
-    // SKRÓCONY 10.08.2026 (brief hero, punkt 5: „ogranicz wrażenie ściany
-    // tekstu"). Z trzech zdań zostały dwa. Wypadło zdanie środkowe, o tym, że
-    // materiał idzie do bieżącej relacji, podsumowania roku i promocji następnej
-    // edycji. Nie zginęło: te trzy zastosowania stoją niżej na tej samej stronie
-    // jako lista „Gdzie materiał pracuje dalej" (`applications.uses`), więc
-    // w hero było ich powtórzeniem. Cztery nazwy klientów ZOSTAJĄ w komplecie:
-    // to jedyny twardy dowód w tej sekcji i pokrywa dużą markę, korporację,
-    // media i przemysł.
+    // PRZEPISANY 10.08.2026 (ósma tura), treść podana przez Marcina co do słowa.
+    // To jedyny akapit opisowy w hero: lead zniknął, korzyści zniknęły.
+    //
+    // NAZWY KLIENTÓW ŚWIADOMIE WYPADŁY. Marcin zostawił to warunkowo („zachowaj
+    // tylko wtedy, jeśli wizualnie nadal będzie to wyglądało lekko"). Nie zostały
+    // z dwóch powodów: jego wersja tekstu ich nie zawiera, a bezpośrednio pod
+    // hero renderuje się `LogoBar` z logotypami, w tym H&M. Dopisanie tych samych
+    // marek zdaniem wyżej byłoby powtórzeniem odległym o jeden ekran.
     description:
-      "Konferencja, gala albo integracja trwa kilka godzin, ale materiał z niej pracuje przez kolejne miesiące. Pracowałem przy wydarzeniach dla H&M, Santander Bank Polska, Warner Music Poland i John Deere.",
+      "Konferencja, gala albo integracja trwa kilka godzin, ale materiał z niej może pracować przez kolejne miesiące. Fotografuję i filmuję wydarzenia firmowe tak, żeby powstał materiał do publikacji, komunikacji marki i promocji kolejnych wydarzeń.",
     applications: {
       heading: "Dla jakich wydarzeń",
       items: [
@@ -303,8 +277,15 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
       </svg>
     ),
-    heroImage: "/images/galeria/eventy/event-05-networking-foyer.jpg",
-    heroImagePos: "center 20%",
+    // ZDJĘCIE PODMIENIONE 10.08.2026 na kadr grupowy (ósma tura, punkt 9).
+    // ⚠ ZAŁOŻENIE DO POTWIERDZENIA: Marcin napisał „nowe zdjęcie grupowe, które
+    // zostało wskazane/dostarczone", ale do repozytorium nic nie trafiło i nie
+    // było załącznika. Wybrałem jedyny plik w bibliotece, który jest wprost
+    // opisany jako grupowy: `event-02-zdjecie-grupowe-tor.jpg`. Ma gotowy wpis
+    // w `galleryAlts`, więc alt nie zjeżdża na szablon.
+    // Podmiana na inny kadr to zmiana tej jednej ścieżki.
+    // Poprzednio: `event-05-networking-foyer.jpg`, `heroImagePos: "center 20%"`.
+    heroImage: "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
     price: "od 600 zł netto",
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
