@@ -119,10 +119,31 @@ export default function Hero() {
 
                 „Od jednej osoby” zeszło z pierwszego zdania. Wraca niżej jako
                 argument organizacyjny, nie jako obietnica w pierwszych sekundach. */}
+            {/* LEAD PRZEPISANY 10.08.2026, treść podana przez Marcina co do słowa.
+                Mówi teraz o ZASTOSOWANIACH materiału (marketing, komunikacja,
+                sprzedaż, employer branding), a nie o efekcie wizerunkowym.
+
+                ⚠ Dwie rzeczy z poprzedniej wersji ŚWIADOMIE WYPADŁY, obie na
+                wyraźne polecenie Marcina, więc nie przywracać ich jako „poprawki":
+
+                1. „profesjonalny wizerunek" — komentarz wyżej opisuje ten zwrot
+                   jako świadomy claim marki z 10.08.2026, chroniony w
+                   `docs/zasady-tekstow.md` przed wycięciem jako słowo z czarnej
+                   listy. Marcin został o tym uprzedzony przy tej zmianie
+                   i mimo to wybrał nowe brzmienie. Ochrona dotyczyła wycinania
+                   „profesjonalnego" przez agenta, nie decyzji właściciela.
+                2. „Ludzie, wydarzenia, obiekty i produkty" — wyliczenie
+                   odwzorowujące H2 stojące bezpośrednio nad leadem. H2 zostaje
+                   bez zmian, więc cztery filary nadal padają w hero, tylko raz
+                   zamiast dwa razy pod rząd.
+
+                „Employer branding" wchodzi tu spójnie z listą „Gdzie materiał
+                pracuje dalej" na podstronie eventowej, gdzie tego samego dnia
+                dopisaliśmy „Rekrutacja i employer branding". */}
             <p className="font-inter text-[15px] md:text-base text-steel dark:text-dark-text-muted leading-relaxed max-w-md mx-auto md:mx-0">
-              Pomagam firmom budować profesjonalny wizerunek poprzez zdjęcia
-              i&nbsp;filmy. Ludzie, wydarzenia, obiekty i&nbsp;produkty.
-              Od&nbsp;pierwszej rozmowy do&nbsp;gotowego materiału.
+              Tworzę materiały, które firmy wykorzystują w&nbsp;marketingu,
+              komunikacji, sprzedaży i&nbsp;employer brandingu. Od&nbsp;pojedynczych
+              zdjęć po&nbsp;większe realizacje foto i&nbsp;wideo.
             </p>
 
             {/* ZDJĘCIE na telefonie wchodzi TUTAJ, między lead a resztę
