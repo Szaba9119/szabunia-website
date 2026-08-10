@@ -77,6 +77,13 @@ export interface ServiceData {
   heroImage: string;
   /** object-position dla heroImage, dobrane per kadr. Domyślnie "center". */
   heroImagePos?: string;
+  /** Klasa proporcji kontenera hero, ustawiana WYŁĄCZNIE wtedy, gdy kadr ma być
+      pokazany w całości (np. `"aspect-[3/2]"` dla pliku 1920×1280).
+      Domyślnie (brak wartości) hero zachowuje się jak dotąd: kwadrat na telefonie,
+      pełna wysokość kolumny tekstowej na desktopie, a `object-fit: cover` przycina
+      kadr do tego kształtu. Podana wartość musi odpowiadać proporcjom PLIKU,
+      inaczej przycięcie wróci. Patrz `ServiceHero.tsx`. */
+  heroImageAspect?: string;
   price: string;
   /** Etykieta ceny do nagłówka hero ORAZ do kafelka w Usługach i na stronie głównej.
       NIE zmienia `price`, którego używa FAQ (priceFaqIntro + price) i JSON-LD Offer.
@@ -353,16 +360,27 @@ const serviceCategoriesRaw: ServiceData[] = [
     // tym prop `exclude={service.heroImage}`, ale nie polegaj na nim przy wyborze:
     // wycięcie kadru z paska zmniejsza pasek do pięciu pozycji.
     //
-    // ⚠ BRAK `heroImagePos` JEST CELOWY. Kontener hero jest KWADRATOWY (zmierzone:
-    // 517×517 na 1280 px i 358×358 na 390 px), a plik ma 1920×1280, czyli 3:2.
-    // `object-fit: cover` pokazuje więc tylko środkowe 67% szerokości klatki
-    // i obcina po 16,7% z każdej strony.
-    // Sprawdzone wycinkiem 1280×1280 z pliku, nie na oko: przy domyślnym
-    // wyśrodkowaniu oba auta zostają w kadrze, cała grupa jest widoczna,
-    // a tracone są wyłącznie skrajne osoby z lewej i prawej. Marcin zaakceptował
-    // ten kadr wprost („ten środkowy kadr 1:1 jest wystarczająco dobry"),
-    // więc nie dorabiać tu `heroImagePos` ani osobnego pliku 1:1.
+    // ⚠ KADR POKAZUJEMY W CAŁOŚCI, BEZ PRZYCIĘCIA (decyzja Marcina, 10.08.2026:
+    // „to pierwsze zdjęcie grupowe niech nie będzie przycięte, najwyżej będzie
+    // się różnić od reszty, ale chcę żeby było całe").
+    //
+    // To ZMIANA WCZEŚNIEJSZEJ DECYZJI z tego samego dnia. Poprzedni zapis w tym
+    // miejscu mówił, że Marcin zaakceptował środkowy wycinek 1:1 („ten środkowy
+    // kadr 1:1 jest wystarczająco dobry"). Stan faktyczny na produkcji: plik ma
+    // 1920×1280 (3:2), kontener był kwadratowy na telefonie i rozciągnięty na
+    // wysokość kolumny tekstowej na desktopie, więc `object-fit: cover` obcinał
+    // boki. Na desktopie ucinało to lewe auto i skrajne osoby (obejrzane na
+    // szabunia.pl 10.08.2026). Teraz `heroImageAspect` daje kontenerowi te same
+    // proporcje co plikowi, więc `cover` nie ma czego przyciąć.
+    //
+    // KOSZT, który Marcin zna i zaakceptował: hero eventowe jest niższe niż
+    // kolumna tekstu na desktopie i niższe niż kwadratowe hero pozostałych trzech
+    // usług. Dlatego `heroImageAspect` stoi TYLKO tutaj i nie jest domyślną.
+    //
+    // ⚠ `heroImagePos` NADAL NIE MA i nadal jest to celowe: przy zgodnych
+    // proporcjach kontenera i pliku `object-position` nie ma żadnego wpływu.
     heroImage: "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
+    heroImageAspect: "aspect-[3/2]",
     price: "od 600 zł netto",
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },

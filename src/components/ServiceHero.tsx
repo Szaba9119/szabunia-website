@@ -115,13 +115,34 @@ export default function ServiceHero({ service, crumbs }: Props) {
 
               Wjazd wizualny zostaje, znika tylko wygaszanie. `prefers-reduced-motion`
               nadal wyłącza ruch globalną regułą z `globals.css`. */}
-          <div className="hero-intro md:col-start-2 md:row-start-1 md:row-span-2 md:h-full">
-            {/* Kwadrat tylko na telefonie. Na desktopie kadr bierze pełną
-                wysokość kolumny tekstowej (`md:h-full` na komórce siatki, która
-                jest rozciągnięta przez `items-stretch`), więc dolne krawędzie
-                obu kolumn kończą się równo. `min-h` to zabezpieczenie dla usług
-                z krótszym tekstem, żeby zdjęcie nie zapadło się do paska. */}
-            <div className="relative aspect-square md:aspect-auto md:h-full md:min-h-[520px] rounded-3xl overflow-hidden bg-border dark:bg-dark-card">
+          <div
+            className={`hero-intro md:col-start-2 md:row-start-1 md:row-span-2 ${
+              service.heroImageAspect ? "md:self-start" : "md:h-full"
+            }`}
+          >
+            {/* DWA WARIANTY, sterowane `heroImageAspect` w `services.tsx`.
+
+                Domyślny (brak wartości, trzy z czterech usług): kwadrat na
+                telefonie, na desktopie kadr bierze pełną wysokość kolumny
+                tekstowej (`md:h-full` na komórce siatki rozciągniętej przez
+                `items-stretch`), więc dolne krawędzie obu kolumn kończą się równo.
+                `min-h` to zabezpieczenie dla usług z krótszym tekstem, żeby
+                zdjęcie nie zapadło się do paska. `object-cover` przycina kadr
+                do tego kształtu i to jest tu zamierzone.
+
+                Wariant „całe zdjęcie" (`heroImageAspect`, dziś tylko eventy):
+                kontener dostaje proporcje PLIKU, więc `cover` nie ma czego
+                przyciąć i widać całą klatkę. Komórka siatki przestaje się wtedy
+                rozciągać (`md:self-start` zamiast `md:h-full`) — bez tego pod
+                zdjęciem zostawałby pusty rozciągnięty prostokąt tła. Skutek
+                uboczny jest znany i przyjęty: na desktopie kolumna ze zdjęciem
+                kończy się wyżej niż kolumna z tekstem. */}
+            <div
+              className={`relative rounded-3xl overflow-hidden bg-border dark:bg-dark-card ${
+                service.heroImageAspect ??
+                "aspect-square md:aspect-auto md:h-full md:min-h-[520px]"
+              }`}
+            >
               <Image
                 src={service.heroImage}
                 /* ZDJ2608-11 (04.08.2026): opis z obejrzanego kadru zamiast szablonu
