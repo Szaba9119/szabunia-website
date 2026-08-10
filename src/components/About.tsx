@@ -80,13 +80,28 @@ export default function About() {
                        Zdanie o spójności materiału zdjąłem razem z tym claimem,
                        bo było jego dopowiedzeniem. Jeśli ma wrócić w wersji
                        zgodnej z prawdą, treść poda Marcin. */}
+                {/* ODGRUZOWANE 10.08.2026 (decyzja Marcina, wariant A, treść zdania
+                    podana przez niego co do słowa).
+                    Wypadły CZTERY marki: H&M, Warner Music Poland, Santander Bank
+                    Polska i John Deere. Powód: pokazuje je bezpośrednio `LogoBar`,
+                    a na telefonie stały 367 px od tego akapitu, więc klient czytał
+                    tę samą listę dwa razy w obrębie pół ekranu.
+
+                    ⚠ Zdanie NIE zaczyna się od „Współpracowałem m.in. z", mimo że
+                    tak brzmiało wcześniej. Ta fraza jest podpisem nad `LogoBarem`
+                    i powtórzona tutaj dawała dokładnie ten duplikat, który zgłosił
+                    Marcin. Nie przywracać jej.
+
+                    ⚠ Nie da się tu napisać „oprócz marek wyżej" ani „obok":
+                    `LogoBar` renderuje się NAD tą sekcją na desktopie i POD nią
+                    na telefonie (page.tsx, hidden md:block / md:hidden). Każde
+                    odwołanie do pozycji będzie fałszywe na jednym z breakpointów. */}
                 <p>
-                  Współpracowałem m.in. z <strong>H&amp;M</strong>,{" "}
-                  <strong>Warner Music Poland</strong>, <strong>Santander Bank Polska</strong>,{" "}
-                  <strong>John Deere</strong>, <strong>IQOS</strong>, <strong>Amica</strong>,{" "}
-                  <strong>Grupa Forte S.A.</strong>, <strong>Centrum Posnania</strong> i{" "}
-                  <strong>Woohoo</strong>. Otrzymałem wyróżnienie
-                  w ogólnopolskim konkursie <strong>Portret 2022</strong>.
+                  Wśród firm, z którymi współpracowałem, są m.in. <strong>IQOS</strong>,{" "}
+                  <strong>Amica</strong>, <strong>Grupa Forte S.A.</strong>,{" "}
+                  <strong>Centrum Posnania</strong> i <strong>Woohoo</strong>.{" "}
+                  Otrzymałem wyróżnienie w ogólnopolskim konkursie{" "}
+                  <strong>Portret 2022</strong>.
                 </p>
               </div>
 
