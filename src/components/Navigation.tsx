@@ -1,6 +1,13 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback, type KeyboardEvent as ReactKeyboardEvent } from "react";
+import {
+  useState,
+  useEffect,
+  useRef,
+  useCallback,
+  type KeyboardEvent as ReactKeyboardEvent,
+  type MouseEvent as ReactMouseEvent,
+} from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import ThemeToggle from "./ThemeToggle";
@@ -55,6 +62,41 @@ export default function Navigation() {
     setMobileOpen(false);
     setTimeout(() => hamburgerRef.current?.focus(), 0);
   }, []);
+
+  // JEDNA ŚCIEŻKA GŁÓWNEGO CTA (finding PELNY2608-18 / SPOJ2608-09, otwarty od
+  // 05.08.2026, zatwierdzony wariant A z 10.08.2026).
+  //
+  // Problem: przycisk „Zapytaj o ofertę" w pasku prowadził zawsze do `/kontakt`
+  // (przeładowanie), a identycznie nazwany przycisk w hero do `#kontakt` (scroll).
+  // Ten sam przycisk, ta sama etykieta, dwa różne zachowania.
+  //
+  // Rozwiązanie jest ŻYWCEM PRZENIESIONE z `MobileFAB.tsx:58-64`, gdzie działa
+  // od dawna. Celowo nie wymyślam drugiego wzorca na ten sam problem:
+  //   • `href="/kontakt"` zostaje PRAWDZIWYM adresem, więc działa bez JS,
+  //     środkowy przycisk myszy i „otwórz w nowej karcie" nadal dają stronę kontaktu,
+  //   • klik przechwytujemy TYLKO wtedy, gdy sekcja `#kontakt` istnieje na
+  //     bieżącej stronie; na `/blog/[slug]`, `/poradnik` i stronie błędu jej nie ma,
+  //     więc link po prostu prowadzi na `/kontakt` i nigdy nie jest martwy.
+  //
+  // ⚠ `data-cta` NIE ZMIENIAMY. Nazwy (`wycena_navbar`, `wycena_home_hero`,
+  // `wycena_sticky`) kodują POWIERZCHNIĘ kliknięcia i po nich chodzi pomiar
+  // konwersji. Sumowanie ich do jednego lejka to grupa zdarzeń w GA4, nie zmiana
+  // w kodzie. Pierwsze porównanie 28-dniowe wypada 07.09.2026 i podmiana nazwy
+  // zerwałaby ciągłość danych tuż przed nim.
+  const goToContact = useCallback(
+    (e: ReactMouseEvent<HTMLAnchorElement>, fromMobileMenu = false) => {
+      const el = document.getElementById("kontakt");
+      if (!el) return; // brak sekcji na tej stronie → zwykła nawigacja do /kontakt
+      e.preventDefault();
+      // Menu mobilne zamykamy PRZED scrollem, inaczej panel zasłania cel.
+      // `closeMobileMenu` oddaje fokus hamburgerowi, a ten siedzi w pasku
+      // `fixed top-0`, więc jest zawsze w kadrze i jego focus() nie przewija
+      // strony z powrotem na górę. Sprawdzone pomiarem, nie założone.
+      if (fromMobileMenu) closeMobileMenu();
+      el.scrollIntoView({ behavior: "smooth" });
+    },
+    [closeMobileMenu]
+  );
 
   // Close mobile menu when clicking outside
   useEffect(() => {
@@ -169,6 +211,7 @@ export default function Navigation() {
           <Link
             href="/kontakt"
             data-cta="wycena_navbar"
+            onClick={(e) => goToContact(e)}
             className="bg-gradient-to-br from-blue to-blue text-white px-5 py-2 rounded-full font-barlow font-semibold text-xs btn-glow whitespace-nowrap"
           >
             Zapytaj o ofertę
@@ -279,7 +322,13 @@ export default function Navigation() {
           <Link
             href="/kontakt"
             data-cta="wycena_navbar"
-            onClick={() => closeMobileMenu()}
+            // Na stronie z sekcją kontaktu: zamknij menu i przewiń.
+            // Bez sekcji: `goToContact` nie robi nic, więc zostaje zwykła
+            // nawigacja do `/kontakt`, ale menu i tak trzeba zamknąć.
+            onClick={(e) => {
+              goToContact(e, true);
+              if (!document.getElementById("kontakt")) closeMobileMenu();
+            }}
             className="mt-5 block bg-gradient-to-br from-blue to-blue text-white px-5 py-3.5 rounded-xl font-barlow font-semibold text-[15px] text-center btn-glow"
           >
             Zapytaj o ofertę

@@ -79,7 +79,13 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
   // Nazwy plików dostały opis 04.08.2026 (ZDJ2608-01), numery NN bez zmian, więc skład
   // i kolejność tej listy są identyczne jak przed zmianą nazw.
   eventy: [
-    "event-04-gala-wreczenie-wyroznien",
+    // `event-04-gala-wreczenie-wyroznien` WYSZŁO STĄD 10.08.2026 (UXUI2608-04,
+    // wariant C): przejęło rolę zdjęcia hero na `/uslugi/eventy-reportaze`,
+    // a hero i ten pas renderują się na tej samej stronie, więc zostawienie go
+    // tutaj dałoby to samo zdjęcie dwa razy na jednym ekranie przewinięcia.
+    // W jego miejsce weszło `event-16-wystep-na-scenie-hali`, jedyny kadr
+    // eventowy nieużywany dotąd nigdzie w serwisie.
+    "event-16-wystep-na-scenie-hali",
     "event-05-networking-foyer",
     "event-15-goscie-przy-stole",
     "event-14-saksofonista-bankiet",

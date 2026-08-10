@@ -213,11 +213,17 @@ const serviceCategoriesRaw: ServiceData[] = [
     // PRZEPISANY 10.08.2026 (ósma tura), treść podana przez Marcina co do słowa.
     // To jedyny akapit opisowy w hero: lead zniknął, korzyści zniknęły.
     //
-    // NAZWY KLIENTÓW ŚWIADOMIE WYPADŁY. Marcin zostawił to warunkowo („zachowaj
-    // tylko wtedy, jeśli wizualnie nadal będzie to wyglądało lekko"). Nie zostały
-    // z dwóch powodów: jego wersja tekstu ich nie zawiera, a bezpośrednio pod
-    // hero renderuje się `LogoBar` z logotypami, w tym H&M. Dopisanie tych samych
-    // marek zdaniem wyżej byłoby powtórzeniem odległym o jeden ekran.
+    // ⛔ NAZWY KLIENTÓW (H&M, Santander Bank Polska, Warner Music Poland, John Deere)
+    // NIE WRACAJĄ DO TEGO AKAPITU. Decyzja Marcina z 10.08.2026, finding UXUI2608-07,
+    // wariant A. Zamknięte, nie otwierać ponownie.
+    //
+    // Kontekst, żeby nikt nie „naprawiał" tego jako braku dowodu społecznego:
+    // ósma tura wycięła to zdanie na warunkową zgodę Marcina („zachowaj tylko
+    // wtedy, jeśli wizualnie nadal będzie to wyglądało lekko"), czyli warunek
+    // postawił Marcin, a ocenił go agent. Audyt rundy 2 sprawdził tę ocenę na
+    // renderze i ją potwierdził: `LogoBar` z DOKŁADNIE tymi czterema markami
+    // renderuje się bezpośrednio pod hero tej podstrony. Powtórzenie ich zdaniem
+    // wyżej nie dokłada dowodu, tylko wydłuża akapit, który świadomie skracaliśmy.
     description:
       "Konferencja, gala albo integracja trwa kilka godzin, ale materiał z niej może pracować przez kolejne miesiące. Fotografuję i filmuję wydarzenia firmowe tak, żeby powstał materiał do publikacji, komunikacji marki i promocji kolejnych wydarzeń.",
     applications: {
@@ -277,15 +283,39 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
       </svg>
     ),
-    // ZDJĘCIE PODMIENIONE 10.08.2026 na kadr grupowy (ósma tura, punkt 9).
-    // ⚠ ZAŁOŻENIE DO POTWIERDZENIA: Marcin napisał „nowe zdjęcie grupowe, które
-    // zostało wskazane/dostarczone", ale do repozytorium nic nie trafiło i nie
-    // było załącznika. Wybrałem jedyny plik w bibliotece, który jest wprost
-    // opisany jako grupowy: `event-02-zdjecie-grupowe-tor.jpg`. Ma gotowy wpis
-    // w `galleryAlts`, więc alt nie zjeżdża na szablon.
-    // Podmiana na inny kadr to zmiana tej jednej ścieżki.
-    // Poprzednio: `event-05-networking-foyer.jpg`, `heroImagePos: "center 20%"`.
-    heroImage: "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
+    // ZDJĘCIE HERO: gala z wręczeniem wyróżnień (decyzja Marcina 10.08.2026,
+    // finding UXUI2608-04, wariant C).
+    //
+    // Historia tego pola w jeden dzień, żeby nikt nie cofnął tego trzeci raz:
+    //   1. `event-05-networking-foyer.jpg` + `heroImagePos: "center 20%"`
+    //   2. ósma tura podmieniła na `event-02-zdjecie-grupowe-tor.jpg` NA ZAŁOŻENIE,
+    //      bo do repo nie trafił żaden nowy plik. Trafiło to w kadr, który Marcin
+    //      faktycznie wybrał, ale DLA KAFELKA, nie dla hero.
+    //   3. Skutek: kafelek na stronie głównej i hero tej podstrony pokazywały
+    //      TEN SAM plik, więc klik z kafelka nie wnosił nowego obrazu.
+    //
+    // ⚠ HERO I KAFELEK MUSZĄ BYĆ RÓŻNE. Kafelek trzyma `SERVICE_TILE_IMAGES`
+    // na dole tego pliku (`event-02-zdjecie-grupowe-tor`). Zmieniając cokolwiek
+    // tutaj, sprawdź tamtą wartość.
+    //
+    // ⚠ HERO NIE MOŻE BYĆ Z LISTY `SERVICE_GALLERY.eventy` w `ServiceGalleryStrip.tsx`,
+    // bo tamten pas renderuje się NIŻEJ NA TEJ SAMEJ STRONIE. Dlatego razem z tą
+    // zmianą `event-04` wyszło z tamtej listy, a weszło `event-16`.
+    //
+    // Dlaczego gala, a nie scena czy networking: linia sprzedaje konferencje
+    // i gale klientowi korporacyjnemu, a ten kadr pokazuje ludzi i moment
+    // wyróżnienia, nie samą scenografię.
+    //
+    // ⚠ BRAK `heroImagePos` JEST CELOWY, nie przeoczeniem. Kontener hero jest
+    // KWADRATOWY (zmierzone: 517×517 na 1280 px i 358×358 na 390 px), a plik ma
+    // 1920×1280, czyli 3:2. `object-fit: cover` pokazuje więc tylko środkowe 67%
+    // szerokości klatki i obcina po 16,7% z każdej strony.
+    // Sprawdziłem to wycinkiem 1280×1280 z pliku, a nie na oko: przy domyślnym
+    // wyśrodkowaniu w kadrze zostają wszystkie trzy osoby nagrodzone z twarzami
+    // w całości, uścisk dłoni i czytelne logo na torbie. Przesunięcie w prawo
+    // (testowane 68%) urywa mężczyznę w okularach i połowę torby, więc jest gorsze.
+    // Nie dodawać `heroImagePos` „dla pewności".
+    heroImage: "/images/galeria/eventy/event-04-gala-wreczenie-wyroznien.jpg",
     price: "od 600 zł netto",
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
