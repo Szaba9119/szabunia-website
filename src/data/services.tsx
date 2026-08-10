@@ -748,6 +748,12 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Na jakim sprzęcie pracujesz?", a: "Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Ten sam zestaw nagrywa wideo produktowe. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce, nawet pół roku później." },
     ],
     portfolioSlug: "artech-fotografia-produktowa",
+    // Nagłówek formularza dla tej usługi (decyzja Marcina 10.08.2026, wariant A).
+    // Wcześniej podstrona produktowa otwierała formularz domyślnym „Zacznijmy
+    // budować Twój wizerunek", czyli komunikatem o innej usłudze. Krótka forma
+    // zamiast „Zaplanujmy zdjęcia": tu nie ma logistyki do ustalania, a zadanie
+    // zdjęcia produktowego jest jedno.
+    ctaHeading: ["Pokażmy", "Twój produkt"],
     formServiceCode: "produkt",
     seo: {
       title: "Fotografia i wideo produktowe, Poznań | Szabunia",
@@ -951,6 +957,12 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji wracam raz w ramach ustalonej kwoty, kolejne podejście to 300 zł plus dojazd." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro, 50 Mpix, poniżej 249 g, czyli kategoria otwarta, do tego certyfikat operatora A1/A3 i ubezpieczenie OC. Z poziomu ziemi Canon R6 na statywie, obiektywy szerokie do wnętrz i elewacji." },
     ],
+    // Nagłówek formularza dla tej usługi (decyzja Marcina 10.08.2026, wariant B).
+    // „Zaplanujmy" zamiast „Pokażmy", bo ta usługa ma realną logistykę do
+    // ustalenia: dostęp do obiektu, zgoda na drona, dzień zdjęciowy. Ta sama
+    // konstrukcja co przy eventach, więc nagłówki tworzą rodzinę, a nie cztery
+    // niezależne hasła.
+    ctaHeading: ["Zaplanujmy zdjęcia", "Twojego obiektu"],
     formServiceCode: "obiekty",
     seo: {
       title: "Fotografia nieruchomości i przemysłu, Poznań | Szabunia",
