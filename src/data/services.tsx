@@ -29,7 +29,6 @@ export interface ServiceData {
   h2Faq?: string;
   subtitle: string;
   description: string;
-  forWhom: string[];
   icon: ReactNode;
   /** Zdjęcie hero podstrony usługi, z istniejących bibliotek /images (brief-22 zad. 8). */
   heroImage: string;
@@ -58,13 +57,30 @@ export interface ServiceData {
   priceFaqIntro: string;
   /** Opcjonalny dalszy ciąg PIERWSZEGO zdania odpowiedzi, doklejany zaraz po "{price} netto" i przed kropką. */
   priceFaqSuffix?: string;
-  /** Kafelek na pełną szerokość rzędu w siatce na stronie głównej.
-      Siatka ma trzy kolumny, więc liczba WĄSKICH kafelków musi dzielić się przez trzy,
-      inaczej w ostatnim rzędzie zostaje „sierota" (zgłoszone przez Marcina 30.07.2026).
-      Przy ośmiu usługach: sześć wąskich (dwa pełne rzędy) + dwa szerokie na dole.
-      Szerokie są dwie najlepsze marżowo linie: obiekty (ok. 190 zł/h) i pakiety hybrydowe.
-      Plakietka „Bestseller" zostaje WYŁĄCZNIE przy pakietach, bo tylko dla nich jest prawdziwa. */
-  wide?: boolean;
+  /** Sekcja „Dla jakich wydarzeń / obiektów / produktów" plus „gdzie ten materiał
+      potem trafia". Dodane 10.08.2026 razem z nową narracją podstron usług
+      (pakiet 4): H1 → lead → ZASTOSOWANIA → zakres → jak pracujemy → portfolio
+      → FAQ → CTA.
+
+      Zastąpiło usunięte 10.08.2026 pole `forWhom`, które wymieniało TYPY FIRM
+      („Organizatorzy konferencji i targów"). Decyzja Marcina: klient rozpoznaje
+      swoje wydarzenie szybciej niż swoją kategorię, a druga lista odpowiada na
+      pytanie „po co mi właściwie te zdjęcia".
+
+      Pole opcjonalne: sekcja renderuje się tylko tam, gdzie dane istnieją.
+      Dzięki temu trzy pozostałe usługi zostają nietknięte do swojej kolejki. */
+  applications?: {
+    heading: string;
+    items: string[];
+    usesHeading: string;
+    uses: string[];
+  };
+  /** Sekcja „Zakres realizacji". Bloki „nazwa + jedno zdanie konkretu”.
+      Opcjonalne na tej samej zasadzie co `applications`. */
+  scope?: {
+    heading?: string;
+    items: { title: string; desc: string }[];
+  };
   faqs: FAQItem[];
   portfolioSlug?: string;
   galleryCategory?:
@@ -97,10 +113,6 @@ export interface ServiceData {
   videoTitle?: string;
   /** Opcjonalny podpis pod sekcją wideo (domyślnie tekst o foto + wideo). */
   videoNote?: string;
-  /** Film przed paskami galerii zamiast między nimi. Włączone tylko tam, gdzie
-      film jest produktem, a nie ilustracją (wideo marketing). Reszta podstron ma
-      układ: główny pasek, film, drugi pasek. */
-  videoFirst?: boolean;
   seo: {
     title: string;
     description: string;
@@ -123,33 +135,84 @@ export interface ServiceData {
 const serviceCategoriesRaw: ServiceData[] = [
   {
     slug: "eventy-reportaze",
-    h2Process: "Jak wygląda obsługa eventu",
-    h2Faq: "Obsługa eventów: najczęstsze pytania",
-    h1: "Obsługa eventów firmowych w Poznaniu",
+    h2Process: "Jak wygląda obsługa wydarzenia",
+    h2Faq: "Wydarzenia firmowe: najczęstsze pytania",
+    // Miasto w H1 wchodzi tu naturalnie w zdanie, więc nie łamie reguły
+    // z docs/zasady-tekstow.md (zakaz dotyczy doklejania przecinkiem).
+    // Strona główna przejmuje frazę ogólną „fotograf biznesowy Poznań",
+    // podstrona bierze lokalną odmianę konkretnej usługi (Marcin, 10.08.2026).
+    h1: "Fotografia i wideo wydarzeń firmowych w Poznaniu",
     galleryCategory: "eventy",
     extraGallery: {
       // Portrety zamiast kadrów z sesji IDcom (Marcin, 04.08.2026). Sekcja renderuje
       // się POD przykładową realizacją wideo, patrz kolejność w uslugi/[slug]/page.tsx.
       category: "portrety",
-      ctaLabel: "Zobacz sesje zespołowe",
-      href: "/uslugi/sesje-zespolowe",
+      ctaLabel: "Zobacz wizerunek firmy",
+      href: "/uslugi/wizerunek-portrety",
       sub: "Planujesz event firmowy? To zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu. Przy okazji wydarzenia mogę zrobić sesję portretową dla całego zespołu: przywożę mobilne studio, a jedna osoba to około 5 do 15 minut, między prelekcjami albo w luźniejszym oknie agendy.",
     },
     videoId: "m42ywMWjthw",
     videoTitle: "Film z eventu firmowego dla Woohoo",
     videoNote: "Tak wygląda film z eventu: dynamiczne podsumowanie wydarzenia, gotowe do social mediów.",
-    title: "Obsługa eventów firmowych",
+    title: "Wydarzenia firmowe",
     subtitle:
-      "Dokumentacja konferencji, targów, gal i wydarzeń firmowych. Zdjęcia na social media jeszcze w trakcie eventu.",
+      "Konferencje, targi, gale i integracje. Zdjęcia, film i dron z jednego dnia, część kadrów na social media jeszcze w trakcie wydarzenia.",
+    // Lead przepisany 10.08.2026 (pakiet 4, wersja wybrana przez Marcina).
+    // Poprzedni opisywał SPOSÓB pracy („fotografuję dyskretnie, reportażowo").
+    // Nowy sprzedaje WARTOŚĆ MATERIAŁU PO wydarzeniu, bo to jest argument
+    // biznesowy, a nie estetyczny. Cztery nazwy klientów, świadomie nie więcej:
+    // pokrywają dużą markę, korporację, media i przemysł, więc dowodzą, że to
+    // nie jest fotograf od jednego rodzaju eventów.
     description:
-      "Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing, czyli zdjęcia gotowe do publikacji na social media jeszcze w trakcie eventu. Dokumentowałem wydarzenia dla takich marek jak H&M, Santander Bank Polska, Warner Music, John Deere czy Amica. Sprawne tempo i logistyka dużych eventów to dla mnie naturalny grunt.",
-    forWhom: [
-      "Organizatorzy konferencji i targów",
-      "Firmy organizujące wydarzenia firmowe",
-      "Agencje eventowe",
-      "Hotele i centra konferencyjne",
-      "Firmy technologiczne (launch produktu, demo day)",
-    ],
+      "Konferencja, gala albo integracja trwa kilka godzin, ale materiał z niej może pracować przez kolejne miesiące. Fotografuję i filmuję wydarzenia firmowe tak, żeby został z nich materiał do bieżącej relacji, podsumowania roku i promocji następnej edycji. Pracowałem przy wydarzeniach dla H&M, Santander Bank Polska, Warner Music Poland i John Deere.",
+    applications: {
+      heading: "Dla jakich wydarzeń",
+      items: [
+        "Konferencje i kongresy",
+        "Gale i jubileusze",
+        "Targi i stoiska",
+        "Szkolenia i warsztaty",
+        "Premiery produktów",
+        "Spotkania firmowe i integracje",
+        "Wydarzenia branżowe i networkingowe",
+      ],
+      usesHeading: "Gdzie materiał pracuje dalej",
+      // Lista celowo krótka i bez rozwinięć (Marcin, 10.08.2026: „nie
+      // rozbudowujmy jej w kolejny blok SEO").
+      uses: [
+        "Relacja na LinkedIn i Instagram",
+        "Podsumowanie roku i materiały wewnętrzne",
+        "Promocja kolejnej edycji",
+        "Materiały prasowe i raporty",
+        "Strona wydarzenia",
+      ],
+    },
+    scope: {
+      items: [
+        {
+          title: "Reportaż zdjęciowy",
+          desc: "Wystąpienia, prelegenci, uczestnicy, rozmowy w kuluarach, branding i przestrzeń wydarzenia. Około 30 gotowych zdjęć na każdą godzinę obecności, po selekcji i obróbce.",
+        },
+        {
+          title: "Zdjęcia w trakcie wydarzenia",
+          desc: "Wybrane kadry obrabiam na miejscu i przesyłam do publikacji, zanim goście wrócą do domu.",
+        },
+        {
+          title: "Wideo",
+          desc: "Film podsumowujący, pionowe reelsy, wywiady z uczestnikami i prelegentami, przebitki do dalszego montażu.",
+        },
+        {
+          // Certyfikat A1/A3 i OC świadomie TYLKO w FAQ (Marcin, 10.08.2026):
+          // sekcja zakresu nie ma być obciążona technikaliami dwa razy.
+          title: "Ujęcia z powietrza",
+          desc: "Skala wydarzenia plenerowego, teren, parking, ustawienie sceny. Latam dronem DJI.",
+        },
+        {
+          title: "Portrety zespołu przy okazji",
+          desc: "Event to zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu. Przywożę mobilne studio, potrzebuję 5 m² i gniazdka, rozstawienie zajmuje 30 minut, a jedna osoba to 5 do 15 minut między punktami agendy.",
+        },
+      ],
+    },
     icon: (
       <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
@@ -164,157 +227,126 @@ const serviceCategoriesRaw: ServiceData[] = [
       { num: 3, title: "Live edit", desc: "Zdjęcia na social media w trakcie eventu" },
       { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni" },
     ],
+    // Przepisane 10.08.2026. Poprzednia wersja mówiła „rozliczenie dniówką
+    // wychodzi korzystniej niż sumowanie godzin", czyli odsłaniała mechanikę
+    // cenową zamiast obiecywać korzyść (korekta Marcina).
     pricingBlurb:
-      "Wycenę reportażu ustalam na podstawie liczby godzin obecności na evencie oraz opcji dodatkowych: live editing na social media w trakcie wydarzenia i ujęcia z drona.",
+      "Na wycenę wpływa liczba godzin obecności, to, czy dochodzi wideo i ujęcia z powietrza, oraz czy chcesz zdjęcia gotowe do publikacji jeszcze w trakcie wydarzenia. Przy dłuższych realizacjach przygotowuję korzystniejszą wycenę całościową.",
     priceFaqQuestion: "Ile kosztuje fotograf na event firmowy?",
     priceFaqIntro: "Reportaże zaczynają się",
+    // Kolejność ustawiona przez Marcina 10.08.2026: od obaw BIZNESOWYCH do
+    // szczegółów technicznych. Pytanie cenowe wchodzi automatycznie jako
+    // pierwsze (getPriceFaq w uslugi/[slug]/page.tsx), więc tu zaczyna się
+    // od drugiego w kolejności.
+    //
+    // USUNIĘTE 10.08.2026, świadomie:
+    //  - „Czy pakiet całodniowy się opłaca?" — odpowiedź weszła jednym zdaniem
+    //    do pricingBlurb („korzystniejsza wycena całościowa").
+    //  - „Czy mogę dobrać zakres do mojego wydarzenia?" — mówiło to samo,
+    //    co pytanie cenowe, tylko innymi słowami.
     faqs: [
-      { q: "Czy fotografujesz też wieczorne gale przy słabym świetle?", a: "Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają fotografować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie. Reportaż z gali, konferencji czy bankietu wygląda naturalnie." },
-      { q: "Czy mogę otrzymać zdjęcia w trakcie eventu?", a: "Tak, usługa live editing. Wybrane zdjęcia edytuję na bieżąco i wysyłam do publikacji na social media." },
-      { q: "Ile zdjęć otrzymam?", a: "Około 30 gotowych zdjęć na każdą godzinę obecności, wyselekcjonowanych i poddanych postprodukcji. Przy pakietach foto + wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali eventu i dodatkowych zadań w trakcie (dron, obróbka zdjęć na żywo, wydruk na evencie). To autorska selekcja najlepszych momentów, a nie wszystkie wykonane kadry." },
-      { q: "Czy pakiet całodniowy się opłaca?", a: "Tak, rozliczenie dniówką przy dłuższych realizacjach wychodzi korzystniej niż sumowanie kolejnych godzin. To jedna z opcji, którą dobieram przy większych eventach." },
-      { q: "Czy przy okazji eventu zrobisz zdjęcia całego zespołu?", a: "Tak. Na wydarzenie mogę przywieźć mobilne studio: potrzebuję około 5 m² wolnej przestrzeni i gniazdka, rozstawienie zajmuje 30 minut, a potem fotografuję kolejne osoby po 5 do 15 minut, między prelekcjami albo w kuluarach. Event to zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu, więc headshoty przy tej okazji nie wymagają osobnego terminu ani osobnego dojazdu." },
-      { q: "Kto robi zdjęcia i film, gdy event jest duży?", a: "Przy standardowym wydarzeniu robię wszystko sam. Przy dużym evencie, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora do zdjęć albo do wideo. Postprodukcja zostaje u mnie: retusz zdjęć i montaż filmu robię osobiście, więc materiał wychodzi w jednym standardzie. Dla Ciebie to nadal jedna osoba kontaktowa, jedne ustalenia i jedna faktura." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty (materiał z eventu jest bezpieczny), jasne obiektywy Sigma Art i Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilny system lamp Godox oraz dron DJI z uprawnieniami A1/A3 i OC. Przy live editingu obrabiam zdjęcia na bieżąco na miejscu." },
+      { q: "Ile zdjęć dostanę?", a: "Około 30 gotowych zdjęć na każdą godzinę obecności, po selekcji i obróbce. Przy realizacji z wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali wydarzenia i dodatkowych zadań w trakcie. To autorski wybór najlepszych momentów, a nie wszystkie wykonane kadry." },
+      { q: "Czy mogę dostać zdjęcia jeszcze w trakcie wydarzenia?", a: "Tak. Wybrane kadry obrabiam na miejscu i przesyłam do publikacji. Relacja wychodzi wtedy, kiedy ludzie jeszcze siedzą na sali, a nie trzy dni później." },
+      { q: "Kto robi zdjęcia i film, gdy wydarzenie jest duże?", a: "Przy standardowym wydarzeniu robię wszystko sam. Przy dużym, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora. Retusz i montaż robię osobiście, więc materiał wychodzi w jednym standardzie. Dla Ciebie to nadal jedna osoba kontaktowa, jedne ustalenia i jedna faktura." },
+      { q: "Zrobisz przy okazji zdjęcia całego zespołu?", a: "Tak. Przywożę mobilne studio: 5 m², gniazdko, 30 minut na rozstawienie. Potem fotografuję kolejne osoby po 5 do 15 minut, między prelekcjami albo w luźniejszym oknie agendy. Bez osobnego terminu i bez osobnego dojazdu." },
+      { q: "Obsłużysz cykl wydarzeń?", a: "Tak. Jeśli realizacje wracają co roku, ustalamy liczbę wydarzeń z góry: rezerwuję terminy i trzymam dzisiejsze ceny na całość." },
+      { q: "Fotografujesz wieczorne gale przy słabym świetle?", a: "Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają pracować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty, więc materiał z wydarzenia jest zabezpieczony od pierwszego kadru. Do tego jasne obiektywy Sigma, Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilne oświetlenie Godox i dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC." },
     ],
     portfolioSlug: "woohoo-autopay",
     seo: {
-      title: "Obsługa eventów firmowych, Poznań | Szabunia",
+      title: "Fotografia i wideo wydarzeń firmowych, Poznań | Szabunia",
       description: "Konferencje, targi, gale i integracje. Zdjęcia, film i dron od jednej osoby. Obsługiwałem eventy dla H&M, Santandera i Warner Music.",
     },
   },  {
-    slug: "sesje-zespolowe",
-    h2Process: "Jak wygląda sesja zespołowa",
-    h2Faq: "Headshoty zespołu: najczęstsze pytania",
-    h1: "Headshoty zespołu w biurze albo w studiu",
-    galleryCategory: "zespolowe",
-    extraGallery: { category: "portrety", ctaLabel: "Zobacz więcej portretów" },
-    title: "Sesje zespołowe",
-    subtitle:
-      "Headshoty dla całego zespołu w jeden dzień. Mobilne studio w Twoim biurze albo studio zewnętrzne.",
-    description:
-      "Spójne headshoty zespołu to fundament employer brandingu. Realizowałem sesje zespołowe w biurach firm takich jak IDcom Group, Poznańskie Nieruchomości, Scalio czy 1st Place. Przyjeżdżam z mobilnym studiem do Twojego biura albo rezerwuję studio. Rozstawienie zajmuje 30 minut, a każda osoba potrzebuje 5-15 minut na sesję. Efekt: spójne zdjęcia wszystkich pracowników, gotowe na stronę WWW i LinkedIn.",
-    forWhom: [
-      "Zespoły korporacyjne i działy HR",
-      "Kancelarie prawne i firmy doradcze",
-      "Startupy budujące wizerunek marki",
-      "Firmy z rozproszonymi oddziałami",
-      "Organizacje rebrandingujące się",
-    ],
-    icon: (
-      <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-      </svg>
-    ),
-    heroImage: "/images/portfolio/sesje-zespolowe-cover.jpg",
-    // Taryfa przepisana 05.08.2026 decyzją Marcina: 1 400 zł za dwie osoby + 120 zł za każdą
-    // kolejną, dwa wyretuszowane zdjęcia na osobę. Progi 180/150/120 zł za osobę ZNIKAJĄ
-    // z powierzchni klienckich — rozkładały blok stały 7,5 h dopiero od ósmej osoby, przez co
-    // sesja czteroosobowa dawała 76 zł/h. Kanon: cennik_2026_07_v3.md §6.
-    price: "od 1 400 zł netto",
-    heroPriceLabel: "od 1 400 zł netto",
-    process: [
-      { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram i liczbę osób" },
-      { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio w biurze (30 min)" },
-      { num: 3, title: "Sesja", desc: "5-15 min na osobę, headshot + opcja team" },
-      { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
-    ],
-    pricingBlurb:
-      "W cenie są dwa wyretuszowane zdjęcia na osobę, dojazd i rozstawienie mobilnego studia w Twoim biurze. Im większy zespół, tym niżej schodzi kwota za osobę.",
-    priceFaqQuestion: "Ile kosztuje sesja zdjęciowa zespołu?",
-    priceFaqIntro: "Sesje zespołowe zaczynają się",
-    priceFaqSuffix: " za dwie osoby, a każda kolejna osoba to 120 zł, przy dwóch wyretuszowanych zdjęciach na osobę",
-    faqs: [
-      { q: "Co z osobami, których nie ma w dniu sesji?", a: "Brakujące osoby dogrywam w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu, żeby portrety całego zespołu były spójne. To częsta sytuacja przy większych zespołach i pracy zdalnej." },
-      { q: "Ile osób możesz sfotografować w jeden dzień?", a: "Do 40 osób dziennie przy mobilnym studiu. Każda osoba potrzebuje ok. 5-15 minut." },
-      { q: "Ile miejsca potrzebujesz w biurze?", a: "Minimum 5 m² wolnej przestrzeni i gniazdko. Sala konferencyjna, hol lub korytarz, wszystko się sprawdzi." },
-      { q: "Czy zdjęcia będą spójne dla całego zespołu?", a: "Tak, identyczne oświetlenie i tło. Spójne headshoty na stronie i w materiałach firmowych." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Mobilne studio, które rozkładam u Ciebie w biurze: aparat Canon R6, obiektyw portretowy Sigma 70-200 mm f/2.8 i komplet oświetlenia Godox. Rozstawienie zajmuje ok. 30 minut i wystarczy około 5 m². Każda osoba dostaje kadry w tym samym standardzie światła i retuszu." },
-    ],
-    portfolioSlug: "idcom-headshoty-zespolu",
-    seo: {
-      title: "Headshoty zespołu w biurze i w studiu | Szabunia",
-      description: "Spójne portrety zespołu w jeden dzień. Mobilne studio w Twoim biurze. Realizacje dla IDcom, Poznańskich Nieruchomości i Scalio. Poznań i Polska.",
-    },
-  },  {
-    slug: "pakiety-foto-wideo",
-    h2Process: "Jak wygląda dzień zdjęciowy",
-    h2Faq: "Zdjęcia i film razem: najczęstsze pytania",
-    h1: "Zdjęcia, film i dron na event firmowy",
-    portfolioSlug: "woohoo-autopay",
-    galleryCategory: "eventy",
-    extraGallery: {
-      category: "dron",
-      ctaLabel: "Zobacz ujęcia z drona",
-      href: "/uslugi/zdjecia-wideo-z-drona",
-    },
-    videoId: "4INLtKcKcZk",
-    videoTitle: "E-commerce All-in, film z eventu dla Woohoo",
-    title: "Pakiety eventowe: foto + wideo + dron",
-    subtitle:
-      "Zdjęcia, film i ujęcia z drona od jednej osoby: spójny materiał i mniej logistyki. Bestseller wśród klientów korporacyjnych.",
-    description:
-      "Pakiet hybrydowy to jeden dzień zdjęciowy i dwa formaty na wyjściu. Podczas jednego wydarzenia lub sesji powstają zdjęcia, film i ujęcia z drona. Fotografowałem i filmowałem eventy dla marek takich jak H&M, Santander, Warner Music i John Deere. Rezultat: spójny wizualnie content na wszystkie kanały, bez koordynowania dwóch osobnych ekip.",
-    forWhom: [
-      "Firmy organizujące eventy (konferencje, gale)",
-      "Marki potrzebujące contentu na social media",
-      "Firmy eventowe i agencje PR",
-      "Organizatorzy szkoleń i warsztatów",
-      "Firmy z regularnymi potrzebami contentowymi",
-    ],
-    icon: (
-      <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
-        <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
-      </svg>
-    ),
-    heroImage: "/images/galeria/eventy/event-01-zespol-na-scenie.jpg",
-    price: "od 2 100 zł netto",
-    wide: true,
-    process: [
-      { num: 1, title: "Rozmowa", desc: "Cel, kanały, formaty wideo i foto" },
-      { num: 2, title: "Realizacja", desc: "Sesja foto + nagranie wideo w jednym dniu" },
-      { num: 3, title: "Postprodukcja", desc: "Retusz zdjęć + montaż wideo" },
-      { num: 4, title: "Dostawa", desc: "Zdjęcia w 14 dni, wideo w 21 dni" },
-    ],
-    pricingBlurb:
-      "Wycena pakietu zależy od liczby godzin obecności na wydarzeniu, zakresu wideo (teaser, główny film, wywiady z uczestnikami) i tego, czy potrzebujesz ujęć z drona. Im dłuższa realizacja, tym więcej materiału zdjęciowego i wideo z tego samego dnia.",
-    priceFaqQuestion: "Ile kosztuje pakiet foto + wideo?",
-    priceFaqIntro: "Pakiety zaczynają się",
-    faqs: [
-      { q: "Czy mogę dobrać zakres pakietu do mojego eventu?", a: "Tak. Liczbę godzin, zakres wideo, drona czy wywiady z uczestnikami dopasowuję do skali wydarzenia. Po krótkiej rozmowie podaję jedną, konkretną wycenę w kilku wariantach." },
-      { q: "Czy naprawdę jedna osoba ogarnie foto i wideo?", a: "Przy standardowym wydarzeniu tak: zdjęcia, film i dron robię sam. Przy dużym evencie, gdzie dwie rzeczy dzieją się w tym samym momencie, dokładam drugiego operatora do zdjęć albo do wideo. Postprodukcja zostaje u mnie, retusz i montaż robię osobiście, więc finalny materiał ma jeden standard. Ty i tak masz jedną osobę kontaktową zamiast dwóch ekip." },
-      { q: "Czy mogę zamówić pakiet na cykl wydarzeń?", a: "Tak. Przy serii wydarzeń koryguję zakres do realnych potrzeb projektu. Jeśli realizacje wracają co roku, możemy ustalić liczbę wydarzeń z góry: rezerwuję terminy i trzymam dzisiejsze ceny na całość. Wycenę odsyłam po krótkiej rozmowie." },
-      { q: "Co jeśli potrzebuję więcej godzin niż w pakiecie?", a: "Dogrywamy dodatkowe godziny przed eventem, dokładam je do wyceny przy ustalaniu zakresu." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 (foto i wideo równolegle, z zapisem na dwie karty), obiektywy Sigma, Tamron i Tokina od 16 do 200 mm, oświetlenie Godox, dźwięk Rode i Zoom oraz dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC. Jeden zestaw obsługuje zdjęcia, film i dron." },
-    ],
-    seo: {
-      title: "Pakiety eventowe: foto, wideo i dron | Szabunia",
-      description: "Jeden twórca zamiast dwóch ekip, jedna faktura. Zdjęcia, film i dron na eventy dla H&M, Santandera i Warner Music. Poznań i cała Polska.",
-    },
-  },  {
     slug: "wizerunek-portrety",
-    h2Process: "Jak wygląda sesja portretowa",
-    h2Faq: "Portrety biznesowe: najczęstsze pytania",
-    h1: "Portrety biznesowe i headshoty",
+    h2Process: "Jak wygląda sesja wizerunkowa",
+    h2Faq: "Wizerunek firmy: najczęstsze pytania",
+    h1: "Fotografia i wideo wizerunkowe dla firm",
     galleryCategory: "portrety",
     extraGallery: {
+      // Po scaleniu z usługą „sesje zespołowe" (10.08.2026) pasek prowadzi
+      // do filtrowanej galerii, a nie na osobną podstronę, bo tej podstrony
+      // już nie ma. Href celowo pominięty: domyślny cel to /galeria?kat=zespolowe.
       category: "zespolowe",
       ctaLabel: "Zobacz sesje zespołowe",
-      href: "/uslugi/sesje-zespolowe",
+      sub: "Headshoty całego zespołu robię w jeden dzień: przywożę mobilne studio do Twojego biura, rozstawienie zajmuje 30 minut, a jedna osoba potrzebuje 5 do 15 minut.",
     },
-    title: "Wizerunek & Portrety",
+    title: "Wizerunek firmy",
     subtitle:
-      "Portrety biznesowe, headshoty na LinkedIn i zdjęcia do personal brandingu. Prowadzę przez pozowanie, nie musisz nic umieć.",
+      "Portrety biznesowe, headshoty całego zespołu i film wizerunkowy. Prowadzę przez pozowanie, nie musisz nic umieć.",
+    // Lead przepisany 10.08.2026 (pakiet 4, zatwierdzony przez Marcina bez
+    // łagodzenia). Poprzedni mówił, czym JEST portret biznesowy. Nowy nazywa
+    // problem, który osoba odpowiedzialna za stronę firmy realnie widzi
+    // u siebie, i dopiero potem daje rozwiązanie. Konstrukcja problem →
+    // rozwiązanie, nie definicja → oferta.
+    //
+    // Ta strona odpowiada na INNE pytanie niż Wydarzenia. Tam: „co zostaje po
+    // wydarzeniu". Tu: spójność zespołu i logistyka, bo to one blokują decyzję.
     description:
-      "Portret biznesowy to Twoja wizytówka na LinkedIn i na stronie firmy. Tworzę zdjęcia, które oddają charakter i kompetencje, na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a w pakietach przed sesją dostajesz poseboard z referencjami.",
-    forWhom: [
-      "CEO i kadra zarządzająca",
-      "Eksperci i konsultanci",
-      "Prawnicy, lekarze, architekci",
-      "Osoby budujące markę osobistą",
-      "Startupy i firmy technologiczne",
-    ],
+      "Na zakładce „Zespół” widać wszystko: kto ma zdjęcie z sesji, kto przycięty kadr z wesela, a kto szare kółko z inicjałami. Fotografuję ludzi w firmie tak, żeby cały zespół wyglądał jak jedna firma: to samo światło, to samo tło, ten sam standard retuszu. Przyjeżdżam z mobilnym studiem do biura, więc nikt nie traci pół dnia na dojazd. Sesje zespołowe robiłem między innymi dla IDcom Group, Poznańskich Nieruchomości, Scalio i 1st Place.",
+    applications: {
+      heading: "Kogo fotografuję",
+      items: [
+        "Zarząd i kadra kierownicza",
+        "Cały zespół",
+        "Pojedynczy pracownicy",
+        "Eksperci i osoby występujące publicznie",
+        "Nowe osoby dogrywane po sesji",
+        "Ludzie przy pracy",
+        "Przestrzeń biura",
+      ],
+      usesHeading: "Gdzie te zdjęcia pracują",
+      uses: [
+        "Strona firmowa i zakładka „Zespół”",
+        "LinkedIn i profile pracowników",
+        "Oferty pracy i employer branding",
+        "Prezentacje i materiały sprzedażowe",
+        "Publikacje i wystąpienia",
+      ],
+    },
+    scope: {
+      items: [
+        {
+          title: "Portrety biznesowe",
+          // ⚠ „DO 30 minut", nie „od". Cennik v3 (:92) daje w progu 700 zł
+          // sesję DO 30 minut, czyli to maksimum w tej cenie, nie minimum.
+          // W pierwszej wersji tego tekstu napisałem „od 30 minut", co odwracało
+          // obietnicę. Nie zmieniać z powrotem bez sprawdzenia w cenniku.
+          desc: "Jedna osoba, sesja do 30 minut. W cenie studio w Poznaniu albo dojazd z mobilnym studiem do Twojego biura. Prowadzę przez pozowanie, nie musisz nic umieć.",
+        },
+        {
+          // „Dwa wyretuszowane zdjęcia na osobę" potwierdzone w cennik v3 (:322).
+          // Uwaga: to warunek SESJI ZESPOŁOWEJ. PORTRET START (jedna osoba)
+          // ma jedno zdjęcie (:97), więc nie mieszać tych liczb.
+          title: "Sesja całego zespołu",
+          desc: "Do 40 osób w jeden dzień, 5 do 15 minut na osobę. To samo tło i światło dla wszystkich, dwa wyretuszowane zdjęcia na osobę.",
+        },
+        {
+          title: "Mobilne studio w Twoim biurze",
+          desc: "Potrzebuję 5 m² i gniazdka, rozstawienie zajmuje 30 minut. Sala konferencyjna, hol albo korytarz w zupełności wystarczą.",
+        },
+        {
+          title: "Ludzie przy pracy i przestrzeń firmy",
+          desc: "Kadry pokazujące, jak firma naprawdę działa, do zakładki o nas i do ogłoszeń rekrutacyjnych.",
+        },
+        {
+          // Wideo zostaje POZYCJĄ OFERTY, ale strona świadomie NIE MA sekcji
+          // portfolio wideo (decyzja Marcina 10.08.2026, wariant 2). W repo nie
+          // ma filmu wizerunkowego: są dwa eventowe, jeden przemysłowy i jeden
+          // produktowy. Podpięcie któregokolwiek pod nagłówek „film wizerunkowy"
+          // byłoby nieadekwatnym przykładem, a na stronie sprzedającej
+          // wiarygodność to gorsze niż brak przykładu.
+          // Sekcja powstanie po pierwszej realizacji wizerunkowej z materiałem.
+          title: "Wideo wizerunkowe",
+          desc: "Krótki film o firmie, wypowiedzi do kamery, pionowe formaty na LinkedIn. Nagrywam w tym samym dniu co zdjęcia.",
+        },
+        {
+          title: "Dogrywki dla nowych osób",
+          desc: "Kto był na urlopie albo doszedł później, dostaje krótszy termin w tym samym standardzie. Zespół nie rozjeżdża się po pół roku.",
+        },
+      ],
+    },
     icon: (
       <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
@@ -330,16 +362,28 @@ const serviceCategoriesRaw: ServiceData[] = [
     price: "od 700 zł netto",
     heroPriceLabel: "od 700 zł netto",
     process: [
-      { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
-      { num: 2, title: "Poseboard", desc: "W pakietach przygotowuję poseboard z referencjami" },
-      { num: 3, title: "Sesja", desc: "Prowadzę Cię przez pozowanie, w studiu lub Twoim biurze. Nie musisz nic umieć." },
-      { num: 4, title: "Dostawa", desc: "Wybrane, wyretuszowane zdjęcia w 14 dni." },
+      // Proces przepisany 10.08.2026 pod scaloną usługę. Poprzedni opisywał
+      // wyłącznie sesję JEDNEJ osoby (konsultacja, poseboard), a od scalenia
+      // ta strona sprzedaje przede wszystkim sesję całego zespołu, gdzie
+      // decyduje logistyka: ile osób, kiedy, jak długo bez pracy.
+      { num: 1, title: "Ustalenia", desc: "Liczba osób, harmonogram, miejsce i to, gdzie zdjęcia mają trafić" },
+      { num: 2, title: "Rozstawienie", desc: "Przyjeżdżam wcześniej, studio stoi gotowe, zanim wejdzie pierwsza osoba" },
+      { num: 3, title: "Sesja", desc: "5 do 15 minut na osobę, między spotkaniami, bez wyrywania zespołu z pracy" },
+      { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni, film w 21 dni" },
     ],
+    // Przepisane 10.08.2026 (pakiet 4). Wchłonęło treść osobnego pytania
+    // „Gdzie znajdę cennik sesji wizerunkowej?", które przez to znika z listy.
+    //
+    // ⚠ TO NIE JEST cofnięcie decyzji z 02.08.2026. Tamto pytanie powstało
+    // z policzalnego powodu: klaster cenowy tej usługi ma 402 wyświetlenia
+    // w 90 dni, a warianty ze słowami „cena", „ceny" i „cennik" stały na
+    // pozycjach 32,0-38,8, bo tych słów nie było na stronie ani razu.
+    // Słowa nie znikają, tylko przenoszą się tutaj: „Ceny" niesie priceFaqIntro,
+    // „Cennika" i „cena" są w zdaniu niżej, „kosztuje" w priceFaqQuestion.
+    // Przy edycji NIE usuwać zdania o braku tabeli, bo razem z nim wypadną
+    // dwie z czterech fraz.
     pricingBlurb:
-      // „Każda sesja" → „Pakiety": od 04.08.2026 istnieje próg 700 zł BEZ poseboardu
-      // i bez konsultacji stylizacyjnej, więc poprzednie zdanie przestało być prawdziwe.
-      // Fragment o studiu zostaje nietknięty: to osobna pozycja TRESC2608-52, owner Marcin.
-      "Wycenę portretu ustalam na podstawie liczby stylizacji, długości sesji i liczby wyretuszowanych zdjęć do wyboru. Pakiety obejmują darmowy poseboard z referencjami przed spotkaniem oraz studio dopasowane do Twojego projektu.",
+      "Na wycenę wpływa liczba osób, długość sesji, liczba stylizacji i liczba zdjęć wybranych do retuszu. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu.",
     priceFaqQuestion: "Ile kosztuje sesja wizerunkowa dla firmy?",
     priceFaqIntro: "Ceny portretów dla jednej osoby zaczynają się",
     // Brzmienie z 04.08.2026, podyktowane przez Marcina: „ceny portretów dla jednej osoby
@@ -348,110 +392,128 @@ const serviceCategoriesRaw: ServiceData[] = [
     // tu nie wchodzą: prośba Marcina, żeby nie kotwiczyć klienta stosem liczb w pierwszym
     // zdaniu. Rozwinięcie jest niżej, w osobnym pytaniu FAQ.
     priceFaqSuffix: ", a sesja zespołowa od 1 400 zł netto za dwie osoby",
+    // Kolejność 10.08.2026 (pakiet 4, zatwierdzona przez Marcina): od obaw
+    // logistycznych i o spójność, przez obiekcję „nie umiem pozować", po
+    // warunki i technikalia. Pytanie cenowe wchodzi automatycznie jako pierwsze.
+    //
+    // USUNIĘTE przy przepisywaniu, świadomie:
+    //  - „Gdzie znajdę cennik sesji wizerunkowej?" — wchłonięte przez pricingBlurb,
+    //    razem ze wszystkimi czterema frazami cenowymi (patrz nota wyżej).
+    //  - „Ile trwa sesja wizerunkowa?" — czas jest dziś w „Zakresie realizacji"
+    //    („sesja do 30 minut"), a stara odpowiedź mówiła „od 30 minut", czyli
+    //    odwrotnie niż cennik v3 (:92).
+    //  - „W jakich formatach dostarczasz wideo?" i „Czy mogę zamówić sam montaż?"
+    //    — przeniesione tu w pakiecie 1 z usługi „wideo marketing". Ta strona nie
+    //    ma sekcji portfolio wideo, więc dwa pytania techniczne o wideo stały
+    //    w niej bez kontekstu. Wrócą razem z sekcją wideo.
     faqs: [
-      // TRESC2608-05 zamknięty 04.08.2026 BEZ zmiany tego zdania. Audyt zgłaszał je jako
-      // sprzeczne z cennikiem („od 30 minut" przy najkrótszym pakiecie 90-minutowym), a decyzja
-      // Marcina z 04.08 wprowadziła próg 700 zł za sesję do 30 minut, czyli zdanie stało się
-      // prawdziwe. Dopisana została sama kwota, żeby czas i cena stały obok siebie.
-      { q: "Ile trwa sesja wizerunkowa?", a: "Sama sesja może trwać od 30 minut i tyle wystarczy na jedno dobre zdjęcie. Przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło, więc nie czekasz na moje przygotowania. Dłuższe pakiety dają więcej czasu na ujęcia i zmiany stylizacji." },
-      { q: "Czy mogę mieć sesję w swoim biurze?", a: "Tak. Przyjeżdżam z mobilnym studiem, potrzebuję ok. 5 m² wolnej przestrzeni i dostępu do gniazdka." },
-      { q: "Jak szybko otrzymam gotowe zdjęcia?", a: "Standardowy czas to 14 dni. Ekspres do 48h za dodatkową opłatą (+50%)." },
-      { q: "Czy mogę użyć zdjęć na LinkedIn i stronie?", a: "Tak. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Aparaty Canon R6 z zapisem na dwie karty (backup), Sigma 70-200 mm f/2.8 Sport jako podstawowy obiektyw portretowy (dłuższa ogniskowa nie zniekształca rysów twarzy i ładnie oddziela osobę od tła) oraz studyjne oświetlenie Godox. Na sesję w Twoim biurze przywożę mobilne studio. Cały zestaw daje powtarzalny, spójny standard między osobami i między sesjami." },
-      // Dodane 02.08.2026. Powód policzalny, nie estetyczny: w GSC klaster cenowy tej
-      // usługi ma 402 wyświetlenia w 90 dni, ale rozkłada się nierówno. Warianty ze
-      // słowem „kosztuje" stoją na pozycji 17,2 i 17,9, a warianty ze słowem „cena",
-      // „ceny" i „cennik" na 32,0, 37,4 i 38,8. Słowo „cennik" nie występowało na tej
-      // stronie ani razu, „cena" i „ceny" też nie. To pytanie wprowadza je w treść.
-      // Zgodne z regułą z docs/zasady-tekstow.md: „użyj tego, którego ludzie faktycznie
-      // wpisują". Kwoty pakietów świadomie nie wchodzą do odpowiedzi: na stronie stoi
-      // wyłącznie kotwica „od 700 zł" i „od 120 zł za osobę" (decyzja Marcina z 04.08).
-      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a sesja zespołowa od 1 400 zł netto za dwie osoby. W kwocie startowej masz sesję w studiu w Poznaniu albo dojazd z mobilnym studiem do Twojego biura, razem z retuszem. Wyżej wchodzą pakiety, w których dostajesz więcej czasu, więcej stylizacji i większy wybór kadrów do retuszu. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu. Napisz w dwóch zdaniach, kogo i do czego fotografujemy, a wycenę odeślę mailem w 24 godziny." },
+      { q: "Ile osób sfotografujesz w jeden dzień?", a: "Do 40 przy mobilnym studiu. Jedna osoba potrzebuje 5 do 15 minut, więc sesja wchodzi między spotkania i nie blokuje nikomu dnia." },
+      { q: "Co z osobami, których nie ma w dniu sesji?", a: "Dogrywam je w osobnym, krótszym terminie, w tym samym świetle i tym samym retuszu. To częsta sytuacja przy pracy zdalnej i większych zespołach." },
+      { q: "Czy zdjęcia całego zespołu będą wyglądać spójnie?", a: "Tak, i to jest właściwie cały sens tej usługi. Identyczne oświetlenie, to samo tło, ten sam standard obróbki. Na stronie widać wtedy firmę, a nie zbiór przypadkowych zdjęć." },
+      // Zdanie o studiu przepisane przez Marcina 10.08.2026. Poprzednia wersja
+      // („w cenie startowej masz studio…") dawała się czytać tak, jakby studio
+      // było dostępne WYŁĄCZNIE w progu startowym.
+      { q: "Sesja u nas w biurze czy w studiu?", a: "Jak wolisz. Przy jednej osobie możesz wybrać studio w Poznaniu albo mój dojazd z mobilnym studiem. Przy większym zespole biuro wychodzi zwykle taniej i szybciej, bo nikt nie musi nigdzie jechać." },
+      // Głos strony, nie nowy tekst: oba zdania są wzorcami z docs/zasady-tekstow.md.
+      { q: "Nie umiem pozować i źle wypadam na zdjęciach.", a: "Słyszę to bardzo często i za każdym razem efekt pozytywnie zaskakuje. Nie musisz być modelem, wystarczy być sobą. Reszta to moja robota." },
+      // Licencja sprawdzona 10.08.2026 wobec src/data/faq.ts:60 — ta sama
+      // obietnica stoi już na produkcji, więc to nie jest nowe zobowiązanie.
+      { q: "Kiedy dostanę zdjęcia i czy mogę ich używać bez ograniczeń?", a: "Wyretuszowane zdjęcia w 14 dni, ekspres do 48h za dopłatą. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Canon R6 z zapisem na dwie karty, Sigma 70-200 mm f/2.8 jako podstawowy obiektyw portretowy, bo dłuższa ogniskowa nie zniekształca rysów twarzy, i studyjne oświetlenie Godox. Do biura przywożę cały zestaw ze sobą." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
     seo: {
-      title: "Portrety biznesowe i headshoty, Poznań | Szabunia",
-      description: "Portrety biznesowe, headshoty na LinkedIn i personal branding. Sesja w studiu albo mobilne studio w Twoim biurze. Poznań i cała Polska.",
-    },
-  },  {
-    slug: "wideo-marketing",
-    h2Process: "Jak wygląda produkcja filmu",
-    h2Faq: "Wideo dla firm: najczęstsze pytania",
-    h1: "Wideo dla firm i filmy korporacyjne",
-    portfolioSlug: "woohoo-autopay",
-    galleryCategory: "wideo",
-    // Bez drugiego paska. Pasek „Przykłady z galerii: produktowe" zniknął 04.08.2026
-    // na prośbę Marcina. Podstrona ma pokazywać wideo, a nie zdjęcia produktów.
-    videoId: "4INLtKcKcZk",
-    videoFirst: true,
-    videoTitle: "E-commerce All-in dla Woohoo: film z wydarzenia ICEA i Autopay",
-    videoNote: "Komplet materiału wideo z jednego dnia: film podsumowujący, trzy pionowe reelsy z wywiadami i ujęcia z drona wewnątrz stadionu.",
-    title: "Wideo marketing",
-    subtitle:
-      "Filmy korporacyjne i promocyjne, reelsy, relacje z eventów. Formaty pionowe i poziome dopasowane do platformy.",
-    description:
-      "Tworzę krótkie formy (Reels, TikTok, YouTube Shorts), filmy promocyjne i reklamowe, relacje z eventów i materiały szkoleniowe. Wideo reklamowe przygotowuję pod konkretne miejsce emisji, od spotów do social mediów po materiały do kampanii online. Od nagrania po montaż, dostajesz gotowy materiał do publikacji.",
-    forWhom: [
-      "Firmy budujące obecność w social media",
-      "Marki e-commerce (wideo produktowe)",
-      "Organizatorzy eventów (recap video)",
-      "Trenerzy i edukatorzy (kursy, webinary)",
-      "Startupy (pitch video, demo)",
-    ],
-    icon: (
-      <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h1.5C5.496 19.5 6 18.996 6 18.375m-2.625 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-1.5A1.125 1.125 0 0118 18.375M20.625 4.5H3.375m17.25 0c.621 0 1.125.504 1.125 1.125M20.625 4.5h-1.5C18.504 4.5 18 5.004 18 5.625m3.75 0v1.5c0 .621-.504 1.125-1.125 1.125M3.375 4.5c-.621 0-1.125.504-1.125 1.125M3.375 4.5h1.5C5.496 4.5 6 5.004 6 5.625m-2.625 0v1.5c0 .621.504 1.125 1.125 1.125m0 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125m1.5-3.75C5.496 8.25 6 7.746 6 7.125v-1.5M4.875 8.25C5.496 8.25 6 8.754 6 9.375v1.5m0-5.25v5.25m0-5.25C6 5.004 6.504 4.5 7.125 4.5h9.75c.621 0 1.125.504 1.125 1.125m1.125 2.625h1.5m-1.5 0A1.125 1.125 0 0118 7.125v-1.5m1.125 2.625c-.621 0-1.125.504-1.125 1.125v1.5m2.625-2.625c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125M18 5.625v5.25M7.125 12h9.75m-9.75 0A1.125 1.125 0 016 10.875M7.125 12C6.504 12 6 12.504 6 13.125m0-2.25C6 11.496 5.496 12 4.875 12M18 10.875c0 .621-.504 1.125-1.125 1.125M18 10.875c0 .621.504 1.125 1.125 1.125m-2.25 0c.621 0 1.125.504 1.125 1.125m-12 5.25v-5.25m0 5.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125m-12 0v-1.5c0-.621-.504-1.125-1.125-1.125M18 18.375v-5.25m0 5.25v-1.5c0-.621.504-1.125 1.125-1.125M18 13.125v1.5c0 .621.504 1.125 1.125 1.125M18 13.125c0-.621.504-1.125 1.125-1.125M6 13.125v1.5c0 .621-.504 1.125-1.125 1.125M6 13.125C6 12.504 5.496 12 4.875 12m-1.5 0h1.5m-1.5 0c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125M19.125 12h1.5m0 0c.621 0 1.125.504 1.125 1.125v1.5c0 .621-.504 1.125-1.125 1.125m-17.25 0h1.5m14.25 0h1.5" />
-      </svg>
-    ),
-    // Piątka na evencie: ludzie zamiast sprzętu i zamiast planszy z tytułem filmu
-    // (Marcin, 04.08.2026: „to gdzie dają sobie piątkę jest po wejściu na usługę,
-    // przy tekście"). Poprzednio kadr z reelsa.
-    heroImage: "/images/galeria/eventy/event-03-integracja-przybicie-piatki.jpg",
-    price: "od 400 zł netto",
-    process: [
-      { num: 1, title: "Concept", desc: "Cel, format, platforma docelowa" },
-      { num: 2, title: "Nagranie", desc: "Ujęcia, światło i dźwięk" },
-      { num: 3, title: "Montaż", desc: "Cięcie, kolor, napisy, muzyka" },
-      { num: 4, title: "Dostawa", desc: "Gotowe materiały w 21 dni" },
-    ],
-    pricingBlurb:
-      "Wycena zależy od czasu nagrania oraz długości i złożoności finalnego materiału: od krótkiego teasera po kilkuminutowy film. Przy regularnych potrzebach wideo można ustalić wolumen na cały rok, z rezerwacją terminów i ceną zamrożoną na ten okres.",
-    priceFaqQuestion: "Ile kosztuje film promocyjny dla firmy?",
-    priceFaqIntro: "Produkcja wideo zaczyna się",
-    faqs: [
-      { q: "Czy montujesz też materiał z telefonu?", a: "Tak, jeśli masz surowe nagrania z telefonu, mogę je zmontować (cięcie, kolor, napisy, muzyka)." },
-      { q: "W jakich formatach dostarczasz wideo?", a: "MP4 w rozdzielczości do 4K. Formaty: 9:16 (Reels/TikTok), 16:9 (YouTube/strona), 1:1 (feed). Dowolna kombinacja." },
-      { q: "Czy mogę zamówić sam montaż bez nagrywania?", a: "Tak, wystarczy przesłać surowe pliki. Wycena zależy od długości i złożoności finalnego materiału." },
-      { q: "Czy realizujesz wideo reklamowe i spoty?", a: "Tak, krótkie filmy reklamowe pod kampanie w social mediach i online (15-60 s). Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 do nagrań, obiektywy od 16 do 200 mm, oświetlenie ciągłe LED Godox, dźwięk Rode Wireless PRO, VideoMicro II i rejestrator Zoom oraz dron DJI do ujęć z powietrza. Sprzęt pozwala nagrać i zmontować materiał od reelsa po dłuższy film." },
-    ],
-    seo: {
-      title: "Wideo dla firm i filmy korporacyjne | Szabunia",
-      description: "Filmy o firmie, reelsy, wywiady i relacje z eventów. Nagranie i montaż u jednego twórcy. Poznań i cała Polska.",
+      title: "Fotografia i wideo wizerunkowe dla firm, Poznań | Szabunia",
+      description: "Portrety biznesowe, headshoty zespołu i film wizerunkowy. Sesja w studiu albo mobilne studio w Twoim biurze. Poznań i cała Polska.",
     },
   },  {
     slug: "fotografia-produktowa",
     h2Process: "Jak wygląda sesja packshotowa",
-    h2Faq: "Packshoty: najczęstsze pytania",
-    h1: "Packshot i fotografia produktowa",
+    // Zmienione 10.08.2026: „packshoty" ZOSTAJE, bo odpowiada za istotną część
+    // ruchu organicznego na tej usłudze, ale wchodzi w nową nazwę usługi zamiast
+    // stać obok niej (decyzja Marcina).
+    h2Faq: "Packshoty i fotografia produktowa: najczęstsze pytania",
+    h1: "Fotografia i wideo produktowe",
     galleryCategory: "produktowe",
     extraGallery: {
+      // Href zdjęty 10.08.2026: prowadził na usuniętą podstronę „wideo marketing".
+      // Wideo produktowe jest dziś zakresem tej usługi, więc pasek prowadzi
+      // do filtrowanej galerii (/galeria?kat=wideo-produktowe).
       category: "wideo-produktowe",
       ctaLabel: "Zobacz realizacje wideo",
-      href: "/uslugi/wideo-marketing",
     },
     title: "Fotografia produktowa",
     subtitle:
-      "Packshoty na białym tle z retuszem w cenie, zdjęcia kreatywne i aranżacje pod e-commerce, katalogi i social media.",
+      "Packshoty na białym tle z retuszem w cenie, zdjęcia kreatywne i wideo produktowe pod e-commerce, katalogi i social media.",
+    // Lead przepisany 10.08.2026 (pakiet 4, wersja zatwierdzona przez Marcina).
+    // Retusz w cenie wyszedł z siódmej pozycji FAQ do leadu, bo to jedyny
+    // element tej strony, który jest twardą przewagą, a nie opisem usługi.
+    //
+    // ⚠ BEZ porównania do konkurencji („w przeciwieństwie do wielu studiów…").
+    // Decyzja Marcina: mówimy, CO klient dostaje, zamiast twierdzić coś o cudzych
+    // cennikach, których nie znamy. Ta sama zasada obowiązuje w FAQ o retuszu.
+    //
+    // ⚠ Volvo NIE jest nazwane, mimo trzech kadrów w galerii (`produkt-22/23/24`).
+    // Sprawdzone 10.08.2026: nazwa nie występuje w logotypach, portfolio ani
+    // w opisach alternatywnych, więc nie ma źródła na relację klienta.
     description:
-      "Zdjęcia produktowe to fundament sprzedaży online. Tworzę packshoty na czystym białym tle (marketplace), zdjęcia kreatywne z aranżacją (social media, reklamy) oraz zdjęcia katalogowe. Realizuję też fotografię reklamową pod konkretną kampanię: od internetu i social mediów po druk i outdoor. Pracuję w studiu z pełnym zapleczem oświetleniowym. Każde zdjęcie dostajesz z retuszem w cenie: produkt precyzyjnie wycięty z tła, czyste białe tło zgodne z wymogami Allegro i Amazon, a na życzenie przezroczyste tło (PNG).",
-    forWhom: [
-      "Sklepy internetowe i marketplace'y",
-      "Marki kosmetyczne i modowe",
-      "Producenci żywności i napojów",
-      "Firmy technologiczne (elektronika, gadżety)",
-      "Agencje reklamowe i domy mediowe",
-    ],
+      "W sklepie internetowym zdjęcie jest jedynym, czego klient może dotknąć. Fotografuję produkty na białym tle do kart produktowych i marketplace\'ów oraz kreatywnie, z aranżacją, do reklam i social mediów. Retusz jest w cenie każdego zdjęcia: produkt wycięty z tła, czyste białe tło zgodne z wymogami Allegro i Amazon oraz korekta kolorów. Nie doliczam osobnej pozycji za obróbkę. Fotografowałem produkty dla Artech Group, marek odzieżowych, producentów części i lokali gastronomicznych.",
+    applications: {
+      heading: "Co fotografuję",
+      items: [
+        "Packshoty na białym tle",
+        "Produkty w aranżacji",
+        "Zdjęcia reklamowe",
+        "Moda i odzież",
+        "Kosmetyki i biżuteria",
+        "Jedzenie i napoje",
+        "Części i produkty techniczne",
+        "Wideo produktowe",
+      ],
+      usesHeading: "Gdzie te zdjęcia pracują",
+      uses: [
+        "Karty produktów w sklepie",
+        "Allegro, Amazon i inne marketplace\'y",
+        "Katalogi i materiały sprzedażowe",
+        "Reklamy i kampanie",
+        "Social media",
+        "Strona marki",
+      ],
+    },
+    scope: {
+      items: [
+        {
+          title: "Packshoty na białym tle",
+          desc: "Powtarzalny setup i ta sama stylistyka między partiami. 30 do 50 produktów dziennie. Czyste białe tło zgodne z wymogami Allegro i Amazon, na życzenie przezroczyste PNG.",
+        },
+        {
+          title: "Retusz w cenie każdego zdjęcia",
+          desc: "Wycięcie produktu z tła, korekta kolorów, usunięcie drobnych skaz. Bez osobnej pozycji na fakturze.",
+        },
+        {
+          title: "Produkty w aranżacji",
+          desc: "Scenografia, rekwizyty, stylizacja i światło pod charakter marki. 8 do 15 ujęć dziennie, bo każde wymaga osobnego ustawienia.",
+        },
+        {
+          // Pole eksploatacji zamiast kwot: cennik v3 §7 wprost zakazuje
+          // podawania stawek jednostkowych na powierzchniach klienckich.
+          title: "Zdjęcia reklamowe",
+          desc: "Koncepcja, moodboard i aranżacja pod konkretną kampanię. Wyceniam według pola eksploatacji: inaczej na social media, inaczej do druku i na outdoor.",
+        },
+        {
+          title: "Jedzenie i napoje",
+          desc: "Dania, produkty spożywcze i menu. Ten sam warsztat co przy produktach, tylko z krótszym oknem na kadr.",
+        },
+        {
+          title: "Wideo produktowe",
+          desc: "Krótkie filmy pokazujące produkt, jego użycie i detale. Formaty pionowe i poziome, zależnie od kanału.",
+        },
+        {
+          title: "Logistyka",
+          desc: "Produkty do 20×20 cm przyślij kurierem. Przy większych przyjeżdżam ze studiem mobilnym albo rezerwuję studio zewnętrzne.",
+        },
+      ],
+    },
     icon: (
       <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
@@ -470,114 +532,55 @@ const serviceCategoriesRaw: ServiceData[] = [
     priceFaqQuestion: "Ile kosztuje packshot i sesja produktowa?",
     priceFaqIntro: "Sesje produktowe zaczynają się",
     priceFaqSuffix: " i tyle wynosi też minimalna wartość zamówienia",
+    // Kolejność 10.08.2026 (pakiet 4): cena, potem retusz jako druga najmocniejsza
+    // rzecz na tej stronie, dalej skala zlecenia, logistyka i technikalia.
+    //
+    // USUNIĘTE: „Ile produktów dziennie" w starej formie zostało scalone z tym
+    // samym konkretem w „Zakresie realizacji", a odpowiedź o retuszu straciła
+    // porównanie do konkurencji („w przeciwieństwie do wielu studiów, gdzie
+    // retusz to dodatkowy koszt"). Decyzja Marcina: mówimy, co klient dostaje,
+    // nie co robią inni. Nie przywracać.
     faqs: [
-      { q: "Czy mogę przysłać produkty kurierem?", a: "Tak, przyjmuję przesyłki do studia. Koszt przesyłki zwrotnej ustalamy przy wycenie, zależnie od gabarytu i liczby pozycji." },
-      { q: "Jakie formaty plików otrzymam?", a: "JPEG w pełnej rozdzielczości + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku." },
-      { q: "Ile produktów dziennie jesteś w stanie zrealizować?", a: "Packshoty na białym tle: 30-50 produktów/dzień. Zdjęcia kreatywne: 8-15 ujęć/dzień." },
-      { q: "Czym różni się fotografia produktowa od fotografii reklamowej?", a: "Fotografia produktowa pokazuje produkt wprost, packshot na białym tle do sklepu czy katalogu. Fotografia reklamowa buduje wokół produktu historię: aranżacja, rekwizyty, światło pod konkretną kampanię. Zdjęcia reklamowe wyceniam według pola eksploatacji, inaczej na social media, inaczej do druku i na outdoor." },
-      { q: "Czy retusz jest wliczony w cenę zdjęcia?", a: "Tak. Każdy packshot dostajesz wyretuszowany: czyste białe tło, produkt precyzyjnie wycięty z tła, korekta kolorów i usunięcie drobnych skaz. Nie dopłacasz za obróbkę osobno, w przeciwieństwie do wielu studiów, gdzie retusz to dodatkowy koszt." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Aparat Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce." },
+      { q: "Czy retusz jest wliczony w cenę zdjęcia?", a: "Tak. Każdy packshot dostajesz wyretuszowany: czyste białe tło, produkt precyzyjnie wycięty z tła, korekta kolorów i usunięcie drobnych skaz. Obróbka nie jest osobną pozycją na fakturze." },
+      { q: "Ile produktów zrobisz w jeden dzień?", a: "Packshoty na białym tle: 30 do 50 produktów. Zdjęcia w aranżacji: 8 do 15 ujęć, bo każde wymaga osobnego ustawienia." },
+      { q: "Czy mogę przysłać produkty kurierem?", a: "Tak, produkty do 20×20 cm przyjmuję do studia. Przy większych przyjeżdżam ze studiem mobilnym albo rezerwujemy studio zewnętrzne. Koszt przesyłki zwrotnej ustalamy przy wycenie." },
+      { q: "Czym różni się fotografia produktowa od reklamowej?", a: "Produktowa pokazuje produkt wprost: packshot do sklepu albo katalogu. Reklamowa buduje wokół niego historię, z aranżacją i rekwizytami, pod konkretną kampanię. Reklamowe wyceniam według pola eksploatacji, bo inna jest wartość zdjęcia na Instagramie, a inna na billboardzie." },
+      { q: "Jakie pliki dostanę?", a: "JPEG w pełnej rozdzielczości plus wersja pod stronę. Na życzenie PNG z przezroczystym tłem i TIFF do druku." },
+      { q: "Czy realizujesz wideo produktowe?", a: "Tak, krótkie filmy pokazujące produkt, jego użycie i detale, a także spoty pod kampanie w social mediach. Przykłady są w pasku wideo wyżej." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Ten sam zestaw nagrywa wideo produktowe. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce, nawet pół roku później." },
     ],
     portfolioSlug: "artech-fotografia-produktowa",
     seo: {
-      title: "Packshot i fotografia produktowa, Poznań | Szabunia",
+      title: "Fotografia i wideo produktowe, Poznań | Szabunia",
       description: "Packshoty na białym tle i zdjęcia produktowe w studiu w Poznaniu. E-commerce, katalogi, social media. Retusz w cenie zdjęcia.",
     },
   },  {
-    slug: "zdjecia-wideo-z-drona",
-    h2Process: "Jak wygląda realizacja z dronem",
-    h2Faq: "Zdjęcia z drona: najczęstsze pytania",
-    h1: "Zdjęcia i wideo z drona dla firm",
-    galleryCategory: "dron",
-    // Bez drugiego paska. Pasek „wnętrza i hale" stał tu od 04.08.2026 i zniknął
-    // tego samego dnia na prośbę Marcina: „na zdjęciach z drona nie wyglądają dobrze
-    // te wnętrza i hale, można to usunąć stamtąd". Kadry z wnętrz obok ujęć
-    // z powietrza czytały się jak z innej strony. UWAGA: zapowiadanego spięcia
-    // zwrotnego NIE MA — jedyny link do tej podstrony w `services.tsx` idzie
-    // z pakietów foto-wideo, nie z linii obiektowej (sprawdzone 05.08.2026,
-    // audyt PELNY2608-61). Linia obiektowa nie ma dziś żadnego linku wychodzącego.
-    videoId: "4INLtKcKcZk",
-    videoTitle: "Film z eventu dla Woohoo z ujęciami z drona",
-    videoNote: "Film z eventu dla Woohoo. Ujęcia z drona łączą się tu z materiałem z poziomu ziemi w jeden spójny film.",
-    title: "Zdjęcia i wideo z drona",
-    subtitle:
-      "Ujęcia z powietrza: tereny, place, eventy i krajobraz. Foto i wideo w 4K.",
-    description:
-      "Perspektywa z lotu ptaka pokazuje skalę i kontekst, których nie odda zdjęcie z poziomu ziemi. Realizuję zdjęcia i wideo z drona: budynki i obiekty firmowe, hale i magazyny, tereny i place, inwestycje budowlane, architekturę oraz ujęcia eventowe. Przy dużych obiektach robię komplet ujęć: bryła, dach, otoczenie i drogi dojazdowe. Dostarczam gotowe zdjęcia, zmontowane wideo 4K albo same przebitki do montażu własnego. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona mogę też połączyć z sesją naziemną, dzięki czemu z jednego dnia powstaje spójny komplet zdjęć i wideo.",
-    forWhom: [
-      "Organizatorzy wydarzeń plenerowych (skala, ujęcia otwierające, kadr z góry)",
-      "Hotele, ośrodki i obiekty turystyczne",
-      "Firmy potrzebujące ujęcia terenu albo placu (bez dokumentacji obiektu)",
-      "Organizatorzy eventów (skala wydarzenia)",
-      "Agencje nieruchomości i marketingu",
-    ],
-    icon: (
-      <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-        <circle cx="6" cy="6" r="2.5" />
-        <circle cx="18" cy="6" r="2.5" />
-        <circle cx="6" cy="18" r="2.5" />
-        <circle cx="18" cy="18" r="2.5" />
-        <rect x="9.5" y="9.5" width="5" height="5" rx="1" />
-        <path strokeLinecap="round" d="M7.8 7.8l1.7 1.7M16.2 7.8l-1.7 1.7M7.8 16.2l1.7-1.7M16.2 16.2l-1.7-1.7" />
-      </svg>
-    ),
-    // Cennik dronowy v3 (2026-07-29): samodzielna linia usług od 700 zł (przebitki 4K).
-    // Sprzedajemy deliverable, nie czas lotu — bez „1h lotu w cenie".
-    // Jeden biurowiec w zieleni zamiast panoramy całego miasta (Marcin, 04.08.2026).
-    // Panorama pokazywała miasto, a nie obiekt klienta, więc nie mówiła nic o tym,
-    // co ta usługa robi dla firmy. Ten sam kadr jest na kafelku w Usługach.
-    heroImage: "/images/galeria/dron/dron-04-biurowiec-poznan.jpg",
-    price: "od 700 zł netto",
-    process: [
-      { num: 1, title: "Ustalenia i zgody", desc: "Ustalamy ujęcia, lokalizację i ewentualne strefy lotów" },
-      { num: 2, title: "Lot", desc: "Zdjęcia i wideo 4K z powietrza" },
-      { num: 3, title: "Postprodukcja", desc: "Obróbka zdjęć lub montaż wideo" },
-      { num: 4, title: "Dostawa", desc: "Zdjęcia w 14 dni, wideo do 21 dni" },
-    ],
-    pricingBlurb:
-      "Wycena zależy od tego, czy potrzebujesz samych zdjęć, materiału wideo, czy kompletu z jednej sesji, a także od liczby lokalizacji do przelotu. Latam dronem DJI Mini 5 Pro, mam certyfikat operatora A1/A3 i ubezpieczenie OC, a formalności i koordynację lotów biorę na siebie.",
-    priceFaqQuestion: "Ile kosztuje film z drona?",
-    priceFaqIntro: "Zdjęcia i wideo z drona zaczynają się",
-    faqs: [
-      { q: "Czy loty dronem są legalne i ubezpieczone?", a: "Tak. Mam certyfikat A1/A3 oraz ubezpieczenie OC operatora drona. W strefach kontrolowanych uzyskuję wymagane zgody przed lotem." },
-      // TRESC2608-53 (04.08.2026): serwis obiecywał bezterminowe darmowe przekładanie,
-      // cennik v3 (:388) mówi „wracam raz w ramach ustalonej kwoty, kolejne podejście
-      // 300 zł plus dojazd". Dwa inne miejsca serwisu (llms.txt:36 i FAQ obiektowe)
-      // miały wersję zgodną z kanonem, więc rozjazd był lokalny.
-      { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji wracam raz w ramach ustalonej kwoty; kolejne podejście to 300 zł plus dojazd." },
-      { q: "W jakiej jakości dostarczasz materiał?", a: "Wideo do 4K, zdjęcia w pełnej rozdzielczości. Formaty dobieram pod stronę WWW i social media (poziome i pionowe)." },
-      { q: "Czy mogę połączyć drona z sesją naziemną?", a: "Tak. Dron działa jako dodatek do eventu, sesji produktowej lub wizerunkowej: kilka dodatkowych zdjęć lub ujęć wideo z powietrza przy okazji innej sesji. Z jednej sesji powstaje spójny komplet." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro do zdjęć i wideo w 4K. Mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Materiał z drona łączę z naziemnym zestawem Canon, gdy potrzebny jest komplet foto i wideo." },
-    ],
-    portfolioSlug: "woohoo-autopay",
-    seo: {
-      title: "Zdjęcia i wideo z drona dla firm | Szabunia",
-      // TRESC2608-22 + TRESC2608-38 (04.08.2026), jedna linia domyka oba. Poprzedni opis
-      // miał 157 znaków przy progu 155 i obiecywał „dron w cenie pakietów hybrydowych",
-      // czego na tej podstronie nie ma: fraza „w cenie" nie pada tu ani razu.
-      // UWAGA: `llms.txt:19` mówi dziś „Dron w cenie każdego pakietu", czyli
-      // dokładnie odwrotnie niż ten komentarz twierdził („+200 zł"). Rozjazd jest
-      // otwarty jako decyzja D4 i NIE został tu rozstrzygnięty (audyt PELNY2608-27).
-      // Poprzedni opis sprzedawał też zakres sekcji 8 cennika (budynki, hale, magazyny),
-      // czyli linii obiektowej, przy kotwicy o 200 do 1 200 zł niższej.
-      description: "Ujęcia 4K terenów, placów, inwestycji i eventów. Certyfikat A1/A3 i OC operatora. Dron łączę z sesją naziemną. Poznań i cała Polska.",
-    },
-  },
-  {
-    slug: "wnetrza-obiekty-architektura",
+    // Slug zmieniony 10.08.2026 z `wnetrza-obiekty-architektura`. Stary adres
+    // nie obejmował ani przemysłu, ani drona, a oba są dziś rdzeniem tej usługi.
+    // Przekierowanie 301 ze starego adresu (i z usuniętego `zdjecia-wideo-z-drona`)
+    // stoi w next.config.ts.
+    slug: "nieruchomosci-przemysl",
     h2Process: "Jak wygląda sesja obiektu",
-    h2Faq: "Fotografia obiektów: najczęstsze pytania",
-    h1: "Fotografia wnętrz, obiektów i architektury",
+    h2Faq: "Nieruchomości i przemysł: najczęstsze pytania",
+    h1: "Fotografia i wideo nieruchomości i przemysłu",
     // Zamienione 04.08.2026, gdy do public/images/galeria/wnetrza trafiło 12 kadrów
     // (magazyn H&M/Sellpy, lokal Yes Butcher, lokal Domu). Wcześniej odwrotnie:
     // główny pasek pokazywał bryły z powietrza, bo wnętrz w serwisie nie było wcale,
     // a podstrona o wnętrzach pokazywała sześć budynków z lotu ptaka.
     galleryCategory: "wnetrza",
-    // Bez drugiego paska. Pasek „obiekty i architektura" (te same pliki co galeria
-    // dronowa) stał tu do 04.08.2026 i zniknął na prośbę Marcina: „nie potrzeba
-    // przykładów z galerii Obiekty i architektura". Podstrona ma teraz jeden pasek
-    // z wnętrzami i film z hali Artechu, i tyle. Ujęcia z powietrza pokazuje
-    // czwarty rząd galerii wnętrz oraz osobna usługa dronowa.
+    // DRUGI PASEK: przywrócony i ZATWIERDZONY przez Marcina 10.08.2026.
+    // Kontekst historyczny: 04.08.2026 pasek został stąd zdjęty („nie potrzeba
+    // przykładów z galerii Obiekty i architektura"), a z podstrony dronowej
+    // zdjęto pasek z wnętrzami. Obie decyzje miały sens, gdy dron był OSOBNĄ
+    // usługą i każda strona pokazywała swoje.
+    // Od 10.08 dron nie ma własnej podstrony i wchodzi tutaj. Decyzja Marcina:
+    // „galeria ujęć z powietrza powinna zostać na tej stronie, nie jako promocja
+    // osobnej usługi dronowej, tylko jako element oferty nieruchomości i przemysłu".
+    extraGallery: {
+      category: "dron",
+      ctaLabel: "Zobacz ujęcia z drona",
+      sub: "Bryłę, plac manewrowy i otoczenie obiektu pokazuję z powietrza. Latam dronem DJI Mini 5 Pro, mam certyfikat operatora A1/A3 i ubezpieczenie OC, a koordynację lotu w strefach kontrolowanych biorę na siebie.",
+    },
     // Artech Group: jedyny materiał w portfolio nakręcony WEWNĄTRZ zakładu
     // produkcyjnego, a nie z powietrza. Do czasu wrzucenia zdjęć wnętrz jest to
     // na tej podstronie jedyny dowód, że wnętrza obiektów faktycznie fotografuję
@@ -586,7 +589,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     videoTitle: "Artech Group: film z hali produkcyjnej",
     videoNote:
       "Hala Artech Group od środka: park maszynowy, obróbka CNC i to, jak zakład naprawdę pracuje. Zakład da się pokazać tak samo zdjęciami, jak i filmem, w tym samym dniu zdjęciowym.",
-    title: "Wnętrza, obiekty i architektura",
+    title: "Nieruchomości i przemysł",
     // Podtytuł przepisany 04.08.2026 razem z opisem. Poprzedni („Dwie perspektywy
     // z jednego planu: z powietrza i z poziomu ziemi") stawiał drona na pierwszym
     // miejscu, a podstrona pokazuje dziś wnętrza i film z hali. Ten sam tekst leci
@@ -597,17 +600,89 @@ const serviceCategoriesRaw: ServiceData[] = [
     // OBIEKT PODSTAWOWY to do 8 ujęć z powietrza, blok wnętrz to osobne 600 zł.
     // Nowy podtytuł stawia powietrze jako punkt wyjścia, a ziemię i wnętrza jako
     // dokładkę. `heroPriceLabel` NIE ruszony: to komunikat cenowy i osobna decyzja.
+    // Przepisany 10.08.2026 (pakiet 4). Poprzedni („Hale, lokale użytkowe
+    // i wnętrza obiektów. Zaczynam od ujęć z powietrza, kadry z poziomu ziemi
+    // i wnętrza dokładam w tym samym dniu zdjęciowym") powstał 04.08, gdy dron
+    // był OSOBNĄ usługą, i tłumaczył kolejność moich czynności, która dla
+    // klienta nic nie znaczy. Był też najdłuższy z czterech podtytułów, przez
+    // co kafelek na mobile był o 21 px wyższy od pozostałych.
+    // Nowy wymienia oba segmenty z nazwy usługi i mówi o rezultacie.
     subtitle:
-      "Hale, lokale użytkowe i wnętrza obiektów. Zaczynam od ujęć z powietrza, kadry z poziomu ziemi i wnętrza dokładam w tym samym dniu zdjęciowym.",
+      "Hale, zakłady, biurowce i inwestycje. Z powietrza, z poziomu ziemi i od środka, w jednym dniu zdjęciowym.",
+    // Lead przepisany 10.08.2026 (pakiet 4, wersja zatwierdzona przez Marcina).
+    // Poprzedni otwierał zdaniem o hali, czyli sprzedawał TYLKO przemysł, mimo
+    // że usługa nazywa się „Nieruchomości i przemysł". Nowy otwiera problemem
+    // wspólnym dla obu segmentów: obiekt jest oceniany zdalnie, z ogłoszenia
+    // albo z prezentacji, zanim ktokolwiek go zobaczy. Insight o hali od środka
+    // zostaje, ale jako trzeci poziom widzenia, nie jako całość.
+    //
+    // Dwa dowody, po jednym na segment: Artech Group daje przemysł, Yes Butcher
+    // z Michelinem daje wnętrza komercyjne i jakość. H&M/Sellpy świadomie NIE
+    // dopisany: lead ma nie być listą klientów (decyzja Marcina).
     description:
-      "Halę widać dopiero od środka: ile naprawdę jest miejsca między regałami, jak szeroki jest ciąg komunikacyjny, czy w lokalu da się posadzić trzydzieści osób. Tego nie pokaże żadne ujęcie z powietrza. Fotografuję obiekty od środka i z zewnątrz w jednym dniu zdjęciowym: wnętrze hali, lokalu albo biura, elewację i wjazd z poziomu ziemi, a gdy trzeba pokazać bryłę i otoczenie, dokładam ujęcia z powietrza. Wnętrza, które fotografowałem dla steakhouse\'u Yes Butcher! w Starych Koszarach, trafiły na profil restauracji w przewodniku Michelin. Każde zdjęcie przechodzi retusz architektoniczny: korekta perspektywy, prostowanie linii, czyszczenie kadru. Pliki dostajesz w dwóch wersjach, do druku i na stronę WWW.",
-    forWhom: [
-      "Generalni wykonawcy hal i obiektów przemysłowych",
-      "Deweloperzy mieszkaniowi i komercyjni",
-      "Zarządcy i agencje nieruchomości komercyjnych",
-      "Producenci z własnymi zakładami",
-      "Hotele, gastronomia i przestrzenie eventowe",
-    ],
+      "Inwestycja, hala albo lokal sprzedaje się zdjęciami, zanim ktokolwiek pojedzie je obejrzeć. Fotografuję obiekty z trzech poziomów w jednym dniu zdjęciowym: z powietrza widać skalę i otoczenie, z poziomu ziemi bryłę i wjazd, a od środka to, czego z góry nie widać nigdy. Ile naprawdę jest miejsca między regałami, jak szeroki jest ciąg komunikacyjny, czy w lokalu da się posadzić trzydzieści osób. Pracuję dla deweloperów, agencji nieruchomości, zarządców biurowców, hoteli, architektów i zakładów produkcyjnych. Dla Artech Group fotografowałem zakład produkcyjny, a wnętrza steakhouse\'u Yes Butcher! w Starych Koszarach trafiły na profil restauracji w przewodniku Michelin.",
+    applications: {
+      heading: "Co fotografuję",
+      // Hale i zakłady NA POCZĄTKU listy, tą samą zasadą co kolejność galerii:
+      // klient przemysłowy ma zobaczyć swój obiekt w pierwszej linii, a nie
+      // po czterech pozycjach o mieszkaniówce.
+      items: [
+        "Hale i magazyny",
+        "Zakłady produkcyjne",
+        "Biurowce i powierzchnie komercyjne",
+        "Inwestycje mieszkaniowe",
+        "Lokale gastronomiczne i hotele",
+        "Place, tereny i infrastruktura",
+        "Postęp budowy",
+      ],
+      usesHeading: "Gdzie ten materiał pracuje",
+      uses: [
+        "Oferty najmu i sprzedaży",
+        "Strona inwestycji i materiały dla inwestorów",
+        "Prezentacje, katalogi i przetargi",
+        "Dokumentacja postępu budowy",
+        "Strona firmy produkcyjnej",
+        "Portale ogłoszeniowe",
+      ],
+    },
+    scope: {
+      items: [
+        {
+          // ⚠ BEZ KWOTY. Kwota 900 zł stoi już w kotwicy, w pytaniu cenowym
+          // i w pytaniu „tylko dron". Czwarte powtórzenie nic nie dodaje,
+          // a sekcja zakresu ma mówić, CO klient dostaje, nie ile to kosztuje
+          // (decyzja Marcina, 10.08.2026).
+          //
+          // ⚠ BEZ „calowej matrycy". Sprawdzone 10.08.2026: rozmiar matrycy nie
+          // występuje w ŻADNYM dokumencie kanonicznym. Kanon potwierdza 50 Mpix
+          // (wycena SCALIO 2026-07-28 i WERANDA 2026-08-03) oraz sub-249 g,
+          // kategorię otwartą i certyfikat A1/A3 (faq_klienta.md:43 i :201).
+          // Nie dopisywać rozmiaru matrycy bez źródła.
+          title: "Ujęcia z powietrza",
+          desc: "Bryła, plac manewrowy, otoczenie i układ terenu. Dron DJI Mini 5 Pro, 50 Mpix.",
+        },
+        {
+          title: "Kadry z poziomu ziemi",
+          desc: "Elewacja, wjazd, detal konstrukcji. Praca ze statywu i ze światłem zastanym, żeby budynek wyglądał jak w rzeczywistości, a nie jak wizualizacja.",
+        },
+        {
+          title: "Wnętrza",
+          desc: "Blok do 10 ujęć w jednym obiekcie: hala od środka, magazyn, lokal, biuro. Do dołożenia do sesji obiektu albo do zamówienia osobno.",
+        },
+        {
+          title: "Wideo obiektu",
+          desc: "Film o zakładzie, przelot nad inwestycją, materiał łączący ujęcia z powietrza z naziemnymi. Do prezentacji, na stronę i do oferty najmu.",
+        },
+        {
+          title: "Dokumentacja postępu budowy",
+          desc: "Stały punkt, stała pora, powtarzalny kadr. Ujęcia składają się w sekwencję, a nie w zbiór przypadkowych zdjęć.",
+        },
+        {
+          title: "Retusz architektoniczny",
+          desc: "Korekta perspektywy, prostowanie linii, czyszczenie kadru. Pliki dostajesz w dwóch wersjach: do druku i pod stronę.",
+        },
+      ],
+    },
     icon: (
       <svg className="w-5 h-5 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
@@ -621,36 +696,54 @@ const serviceCategoriesRaw: ServiceData[] = [
     heroImage: "/images/galeria/wnetrza/wnetrze-03-hala-bramki-wejsciowe.jpg",
     price: "od 900 zł netto",
     heroPriceLabel: "pakiety od 900 zł netto",
-    wide: true,
     process: [
       { num: 1, title: "Ustalenia", desc: "Co ma być widać: bryła, elewacja, wnętrza, kontekst lokalizacji" },
       { num: 2, title: "Zgody", desc: "Strefę lotu sprawdzam i koordynuję przed potwierdzeniem daty" },
-      { num: 3, title: "Dzień zdjęciowy", desc: "Ujęcia z powietrza i z poziomu ziemi, statyw i światło zastane" },
-      { num: 4, title: "Dostawa", desc: "Retusz architektoniczny, pliki do druku i pod www" },
+      // Krok 3 przepisany 10.08.2026: „powietrze, ziemia i wnętrza w jednym
+      // wyjeździe" niesie realną korzyść (jeden dojazd, jedno przerwanie pracy
+      // zakładu), a poprzednia wersja wymieniała sam sprzęt.
+      { num: 3, title: "Dzień zdjęciowy", desc: "Powietrze, ziemia i wnętrza w jednym wyjeździe" },
+      { num: 4, title: "Dostawa", desc: "Retusz architektoniczny, pliki do druku i pod www w 14 dni, film w 21" },
     ],
+    // Zdanie o tańszym wariancie dronowym USUNIĘTE 10.08.2026 decyzją Marcina.
+    // Historia: przy scalaniu usług dopisałem tu „ujęcia z powietrza od 700 zł",
+    // bo taka była kotwica usuniętej usługi dronowej i bez tego słowo „od 900"
+    // byłoby nieprawdziwe. Marcin rozstrzygnął to inaczej i lepiej: zamiast
+    // tłumaczyć tańszy wariant, PODNIÓSŁ ujęcia z powietrza do 900 zł netto.
+    // Jedna kwota na usługę, zero drabinek — zgodnie z decyzją z 04.08.2026.
     pricingBlurb:
       "Wycena zależy od liczby ujęć i od tego, czy dochodzą kadry z poziomu ziemi oraz blok wnętrz. Drugi obiekt tego samego typu w tym samym dniu jest tańszy, bo profil korekcji perspektywy jest już gotowy. Przy obiektach w strefach kontrolowanych koordynację lotu biorę na siebie.",
     priceFaqQuestion: "Ile kosztuje sesja obiektu?",
     priceFaqIntro: "Pakiety obiektowe zaczynają się",
+    // Kolejność 10.08.2026 (pakiet 4, zatwierdzona przez Marcina): od zakresu
+    // dostawy, przez wariant „tylko dron" i koszt drugiego obiektu, po zgody,
+    // termin, wnętrza, pogodę i sprzęt. Pytanie cenowe wchodzi automatycznie
+    // jako pierwsze.
+    //
+    // USUNIĘTE przy przepisywaniu, świadomie:
+    //  - „Czy loty dronem są legalne i ubezpieczone?" — wchłonięte przez pytanie
+    //    „Czy dron poleci nad naszą halą?", gdzie certyfikat i OC padają w tym
+    //    samym zdaniu co odpowiedź na realną obawę klienta.
+    //  - „W jakiej jakości dostarczasz materiał z powietrza?" — treść o surowych
+    //    przebitkach do własnego montażu przeniesiona do wariantów wyceny.
+    //  - „Fotografujesz hale magazynowe i lokale użytkowe pod wynajem?" —
+    //    pokrywa się z listą „Co fotografuję" i z pytaniem o wnętrza.
     faqs: [
-      // TRESC2608-09 (04.08.2026). Tekst zatwierdzony przez Marcina tego dnia i on
-      // rozstrzyga fakt handlowy, nie brief: różnica NIE polega na tym, że dron to
-      // „tylko powietrze", a obiekt dokłada ziemię i retusz. Sesja dronowa od 700 zł
-      // to materiał przebitkowy, sesja obiektu od 900 zł to zdjęcia konkretnego
-      // budynku z powietrza, a ziemia, wnętrza i wideo są dokładką powyżej tej kwoty.
-      // Zdanie zamienne z briefu było błędne i świadomie NIE zostało użyte.
-      { q: "Czym to się różni od zdjęć z drona?", a: "Sesja dronowa od 700 zł to materiał przebitkowy: ujęcia z powietrza, którymi uzupełniasz film, stronę albo ofertę. Sesja obiektu od 900 zł zaczyna się od zdjęć konkretnego budynku lub hali z powietrza i rośnie o to, czego z góry nie widać: kadry z poziomu ziemi, wnętrza, produkcję, film o firmie. Jeśli potrzebujesz samej panoramy terenu, tańsza będzie sesja dronowa." },
-      { q: "Ile ujęć dostanę?", a: "Pakiet podstawowy to do 8 ujęć z powietrza. Kompletny to do 14: osiem z powietrza i sześć z poziomu ziemi. Pełny to do 24 ujęć, z blokiem wnętrz. Każde dodatkowe ujęcie ponad pakiet wyceniam osobno." },
+      { q: "Ile ujęć dostanę?", a: "Pakiet podstawowy to do 8 ujęć z powietrza. Kompletny do 14: osiem z powietrza i sześć z poziomu ziemi. Pełny do 24, z blokiem wnętrz. Każde dodatkowe ujęcie ponad pakiet wyceniam osobno." },
+      // Odpowiedź uproszczona przez Marcina 10.08.2026. Poprzednia zaczynała się
+      // od porównania („tak samo jak sesja obiektu"), zamiast wprost odpowiedzieć
+      // na zadane pytanie.
+      { q: "Potrzebuję tylko ujęć z powietrza, bez wnętrz. Ile to kosztuje?", a: "Tak, same ujęcia z powietrza zaczynają się od 900 zł netto. W podstawowym zakresie fotografuję bryłę obiektu, plac manewrowy i otoczenie. Kadry z poziomu ziemi, wnętrza i film można dołączyć do realizacji zależnie od potrzeb." },
       { q: "Mamy dwa takie same budynki. Płacę dwa razy?", a: "Nie. Drugi obiekt tego samego typu, fotografowany tego samego dnia, jest wyraźnie tańszy, bo profil korekcji perspektywy jest gotowy z pierwszego i postprodukcja idzie szybciej. Warunek to ten sam dzień zdjęciowy. Osobny wyjazd to pełna stawka plus dojazd." },
-      { q: "Czy dron poleci nad naszą halą?", a: "W standardowych lokalizacjach tak, bez dopłat. W strefach kontrolowanych, na przykład w sąsiedztwie lotniska albo jednostki wojskowej, koordynację biorę na siebie i sprawdzam ją przed potwierdzeniem daty. Zgoda bywa terminowa, więc warto zgłosić się z wyprzedzeniem. Jeśli pogoda albo brak zgody uniemożliwi wylot, wracam raz w ramach ustalonej kwoty." },
-      { q: "Kiedy najlepiej fotografować obiekt?", a: "Tuż przed odbiorem albo zaraz po nim. Elewacja jest wtedy czysta, plac jeszcze niezastawiony, a w środku nie ma jeszcze rzeczy najemcy. Przy budowie, którą chcesz dokumentować w czasie, umawiamy stały punkt i stałą porę, żeby ujęcia złożyły się w jedną sekwencję zamiast w zbiór przypadkowych zdjęć." },
-      { q: "Fotografujesz hale magazynowe i lokale użytkowe pod wynajem?", a: "Tak. Przy powierzchni pod wynajem sensowny komplet to bryła i plac manewrowy z powietrza, elewacja i wjazd z poziomu ziemi oraz wnętrze hali albo lokalu. Wszystko z jednego dnia zdjęciowego, bo materiał i tak trafia potem do jednej oferty. Pliki dostajesz w dwóch wersjach: do druku i pod ogłoszenie." },
-      { q: "Czy fotografujesz też wnętrza biur i lokali?", a: "Tak, jako blok wnętrz do 10 ujęć w jednym obiekcie. Pracuję ze światłem zastanym, żeby wnętrze wyglądało jak w rzeczywistości, a nie jak wizualizacja. Blok wnętrz można dołożyć do sesji obiektu albo zamówić osobno." },
-      { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro z calową matrycą 50 Mpix, certyfikat operatora A1/A3 i ubezpieczenie OC. Z poziomu ziemi Canon R6 na statywie, obiektywy szerokie do wnętrz i elewacji." },
+      { q: "Czy dron poleci nad naszą halą?", a: "W standardowych lokalizacjach tak, bez dopłat. Mam certyfikat operatora A1/A3 i ubezpieczenie OC. W strefach kontrolowanych, na przykład przy lotnisku albo jednostce wojskowej, koordynację biorę na siebie i sprawdzam ją przed potwierdzeniem daty. Zgoda bywa terminowa, więc warto zgłosić się z wyprzedzeniem." },
+      { q: "Kiedy najlepiej fotografować obiekt?", a: "Tuż przed odbiorem albo zaraz po nim. Elewacja jest wtedy czysta, plac jeszcze niezastawiony, a w środku nie ma rzeczy najemcy. Przy budowie, którą chcesz dokumentować w czasie, umawiamy stały punkt i stałą porę." },
+      { q: "Fotografujesz też wnętrza biur i lokali?", a: "Tak, jako blok wnętrz do 10 ujęć w jednym obiekcie. Pracuję ze światłem zastanym, żeby wnętrze wyglądało jak w rzeczywistości. Blok można dołożyć do sesji obiektu albo zamówić osobno." },
+      { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji wracam raz w ramach ustalonej kwoty, kolejne podejście to 300 zł plus dojazd." },
+      { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro, 50 Mpix, poniżej 249 g, czyli kategoria otwarta, do tego certyfikat operatora A1/A3 i ubezpieczenie OC. Z poziomu ziemi Canon R6 na statywie, obiektywy szerokie do wnętrz i elewacji." },
     ],
     seo: {
-      title: "Fotografia hal, obiektów i wnętrz, Poznań | Szabunia",
-      description: "Zdjęcia hal, budynków i wnętrz z powietrza i z poziomu ziemi. Retusz architektoniczny, pliki do druku i pod www. Poznań i cała Polska.",
+      title: "Fotografia nieruchomości i przemysłu, Poznań | Szabunia",
+      description: "Zdjęcia i wideo hal, budynków i wnętrz, z powietrza i z poziomu ziemi. Retusz architektoniczny, pliki do druku i pod www. Poznań i cała Polska.",
     },
   },
 ];
@@ -659,48 +752,27 @@ const serviceCategoriesRaw: ServiceData[] = [
 // sekcja Wycena, sitemap). Zmiana tutaj zmienia kolejność wszędzie naraz.
 // TA STAŁA RZĄDZI, nie kolejność bloków w serviceCategoriesRaw wyżej.
 //
-// Kolejność strategiczna, ustawiona 30.07.2026 (decyzja Marcina, na danych z GSC,
-// CRM i cennika v3). Wcześniej: portrety, eventy, wideo, dron, produktowa,
-// zespołowe, pakiety.
-//   1. eventy      — wejście do lejka i faktyczna tożsamość firmy: 10 z 11 realizacji
-//                    referencyjnych to eventy (korekta_pozycjonowania_2026-07.md §1)
-//   2. zespołowe   — zarobek: 211 zł/h na konto po prowizji Useme, najlepsza pozycja
-//                    w cenniku, sprzedawana tej samej osobie z HR co event
-//                    („event jest wejściem, sesja zespołowa jest zarobkiem")
-//   3. portrety    — najwięcej leadów w CRM (27) i 24% zapytań w GSC, więc nie schodzą
-//                    głęboko, ale to rozszerzenie, nie fundament
-//   4. wideo
-//   5. produktowa  — 39% ruchu organicznego, ale poza tabelą rentowności mapy drogowej,
-//                    więc utrzymywana, nie promowana
-//   6. dron        — element pakietów hybrydowych, nie osobna linia
-//   7. pakiety     — jedyna przewaga w Poznaniu i naturalny upsell na event; ostatni
-//                    WYŁĄCZNIE z powodu geometrii siatki, patrz nota niżej
+// Przebudowa na CZTERY USŁUGI, 10.08.2026 (decyzja Marcina, na podstawie
+// „FUNDAMENTY FIRMY.md" i „OFERTA USŁUG.md"). Osiem linii zwinięte do czterech:
+//   eventy + pakiety hybrydowe            → wydarzenia firmowe
+//   portrety + sesje zespołowe + wideo    → wizerunek firmy
+//   obiekty + dron                        → nieruchomości i przemysł
+//   produktowa + wideo produktowe         → fotografia produktowa
 //
-// UWAGA NA GEOMETRIĘ SIATKI. `pakiety-foto-wideo` renderuje się jako kafelek na całą
-// szerokość (`md:col-span-3` w Services.tsx) z plakietką „Bestseller". Przy siedmiu
-// usługach w siatce 3-kolumnowej musi stać OSTATNI, inaczej po dwóch wąskich kafelkach
-// zostaje dziura w rzędzie (zgłoszone przez Marcina 30.07.2026, po pierwszej próbie,
-// gdzie pakiety stały na trzecim miejscu). Sześć wąskich = dwa pełne rzędy, siódmy
-// szeroki domyka sekcję.
+// Kolejność ustawiona przez Marcina 10.08.2026: wydarzenia, wizerunek,
+// nieruchomości, produkty. Wydarzenia pierwsze, bo są wejściem do lejka
+// (10 z 11 realizacji referencyjnych to eventy, korekta_pozycjonowania_2026-07.md §1),
+// wizerunek drugi, bo sprzedaje się tej samej osobie z HR co event.
 //
-// Pakiety nie tracą przez to na widoczności: szeroki kafelek z plakietką jest mocniejszy
-// niż trzecia pozycja w wąskim. Rozważane i odrzucone: przeniesienie szerokiego kafelka
-// na drona (Marcin, 30.07). Plakietka „Bestseller" jest prawdziwa dla pakietów
-// hybrydowych (cennik v3 §2), a nie dla drona, i wypromowałoby to wizualnie usługę
-// z ostatniego miejsca listy.
-// Kolejność ustawiona przez Marcina 04.08.2026. Wcześniej portrety stały na trzecim
-// miejscu, przed wideo i produktową. GEOMETRIA BEZ ZMIAN: dwie usługi z `wide: true`
-// (obiekty i pakiety) nadal zamykają listę na miejscach 7 i 8, więc sześć wąskich
-// kafelków daje dwa pełne rzędy, a dwa szerokie domykają trzeci.
+// GEOMETRIA SIATKI: cztery równe kafelki w układzie 2×2 (Services.tsx).
+// Flaga `wide` i plakietka „Bestseller" NIE SĄ już używane — pierwsza dlatego,
+// że przy czterech kafelkach nie ma sieroty do załatania, druga dlatego, że
+// dotyczyła wyłącznie usuniętej usługi „pakiety foto + wideo".
 const SERVICE_DISPLAY_ORDER: string[] = [
   "eventy-reportaze",
-  "sesje-zespolowe",
-  "wideo-marketing",
-  "fotografia-produktowa",
   "wizerunek-portrety",
-  "zdjecia-wideo-z-drona",
-  "wnetrza-obiekty-architektura",
-  "pakiety-foto-wideo",
+  "nieruchomosci-przemysl",
+  "fotografia-produktowa",
 ];
 
 // Usługi gotowe w danych, ale świadomie niepublikowane. Ten sam wzorzec, co
@@ -717,9 +789,6 @@ const DRAFT_SERVICE_SLUGS = new Set<string>([
   // 01_Biznes/_System/02_Cenniki/brief_linia_obiektowa_2026-07-31.md.
 ]);
 
-export function isServiceDraft(slug: string): boolean {
-  return DRAFT_SERVICE_SLUGS.has(slug);
-}
 
 export const serviceCategories: ServiceData[] = [...serviceCategoriesRaw]
   .filter((s) => !DRAFT_SERVICE_SLUGS.has(s.slug))
@@ -756,34 +825,17 @@ export function getPriceFaq(service: ServiceData): FAQItem {
 const SERVICE_TILE_IMAGES: Record<string, string> = {
   "eventy-reportaze": "/images/galeria/eventy/event-05-networking-foyer.jpg",
   "wizerunek-portrety": "/images/galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg",
-  "pakiety-foto-wideo": "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
   "fotografia-produktowa": "/images/galeria/produktowe/produkt-02-amarula.jpg",
-  "sesje-zespolowe": "/images/portfolio/sesje-zespolowe-cover.jpg",
-  // Wersja 4:3 z rozmytym wypełnieniem — pełny napis „E-COMMERCE All in"
-  // widoczny, bez ucinania i bez pustych marginesów (oryginał 16:9).
-  // Wróciła 04.08.2026 po krótkiej podmianie na piątkę z eventu: Marcin uznał,
-  // że na kafelku lepiej działa Autopay, a piątka ma stać w hero podstrony.
-  "wideo-marketing": "/images/portfolio/woohoo-ecommerce-4x3.jpg",
-  "zdjecia-wideo-z-drona": "/images/galeria/dron/dron-04-biurowiec-poznan.jpg",
-  // Kafelek linii obiektowej na stronie głównej i na /uslugi. Wcześniej inwestycja
-  // z drona, czyli zielone pole z lotu ptaka: nie mówiła nic o halach ani o wnętrzach
-  // i powielała kafelek dronowy obok. Teraz ta sama jasna hala, co okładka podstrony,
-  // żeby cała linia miała jeden obraz (Marcin, 04.08.2026).
-  "wnetrza-obiekty-architektura": "/images/galeria/wnetrza/wnetrze-03-hala-bramki-wejsciowe.jpg",
+  // Kafelek linii obiektowej na stronie głównej i na /uslugi. Ta sama jasna hala,
+  // co okładka podstrony, żeby cała linia miała jeden obraz (Marcin, 04.08.2026).
+  // Klucz zmieniony 10.08.2026 razem ze slugiem usługi.
+  "nieruchomosci-przemysl": "/images/galeria/wnetrza/wnetrze-03-hala-bramki-wejsciowe.jpg",
 };
 
 // Punkt kadrowania miniatury (object-position). Wizerunek kadrujemy nieco wyżej
-// (sylwetka w górnej części), zespołowy portret nieco niżej (więcej kontekstu,
-// obie twarze wciąż widoczne). Reszta domyślnie wyśrodkowana.
+// (sylwetka w górnej części). Reszta domyślnie wyśrodkowana.
 const SERVICE_TILE_POS: Record<string, string> = {
   "wizerunek-portrety": "center 29%",
-  // Kadr niżej: esencja zdjęcia (auta + grupa) jest w dolnych 2/3, góra to niebo.
-  "pakiety-foto-wideo": "center 70%",
-  // ZDJ2608-22 (04.08.2026): plik `portfolio/sesje-zespolowe-cover.jpg` jest POZIOMY
-  // (1120x840, jedna wersja od cb2bd52), więc poprzednie „pionowy portret pary" myliło.
-  // Mechanizm bez zmian: kadr 4:3 w kafelku 16:9 (mobile, Services.tsx) ciął głowy
-  // przy center — kotwiczymy wyżej (audyt mobile 2026-07-07).
-  "sesje-zespolowe": "center 20%",
 };
 
 export const serviceItems = serviceCategories.map((s) => ({
@@ -796,7 +848,6 @@ export const serviceItems = serviceCategories.map((s) => ({
       Dzięki temu kafelek może powiedzieć „za osobę" albo „pakiety", a kwota
       i tak pochodzi z jednego miejsca. */
   priceLabel: s.heroPriceLabel ?? s.price,
-  wide: s.wide === true,
   image: SERVICE_TILE_IMAGES[s.slug],
   imagePos: SERVICE_TILE_POS[s.slug] ?? "center",
 }));
@@ -839,14 +890,14 @@ const T = {
 
 export const SERVICE_TESTIMONIALS: Record<string, ServiceTestimonial> = {
   "eventy-reportaze": T.maja,
-  "pakiety-foto-wideo": T.maja,
-  "wideo-marketing": T.maja,
   "fotografia-produktowa": T.wagner,
+  // Po scaleniu portretów z sesjami zespołowymi (10.08.2026) na wizerunku stoi
+  // opinia Burzyńskiej: dotyczy sesji biznesowej dla całego biura, więc pokrywa
+  // oba zakresy scalonej usługi. Cytat Fortuniak (sesje studyjne) zostaje w danych
+  // jako `T.fortuniak`, bez przypisania — wróci, gdy będzie gdzie go postawić.
   "wizerunek-portrety": T.burzynska,
-  "sesje-zespolowe": T.fortuniak,
-  "zdjecia-wideo-z-drona": T.maja,
-  // TRESC2608-03 (04.08.2026), WARIANT B: `wnetrza-obiekty-architektura` świadomie
-  // BEZ opinii. Nie ma cytatu od klienta z linii obiektowej, a podpięcie tu opinii
-  // Yes Butcher (wariant A briefu) przypisywałoby cudzą wypowiedź do usługi, której
-  // nie dotyczyła. Wpis dojdzie po pierwszej realizacji obiektowej z referencją.
+  // TRESC2608-03 (04.08.2026), WARIANT B: linia obiektowa świadomie BEZ opinii.
+  // Nie ma cytatu od klienta z tej linii, a podpięcie tu opinii Yes Butcher
+  // przypisywałoby cudzą wypowiedź do usługi, której nie dotyczyła. Wpis dojdzie
+  // po pierwszej realizacji obiektowej z referencją.
 };

@@ -102,7 +102,10 @@ const nextConfig: NextConfig = {
       { source: "/portrety-biznesowe", destination: "https://szabunia.pl/uslugi/wizerunek-portrety" },
       { source: "/fotografia-eventowa", destination: "https://szabunia.pl/uslugi/eventy-reportaze" },
       { source: "/zdjecia-produktowe", destination: "https://szabunia.pl/uslugi/fotografia-produktowa" },
-      { source: "/video", destination: "https://szabunia.pl/uslugi/wideo-marketing" },
+      // Cel przepięty 10.08.2026: `/uslugi/wideo-marketing` przestało istnieć przy
+      // przejściu na cztery usługi. Bez tej zmiany powstałby łańcuch dwóch 301
+      // (stara domena → wideo-marketing → wizerunek), który traci część sygnału.
+      { source: "/video", destination: "https://szabunia.pl/uslugi/wizerunek-portrety" },
       { source: "/o-mnie", destination: "https://szabunia.pl/#o-mnie" },
       { source: "/contact", destination: "https://szabunia.pl/kontakt" },
     ];
@@ -128,6 +131,26 @@ const nextConfig: NextConfig = {
         destination: "/kontakt",
         permanent: true,
       },
+      // Przejście z ośmiu usług na cztery (decyzja Marcina 10.08.2026, na podstawie
+      // „FUNDAMENTY FIRMY.md"). Cztery podstrony przestały istnieć, a piąta zmieniła
+      // slug. Wszystkie cele są tematycznie pokrewne, więc 301 przenosi sygnały —
+      // to ta sama zasada, która stoi za mapowaniem starej domeny wyżej.
+      //
+      // ⚠ Te adresy są zaindeksowane i mają historię. `sesje-zespolowe` miało
+      // 11 linków wewnętrznych, `zdjecia-wideo-z-drona` 7. Nie usuwać tych reguł
+      // „bo stare": przekierowanie musi żyć tak długo, jak długo Google pamięta
+      // stary adres, czyli praktycznie bezterminowo.
+      ...[
+        { from: "sesje-zespolowe", to: "wizerunek-portrety" },
+        { from: "wideo-marketing", to: "wizerunek-portrety" },
+        { from: "pakiety-foto-wideo", to: "eventy-reportaze" },
+        { from: "zdjecia-wideo-z-drona", to: "nieruchomosci-przemysl" },
+        { from: "wnetrza-obiekty-architektura", to: "nieruchomosci-przemysl" },
+      ].map((r) => ({
+        source: `/uslugi/${r.from}`,
+        destination: `/uslugi/${r.to}`,
+        permanent: true,
+      })),
     ];
   },
 };

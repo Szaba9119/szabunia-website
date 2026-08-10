@@ -15,12 +15,16 @@ export const metadata: Metadata = {
   // TRESC2608-03 (04.08.2026), TEKST WŁASNY DO AKCEPTACJI: dopisana linia obiektowa,
   // ósma usługa. 151 znaków przy progu 155, policzone skryptem.
   description:
-    "Obsługa eventów firmowych, sesje zespołowe, portrety, wideo, dron oraz hale i wnętrza. Jeden twórca, jedna faktura, jeden termin. Poznań i cała Polska.",
+    // Przepisane 10.08.2026 na cztery filary. Poprzedni opis wyliczał sześć
+    // ze starych ośmiu usług. Bez nazw klientów (to hub, nie strona główna)
+    // i bez kwoty: kotwica 600 zł dotyczy dwóch usług z czterech, więc
+    // w opisie CAŁEGO katalogu byłaby myląca. 144 znaki.
+    "Cztery obszary fotografii i wideo dla firm: wydarzenia firmowe, wizerunek zespołu, nieruchomości i przemysł oraz produkty. Poznań i cała Polska.",
   alternates: { canonical: "/uslugi" },
   openGraph: {
     title: "Usługi foto i wideo dla firm, Poznań | Szabunia",
     description:
-      "Obsługa wydarzeń firmowych, wizerunek zespołów, wideo i dron. Poznań, cała Polska i Europa.",
+      "Wydarzenia firmowe, wizerunek zespołu, nieruchomości i przemysł, produkty. Cztery obszary, zdjęcia i film w każdym z nich.",
     url: "https://szabunia.pl/uslugi",
     images: [
       {
@@ -35,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Usługi foto i wideo dla firm, Poznań | Szabunia",
     description:
-      "Obsługa wydarzeń firmowych, wizerunek zespołów, wideo i dron. Poznań, cała Polska i Europa.",
+      "Wydarzenia firmowe, wizerunek zespołu, nieruchomości i przemysł, produkty. Cztery obszary, zdjęcia i film w każdym z nich.",
     images: ["/images/og/strony/uslugi.jpg"],
   },
 };
@@ -72,21 +76,30 @@ export default function UslugiPage() {
             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
               Usługi fotograficzne i wideo dla biznesu
             </h1>
+            {/* Przepisane 10.08.2026. To NIE jest tekst SEO, tylko wprowadzenie
+                w architekturę strony, i każde z trzech zdań ma osobne zadanie:
+                  1. nazywa cztery obszary językiem klienta, nie moim,
+                  2. mówi, że każdemu obszarowi odpowiada JEDNA usługa, więc
+                     kafelki niżej czytają się jako mapa, a nie lista,
+                  3. zamyka sprawę wideo: film nie jest piątą usługą, tylko
+                     sposobem realizacji każdej z czterech.
+                Poprzednia wersja („Od obsługi wydarzeń firmowych po wizerunek
+                zespołów: jeden twórca…") opisywała ofertę dwufilarową. */}
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-              Od obsługi wydarzeń firmowych po wizerunek zespołów: jeden twórca,
-              spójny materiał, krótka droga od rozmowy do dostawy. Bazuję w Poznaniu,
-              pracuję w całej Polsce i Europie.
+              Firma potrzebuje pokazać cztery rzeczy: ludzi, wydarzenia, obiekty
+              i produkty. Na każdą z nich jest tu osobna usługa. Zdjęcia i film nie
+              są osobnymi pozycjami, tylko sposobem realizacji każdej z czterech.
+              Bazuję w Poznaniu, pracuję w całej Polsce i Europie.
             </p>
           </AnimatedSection>
 
-          {/* Siatka sześciokolumnowa, nie trzykolumnowa (04.08.2026). Przy ośmiu
-              usługach układ 3+3+2 zostawiał dziurę w prawym dolnym rogu. Zwykły
-              kafelek zajmuje 2 z 6 kolumn (czyli trzy w rzędzie), a dwa zamykające
-              (`wide`) po 3 z 6, więc ostatni rząd wypełnia się w całości i czyta
-              jak domknięcie, a nie jak brakujący element. */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+          {/* Siatka 2×2 (10.08.2026, po przejściu na cztery usługi). Wcześniej
+              sześć kolumn z dwoma szerokimi kafelkami — konstrukcja potrzebna
+              wyłącznie po to, żeby przy ośmiu usługach układ 3+3+2 nie zostawiał
+              dziury w prawym dolnym rogu. Cztery kafelki dzielą się równo. */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {serviceCategories.map((s, i) => (
-              <AnimatedSection key={s.slug} delay={i * 0.06} className={s.wide ? "lg:col-span-3" : "lg:col-span-2"}>
+              <AnimatedSection key={s.slug} delay={i * 0.06}>
                 <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5 group h-full">
                   {/* Ta sama nazwa `data-cta` co na stronie głównej, żeby oba huby
                       dały się zsumować w jednym raporcie (PELNY2608-13). */}

@@ -120,6 +120,27 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
     "dron-06-apartamenty-nad-rzeka-poznan",
     "dron-09-nowoczesne-osiedle-poznan",
   ].map((n) => `/images/galeria/dron/${n}.jpg`),
+  // Kolejność ustawiona jawnie 10.08.2026 (decyzja Marcina: „przemysł pierwszy").
+  // Wcześniej pasek brał pliki alfabetycznie z folderu i wychodziło poprawnie
+  // TYLKO dlatego, że hale mają numery 01-03. Przy pierwszym przenumerowaniu
+  // folderu klient szukający fotografa hali zobaczyłby najpierw osiedla.
+  //
+  // Zasada: dwa pierwsze kadry to hala, dopiero potem obiekty komercyjne,
+  // gastronomia i biuro. NIE udajemy proporcji 50/50, bo portfolio jest realnie
+  // mocniejsze po stronie nieruchomości. Chodzi o pierwszy sygnał: „tak,
+  // fotografuję również takie obiekty".
+  //
+  // Siedem pozycji, nie sześć: `wnetrze-03` jest zdjęciem hero tej podstrony,
+  // więc filtr `exclude` je wytnie i zostanie równo sześć na pasek.
+  wnetrza: [
+    "wnetrze-01-hala-magazynowa-regaly",
+    "wnetrze-02-hala-strefa-kompletacji",
+    "wnetrze-03-hala-bramki-wejsciowe",
+    "wnetrze-04-elewacja-szklana-fasada",
+    "wnetrze-07-restauracja-ceglana-sciana",
+    "wnetrze-09-bistro-z-antresoli",
+    "wnetrze-05-silownia-w-biurze",
+  ].map((n) => `/images/galeria/wnetrza/${n}.jpg`),
   // Sesja dla IDcom: po kolei trzy tła (białe, czarne z niebieskim, kremowe), jedna osoba na kadr.
   zespolowe: [
     "/images/portfolio/idcom/_F2A9424-Edit-2.jpg", // 1. białe tło
@@ -149,10 +170,14 @@ const CURATED_VIDEOS: Partial<Record<GalleryCategoryKey, string[]>> = {
     "CmHUCptLu90", // Reklama kamerki samochodowej 70mai
     "xByfmDzNPMI", // Reels dla śniadaniowni Sunday
   ],
+  // Kolejność 10.08.2026 (decyzja Marcina): najpierw produkt techniczny, potem
+  // drugi produkt, dopiero na końcu gastronomia. Klient szukający fotografa
+  // produktowego ma zobaczyć produkt, a nie dwa reelsy z jedzeniem.
   "wideo-produktowe": [
+    "CmHUCptLu90", // Reklama kamerki samochodowej 70mai
+    "vjpUby-NZsY", // Box17: film produktowy budki akustycznej
     "fRoffxZ1tVM", // Reels dla Pizzerii Sicilia Marco Giuliano
     "xByfmDzNPMI", // Reels dla śniadaniowni Sunday
-    "CmHUCptLu90", // Reklama kamerki samochodowej 70mai
   ],
 };
 

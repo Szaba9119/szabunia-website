@@ -5,6 +5,8 @@ import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import ServiceHero from "@/components/ServiceHero";
 import ServiceGalleryStrip from "@/components/ServiceGalleryStrip";
+import ServiceApplications from "@/components/ServiceApplications";
+import ServiceScope from "@/components/ServiceScope";
 import ServiceAuthor from "@/components/ServiceAuthor";
 import LogoBar from "@/components/LogoBar";
 import YouTubeFacade from "@/components/YouTubeFacade";
@@ -156,18 +158,39 @@ export default async function ServicePage({ params }: PageProps) {
         <ErrorBoundary>
           <LogoBar />
         </ErrorBoundary>
-        {/* Kolejność bloku przykładów (Marcin, 04.08.2026):
-            domyślnie GŁÓWNY PASEK → FILM → DRUGI PASEK, czyli film rozdziela dwie
-            siatki miniatur, zamiast stać obok drugiej. Wyjątek to podstrona wideo,
-            gdzie film musi otwierać, bo jest tym, co ta usługa sprzedaje — steruje
-            tym `videoFirst` w danych usługi. */}
-        {service.videoFirst && videoSection}
+        {/* KOLEJNOŚĆ SEKCJI ustalona 10.08.2026 (pakiet 4, decyzja Marcina po
+            przedstawieniu argumentu):
+              hero → logotypy → ZASTOSOWANIA → portfolio → ZAKRES → kto to zrobi
+              → jak pracujemy → opinia → FAQ → blog → CTA
+
+            Dwie zmiany wobec układu sprzed tej daty:
+            1. Doszły dwie sekcje tekstowe: `applications` i `scope`. Obie są
+               OPCJONALNE, więc usługi bez tych danych renderują się jak dotąd.
+            2. „Zakres realizacji" stoi PO portfolio, nie przed. Powód: to strona
+               fotografa. Pytanie „czy on umie" rozstrzygają zdjęcia, a nie akapit
+               o zdjęciach, więc między leadem a pierwszym kadrem nie może stać
+               kilka bloków tekstu. Ten sam mechanizm zamknął analizę lejka
+               z 02.08.2026, która przesunęła pasek logotypów pod hero, bo dowód
+               siedział na 1 979 px. „Dla jakich wydarzeń" zostaje wysoko, bo to
+               kwalifikacja (dwie krótkie listy), a nie opis usługi. */}
+        {service.applications && (
+          <ErrorBoundary>
+            <ServiceApplications data={service.applications} />
+          </ErrorBoundary>
+        )}
+        {/* Kolejność bloku przykładów (Marcin, 04.08.2026): GŁÓWNY PASEK → FILM
+            → DRUGI PASEK, czyli film rozdziela dwie siatki miniatur, zamiast
+            stać obok drugiej.
+            Wyjątek `videoFirst` (film otwierał blok) USUNIĘTY 10.08.2026: istniał
+            wyłącznie dla podstrony „wideo marketing", bo tam film był produktem,
+            a nie ilustracją. Ta usługa nie istnieje od migracji na cztery filary
+            i żadna z czterech obecnych nie ustawiała tej flagi. */}
         {service.galleryCategory && (
           <ErrorBoundary>
             <ServiceGalleryStrip category={service.galleryCategory} exclude={service.heroImage} />
           </ErrorBoundary>
         )}
-        {!service.videoFirst && videoSection}
+        {videoSection}
         {service.extraGallery && (
           <ErrorBoundary>
             <ServiceGalleryStrip
@@ -177,6 +200,11 @@ export default async function ServicePage({ params }: PageProps) {
               sub={service.extraGallery.sub}
               exclude={service.heroImage}
             />
+          </ErrorBoundary>
+        )}
+        {service.scope && (
+          <ErrorBoundary>
+            <ServiceScope data={service.scope} />
           </ErrorBoundary>
         )}
         {/* Blok autorski: pierwszy raz na podstronach usług pada „Cześć, jestem

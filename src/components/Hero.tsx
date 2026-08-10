@@ -2,14 +2,32 @@ import Image from "next/image";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
 
-// Hero mobile przeprojektowane (decyzja Marcina po mockupie, 2026-07-06 noc),
-// a CTA przeniesione na sam dół hero (prośba Marcina, 2026-07-23): kolejność
-// na telefonie = nagłówek → opis → ZDJĘCIE (4:3) → chipy zaufania → „Zaufało
-// mi 100+ firm" → CTA. Desktop: układ dwukolumnowy (tekst | zdjęcie),
-// osiągnięty przez md:grid-rows — bez duplikowania bloków.
+// Hero przebudowane pod nową ofertę czterech usług (decyzja Marcina, 2026-08-10).
+// Zmiany wobec wersji z 23.07:
+//   1. Hasło idzie na PEŁNĄ SZEROKOŚĆ nad obie kolumny, zamiast siedzieć
+//      w lewej kolumnie i łamać się na trzy linie. Cztery słowa hasła to
+//      cztery filary oferty, więc mają się czytać jak jedna linia plakatu.
+//   2. Zdjęcie dochodzi do prawej krawędzi ekranu (kolumna gridu liczona od
+//      viewportu, nie od kontenera), bez zaokrąglenia z prawej strony.
+// Kolejność na telefonie BEZ ZMIAN (prośba Marcina, 2026-07-23): nagłówek →
+// hasło → opis → ZDJĘCIE → chipy zaufania → „Zaufało mi 100+ firm" → CTA.
+// Osiągnięta przez md:grid-rows, bez duplikowania bloków.
 export default function Hero() {
+  // Ucieczka zdjęcia poza kontener, do prawej krawędzi ekranu. Cały rząd 2
+  // siedzi w standardowym `px-4 > max-w-6xl`, dzięki czemu tekst trafia co do
+  // piksela pod hasło. Samo zdjęcie wychodzi ujemnym marginesem o szerokość
+  // marginesu kontenera plus px-4.
+  //
+  // Wartość jest liczona z `100vw`, które ZAWIERA pasek przewijania, więc na
+  // desktopie z widocznym paskiem zdjęcie przestrzeliwuje o jego szerokość
+  // (ok. 7 px). To celowe: sekcja ma `overflow-hidden`, więc nadmiar jest
+  // przycięty i niewidoczny, a niedomiar zostawiłby brzydką szparę przy
+  // krawędzi. Pierwsza wersja liczyła z vw wcięcie TEKSTU i wtedy ten sam
+  // błąd był widoczny jako 7 px rozjazdu między opisem a hasłem.
+  const bleedRight = "md:mr-[calc(-1*max(1rem,(100vw-72rem)/2))]";
+
   return (
-    <section className="relative pt-28 pb-12 md:pt-36 md:pb-24 px-4 overflow-hidden">
+    <section className="relative pt-28 pb-12 md:pt-32 md:pb-24 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         {/* Poświaty jako radial-gradient zamiast filter:blur — blur 100px na
             dużych elementach zabijał wydajność GPU na mobile (PageSpeed). */}
@@ -25,42 +43,68 @@ export default function Hero() {
         />
       </div>
 
-      <div className="max-w-6xl mx-auto grid md:grid-cols-[1.2fr_0.8fr] md:grid-rows-[auto_auto] gap-6 md:gap-x-12 md:gap-y-0 items-center">
-        {/* A. Nagłówek + CTA (mobile: pierwszy; desktop: lewa kolumna, górny rząd) */}
-        {/* md:self-end + md:self-start (blok C): rzędy dostają po równo nadmiar
-            wysokości zdjęcia — dokleiwamy A do dołu rzędu 1 i C do góry rzędu 2,
-            żeby na desktopie CTA i chipy stykały się jak jeden blok. */}
-        <div className="hero-intro md:col-start-1 md:row-start-1 md:self-end text-center md:text-left">
-          {/* H1 to fraza, hasło zostaje jako element graficzny w H2 (decyzja Marcina
-              2026-07-30). Powód: poprzedni H1 brzmiał „REALIZUJĘ CELE TWOJEJ MARKI"
-              i nie zawierał ani jednego słowa, którego ktokolwiek szuka, a strona
-              główna walczy o „fotograf biznesowy poznań" (59 wyświetleń, pozycja 11,08
-              w GSC). H1 jest najmocniejszym sygnałem na stronie. Hasło nie zniknęło,
-              zmieniło tylko poziom nagłówka, więc układ wizualny zostaje bez zmian
-              poza jedną linią kickera. */}
+      {/* Rząd 1: kicker + hasło na pełną szerokość kontenera. */}
+      <div className="px-4">
+        <div className="max-w-6xl mx-auto hero-intro text-center md:text-left">
+          {/* H1 to fraza, hasło zostaje jako element graficzny w H2 (decyzja
+              Marcina 2026-07-30, podtrzymana przy przebudowie 2026-08-10).
+
+              Treść zmieniona 10.08.2026. Poprzednio: „Fotograf eventowy
+              i biznesowy w Poznaniu". Słowo „eventowy" nazywało JEDEN filar
+              z czterech i zawężało ofertę dokładnie tam, gdzie hasło niżej
+              ją rozszerza. Organicznie nie zarabiało (eventy: zero w GSC),
+              a w zapytaniach z Ads nie wystąpiło ani razu na 12 954 wyświetlenia.
+
+              Zostają słowa, które mają pomiar w tych samych danych:
+              „fotograf" (576 kliknięć), „biznesowy" (78), „poznań" (358).
+              ODRZUCONE świadomie: „dla firm" i „wideo" — obie frazy mają
+              w tym zbiorze zero kliknięć i zero wyświetleń, więc wymiana
+              „biznesowy" na „dla firm" oddawałaby 78 kliknięć za nic.
+
+              Drugie zdanie („Zdjęcia i film.") powtarza się w akapicie niżej.
+              Redundancja przyjęta świadomie przez Marcina: H1 pracuje na
+              wyszukiwarkę, lead na sprzedaż. */}
           <h1 className="font-barlow font-semibold text-[11px] md:text-sm tracking-[0.06em] md:tracking-[0.14em] uppercase text-steel dark:text-dark-text-muted mb-3 md:mb-4">
-            Fotograf eventowy i biznesowy w Poznaniu
+            Fotograf biznesowy w Poznaniu.{" "}
+            {/* Drugie zdanie łamie się w całości. Bez tego na 320 px linia
+                kończyła się na „ZDJĘCIA", a „I FILM." zostawało samo. */}
+            <span className="whitespace-nowrap">Zdjęcia i film.</span>
           </h1>
-          <h2 className="font-barlow font-black text-[clamp(32px,9vw,80px)] md:text-[clamp(40px,7vw,80px)] leading-[1.05] md:leading-[0.95] tracking-[-1px] md:tracking-[-2px] text-navy dark:text-white mb-4 md:mb-5">
-            REALIZUJĘ
-            <br />
-            <span className="text-blue dark:text-blue-light">CELE</span> TWOJEJ
-            <br />
-            MARKI.
+          {/* Cztery słowa = cztery filary oferty (Fundamenty firmy, §12).
+              Bez akcentu kolorystycznego na żadnym z nich: wyróżnienie jednego
+              sugerowałoby hierarchię między usługami, której nie ma. */}
+          <h2 className="font-barlow font-black text-[clamp(30px,8.5vw,42px)] md:text-[clamp(32px,4.05vw,52px)] leading-[1.05] md:leading-[1] tracking-[-1px] md:tracking-[-1.5px] text-navy dark:text-white">
+            LUDZIE. WYDARZENIA. OBIEKTY. PRODUKTY.
           </h2>
+        </div>
+      </div>
+
+      {/* Rząd 2: ten sam kontener co hasło, więc lewa kolumna jest z nim
+          wyrównana. Do krawędzi ekranu wychodzi wyłącznie zdjęcie. */}
+      <div className="px-4 mt-6 md:mt-12">
+      <div className="max-w-6xl mx-auto md:grid md:grid-cols-2 md:grid-rows-[auto_auto] md:gap-x-12 md:items-center">
+        {/* A. Opis (mobile: pierwszy; desktop: lewa kolumna, górny rząd).
+            md:self-end + md:self-start (blok C): rzędy dostają po równo nadmiar
+            wysokości zdjęcia — dokleiwamy A do dołu rzędu 1 i C do góry rzędu 2,
+            żeby na desktopie opis i chipy stykały się jak jeden blok. */}
+        <div className="hero-intro md:col-start-1 md:row-start-1 md:self-end text-center md:text-left">
           <p className="font-inter text-[15px] md:text-base text-steel dark:text-dark-text-muted leading-relaxed max-w-md mx-auto md:mx-0">
-            Obsługa wydarzeń firmowych i wizerunek zespołów. Zdjęcia, film i dron
-            od&nbsp;jednej osoby. Współpracowałem z H&amp;M, Santanderem
-            i&nbsp;Warner Music.
+            Zdjęcia i film dla firm: wizerunek zespołu, wydarzenia firmowe,
+            obiekty i&nbsp;produkty. Wszystko od&nbsp;jednej osoby.
+            Współpracowałem z&nbsp;H&amp;M, Santanderem i&nbsp;Warner Music.
           </p>
         </div>
 
-        {/* B. Zdjęcie (mobile: zaraz po CTA, kadr 4:3 z twarzą u góry — mieści się
-            nad foldem; desktop: prawa kolumna przez oba rzędy, pion 3:4 jak dotąd).
-            Bez animacji wejściowej: element LCP (PageSpeed "render delay"). */}
-        <div className="relative md:col-start-2 md:row-start-1 md:row-span-2">
+        {/* B. Zdjęcie (mobile: pod opisem, w marginesach strony; desktop: prawa
+            kolumna przez oba rzędy, dochodzi do prawej krawędzi ekranu).
+            Bez animacji wejściowej: element LCP (PageSpeed "render delay").
+            Na telefonie kadr kwadratowy. Na desktopie NIE proporcja, tylko
+            wysokość z clampem: kolumna ma tu 50vw, więc aspect-square dawało
+            na monitorze 1600 px zdjęcie wysokie na 800 px i spychało chipy
+            oraz CTA pod fold. */}
+        <div className={`mt-8 md:mt-0 md:col-start-2 md:row-start-1 md:row-span-2 ${bleedRight}`}>
           <Parallax distance={PARALLAX.subtle} direction="up">
-            <div className="w-full aspect-square md:aspect-[3/4] rounded-3xl overflow-hidden bg-border dark:bg-dark-card relative">
+            <div className="w-full aspect-square md:aspect-auto md:h-[clamp(400px,34vw,520px)] rounded-3xl md:rounded-r-none overflow-hidden bg-border dark:bg-dark-card relative">
               <Image
                 src="/images/marcin-hero-light-4.jpg"
                 alt="Marcin Szabunia, fotograf biznesowy i twórca wideo, Poznań"
@@ -68,7 +112,7 @@ export default function Hero() {
                 className="object-cover object-top"
                 priority
                 fetchPriority="high"
-                sizes="(max-width: 768px) 100vw, 40vw"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 quality={72}
                 placeholder="blur"
                 blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0YxRjVGOSIvPjwvc3ZnPg=="
@@ -77,11 +121,11 @@ export default function Hero() {
           </Parallax>
         </div>
 
-        {/* C. Chipy zaufania + dowód (mobile: pod zdjęciem; desktop: lewa kolumna,
-            dolny rząd — wizualnie jak dotychczasowa linia pod przyciskami).
-            Chipy zawijają się czysto — poprzedni zlepek z kropkami łamał się
-            w środku „Faktura VAT". Telefon jako klikalny, wyróżniony chip. */}
-        <div className="hero-intro md:col-start-1 md:row-start-2 md:self-start md:pt-5 text-center md:text-left">
+        {/* C. Chipy zaufania + dowód + CTA (mobile: pod zdjęciem; desktop: lewa
+            kolumna, dolny rząd). Chipy zawijają się czysto — poprzedni zlepek
+            z kropkami łamał się w środku „Faktura VAT". Telefon jako klikalny,
+            wyróżniony chip. */}
+        <div className="hero-intro mt-8 md:mt-0 md:col-start-1 md:row-start-2 md:self-start md:pt-6 text-center md:text-left">
           <ul className="flex flex-wrap gap-2 justify-center md:justify-start" aria-label="Najważniejsze warunki współpracy">
             <li className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border dark:border-dark-border text-[12px] text-steel dark:text-dark-text-muted">
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
@@ -119,9 +163,8 @@ export default function Hero() {
             <span className="font-semibold text-steel dark:text-dark-text">100+ firm</span>{" "}
             z&nbsp;całej Polski
           </p>
-          {/* CTA na końcu hero, pod linią zaufania (prośba Marcina, 2026-07-23).
-              Nadal jedno CTA w hero — bez drugorzędnych linków do cennika czy
-              portfolio (decyzja 2026-07-06 pozostaje w mocy). */}
+          {/* Jedno CTA w hero, bez drugorzędnych linków do cennika czy
+              portfolio (decyzja 2026-07-06, w mocy). */}
           <div className="mt-5 flex flex-wrap items-center gap-3 justify-center md:justify-start">
             <a
               href="#kontakt"
@@ -133,6 +176,7 @@ export default function Hero() {
             </a>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );

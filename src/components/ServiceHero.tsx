@@ -133,9 +133,11 @@ export default function ServiceHero({ service, crumbs }: Props) {
           </AnimatedSection>
 
         </div>
-        {/* Sekcja „Dla kogo?" wyłączona z renderu (brief-23 zad. 2) — dane
-            service.forWhom i service.portfolioSlug zostają w services.tsx,
-            łatwy powrót: przywrócić blok z historii tego pliku. */}
+        {/* Sekcja „Dla kogo?" była tu wyłączona z renderu od brief-23 zad. 2,
+            a jej dane (`forWhom`) usunięte 10.08.2026 razem z migracją na cztery
+            usługi. Rolę tej sekcji przejął komponent ServiceApplications
+            („Co fotografuję" / „Dla jakich wydarzeń"), renderowany na podstronie
+            usługi zaraz pod paskiem logotypów. Nie przywracać starego bloku. */}
       </div>
     </section>
   );

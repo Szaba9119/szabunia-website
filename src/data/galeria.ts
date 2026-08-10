@@ -21,4 +21,11 @@ export const galleryVideos: GalleryVideo[] = [
   { youtubeId: "fRoffxZ1tVM", vertical: true, title: "Reels dla Pizzerii Sicilia Marco Giuliano" },
   { youtubeId: "v5Klr4TeO5E", vertical: true, title: "1. urodziny Pizzerii Sicilia Marco Giuliano" },
   { youtubeId: "CmHUCptLu90", vertical: true, title: "Reklama kamerki samochodowej 70mai" },
+  // Dodane 10.08.2026 (decyzja Marcina, pakiet 4). Film leżał dotąd wyłącznie
+  // w case study `box17-budki-akustyczne`, które jest w DRAFT_SLUGS i zostaje
+  // nieopublikowane. To NIE jest publikacja tamtego case study: trzy zdjęcia
+  // Box17 stoją już w galerii produktowej (`produkt-07/08/09`), więc marka jest
+  // na stronie od dawna. Film dokłada czwarty, niegastronomiczny i poziomy
+  // przykład do paska wideo produktowego.
+  { youtubeId: "vjpUby-NZsY", vertical: false, title: "Box17: film produktowy budki akustycznej" },
 ];

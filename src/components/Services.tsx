@@ -17,37 +17,36 @@ export default function Services() {
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
-            Zdjęcia, film i dron dla firm, od jednej osoby.
+            {/* Przepisane 10.08.2026. Poprzednio: „Zdjęcia, film i dron dla firm,
+                od jednej osoby". Dron stał jako trzeci RÓWNORZĘDNY element oferty,
+                co było prawdą przy ośmiu usługach, a dziś jest fragmentem jednej
+                z czterech (Nieruchomości i przemysł) i nie występuje w Wizerunku
+                ani w Produktowej.
+                „Od jednej osoby" zostaje świadomie: audyt 10.08.2026 potwierdził,
+                że nigdzie nie obiecuje jednoosobowej realizacji, tylko jednego
+                wykonawcę odpowiedzialnego za całość. FAQ na podstronie Wydarzeń
+                wprost mówi o drugim operatorze przy dużym wydarzeniu. */}
+            Zdjęcia i film dla firm w czterech obszarach, od jednej osoby.
           </p>
         </AnimatedSection>
 
-        {/* Usługi — grid 3×2 + Pakiety (bestseller) na pełną szerokość ostatniego
-            rzędu: bez „sieroty" w gridzie, z poziomym układem na md+ i badge
-            „Bestseller" (audyt UX 2026-07-06). Obrazy na mobile w 16:9 zamiast
-            4:3 — sekcja zajmowała ~6,4 ekranu telefonu. */}
+        {/* Usługi — siatka 2×2 (10.08.2026, po przejściu na cztery usługi).
+            Wcześniej: sześć kolumn, sześć wąskich kafelków i dwa szerokie
+            domykające rząd — konstrukcja istniała wyłącznie po to, żeby przy
+            ośmiu usługach nie zostawała „sierota" w ostatnim rzędzie. Przy
+            czterech usługach dzieli się równo, więc `wide` i plakietka
+            „Bestseller" (dotyczyła usuniętych pakietów) są zbędne.
+            Obrazy na mobile w 16:9 zamiast 4:3 — sekcja zajmowała ~6,4 ekranu. */}
         <AnimatedSection>
-          {/* Siatka sześciokolumnowa (04.08.2026, po włączeniu linii obiektowej).
-              Wcześniej: trzy kolumny i dwa kafelki na pełną szerokość jeden pod
-              drugim, co dawało dwie płyty z pustym polem obok tekstu. Teraz zwykły
-              kafelek zajmuje 2 z 6 kolumn, a dwa zamykające po 3 z 6, więc ostatni
-              rząd jest pełny, a wyróżnienie zostaje: są półtora raza szersze od reszty. */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
             {serviceItems.map((s) => {
-              // Kafelek na pełną szerokość: flaga `wide` w danych usługi, nie nazwa slug.
-              // Od 31.07.2026 szerokie są dwie usługi (obiekty i pakiety), więc twarde
-              // porównanie do jednego sluga przestało wystarczać. Plakietka „Bestseller"
-              // zostaje przy samych pakietach, bo tylko tam jest prawdziwa (cennik v3 §2).
-              const isWide = s.wide === true;
-              const isPakiet = s.slug === "pakiety-foto-wideo";
               // Wariant C (chowanie zdjęć części usług na mobile) WYCOFANY decyzją
               // Marcina po obejrzeniu (2026-07-06): zdjęcia zawsze widoczne — to
               // wizytówka fotografa. Nie przywracać bez jego wyraźnej prośby.
               return (
                 <div
                   key={s.title}
-                  className={`bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5 group overflow-hidden${
-                    isWide ? " sm:col-span-2 md:col-span-3" : " md:col-span-2"
-                  }`}
+                  className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5 group overflow-hidden"
                 >
                   {/* Kafel usługi to jedyne miejsce, gdzie klient deklaruje,
                       czego chce, ZANIM dojdzie do formularza. Bez `data-cta`
@@ -59,40 +58,16 @@ export default function Services() {
                     className="block"
                   >
                     {s.image && (
-                      <div
-                        className={`relative overflow-hidden bg-border dark:bg-dark-border ${
-                          // 3:2 przy kafelkach zamykających = natywna proporcja zdjęcia
-                          // (zero przycinania); objectPosition dla mobile w SERVICE_TILE_POS.
-                          isWide ? "aspect-video sm:aspect-[3/2]" : "aspect-video sm:aspect-[4/3]"
-                        }`}
-                      >
+                      <div className="relative overflow-hidden bg-border dark:bg-dark-border aspect-video sm:aspect-[3/2]">
                         <Image
                           src={s.image}
                           /* ZDJ2608-11: opis obejrzanego kadru zamiast szablonu z nazwy usługi. */
                           alt={galleryAlt(s.image, `${s.title}, przykładowa realizacja`)}
                           fill
-                          sizes={
-                            isWide
-                              ? "(max-width: 640px) 100vw, (max-width: 768px) 50vw, 50vw"
-                              : "(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
-                          }
+                          sizes="(max-width: 640px) 100vw, 50vw"
                           style={{ objectPosition: s.imagePos }}
                           className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
-                        {isPakiet && (
-                          <span className="absolute top-3 left-3 bg-blue text-white px-3 py-1 rounded-full text-[10px] font-barlow font-bold uppercase tracking-wider shadow-lg">
-                            Bestseller
-                          </span>
-                        )}
-                        {s.slug === "wideo-marketing" && (
-                          <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <span className="w-12 h-12 rounded-full bg-white/15 backdrop-blur-sm border border-white/50 flex items-center justify-center text-white shadow-lg">
-                              <svg className="w-5 h-5 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path d="M8 5v14l11-7z" />
-                              </svg>
-                            </span>
-                          </span>
-                        )}
                       </div>
                     )}
                     <div className="p-6">
