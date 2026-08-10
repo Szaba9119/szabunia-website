@@ -461,7 +461,14 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
       </svg>
     ),
-    heroImage: "/images/galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg",
+    // ZDJĘCIE Z KAFELKA, 10.08.2026 (decyzja Marcina: „to co jest na kafelku
+    // ma być w hero"). Hero i kafelek tej usługi pokazują ten sam plik.
+    // Poprzednio: `portret-05-mezczyzna-zielony-garnitur`.
+    heroImage: "/images/galeria/portrety/portret-02-kobieta-z-laptopem.jpg",
+    // ⚠ WARTOŚĆ ZWERYFIKOWANA POD TEN PLIK, nie przepisana ze starego.
+    // Hero jest KWADRATOWE, a plik ma 1536×1920 (0,80:1), więc widać 80%
+    // wysokości kadru i obcina się 20%. Sprawdzone wycinkiem 1536×1536:
+    // twarz w całości, laptop i dłonie w kadrze, nad głową zostaje oddech.
     heroImagePos: "center 20%",
     // Próg wejściowy obniżony 04.08.2026 decyzją Marcina: PORTRET START 700 zł netto
     // (1 osoba, sesja do 30 min, w cenie studio zewnętrzne w Poznaniu ALBO dojazd
@@ -629,7 +636,14 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9" />
       </svg>
     ),
-    heroImage: "/images/galeria/produktowe/produkt-02-amarula.jpg",
+    // ZDJĘCIE Z KAFELKA, 10.08.2026 (decyzja Marcina: „mają być jedne zdjęcia,
+    // na obydwu Belweder"). Hero i kafelek pokazują ten sam plik.
+    // Poprzednio: `produkt-02-amarula`.
+    // ⚠ BRAK `heroImagePos` JEST CELOWY. Plik ma 1080×1620 (0,67:1), hero jest
+    // kwadratowe, więc widać 67% wysokości. Sprawdzone wycinkiem 1080×1080 przy
+    // domyślnym wyśrodkowaniu: toast z czytelnym logo na kieliszkach, danie
+    // i butelka mieszczą się w kadrze. Nie dorabiać tu wartości „dla pewności".
+    heroImage: "/images/galeria/produktowe/produkt-01-toast-belvedere.jpg",
     price: "od 600 zł netto",
     process: [
       { num: 1, title: "Rozmowa", desc: "Cel, platforma sprzedaży, wytyczne marki" },
@@ -941,39 +955,25 @@ export function getPriceFaq(service: ServiceData): FAQItem {
   };
 }
 
-// Reprezentacyjne zdjęcie pokazywane na kafelku usługi (sekcja „Czym mogę pomóc
-// Twojej firmie" na stronie głównej oraz karty na `/uslugi`).
+// ⛔ MAPA `SERVICE_TILE_IMAGES` USUNIĘTA 10.08.2026.
 //
-// ⚠ KAFELEK MA WŁASNE ZDJĘCIE i NIE jest wyprowadzany z `heroImage`.
-// Próba wyprowadzenia (10.08.2026) została cofnięta tego samego dnia: Marcin
-// chce tego samego kadru na obu powierzchniach TYLKO tam, gdzie sam go wskazał,
-// a nie jako reguły dla wszystkich czterech usług.
+// Reguła Marcina, podana wprost: „mają być jedne zdjęcia". Każda usługa ma
+// JEDEN plik, pokazywany i w hero podstrony, i na kafelku (strona główna
+// oraz `/uslugi`). Kafelek nie ma własnej listy: bierze `heroImage` tej samej
+// usługi (patrz `serviceItems` niżej).
 //
-// Stan docelowy per usługa, ustalony przez Marcina 10.08.2026:
-//   • eventy-reportaze      → kafelek == hero (kadr grupowy na torze), świadomie
-//   • nieruchomosci-przemysl → kafelek == hero (ta sama hala), od 04.08.2026
-//   • wizerunek-portrety    → kafelek INNY niż hero (kobieta z laptopem vs
-//                              mężczyzna w zielonym garniturze)
-//   • fotografia-produktowa → kafelek INNY niż hero (toast Belvedere vs Amarula)
+// Dlaczego przez wyprowadzenie, a nie przez wpisanie tych samych ścieżek dwa razy:
+// przez cały 10.08.2026 dwie niezależne listy rozjeżdżały się w tę i z powrotem.
+// Przy jednym źródle rozjazd jest niemożliwy.
 //
-// Czyli: NIE MA tu jednej reguły. Zgodność kafelka z hero jest decyzją per usługa
-// i nie zgłaszać ani zgodności, ani rozjazdu jako błędu bez zapytania Marcina.
-const SERVICE_TILE_IMAGES: Record<string, string> = {
-  // ⛔ TEN SAM PLIK CO W HERO podstrony `/uslugi/eventy-reportaze`. Świadome,
-  // decyzja Marcina z 10.08.2026: „na obydwu ma być to z samochodami".
-  // Nie zgłaszać jako duplikatu (finding UXUI2608-04 jest tu uchylony).
-  "eventy-reportaze": "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
-  // Kadr INNY niż hero podstrony (`portret-05-mezczyzna-zielony-garnitur`).
-  // Przywrócony 10.08.2026 na wyraźne polecenie Marcina.
-  "wizerunek-portrety": "/images/galeria/portrety/portret-02-kobieta-z-laptopem.jpg",
-  // Kadr INNY niż hero podstrony (`produkt-02-amarula`).
-  // Przywrócony 10.08.2026 na wyraźne polecenie Marcina.
-  "fotografia-produktowa": "/images/galeria/produktowe/produkt-01-toast-belvedere.jpg",
-  // Kafelek linii obiektowej na stronie głównej i na /uslugi. Ta sama jasna hala,
-  // co okładka podstrony, żeby cała linia miała jeden obraz (Marcin, 04.08.2026).
-  // Klucz zmieniony 10.08.2026 razem ze slugiem usługi.
-  "nieruchomosci-przemysl": "/images/galeria/wnetrza/wnetrze-03-hala-bramki-wejsciowe.jpg",
-};
+// ⚠ To ODWRACA regułę „hero i kafelek muszą być różne" (finding UXUI2608-04).
+// Tamta reguła NIE OBOWIĄZUJE. Identyczne zdjęcie na kafelku i w hero to stan
+// docelowy, nie duplikat. Nie zgłaszać go jako błędu.
+//
+// ⚠ KADROWANIE JEST OSOBNE i musi takie zostać: hero to KWADRAT, a kafelek
+// jest POZIOMY (16:9 na mobile, 3:2 na desktopie). Ten sam plik potrzebuje
+// więc dwóch różnych `object-position`, stąd `heroImagePos` przy usłudze
+// i `SERVICE_TILE_POS` niżej. Nie scalać tych dwóch map.
 
 // Punkt kadrowania miniatury (object-position). Kafelek jest POZIOMY (3:2 na
 // sm+, 16:9 na mobile), a dwa nowe pliki są PIONOWE, więc bez tych wartości
@@ -1006,10 +1006,11 @@ export const serviceItems = serviceCategories.map((s) => ({
       Dzięki temu kafelek może powiedzieć „za osobę" albo „pakiety", a kwota
       i tak pochodzi z jednego miejsca. */
   priceLabel: s.heroPriceLabel ?? s.price,
-  /** Kafelek ma WŁASNE zdjęcie z `SERVICE_TILE_IMAGES`, nie bierze go z `heroImage`.
-      Dla eventów i nieruchomości ta wartość jest celowo równa hero, dla wizerunku
-      i produktowej celowo różna. Szczegóły przy mapie wyżej. */
-  image: SERVICE_TILE_IMAGES[s.slug],
+  /** Kafelek pokazuje DOKŁADNIE ten sam plik co hero podstrony (reguła Marcina
+      z 10.08.2026: „mają być jedne zdjęcia"). Jedno źródło, więc obie powierzchnie
+      nie mogą się rozjechać. Kadrowanie zostaje osobne, bo kontenery mają inne
+      proporcje: `heroImagePos` dla kwadratu, `SERVICE_TILE_POS` dla poziomego kafelka. */
+  image: s.heroImage,
   imagePos: SERVICE_TILE_POS[s.slug] ?? "center",
 }));
 
