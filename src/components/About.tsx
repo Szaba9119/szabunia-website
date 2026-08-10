@@ -84,8 +84,26 @@ export default function About() {
               </div>
 
               {/* Stats bar */}
+              {/* UKŁAD POPRAWIONY 10.08.2026 (zgłoszenie Marcina: „250 tys."
+                  nachodzi na „1000+"). Zmierzone przed poprawką przy szerokości
+                  okna 1024 px: komórka siatki 104 px, a napis „250 000+" przy
+                  30 px ma 148 px, więc wychodził poza swoją kolumnę o 44 px
+                  i NACHODZIŁ na sąsiada o 24 px. Przy 1280 px zostawało 6 px
+                  prześwitu, przy 768 px i na telefonie problemu nie było.
+                  Powód: od `lg` sekcja „O mnie" idzie na dwie kolumny, więc
+                  pasek liczb dostaje ~464 px na cztery pozycje.
+
+                  Trzy zmiany, każda potrzebna:
+                    - pierwsza kolumna 1.5fr: „250 000+" jest realnie dwa razy
+                      szersze niż pozostałe liczby, równy podział był fikcją,
+                    - gap-x-6 zamiast gap-4 (odstęp, o który prosił Marcin),
+                    - liczba 24 px na każdej szerokości (było 30 px od `md`).
+                      Samo poszerzenie kolumny nie wystarczało: przy 1024 px
+                      napis 30 px nie mieści się w żadnym podziale tej siatki.
+                  `whitespace-nowrap` pilnuje, żeby „250 000+" nie łamało się
+                  na spacji tysięcznej z toLocaleString("pl-PL"). */}
               <div className="mt-8 pt-6 border-t border-border dark:border-dark-border">
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div className="grid grid-cols-2 sm:grid-cols-[1.5fr_1fr_1fr_1fr] gap-x-6 gap-y-6">
                   {[
                     { end: 250000, suffix: "+", label: "wykonanych zdjęć" },
                     { end: 1000, suffix: "+", label: "zrealizowanych sesji i eventów" },
@@ -93,7 +111,7 @@ export default function About() {
                     { end: 8, suffix: "+", label: "lat doświadczenia" },
                   ].map((stat) => (
                     <div key={stat.label} className="text-center">
-                      <p className="font-barlow font-extrabold text-2xl md:text-3xl text-blue dark:text-blue-light leading-none mb-1">
+                      <p className="font-barlow font-extrabold text-2xl text-blue dark:text-blue-light leading-none mb-1 whitespace-nowrap">
                         <CountUp end={stat.end} suffix={stat.suffix} duration={stat.end > 10000 ? 2500 : 2000} />
                       </p>
                       <p className="text-[11px] text-steel dark:text-dark-text-muted leading-tight">

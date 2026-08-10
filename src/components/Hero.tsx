@@ -120,7 +120,7 @@ export default function Hero() {
                 argument organizacyjny, nie jako obietnica w pierwszych sekundach. */}
             <p className="font-inter text-[15px] md:text-base text-steel dark:text-dark-text-muted leading-relaxed max-w-md mx-auto md:mx-0">
               Pomagam firmom budować profesjonalny wizerunek poprzez zdjęcia
-              i&nbsp;film. Ludzie, wydarzenia, obiekty i&nbsp;produkty.
+              i&nbsp;filmy. Ludzie, wydarzenia, obiekty i&nbsp;produkty.
               Od&nbsp;pierwszej rozmowy do&nbsp;gotowego materiału.
             </p>
 
@@ -145,19 +145,44 @@ export default function Hero() {
                    i bez czasownika w czasie przeszłym, który brzmiał jak
                    podsumowanie kariery. Liczba stoi na początku wiersza.
                 2. „realizacje w całej Polsce" → „realizacje w całej Europie".
-                   ⚠ To ZAWĘŻENIE zasięgu w hero, nie rozszerzenie: reszta serwisu
-                   (About, ServiceAuthor, /uslugi, blog.ts) mówi „w całej Polsce
-                   i Europie", więc hero jako jedyne miejsce nie deklaruje już
-                   Polski. Zgłoszone Marcinowi w raporcie, zmiana wprowadzona
-                   na jego wyraźne polecenie. Wariant zgodny z resztą strony
-                   („w całej Polsce i Europie") czeka na jego decyzję. */}
-            <p className="mt-8 text-[13px] text-steel dark:text-dark-text-muted">
-              <span className="font-semibold text-navy dark:text-dark-text">
-                100+ obsłużonych firm
-              </span>
-              <span className="mx-2 text-steel-light" aria-hidden="true">·</span>
-              realizacje w całej Europie
-            </p>
+
+                SZÓSTA TURA, 10.08.2026: jeden wiersz z kropką rozbity na DWA
+                osobne elementy z ikonami, a zasięg wrócił do „w Polsce
+                i Europie". To domyka rozjazd, który sam zgłaszałem przy piątej
+                turze: hero było jedynym miejscem w serwisie, które nie mówiło
+                o Polsce.
+
+                SIÓDMA TURA, 10.08.2026: `CTA.tsx` mówił o tej samej liczbie
+                „100+ firm B2B z całej Polski" i został sprowadzony do brzmienia
+                stąd, czyli „100+ obsłużonych firm". Claim o liczbie firm ma teraz
+                JEDNO brzmienie w całym serwisie, a zasięg geograficzny jest
+                osobnym komunikatem i żyje wyłącznie w tym miejscu.
+
+                ⚠ IKONY WRACAJĄ, ALE BEZ KAPSUŁEK. Wyżej stoi decyzja z trzeciej
+                tury, że obramowane pigułki z ikonami robiły z hero landing SaaS.
+                Ona obowiązuje dalej i dlatego tu NIE MA ramek, tła ani
+                zaokrągleń: jest ikona akcentowa i zwykły tekst. Jeśli ktoś
+                kiedyś dorobi do tych dwóch pozycji `border` i `rounded-full`,
+                wróci dokładnie ten problem, który kazał je zdjąć. */}
+            <ul className="mt-8 flex flex-wrap items-center justify-center md:justify-start gap-x-7 gap-y-3 text-[13px] text-steel dark:text-dark-text-muted">
+              <li className="inline-flex items-center gap-2">
+                {/* budynek = firmy */}
+                <svg className="w-4 h-4 flex-shrink-0 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                </svg>
+                <span>
+                  <span className="font-semibold text-navy dark:text-dark-text">100+</span>{" "}
+                  obsłużonych firm
+                </span>
+              </li>
+              <li className="inline-flex items-center gap-2">
+                {/* globus = zasięg geograficzny */}
+                <svg className="w-4 h-4 flex-shrink-0 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 0c2.485 0 4.5-4.03 4.5-9s-2.015-9-4.5-9-4.5 4.03-4.5 9 2.015 9 4.5 9zM3.6 9h16.8M3.6 15h16.8" />
+                </svg>
+                Realizacje w Polsce i Europie
+              </li>
+            </ul>
 
             {/* DWIE ROZDZIELONE ŚCIEŻKI KONTAKTU (korekta Marcina 10.08.2026).
                 Poprzednio telefon stał jako goły numer OBOK przycisku i czytał

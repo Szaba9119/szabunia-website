@@ -10,13 +10,25 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 // Kolejność linków = kolejność sekcji na stronie głównej, żeby podświetlenie
 // przy scrollu szło od lewej do prawej bez przeskoków.
 // type "anchor" = kotwica na home; type "page" = osobna podstrona z sekcją-teaserem na home.
+// `subHref` = dokąd link prowadzi POZA stroną główną. Wprowadzone 10.08.2026
+// po zgłoszeniu Marcina, że „Usługi" z podstrony usługi prowadzą w dziwne miejsce.
+//
+// Co było: poza home `linkPrefix` robił z `#uslugi` adres `/#uslugi`, czyli
+// wyrzucał użytkownika na STRONĘ GŁÓWNĄ, do sekcji, która jest tam wyłącznie
+// teaserem z czterema kafelkami. Pełna strona sekcji to `/uslugi`, i dokładnie
+// tam prowadzi okruszek „Usługi" na tych samych podstronach. Dwa linki o tej
+// samej nazwie szły w dwa różne miejsca. Teraz oba prowadzą do `/uslugi`.
+//
+// Na stronie głównej nic się nie zmienia: „Usługi" nadal jest kotwicą do sekcji.
+// „O mnie" i „Portfolio" zostają kotwicami wszędzie, bo nie mają odpowiednika
+// w postaci osobnej strony.
 const navLinks = [
-  { label: "O mnie", href: "#o-mnie", section: "o-mnie", page: null },
-  { label: "Usługi", href: "#uslugi", section: "uslugi", page: null },
-  { label: "Portfolio", href: "#portfolio", section: "portfolio", page: null },
-  { label: "Galeria", href: "/galeria", section: "galeria", page: "/galeria" },
-  { label: "Blog", href: "/blog", section: "blog", page: "/blog" },
-  { label: "Poradnik", href: "/poradnik", section: "poradnik", page: "/poradnik" },
+  { label: "O mnie", href: "#o-mnie", section: "o-mnie", page: null, subHref: null },
+  { label: "Usługi", href: "#uslugi", section: "uslugi", page: null, subHref: "/uslugi" },
+  { label: "Portfolio", href: "#portfolio", section: "portfolio", page: null, subHref: null },
+  { label: "Galeria", href: "/galeria", section: "galeria", page: "/galeria", subHref: null },
+  { label: "Blog", href: "/blog", section: "blog", page: "/blog", subHref: null },
+  { label: "Poradnik", href: "/poradnik", section: "poradnik", page: "/poradnik", subHref: null },
 ];
 
 // Scroll-spy w kolejności DOM na home; #kontakt domyka listę, żeby podświetlenie
@@ -74,6 +86,19 @@ export default function Navigation() {
     if (firstItem) firstItem.focus();
   }, [mobileOpen]);
 
+  // Jedno miejsce rozstrzygające adres linku, wspólne dla paska i menu mobilnego
+  // (wcześniej obie listy budowały href osobno i rozjechałyby się przy pierwszej
+  // zmianie). Kolejność warunków ma znaczenie: pełne podstrony biorą swój href
+  // bez prefiksu, bo `linkPrefix` zrobiłby z „/galeria" adres „//galeria".
+  const hrefFor = useCallback(
+    (link: (typeof navLinks)[number]) => {
+      if (link.page !== null) return link.href;
+      if (!isHome && link.subHref) return link.subHref;
+      return `${linkPrefix}${link.href}`;
+    },
+    [isHome, linkPrefix]
+  );
+
   const isActive = useCallback(
     (link: (typeof navLinks)[number]) =>
       activeSection === link.section ||
@@ -114,12 +139,17 @@ export default function Navigation() {
                 ? "text-blue dark:text-blue-light font-semibold"
                 : "text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white"
             }`;
-            return link.page === null ? (
-              <a key={link.label} href={`${linkPrefix}${link.href}`} className={cls}>
+            // O tym, czy to <a> czy <Link>, decyduje POSTAĆ ADRESU, a nie typ
+            // wpisu: „Usługi" poza home jest zwykłą trasą i ma iść klientowym
+            // routingiem, żeby ScrollRestorer wyzerował scroll jak przy każdej
+            // innej podstronie. Kotwice zostają na <a>, bo mają scrollować.
+            const href = hrefFor(link);
+            return href.includes("#") ? (
+              <a key={link.label} href={href} className={cls}>
                 {link.label}
               </a>
             ) : (
-              <Link key={link.label} href={link.href} className={cls}>
+              <Link key={link.label} href={href} className={cls}>
                 {link.label}
               </Link>
             );
@@ -209,10 +239,11 @@ export default function Navigation() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
               );
-              return link.page === null ? (
+              const href = hrefFor(link);
+              return href.includes("#") ? (
                 <a
                   key={link.label}
-                  href={`${linkPrefix}${link.href}`}
+                  href={href}
                   onClick={() => closeMobileMenu()}
                   className={cls}
                 >
@@ -222,7 +253,7 @@ export default function Navigation() {
               ) : (
                 <Link
                   key={link.label}
-                  href={link.href}
+                  href={href}
                   onClick={() => closeMobileMenu()}
                   className={cls}
                 >

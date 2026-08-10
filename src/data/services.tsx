@@ -48,6 +48,26 @@ export interface ServiceData {
   h2Faq?: string;
   subtitle: string;
   description: string;
+  /** Mały kicker nad H1 w hero podstrony usługi, wersalikami (np. „DOKUMENTACJA
+      WYDARZEŃ"), z ikoną obok. Odpowiednik kickera ze strony głównej
+      („FOTOGRAF BIZNESOWY W POZNANIU. ZDJĘCIA I FILM."), który stoi tam nad
+      hasłem i nadaje sekcji ten sam rytm: etykieta → nagłówek → lead.
+
+      Dodane 10.08.2026 (brief hero eventów). Pole OPCJONALNE i celowo puste dla
+      trzech pozostałych usług: kicker pojawia się tylko tam, gdzie Marcin podał
+      treść. Nie generować go automatycznie z `title` ani `shortTitle` — wersalik
+      z długiej nazwy marketingowej („FOTOGRAFIA I WIDEO NIERUCHOMOŚCI
+      I PRZEMYSŁU") przestaje być etykietą, a staje się drugim nagłówkiem. */
+  heroLabel?: string;
+  /** Trzy krótkie korzyści pod leadem w hero, każda z ikoną. Też opcjonalne
+      i też tylko dla eventów (10.08.2026). Świadomie TRZY: rząd na desktopie
+      dzieli się wtedy równo, a przy czterech pozycjach tekst schodzi do rozmiaru,
+      w którym przestaje być czytany.
+
+      To NIE jest miejsce na powtórzenie zakresu usługi (`scope`) ani listy
+      zastosowań (`applications`). Korzyść mówi, co klient z tego ma; tamte
+      sekcje mówią, co dostaje. Duplikat zrobi z hero spis treści strony. */
+  heroBenefits?: { icon: ReactNode; text: string }[];
   icon: ReactNode;
   /** Zdjęcie hero podstrony usługi, z istniejących bibliotek /images (brief-22 zad. 8). */
   heroImage: string;
@@ -177,14 +197,55 @@ const serviceCategoriesRaw: ServiceData[] = [
     shortTitle: "Wydarzenia firmowe",
     subtitle:
       "Konferencje, targi, gale i integracje. Zdjęcia, film i dron z jednego dnia, część kadrów na social media jeszcze w trakcie wydarzenia.",
+    heroLabel: "Dokumentacja wydarzeń",
+    // Trzy korzyści, nie trzy elementy zakresu. Treść podana przez Marcina
+    // 10.08.2026 co do słowa, nie skracać „na oko": każda z nich odpowiada na
+    // inne pytanie klienta (ile ekip, kiedy dostanę, co z relacją na żywo).
+    heroBenefits: [
+      {
+        // aparat
+        icon: (
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0z" />
+          </svg>
+        ),
+        text: "Zdjęcia i wideo z jednego dnia",
+      },
+      {
+        // błyskawica = tempo dostawy
+        icon: (
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z" />
+          </svg>
+        ),
+        text: "Materiały gotowe do szybkiej publikacji",
+      },
+      {
+        // sygnał nadawania = relacja na żywo
+        icon: (
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M9.348 14.652a3.75 3.75 0 010-5.304m5.304 0a3.75 3.75 0 010 5.304m-7.425 2.121a6.75 6.75 0 010-9.546m9.546 0a6.75 6.75 0 010 9.546M5.106 18.894c-3.808-3.807-3.808-9.98 0-13.788m13.788 0c3.808 3.807 3.808 9.98 0 13.788M12 12h.008v.008H12V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+          </svg>
+        ),
+        text: "Relacja na social media podczas wydarzenia",
+      },
+    ],
     // Lead przepisany 10.08.2026 (pakiet 4, wersja wybrana przez Marcina).
     // Poprzedni opisywał SPOSÓB pracy („fotografuję dyskretnie, reportażowo").
     // Nowy sprzedaje WARTOŚĆ MATERIAŁU PO wydarzeniu, bo to jest argument
-    // biznesowy, a nie estetyczny. Cztery nazwy klientów, świadomie nie więcej:
-    // pokrywają dużą markę, korporację, media i przemysł, więc dowodzą, że to
-    // nie jest fotograf od jednego rodzaju eventów.
+    // biznesowy, a nie estetyczny.
+    //
+    // SKRÓCONY 10.08.2026 (brief hero, punkt 5: „ogranicz wrażenie ściany
+    // tekstu"). Z trzech zdań zostały dwa. Wypadło zdanie środkowe, o tym, że
+    // materiał idzie do bieżącej relacji, podsumowania roku i promocji następnej
+    // edycji. Nie zginęło: te trzy zastosowania stoją niżej na tej samej stronie
+    // jako lista „Gdzie materiał pracuje dalej" (`applications.uses`), więc
+    // w hero było ich powtórzeniem. Cztery nazwy klientów ZOSTAJĄ w komplecie:
+    // to jedyny twardy dowód w tej sekcji i pokrywa dużą markę, korporację,
+    // media i przemysł.
     description:
-      "Konferencja, gala albo integracja trwa kilka godzin, ale materiał z niej może pracować przez kolejne miesiące. Fotografuję i filmuję wydarzenia firmowe tak, żeby został z nich materiał do bieżącej relacji, podsumowania roku i promocji następnej edycji. Pracowałem przy wydarzeniach dla H&M, Santander Bank Polska, Warner Music Poland i John Deere.",
+      "Konferencja, gala albo integracja trwa kilka godzin, ale materiał z niej pracuje przez kolejne miesiące. Pracowałem przy wydarzeniach dla H&M, Santander Bank Polska, Warner Music Poland i John Deere.",
     applications: {
       heading: "Dla jakich wydarzeń",
       items: [
@@ -215,7 +276,11 @@ const serviceCategoriesRaw: ServiceData[] = [
         },
         {
           title: "Zdjęcia w trakcie wydarzenia",
-          desc: "Wybrane kadry obrabiam na miejscu i przesyłam do publikacji, zanim goście wrócą do domu.",
+          // Dopisany kanał publikacji (Marcin, 10.08.2026). Poprzednia wersja
+          // mówiła „przesyłam do publikacji", czyli nie nazywała miejsca, w którym
+          // ta publikacja ma się wydarzyć. Social media są tu konkretem: to jedyny
+          // kanał, w którym zdjęcie z eventu ma sens tego samego dnia.
+          desc: "Wybrane kadry obrabiam na miejscu i przesyłam w trakcie wydarzenia, więc relację na LinkedInie i Instagramie publikujesz, zanim goście wrócą do domu.",
         },
         {
           title: "Wideo",

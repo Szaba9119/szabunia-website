@@ -297,9 +297,16 @@ export default function CTA() {
                 </div>
 
                 {/* Social proof */}
+                {/* UJEDNOLICONE 10.08.2026 (polecenie Marcina): było „100+ firm
+                    B2B z całej Polski". Ta sama liczba opisana innymi słowami niż
+                    w hero czytała się jak dwa różne fakty. Teraz obie sekcje mówią
+                    „100+ obsłużonych firm".
+                    ⚠ Zasięg geograficzny NIE wraca tutaj w żadnej formie: to
+                    osobny komunikat i ma zostać wyłącznie w hero („Realizacje
+                    w Polsce i Europie"). Nie doklejać go z powrotem do tej linii. */}
                 <div className="flex items-center gap-3">
                   <p className="text-xs text-steel dark:text-dark-text-muted">
-                    100+ firm B2B z całej Polski
+                    100+ obsłużonych firm
                   </p>
                 </div>
               </div>
