@@ -56,8 +56,11 @@ export default function About() {
                   Ukończyłem <strong>studia z zarządzania</strong>, więc rozumiem nie tylko kadr,
                   ale i biznesowy cel, któremu zdjęcia mają służyć.
                   Specjalizuję się w obsłudze <strong>marek B2B i korporacji</strong>, które
-                  potrzebują powtarzalnego standardu wizerunkowego między sesjami.
-                  {/* Lista przepisana 10.08.2026 na cztery filary. Poprzednia
+                  potrzebują powtarzalnego standardu wizerunkowego między sesjami.{" "}
+                  {/* ⚠ `{" "}` w linii wyżej jest KONIECZNE. Komentarz JSX między
+                      dwoma węzłami tekstowymi zjada odstęp i na produkcji wychodzi
+                      „sesjami.Portrety" bez spacji. Złapane 10.08.2026 na zrzucie.
+                      Lista przepisana tego samego dnia na cztery filary. Poprzednia
                       („Portrety biznesowe, reportaże z eventów, fotografia
                       produktowa, wideo marketingowe") wymieniała cztery pozycje,
                       ale ze STAREJ architektury: brakowało całego filaru

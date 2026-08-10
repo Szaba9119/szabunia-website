@@ -24,7 +24,13 @@ export default function Hero() {
   // przycięty i niewidoczny, a niedomiar zostawiłby brzydką szparę przy
   // krawędzi. Pierwsza wersja liczyła z vw wcięcie TEKSTU i wtedy ten sam
   // błąd był widoczny jako 7 px rozjazdu między opisem a hasłem.
-  const bleedRight = "md:mr-[calc(-1*max(1rem,(100vw-72rem)/2))]";
+  // ⚠ UCIECZKA JEST OGRANICZONA DO 5rem. Bez `min()` zdjęcie rosło razem
+  // z ekranem: przy 2560 px kolumna miała 1280 px szerokości przy wysokości
+  // ograniczonej do 520 px, a pionowy plik źródłowy (877x1168) wciśnięty
+  // w taki kadr był przycięty do samej twarzy, z uciętą brodą (zgłoszone
+  // przez Marcina po deployu 10.08.2026, potwierdzone na 2560 px).
+  // Z limitem układ wygląda tak samo od 1280 px w górę.
+  const bleedRight = "md:mr-[calc(-1*min(5rem,max(1rem,(100vw-72rem)/2)))]";
 
   return (
     <section className="relative pt-28 pb-12 md:pt-32 md:pb-24 overflow-hidden">
@@ -98,13 +104,18 @@ export default function Hero() {
         {/* B. Zdjęcie (mobile: pod opisem, w marginesach strony; desktop: prawa
             kolumna przez oba rzędy, dochodzi do prawej krawędzi ekranu).
             Bez animacji wejściowej: element LCP (PageSpeed "render delay").
-            Na telefonie kadr kwadratowy. Na desktopie NIE proporcja, tylko
-            wysokość z clampem: kolumna ma tu 50vw, więc aspect-square dawało
-            na monitorze 1600 px zdjęcie wysokie na 800 px i spychało chipy
-            oraz CTA pod fold. */}
+            Na telefonie kadr kwadratowy, na desktopie 5:4.
+            HISTORIA DWÓCH BŁĘDÓW, żeby nie wrócić do żadnego:
+              1. `aspect-square` dawało na 1600 px zdjęcie wysokie na 800 px
+                 i spychało chipy oraz CTA pod fold.
+              2. Sama wysokość z clampem (400-520 px) naprawiała punkt 1, ale
+                 nie ograniczała SZEROKOŚCI. Przy 2560 px kadr miał 1280x520
+                 i ciął pionowy portret do samej twarzy.
+            Rozwiązanie to proporcja plus limit szerokości plus ograniczona
+            ucieczka wyżej. Kadr wygląda tak samo od 1280 px w górę. */}
         <div className={`mt-8 md:mt-0 md:col-start-2 md:row-start-1 md:row-span-2 ${bleedRight}`}>
           <Parallax distance={PARALLAX.subtle} direction="up">
-            <div className="w-full aspect-square md:aspect-auto md:h-[clamp(400px,34vw,520px)] rounded-3xl md:rounded-r-none overflow-hidden bg-border dark:bg-dark-card relative">
+            <div className="w-full aspect-square md:aspect-[5/4] md:max-w-[660px] md:ml-auto rounded-3xl md:rounded-r-none overflow-hidden bg-border dark:bg-dark-card relative">
               <Image
                 src="/images/marcin-hero-light-4.jpg"
                 alt="Marcin Szabunia, fotograf biznesowy i twórca wideo, Poznań"

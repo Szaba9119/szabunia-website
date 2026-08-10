@@ -822,20 +822,32 @@ export function getPriceFaq(service: ServiceData): FAQItem {
 
 // Reprezentacyjne zdjęcie pokazywane na kafelku usługi (sekcja „Czym mogę Ci
 // pomóc"). Łatwo podmienić ścieżkę, jeśli chcesz inne ujęcie.
+// Trzy okładki wymienione 10.08.2026 na prośbę Marcina po deployu.
 const SERVICE_TILE_IMAGES: Record<string, string> = {
-  "eventy-reportaze": "/images/galeria/eventy/event-05-networking-foyer.jpg",
-  "wizerunek-portrety": "/images/galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg",
-  "fotografia-produktowa": "/images/galeria/produktowe/produkt-02-amarula.jpg",
+  // Ujęcie z góry: dwa auta sportowe i kilkudziesięcioosobowa grupa na torze.
+  // Wcześniej networking w foyer. Ten kadr pokazuje SKALĘ wydarzenia, czego
+  // zdjęcie z rozmowy dwóch osób nie robi.
+  "eventy-reportaze": "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
+  "wizerunek-portrety": "/images/galeria/portrety/portret-02-kobieta-z-laptopem.jpg",
+  "fotografia-produktowa": "/images/galeria/produktowe/produkt-01-toast-belvedere.jpg",
   // Kafelek linii obiektowej na stronie głównej i na /uslugi. Ta sama jasna hala,
   // co okładka podstrony, żeby cała linia miała jeden obraz (Marcin, 04.08.2026).
   // Klucz zmieniony 10.08.2026 razem ze slugiem usługi.
   "nieruchomosci-przemysl": "/images/galeria/wnetrza/wnetrze-03-hala-bramki-wejsciowe.jpg",
 };
 
-// Punkt kadrowania miniatury (object-position). Wizerunek kadrujemy nieco wyżej
-// (sylwetka w górnej części). Reszta domyślnie wyśrodkowana.
+// Punkt kadrowania miniatury (object-position). Kafelek jest POZIOMY (3:2 na
+// sm+, 16:9 na mobile), a dwa nowe pliki są PIONOWE, więc bez tych wartości
+// kadr ucinałby to, co w zdjęciu najważniejsze.
 const SERVICE_TILE_POS: Record<string, string> = {
-  "wizerunek-portrety": "center 29%",
+  // Twarz i laptop w górnej części pionowego kadru.
+  "wizerunek-portrety": "center 25%",
+  // Kieliszki i butelka w środkowo-dolnej części; góra to ciemne tło lokalu.
+  "fotografia-produktowa": "center 45%",
+  // Auta i grupa w dolnych dwóch trzecich, góra to niebo. Istotne wyłącznie
+  // na mobile, gdzie kafelek jest 16:9 — na sm+ proporcja pliku i kafelka
+  // są zbliżone, więc przycięcie jest minimalne.
+  "eventy-reportaze": "center 62%",
 };
 
 export const serviceItems = serviceCategories.map((s) => ({
