@@ -227,6 +227,7 @@ export default function ServiceGalleryStrip({
   href: hrefProp,
   sub: subProp,
   exclude,
+  secondaryLink,
 }: {
   category: GalleryCategoryKey;
   ctaLabel?: string;
@@ -237,6 +238,10 @@ export default function ServiceGalleryStrip({
       podstronie i musi tłumaczyć, po co tam jest (np. sesja zespołowa
       na podstronie eventowej). */
   sub?: string;
+  /** Poboczny odsyłacz pod przyciskiem paska — przejście na sąsiednią usługę.
+      Renderowany jako link tekstowy, żeby nie tworzyć drugiego przycisku
+      obok głównego CTA (10.08.2026). */
+  secondaryLink?: { label: string; href: string };
 }) {
   const meta = META[category];
   // `obiekty` nie ma własnego folderu w public/images/galeria, bo korzysta z plików
@@ -267,7 +272,7 @@ export default function ServiceGalleryStrip({
       : galleryVideos.slice(0, 4);
     if (vids.length === 0) return null;
     return (
-      <Shell label={meta.label} sub={subProp ?? meta.sub} href={href} ctaLabel={ctaLabel} prominentSub={!!subProp}>
+      <Shell label={meta.label} sub={subProp ?? meta.sub} href={href} ctaLabel={ctaLabel} prominentSub={!!subProp} secondaryLink={secondaryLink}>
         <ServiceVideoGrid
           videos={vids.map((v) => ({ youtubeId: v.youtubeId, title: v.title, vertical: v.vertical }))}
           gridClass={
@@ -293,7 +298,7 @@ export default function ServiceGalleryStrip({
   if (images.length === 0) return null;
 
   return (
-    <Shell label={meta.label} sub={subProp ?? meta.sub} href={href} ctaLabel={ctaLabel} prominentSub={!!subProp}>
+    <Shell label={meta.label} sub={subProp ?? meta.sub} href={href} ctaLabel={ctaLabel} prominentSub={!!subProp} secondaryLink={secondaryLink}>
       <ServiceGalleryLightbox
         images={images}
         altBase={meta.alt}
@@ -342,6 +347,7 @@ function Shell({
   href,
   ctaLabel = "Zobacz całą galerię",
   prominentSub = false,
+  secondaryLink,
   children,
 }: {
   label: string;
@@ -350,6 +356,7 @@ function Shell({
   ctaLabel?: string;
   /** Podtytuł pochodzi z podstrony, nie z META — renderuj go jak zdanie, nie jak podpis. */
   prominentSub?: boolean;
+  secondaryLink?: { label: string; href: string };
   children: React.ReactNode;
 }) {
   return (
@@ -403,6 +410,21 @@ function Shell({
               </svg>
             </Link>
           </div>
+          {/* Przejście na sąsiednią usługę. Link tekstowy, nie drugi przycisk:
+              obok stoi już obrysowany przycisk paska, a niżej na tej samej
+              podstronie główne CTA kontaktowe. Trzeci przycisk rozmyłby
+              hierarchię, a to jest odsyłacz, nie wezwanie do działania. */}
+          {secondaryLink && (
+            <div className="mt-3 flex justify-center">
+              <Link
+                href={secondaryLink.href}
+                className="inline-flex items-center gap-1.5 text-[13px] font-barlow font-semibold text-blue dark:text-blue-light hover:gap-2.5 transition-all"
+              >
+                {secondaryLink.label}
+                <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          )}
         </AnimatedSection>
       </div>
     </section>

@@ -252,6 +252,7 @@ export default async function ServicePage({ params }: PageProps) {
               href={service.extraGallery.href}
               sub={service.extraGallery.sub}
               exclude={service.heroImage}
+              secondaryLink={service.extraGallery.secondaryLink}
             />
           </ErrorBoundary>
         )}

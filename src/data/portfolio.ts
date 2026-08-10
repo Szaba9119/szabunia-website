@@ -60,6 +60,16 @@ export interface PortfolioCategory {
   proofLink?: { label: string; url: string };
   /** Linki klienta (wizytówka, social, strona) — wiersz pod proofLink w hero */
   clientLinks?: { label: string; url: string }[];
+  /** Przejście z realizacji na odpowiadającą jej usługę. Dodane 10.08.2026.
+
+      Powód: case studies były ślepymi zaułkami. Sprawdzone na wyrenderowanym
+      HTML z produkcji — jedyne linki wychodzące to nawigacja i stopka, zero
+      odsyłaczy kontekstowych, w tym ani jednego do własnej usługi. Trzy CTA
+      na stronie prowadziły pod ten sam kotwiczny `#kontakt`.
+
+      Renderuje się jako link tekstowy przy istniejącym przycisku `midCta`,
+      świadomie NIE jako czwarty przycisk. */
+  serviceLink?: { label: string; href: string };
   /** Osobna miniatura dla kafli (home, /portfolio) — domyślnie thumbnail */
   tileImage?: string;
   /** Kotwiczenie kadru w kaflach: "top" dla pionowych portretów (głowa zostaje w kadrze) */
@@ -437,6 +447,12 @@ export const portfolioCategories: PortfolioCategory[] = [
         a: "Standardowy czas to 14 dni. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50%).",
       },
     ],
+    // Ta realizacja pokazuje kadry, ale nie mówi, co wchodzi w zakres, ile trwa
+    // sesja ani od czego zależy wycena. To wszystko stoi na stronie usługi.
+    serviceLink: {
+      label: "Poznaj usługę fotografii wizerunkowej",
+      href: "/uslugi/wizerunek-portrety",
+    },
     seo: {
       title: "Przykłady sesji wizerunkowych dla firm | Szabunia",
       description:
@@ -539,6 +555,13 @@ export const portfolioCategories: PortfolioCategory[] = [
         a: "Przy całodniowej realizacji pakiet dzienny wychodzi korzystniej niż rozliczenie godzinowe.",
       },
     ],
+    // Jak wyżej: galeria pokazuje kadry, zakres i warunki realizacji stoją
+    // na stronie usługi. Etykieta powtarza jej H1, żeby klient wiedział,
+    // dokąd trafia, zanim kliknie.
+    serviceLink: {
+      label: "Poznaj usługę fotografii i wideo wydarzeń firmowych",
+      href: "/uslugi/eventy-reportaze",
+    },
     seo: {
       title: "Przykłady zdjęć z eventów firmowych | Szabunia",
       // PRZEPISANY 10.08.2026 (decyzja Marcina). Poprzednia wersja zaczynała się

@@ -157,6 +157,15 @@ export interface ServiceData {
         i sam z siebie nie tłumaczy, po co tam jest (Marcin, 04.08.2026:
         „przykłady sesji zespołowej dałbym w innym miejscu"). */
     sub?: string;
+    /** Drugi, poboczny odsyłacz pod przyciskiem paska. Dodane 10.08.2026 dla
+        linkowania wizerunek → wydarzenia firmowe.
+
+        Powód osobnego pola zamiast podmiany `href`: na `/uslugi/wizerunek-portrety`
+        pasek `zespolowe` ma już własny cel (case study IDcom) i przestawienie go
+        skasowałoby istniejące przejście. Kierunek na sąsiednią usługę dochodzi
+        OBOK, nie zamiast, i renderuje się jako link tekstowy, nie drugi przycisk,
+        żeby nie konkurował z głównym CTA na tej samej podstronie. */
+    secondaryLink?: { label: string; href: string };
   };
   /** YouTube ID przykładowego filmu pokazywanego na podstronie usługi. */
   videoId?: string;
@@ -211,11 +220,29 @@ const serviceCategoriesRaw: ServiceData[] = [
     slug: "eventy-reportaze",
     h2Process: "Jak wygląda obsługa wydarzenia",
     h2Faq: "Wydarzenia firmowe: najczęstsze pytania",
-    // Miasto w H1 wchodzi tu naturalnie w zdanie, więc nie łamie reguły
-    // z docs/zasady-tekstow.md (zakaz dotyczy doklejania przecinkiem).
-    // Strona główna przejmuje frazę ogólną „fotograf biznesowy Poznań",
-    // podstrona bierze lokalną odmianę konkretnej usługi (Marcin, 10.08.2026).
-    h1: "Fotografia i wideo wydarzeń firmowych w Poznaniu",
+    // ⛔ „w Poznaniu" ZDJĘTE Z H1 10.08.2026 (decyzja Marcina). NIE PRZYWRACAĆ.
+    //
+    // Cofa to ustalenie z rana tego samego dnia („podstrona bierze lokalną odmianę
+    // konkretnej usługi"). Powód zmiany: H1 jest głównym komunikatem strony,
+    // a blok autorski dwa ekrany niżej mówi „pracuję w całej Polsce i Europie".
+    // Nagłówek zawężał ofertę do miasta, którego reszta strony nie zawęża.
+    //
+    // Koszt SEO policzony przed decyzją, na danych z GSC (klaster lokalny
+    // w docs/sesje/SEO-TITLE-DESCRIPTION-2026-07-30.md): „fotografia eventowa
+    // poznań" 6 wyświetleń na pozycji 32, „zdjęcia eventowe poznań" 1 na pozycji 38,
+    // cały klaster lokalny 514 wyświetleń i ZERO kliknięć. Siedem wyświetleń
+    // z czwartej strony wyników, nieklikanych.
+    //
+    // ⚠ MIASTO ZOSTAJE W `seo.title` NIŻEJ, ŚWIADOMIE. To rozdzielenie zastosowań,
+    // nie niekonsekwencja: `title` trafia wprost do wyniku wyszukiwania i tam
+    // lokalność pracuje, H1 jest obietnicą zakresu i tam zawężała. Zgodne
+    // z docs/zasady-tekstow.md („W `title` zostaje, tam jego miejsce jest właściwe").
+    //
+    // ⚠ ZNANY ROZJAZD DO OSOBNEJ DECYZJI: docs/zasady-tekstow.md §„Miasto
+    // w nagłówkach" używa zdania „Obsługa eventów firmowych w Poznaniu" jako
+    // przykładu nagłówka DOPUSZCZALNEGO. Ten przykład jest teraz sprzeczny
+    // ze stanem strony. Reguły celowo NIE przepisano (polecenie Marcina).
+    h1: "Fotografia i wideo wydarzeń firmowych",
     galleryCategory: "eventy",
     extraGallery: {
       // Portrety zamiast kadrów z sesji IDcom (Marcin, 04.08.2026). Sekcja renderuje
@@ -481,6 +508,23 @@ const serviceCategoriesRaw: ServiceData[] = [
       // Logistyka mobilnego studia nie ginie, stoi w „Zakresie realizacji"
       // (karta „Mobilne studio w Twoim biurze") i w FAQ („Sesja u nas w biurze
       // czy w studiu?"). Tutaj była trzecim powtórzeniem.
+      //
+      // Kierunek wizerunek → wydarzenia firmowe (10.08.2026, polecenie Marcina).
+      // Stoi przy pasku sesji zespołowych, bo to jedyne miejsce na tej podstronie,
+      // gdzie oba wątki się realnie spotykają: zespół w komplecie zdarza się
+      // najczęściej przy okazji wydarzenia firmowego. Ta sama zależność jest już
+      // opisana z drugiej strony, w `extraGallery.sub` na `/uslugi/eventy-reportaze`.
+      secondaryLink: {
+        // Etykieta poprawiona przez Marcina 10.08.2026. Wcześniej „Zobacz obsługę
+        // wydarzeń firmowych": funkcjonalnie poprawne, ale „obsługa" nazywa usługę
+        // z perspektywy oferty, a nie tego, po co użytkownik klika.
+        //
+        // ⛔ NIE ZMIENIAĆ NA „Zobacz reportaż z wydarzenia". Ten link prowadzi
+        // na stronę USŁUGI, a taka etykieta obiecuje konkretne kadry, czyli
+        // case study `/portfolio/fotografia-eventowa`.
+        label: "Zobacz fotografię i wideo wydarzeń",
+        href: "/uslugi/eventy-reportaze",
+      },
     },
     title: "Fotografia i wideo wizerunkowe dla firm",
     shortTitle: "Wizerunek firmy",

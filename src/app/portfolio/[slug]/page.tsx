@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { portfolioCategories, getCategoryBySlug, isPortfolioDraft } from "@/data/portfolio";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -129,6 +130,23 @@ export default async function PortfolioPage({ params }: PageProps) {
         Zapytaj o ofertę
         <span className="text-white/80">→</span>
       </a>
+      {/* Przejście na odpowiadającą usługę (10.08.2026). Doklejone do istniejącego
+          bloku CTA zamiast nowej sekcji: realizacja odpowiada na „czy on to umie",
+          a strona usługi na „co dokładnie dostanę i na jakich warunkach".
+          Link tekstowy, nie przycisk — obok stoi już główne CTA kontaktowe,
+          a osobny `data-cta` pozwala zmierzyć, czy ta ścieżka jest klikana. */}
+      {category.serviceLink && (
+        <div className="mt-4">
+          <Link
+            href={category.serviceLink.href}
+            data-cta="usluga_z_case"
+            className="inline-flex items-center gap-1.5 text-[13px] font-barlow font-semibold text-blue dark:text-blue-light hover:gap-2.5 transition-all"
+          >
+            {category.serviceLink.label}
+            <span aria-hidden="true">→</span>
+          </Link>
+        </div>
+      )}
     </div>
   );
 
