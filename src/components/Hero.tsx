@@ -58,7 +58,10 @@ export default function Hero() {
       </div>
 
       <div className="px-4">
-        <div className="max-w-6xl mx-auto md:grid md:grid-cols-[1.02fr_0.98fr] md:gap-x-10 lg:gap-x-14 md:items-start">
+        {/* Kolumny 1.1 / 0.9, nie po równo (10.08.2026, trzecia tura).
+            Szersza lewa kolumna pozwala podnieść stopień hasła z 50 na 54 px
+            i skraca przewagę wysokości zdjęcia nad blokiem tekstu. */}
+        <div className="max-w-6xl mx-auto md:grid md:grid-cols-[1.1fr_0.9fr] md:gap-x-10 lg:gap-x-14 md:items-start">
           {/* LEWA KOLUMNA */}
           <div className="hero-intro text-center md:text-left">
             {/* H1 niesie frazę, hasło zostaje w H2 (decyzja z 2026-07-30).
@@ -85,8 +88,8 @@ export default function Hero() {
                 ⚠ Rozmiar na desktopie jest ograniczony do 50 px NIE bez powodu:
                 najdłuższa linia („LUDZIE. WYDARZENIA.") ma 19 znaków i przy
                 większym stopniu wychodzi poza kolumnę. Sprawdzone na 1024,
-                1280 i 1440. */}
-            <h2 className="font-barlow font-black text-[clamp(38px,11vw,58px)] md:text-[clamp(32px,3.6vw,50px)] leading-[0.95] tracking-[-1.5px] md:tracking-[-2.5px] text-navy dark:text-white mb-6 md:mb-7">
+                1280 i 1440 przy kolumnie 1.1fr. */}
+            <h2 className="font-barlow font-black text-[clamp(38px,11vw,58px)] md:text-[clamp(32px,3.9vw,54px)] leading-[0.95] tracking-[-1.5px] md:tracking-[-2.5px] text-navy dark:text-white mb-6 md:mb-7">
               LUDZIE.{" "}
               <br className="md:hidden" />
               WYDARZENIA.
@@ -111,23 +114,21 @@ export default function Hero() {
               <HeroPhoto />
             </div>
 
-            {/* Dwa chipy zamiast czterech (10.08.2026). „Faktura VAT" wypadła:
-                w B2B to standard, nie argument. Telefon zszedł niżej, do linku
-                tekstowego obok CTA, żeby nie konkurował z przyciskiem. */}
-            <ul className="mt-8 flex flex-wrap gap-2 justify-center md:justify-start" aria-label="Warunki współpracy">
-              <li className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border dark:border-dark-border text-[12px] text-steel dark:text-dark-text-muted">
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                Wstępna wycena w 24h
-              </li>
-              <li className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-border dark:border-dark-border text-[12px] text-steel dark:text-dark-text-muted">
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 0c2.5-2.5 3.75-5.5 3.75-9S14.5 5.5 12 3m0 18c-2.5-2.5-3.75-5.5-3.75-9S9.5 5.5 12 3M3.6 9h16.8M3.6 15h16.8" />
-                </svg>
-                Realizacje w całej Polsce
-              </li>
-            </ul>
+            {/* KAPSUŁKI ZASTĄPIONE ZWYKŁYM TEKSTEM (10.08.2026, trzecia tura).
+                Powód, słowami Marcina: obramowane pigułki z ikonami sprawiały,
+                że strona zaczynała przypominać landing SaaS, a tu sprzedaje się
+                usługę premium. Bez ramek i ikon czyta się editorialowo.
+
+                TREŚĆ: „Wstępna wycena w 24h" wypadła i wróciło „Zaufało mi
+                100+ firm". Obietnica 24h nie znika ze strony: stoi zdanie niżej,
+                pod przyciskiem („Odpowiem w 24h"), więc chip ją tylko dublował.
+                Dowód społeczny jest w hero mocniejszy niż powtórzony termin. */}
+            <p className="mt-8 text-[13px] text-steel dark:text-dark-text-muted">
+              Zaufało mi{" "}
+              <span className="font-semibold text-navy dark:text-dark-text">100+ firm</span>
+              <span className="mx-2 text-steel-light" aria-hidden="true">·</span>
+              Realizacje w całej Polsce
+            </p>
 
             {/* DWIE ROZDZIELONE ŚCIEŻKI KONTAKTU (korekta Marcina 10.08.2026).
                 Poprzednio telefon stał jako goły numer OBOK przycisku i czytał
@@ -185,7 +186,7 @@ export default function Hero() {
 function HeroPhoto() {
   return (
     <Parallax distance={PARALLAX.subtle} direction="up">
-      <div className="w-full aspect-square md:aspect-[4/5] md:max-h-[660px] md:ml-auto rounded-3xl md:rounded-r-none overflow-hidden bg-border dark:bg-dark-card relative">
+      <div className="w-full aspect-square md:aspect-[4/5] md:max-h-[620px] md:ml-auto rounded-3xl md:rounded-r-none overflow-hidden bg-border dark:bg-dark-card relative">
         <Image
           src="/images/marcin-hero-light-4.jpg"
           alt="Marcin Szabunia, fotograf biznesowy i twórca wideo, Poznań"
