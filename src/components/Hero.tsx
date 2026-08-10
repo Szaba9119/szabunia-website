@@ -138,12 +138,25 @@ export default function Hero() {
                 TREŚĆ: „Wstępna wycena w 24h" wypadła i wróciło „Zaufało mi
                 100+ firm". Obietnica 24h nie znika ze strony: stoi zdanie niżej,
                 pod przyciskiem („Odpowiem w 24h"), więc chip ją tylko dublował.
-                Dowód społeczny jest w hero mocniejszy niż powtórzony termin. */}
+                Dowód społeczny jest w hero mocniejszy niż powtórzony termin.
+
+                KOREKTA 10.08.2026 (piąta tura, polecenie Marcina), dwie zmiany:
+                1. „Zaufało mi 100+ firm" → „100+ obsłużonych firm". Krócej
+                   i bez czasownika w czasie przeszłym, który brzmiał jak
+                   podsumowanie kariery. Liczba stoi na początku wiersza.
+                2. „realizacje w całej Polsce" → „realizacje w całej Europie".
+                   ⚠ To ZAWĘŻENIE zasięgu w hero, nie rozszerzenie: reszta serwisu
+                   (About, ServiceAuthor, /uslugi, blog.ts) mówi „w całej Polsce
+                   i Europie", więc hero jako jedyne miejsce nie deklaruje już
+                   Polski. Zgłoszone Marcinowi w raporcie, zmiana wprowadzona
+                   na jego wyraźne polecenie. Wariant zgodny z resztą strony
+                   („w całej Polsce i Europie") czeka na jego decyzję. */}
             <p className="mt-8 text-[13px] text-steel dark:text-dark-text-muted">
-              Zaufało mi{" "}
-              <span className="font-semibold text-navy dark:text-dark-text">100+ firm</span>
+              <span className="font-semibold text-navy dark:text-dark-text">
+                100+ obsłużonych firm
+              </span>
               <span className="mx-2 text-steel-light" aria-hidden="true">·</span>
-              realizacje w całej Polsce
+              realizacje w całej Europie
             </p>
 
             {/* DWIE ROZDZIELONE ŚCIEŻKI KONTAKTU (korekta Marcina 10.08.2026).
