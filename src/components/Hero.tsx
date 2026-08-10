@@ -35,8 +35,13 @@ export default function Hero() {
   // `overflow-hidden`, więc nadmiar jest przycięty, a niedomiar zostawiłby szparę.
   const bleedRight = "md:mr-[calc(-1*min(5rem,max(1rem,(100vw-72rem)/2)))]";
 
+  // Dolny padding ścięty 10.08.2026 z md:pb-14 na md:pb-4. Razem ze
+  // zmniejszonym md:pt-8 w LogoBar.tsx daje to 48 px przerwy zamiast 120 px,
+  // czyli o 72 px mniej (Marcin: „biała dziura pod zdjęciem, o jakieś 20%
+  // za dużo"). Cel: sekwencja nawigacja → hero → dowód społeczny bez pustki
+  // w środku. Zmiana obu wartości naraz, inaczej efekt jest połowiczny.
   return (
-    <section className="relative pt-28 pb-10 md:pt-32 md:pb-14 overflow-hidden">
+    <section className="relative pt-28 pb-10 md:pt-32 md:pb-4 overflow-hidden">
       <div className="absolute inset-0 -z-10">
         {/* Poświaty jako radial-gradient zamiast filter:blur — blur 100px na
             dużych elementach zabijał wydajność GPU na mobile (PageSpeed). */}
@@ -69,13 +74,25 @@ export default function Hero() {
                 czcionki niżej niż przy jednej długiej linii, przy mocniejszym
                 wrażeniu. Bez akcentu kolorystycznego: wyróżnienie jednego słowa
                 sugerowałoby hierarchię między usługami, której nie ma. */}
-            <h2 className="font-barlow font-black text-[clamp(38px,11vw,58px)] md:text-[clamp(40px,5.4vw,76px)] leading-[0.95] tracking-[-1.5px] md:tracking-[-2.5px] text-navy dark:text-white mb-6 md:mb-7">
-              LUDZIE.
-              <br />
+            {/* ŁAMANIE RÓŻNE NA MOBILE I DESKTOPIE (korekta Marcina 10.08.2026).
+                Desktop: DWIE linie po dwa słowa. Cztery linie po jednym słowie
+                robiły z „LUDZIE." samotną krótką linię, marnowały szerokość
+                kolumny i wydłużały blok tekstowy o jedną linijkę za dużo.
+                Mobile: cztery linie zostają, bo przy 390 px dwa słowa w linii
+                zmusiłyby do zejścia z rozmiaru czcionki o jedną trzecią.
+                Steruje tym `br` z `md:hidden`, nie dwie kopie nagłówka.
+
+                ⚠ Rozmiar na desktopie jest ograniczony do 50 px NIE bez powodu:
+                najdłuższa linia („LUDZIE. WYDARZENIA.") ma 19 znaków i przy
+                większym stopniu wychodzi poza kolumnę. Sprawdzone na 1024,
+                1280 i 1440. */}
+            <h2 className="font-barlow font-black text-[clamp(38px,11vw,58px)] md:text-[clamp(32px,3.6vw,50px)] leading-[0.95] tracking-[-1.5px] md:tracking-[-2.5px] text-navy dark:text-white mb-6 md:mb-7">
+              LUDZIE.{" "}
+              <br className="md:hidden" />
               WYDARZENIA.
               <br />
-              OBIEKTY.
-              <br />
+              OBIEKTY.{" "}
+              <br className="md:hidden" />
               PRODUKTY.
             </h2>
 
@@ -112,18 +129,29 @@ export default function Hero() {
               </li>
             </ul>
 
-            {/* CTA plus jedna linia pod spodem, żeby przycisk nie stał sam.
-                Telefon jako link tekstowy obok, nie jako kolejny chip. */}
+            {/* DWIE ROZDZIELONE ŚCIEŻKI KONTAKTU (korekta Marcina 10.08.2026).
+                Poprzednio telefon stał jako goły numer OBOK przycisku i czytał
+                się jak przypadkowy tekst: ta sama linia, ta sama waga, brak
+                ikony, brak wyjaśnienia.
+                Teraz: przycisk i pod nim jego własne zdanie, a niżej, po
+                odstępie, druga ścieżka z ikoną i podpisem, co się stanie
+                po kliknięciu. Użytkownik widzi wybór, nie dwa przyciski. */}
             <div className="mt-7">
-              <div className="flex flex-wrap items-center gap-x-5 gap-y-3 justify-center md:justify-start">
-                <a
-                  href="#kontakt"
-                  data-cta="wycena_home_hero"
-                  className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-8 py-4 rounded-xl font-barlow font-bold text-base btn-glow transition-transform hover:scale-[1.02]"
-                >
-                  Zapytaj o ofertę
-                  <span className="text-white/80">→</span>
-                </a>
+              <a
+                href="#kontakt"
+                data-cta="wycena_home_hero"
+                className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-8 py-4 rounded-xl font-barlow font-bold text-base btn-glow transition-transform hover:scale-[1.02]"
+              >
+                Zapytaj o ofertę
+                <span className="text-white/80">→</span>
+              </a>
+              <p className="mt-3 text-[13px] text-steel dark:text-dark-text-muted">
+                Opisz, czego potrzebujesz. Odpowiem w 24h.
+              </p>
+              <div className="mt-5 flex items-center gap-2 justify-center md:justify-start">
+                <svg className="w-4 h-4 text-steel dark:text-dark-text-muted flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
+                </svg>
                 <a
                   href="tel:+48514900688"
                   data-cta="tel_hero"
@@ -131,10 +159,10 @@ export default function Hero() {
                 >
                   514 900 688
                 </a>
+                <span className="text-[13px] text-steel dark:text-dark-text-muted">
+                  lub zadzwoń bezpośrednio
+                </span>
               </div>
-              <p className="mt-3 text-[13px] text-steel dark:text-dark-text-muted">
-                Opisz, czego potrzebujesz. Odpowiem w 24h.
-              </p>
             </div>
           </div>
 
