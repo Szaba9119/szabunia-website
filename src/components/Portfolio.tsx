@@ -126,15 +126,36 @@ export default function Portfolio() {
           delay={0.15}
           className="group mt-3 relative overflow-hidden rounded-2xl bg-white dark:bg-dark-card border border-border dark:border-dark-border hover:scale-[1.005] transition-transform duration-300"
         >
+          {/* COPY POPRAWIONE 10.08.2026 (decyzja Marcina, runda CRO).
+              Było: „Chcesz zobaczyć więcej? Napisz do mnie".
+              Problem był w niezgodności obietnicy z celem: pytanie zapowiadało
+              WIĘCEJ PORTFOLIO, a link prowadzi do formularza kontaktowego.
+              Nowe copy pyta o projekt klienta, czyli o to, po co ten link istnieje,
+              i od razu mówi, co klient dostanie po wysłaniu.
+
+              Element ŚWIADOMIE zostaje subtelną kartą, a nie banerem: Marcin
+              prosił o moduł spójny wizualnie z resztą strony, bez agresji.
+              Nie dodawałem drugiego CTA obok, bo to już jest CTA po case studies
+              i zdublowanie dałoby dwa wezwania na jednym ekranie.
+
+              ⚠ `data-cta` DODANE, wcześniej go NIE BYŁO. To jedyny element
+              konwersyjny na stronie głównej, który nie był mierzony, więc kliknięcia
+              z portfolio do formularza nie pojawiały się w danych. Nazwa trzyma
+              konwencję `wycena_<powierzchnia>` (jak `wycena_home_hero`,
+              `wycena_home_uslugi`). To NOWA nazwa, nie zmiana istniejącej,
+              więc nic nie zrywa ciągłości pomiaru. */}
           <a
             href="#kontakt"
-            className="flex items-center justify-center gap-3 text-center px-6 py-5"
+            data-cta="wycena_home_portfolio"
+            className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 text-center px-6 py-5"
           >
-            <span className="text-blue dark:text-blue-light text-2xl group-hover:scale-110 transition-transform duration-300">→</span>
+            <span className="hidden sm:inline text-blue dark:text-blue-light text-2xl group-hover:scale-110 transition-transform duration-300" aria-hidden="true">→</span>
             <span className="font-barlow font-semibold text-navy dark:text-white text-[14px]">
-              Chcesz zobaczyć więcej?
+              Masz podobny projekt?
             </span>
-            <span className="text-steel dark:text-dark-text-muted text-[11px]">Napisz do mnie</span>
+            <span className="text-steel dark:text-dark-text-muted text-[11px]">
+              Opisz, czego potrzebujesz. Odpowiem w ciągu 24h z propozycją zakresu, ceny i terminu.
+            </span>
           </a>
         </AnimatedSection>
       </div>

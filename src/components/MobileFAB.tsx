@@ -50,7 +50,23 @@ export default function MobileFAB() {
     return () => window.removeEventListener("cookie-banner-change", onBanner);
   }, []);
 
-  const visible = scrollY > 600 && !contactInView && !footerInView;
+  // PRÓG OBNIŻONY Z 600 NA 200, 10.08.2026 (runda CRO, decyzja Marcina).
+  //
+  // Powód, zmierzony po czystym przeładowaniu przy 390 px: przy `scrollY = 0`
+  // na stronie głównej NIE BYŁO w kadrze ani jednego elementu konwersyjnego.
+  // Pasek mobilny niesie tylko logo, przełącznik motywu i hamburger (CTA
+  // „Zapytaj o ofertę" siedzi dopiero w rozwiniętym menu), CTA hero leży
+  // ~172 px pod zgięciem, a ta wyspa właczała się dopiero po 600 px.
+  // Klient miał więc na pierwszym ekranie zero dróg do kontaktu.
+  //
+  // 200 px to mniej więcej moment, w którym użytkownik minął hero i wie,
+  // na jakiej stronie jest. Niżej nie schodzę, żeby wyspa nie wjeżdżała
+  // od razu na pierwszym pikselu scrolla i nie zasłaniała hero.
+  //
+  // Reszta warunków BEZ ZMIAN: wyspa nadal chowa się, gdy widać sekcję kontaktu
+  // (formularz jest już na ekranie) oraz nad stopką (zasłaniała linki prawne
+  // i przycisk „do góry", audyt mobile 2026-07-07).
+  const visible = scrollY > 200 && !contactInView && !footerInView;
   if (!visible) return null;
 
   // Strona z formularzem (#kontakt) → przewijamy do niego. Strona bez niego
