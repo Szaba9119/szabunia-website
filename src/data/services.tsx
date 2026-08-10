@@ -156,6 +156,30 @@ export interface ServiceData {
   videoTitle?: string;
   /** Opcjonalny podpis pod sekcją wideo (domyślnie tekst o foto + wideo). */
   videoNote?: string;
+  /** Nagłówek końcowej sekcji kontaktowej (`CTA.tsx`), wiersz po wierszu.
+      Brak wartości = domyślne „Zacznijmy budować / Twój wizerunek".
+
+      Dodane 10.08.2026 po audycie zewnętrznym, §17. Jedyny punkt tamtego audytu,
+      który opisywał realny stan strony: formularz na podstronie eventowej
+      otwierał się nagłówkiem o wizerunku, czyli o innej usłudze niż ta,
+      którą klient przed chwilą czytał.
+
+      Celowo wypełnione TYLKO dla eventów. Pozostałe trzy usługi zostają na
+      domyślnym tekście do swojej kolejki, tak samo jak przy `applications`
+      i `scope`. */
+  ctaHeading?: string[];
+  /** Kod usługi wstawiany z góry do pola „Rodzaj usługi" w formularzu (`CTA.tsx`).
+
+      Dodane 10.08.2026 po drugim audycie zewnętrznym, §17. Klient na podstronie
+      usługi już wybrał usługę tym, że na nią wszedł, a mimo to formularz otwierał
+      się pustym „Wybierz usługę...". Efekt widać w mailach: pole schodziło jako
+      „(brak)", bo nikt nie klika listy, żeby powtórzyć to, co przed chwilą czytał.
+
+      ⚠ Wartość MUSI być jednym z kodów z listy w `CTA.tsx` i z `SERVICE_LABELS`
+      w `src/app/api/contact/route.ts`, inaczej wysyłka kończy się błędem 400.
+      Kody są stare i celowo nie mają nic wspólnego ze slugiem: zmiana
+      identyfikatorów rozjechałaby historię leadów w CRM. */
+  formServiceCode?: "event" | "wizerunek" | "obiekty" | "produkt";
   seo: {
     title: string;
     description: string;
@@ -354,7 +378,34 @@ const serviceCategoriesRaw: ServiceData[] = [
     //    co pytanie cenowe, tylko innymi słowami.
     faqs: [
       { q: "Ile zdjęć dostanę?", a: "Około 30 gotowych zdjęć na każdą godzinę obecności, po selekcji i obróbce. Przy realizacji z wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali wydarzenia i dodatkowych zadań w trakcie. To autorski wybór najlepszych momentów, a nie wszystkie wykonane kadry." },
+      // Pytanie o licencję dodane 10.08.2026 (audyt zewnętrzny §12). Treść oparta
+      // na istniejącej odpowiedzi z `faq.ts` („Czy mogę użyć zdjęć na LinkedIn /
+      // stronie / w reklamie?") i na liście zbijającej ryzyko w `CTA.tsx`
+      // („Licencja komercyjna bez limitu czasu"). Nowych warunków NIE wprowadza:
+      // rozpisuje te same uprawnienia na kanały, które ta usługa realnie obsługuje,
+      // czyli na pozycje z `applications.uses` wyżej na tej samej stronie.
+      //
+      // ⚠ Świadomie NIE dotyka zgód na wizerunek uczestników. To osobny temat
+      // (obowiązek po stronie organizatora, nie fotografa) i strona nie ma dziś
+      // na ten temat żadnego zapisu. Dopisanie go byłoby nową deklaracją prawną,
+      // a nie przeniesieniem istniejącej. Do decyzji Marcina.
+      { q: "Czy dostaję prawa do wykorzystania zdjęć?", a: "Tak. Licencja obejmuje użytek komercyjny bez limitu czasu: strona www, social media, materiały drukowane, reklama online, materiały prasowe i raporty, komunikacja wewnętrzna oraz promocja kolejnych edycji wydarzenia. Nie dopłacasz za kolejne kanały ani za kolejny rok." },
       { q: "Czy mogę dostać zdjęcia jeszcze w trakcie wydarzenia?", a: "Tak, w opcji dodatkowej. Wybrane kadry obrabiam na miejscu i przesyłam do publikacji, więc relacja wychodzi wtedy, kiedy ludzie jeszcze siedzą na sali, a nie trzy dni później. To osobna pozycja w wycenie, poza podstawowym zakresem, więc zgłoś ją przy ustalaniu szczegółów." },
+      // Kadry pionowe (audyt zewnętrzny §12), PRZEPISANE 10.08.2026 na opcję
+      // po weryfikacji u Marcina: fotografuje w obu orientacjach, o wyborze decyduje
+      // kadr i miejsce publikacji, ale dedykowane wersje 4:5 i 9:16 wymagają
+      // zgłoszenia PRZED realizacją. Poprzednia wersja obiecywała je jako standard
+      // w każdym zleceniu, czego nie potwierdza ani oferta, ani dostawy na dysku
+      // (folder `Social` ostatniej realizacji eventowej: 51 plików, wszystkie 3:2).
+      // Strona obiecywała dotąd pionowy
+      // format wyłącznie przy WIDEO („pionowe reelsy" w `scope`), a przy zdjęciach
+      // nie mówiła o nim nigdzie, mimo że relacja z eventu na LinkedInie
+      // i Instagramie idzie właśnie w pionie.
+      //
+      // Proporcje nie są tu wymyślone: 4:5 i 9:16 to formaty dostawy z konwencji
+      // nazw katalogów (`Post` 1638×2048, `Story` 1152×2048) opisanej
+      // w `01_Biznes/_System/05_Produkcja/system_plikow_v1.md`, aneks A.
+      { q: "Dostanę kadry pionowe do relacji w social mediach?", a: "Fotografuję zarówno poziomo, jak i pionowo. O orientacji decyduje sam kadr: to, co ma pokazywać, i miejsce, w którym zostanie opublikowany. Jeśli potrzebujesz dedykowanych wersji 4:5 pod post i 9:16 pod relację, zaznacz to przed realizacją. Wtedy prowadzę kadrowanie na miejscu z myślą o obu formatach i przygotowuję je w postprodukcji." },
       { q: "Kto robi zdjęcia i film, gdy wydarzenie jest duże?", a: "Przy standardowym wydarzeniu robię wszystko sam. Przy dużym, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora. Retusz i montaż robię osobiście, więc materiał wychodzi w jednym standardzie. Dla Ciebie to nadal jedna osoba kontaktowa, jedne ustalenia i jedna faktura." },
       { q: "Zrobisz przy okazji zdjęcia całego zespołu?", a: "Tak. Przywożę mobilne studio: 5 m², gniazdko, 30 minut na rozstawienie. Potem fotografuję kolejne osoby po 5 do 15 minut, między prelekcjami albo w luźniejszym oknie agendy. Bez osobnego terminu i bez osobnego dojazdu." },
       { q: "Obsłużysz cykl wydarzeń?", a: "Tak. Jeśli realizacje wracają co roku, ustalamy liczbę wydarzeń z góry: rezerwuję terminy i trzymam dzisiejsze ceny na całość." },
@@ -362,6 +413,12 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty, więc materiał z wydarzenia jest zabezpieczony od pierwszego kadru. Do tego jasne obiektywy Sigma, Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilne oświetlenie Godox i dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC." },
     ],
     portfolioSlug: "woohoo-autopay",
+    // Struktura zdaniowa taka sama jak w domyślnym nagłówku („czasownik w 1. os.
+    // l. mn. + dopełnienie w drugim wierszu"), więc kompozycja bloku się nie zmienia.
+    // Nie obiecuje dostępności terminu: to zdanie stoi nad formularzem, a terminu
+    // nie potwierdzam przed rozmową.
+    ctaHeading: ["Zaplanujmy obsługę", "Twojego wydarzenia"],
+    formServiceCode: "event",
     seo: {
       title: "Fotografia i wideo wydarzeń firmowych, Poznań | Szabunia",
       description: "Konferencje, targi, gale i integracje. Zdjęcia, film i dron od jednej osoby. Obsługiwałem eventy dla H&M, Santandera i Warner Music.",
@@ -373,12 +430,28 @@ const serviceCategoriesRaw: ServiceData[] = [
     h1: "Fotografia i wideo wizerunkowe dla firm",
     galleryCategory: "portrety",
     extraGallery: {
-      // Po scaleniu z usługą „sesje zespołowe" (10.08.2026) pasek prowadzi
-      // do filtrowanej galerii, a nie na osobną podstronę, bo tej podstrony
-      // już nie ma. Href celowo pominięty: domyślny cel to /galeria?kat=zespolowe.
+      // Po scaleniu z usługą „sesje zespołowe" (10.08.2026) pasek nie prowadzi
+      // już na osobną podstronę, bo tej podstrony nie ma. Href celowo pominięty:
+      // `ServiceGalleryStrip` kieruje kategorię `zespolowe` na case study
+      // `/portfolio/idcom-headshoty-zespolu`, nie na filtrowaną galerię.
       category: "zespolowe",
       ctaLabel: "Zobacz sesje zespołowe",
-      sub: "Headshoty całego zespołu robię w jeden dzień: przywożę mobilne studio do Twojego biura, rozstawienie zajmuje 30 minut, a jedna osoba potrzebuje 5 do 15 minut.",
+      // ⛔ NIE PRZYWRACAĆ TU PODPISU O MOBILNYM STUDIU. Zdjęty 10.08.2026
+      // (audyt aktualnej wersji, punkt 1, zgoda Marcina).
+      //
+      // Nadpisywał domyślny podpis kategorii z `ServiceGalleryStrip.tsx` i przez to
+      // kasował JEDYNE zdanie na stronie, które tłumaczyło, dlaczego w tym pasku
+      // widać trzy różne tła. Powstawała sprzeczność na jednym ekranie: „Zakres
+      // realizacji" i FAQ obiecywały spójność, a zdjęcia obok pokazywały białe,
+      // kremowe i czarne tło bez słowa wyjaśnienia.
+      //
+      // Domyślny podpis mówi dokładnie to, co trzeba (trzy tła, ten sam standard
+      // światła i retuszu, realizacja dla IDcom Group), więc pole zostaje puste:
+      // jedno źródło prawdy zamiast dwóch kopii tego samego zdania.
+      //
+      // Logistyka mobilnego studia nie ginie, stoi w „Zakresie realizacji"
+      // (karta „Mobilne studio w Twoim biurze") i w FAQ („Sesja u nas w biurze
+      // czy w studiu?"). Tutaj była trzecim powtórzeniem.
     },
     title: "Fotografia i wideo wizerunkowe dla firm",
     shortTitle: "Wizerunek firmy",
@@ -538,6 +611,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Na jakim sprzęcie pracujesz?", a: "Canon R6 z zapisem na dwie karty, Sigma 70-200 mm f/2.8 jako podstawowy obiektyw portretowy, bo dłuższa ogniskowa nie zniekształca rysów twarzy, i studyjne oświetlenie Godox. Do biura przywożę cały zestaw ze sobą." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
+    formServiceCode: "wizerunek",
     seo: {
       title: "Fotografia i wideo wizerunkowe dla firm, Poznań | Szabunia",
       description: "Portrety biznesowe, headshoty zespołu i film wizerunkowy. Sesja w studiu albo mobilne studio w Twoim biurze. Poznań i cała Polska.",
@@ -674,6 +748,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Na jakim sprzęcie pracujesz?", a: "Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Ten sam zestaw nagrywa wideo produktowe. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce, nawet pół roku później." },
     ],
     portfolioSlug: "artech-fotografia-produktowa",
+    formServiceCode: "produkt",
     seo: {
       title: "Fotografia i wideo produktowe, Poznań | Szabunia",
       description: "Packshoty na białym tle i zdjęcia produktowe w studiu w Poznaniu. E-commerce, katalogi, social media. Retusz w cenie zdjęcia.",
@@ -876,6 +951,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Co jeśli pogoda nie dopisze?", a: "Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji wracam raz w ramach ustalonej kwoty, kolejne podejście to 300 zł plus dojazd." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dron DJI Mini 5 Pro, 50 Mpix, poniżej 249 g, czyli kategoria otwarta, do tego certyfikat operatora A1/A3 i ubezpieczenie OC. Z poziomu ziemi Canon R6 na statywie, obiektywy szerokie do wnętrz i elewacji." },
     ],
+    formServiceCode: "obiekty",
     seo: {
       title: "Fotografia nieruchomości i przemysłu, Poznań | Szabunia",
       description: "Zdjęcia i wideo hal, budynków i wnętrz, z powietrza i z poziomu ziemi. Retusz architektoniczny, pliki do druku i pod www. Poznań i cała Polska.",

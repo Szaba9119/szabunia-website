@@ -79,18 +79,45 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
   // Nazwy plików dostały opis 04.08.2026 (ZDJ2608-01), numery NN bez zmian, więc skład
   // i kolejność tej listy są identyczne jak przed zmianą nazw.
   eventy: [
-    // `event-04-gala-wreczenie-wyroznien` WYSZŁO STĄD 10.08.2026 (UXUI2608-04,
-    // wariant C): przejęło rolę zdjęcia hero na `/uslugi/eventy-reportaze`,
-    // a hero i ten pas renderują się na tej samej stronie, więc zostawienie go
-    // tutaj dałoby to samo zdjęcie dwa razy na jednym ekranie przewinięcia.
-    // W jego miejsce weszło `event-16-wystep-na-scenie-hali`, jedyny kadr
-    // eventowy nieużywany dotąd nigdzie w serwisie.
-    "event-16-wystep-na-scenie-hali",
+    // SKŁAD I KOLEJNOŚĆ PRZEBUDOWANE 10.08.2026 (decyzja Marcina po audycie kadrów).
+    //
+    // Powód: wszystkie 15 kadrów w folderze obejrzano jeden po drugim i zestawiono
+    // z listą `applications.items` na `/uslugi/eventy-reportaze` („Konferencje
+    // i kongresy, Gale i jubileusze, Targi i stoiska..."). Poprzednia szóstka miała
+    // JEDEN kadr jednoznacznie firmowy (networking w foyer), a otwierała się
+    // koncertem: raper w dresie na scenie areny. Dwa z sześciu kafelków to byli
+    // DJ-e, w tym jeden na festiwalu z pirotechniką.
+    //
+    // WYSZŁY: `event-09-dj-za-konsoleta` i `event-17-dj-slupy-ognia` (klub i festiwal).
+    // WESZŁY: `event-04-gala-wreczenie-wyroznien` (gala, wręczenie wyróżnień,
+    //   branding klienta w kadrze) i `event-03-integracja-przybicie-piatki`
+    //   (integracja firmowa, koszulki z identyfikatorami, ten sam event co hero).
+    //
+    // KOLEJNOŚĆ jest teraz od najbardziej firmowego kadru do rozrywkowego, bo
+    // pierwszy kafelek to jedyny, który klient widzi na pewno. Jeden kadr sceniczny
+    // (`event-16`) zostaje świadomie na końcu: oprawa artystyczna gali to realna
+    // część tej pracy i udawanie, że jej nie ma, byłoby nieuczciwe wobec zakresu.
+    //
+    // ⚠ `event-04` NIE BYŁO OSIEROCONE, wbrew temu, co mówił poprzedni komentarz
+    // w tym miejscu. Wypadło stąd rano 10.08 (UXUI2608-04), bo zostało wtedy hero
+    // tej podstrony, a hero i pas renderują się na jednym ekranie. Po południu
+    // commit `401329f` zmienił hero na `event-02-zdjecie-grupowe-tor`, więc powód
+    // wykluczenia zniknął, ale kadr nie wrócił. Przez cały ten czas był i jest
+    // renderowany w galerii case study `fotografia-eventowa` (`portfolio.ts`),
+    // więc chodziło o nieobecność na TEJ stronie, nie w całym serwisie.
+    //
+    // ⚠ ZNANA LUKA, której ta zmiana NIE naprawia: w `public/images` nie ma ani
+    // jednego kadru z prelegentem, salą konferencyjną ani stoiskiem targowym
+    // (sprawdzone przeszukaniem całego katalogu 10.08.2026). Lista „Dla jakich
+    // wydarzeń" obiecuje osiem typów, portfolio pokrywa cztery. Marcin potwierdził,
+    // że takiego materiału nie ma. To brak materiału, nie doboru: przetasowanie
+    // tej listy go nie zamknie.
     "event-05-networking-foyer",
+    "event-04-gala-wreczenie-wyroznien",
+    "event-03-integracja-przybicie-piatki",
     "event-15-goscie-przy-stole",
     "event-14-saksofonista-bankiet",
-    "event-09-dj-za-konsoleta",
-    "event-17-dj-slupy-ognia",
+    "event-16-wystep-na-scenie-hali",
   ].map(
     (n) => `/images/galeria/eventy/${n}.jpg`
   ),

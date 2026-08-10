@@ -306,7 +306,7 @@ export default async function ServicePage({ params }: PageProps) {
           </ErrorBoundary>
         )}
         <ErrorBoundary>
-          <CTA />
+          <CTA heading={service.ctaHeading} defaultService={service.formServiceCode} />
         </ErrorBoundary>
       </main>
       <Footer />

@@ -30,12 +30,38 @@ function validateField(name: string, value: string): string | undefined {
   return undefined;
 }
 
-export default function CTA() {
+// Nagłówek sekcji kontaktowej, wiersz po wierszu (łamanie jest częścią kompozycji,
+// dlatego tablica, a nie jeden string z \n).
+//
+// Prop dodany 10.08.2026. Powód: `CTA` renderuje się na ośmiu powierzchniach
+// i wszędzie mówił „Zacznijmy budować Twój wizerunek", również na
+// `/uslugi/eventy-reportaze`, gdzie cała strona dotyczy obsługi wydarzenia,
+// a nie wizerunku. Domyślna wartość jest identyczna z dotychczasowym tekstem,
+// więc siedem pozostałych wywołań zostaje nietkniętych.
+//
+// ⚠ Akapit pod nagłówkiem („Odpowiadam w ciągu 24h...") i lista zbijająca ryzyko
+// są WSPÓLNE i celowo nieparametryzowane: mówią o sposobie pracy, nie o usłudze.
+const CTA_HEADING_DEFAULT = ["Zacznijmy budować", "Twój wizerunek"];
+
+// `defaultService` wstawia z góry kod usługi do listy „Rodzaj usługi".
+// Dodane 10.08.2026 (drugi audyt zewnętrzny, §17). Na podstronie usługi klient
+// wybrał już usługę tym, że na nią wszedł, a formularz i tak kazał mu wybrać ją
+// drugi raz. Puste pole nie jest wymagane, więc lead schodził jako „(brak)".
+//
+// ⚠ Pole ZOSTAJE edytowalne. To nie jest ukryty input: klient, który wszedł na
+// portrety, a pyta o event, musi móc zmienić wybór jednym kliknięciem.
+//
+// Bez wartości (strona główna, kontakt, blog, poradnik) lista otwiera się pusta,
+// czyli dokładnie tak jak dotąd.
+export default function CTA({
+  heading = CTA_HEADING_DEFAULT,
+  defaultService = "",
+}: { heading?: string[]; defaultService?: string } = {}) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
-    service: "",
+    service: defaultService,
     message: "",
   });
   const [consent, setConsent] = useState(false);
@@ -161,9 +187,11 @@ export default function CTA() {
               {/* Left: Info */}
               <div>
                 <h2 className="font-barlow font-black text-3xl md:text-[36px] leading-[1.1] tracking-tight text-navy dark:text-white mb-3">
-                  Zacznijmy budować
-                  <br />
-                  Twój wizerunek
+                  {heading.map((line, i) => (
+                    <span key={line} className={i > 0 ? "block" : undefined}>
+                      {line}
+                    </span>
+                  ))}
                 </h2>
                 <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mb-4">
                   Odpowiadam w ciągu 24h, ze wstępną wyceną i propozycją terminu.
@@ -345,7 +373,10 @@ export default function CTA() {
                           name: "",
                           email: "",
                           phone: "",
-                          service: "",
+                          // Reset wraca do usługi tej podstrony, nie do pustego
+                          // pola: druga wiadomość z tej samej strony dotyczy
+                          // zwykle tej samej usługi.
+                          service: defaultService,
                           message: "",
                         });
                       }}

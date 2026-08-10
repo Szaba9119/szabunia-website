@@ -447,16 +447,61 @@ export const portfolioCategories: PortfolioCategory[] = [
     slug: "fotografia-eventowa",
     label: "Fotografia eventowa",
     heroTitle: "Fotografia eventowa",
+    // „targów" ZDJĘTE 10.08.2026 (decyzja Marcina). Podtytuł stoi bezpośrednio nad
+    // galerią i czyta się jak spis tego, co zaraz zobaczysz, a kadru ze stoiska
+    // targowego nie ma w całym `public/images` (sprawdzone przeszukaniem katalogu).
+    // Marcin potwierdził, że takiego materiału nie ma.
+    //
+    // „konferencji" ZOSTAJE: `event-05-networking-foyer` to rozmowy uczestników
+    // konferencji, więc kategoria ma pokrycie. Nie ma natomiast kadru z prelegentem,
+    // sceną ani salą i to jest osobna, otwarta luka.
+    //
+    // Lista „Dla jakich wydarzeń" na `/uslugi/eventy-reportaze` zostaje BEZ ZMIAN
+    // i nadal wymienia targi. Tam jest to deklaracja zakresu usługi, tutaj byłaby
+    // zapowiedzią zawartości galerii. Dwa różne zadania, dwa różne progi dowodu.
     heroSubtitle:
-      "Reportaże z konferencji, targów, gal i bankietów. Profesjonalna dokumentacja wydarzeń biznesowych.",
+      "Reportaże z konferencji, gal, bankietów i spotkań firmowych. Dokumentacja wydarzeń biznesowych.",
+    // PRZEPISANY 10.08.2026 (decyzja Marcina po drugim audycie zewnętrznym).
+    //
+    // Poprzednia wersja („każde wydarzenie to historia, którą warto opowiedzieć.
+    // Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty,
+    // emocje i interakcje") była ostatnim miejscem w serwisie, gdzie przetrwała
+    // narracja sprzed przebudowy z 10.08. Strona usługi mówiła już wtedy o tym,
+    // co firma z materiałem zrobi, a to case study wciąż o tym, jak fotograf
+    // pracuje. Dwie strony o tej samej robocie, dwa różne pozycjonowania.
+    // Przy okazji zniknęła triada „momenty, emocje i interakcje"
+    // (`docs/zasady-tekstow.md`).
+    //
+    // ⛔ WYLICZENIE W DRUGIM ZDANIU MA POKRYCIE W GALERII PONIŻEJ, kadr po kadrze.
+    // To nie jest ozdobnik, tylko zapowiedź tego, co użytkownik zaraz zobaczy,
+    // więc każda pozycja musi wskazywać istniejące zdjęcie:
+    //   rozmowy w kuluarach        → event-05-networking-foyer
+    //   wręczenie wyróżnień na gali → event-04-gala-wreczenie-wyroznien
+    //   goście przy stołach        → event-15-goscie-przy-stole
+    //   oprawa wieczoru            → event-14-saksofonista-bankiet, event-01-zespol-na-scenie
+    //   integracja w plenerze      → event-02-zdjecie-grupowe-tor, event-03-integracja-przybicie-piatki
+    //
+    // ⛔ NIE DOPISYWAĆ „wystąpień", „prelegentów", „sceny konferencyjnej" ani
+    // „targów". Taka wersja stała w drafcie i została odrzucona: w `public/images`
+    // nie ma ani jednego takiego kadru, a zdanie zaczyna się od „Poniżej kadry
+    // z realizacji", więc obiecywałoby zawartość, której nie ma dwa ekrany niżej.
+    // Lista „Dla jakich wydarzeń" na `/uslugi/eventy-reportaze` wymienia te
+    // kategorie dalej i ma do tego prawo: tam to deklaracja zakresu usługi.
     description:
-      "Konferencje, targi, gale, spotkania firmowe: każde wydarzenie to historia, którą warto opowiedzieć. Fotografuję dyskretnie, w stylu reportażowym, wyłapując kluczowe momenty, emocje i interakcje. Oferuję opcję live editing: zdjęcia gotowe do publikacji na social media jeszcze w trakcie eventu.",
+      "Konferencje, gale, bankiety i spotkania firmowe. Poniżej kadry z realizacji: rozmowy w kuluarach, wręczenie wyróżnień na gali, goście przy stołach, oprawa wieczoru i integracja w plenerze. Materiał z takiego wydarzenia może później pracować w relacji na LinkedInie, podsumowaniu roku czy promocji kolejnej edycji. Wybrane kadry mogę przygotować i przekazać jeszcze w trakcie wydarzenia jako dodatkową usługę.",
     thumbnail: "/images/portfolio-2.jpg",
     gallery: [
-      { src: "/images/portfolio/fotografia-eventowa/01.jpg", alt: "Fotografia eventowa, relacja z konferencji biznesowej w Poznaniu" },
       // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
       // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
+      //
+      // ⚠ `portfolio/fotografia-eventowa/01.jpg` USUNIĘTE Z TEJ LISTY 10.08.2026:
+      // to był TEN SAM kadr co `event-05-networking-foyer` niżej, w drugim pliku
+      // i gorszej rozdzielczości (1472×984 wobec 1920×1280). Oba stały obok siebie
+      // na pozycjach 1 i 2, więc galeria otwierała się tym samym zdjęciem dwa razy.
+      // Powstało to przy rozbudowie z 04.08: dokładano kadry z `galeria/eventy`
+      // do jedynego zdjęcia, które tu wtedy było, i nie sprawdzono, że jedno z nich
+      // jest jego wyższą wersją. Plik zostaje na dysku, znika tylko z listy.
       { src: "/images/galeria/eventy/event-05-networking-foyer.jpg", alt: "Rozmowy uczestników konferencji firmowej, fotografia eventowa, Poznań" },
       { src: "/images/galeria/eventy/event-04-gala-wreczenie-wyroznien.jpg", alt: "Gala firmowa, wręczenie wyróżnień, reportaż z wydarzenia, Poznań" },
       { src: "/images/galeria/eventy/event-15-goscie-przy-stole.jpg", alt: "Networking na evencie biznesowym, fotografia reportażowa, Poznań" },
