@@ -198,8 +198,30 @@ export default function CTA({
                 </p>
 
                 {/* Zbijanie ryzyka */}
+                {/*
+                  „Wolne terminy: 1–3 tyg." ZDJĘTE 10.08.2026 (decyzja Marcina),
+                  w to miejsce „Realizacje w całej Polsce i Europie".
+
+                  Powód: ta lista renderuje się na ośmiu powierzchniach, a czas
+                  oczekiwania nie jest odpowiedzią na pytanie, które klient ma
+                  w głowie na `/uslugi/eventy-reportaze`. Przy evencie data jest
+                  dana z góry i klient sprawdza, czy jest wolna, a nie za ile
+                  wchodzę na realizację. Komunikat o terminie wraca później,
+                  per usługa, a nie w bloku wspólnym.
+
+                  Nowa pozycja ma pokrycie w treści: `faq.ts` („realizuję zlecenia
+                  na terenie całej Polski oraz Europy") i blok autorski
+                  w `ServiceAuthor.tsx` („pracuję w całej Polsce i Europie").
+                  Przy okazji zdejmuje sugestię, że pracuję wyłącznie lokalnie.
+
+                  ⛔ „Poprawki: 2 tury foto / 3 wideo" ZOSTAJE. Zewnętrzna
+                  specyfikacja proponowała listę bez tej pozycji i z dodanym
+                  „Odpowiedź w 24h", ale to drugie powtarza zdanie stojące
+                  bezpośrednio nad listą, a poprawki są realnym warunkiem umowy,
+                  nie ozdobnikiem. Nie usuwać bez osobnej decyzji.
+                */}
                 <ul className="flex flex-wrap gap-x-4 gap-y-1.5 mb-8">
-                  {["Faktura VAT", "Poprawki: 2 tury foto / 3 wideo", "Licencja komercyjna bez limitu czasu", "Wolne terminy: 1–3 tyg."].map((t) => (
+                  {["Faktura VAT", "Poprawki: 2 tury foto / 3 wideo", "Licencja komercyjna bez limitu czasu", "Realizacje w całej Polsce i Europie"].map((t) => (
                     <li key={t} className="flex items-center gap-1.5 text-[13px] text-steel dark:text-dark-text-muted">
                       <svg className="w-4 h-4 text-blue dark:text-blue-light flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2} aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
