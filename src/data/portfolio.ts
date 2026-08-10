@@ -541,8 +541,25 @@ export const portfolioCategories: PortfolioCategory[] = [
     ],
     seo: {
       title: "Przykłady zdjęć z eventów firmowych | Szabunia",
+      // PRZEPISANY 10.08.2026 (decyzja Marcina). Poprzednia wersja zaczynała się
+      // od „Kadry z konferencji, targów, gal i bankietów", czyli zapowiadała
+      // ZAWARTOŚĆ GALERII, a kadru ze stoiska targowego nie ma w `public/images`.
+      // Ten sam problem zamknęliśmy tego dnia w podtytule hero tej strony,
+      // ale metadane zostały wtedy pominięte, mimo że to one lądują w wyniku
+      // Google i w podglądzie linku na LinkedInie.
+      //
+      // ⛔ SŁOWO „targi" ZOSTAJE ŚWIADOMIE. Decyzja Marcina: to sygnał zakresu
+      // usługi i realny potencjał SEO, więc nie wycinamy go tak jak z podtytułu.
+      // Zmienia się RAMA zdania: „Fotografia eventowa firm: ..." opisuje, co
+      // fotografuję, a nie co zobaczysz w galerii poniżej. Przy kolejnej edycji
+      // nie wracać do formuły „Kadry z ...", bo ona tę obietnicę odtwarza.
+      //
+      // ⚠ To pole zasila NARAZ meta description, og:description,
+      // twitter:description oraz `description` w JSON-LD `Service` (i `VideoObject`
+      // tam, gdzie kategoria ma film). Jedno źródło, cztery powierzchnie:
+      // patrz `app/portfolio/[slug]/page.tsx`. Nie duplikować go osobno.
       description:
-        "Kadry z konferencji, targów, gal i bankietów. Przykłady reportaży z wydarzeń firmowych, w tym zdjęcia przekazywane w trakcie eventu.",
+        "Fotografia eventowa firm: konferencje, targi, gale, bankiety i spotkania firmowe. Reportaż, dokumentacja wydarzeń i szybka dostawa wybranych zdjęć.",
     },
   },
   {
