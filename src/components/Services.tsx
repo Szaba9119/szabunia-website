@@ -91,6 +91,24 @@ export default function Services() {
               );
             })}
           </div>
+          {/* DOPRECYZOWANIE KWOT, 10.08.2026 (decyzja Marcina, przegląd strony głównej).
+              Problem, który to zdanie zamyka: kafelek eventów mówi „Zdjęcia, film
+              i dron z jednego dnia", a pod spodem stoi „od 600 zł netto". Czytane
+              razem sugerowało cały dzień z fotografem, filmem i dronem za 600 zł.
+
+              Świadomie JEDNA linijka pod całą siatką, a nie dopisek przy każdej
+              z czterech cen: dotyczy wszystkich usług tak samo, a cztery powtórzenia
+              zrobiłyby z tego szum.
+
+              Słowo „startowe" jest tu nośnikiem informacji, nie ozdobą. Zdanie
+              o indywidualnej wycenie stoi już niżej, przy CTA, ale mówi tylko
+              JAK wyceniam, a nie CZYM jest kwota na kafelku.
+
+              To zdanie przejęło też rolę słowa „pakiety", które do dziś stało
+              przy cenie nieruchomości (`services.tsx`, `heroPriceLabel`). */}
+          <p className="mt-6 text-center text-[13px] text-steel dark:text-dark-text-muted">
+            Kwoty startowe. Zakres i cena ustalane indywidualnie.
+          </p>
         </AnimatedSection>
 
         {/* Linijka o modelu wyceny „na zapytanie" + CTA do formularza

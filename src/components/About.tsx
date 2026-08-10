@@ -56,23 +56,30 @@ export default function About() {
                   Ukończyłem <strong>studia z zarządzania</strong>, więc rozumiem nie tylko kadr,
                   ale i biznesowy cel, któremu zdjęcia mają służyć.
                   Specjalizuję się w obsłudze <strong>marek B2B i korporacji</strong>, które
-                  potrzebują powtarzalnego standardu wizerunkowego między sesjami.{" "}
-                  {/* ⚠ `{" "}` w linii wyżej jest KONIECZNE. Komentarz JSX między
-                      dwoma węzłami tekstowymi zjada odstęp i na produkcji wychodzi
-                      „sesjami.Portrety" bez spacji. Złapane 10.08.2026 na zrzucie.
-                      Lista przepisana tego samego dnia na cztery filary. Poprzednia
-                      („Portrety biznesowe, reportaże z eventów, fotografia
-                      produktowa, wideo marketingowe") wymieniała cztery pozycje,
-                      ale ze STAREJ architektury: brakowało całego filaru
-                      nieruchomości i przemysłu, a była nazwa usuniętej usługi.
-                      Sekcja „O mnie" stoi NAD siatką usług, więc klient czytał
-                      najpierw starą listę, a potem nową.
-                      Wideo świadomie nie jest piątą pozycją: jest sposobem
-                      realizacji każdej z czterech, nie osobną kategorią. */}
-                  Portrety biznesowe, reportaże z eventów, fotografia nieruchomości
-                  i przemysłowa oraz fotografia produktowa. <strong>Jeden twórca</strong>,
-                  spójny materiał i krótka droga od pierwszej rozmowy do dostawy.
+                  potrzebują powtarzalnego standardu wizerunkowego między sesjami.
                 </p>
+                {/* SKRÓCONE 10.08.2026 (przegląd strony głównej, decyzja Marcina:
+                    „mniej autobiograficznie, wytnij powtórzenia").
+                    Wypadły z tego akapitu dwie rzeczy:
+
+                    1. WYLICZENIE CZTERECH FILARÓW („Portrety biznesowe, reportaże
+                       z eventów, fotografia nieruchomości i przemysłowa oraz
+                       fotografia produktowa"). Sekcja „Czym mogę pomóc Twojej
+                       firmie" stoi BEZPOŚREDNIO NIŻEJ i wymienia dokładnie te same
+                       cztery usługi, każdą z opisem, ceną i własnym kafelkiem.
+                       Klient czytał listę usług dwa razy w odstępie jednego ekranu.
+
+                    2. ⛔ „JEDEN TWÓRCA" — usunięte jako NIEPRAWDA, nie jako skrót.
+                       Marcin, 10.08.2026: „nie używaj komunikatu typu «jeden
+                       twórca», ponieważ przy większych realizacjach pracuję
+                       z ekipą". FAQ podstrony eventowej mówi to samo wprost:
+                       przy dużym wydarzeniu dochodzi drugi operator.
+                       Wolno komunikować Marcina jako główny kontakt i osobę
+                       odpowiedzialną za realizację. NIE wolno sugerować, że
+                       fizycznie wykonuje każdą produkcję sam.
+                       Zdanie o spójności materiału zdjąłem razem z tym claimem,
+                       bo było jego dopowiedzeniem. Jeśli ma wrócić w wersji
+                       zgodnej z prawdą, treść poda Marcin. */}
                 <p>
                   Współpracowałem m.in. z <strong>H&amp;M</strong>,{" "}
                   <strong>Warner Music Poland</strong>, <strong>Santander Bank Polska</strong>,{" "}

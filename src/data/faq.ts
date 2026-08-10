@@ -2,9 +2,25 @@
 // i markup FAQPage JSON-LD (app/page.tsx) czytają tę samą tablicę — wcześniej
 // istniały dwie kopie, które się rozjechały (audyt 2026-07-06).
 //
-// Kolejność = kolejność wyświetlania (w tym w JSON-LD). Pierwsze 6 pozycji to
-// domyślnie widoczna szóstka w FAQ.tsx (brief-22 zad. 6) — reszta pod przyciskiem
-// „Pokaż wszystkie pytania". Zmiana kolejności tutaj zmienia oba miejsca naraz.
+// ⚠ PODZIAŁ NA DWIE TABLICE, 10.08.2026 (decyzja Marcina, przegląd strony głównej).
+//
+// `homeFaqs` = SIEDEM pytań, które realnie pomagają podjąć decyzję. Tylko ta
+// tablica renderuje się na stronie głównej i tylko ona idzie do FAQPage JSON-LD.
+// Kolejność odpowiada priorytetom podanym przez Marcina: cena → termin → dojazd
+// → sposób współpracy → licencja → skala → rozliczenie.
+//
+// `offHomeFaqs` = dziewięć pytań ZDJĘTYCH ZE STRONY GŁÓWNEJ, ale NIE usuniętych
+// z projektu. Powód zdjęcia: konkurowały o uwagę z argumentami biznesowymi
+// (sprzęt), albo dotyczą warunków, które klient czyta dopiero przy ustalaniu
+// szczegółów (RAW, poprawki, odwołanie sesji).
+//
+// ⚠ TE DZIEWIĘĆ NIE MA DZIŚ ŻADNEJ POWIERZCHNI. Zostają w kodzie, żeby nic nie
+// zginęło, ale nigdzie się nie renderują. Wyjątek: „Na jakim sprzęcie pracujesz?"
+// istnieje niezależnie na WSZYSTKICH czterech podstronach usług (services.tsx),
+// więc ta informacja nie zniknęła z serwisu.
+// Docelowe miejsce dla pozostałych ośmiu wskaże Marcin: osobna strona `/faq`,
+// dopisanie do FAQ podstron usług, albo sekcja warunków. Do tego czasu NIE
+// kasować tej tablicy i nie traktować jej jako martwego kodu.
 export interface HomeFaqItem {
   q: string;
   a: string;
@@ -20,22 +36,41 @@ export const homeFaqs: HomeFaqItem[] = [
     a: "Standardowy czas oddania zdjęć to 14 dni, a materiałów wideo do 21 dni. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50% wartości zlecenia).",
   },
   {
-    q: "Jak wygląda sesja zdjęciowa krok po kroku?",
-    a: "Zaczynamy od krótkiej rozmowy (telefon lub mail), w której ustalamy cel, styl i logistykę. W pakietach przed sesją przygotowuję poseboard z przykładowymi kadrami. W dniu sesji prowadzę Cię przez pozowanie i dobór ujęć. Po sesji wybierasz zdjęcia z galerii online, a ja zajmuję się retuszem. Gotowe materiały dostajesz w ciągu 14 dni.",
-  },
-  {
     q: "Czy dojeżdżasz poza Poznań?",
     a: "Tak, realizuję zlecenia na terenie całej Polski oraz Europy. Dojazd w Poznaniu: 0 zł. Poza Poznaniem: 2,50 zł netto za kilometr, liczony od granicy miasta w obie strony według Google Maps. Przy dłuższych wyjazdach (powyżej jednego dnia pracy) doliczany jest również nocleg.",
   },
   {
+    q: "Jak wygląda sesja zdjęciowa krok po kroku?",
+    a: "Zaczynamy od krótkiej rozmowy (telefon lub mail), w której ustalamy cel, styl i logistykę. W pakietach przed sesją przygotowuję poseboard z przykładowymi kadrami. W dniu sesji prowadzę Cię przez pozowanie i dobór ujęć. Po sesji wybierasz zdjęcia z galerii online, a ja zajmuję się retuszem. Gotowe materiały dostajesz w ciągu 14 dni.",
+  },
+  {
+    q: "Czy mogę użyć zdjęć na LinkedIn / stronie / w reklamie?",
+    a: "Tak. Wszystkie licencje obejmują użytek komercyjny: strona www, social media, materiały drukowane, reklama online. Bez limitów czasowych.",
+  },
+  {
+    q: "Ile osób możesz sfotografować w jeden dzień?",
+    a: "Przy portretach biznesowych fotografuję do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 5-15 minut. Mogę przyjechać do biura z mobilnym studiem.",
+  },
+  {
+    // SIÓDMY SLOT. Priorytet nr 7 Marcina brzmiał „możliwość połączenia foto +
+    // wideo + dron", ale TAKIEGO PYTANIA NIE MA w tym pliku i nie wymyślam go
+    // sam, bo to treść ofertowa. W zamian stoi tu faktura VAT: dla klienta B2B
+    // to realny warunek zakupu, a odpowiedź rozbraja obiekcję „osoba prywatna
+    // bez firmy". Jeśli ma tu wejść pytanie o foto+wideo+dron, Marcin poda treść.
     q: "Czy wystawiasz fakturę VAT?",
     a: "Tak. Rozliczenie prowadzę przez platformę Useme, która wystawia fakturę VAT za zrealizowane zlecenie. Termin płatności: 7 dni. Dla Twojej księgowości to standardowa faktura VAT z pełnymi danymi wystawcy.",
   },
+];
+
+/** Zdjęte ze strony głównej 10.08.2026. Treść nietknięta, czeka na docelowe miejsce. */
+export const offHomeFaqs: HomeFaqItem[] = [
   {
     q: "Co jeśli nie jestem fotogeniczny/a?",
     a: "Słyszę to bardzo często i za każdym razem efekt pozytywnie zaskakuje. Prowadzę Cię przez całą sesję: pomagam z pozowaniem, ustawiam światło pod Twoją twarz, dbam o naturalny wyraz. W studiu zawsze ustawiam lustro przed modelem, żebyś mógł na bieżąco widzieć siebie i poprawiać drobne detale. Nie musisz być modelem, wystarczy być sobą. Reszta to moja robota.",
   },
   {
+    // Ta informacja NIE zniknęła z serwisu: własne pytanie o sprzęt stoi na
+    // wszystkich czterech podstronach usług, dopasowane do każdej z nich.
     q: "Na jakim sprzęcie pracujesz?",
     a: "Pracuję na dwóch aparatach Canon R6, każdy zapisuje materiał równolegle na dwóch kartach, więc zdjęcia z sesji są bezpieczne. Obiektywy: Sigma 20, 35 i 50 mm f/1.4 Art, Sigma 70-200 mm f/2.8 Sport, Tamron 24-70 mm f/2.8 i Tokina 16-28 mm f/2.8, czyli pełne pokrycie ogniskowych od 16 do 200 mm. Oświetlenie Godox: mobilny system lamp błyskowych z modyfikatorami oraz studyjne światło ciągłe LED. Dźwięk: Rode Wireless PRO, Rode VideoMicro II i rejestrator Zoom. Do tego dron DJI Mini 5 Pro z certyfikatem operatora A1/A3 i ubezpieczeniem OC. Ten zestaw daje powtarzalność na planie i spójną jakość między kadrami, niezależnie od tego, czy sesja trwa godzinę, czy cały dzień.",
   },
@@ -48,20 +83,14 @@ export const homeFaqs: HomeFaqItem[] = [
     a: "Tak. Po sesji udostępniam album ze wszystkimi wykonanymi ujęciami (jako galeria online). Z tego albumu wybierasz zdjęcia, które mają trafić do retuszu i postprodukcji. Dzięki temu masz pełną kontrolę nad tym, które ujęcia trafią do finalnej edycji.",
   },
   {
+    // ⚠ WARUNEK HANDLOWY Z KWOTĄ (+30%). Nie przepisywać, nie skracać, nie zmieniać
+    // zasady. Marcin 10.08.2026: „Nie zmieniaj samej zasady biznesowej."
     q: "Czy przekazujesz surowe pliki RAW?",
     a: "Standardowo nie przekazuję surowych plików RAW. Otrzymujesz starannie wyselekcjonowane i poddane autorskiej postprodukcji materiały, które stanowią gotowy, spójny produkt. Jeśli potrzebujesz pełnej kontroli nad postprodukcją, udostępnienie kompletu plików RAW jest dostępne jako opcja dodatkowa: +30% wartości zlecenia, z decyzją przed sesją.",
   },
   {
     q: "W jakich formatach otrzymam pliki?",
     a: "Zdjęcia w pełnej jakości plus wersje zoptymalizowane pod web. Na życzenie przygotuję też PNG z przezroczystym tłem oraz TIFF do druku.",
-  },
-  {
-    q: "Czy mogę użyć zdjęć na LinkedIn / stronie / w reklamie?",
-    a: "Tak. Wszystkie licencje obejmują użytek komercyjny: strona www, social media, materiały drukowane, reklama online. Bez limitów czasowych.",
-  },
-  {
-    q: "Ile osób możesz sfotografować w jeden dzień?",
-    a: "Przy portretach biznesowych fotografuję do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 5-15 minut. Mogę przyjechać do biura z mobilnym studiem.",
   },
   {
     q: "Jak wygląda rozliczenie krok po kroku?",

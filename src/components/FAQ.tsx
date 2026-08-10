@@ -7,13 +7,18 @@ import { PARALLAX } from "@/lib/motion";
 import { gtagEvent } from "@/lib/gtag";
 import { homeFaqs as faqs } from "@/data/faq";
 
-// Domyślnie widoczna szóstka (kolejność = pierwsze 6 pozycji w src/data/faq.ts,
-// brief-22 zad. 6) — reszta pod przyciskiem, bez przeładowania strony.
+// PODNIESIONE Z 6 NA 7, 10.08.2026: `homeFaqs` ma teraz dokładnie siedem pozycji
+// (przegląd strony głównej, decyzja Marcina), więc przycisk „Pokaż wszystkie
+// pytania" odsłaniałby jedno pytanie. Przy tej wartości próg nie jest przekroczony,
+// przycisk się nie renderuje i cała siódemka jest widoczna od razu.
+//
+// Jeśli lista kiedyś urośnie powyżej siedmiu, przycisk wróci sam i to jest OK.
+//
 // UWAGA (audyt PELNY2907-09): renderujemy WSZYSTKIE pozycje i chowamy nadmiar
-// CSS-em, a nie `slice`. JSON-LD FAQPage w page.tsx deklaruje pełną listę, więc
-// cięcie tablicy dawało 16 pytań w markupie i 6 w DOM — niezgodność z wytycznymi
+// CSS-em, a nie `slice`. JSON-LD FAQPage w page.tsx deklaruje tę samą tablicę, więc
+// cięcie dawało rozjazd między markupem a DOM — niezgodność z wytycznymi
 // Google „oznaczona treść musi być na stronie". Nie wracać do `slice`.
-const DEFAULT_VISIBLE = 6;
+const DEFAULT_VISIBLE = 7;
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);

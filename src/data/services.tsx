@@ -799,7 +799,17 @@ const serviceCategoriesRaw: ServiceData[] = [
     // Przy przenumerowaniu folderu sprawdź tę ścieżkę, bo się rozjedzie po cichu.
     heroImage: "/images/galeria/wnetrza/wnetrze-03-hala-bramki-wejsciowe.jpg",
     price: "od 900 zł netto",
-    heroPriceLabel: "pakiety od 900 zł netto",
+    // FORMAT UJEDNOLICONY 10.08.2026 (decyzja Marcina, przegląd strony głównej):
+    // było „pakiety od 900 zł netto", czyli jedyna z czterech usług z innym zapisem.
+    // Wszystkie cztery mówią teraz „od X zł netto". KWOTA BEZ ZMIAN.
+    //
+    // Słowo „pakiety" niosło tu sens, nie było ozdobą: sygnalizowało, że 900 zł
+    // kupuje OBIEKT PODSTAWOWY (do 8 ujęć z powietrza), a blok wnętrz to osobne
+    // 600 zł. Ta informacja nie ginie, bo pod siatką czterech kafelków stoi teraz
+    // zdanie „Kwoty startowe. Zakres i cena ustalane indywidualnie." (Services.tsx),
+    // które mówi to samo dla wszystkich usług naraz, zamiast dla jednej.
+    // Gdyby to zdanie kiedyś zniknęło, „pakiety" trzeba tu przywrócić.
+    heroPriceLabel: "od 900 zł netto",
     process: [
       { num: 1, title: "Ustalenia", desc: "Co ma być widać: bryła, elewacja, wnętrza, kontekst lokalizacji" },
       { num: 2, title: "Zgody", desc: "Strefę lotu sprawdzam i koordynuję przed potwierdzeniem daty" },
