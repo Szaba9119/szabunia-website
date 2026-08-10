@@ -297,15 +297,21 @@ const serviceCategoriesRaw: ServiceData[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
       </svg>
     ),
-    // ZDJĘCIE HERO: gala z wręczeniem wyróżnień.
-    // Decyzja Marcina 10.08.2026: kadr grupowy przeszedł na KAFELEK strony głównej,
-    // więc hero wzięło galę. Zamiana miejscami, nie nowy wybór.
+    // ZDJĘCIE HERO: grupa przed dwoma autami sportowymi na torze.
     //
-    // ⚠ HERO I KAFELEK MUSZĄ BYĆ RÓŻNE i to jest jedyna twarda reguła tego pola.
-    // Kafelek „Wydarzenia firmowe" na stronie głównej trzyma `SERVICE_TILE_IMAGES`
-    // na dole tego pliku i ma dziś `event-02-zdjecie-grupowe-tor`. Zmieniając
-    // cokolwiek tutaj, sprawdź tamtą wartość, inaczej klik z kafelka prowadzi do
-    // powiększenia miniatury, którą klient przed chwilą kliknął (finding UXUI2608-04).
+    // ⛔ TEN SAM PLIK CO NA KAFELKU strony głównej. To NIE jest pomyłka
+    // i NIE jest regres. Decyzja Marcina z 10.08.2026, podjęta po dwukrotnym
+    // przedstawieniu mu kosztu: „na obydwu ma być to z samochodami, i jak
+    // wejdziesz w usługę i na głównej".
+    //
+    // ⚠ REGUŁA „hero i kafelek muszą być różne" ZOSTAŁA TYM ŚWIADOMIE UCHYLONA
+    // dla tej jednej usługi. Wcześniej obowiązywała i wynikała z findingu
+    // UXUI2608-04: klik z kafelka prowadzi wtedy do powiększenia miniatury,
+    // którą klient przed chwilą kliknął, więc przejście nie wnosi nowego obrazu.
+    // Koszt jest realny, ale Marcin go zna i wybrał ten kadr na obu powierzchniach.
+    //
+    // NIE „naprawiać" tego przy kolejnym audycie i nie zgłaszać jako duplikatu
+    // bez zapytania. Dla pozostałych trzech usług reguła obowiązuje dalej.
     //
     // ⚠ HERO NIE MOŻE BYĆ Z LISTY `SERVICE_GALLERY.eventy` w `ServiceGalleryStrip.tsx`,
     // bo tamten pas renderuje się NIŻEJ NA TEJ SAMEJ STRONIE. Formalnie chroni przed
@@ -317,14 +323,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     // `object-fit: cover` pokazuje więc tylko środkowe 67% szerokości klatki
     // i obcina po 16,7% z każdej strony.
     // Sprawdzone wycinkiem 1280×1280 z pliku, nie na oko: przy domyślnym
-    // wyśrodkowaniu wszystkie trzy osoby nagrodzone mieszczą się z twarzami
-    // w całości, uścisk dłoni zostaje w kadrze, a logo na torbie jest czytelne.
-    // Przesunięcie w prawo (testowane 68%) urywa mężczyznę w okularach i połowę
-    // torby, więc jest gorsze. Nie dodawać `heroImagePos` „dla pewności".
-    //
-    // To samo ograniczenie 67% dotyczy kadru grupowego, gdyby kiedyś tu wrócił:
-    // tam ginęły skrajne osoby z lewej i prawej, oba auta zostawały.
-    heroImage: "/images/galeria/eventy/event-04-gala-wreczenie-wyroznien.jpg",
+    // wyśrodkowaniu oba auta zostają w kadrze, cała grupa jest widoczna,
+    // a tracone są wyłącznie skrajne osoby z lewej i prawej. Marcin zaakceptował
+    // ten kadr wprost („ten środkowy kadr 1:1 jest wystarczająco dobry"),
+    // więc nie dorabiać tu `heroImagePos` ani osobnego pliku 1:1.
+    heroImage: "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
     price: "od 600 zł netto",
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
@@ -942,19 +945,20 @@ export function getPriceFaq(service: ServiceData): FAQItem {
 // pomóc"). Łatwo podmienić ścieżkę, jeśli chcesz inne ujęcie.
 // Trzy okładki wymienione 10.08.2026 na prośbę Marcina po deployu.
 const SERVICE_TILE_IMAGES: Record<string, string> = {
-  // Kadr grupowy na torze. Decyzja Marcina 10.08.2026, ZAMIANA MIEJSCAMI z hero.
+  // Kadr grupowy na torze.
   //
-  // ⚠ MUSI BYĆ INNE NIŻ `heroImage` usługi `eventy-reportaze` (dziś gala).
-  // Kafelek i hero to dwie powierzchnie jednego kliknięcia: jeśli pokażą ten sam
-  // plik, przejście z kafelka nie wnosi nowego obrazu. To był finding UXUI2608-04
-  // i już raz wszedł na produkcję.
+  // ⛔ TEN SAM PLIK CO W HERO podstrony `/uslugi/eventy-reportaze`. Świadome,
+  // decyzja Marcina z 10.08.2026: „na obydwu ma być to z samochodami".
+  // Pełne uzasadnienie i uchylenie reguły „hero i kafelek muszą być różne"
+  // stoi przy polu `heroImage` tej usługi, wyżej w tym pliku. Nie rozjeżdżać
+  // tych dwóch wartości bez decyzji Marcina i nie zgłaszać jako duplikatu.
   //
   // Historia tej pary w jeden dzień, żeby nikt nie kręcił nią w kółko:
-  //   1. kafelek grupowe + hero grupowe → duplikat, naprawiony wariantem C
+  //   1. kafelek grupowe + hero grupowe → zgłoszone jako UXUI2608-04
   //   2. kafelek grupowe + hero gala
   //   3. kafelek gala + hero grupowe
-  //   4. TERAZ: kafelek grupowe + hero gala (powrót do stanu 2)
-  // Za każdym razem zmieniała się tylko strona przypisania, nigdy reguła.
+  //   4. kafelek grupowe + hero gala
+  //   5. TERAZ: oba grupowe, na wyraźne polecenie, z pełną świadomością kosztu
   "eventy-reportaze": "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
   "wizerunek-portrety": "/images/galeria/portrety/portret-02-kobieta-z-laptopem.jpg",
   "fotografia-produktowa": "/images/galeria/produktowe/produkt-01-toast-belvedere.jpg",
