@@ -437,38 +437,39 @@ export default function CTA() {
                           onChange={handleChange}
                           className="w-full bg-white dark:bg-white/[0.08] border border-border dark:border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white font-inter focus:border-blue transition-colors appearance-none pr-10"
                         >
+                          {/* Lista przepisana 10.08.2026 przy przejściu z ośmiu usług
+                              na cztery filary. Wcześniej stało tu DZIEWIĘĆ pozycji ze
+                              starej oferty, w tym cztery usługi, które już nie istnieją
+                              („Sesje zespołowe", „Wideo marketing", „Pakiet foto + wideo",
+                              „Zdjęcia i wideo z drona"), i ani jedna o nazwie zgodnej
+                              z podstroną, z której klient tu trafiał.
+
+                              ⚠ KODY (`value`) ZOSTAJĄ STARE, mimo nowych etykiet. Zmiana
+                              identyfikatorów rozjechałaby historię leadów w CRM, a nic
+                              by nie dała. Kolejność pozycji = kolejność usług na stronie.
+
+                              ⚠ Każdy kod stąd MUSI istnieć w SERVICE_LABELS
+                              w `src/app/api/contact/route.ts`, inaczej wysyłka kończy
+                              się błędem 400 „Nieznany rodzaj usługi". Cztery wycofane
+                              kody zostały tam CELOWO, żeby nie wywrócić wysyłki komuś,
+                              kto ma otwartą starą kartę. */}
                           <option value="" className="bg-white dark:bg-navy text-steel">
                             Wybierz usługę...
                           </option>
-                          <option value="wizerunek" className="bg-white dark:bg-navy">
-                            Portrety biznesowe / Headshoty
+                          <option value="event" className="bg-white dark:bg-navy">
+                            Wydarzenia firmowe
                           </option>
-                          <option value="zespol" className="bg-white dark:bg-navy">
-                            Sesje zespołowe
+                          <option value="wizerunek" className="bg-white dark:bg-navy">
+                            Wizerunek firmy
+                          </option>
+                          <option value="obiekty" className="bg-white dark:bg-navy">
+                            Nieruchomości i przemysł
                           </option>
                           <option value="produkt" className="bg-white dark:bg-navy">
-                            Fotografia produktowa / przemysłowa
-                          </option>
-                          <option value="event" className="bg-white dark:bg-navy">
-                            Reportaż z eventu
-                          </option>
-                          <option value="wideo" className="bg-white dark:bg-navy">
-                            Wideo marketing
-                          </option>
-                          <option value="pakiet" className="bg-white dark:bg-navy">
-                            Pakiet foto + wideo
-                          </option>
-                          <option value="dron" className="bg-white dark:bg-navy">
-                            Zdjęcia i wideo z drona
-                          </option>
-                          {/* TRESC2608-03 (04.08.2026): ósma usługa, opublikowana 04.08,
-                              nie istniała na żadnej z list pisanych ręcznie, w tym
-                              w formularzu, przez co jej leady spadały do „Inne zapytanie". */}
-                          <option value="obiekty" className="bg-white dark:bg-navy">
-                            Fotografia hal, obiektów i wnętrz
+                            Fotografia produktowa
                           </option>
                           <option value="inne" className="bg-white dark:bg-navy">
-                            Inne zapytanie
+                            Inne
                           </option>
                         </select>
                         <svg

@@ -87,18 +87,28 @@ export async function POST(req: Request) {
   }
 
   // Kod usługi z dropdowna → czytelna nazwa w mailu (żeby lead był jasny).
+  //
+  // Etykiety przepisane 10.08.2026 przy przejściu z ośmiu usług na cztery filary.
+  // KODY zostały stare celowo: zmiana identyfikatorów rozjechałaby porównywalność
+  // historii leadów w CRM, a etykieta i tak jest tym, co widać w mailu.
   const SERVICE_LABELS: Record<string, string> = {
-    wizerunek: "Portrety biznesowe / Headshoty",
-    zespol: "Sesje zespołowe",
-    produkt: "Fotografia produktowa / przemysłowa",
-    event: "Reportaż z eventu",
-    wideo: "Wideo marketing",
-    pakiet: "Pakiet foto + wideo",
-    dron: "Zdjęcia i wideo z drona",
-    // TRESC2608-03 (04.08.2026): bez tej linii wysyłka formularza z ósmą usługą
-    // kończyła się błędem 400 „Nieznany rodzaj usługi" (twarda lista niżej).
-    obiekty: "Fotografia hal, obiektów i wnętrz",
-    inne: "Inne zapytanie",
+    // Cztery filary — te i tylko te są dziś w liście rozwijanej w CTA.tsx.
+    event: "Wydarzenia firmowe",
+    wizerunek: "Wizerunek firmy",
+    obiekty: "Nieruchomości i przemysł",
+    produkt: "Fotografia produktowa",
+    inne: "Inne",
+    // ⚠ KODY WYCOFANE. Nie ma ich już w formularzu, ale MUSZĄ tu zostać.
+    // Poniżej (linia z `service in SERVICE_LABELS`) stoi twarda lista, która
+    // odrzuca nieznany kod błędem 400. Bez tych czterech wpisów wysyłka
+    // wywaliłaby się każdemu, kto ma otwartą starą kartę strony albo wraca
+    // do formularza z pamięci przeglądarki. Etykieta mapuje na nowy filar,
+    // żeby lead trafił we właściwą kategorię, a dopisek „(stara nazwa)"
+    // mówi Ci w mailu, że zgłoszenie przyszło ze starego formularza.
+    zespol: "Wizerunek firmy (stara nazwa: sesje zespołowe)",
+    wideo: "Wizerunek firmy (stara nazwa: wideo marketing)",
+    pakiet: "Wydarzenia firmowe (stara nazwa: pakiet foto + wideo)",
+    dron: "Nieruchomości i przemysł (stara nazwa: dron)",
   };
   // Twarda lista kodów usług — bez niej pole `service` przyjmowało dowolne
   // 100 znaków i trafiało do maila jako „kategoria z listy" (audyt PELNY2907-21).
