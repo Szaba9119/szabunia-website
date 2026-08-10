@@ -27,9 +27,20 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Fotograf eventowy i biznesowy Poznań | Szabunia",
+  // Zmienione 10.08.2026 (decyzja Marcina), poprzednio „Fotograf eventowy
+  // i biznesowy Poznań | Szabunia". Po przejściu na cztery filary oferty
+  // głównym pozycjonowaniem strony głównej jest „fotograf biznesowy", a event
+  // jest jednym z czterech obszarów niżej, nie połową tytułu. Tytuł nie próbuje
+  // zmieścić wszystkich czterech filarów: szerokość oferty pokazuje H1, a tytuł
+  // ma zdobyć kliknięcie na jednej kategorii. 53 znaki, mieści się bez ucięcia.
+  title: "Fotograf biznesowy Poznań | Zdjęcia i film | Szabunia",
+  // Przepisane 10.08.2026 na cztery filary. Dobór słów NIE jest przypadkowy:
+  // „fotografia" (622 kliknięcia w Ads), „biznesowa" (78) i „Poznaniu" (358)
+  // to jedyne frazy z tego opisu, które mają pomiar. Nazwy klientów zostają
+  // na końcu, bo to one dają powód do kliknięcia w wyniku wyszukiwania.
+  // 146 znaków, mieści się bez ucięcia.
   description:
-    "Obsługa wydarzeń firmowych i wizerunek zespołów w Poznaniu. Zdjęcia, film i dron od jednej osoby. Współpracowałem z H&M i Santanderem.",
+    "Fotografia biznesowa i wideo dla firm w Poznaniu: wydarzenia, wizerunek zespołu, nieruchomości i przemysł, produkty. Zdjęcia dla H&M i Santandera.",
   metadataBase: new URL("https://szabunia.pl"),
   alternates: {
     canonical: "/",
@@ -38,9 +49,20 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: "Marcin Szabunia, fotograf eventowy i biznesowy",
+    // Zmienione 10.08.2026 razem z H1 i meta title. Podgląd linku w social
+    // media ma powtarzać komunikat z hero, a nie tworzyć trzecią wersję:
+    // dlatego pełne zdanie, a nie skrót do „fotograf biznesowy". Nie musi być
+    // identyczne z meta title — tam wygrywa układ pod wynik wyszukiwania,
+    // tutaj pod kartę linku.
+    title: "Marcin Szabunia, fotograf biznesowy w Poznaniu. Zdjęcia i film.",
+    // Przepisane 10.08.2026. Karta linku otwiera się hasłem z hero, żeby ktoś,
+    // kto zobaczy podgląd na LinkedInie i wejdzie na stronę, przeczytał to samo
+    // dwa razy. Bez upychania fraz: nikt nie szuka przez kartę linku.
+    // ⚠ Znika „jeden twórca". Ten sam problem co „od jednej osoby": FAQ na
+    // podstronie Wydarzeń mówi wprost, że przy dużym wydarzeniu dochodzi drugi
+    // operator, więc deklaracja przeczyła własnej stronie.
     description:
-      "Obsługa wydarzeń firmowych i wizerunek zespołów. Jeden twórca, spójny materiał, krótka droga od pierwszej rozmowy do dostawy.",
+      "Ludzie, wydarzenia, obiekty, produkty. Zdjęcia i film dla firm, od pierwszej rozmowy do gotowych materiałów. Poznań, cała Polska i Europa.",
     url: "https://szabunia.pl",
     siteName: "Marcin Szabunia",
     locale: "pl_PL",
@@ -56,9 +78,20 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Marcin Szabunia, fotograf eventowy i biznesowy",
+    // Zmienione 10.08.2026 razem z H1 i meta title. Podgląd linku w social
+    // media ma powtarzać komunikat z hero, a nie tworzyć trzecią wersję:
+    // dlatego pełne zdanie, a nie skrót do „fotograf biznesowy". Nie musi być
+    // identyczne z meta title — tam wygrywa układ pod wynik wyszukiwania,
+    // tutaj pod kartę linku.
+    title: "Marcin Szabunia, fotograf biznesowy w Poznaniu. Zdjęcia i film.",
+    // Przepisane 10.08.2026. Karta linku otwiera się hasłem z hero, żeby ktoś,
+    // kto zobaczy podgląd na LinkedInie i wejdzie na stronę, przeczytał to samo
+    // dwa razy. Bez upychania fraz: nikt nie szuka przez kartę linku.
+    // ⚠ Znika „jeden twórca". Ten sam problem co „od jednej osoby": FAQ na
+    // podstronie Wydarzeń mówi wprost, że przy dużym wydarzeniu dochodzi drugi
+    // operator, więc deklaracja przeczyła własnej stronie.
     description:
-      "Obsługa wydarzeń firmowych i wizerunek zespołów. Jeden twórca, spójny materiał, krótka droga od pierwszej rozmowy do dostawy.",
+      "Ludzie, wydarzenia, obiekty, produkty. Zdjęcia i film dla firm, od pierwszej rozmowy do gotowych materiałów. Poznań, cała Polska i Europa.",
     images: ["/images/og/strony/home.jpg"],
   },
   robots: {
@@ -143,9 +176,19 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
               // (audyt PELNY2907-31). Przy zerowych backlinkach to najtańszy
               // sygnał tożsamości, jaki możemy dać Knowledge Graph.
               "@id": "https://szabunia.pl/#business",
-              name: "Marcin Szabunia, fotograf eventowy i biznesowy",
+              // Nazwa ujednolicona 10.08.2026 z encją WebSite (#website), która
+              // już wcześniej nazywała się „Marcin Szabunia, fotografia i wideo
+              // dla firm". Dwie różne nazwy w jednym grafie to gorszy sygnał
+              // tożsamości niż jednorazowa zmiana. Poprzednio: „Marcin Szabunia,
+              // fotograf eventowy i biznesowy".
+              name: "Marcin Szabunia, fotografia i wideo dla firm",
+              // Opis przepisany 10.08.2026 na cztery filary. Poprzedni opisywał
+              // ofertę dwufilarową („Obsługa wydarzeń firmowych i wizerunek
+              // zespołów"). Znika też „od jednej osoby": przy dużym wydarzeniu
+              // dochodzi drugi operator, co mówi wprost FAQ na podstronie
+              // Wydarzeń, więc deklaracja przeczyła własnej stronie.
               description:
-                "Obsługa wydarzeń firmowych i wizerunek zespołów. Zdjęcia, film i ujęcia z drona od jednej osoby. Poznań, cała Polska i Europa.",
+                "Zdjęcia i film dla firm w czterech obszarach: wydarzenia firmowe, wizerunek firmy i zespołu, nieruchomości i przemysł oraz produkty. Poznań, cała Polska i Europa.",
               url: "https://szabunia.pl",
               telephone: "+48514900688",
               email: "marcin@szabunia.pl",
@@ -204,53 +247,52 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                 // w przeglądarce 2026-07-29.
                 "https://www.google.com/search?kgmid=/g/11rcwdrdcl",
               ],
+              // Katalog przebudowany 10.08.2026 z OŚMIU ofert na CZTERY filary.
+              // Usunięte jako osobne oferty: „Sesje zespołowe", „Pakiety Foto +
+              // Wideo + Dron", „Wideo marketing", „Zdjęcia i wideo z drona",
+              // „Fotografia wnętrz, obiektów i architektury", „Fotografia
+              // biznesowa i portretowa". Wszystkie weszły w cztery poniższe.
+              //
+              // ZASADY, których tu pilnujemy:
+              //  - dron pada WYŁĄCZNIE w opisie Nieruchomości, nigdy jako oferta,
+              //  - wideo pada jako element usług, nigdy jako osobna oferta,
+              //  - `url` wskazuje żywą stronę, nigdy adres spod 301,
+              //  - ŻADNYCH cen: `priceRange` został usunięty świadomie 29.07.2026
+              //    (model „cena na zapytanie"), więc kwoty w katalogu byłyby
+              //    cofnięciem tamtej decyzji. Ceny emitują podstrony usług,
+              //    każda swoją, w uslugi/[slug]/page.tsx.
               hasOfferCatalog: {
                 "@type": "OfferCatalog",
-                name: "Usługi fotograficzne i wideo",
+                name: "Usługi fotograficzne i wideo dla firm",
                 itemListElement: [
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Obsługa eventów firmowych",
+                      name: "Wydarzenia firmowe",
                       description:
-                        "Fotoreportaż z konferencji, targów, gal i eventów firmowych",
+                        "Fotografia i wideo konferencji, gal, targów, szkoleń i integracji, razem z ujęciami z powietrza",
+                      url: "https://szabunia.pl/uslugi/eventy-reportaze",
                     },
                   },
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Sesje zespołowe",
+                      name: "Wizerunek firmy",
                       description:
-                        "Sesje zdjęciowe dla zespołów, działów, zarządów, na miejscu w biurze lub w studio",
+                        "Portrety biznesowe, headshoty całego zespołu, zdjęcia przy pracy i film wizerunkowy, w studiu albo w biurze klienta",
+                      url: "https://szabunia.pl/uslugi/wizerunek-portrety",
                     },
                   },
                   {
                     "@type": "Offer",
                     itemOffered: {
                       "@type": "Service",
-                      name: "Pakiety Foto + Wideo + Dron",
+                      name: "Nieruchomości i przemysł",
                       description:
-                        "Zdjęcia, wideo i ujęcia z drona od jednej osoby: spójny materiał bez koordynowania dwóch ekip",
-                    },
-                  },
-                  {
-                    "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Fotografia biznesowa i portretowa",
-                      description:
-                        "Portrety biznesowe, headshoty, sesje wizerunkowe dla firm i specjalistów",
-                    },
-                  },
-                  {
-                    "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Wideo marketing",
-                      description:
-                        "Filmy rekrutacyjne, wizerunkowe, reklamowe dla firm",
+                        "Fotografia i wideo hal, zakładów, biurowców, inwestycji i wnętrz, z powietrza i z poziomu ziemi",
+                      url: "https://szabunia.pl/uslugi/nieruchomosci-przemysl",
                     },
                   },
                   {
@@ -259,25 +301,8 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                       "@type": "Service",
                       name: "Fotografia produktowa",
                       description:
-                        "Zdjęcia produktowe na białym tle, packshoty, fotografia przemysłowa",
-                    },
-                  },
-                  {
-                    "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Zdjęcia i wideo z drona",
-                      description:
-                        "Ujęcia z powietrza: budynki i obiekty firmowe, hale i magazyny, tereny, inwestycje i eventy, foto i wideo w 4K",
-                    },
-                  },
-                  {
-                    "@type": "Offer",
-                    itemOffered: {
-                      "@type": "Service",
-                      name: "Fotografia wnętrz, obiektów i architektury",
-                      description:
-                        "Fotografia hal, lokali, wnętrz i obiektów z poziomu ziemi oraz z powietrza",
+                        "Packshoty na białym tle, produkty w aranżacji, zdjęcia reklamowe i wideo produktowe",
+                      url: "https://szabunia.pl/uslugi/fotografia-produktowa",
                     },
                   },
                 ],
@@ -296,8 +321,12 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
               jobTitle: "Fotograf biznesowy i twórca wideo",
               url: "https://szabunia.pl",
               image: "https://szabunia.pl/images/marcin-hero.jpg",
+              // Przepisane 10.08.2026. „Fotograf biznesowy" jako otwarcie było
+              // węższe niż cztery filary, zwłaszcza przy nieruchomościach
+              // i produktach (korekta Marcina). `jobTitle` wyżej zostaje bez
+              // zmian, bo opisuje rolę zawodową, a nie katalog usług.
               description:
-                "Fotograf eventowy i biznesowy z Poznania. Obsługa wydarzeń firmowych, wizerunek zespołów, wideo i dron. Współpracowałem z H&M, Warner Music Poland, Santander Bank Polska, John Deere, IQOS, Amica, Grupa Forte S.A., Centrum Posnania i Woohoo.",
+                "Fotograf i twórca wideo z Poznania. Zdjęcia i film dla firm: wydarzenia firmowe, wizerunek zespołów, nieruchomości i przemysł oraz produkty. Współpracowałem z H&M, Warner Music Poland, Santander Bank Polska, John Deere, IQOS, Amica, Grupa Forte S.A., Centrum Posnania i Woohoo.",
               email: "marcin@szabunia.pl",
               address: {
                 "@type": "PostalAddress",
@@ -317,15 +346,23 @@ if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}el
                 // w przeglądarce 2026-07-29.
                 "https://www.google.com/search?kgmid=/g/11rcwdrdcl",
               ],
+              // Uporządkowane 10.08.2026. To pole opisuje KOMPETENCJE, nie ofertę,
+              // więc nie musi mieć czterech pozycji ani powtarzać nazw usług.
+              // Wypadły nazwy zlikwidowanych usług („Wideo marketing", „Zdjęcia
+              // i wideo z drona", „Fotografia wnętrz, obiektów i architektury"),
+              // weszły nazwy dziedzin. „Fotografia lotnicza", nie „zdjęcia
+              // z drona": dron jest narzędziem, dziedzina nazywa się inaczej.
               knowsAbout: [
                 "Fotografia biznesowa",
                 "Portrety wizerunkowe",
                 "Fotografia eventowa",
-                "Wideo marketing",
                 "Fotografia produktowa",
                 "Fotografia korporacyjna",
-                "Zdjęcia i wideo z drona",
-                "Fotografia wnętrz, obiektów i architektury",
+                "Fotografia nieruchomości",
+                "Fotografia przemysłowa",
+                "Fotografia architektury",
+                "Fotografia lotnicza",
+                "Wideo dla firm",
               ],
               award: "Wyróżnienie w konkursie Portret 2022",
             }),
