@@ -56,7 +56,11 @@ export default function UslugiPage() {
       itemListElement: serviceCategories.map((s, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        name: s.title,
+        // `shortTitle` jak w `Service.name` na podstronie (wariant C, 10.08.2026):
+        // dane strukturalne dostają krótką nazwę encji, a widoczny kafelek niżej
+        // zostaje przy pełnym `title`. Te dwa miejsca nie muszą być identyczne
+        // i celowo nie są.
+        name: s.shortTitle ?? s.title,
         url: `https://szabunia.pl/uslugi/${s.slug}`,
       })),
     },

@@ -47,7 +47,13 @@ export default function LogoBar() {
             {[...clients, ...clients].map((client, i) => (
               <span
                 key={i}
-                className="font-barlow font-bold text-xl md:text-2xl tracking-tight text-steel-light dark:text-dark-text-muted whitespace-nowrap flex-shrink-0"
+                // Jasny motyw: `text-steel` (#64748B), NIE `text-steel-light`
+                // (#94A3B8). Ten drugi dawał na tle body (#F9FAFB) kontrast
+                // 2,45:1, czyli poniżej 3:1 wymaganych nawet dla dużego,
+                // pogrubionego tekstu (WCAG 1.4.3; finding UXUI2608-01
+                // z 10.08.2026). `text-steel` daje 4,55:1. Ciemny motyw był
+                // poprawny (#94A3B8 na #0B0F1A to 7,46:1), więc został.
+                className="font-barlow font-bold text-xl md:text-2xl tracking-tight text-steel dark:text-dark-text-muted whitespace-nowrap flex-shrink-0"
                 aria-hidden={i >= clients.length}
               >
                 {client}

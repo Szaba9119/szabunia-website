@@ -6,6 +6,10 @@ import { updateAnalyticsConsent } from "@/lib/gtag";
 export default function CookieConsent() {
   const [visible, setVisible] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+  // Fokus przenosimy TYLKO przy świadomym otwarciu z linku w stopce, nigdy przy
+  // automatycznym pokazaniu banera. Zabranie fokusu bez akcji użytkownika jest
+  // samo w sobie błędem dostępności (WCAG 3.2.1 On Focus).
+  const focusOnOpen = useRef(false);
 
   useEffect(() => {
     // `try/catch` jak w ThemeProvider (PELNY2608-16). Fallback przy zablokowanym
@@ -26,10 +30,23 @@ export default function CookieConsent() {
   // Ponowne otwarcie banera z linku „Ustawienia cookies" w stopce — pozwala
   // w każdej chwili zmienić/wycofać zgodę (równie łatwo jak ją wyrazić).
   useEffect(() => {
-    const reopen = () => setVisible(true);
+    const reopen = () => {
+      focusOnOpen.current = true;
+      setVisible(true);
+    };
     window.addEventListener("open-cookie-settings", reopen);
     return () => window.removeEventListener("open-cookie-settings", reopen);
   }, []);
+
+  // Baner renderuje się na końcu `layout.tsx`, a link „Ustawienia cookies" stoi
+  // w stopce. Bez tego przeniesienia fokusu kliknięcie linku z klawiatury nie
+  // dawało żadnego efektu do wyśledzenia: baner pojawiał się poza kolejnością
+  // czytania (finding PELNY2608-66).
+  useEffect(() => {
+    if (!visible || !focusOnOpen.current) return;
+    focusOnOpen.current = false;
+    ref.current?.focus();
+  }, [visible]);
 
   // Zgłaszaj wysokość banera, żeby mobilny pasek akcji (MobileFAB) uniósł się nad niego.
   useEffect(() => {
@@ -68,8 +85,17 @@ export default function CookieConsent() {
   return (
     <div
       ref={ref}
-      role="dialog"
+      // ⚠ `role="region"`, NIE `role="dialog"` (zmiana 10.08.2026, finding
+      // PELNY2608-66). Baner jest świadomie NIEMODALNY: wrapper ma
+      // `pointer-events-none`, nie ma nakładki, strona pod nim działa dalej
+      // i da się z niej korzystać bez podjęcia decyzji. `role="dialog"`
+      // obiecywał czytnikowi modal, którego nie ma — brakowało `aria-modal`,
+      // pułapki fokusu i Escape. Wybrana jedna, spójna semantyka: niemodalny
+      // region z etykietą. Escape celowo NIE zamyka banera — musiałby wybrać
+      // za użytkownika „akceptuję" albo „odrzuć", a to decyzja o zgodzie.
+      role="region"
       aria-label="Informacja o plikach cookie"
+      tabIndex={-1}
       // `pointer-events-none` na wrapperze: przezroczysty pas o pełnej szerokości
       // przechwytywał kliknięcia w całym dolnym pasie (na 1920 px po ~576 px z każdej
       // strony) i blokował BackToTopButton na /blog/[slug] (audyt PELNY2608-21).

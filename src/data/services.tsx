@@ -5,11 +5,30 @@ export { type ProcessStep, type FAQItem };
 
 export interface ServiceData {
   slug: string;
+  /** Nazwa usługi na powierzchniach MARKETINGOWYCH: kafelek na stronie głównej,
+      kafelek na hubie `/uslugi`, karta „Powiązana usługa" pod wpisem blogowym
+      oraz alty zdjęć. Może być pełna i opisowa („Fotografia i wideo produktowe"):
+      klient patrzący na kafelek ma zrozumieć, co dostaje, bez znajomości
+      branżowego skrótu (decyzja Marcina, commit `d106c8d`).
+
+      ⚠ NIE używać tego pola w okruszkach ani w JSON-LD — tam idzie `shortTitle`.
+      Okruszek długi na 45 znaków przestaje być nawigacją. */
   title: string;
+  /** Krótka nazwa NAWIGACYJNA i STRUKTURALNA. Trzy miejsca, wszystkie:
+      okruszek na podstronie usługi (widoczny i w `BreadcrumbList`),
+      `name` w JSON-LD `Service` oraz `name` w `ItemList` na `/uslugi`.
+
+      Rozdzielone od `title` 10.08.2026, wariant C decyzji Marcina (finding
+      UXUI2608-03). Powód: po commicie `d106c8d` `title` stał się pełną frazą
+      i w trzech z czterech usług zrównał się z `h1`, więc jedno pole obsługiwało
+      naraz kafelek, okruszek i dane strukturalne — trzy różne zadania.
+
+      Brak wartości = fallback na `title`. */
+  shortTitle?: string;
   /** Nagłówek H1 na podstronie usługi, gdy ma brzmieć inaczej niż `title`.
-      `title` jest nazwą krótką i trafia do nawigacji, kart na stronie głównej,
-      okruszków i pola `name` w JSON-LD, więc nie da się go rozbudować bez psucia
-      tych miejsc. H1 to najmocniejszy sygnał na stronie i ma zawierać frazę,
+      Trzy pola, trzy zadania, NIE zlewać: `title` to nazwa marketingowa
+      (kafelek), `shortTitle` nawigacyjna (okruszek, JSON-LD), `h1` niesie frazę
+      wyszukiwaną. H1 to najmocniejszy sygnał na stronie i ma zawierać frazę,
       której ludzie realnie szukają (audyt 2026-07-30: `packshot` z 100 wyświetleniami
       w GSC nie występował w żadnym H1). Brak wartości = fallback na `title`.
 
@@ -155,6 +174,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     videoTitle: "Film z eventu firmowego dla Woohoo",
     videoNote: "Tak wygląda film z eventu: dynamiczne podsumowanie wydarzenia, gotowe do social mediów.",
     title: "Dokumentacja wydarzeń firmowych",
+    shortTitle: "Wydarzenia firmowe",
     subtitle:
       "Konferencje, targi, gale i integracje. Zdjęcia, film i dron z jednego dnia, część kadrów na social media jeszcze w trakcie wydarzenia.",
     // Lead przepisany 10.08.2026 (pakiet 4, wersja wybrana przez Marcina).
@@ -273,6 +293,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       sub: "Headshoty całego zespołu robię w jeden dzień: przywożę mobilne studio do Twojego biura, rozstawienie zajmuje 30 minut, a jedna osoba potrzebuje 5 do 15 minut.",
     },
     title: "Fotografia i wideo wizerunkowe dla firm",
+    shortTitle: "Wizerunek firmy",
     subtitle:
       "Portrety biznesowe, headshoty całego zespołu i film wizerunkowy. Prowadzę przez pozowanie, nie musisz nic umieć.",
     // Lead przepisany 10.08.2026 (pakiet 4, zatwierdzony przez Marcina bez
@@ -443,6 +464,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       ctaLabel: "Zobacz realizacje wideo",
     },
     title: "Fotografia i wideo produktowe",
+    shortTitle: "Fotografia produktowa",
     subtitle:
       "Packshoty na białym tle z retuszem w cenie, zdjęcia kreatywne i wideo produktowe pod e-commerce, katalogi i social media.",
     // Lead przepisany 10.08.2026 (pakiet 4, wersja zatwierdzona przez Marcina).
@@ -590,6 +612,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     videoNote:
       "Hala Artech Group od środka: park maszynowy, obróbka CNC i to, jak zakład naprawdę pracuje. Zakład da się pokazać tak samo zdjęciami, jak i filmem, w tym samym dniu zdjęciowym.",
     title: "Fotografia i wideo nieruchomości i przemysłu",
+    shortTitle: "Nieruchomości i przemysł",
     // Podtytuł przepisany 04.08.2026 razem z opisem. Poprzedni („Dwie perspektywy
     // z jednego planu: z powietrza i z poziomu ziemi") stawiał drona na pierwszym
     // miejscu, a podstrona pokazuje dziś wnętrza i film z hali. Ten sam tekst leci

@@ -83,17 +83,25 @@ export default async function ServicePage({ params }: PageProps) {
   const priceMatch = service.price.match(/\d[\d\s]*\d|\d/);
   const startingPrice = priceMatch ? priceMatch[0].replace(/\s/g, "") : undefined;
 
+  // Okruszek bierze `shortTitle`, nie `title` (wariant C decyzji Marcina,
+  // 10.08.2026, finding UXUI2608-03). `title` jest dziś pełną nazwą marketingową
+  // na kafelki — w okruszku dawał „Strona główna / Usługi / Fotografia i wideo
+  // nieruchomości i przemysłu", czyli 45 znaków tam, gdzie ma być nawigacja.
+  // Ta sama tablica zasila widoczny `<Breadcrumbs>` i `BreadcrumbList` w JSON-LD,
+  // więc zmiana trzyma oba w zgodzie automatycznie.
   const crumbs: Crumb[] = [
     { name: "Strona główna", href: "/" },
     { name: "Usługi", href: "/uslugi" },
-    { name: service.title },
+    { name: service.shortTitle ?? service.title },
   ];
 
   const structuredData = [
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      name: service.title,
+      // Krótka, naturalna nazwa usługi — nie pełna fraza z kafelka i nie H1
+      // (wariant C, 10.08.2026). `Service.name` jest nazwą encji, nie nagłówkiem.
+      name: service.shortTitle ?? service.title,
       description: service.seo.description,
       provider: { "@id": "https://szabunia.pl/#business" },
       areaServed: ["Poznań", "Polska", "Europa"],

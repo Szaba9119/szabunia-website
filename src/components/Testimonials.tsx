@@ -153,7 +153,11 @@ export default function Testimonials() {
             role="region"
             aria-roledescription="karuzela"
             aria-label="Opinie klientów"
-            aria-atomic="true"
+            // ⚠ NIE dodawać tu `aria-atomic="true"` (usunięte 10.08.2026,
+            // finding PELNY2608-66). Przy zmianie treści czytnik szuka
+            // aria-atomic w PRZODKACH regionu live, więc ten atrybut kazał mu
+            // odczytywać całą karuzelę od nowa zamiast jednego komunikatu
+            // o zmianie opinii.
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
@@ -169,12 +173,16 @@ export default function Testimonials() {
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z" />
               </svg>
 
+              {/* JEDEN region live na całą karuzelę: krótki licznik „Opinia X z Y".
+                  Widoczna karta NIE ma już `aria-live` (usunięte 10.08.2026,
+                  finding PELNY2608-66). Dwa nakładające się regiony powodowały,
+                  że przy autoprzewijaniu czytnik odczytywał licznik i zaraz po
+                  nim cały, kilkuzdaniowy cytat. Nie przywracać `aria-live` niżej. */}
               <div className="sr-only" aria-live="polite" aria-atomic="true">
                 Opinia {currentIndex + 1} z {testimonials.length}
               </div>
               <div
                 key={currentIndex}
-                aria-live="polite"
                 style={{
                   animation: "fadeIn 0.4s ease-out",
                 }}

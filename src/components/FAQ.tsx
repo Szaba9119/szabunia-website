@@ -87,6 +87,15 @@ export default function FAQ() {
                     id={`faq-answer-${i}`}
                     role="region"
                     aria-labelledby={`faq-question-${i}`}
+                    // Zamknięta odpowiedź jest schowana WIZUALNIE (grid-rows-[0fr]
+                    // + opacity-0), a nie atrybutem `hidden` — inaczej ginie
+                    // animacja rozwijania. Dla czytnika ekranu treść zostawała
+                    // wtedy w drzewie dostępności, więc pod zwiniętym pytaniem
+                    // czytała się odpowiedź (finding PELNY2608-66). `aria-hidden`
+                    // domyka to bez ruszania animacji. Bezpieczne, bo `faq.a`
+                    // jest czystym tekstem: nie ma tu elementów fokusowalnych,
+                    // które trafiłyby w konflikt aria-hidden + tabindex.
+                    aria-hidden={!isOpen}
                     className={`grid transition-all duration-300 ease-in-out ${
                       isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                     }`}
