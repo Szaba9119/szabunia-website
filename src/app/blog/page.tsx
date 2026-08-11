@@ -92,14 +92,52 @@ export default function BlogPage() {
             Najnowsze wpisy
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {posts.map((post, i) => (
+            {/* DWIE PIERWSZE KARTY IDĄ INNĄ ŚCIEŻKĄ NIŻ RESZTA, 11.08.2026.
+                Pomiary Lighthouse 13, mobile, wszystkie na tej stronie:
+
+                  stan wyjściowy   LCP 6,7 s, perf 77
+                                   load delay 505 ms + pobieranie 377 ms,
+                                   render delay 23 ms
+                  po samym         load delay 41 ms, ale render delay
+                  `priority`       SKOCZYŁ na 605 ms, perf nadal 77
+
+                Drugi pomiar jest tu pouczający: dopóki obrazek ładował się
+                pół sekundy, `.reveal` mieścił się w cieniu tego czekania
+                i nie było go widać w pomiarze. Po przyspieszeniu ładowania
+                to on stał się ogranicznikiem. Jedna naprawa bez drugiej nie
+                dawała na tej stronie nic.
+
+                Stąd dwa zabiegi naraz na kartach nad zgięciem:
+                  1. `priority` — `next/image` bez niego daje `loading="lazy"`,
+                     więc pobieranie nie startuje, póki nie policzy się układ,
+                  2. `hero-intro` zamiast `AnimatedSection` — `.reveal` trzyma
+                     `opacity: 0` do hydratacji, a przy 27 kartach na tej
+                     stronie hydratacja jest wolna.
+
+                ⛔ NIE rozszerzać `i < 2` na kolejne karty. Priorytet dla
+                wszystkiego to brak priorytetu, a `.reveal` na kartach pod
+                zgięciem jest poprawny i ma zostać — to on daje wjazd przy
+                przewijaniu. */}
+            {posts.map((post, i) => {
+              const card = <BlogCard post={post} priority={i < 2} />;
+
+              if (i < 2) {
+                return (
+                  <div key={post.slug} className="hero-intro h-full">
+                    {card}
+                  </div>
+                );
+              }
+
               // Opóźnienie liczone w rzędzie, nie w całej liście: przy 26 wpisach
               // `0.08 * i` dawało 26. karcie 2 s pustego miejsca (audyt PELNY2608-29).
               // `h-full` na wrapperze wyrównuje wysokości kart w rzędzie (PELNY2608-43).
-              <AnimatedSection key={post.slug} delay={0.08 * (i % 3)} className="h-full">
-                <BlogCard post={post} />
-              </AnimatedSection>
-            ))}
+              return (
+                <AnimatedSection key={post.slug} delay={0.08 * (i % 3)} className="h-full">
+                  {card}
+                </AnimatedSection>
+              );
+            })}
           </div>
         </div>
 

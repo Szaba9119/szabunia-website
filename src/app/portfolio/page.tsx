@@ -123,18 +123,32 @@ export default function PortfolioPage() {
                     quality={85}
                     placeholder="blur"
                     blurDataURL={blurPlaceholder}
+                    /* ⚠ `priority` na DWÓCH pierwszych kafelkach, 11.08.2026
+                       (pomiar Lighthouse 13 na produkcji, mobile). Elementem LCP
+                       jest pierwszy kafelek, a bez `priority` `next/image` daje
+                       `loading="lazy"` — zmierzony `resourceLoadDelay` 532 ms
+                       przy LCP 4,7 s i performance 83.
+
+                       Dwa, nie jeden, bo siatka ma NA TELEFONIE dwie kolumny
+                       (`grid-cols-2`), więc oba górne kafelki są nad zgięciem.
+                       Na `/blog` z tego samego powodu też są dwa, ale tam siatka
+                       jest jednokolumnowa i drugi jest zapasem, nie regułą.
+                       ⛔ Nie rozszerzać na kolejne: priorytet dla wszystkiego
+                       to brak priorytetu. */
+                    priority={i < 2}
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-navy/85 backdrop-blur-sm text-white px-4 py-3 text-[13px] font-barlow font-semibold">
                     {item.label}
                   </div>
                 </>
               );
-              return (
-                <AnimatedSection
-                  key={item.slug}
-                  delay={i * 0.06}
-                  className="group relative overflow-hidden rounded-2xl bg-border dark:bg-dark-card aspect-[4/3]"
-                >
+              // Wspólne klasy kafelka: kolejność i wygląd mają być identyczne
+              // niezależnie od tego, czy wjazd robi `.reveal`, czy `.hero-intro`.
+              const tileClass =
+                "group relative overflow-hidden rounded-2xl bg-border dark:bg-dark-card aspect-[4/3]";
+
+              const tile = (
+                <>
                   {item.externalUrl ? (
                     <a
                       href={item.externalUrl}
@@ -153,6 +167,36 @@ export default function PortfolioPage() {
                       {overlay}
                     </Link>
                   )}
+                </>
+              );
+
+              /* DWA PIERWSZE KAFELKI POZA `.reveal`, 11.08.2026 — dokładnie ten
+                 sam zabieg i z tego samego powodu co na `/blog`.
+
+                 Pomiary Lighthouse 13, mobile, ta strona:
+                   stan wyjściowy      LCP 4,7 s, load delay 532 ms,
+                                       render delay 60 ms
+                   po samym `priority` load delay spadł do 44-51 ms, ale render
+                                       delay wyszedł na 638 ms, a LCP na 7,0 s
+
+                 Dopóki obrazek ładował się pół sekundy, `.reveal` chował się
+                 w cieniu tego czekania. Po przyspieszeniu ładowania to on jest
+                 ogranicznikiem — przy 27 kartach na `/blog` i kilkunastu tutaj
+                 hydratacja kosztuje więcej niż samo pobranie obrazka.
+
+                 ⛔ Kafelki pod zgięciem zostają na `AnimatedSection` — wjazd
+                 przy przewijaniu jest tam poprawny i ma zostać. */
+              if (i < 2) {
+                return (
+                  <div key={item.slug} className={`hero-intro ${tileClass}`}>
+                    {tile}
+                  </div>
+                );
+              }
+
+              return (
+                <AnimatedSection key={item.slug} delay={i * 0.06} className={tileClass}>
+                  {tile}
                 </AnimatedSection>
               );
             })}

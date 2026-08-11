@@ -129,7 +129,25 @@ export default async function BlogPostPage({ params }: PageProps) {
           </AnimatedSection>
 
           {/* Header */}
-          <AnimatedSection>
+          {/* ⛔ TRZY BLOKI NIŻEJ (nagłówek, miniatura, treść) NIE MOGĄ UŻYWAĆ
+              `AnimatedSection` — ten sam mechanizm, który psuł podstrony usług
+              (patrz `ServiceHero.tsx` i `globals.css` przy `@keyframes heroIntro`).
+
+              Pomiar Lighthouse 13 na produkcji 11.08.2026, mobile,
+              `/blog/co-to-jest-packshot`: elementem LCP jest `p.lead` z treści
+              wpisu, Render Delay **1189 ms** — najwyższy zmierzony w całym
+              serwisie, wyżej niż 744 ms, które miały usługi przed naprawą.
+
+              ⚠ Miniatura niżej MA `priority` i to nic nie dawało: `.reveal`
+              trzymał ją na `opacity: 0` do czasu hydratacji, więc obrazek
+              pobierał się priorytetowo i czekał. Optymalizacja była, tylko
+              unieważniona przez wrapper.
+
+              `.hero-intro` animuje wyłącznie `transform`, bez wygaszania,
+              czystym CSS-em. `prefers-reduced-motion` wyłącza ruch globalną
+              regułą z `globals.css:42`. Okruszki wyżej zostają na `.reveal` —
+              są za małe, żeby kiedykolwiek wygrać pomiar LCP. */}
+          <div className="hero-intro">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-blue dark:text-blue-light bg-blue-pale dark:bg-blue/15 px-2.5 py-0.5 rounded-full">
                 {categoryLabels[post.category] ?? post.category}
@@ -151,10 +169,10 @@ export default async function BlogPostPage({ params }: PageProps) {
             <h1 className="font-barlow font-extrabold text-2xl md:text-4xl leading-tight tracking-tight text-navy dark:text-white mb-8">
               {post.title}
             </h1>
-          </AnimatedSection>
+          </div>
 
           {/* Thumbnail */}
-          <AnimatedSection>
+          <div className="hero-intro">
             <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-10 bg-border dark:bg-dark-card">
               <Image
                 src={post.thumbnail}
@@ -167,15 +185,15 @@ export default async function BlogPostPage({ params }: PageProps) {
                 priority
               />
             </div>
-          </AnimatedSection>
+          </div>
 
           {/* Content — `ErrorBoundary` zgodnie z `CLAUDE.md §5` i `§11.10`.
               To jedyna trasa, która nie miała ani jednego wrappera, a renderuje
               `dangerouslySetInnerHTML` (audyt PELNY2608-31). */}
           <ErrorBoundary>
-            <AnimatedSection>
+            <div className="hero-intro">
               <BlogContent html={post.content} />
-            </AnimatedSection>
+            </div>
           </ErrorBoundary>
 
           {/* FAQ wpisu — widoczna treść odpowiadająca znacznikom FAQPage JSON-LD */}

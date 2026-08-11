@@ -12,7 +12,17 @@ const categoryLabels: Record<string, string> = {
   branża: "Branża",
 };
 
-export default function BlogCard({ post }: { post: BlogPost }) {
+/* `priority` domyślnie WYŁĄCZONE: karta renderuje się w czterech miejscach
+   (`/blog`, `BlogPreview` na stronie głównej, podstrony usług, powiązane wpisy)
+   i tylko na `/blog` jest pierwszym elementem nad zgięciem. Włącza je jawnie
+   ten, kto wie, że jego karta jest pierwsza — patrz `blog/page.tsx`. */
+export default function BlogCard({
+  post,
+  priority = false,
+}: {
+  post: BlogPost;
+  priority?: boolean;
+}) {
   return (
     <Link
       href={`/blog/${post.slug}`}
@@ -30,6 +40,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
           placeholder="blur"
           blurDataURL={blurPlaceholder}
+          priority={priority}
         />
       </div>
       <div className="flex-1 p-5">
