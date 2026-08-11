@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { serviceCategories, getServiceBySlug, getPriceFaq, SERVICE_TESTIMONIALS } from "@/data/services";
 import { getCategoryBySlug, isPortfolioDraft } from "@/data/portfolio";
 import Navigation from "@/components/Navigation";
@@ -19,6 +18,7 @@ import Footer from "@/components/Footer";
 import MobileFAB from "@/components/MobileFAB";
 import BlogCard from "@/components/BlogCard";
 import PoradnikBlogCTA from "@/components/PoradnikBlogCTA";
+import SecondaryLink from "@/components/SecondaryLink";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { getPostsForService } from "@/data/blog";
 import { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
@@ -210,10 +210,17 @@ export default async function ServicePage({ params }: PageProps) {
             i żadna z czterech obecnych nie ustawiała tej flagi. */}
         {service.galleryCategory && (
           <ErrorBoundary>
+            {/* GŁÓWNY PASEK NIE MA `secondaryLink` i to jest stan docelowy, nie luka.
+                Pole `gallerySecondaryLink` w `ServiceData` istniało wyłącznie po to,
+                żeby zasilić ten prop z danych usługi, a jego jedyny użytkownik
+                (odsyłacz do `/portfolio/sesja-wizerunkowa` na wizerunku) zniknął
+                razem z C2: ta realizacja stoi dziś w bloku „Przykładowe realizacje".
+                Pole usunięte 11.08.2026, żeby nie zostawiać mechanizmu bez zastosowania.
+                Poboczne odsyłacze pod DRUGIM paskiem działają dalej, przez
+                `extraGallery.secondaryLink` niżej w tym pliku. */}
             <ServiceGalleryStrip
               category={service.galleryCategory}
               exclude={service.heroImage}
-              secondaryLink={service.gallerySecondaryLink}
             />
           </ErrorBoundary>
         )}
@@ -233,19 +240,51 @@ export default async function ServicePage({ params }: PageProps) {
             bo łapie ją `MobileFAB` od 200 px scrolla, ale FAB jest `md:hidden`,
             więc desktop zostawał bez niczego. Ten blok siada na ~34%.
 
-            ⚠ WARIANT OBRYSOWANY, nie gradientowy, i to jest celowe. Ta sama klasa
-            co przyciski pod paskami galerii („Zobacz całą galerię”), o których
-            `ServiceGalleryStrip.tsx` mówi wprost, że mają nie konkurować z głównym
-            CTA kontaktowym. Solidny przycisk byłby tu TRZECIM identycznym
-            z rzędu i przesuwałby wagę z hero.
+            ⚠ WARIANT OBRYSOWANY, nie gradientowy, i to nadal jest celowe. Solidny
+            przycisk byłby tu TRZECIM gradientem na podstronie i przesuwałby wagę
+            z hero, które i tak broni się słabiej, niż się wydaje: hero CTA ma pole
+            9 518 px², a przyciski pasków galerii 9 730 i 11 566 px², czyli element
+            pierwszego poziomu jest fizycznie MNIEJSZY od dwóch nawigacyjnych.
+
+            ⚠ OBRYS NIEBIESKI ZAMIAST SZAREGO, 11.08.2026 (C3, wariant 1, decyzja
+            Marcina po audycie hierarchii CTA). Wcześniej ten przycisk miał dosłownie
+            tę samą klasę co „Zobacz całą galerię" pod paskami galerii: ten sam obrys
+            `border-border`, ta sama wysokość 47 px, ten sam font 14/700. Jedyny punkt
+            konwersji na odcinku 20-64% strony wyglądał więc identycznie jak nawigacja
+            do galerii, a oba elementy mieszczą się w jednym oknie: zmierzone odstępy
+            to 474 px (nieruchomości), 513 px (wizerunek), 593 px (eventy)
+            i 631 px (produktowa), przy oknie 900 px.
+
+            Drugi powód jest czysto techniczny: `border-border` na tle strony ma
+            kontrast 1,18 : 1 w motywie jasnym i 1,31 : 1 w ciemnym, czyli ramka
+            praktycznie nie istnieje i wariant obrysowany czytał się jako sam
+            pogrubiony napis. `border-blue` daje 4,95 : 1.
+
+            Powstaje trzeci szczebel, którego wcześniej nie było:
+              gradient          = konwersja główna (hero, przed FAQ, formularz)
+              obrys NIEBIESKI   = konwersja poboczna (ten przycisk)
+              obrys SZARY       = nawigacja (paski galerii)
+            Hover bierze `blue-pale` / `blue/15`, czyli dokładnie tę parę, której
+            używa już `MobileFAB.tsx` na ikonach e-mail i telefonu. Zero nowych tokenów.
+
+            ⛔ NIE ROZSZERZAĆ tego wariantu na przyciski pasków galerii. Ich szary
+            obrys jest teraz nośnikiem znaczenia „to nawigacja, nie konwersja".
 
             Etykieta świadomie ta sama co w pozostałych punktach: spójność wygrywa
-            z wariantowaniem, a `data-cta` i tak rozdziela je w pomiarze. */}
-        <div className="px-4 pb-12 flex justify-center">
+            z wariantowaniem, a `data-cta` i tak rozdziela je w pomiarze.
+
+            ⚠ `hidden md:flex` DOŁOŻONE 11.08.2026 (audyt UI, finding C6). Blok
+            powstał z powodu czysto desktopowego, opisanego dwa akapity wyżej:
+            na telefonie tę lukę łapie `MobileFAB` od 200 px scrolla, a FAB jest
+            `md:hidden`. Renderował się jednak na wszystkich szerokościach, więc
+            przy 390 px użytkownik miał w jednym kadrze obrysowany przycisk
+            „Zapytaj o ofertę" i przyklejoną do dołu gradientową pigułkę „Oferta":
+            ta sama akcja, dwie etykiety, dwie wagi. Na desktopie bez zmian. */}
+        <div className="px-4 pb-12 hidden md:flex justify-center">
           <a
             href="#kontakt"
             data-cta="wycena_uslugi_zakres"
-            className="inline-flex items-center gap-2 border border-border dark:border-dark-border text-navy dark:text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:border-blue hover:text-blue dark:hover:border-blue-light dark:hover:text-blue-light transition-colors"
+            className="inline-flex items-center gap-2 border border-blue dark:border-blue-light text-blue dark:text-blue-light px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:bg-blue-pale dark:hover:bg-blue/15 transition-colors"
           >
             Zapytaj o ofertę
             <span aria-hidden="true">→</span>
@@ -326,21 +365,31 @@ export default async function ServicePage({ params }: PageProps) {
               przy dwóch realizacjach użytkownik ma wiedzieć, co otwiera.
               Nazwy z `label` w `portfolio.ts`, czyli te same, które stoją
               na kaflach `/portfolio`. */}
+          {/* ZDJĘTY `gap-2`, 11.08.2026 (audyt UI, finding C4). Zmierzone
+              na produkcji przy 390 px przed zmianą: każdy odsyłacz miał 20 px
+              wysokości, a sąsiadujące dzieliło 7 px. Cel dotykowy poniżej progu
+              24 x 24 px z WCAG 2.5.8, przy dwóch pozycjach jedna pod drugą.
+              Wysokość celu daje teraz pionowy padding `SecondaryLink` (45 px),
+              i to on odsuwa też pozycje od siebie, dlatego `gap-2` na kontenerze
+              musiało zejść: inaczej blok rósłby o kolejne 8 px na pozycję.
+
+              ⛔ NIE ROBIĆ Z TYCH ODSYŁACZY PRZYCISKÓW ANI KART. Sześćdziesiąt
+              pikseli wyżej stoi jedyne gradientowe CTA tej części strony i to
+              ono ma wygrywać. Decyzja Marcina z 11.08.2026: CTA są przyciskami,
+              nawigacja kontekstowa jest linkiem.
+
+              `mt-5` ZOSTAJE bez kompensacji, w odróżnieniu od pozostałych miejsc
+              użycia `SecondaryLink`. Ten margines prowadzi do PODPISU, a nie
+              do odsyłacza, więc padding linku go nie dotyczy. */}
           {caseLinks.length > 0 && (
-            <div className="mt-5 flex flex-col items-center gap-2">
+            <div className="mt-5 flex flex-col items-center">
               <span className="text-[12px] text-steel dark:text-dark-text-muted">
                 {caseLinks.length > 1 ? "Przykładowe realizacje" : "Przykładowa realizacja"}
               </span>
               {caseLinks.map((c) => (
-                <Link
-                  key={c.slug}
-                  href={`/portfolio/${c.slug}`}
-                  data-cta="case_z_uslugi"
-                  className="inline-flex items-center gap-1.5 text-[13px] font-barlow font-semibold text-blue dark:text-blue-light hover:gap-2.5 transition-all"
-                >
+                <SecondaryLink key={c.slug} href={`/portfolio/${c.slug}`} cta="case_z_uslugi">
                   {c.label}
-                  <span aria-hidden="true">→</span>
-                </Link>
+                </SecondaryLink>
               ))}
             </div>
           )}

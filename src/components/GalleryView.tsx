@@ -4,6 +4,7 @@ import { useState, useCallback, useEffect, useRef, useSyncExternalStore } from "
 import Image from "next/image";
 import Link from "next/link";
 import YouTubeFacade from "./YouTubeFacade";
+import SecondaryLink from "./SecondaryLink";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
 import type { GalleryVideo } from "@/data/galeria";
 
@@ -327,21 +328,31 @@ export default function GalleryView({
       {/* Przejście do odpowiadającej usługi, pod siatką (11.08.2026).
           Link tekstowy, nie przycisk: na górze `/galeria` stoi już „Zapytaj
           o ofertę", a ten odsyłacz ma być podporządkowany galerii, nie
-          konkurować z nią. Te same klasy co linia z case studies w zakładce
-          Wideo niżej, żeby na jednej stronie nie było dwóch formatowań tego
-          samego rodzaju odsyłacza.
+          konkurować z nią.
+
+          ⚠ SPROSTOWANIE poprzedniego komentarza w tym miejscu, który mówił
+          „te same klasy co linia z case studies w zakładce Wideo niżej".
+          Nie były te same i być nie mogły, bo nie było czego zaimportować:
+          tamta linia ma 14 px z podkreśleniem, a wszystkie poboczne odsyłacze
+          w serwisie 13 px ze strzałką. Ten odsyłacz był jedyną kopią wzorca,
+          która odpadła od reszty (audyt UI 11.08.2026, finding C5).
+
+          Linki w zakładce Wideo ZOSTAJĄ jak były i to jest celowe: siedzą
+          WEWNĄTRZ zdania („Zobacz pełne realizacje wideo: X i Y"), a strzałka
+          i `inline-flex` rozbiłyby je w środku wiersza. To inny rodzaj linku,
+          nie ta sama funkcja.
 
           Warunek na `activeCat?.service` sam wyklucza zakładkę Wideo: `wideo`
           nie jest kategorią w `categories` (dochodzi osobno do `tabs`), więc
           `activeCat` jest wtedy `undefined`. */}
+      {/* `mt-7`, nie `mt-10`: `SecondaryLink` ma 12 px własnego górnego paddingu
+          (cel dotykowy 45 px), więc 28 px marginesu daje 40 px odstępu optycznego
+          od siatki, tyle co przed dołożeniem paddingu (11.08.2026). */}
       {activeCat?.service && (
-        <p className="mt-10 text-center text-[14px]">
-          <Link
-            href={activeCat.service.href}
-            className="text-blue dark:text-blue-light font-barlow font-semibold hover:underline"
-          >
+        <p className="mt-7 text-center">
+          <SecondaryLink href={activeCat.service.href}>
             Poznaj usługę: {activeCat.service.label}
-          </Link>
+          </SecondaryLink>
         </p>
       )}
 

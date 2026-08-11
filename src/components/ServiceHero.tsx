@@ -122,21 +122,27 @@ export default function ServiceHero({ service, crumbs }: Props) {
           >
             {/* DWA WARIANTY, sterowane `heroImageAspect` w `services.tsx`.
 
-                Domyślny (brak wartości, trzy z czterech usług): kwadrat na
-                telefonie, na desktopie kadr bierze pełną wysokość kolumny
-                tekstowej (`md:h-full` na komórce siatki rozciągniętej przez
-                `items-stretch`), więc dolne krawędzie obu kolumn kończą się równo.
-                `min-h` to zabezpieczenie dla usług z krótszym tekstem, żeby
+                Domyślny (brak wartości, od 11.08.2026 WSZYSTKIE CZTERY usługi):
+                kwadrat na telefonie, na desktopie kadr bierze pełną wysokość
+                kolumny tekstowej (`md:h-full` na komórce siatki rozciągniętej
+                przez `items-stretch`), więc dolne krawędzie obu kolumn kończą się
+                równo. `min-h` to zabezpieczenie dla usług z krótszym tekstem, żeby
                 zdjęcie nie zapadło się do paska. `object-cover` przycina kadr
                 do tego kształtu i to jest tu zamierzone.
 
-                Wariant „całe zdjęcie" (`heroImageAspect`, dziś tylko eventy):
-                kontener dostaje proporcje PLIKU, więc `cover` nie ma czego
-                przyciąć i widać całą klatkę. Komórka siatki przestaje się wtedy
-                rozciągać (`md:self-start` zamiast `md:h-full`) — bez tego pod
-                zdjęciem zostawałby pusty rozciągnięty prostokąt tła. Skutek
-                uboczny jest znany i przyjęty: na desktopie kolumna ze zdjęciem
-                kończy się wyżej niż kolumna z tekstem. */}
+                Wariant „całe zdjęcie" (`heroImageAspect`): kontener dostaje
+                proporcje PLIKU, więc `cover` nie ma czego przyciąć i widać całą
+                klatkę. Komórka siatki przestaje się wtedy rozciągać
+                (`md:self-start` zamiast `md:h-full`) — bez tego pod zdjęciem
+                zostawałby pusty rozciągnięty prostokąt tła.
+
+                ⚠ ŻADNA USŁUGA NIE UŻYWA DZIŚ TEGO WARIANTU (stan 11.08.2026).
+                Miały go eventy i został zdjęty razem z podmianą kadru, bo koszt
+                okazał się większy niż zysk: zdjęcie miało 345 px wysokości wobec
+                598-748 px na pozostałych podstronach i zostawiało 128 px pustki
+                w prawej kolumnie. Mechanizm zostaje w kodzie, bo jest sprawny
+                i może się przydać przy kadrze, którego nie wolno przyciąć, ale
+                zanim go włączysz, zmierz wysokość obu kolumn. */}
             <div
               className={`relative rounded-3xl overflow-hidden bg-border dark:bg-dark-card ${
                 service.heroImageAspect ??

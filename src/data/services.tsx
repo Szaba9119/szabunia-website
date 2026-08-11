@@ -161,15 +161,6 @@ export interface ServiceData {
     | "obiekty"
     | "wnetrza"
     | "wideo-produktowe";
-  /** Poboczny odsyłacz pod przyciskiem GŁÓWNEGO paska galerii (11.08.2026).
-
-      Bliźniak `extraGallery.secondaryLink`, ale dla paska budowanego
-      z `galleryCategory`. Osobne pole jest konieczne, bo to dwa różne
-      wywołania `ServiceGalleryStrip` w `uslugi/[slug]/page.tsx`: główny bierze
-      kategorię wprost z `galleryCategory`, dodatkowy z obiektu `extraGallery`.
-      Sam prop `secondaryLink` w komponencie jest TEN SAM, więc nie powstaje
-      drugi sposób obsługi tego samego, tylko drugie źródło danych dla istniejącego. */
-  gallerySecondaryLink?: { label: string; href: string };
   /** Drugi pasek „Przykłady z galerii" pod głównym. Dodane 03.08.2026 dla sesji
       zespołowych: strona pokazywała wyłącznie sześć kadrów z jednej realizacji
       (IDcom), więc ktoś, kto chciał zobaczyć więcej twarzy i teł, nie miał dokąd
@@ -275,9 +266,39 @@ const serviceCategoriesRaw: ServiceData[] = [
       // Portrety zamiast kadrów z sesji IDcom (Marcin, 04.08.2026). Sekcja renderuje
       // się POD przykładową realizacją wideo, patrz kolejność w uslugi/[slug]/page.tsx.
       category: "portrety",
-      ctaLabel: "Zobacz wizerunek firmy",
-      href: "/uslugi/wizerunek-portrety",
+      // ⚠ PRZEJŚCIE NA USŁUGĘ ZESZŁO Z PRZYCISKA NA `secondaryLink` 11.08.2026
+      // (audyt UI, finding C1, decyzja Marcina).
+      //
+      // Było: `ctaLabel: "Zobacz wizerunek firmy"` + `href: "/uslugi/wizerunek-portrety"`,
+      // czyli GŁÓWNY przycisk paska prowadził na inną usługę. Mierzone na produkcji
+      // przy 1440 px: obrysowany przycisk 239 x 47 px na y = 3780, o tej samej wadze
+      // co „Zobacz całą galerię" i co CTA kontaktowe po „Zakresie realizacji".
+      // Najmocniejszym wyjściem ze środkowej części podstrony eventowej było więc
+      // wyjście z lejka, a nie zejście do galerii ani do formularza.
+      //
+      // Osobno: ta sama relacja z drugiej strony, na `/uslugi/wizerunek-portrety`,
+      // była zwykłym linkiem tekstowym 13 px. Jedna para usług, dwie wagi.
+      // Teraz obie strony mają ten sam wzorzec: przycisk do galerii, odsyłacz do usługi.
+      //
+      // Aby cofnąć: przenieś `label`/`href` z `secondaryLink` z powrotem na
+      // `ctaLabel`/`href` i skasuj `ctaLabel` z tej linii.
+      //
+      // ⚠ `ctaLabel` MUSI tu zostać jawny, mimo że domyślna wartość dla kategorii
+      // `portrety` to „Zobacz całą galerię". Pierwszy pasek tej podstrony ma już
+      // dokładnie tę etykietę (prowadzi do `/galeria?kat=eventy`), więc default dałby
+      // na jednej podstronie DWA przyciski o identycznym tekście i dwóch różnych
+      // celach. Czytnik ekranu podaje wtedy na liście linków dwie takie same pozycje.
+      // Ten sam mechanizm rozstrzygnięto już raz na `/uslugi/wizerunek-portrety`
+      // (wariant A, 11.08.2026): rozróżniamy etykietę, nie cel.
+      ctaLabel: "Zobacz galerię portretów",
       sub: "Planujesz event firmowy? To zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu. Przy okazji wydarzenia mogę zrobić sesję portretową dla całego zespołu: przywożę mobilne studio, a jedna osoba to około 5 do 15 minut, między prelekcjami albo w luźniejszym oknie agendy.",
+      // Lustro `secondaryLink` z `/uslugi/wizerunek-portrety`: tam wizerunek prowadzi
+      // do wydarzeń, tu wydarzenia prowadzą do wizerunku. Etykieta bez zmian, ta sama,
+      // którą Marcin zatwierdził jako `ctaLabel` 04.08.2026.
+      secondaryLink: {
+        label: "Zobacz wizerunek firmy",
+        href: "/uslugi/wizerunek-portrety",
+      },
     },
     videoId: "m42ywMWjthw",
     videoTitle: "Film z eventu firmowego dla Woohoo",
@@ -418,23 +439,46 @@ const serviceCategoriesRaw: ServiceData[] = [
     // „to pierwsze zdjęcie grupowe niech nie będzie przycięte, najwyżej będzie
     // się różnić od reszty, ale chcę żeby było całe").
     //
-    // To ZMIANA WCZEŚNIEJSZEJ DECYZJI z tego samego dnia. Poprzedni zapis w tym
-    // miejscu mówił, że Marcin zaakceptował środkowy wycinek 1:1 („ten środkowy
-    // kadr 1:1 jest wystarczająco dobry"). Stan faktyczny na produkcji: plik ma
-    // 1920×1280 (3:2), kontener był kwadratowy na telefonie i rozciągnięty na
-    // wysokość kolumny tekstowej na desktopie, więc `object-fit: cover` obcinał
-    // boki. Na desktopie ucinało to lewe auto i skrajne osoby (obejrzane na
-    // szabunia.pl 10.08.2026). Teraz `heroImageAspect` daje kontenerowi te same
-    // proporcje co plikowi, więc `cover` nie ma czego przyciąć.
+    // ⚠ KADR ZMIENIONY I `heroImageAspect` USUNIĘTY 11.08.2026 (audyt końcowy UI,
+    // finding F1, decyzja Marcina). Ta podstrona wraca do wspólnego mechanizmu
+    // wysokości hero, którego używają trzy pozostałe usługi.
     //
-    // KOSZT, który Marcin zna i zaakceptował: hero eventowe jest niższe niż
-    // kolumna tekstu na desktopie i niższe niż kwadratowe hero pozostałych trzech
-    // usług. Dlatego `heroImageAspect` stoi TYLKO tutaj i nie jest domyślną.
+    // HISTORIA, żeby nikt nie cofnął tego przez przypadek. Do 10.08 stało tu
+    // `event-02-zdjecie-grupowe-tor` (zdjęcie grupowe na torze, 1920×1280).
+    // Kwadratowy kontener obcinał mu boki, w tym lewe auto i skrajne osoby, więc
+    // dołożono `heroImageAspect: "aspect-[3/2]"`, żeby kontener dostał proporcje
+    // pliku i `cover` nie miał czego przyciąć. Rozwiązywało to problem kadru
+    // i tworzyło problem układu.
     //
-    // ⚠ `heroImagePos` NADAL NIE MA i nadal jest to celowe: przy zgodnych
-    // proporcjach kontenera i pliku `object-position` nie ma żadnego wpływu.
-    heroImage: "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg",
-    heroImageAspect: "aspect-[3/2]",
+    // Zmierzone 11.08 na renderze 1440 px: zdjęcie miało 345 px wysokości wobec
+    // 598, 647 i 748 px na trzech pozostałych podstronach, a pod nim zostawało
+    // 128 px pustego tła w prawej kolumnie, obok ceny, przycisku i mikrokopii
+    // (przy 1000 px szerokości: 140 px). Hero eventów było jedynym pierwszym
+    // ekranem w serwisie, który łamał wzorzec.
+    //
+    // Dlaczego podmiana pliku, a nie samo zdjęcie `heroImageAspect`: WSZYSTKIE
+    // 15 kadrów w `public/images/galeria/eventy/` ma 1920×1280, czyli dokładnie
+    // 3:2. Nie ma w repo eventowego kadru o proporcji bliższej kwadratowi, więc
+    // wspólny kontener zawsze coś przytnie. Policzone: kontener bez tej flagi
+    // ma tu 517×520 px, czyli z pliku zostaje 66% szerokości, po 17% z każdej
+    // strony. Zdjęcie grupowe tego nie znosi, bo ludzie stoją do samych krawędzi.
+    //
+    // `event-12` znosi, i to jest jedyny powód wyboru: pojedyncza sylwetka
+    // dokładnie w centrum, wypełnia kadr na całej wysokości, a przy krawędziach
+    // są tylko karoseria i tło. Do tego firmowa koszulka i identyfikator mówią
+    // „wydarzenie firmowe" bez podpisu, a kadr nie wygląda na koncertowy.
+    //
+    // ⚠ `heroImagePos` CELOWO NIE MA. Sprawdzone na renderze po zmianie przy
+    // 1440, 390 i 360 px: przy centralnej sylwetce domyślne `center` trzyma
+    // twarz i tors w kadrze na każdej z tych szerokości. Nie dodawać „na wszelki
+    // wypadek", bo każda wartość inna niż `center` przesuwa kadr na WSZYSTKICH
+    // breakpointach naraz.
+    //
+    // ⚠ `event-12` NIE JEST w wyselekcjonowanej szóstce paska eventowego
+    // (`CURATED.eventy` w `ServiceGalleryStrip.tsx`) i tak ma zostać. Gdyby tam
+    // trafił, filtr `exclude` skróciłby pasek z sześciu kadrów na pięć, a wtedy
+    // wyłącza się on całkowicie i hero wróciłoby w pasku drugi raz.
+    heroImage: "/images/galeria/eventy/event-12-za-kierownica-auta.jpg",
     price: "od 600 zł netto",
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
@@ -514,24 +558,28 @@ const serviceCategoriesRaw: ServiceData[] = [
     h2Faq: "Wizerunek firmy: najczęstsze pytania",
     h1: "Fotografia i wideo wizerunkowe dla firm",
     galleryCategory: "portrety",
-    // Dowiązanie case study sesji wizerunkowej (11.08.2026, decyzja Marcina,
-    // punkt 4 audytu /galeria). Powód: `/portfolio/sesja-wizerunkowa` miało
-    // JEDEN link przychodzący w całym serwisie, kafel na `/portfolio`. Dla
-    // porównania IDcom ma ich jedenaście. Wchodzi w istniejący pasek portretów,
-    // bez nowej sekcji i bez nowego przycisku.
+    // ⚠ `gallerySecondaryLink` ZDJĘTY 11.08.2026 (C2, decyzja Marcina).
     //
-    // ⛔ ETYKIETA MUSI SIĘ RÓŻNIĆ OD TEJ NA PASKU SESJI ZESPOŁOWYCH NIŻEJ.
-    // Pierwsza wersja brzmiała „Zobacz case study" i była dosłownie tym samym
-    // tekstem, co przycisk paska zespołowego prowadzący do INNEGO case study
-    // (`/portfolio/idcom-headshoty-zespolu`). Dwa identyczne teksty, dwa różne
-    // cele, jedna podstrona: nie do rozróżnienia po samym linku, a czytnik
-    // ekranu podaje na liście linków dwie takie same pozycje.
-    // Rozstrzygnięte przez Marcina 11.08.2026, wariant A: rozróżniamy TĘ
-    // etykietę, pasek zespołowy zostaje nietknięty. Nie ujednolicać z powrotem.
-    gallerySecondaryLink: {
-      label: "Zobacz sesję wizerunkową",
-      href: "/portfolio/sesja-wizerunkowa",
-    },
+    // Prowadził do `/portfolio/sesja-wizerunkowa` spod paska portretów i został
+    // dodany rano tego samego dnia, gdy ta realizacja miała w całym serwisie
+    // JEDEN link przychodzący, kafel na `/portfolio`. Problem, który rozwiązywał,
+    // zamyka teraz `portfolioSlugs` niżej: sesja wizerunkowa stoi w bloku
+    // „Przykładowe realizacje" razem z dwiema pozostałymi, więc odsyłacz pod
+    // paskiem byłby drugim wejściem do tej samej realizacji na jednej podstronie.
+    //
+    // Razem z nim odpada ustalenie z 11.08 o rozróżnianiu etykiet („wariant A"):
+    // dotyczyło konfliktu między tym odsyłaczem a przyciskiem „Zobacz case study"
+    // na pasku zespołowym. Konfliktu nie ma, bo nie ma już drugiego elementu.
+    // Przycisk paska zespołowego zostaje nietknięty.
+    //
+    // Samo pole `gallerySecondaryLink` USUNIĘTE Z `ServiceData` tego samego dnia,
+    // razem z przekazaniem propa w `uslugi/[slug]/page.tsx`. Ta usługa była jego
+    // jedynym użytkownikiem w historii, więc po C2 zostałby mechanizm bez żadnego
+    // zastosowania, czyli dokładnie sytuacja z findingu F1 („wartości siedziały
+    // w danych i nic ich nie renderowało"), tylko odwrócona: kod bez danych.
+    // Poboczne odsyłacze pod DRUGIM paskiem działają dalej i są w użyciu na dwóch
+    // podstronach, przez `extraGallery.secondaryLink`. Jeśli kiedyś główny pasek
+    // ma znowu dostać odsyłacz, pole wraca w jednym commicie: typ, prop, wartość.
     extraGallery: {
       // Po scaleniu z usługą „sesje zespołowe" (10.08.2026) pasek nie prowadzi
       // już na osobną podstronę, bo tej podstrony nie ma. Href celowo pominięty:
@@ -791,10 +839,27 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Zrobisz film przy okazji sesji zdjęciowej?", a: "Tak. Krótki film o firmie, wypowiedzi do kamery i pionowe formaty na LinkedIn nagrywam w tym samym dniu co zdjęcia, bez osobnego terminu. Zdjęcia dostajesz w 14 dni, film w 21 dni. W cenie filmu są trzy tury poprawek montażowych." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Canon R6 z zapisem na dwie karty, Sigma 70-200 mm f/2.8 jako podstawowy obiektyw portretowy, bo dłuższa ogniskowa nie zniekształca rysów twarzy, i studyjne oświetlenie Godox. Do biura przywożę cały zestaw ze sobą." },
     ],
-    // ⚠ CELOWO BEZ `idcom-headshoty-zespolu` i `sesja-wizerunkowa`. Obie są już
-    // linkowane wyżej na tej podstronie, z pasków galerii. Zostaje trzecia
-    // realizacja wizerunkowa, która miała jedno wejście z kafla na `/portfolio`.
-    portfolioSlugs: ["sesja-korporacyjna"],
+    // WSZYSTKIE TRZY REALIZACJE WIZERUNKOWE W JEDNYM BLOKU (C2, decyzja Marcina,
+    // 11.08.2026). Cofa zapis z tego samego dnia („celowo bez `idcom-headshoty-zespolu`
+    // i `sesja-wizerunkowa`, obie są już linkowane wyżej z pasków galerii").
+    //
+    // Powód cofnięcia, z audytu UI: te trzy realizacje jednej usługi miały trzy różne
+    // wagi wizualne na jednej podstronie. Sesja wizerunkowa była odsyłaczem tekstowym
+    // pod paskiem portretów, IDcom przyciskiem obrysowanym pod paskiem zespołowym,
+    // a sesja korporacyjna jedyną pozycją w bloku „Przykładowe realizacje". Użytkownik
+    // nie miał skąd wiedzieć, że blok pod CTA nie jest kompletny.
+    //
+    // KOLEJNOŚĆ USTAWIONA RĘCZNIE i wynika wprost z niej, nie z sortowania: `caseLinks`
+    // w `uslugi/[slug]/page.tsx` zachowuje kolejność tej tablicy. Od najbliższego
+    // znaczeniowo do najdalszego: sesja korporacyjna i wizerunkowa to rdzeń usługi,
+    // IDcom jest jej wariantem zespołowym.
+    //
+    // ⚠ IDcom ma po tej zmianie DWA wejścia na tej podstronie: ten blok i przycisk
+    // „Zobacz case study" pod paskiem zespołowym. Zostawione świadomie. Przycisk stoi
+    // pod sześcioma kadrami z TEJ sesji, więc jest odsyłaczem kontekstowym („widzisz
+    // te zdjęcia, zobacz całość"), a nie drugą kopią spisu realizacji. Zdjęcie go
+    // zostawiłoby pasek bez żadnego wyjścia, a blok jest wtedy ~2 000 px niżej.
+    portfolioSlugs: ["sesja-korporacyjna", "sesja-wizerunkowa", "idcom-headshoty-zespolu"],
     formServiceCode: "wizerunek",
     seo: {
       title: "Fotografia i wideo wizerunkowe dla firm, Poznań | Szabunia",
@@ -1158,7 +1223,23 @@ const serviceCategoriesRaw: ServiceData[] = [
     // do tego budynek z drona. Realizacja jest wielousługowa (wyniki mówią
     // „4 rodzaje zdjęć: dron, wnętrza, portrety, produkt"), więc przypisanie
     // jest decyzją Marcina z 11.08.2026, nie wnioskiem z samego sluga.
-    portfolioSlugs: ["yes-butcher-przewodnik-michelin"],
+    //
+    // ARTECH DOPISANY 11.08.2026 (audyt kompletności usługa ↔ case study, wariant A,
+    // decyzja Marcina). Powód, sprawdzony w renderze tej podstrony: stoi na niej film
+    // `ivvZQ5lQ7FE`, czyli „Artech Group: film z hali produkcyjnej", i pada nazwa Artech
+    // w treści, ale blok realizacji prowadził wyłącznie do steakhouse'u. Usługa nazywa
+    // się „nieruchomości i PRZEMYSŁ", a jedynym dowodem przemysłowym był film bez
+    // przejścia do swojego case study.
+    //
+    // ⚠ `serviceLink` Artechu ZOSTAJE na `/uslugi/fotografia-produktowa` i to nie jest
+    // niekonsekwencja. `portfolioSlugs` jest tablicą, więc jedna realizacja może stać
+    // w blokach kilku usług, natomiast `serviceLink` wskazuje JEDNĄ usługę wiodącą,
+    // a dla Artechu wiodące są packshoty, nie hala. Kierunek case study → usługa
+    // pozostaje jednoznaczny.
+    //
+    // Kolejność: Yes Butcher pierwszy, bo to realizacja z gwiazdką Michelin i najsilniejszy
+    // dowód w portfolio. Artech drugi, jako uzupełnienie o wątek przemysłowy.
+    portfolioSlugs: ["yes-butcher-przewodnik-michelin", "artech-fotografia-produktowa"],
     seo: {
       // PRZEPISANY 11.08.2026 (audyt F5, wariant Marcina). Poprzedni brzmiał
       // „Fotografia nieruchomości i przemysłu" i jako JEDYNY z czterech tytułów
@@ -1282,9 +1363,16 @@ const SERVICE_TILE_POS: Record<string, string> = {
   // `produkt-01-toast-belvedere`: kieliszki i butelka w środkowo-dolnej części;
   // góra to ciemne tło lokalu.
   "fotografia-produktowa": "center 45%",
-  // Auta i grupa w dolnych dwóch trzecich, góra to niebo. Istotne wyłącznie
-  // na mobile, gdzie kafelek jest 16:9 — na sm+ proporcja pliku i kafelka
-  // są zbliżone, więc przycięcie jest minimalne.
+  // ⚠ OPIS POPRAWIONY 11.08.2026 (F1). Mówił „auta i grupa w dolnych dwóch
+  // trzecich, góra to niebo" i opisywał `event-02-zdjecie-grupowe-tor`, czyli
+  // plik, którego tu już nie ma. WARTOŚĆ ZOSTAJE BEZ ZMIAN, bo sprawdzona na
+  // renderze po podmianie kadru: przy `event-12-za-kierownica-auta` te 62%
+  // ścinają dach auta i niebo, a zostawiają twarz, identyfikator i firmową
+  // koszulkę w całości.
+  //
+  // Istotne wyłącznie na mobile, gdzie kafelek jest 16:9 (zmierzone 326×183 px
+  // przy 360 px okna). Na sm+ kafelek ma 562×375 px, czyli dokładnie 3:2, tyle
+  // co plik, więc `object-position` nie ma tam żadnego wpływu.
   "eventy-reportaze": "center 62%",
 };
 

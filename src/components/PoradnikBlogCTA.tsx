@@ -28,10 +28,25 @@ export default function PoradnikBlogCTA() {
         </p>
         {/* PELNY2608-13: ta sama nazwa co w `PoradnikTeaser`, żeby oba wejścia
             na lead magnet liczyły się w jednej pozycji raportu. */}
+        {/* ⚠ `py-3` I `text-[14px]` ZAMIAST `py-2.5` I `text-sm`, 11.08.2026
+            (audyt końcowy UI, finding F3, decyzja Marcina). Wysokość rosła z 40
+            na 45 px, czyli powyżej progu 44 px z WCAG 2.5.8. Ten przycisk był
+            jedynym gradientowym CTA w serwisie poniżej progu, a wygląda na
+            element pierwszego poziomu.
+
+            Rozmiar pisma się NIE ZMIENIA: `text-sm` i `text-[14px]` renderują
+            tak samo 14 px. Różni je wyłącznie interlinia (20 wobec 21 px) i to
+            ona plus dwa piksele paddingu dają brakujące 5 px. Dobrane tak, żeby
+            wyjść dokładnie na 45 px, czyli tyle co CTA przed FAQ na podstronach
+            usług, a nie „gdzieś powyżej 44".
+
+            Kolory, gradient, poświata, promień, tekst, `href` i `data-cta`
+            bez zmian. Poziomy padding też: `px-5` zostaje, bo ten przycisk stoi
+            w wąskiej karcie, a nie na całej szerokości sekcji. */}
         <Link
           href="/poradnik"
           data-cta="poradnik_wejscie"
-          className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-5 py-2.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform"
+          className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-5 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.01] transition-transform"
         >
           Pobierz poradnik
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

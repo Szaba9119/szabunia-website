@@ -1,6 +1,5 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Link from "next/link";
 import { portfolioCategories, getCategoryBySlug, isPortfolioDraft } from "@/data/portfolio";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -13,6 +12,7 @@ import PortfolioVideoShowcase from "@/components/PortfolioVideoShowcase";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import MobileFAB from "@/components/MobileFAB";
+import SecondaryLink from "@/components/SecondaryLink";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
@@ -135,16 +135,14 @@ export default async function PortfolioPage({ params }: PageProps) {
           a strona usługi na „co dokładnie dostanę i na jakich warunkach".
           Link tekstowy, nie przycisk — obok stoi już główne CTA kontaktowe,
           a osobny `data-cta` pozwala zmierzyć, czy ta ścieżka jest klikana. */}
+      {/* `mt-1`, nie `mt-4`: `SecondaryLink` ma 12 px własnego górnego paddingu
+          (cel dotykowy 45 px), więc 4 px marginesu daje 16 px odstępu optycznego
+          od przycisku, tyle co przed dołożeniem paddingu (11.08.2026). */}
       {category.serviceLink && (
-        <div className="mt-4">
-          <Link
-            href={category.serviceLink.href}
-            data-cta="usluga_z_case"
-            className="inline-flex items-center gap-1.5 text-[13px] font-barlow font-semibold text-blue dark:text-blue-light hover:gap-2.5 transition-all"
-          >
+        <div className="mt-1">
+          <SecondaryLink href={category.serviceLink.href} cta="usluga_z_case">
             {category.serviceLink.label}
-            <span aria-hidden="true">→</span>
-          </Link>
+          </SecondaryLink>
         </div>
       )}
     </div>

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
+import SecondaryLink from "./SecondaryLink";
 import ServiceGalleryLightbox from "./ServiceGalleryLightbox";
 import ServiceVideoGrid from "./ServiceVideoGrid";
 import { listGalleryImages, type GalleryCategoryKey } from "@/lib/galleryImages";
@@ -285,6 +286,24 @@ export default function ServiceGalleryStrip({
     );
   }
 
+  // ⚠ PASEK PRODUKTOWY JEST ŚWIADOMIE WIĘKSZY OD POZOSTAŁYCH (zapisane 11.08.2026,
+  // audyt końcowy UI, finding F2, decyzja Marcina: układ zostaje, brakowało uzasadnienia).
+  //
+  // Osiem kafli w czterech kolumnach zamiast sześciu w sześciu (patrz `gridClass`
+  // niżej i `aspectClass` przy `ServiceGalleryLightbox`). Zmierzone przy 1440 px:
+  // kafel produktowy ma ~248 px, pozostałe ~162 px, a cała sekcja 799 px wysokości
+  // wobec 414-470 px na trzech innych podstronach.
+  //
+  // Powód jest w tym, co pokazuje zdjęcie. Packshot to pojedynczy przedmiot na
+  // jednolitym tle i ocenia się go po detalu: ostrości krawędzi, czystości wycięcia
+  // i odwzorowaniu koloru. Przy 162 px nie widać żadnej z tych rzeczy, a to one są
+  // produktem tej usługi. Kadr eventowy albo wnętrze czyta się przy 162 px bez
+  // problemu, bo niesie scenę, nie detal. Dwie kolumny mniej kupują 53% więcej
+  // szerokości kafla.
+  //
+  // Skutkiem ubocznym jest to, że ta jedna podstrona ma wyraźnie wyższy blok
+  // przykładów. To jest przyjęte, nie przeoczone. Nie ujednolicać do 6/6 bez
+  // decyzji Marcina.
   const limit = category === "produktowe" ? 8 : 6;
   const pool = CURATED[category] ?? listGalleryImages(category);
   // ZDJ2608-27 (04.08.2026): hero podstrony nie może wracać w pasku tej samej podstrony.
@@ -315,6 +334,11 @@ export default function ServiceGalleryStrip({
             : "aspect-square"
         }
         thumbPosition={category === "portrety" || category === "zespolowe" ? "center 20%" : "center"}
+        /* Siatka 2/4 kolumny dla produktowej, 3/6 dla reszty. Uzasadnienie stoi
+           przy `limit` wyżej: packshot ocenia się po detalu, więc kafel musi być
+           większy. Te dwie liczby chodzą w parze z `limit` (8 kafli w 4 kolumnach
+           daje pełne dwa rzędy, 6 w 6 daje jeden). Zmiana jednej bez drugiej
+           zostawia niepełny rząd. */
         gridClass={
           category === "produktowe"
             ? "grid grid-cols-2 sm:grid-cols-4 gap-2.5"
@@ -410,19 +434,23 @@ function Shell({
               </svg>
             </Link>
           </div>
-          {/* Przejście na sąsiednią usługę. Link tekstowy, nie drugi przycisk:
-              obok stoi już obrysowany przycisk paska, a niżej na tej samej
-              podstronie główne CTA kontaktowe. Trzeci przycisk rozmyłby
-              hierarchię, a to jest odsyłacz, nie wezwanie do działania. */}
+          {/* Przejście na sąsiednią usługę albo do case study. Link tekstowy,
+              nie drugi przycisk: obok stoi już obrysowany przycisk paska, a niżej
+              na tej samej podstronie główne CTA kontaktowe. Trzeci przycisk
+              rozmyłby hierarchię, a to jest odsyłacz, nie wezwanie do działania.
+
+              `SecondaryLink` zamiast lokalnych klas, 11.08.2026 (audyt UI,
+              finding C5). Ten sam wzorzec żył w czterech plikach w trzech
+              odstępach (12, 16 i 20 px) i w dwóch rozmiarach.
+
+              `mt-1`, NIE `mt-4`, i to nie jest literówka. Odsyłacz ma 12 px
+              własnego górnego paddingu (cel dotykowy 45 px, WCAG 2.5.8), więc
+              4 px marginesu daje 16 px odstępu OPTYCZNEGO od przycisku, czyli
+              dokładnie tyle, ile widać było wcześniej. Zmiana `py` w komponencie
+              wymaga poprawienia tej liczby. */}
           {secondaryLink && (
-            <div className="mt-3 flex justify-center">
-              <Link
-                href={secondaryLink.href}
-                className="inline-flex items-center gap-1.5 text-[13px] font-barlow font-semibold text-blue dark:text-blue-light hover:gap-2.5 transition-all"
-              >
-                {secondaryLink.label}
-                <span aria-hidden="true">→</span>
-              </Link>
+            <div className="mt-1 flex justify-center">
+              <SecondaryLink href={secondaryLink.href}>{secondaryLink.label}</SecondaryLink>
             </div>
           )}
         </AnimatedSection>
