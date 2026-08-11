@@ -331,6 +331,16 @@ export const portfolioCategories: PortfolioCategory[] = [
         { label: "zastosowania: strona WWW i materiały firmowe", value: "2" },
       ],
     },
+    // Dodane 11.08.2026 (decyzja Marcina, audyt /galeria, punkt B4). Ta realizacja
+    // ma 11 linków przychodzących (strona główna, sześć wpisów blogowych, hub
+    // portfolio, pasek na `/uslugi/wizerunek-portrety`), a sama nie linkowała
+    // kontekstowo do niczego. Domyka pętlę: usługa → case study → z powrotem
+    // do usługi. Ta sama etykieta co na `/portfolio/sesja-wizerunkowa`, bo obie
+    // realizacje prowadzą do tej samej usługi i nie ma powodu na dwa słowniki.
+    serviceLink: {
+      label: "Poznaj usługę fotografii wizerunkowej",
+      href: "/uslugi/wizerunek-portrety",
+    },
     seo: {
       title: "IDcom: headshoty zespołu na 3 tłach | Szabunia",
       description:

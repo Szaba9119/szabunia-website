@@ -143,6 +143,15 @@ export interface ServiceData {
     | "obiekty"
     | "wnetrza"
     | "wideo-produktowe";
+  /** Poboczny odsyłacz pod przyciskiem GŁÓWNEGO paska galerii (11.08.2026).
+
+      Bliźniak `extraGallery.secondaryLink`, ale dla paska budowanego
+      z `galleryCategory`. Osobne pole jest konieczne, bo to dwa różne
+      wywołania `ServiceGalleryStrip` w `uslugi/[slug]/page.tsx`: główny bierze
+      kategorię wprost z `galleryCategory`, dodatkowy z obiektu `extraGallery`.
+      Sam prop `secondaryLink` w komponencie jest TEN SAM, więc nie powstaje
+      drugi sposób obsługi tego samego, tylko drugie źródło danych dla istniejącego. */
+  gallerySecondaryLink?: { label: string; href: string };
   /** Drugi pasek „Przykłady z galerii" pod głównym. Dodane 03.08.2026 dla sesji
       zespołowych: strona pokazywała wyłącznie sześć kadrów z jednej realizacji
       (IDcom), więc ktoś, kto chciał zobaczyć więcej twarzy i teł, nie miał dokąd
@@ -485,13 +494,41 @@ const serviceCategoriesRaw: ServiceData[] = [
     h2Faq: "Wizerunek firmy: najczęstsze pytania",
     h1: "Fotografia i wideo wizerunkowe dla firm",
     galleryCategory: "portrety",
+    // Dowiązanie case study sesji wizerunkowej (11.08.2026, decyzja Marcina,
+    // punkt 4 audytu /galeria). Powód: `/portfolio/sesja-wizerunkowa` miało
+    // JEDEN link przychodzący w całym serwisie, kafel na `/portfolio`. Dla
+    // porównania IDcom ma ich jedenaście. Wchodzi w istniejący pasek portretów,
+    // bez nowej sekcji i bez nowego przycisku.
+    //
+    // ⛔ ETYKIETA MUSI SIĘ RÓŻNIĆ OD TEJ NA PASKU SESJI ZESPOŁOWYCH NIŻEJ.
+    // Pierwsza wersja brzmiała „Zobacz case study" i była dosłownie tym samym
+    // tekstem, co przycisk paska zespołowego prowadzący do INNEGO case study
+    // (`/portfolio/idcom-headshoty-zespolu`). Dwa identyczne teksty, dwa różne
+    // cele, jedna podstrona: nie do rozróżnienia po samym linku, a czytnik
+    // ekranu podaje na liście linków dwie takie same pozycje.
+    // Rozstrzygnięte przez Marcina 11.08.2026, wariant A: rozróżniamy TĘ
+    // etykietę, pasek zespołowy zostaje nietknięty. Nie ujednolicać z powrotem.
+    gallerySecondaryLink: {
+      label: "Zobacz sesję wizerunkową",
+      href: "/portfolio/sesja-wizerunkowa",
+    },
     extraGallery: {
       // Po scaleniu z usługą „sesje zespołowe" (10.08.2026) pasek nie prowadzi
       // już na osobną podstronę, bo tej podstrony nie ma. Href celowo pominięty:
       // `ServiceGalleryStrip` kieruje kategorię `zespolowe` na case study
       // `/portfolio/idcom-headshoty-zespolu`, nie na filtrowaną galerię.
       category: "zespolowe",
-      ctaLabel: "Zobacz sesje zespołowe",
+      // Etykieta poprawiona 10.08.2026 (decyzja Marcina). Poprzednia, „Zobacz sesje
+      // zespołowe", myliła podwójnie: obiecywała galerię, a przycisk prowadzi do case
+      // study jednego klienta (IDcom), i sugerowała osobną usługę, którą sesje
+      // zespołowe przestały być po scaleniu z wizerunkiem tego samego dnia
+      // (`/uslugi/sesje-zespolowe` to dziś 308 na `/uslugi/wizerunek-portrety`).
+      //
+      // ⛔ NADPISANIE ZOSTAJE JAWNE, mimo że `ServiceGalleryStrip` ma własną wartość
+      // domyślną dla kategorii `zespolowe`. Domyślna brzmi „Zobacz całą realizację",
+      // a Marcin chce dokładnie „Zobacz case study". Nie usuwać tej linii w przekonaniu,
+      // że default zrobi to samo — zrobi co innego.
+      ctaLabel: "Zobacz case study",
       // ⛔ NIE PRZYWRACAĆ TU PODPISU O MOBILNYM STUDIU. Zdjęty 10.08.2026
       // (audyt aktualnej wersji, punkt 1, zgoda Marcina).
       //

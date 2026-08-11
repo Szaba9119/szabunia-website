@@ -20,6 +20,36 @@ import { listGalleryImagesSized } from "@/lib/galleryImages";
 import { galleryAlt } from "@/data/galleryAlts";
 import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
 
+// Przejście z aktywnej kategorii galerii do odpowiadającej usługi.
+// Dodane 11.08.2026 (decyzja Marcina, audyt /galeria, punkt B1).
+//
+// Powód: linkowanie było jednokierunkowe. Cztery podstrony usług dawały razem
+// SZEŚĆ linków do `/galeria?kat=*`, a galeria nie oddawała ani jednego linku
+// do usługi. Kto wchodził z wyszukiwarki prosto na galerię, oglądał 74 kadry
+// i nie miał przejścia do oferty poza ogólnym „Zapytaj o ofertę" na górze.
+//
+// Nazwy biorą się z pola `shortTitle` w `services.tsx`, czyli z tego samego
+// źródła co okruszek i `Service.name` w JSON-LD. Jeden słownik, nie drugi.
+//
+// ⛔ KATEGORIA `wideo` CELOWO NIE MA TU WPISU. Po scaleniu z 10.08 nie istnieje
+// osobna usługa wideo: `/uslugi/wideo-marketing` to 308 na `/uslugi/wizerunek-portrety`.
+// Zawartość zakładki Wideo to filmy eventowe, przemysłowe i gastronomiczne,
+// czyli ani jeden materiał wizerunkowy, więc link na wizerunek obiecywałby
+// co innego, niż pokazuje. Zakładka zachowuje swoje własne przejście do dwóch
+// case studies w `GalleryView`. Nie dopisywać tu `wideo` bez nowej decyzji.
+//
+// `dron` i `wnetrza` celowo wskazują TĘ SAMĄ usługę: wszystkie dziewięć kadrów
+// dronowych to budynki i osiedla, a pasek dronowy stoi już na tej podstronie
+// jako `extraGallery`. Ten sam tekst dla obu jest świadomy (Marcin, 11.08.2026:
+// „chcę zachować prosty, spójny wzorzec").
+const CATEGORY_SERVICE: Record<string, { label: string; href: string }> = {
+  portrety: { label: "Wizerunek firmy", href: "/uslugi/wizerunek-portrety" },
+  eventy: { label: "Wydarzenia firmowe", href: "/uslugi/eventy-reportaze" },
+  produktowe: { label: "Fotografia produktowa", href: "/uslugi/fotografia-produktowa" },
+  wnetrza: { label: "Nieruchomości i przemysł", href: "/uslugi/nieruchomosci-przemysl" },
+  dron: { label: "Nieruchomości i przemysł", href: "/uslugi/nieruchomosci-przemysl" },
+};
+
 export const metadata: Metadata = {
   title: "Galeria kadrów z realizacji | Szabunia",
   description:
@@ -133,6 +163,7 @@ export default async function GaleriaPage({
         alt: d.alt,
         altVariants: d.altVariants ?? images.map((img) => galleryAlt(img.src, d.alt)),
         uniformTiles: d.uniformTiles,
+        service: CATEGORY_SERVICE[d.key],
       };
     })
     .filter((c) => c.images.length > 0);

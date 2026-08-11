@@ -197,7 +197,11 @@ export default async function ServicePage({ params }: PageProps) {
             i żadna z czterech obecnych nie ustawiała tej flagi. */}
         {service.galleryCategory && (
           <ErrorBoundary>
-            <ServiceGalleryStrip category={service.galleryCategory} exclude={service.heroImage} />
+            <ServiceGalleryStrip
+              category={service.galleryCategory}
+              exclude={service.heroImage}
+              secondaryLink={service.gallerySecondaryLink}
+            />
           </ErrorBoundary>
         )}
         {videoSection}

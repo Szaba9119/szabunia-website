@@ -26,6 +26,11 @@ export interface GalleryCategory {
       przestawały być rzędami. Kolejność w tych kategoriach jest ułożona
       tematycznie po trzy, więc rząd musi wyglądać jak rząd. */
   uniformTiles?: boolean;
+  /** Przejście do odpowiadającej usługi, renderowane pod siatką (11.08.2026).
+      Mapa kategoria → usługa siedzi w `app/galeria/page.tsx` (CATEGORY_SERVICE),
+      komponent tylko renderuje to, co dostanie. Kategoria bez wpisu (dziś `wideo`)
+      nie renderuje nic i zachowuje własne linki do case studies. */
+  service?: { label: string; href: string };
 }
 
 /**
@@ -317,6 +322,27 @@ export default function GalleryView({
           ))}
         </div>
       )
+      )}
+
+      {/* Przejście do odpowiadającej usługi, pod siatką (11.08.2026).
+          Link tekstowy, nie przycisk: na górze `/galeria` stoi już „Zapytaj
+          o ofertę", a ten odsyłacz ma być podporządkowany galerii, nie
+          konkurować z nią. Te same klasy co linia z case studies w zakładce
+          Wideo niżej, żeby na jednej stronie nie było dwóch formatowań tego
+          samego rodzaju odsyłacza.
+
+          Warunek na `activeCat?.service` sam wyklucza zakładkę Wideo: `wideo`
+          nie jest kategorią w `categories` (dochodzi osobno do `tabs`), więc
+          `activeCat` jest wtedy `undefined`. */}
+      {activeCat?.service && (
+        <p className="mt-10 text-center text-[14px]">
+          <Link
+            href={activeCat.service.href}
+            className="text-blue dark:text-blue-light font-barlow font-semibold hover:underline"
+          >
+            Poznaj usługę: {activeCat.service.label}
+          </Link>
+        </p>
       )}
 
       {/* Lightbox */}
