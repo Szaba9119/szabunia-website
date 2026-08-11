@@ -1692,12 +1692,25 @@ export const blogCategories = ["poradnik", "realizacja", "branża"] as const;
 /* ── Linkowanie wewnętrzne blog ↔ usługi ──
    Mapa: slug wpisu → slug najbardziej powiązanej usługi (z src/data/services.tsx).
    Trzymamy slug usługi jako string, żeby nie tworzyć zależności blog→services. */
-// TRESC2608-03 (04.08.2026): ósma usługa `wnetrza-obiekty-architektura` NIE MA tu wpisu
-// i to jest świadoma luka, nie przeoczenie. Żaden z 26 wpisów nie dotyczy hal ani wnętrz;
-// jedyny kandydat, `fotografia-przemyslowa-fabryka` (1 046 słów, hale produkcyjne), jest
-// dziś przypisany do `fotografia-produktowa` i przepięcie go ZABRAŁOBY wpis tamtej usłudze.
-// To decyzja redakcyjna Marcina, nie poprawka techniczna. Blok „Z bloga" na podstronie
-// obiektowej i tak się renderuje, bo `getPostsForService` ma fallback na kategorię.
+// ⚠ WARTOŚCIAMI SĄ WYŁĄCZNIE ŻYWE SLUGI Z `services.tsx`. Przy każdej zmianie oferty
+// ta mapa musi iść razem z nią. Martwy slug nie wywala buildu ani lintu: strona wpisu
+// robi `getServiceBySlug` (`blog/[slug]/page.tsx`), dostaje `undefined` i po cichu
+// nie renderuje karty „Powiązana usługa". Usterka jest widoczna dopiero na produkcji.
+//
+// Przepięte 11.08.2026 (audyt CTR-SERP, F6, decyzja Marcina). Migracja z ośmiu usług
+// na cztery (10.08) nie ruszyła tej mapy i przez dobę 12 z 26 wpisów wskazywało na
+// `sesje-zespolowe`, `wideo-marketing`, `zdjecia-wideo-z-drona` i `pakiety-foto-wideo`,
+// czyli na slugi, które są dziś wyłącznie źródłem 301. Te wpisy straciły kartę usługi,
+// a `nieruchomosci-przemysl` nie miało ani jednego własnego tekstu. Każdy nowy cel to
+// ten sam adres, na który kieruje przekierowanie starego sluga w `next.config.ts`.
+//
+// Zapis TRESC2608-03 (04.08.2026) o ósmej usłudze `wnetrza-obiekty-architektura`
+// jest już bezprzedmiotowy: ta usługa nie istnieje, jej slug to dziś
+// `nieruchomosci-przemysl` i ma trzy przypisane wpisy o dronie. Otwarte zostaje samo
+// pytanie redakcyjne z tamtej notatki: `fotografia-przemyslowa-fabryka` (hale
+// produkcyjne) siedzi w `fotografia-produktowa`, a tematycznie pasuje do linii
+// obiektowej. Nie ruszam, bo Marcin zatwierdził dokładnie 12 przepięć i tego wśród
+// nich nie ma.
 export const blogServiceMap: Record<string, string> = {
   "jak-przygotowac-sie-do-sesji-biznesowej": "wizerunek-portrety",
   "headshoty-linkedin-konwersja": "wizerunek-portrety",
@@ -1706,25 +1719,25 @@ export const blogServiceMap: Record<string, string> = {
   "live-editing-na-evencie": "eventy-reportaze",
   "zdjecie-do-cv-w-domu": "wizerunek-portrety",
   "fotografia-przemyslowa-fabryka": "fotografia-produktowa",
-  "bledy-zdjecia-zespolu": "sesje-zespolowe",
-  "headshoty-zespolu-w-jeden-dzien": "sesje-zespolowe",
-  "spojne-portrety-zespolu": "sesje-zespolowe",
+  "bledy-zdjecia-zespolu": "wizerunek-portrety",
+  "headshoty-zespolu-w-jeden-dzien": "wizerunek-portrety",
+  "spojne-portrety-zespolu": "wizerunek-portrety",
   "ile-kosztuje-sesja-wizerunkowa-dla-firmy": "wizerunek-portrety",
   "fotografia-produktowa-ecommerce": "fotografia-produktowa",
-  "wideo-marketing-dla-firm-formaty": "wideo-marketing",
+  "wideo-marketing-dla-firm-formaty": "wizerunek-portrety",
   "sesja-wizerunkowa-poznan": "wizerunek-portrety",
   "zdjecia-ai-vs-profesjonalna-sesja": "wizerunek-portrety",
   "co-zalozyc-na-sesje-biznesowa": "wizerunek-portrety",
   "zdjecia-na-strone-firmowa": "wizerunek-portrety",
   "co-to-jest-packshot": "fotografia-produktowa",
-  "slownik-pojec-wideo": "wideo-marketing",
-  "ile-kosztuje-film-promocyjny": "wideo-marketing",
-  "zdjecia-film-z-drona-dla-firm": "zdjecia-wideo-z-drona",
-  "zdjecia-z-drona-dla-deweloperow": "zdjecia-wideo-z-drona",
-  "ile-kosztuje-film-z-drona": "zdjecia-wideo-z-drona",
-  "foto-wideo-dron-z-jednego-wejscia": "pakiety-foto-wideo",
-  "obsluga-foto-wideo-eventu-firmowego": "pakiety-foto-wideo",
-  "pakiet-foto-wideo-czy-osobno": "pakiety-foto-wideo",
+  "slownik-pojec-wideo": "wizerunek-portrety",
+  "ile-kosztuje-film-promocyjny": "wizerunek-portrety",
+  "zdjecia-film-z-drona-dla-firm": "nieruchomosci-przemysl",
+  "zdjecia-z-drona-dla-deweloperow": "nieruchomosci-przemysl",
+  "ile-kosztuje-film-z-drona": "nieruchomosci-przemysl",
+  "foto-wideo-dron-z-jednego-wejscia": "eventy-reportaze",
+  "obsluga-foto-wideo-eventu-firmowego": "eventy-reportaze",
+  "pakiet-foto-wideo-czy-osobno": "eventy-reportaze",
 };
 
 /** Slug usługi powiązanej z danym wpisem (lub undefined). */

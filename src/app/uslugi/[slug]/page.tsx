@@ -41,9 +41,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const service = getServiceBySlug(slug);
   if (!service) return {};
-  // OG drona to zdjęcie (JPEG, ~180 KB); pozostałe usługi mają brandowe PNG
-  // ze skryptu generate-og-uslugi.py. Poprzedni PNG-foto ważył 1,5 MB (audyt 2026-07-06).
-  const ogImage = `/images/og/uslugi/${service.slug}.${slug === "zdjecia-wideo-z-drona" ? "jpg" : "png"}`;
+  // Każda usługa ma brandowy PNG ze skryptu generate-og-uslugi.py. Wyjątek dla
+  // `zdjecia-wideo-z-drona` (JPEG) usunięty 11.08.2026: ten slug przestał być usługą
+  // przy przejściu na cztery filary i jest dziś wyłącznie źródłem 301, więc warunek
+  // nigdy się nie spełniał.
+  // ⚠ Ścieżka jest budowana z sluga, bez sprawdzenia, czy plik istnieje. Nowa usługa
+  // bez wygenerowanego PNG przechodzi build, lint i tsc, a kartę linku psuje dopiero
+  // na produkcji — tak `nieruchomosci-przemysl` miało og:image na 404 od 10.08.2026
+  // (audyt CTR-SERP 11.08, F1). Po dodaniu usługi odpal skrypt.
+  const ogImage = `/images/og/uslugi/${service.slug}.png`;
   return {
     title: service.seo.title,
     description: service.seo.description,
