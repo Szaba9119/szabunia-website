@@ -711,6 +711,27 @@ const serviceCategoriesRaw: ServiceData[] = [
       // Licencja sprawdzona 10.08.2026 wobec src/data/faq.ts:60 — ta sama
       // obietnica stoi już na produkcji, więc to nie jest nowe zobowiązanie.
       { q: "Kiedy dostanę zdjęcia i czy mogę ich używać bez ograniczeń?", a: "Wyretuszowane zdjęcia w 14 dni, ekspres do 48h za dopłatą. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama." },
+      // Pytanie o wideo dodane 11.08.2026 (decyzja Marcina, audyt FAQ czterech usług).
+      //
+      // Powód: ta podstrona obiecuje wideo w H1, w podtytule, w karcie zakresu
+      // i w kroku procesu („film w 21 dni"), a FAQ milczało. Pytanie stojące wyżej
+      // („Kiedy dostanę zdjęcia...") odpowiada WYŁĄCZNIE o zdjęciach, więc termin
+      // filmu nie padał nigdzie w FAQ, mimo że stoi dwa ekrany wyżej w procesie.
+      // Podstrona przejmuje też 308 z dawnego `/uslugi/wideo-marketing`.
+      //
+      // Wszystkie fakty przeniesione z istniejących powierzchni, zero nowych:
+      // wyliczenie formatów i „w tym samym dniu co zdjęcia" to cytat z karty
+      // zakresu na tej samej podstronie, terminy 14 i 21 dni to krok procesu,
+      // trzy tury poprawek to `faq.ts` (offHomeFaqs) i punkt w formularzu.
+      //
+      // ⛔ ŚWIADOMIE BEZ „w ciągu 7 dni od zgłoszenia" przy poprawkach. Marcin
+      // wyciął ten fragment z mojej propozycji (11.08.2026). Nie dopisywać.
+      //
+      // ⛔ NIE DOKŁADAĆ TU PRZYKŁADOWEGO FILMU. Ta podstrona nie ma `videoId`
+      // celowo: w `galleryVideos` nie ma materiału wizerunkowego, a podstawianie
+      // filmu z innej kategorii zostało odrzucone. To brak w portfolio,
+      // nie brak w kodzie.
+      { q: "Zrobisz film przy okazji sesji zdjęciowej?", a: "Tak. Krótki film o firmie, wypowiedzi do kamery i pionowe formaty na LinkedIn nagrywam w tym samym dniu co zdjęcia, bez osobnego terminu. Zdjęcia dostajesz w 14 dni, film w 21 dni. W cenie filmu są trzy tury poprawek montażowych." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Canon R6 z zapisem na dwie karty, Sigma 70-200 mm f/2.8 jako podstawowy obiektyw portretowy, bo dłuższa ogniskowa nie zniekształca rysów twarzy, i studyjne oświetlenie Godox. Do biura przywożę cały zestaw ze sobą." },
     ],
     portfolioSlug: "idcom-headshoty-zespolu",
