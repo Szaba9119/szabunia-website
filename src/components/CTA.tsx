@@ -232,10 +232,33 @@ export default function CTA({
                 </ul>
 
                 {/* Contact info */}
+                {/* ⚠ `min-h-11` NA TRZECH WIERSZACH ODSYŁACZOWYCH, 11.08.2026
+                    (pakiet kontaktowy, finding F6, decyzja Marcina).
+
+                    Wysokość wiersza wyznaczała dotąd ramka ikony (`w-10 h-10`),
+                    czyli 40 px. Zmierzone przy 390 px na `/kontakt`: e-mail,
+                    Instagram i telefon po 40 px przy szerokości 308 px.
+                    To przechodzi próg AA z WCAG 2.2 SC 2.5.8 (24 px), ale nie
+                    sięga 44 px z SC 2.5.5 ani z wytycznych Apple i Google,
+                    a telefon i e-mail są realnymi ścieżkami konwersji.
+
+                    ⚠ WYSOKOŚĆ ROBI `min-h`, NIE POWIĘKSZONA IKONA. Ramka zostaje
+                    40 × 40 px, typografia bez zmian, `items-center` trzyma
+                    zawartość na środku, więc rośnie wyłącznie obszar klikalny:
+                    po 2 px nad i pod. Odstęp `space-y-4` między wierszami
+                    zostaje 16 px, optycznie ikony rozjeżdżają się o 4 px.
+
+                    ⛔ Czwarty wiersz (lokalizacja) celowo BEZ `min-h-11`: to
+                    `<div>`, nie odsyłacz, więc nie jest celem dotykowym.
+
+                    Ten komponent renderuje się na siedmiu powierzchniach
+                    (`/`, `/uslugi`, `/uslugi/[slug]`, `/portfolio`,
+                    `/portfolio/[slug]`, `/galeria`, `/blog`, `/kontakt`),
+                    więc zmiana wysokości wiersza jest widoczna wszędzie. */}
                 <div className="space-y-4 mb-8">
                   <a
                     href="mailto:marcin@szabunia.pl"
-                    className="flex items-center gap-3 group"
+                    className="flex items-center gap-3 min-h-11 group"
                   >
                     <div className="w-10 h-10 rounded-xl border border-border dark:border-dark-border flex items-center justify-center group-hover:border-blue transition-colors">
                       <svg
@@ -266,7 +289,7 @@ export default function CTA({
                     href="https://instagram.com/szabunia.biz"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 group"
+                    className="flex items-center gap-3 min-h-11 group"
                   >
                     <div className="w-10 h-10 rounded-xl border border-border dark:border-dark-border flex items-center justify-center group-hover:border-blue transition-colors">
                       <svg
@@ -289,7 +312,7 @@ export default function CTA({
 
                   <a
                     href="tel:+48514900688"
-                    className="flex items-center gap-3 group"
+                    className="flex items-center gap-3 min-h-11 group"
                   >
                     <div className="w-10 h-10 rounded-xl border border-border dark:border-dark-border flex items-center justify-center group-hover:border-blue transition-colors">
                       <svg

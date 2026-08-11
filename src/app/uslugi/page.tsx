@@ -73,7 +73,18 @@ export default function UslugiPage() {
       <main id="main" className="pt-28 pb-16 px-4">
         <div className="max-w-6xl mx-auto">
           <Breadcrumbs items={crumbs} className="mb-6" />
-          <AnimatedSection>
+          {/* ⛔ TU NIE WOLNO UŻYĆ `AnimatedSection`, patrz ten sam komentarz
+              w `ServiceHero.tsx` przy pierwszym bloku hero. Pomiar Lighthouse 13
+              na produkcji 11.08.2026, mobile: elementem LCP tej strony jest
+              akapit wprowadzenia niżej (`p.text-steel`), a `.reveal` trzyma go
+              na `opacity: 0` do czasu hydratacji. Render Delay 744 ms, LCP
+              6,4 s, performance 77 przy TTFB 96 ms.
+
+              `.hero-intro` animuje sam `transform`: wjazd zostaje, wygaszanie
+              znika, element jest pomalowany od razu. Siatka kafelków niżej
+              zostaje na `AnimatedSection` — jest pod zgięciem i nie bierze
+              udziału w pomiarze LCP. */}
+          <div className="hero-intro">
             <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
               Oferta
             </p>
@@ -95,7 +106,7 @@ export default function UslugiPage() {
               są osobnymi pozycjami, tylko sposobem realizacji każdej z czterech.
               Bazuję w Poznaniu, pracuję w całej Polsce i Europie.
             </p>
-          </AnimatedSection>
+          </div>
 
           {/* Siatka 2×2 (10.08.2026, po przejściu na cztery usługi). Wcześniej
               sześć kolumn z dwoma szerokimi kafelkami — konstrukcja potrzebna

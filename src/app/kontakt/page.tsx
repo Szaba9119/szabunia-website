@@ -107,10 +107,29 @@ export default function KontaktPage() {
               >
                 Zadzwoń: +48 514 900 688
               </a>
+              {/* ⚠ OBRYS NIEBIESKI, NIE SZARY (11.08.2026, domknięcie findingu A3,
+                  decyzja Marcina). Ten przycisk jest AKCJĄ KONTAKTOWĄ, drugą po
+                  telefonie, a nie nawigacją.
+
+                  Powód zmiany jest w tym, co stało się chwilę wcześniej w tym
+                  samym pliku: „Oferta dla firm →" zeszła z gradientu na szary
+                  obrys, bo prowadzi do przeglądania oferty. Gdyby e-mail został
+                  szary, oba elementy wyglądałyby identycznie (42 px, ta sama
+                  ramka, ten sam kolor tekstu), a robią różne rzeczy.
+
+                  Po tej zmianie hierarchia z C3 obowiązuje na `/kontakt` w całości:
+                    gradient        = konwersja główna (telefon, wysyłka formularza)
+                    obrys NIEBIESKI = konwersja poboczna (e-mail)
+                    obrys SZARY     = nawigacja („Oferta dla firm")
+
+                  Hover bierze `blue-pale` / `blue/15`, czyli tę samą parę co CTA
+                  po „Zakresie realizacji" na podstronach usług i co ikony
+                  w `MobileFAB.tsx`. Tekst, `href`, `data-cta`, kształt
+                  (`rounded-full`), padding i wysokość 42 px bez zmian. */}
               <a
                 href="mailto:marcin@szabunia.pl"
                 data-cta="email_kontakt_hero"
-                className="inline-flex items-center gap-2 border border-border dark:border-dark-border text-navy dark:text-white px-5 py-2.5 rounded-full font-barlow font-semibold text-sm hover:border-blue dark:hover:border-blue-light transition-colors"
+                className="inline-flex items-center gap-2 border border-blue dark:border-blue-light text-blue dark:text-blue-light px-5 py-2.5 rounded-full font-barlow font-semibold text-sm hover:bg-blue-pale dark:hover:bg-blue/15 transition-colors"
               >
                 Napisz e-mail
               </a>
@@ -125,9 +144,22 @@ export default function KontaktPage() {
                   key={card.title}
                   className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6"
                 >
-                  <h2 className="font-barlow font-bold text-base text-navy dark:text-white mb-2">
+                  {/* ⚠ `<p>`, NIE `<h2>` (11.08.2026, finding A6, decyzja Marcina).
+                      Te trzy karty to odznaki informacyjne, a nie nagłówki sekcji:
+                      renderują się w 16 px, w kartach obok siebie, i nie otwierają
+                      żadnej treści. Jako `<h2>` dawały na `/kontakt` pięć nagłówków
+                      drugiego poziomu, z czego trzy nie opisywały sekcji, więc
+                      nawigacja po nagłówkach w czytniku ekranu prowadziła donikąd.
+
+                      ⚠ ZMIANA JEST WYŁĄCZNIE SEMANTYCZNA. Klasy zostają co do
+                      znaku, więc font, rozmiar, waga, kolor i `mb-2` bez zmian.
+                      Sprawdzone, że nic nie stylowało tego przez selektor
+                      elementu: `globals.css` nie ma żadnej reguły na `h2`,
+                      a jedyne selektory typu (`[&_h2]:*`) siedzą
+                      w `BlogContent.tsx` i dotyczą treści wpisów blogowych. */}
+                  <p className="font-barlow font-bold text-base text-navy dark:text-white mb-2">
                     {card.title}
-                  </h2>
+                  </p>
                   <p className="text-steel dark:text-dark-text-muted text-[13px] leading-relaxed">
                     {card.body}
                   </p>
@@ -148,10 +180,24 @@ export default function KontaktPage() {
                   wstępną wycenę przygotuję w 24h.
                 </p>
               </div>
+              {/* ⚠ WARIANT NAWIGACYJNY, NIE GRADIENT (audyt UI 11.08.2026,
+                  finding A3, decyzja Marcina). Ten przycisk był gradientowy,
+                  czyli miał wagę CTA pierwszego poziomu, a prowadzi do
+                  przeglądania oferty i stoi PRZED formularzem (sekcja kontaktowa
+                  zaczyna się ~250 px niżej). Gradient wyprowadzał więc z lejka
+                  z tą samą siłą, z jaką „Zadzwoń" do niego wprowadza.
+
+                  Hierarchia ustalona w C3 i obowiązująca na podstronach usług:
+                  gradient = konwersja, niebieski obrys = konwersja poboczna,
+                  szary obrys = nawigacja. To jest nawigacja.
+
+                  Kształt (`rounded-full`), rozmiar, padding, tekst i cel BEZ
+                  ZMIAN — zmienia się wyłącznie warstwa kolorystyczna. Gradient
+                  na tej stronie zostaje przy „Zadzwoń" i przy wysyłce formularza. */}
               <div className="flex flex-wrap gap-3 shrink-0">
                 <Link
                   href="/uslugi"
-                  className="bg-gradient-to-br from-blue to-blue text-white px-5 py-2.5 rounded-full font-barlow font-semibold text-sm btn-glow"
+                  className="border border-border dark:border-dark-border text-navy dark:text-white px-5 py-2.5 rounded-full font-barlow font-semibold text-sm hover:border-blue hover:text-blue dark:hover:border-blue-light dark:hover:text-blue-light transition-colors"
                 >
                   Oferta dla firm →
                 </Link>

@@ -22,7 +22,12 @@ export default function PoradnikBlogCTA() {
         <h3 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1.5">
           Przygotuj się do sesji jak zawodowiec
         </h3>
-        <p className="text-[13px] text-steel dark:text-dark-text-muted mb-4 leading-relaxed">
+        {/* `text-text-body`, NIE `text-steel` (11.08.2026, pomiar Lighthouse 13
+            na produkcji). `#64748b` na pale-blue tle tej karty (`#f3f8fd`) dawało
+            kontrast 4,45 przy wymaganych 4,5 dla tekstu 13 px — WCAG 2.1 AA
+            formalnie niespełnione, jedyny błąd A11y na `/uslugi/wizerunek-portrety`.
+            `#334155` daje 9,2. Ciemny motyw zostaje bez zmian, tam tło jest inne. */}
+        <p className="text-[13px] text-text-body dark:text-dark-text-muted mb-4 leading-relaxed">
           Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań: pobierz cały
           pakiet PDF za darmo.
         </p>

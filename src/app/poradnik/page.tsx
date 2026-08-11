@@ -137,7 +137,17 @@ export default function PoradnikPage() {
             {/* What's inside + form */}
             <AnimatedSection delay={0.1}>
               <div>
-                <h2 className="font-barlow font-bold text-xl md:text-2xl text-navy dark:text-white mb-5">
+                {/* ⚠ ROZMIAR ZRÓWNANY Z POZOSTAŁYMI H2 TEJ STRONY (audyt UI
+                    11.08.2026, finding A5, decyzja Marcina). Było
+                    `text-xl md:text-2xl` (20/24 px), czyli ten sam poziom
+                    nagłówka w dwóch rozmiarach na jednej stronie: ten jeden
+                    miał 24 px, a „Co dokładnie dostajesz", „Dla kogo to jest"
+                    i „Czego w nim nie ma" po 28 px.
+
+                    Wybrany rozmiar to `text-2xl md:text-[28px]`, bo taki mają
+                    trzy z czterech H2 tutaj. Żaden nowy token nie wchodzi,
+                    typografia innych stron bez zmian. */}
+                <h2 className="font-barlow font-bold text-2xl md:text-[28px] text-navy dark:text-white mb-5">
                   Co znajdziesz w środku
                 </h2>
                 <ul className="space-y-3 mb-8">
@@ -168,9 +178,22 @@ export default function PoradnikPage() {
                   <p className="text-[14px] text-navy dark:text-white font-barlow font-semibold mb-3">
                     Wolisz od razu umówić sesję?
                   </p>
+                  {/* ⚠ OBA ODSYŁACZE MAJĄ TĘ SAMĄ WAGĘ (audyt UI 11.08.2026,
+                      finding A3, decyzja Marcina). „Zobacz ofertę portretów"
+                      był gradientowy, czyli miał wagę CTA konwersyjnego, choć
+                      prowadzi do przeglądania oferty — dokładnie tak samo jak
+                      stojące obok „Zobacz portfolio", które od zawsze było
+                      obrysowane. Para nawigacyjna udawała parę
+                      pierwszy/drugi wybór.
+
+                      Zgodnie z hierarchią z C3 szary obrys oznacza nawigację,
+                      więc pierwszy odsyłacz dostał DOKŁADNIE te same klasy co
+                      drugi, łącznie z `font-semibold` i tym samym hoverem.
+                      Tekst, strzałka i cel bez zmian. Gradient na tej stronie
+                      zostaje wyłącznie przy wysyłce formularza. */}
                   <div className="flex flex-wrap gap-3">
-                    <Link href="/uslugi/wizerunek-portrety" className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-5 py-2.5 rounded-xl font-barlow font-bold text-[13px] btn-glow hover:scale-[1.02] transition-transform">
-                      Zobacz ofertę portretów <span className="text-white/80">→</span>
+                    <Link href="/uslugi/wizerunek-portrety" className="inline-flex items-center gap-2 border border-border dark:border-dark-border text-navy dark:text-white px-5 py-2.5 rounded-xl font-barlow font-semibold text-[13px] hover:border-blue dark:hover:border-blue transition-colors">
+                      Zobacz ofertę portretów <span aria-hidden="true">→</span>
                     </Link>
                     {/* `/portfolio`, nie `/galeria`: etykieta obiecuje portfolio,
                         a to najcieplejszy ruch, jaki ta strona ma (PELNY2608-52). */}

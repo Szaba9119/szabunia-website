@@ -55,7 +55,31 @@ export default function ServiceHero({ service, crumbs }: Props) {
           {/* text-center na mobile = parytet ze stroną główną i hubami
               (Hero.tsx:35). Wcześniej przycisk „Zapytaj o ofertę" siedział przy
               lewej krawędzi z 202 px pustki obok (pomiar @375 px, 2026-07-30). */}
-          <AnimatedSection className="md:col-start-1 md:row-start-1 text-center md:text-left">
+          {/* ⛔ TU NIE WOLNO UŻYĆ `AnimatedSection` — z tego samego powodu, dla
+              którego nie ma jej na zdjęciu niżej (komentarz przy `.hero-intro`,
+              linia ~99). Naprawa z 10.08 objęła wtedy sam obraz i to wystarczyło
+              na dwóch usługach z czterech, bo tam LCP wygrywało zdjęcie.
+
+              Pomiar Lighthouse 13 na produkcji 11.08.2026, mobile: na
+              `/uslugi/fotografia-produktowa` i `/uslugi/nieruchomosci-przemysl`
+              elementem LCP jest AKAPIT z tego bloku (`p.mt-4`), nie zdjęcie.
+              Render Delay 744 i 720 ms wobec 71-82 ms tam, gdzie wygrywa obraz.
+              Wynik: LCP 6,7 s i 6,3 s, performance 77 i 78, przy 95-97 na
+              pozostałych dwóch. TTFB wszędzie ~95 ms, więc to nie serwer.
+
+              Mechanizm identyczny: `.reveal` startuje z `opacity: 0` i czeka na
+              hydratację plus `IntersectionObserver`. Element LCP nie może być
+              niewidoczny w chwili pierwszego malowania — bez różnicy, czy jest
+              obrazem, czy tekstem.
+
+              `.hero-intro` animuje wyłącznie `transform`, czystym CSS-em.
+              Wjazd wizualny zostaje, znika wygaszanie. `prefers-reduced-motion`
+              wyłącza ruch globalną regułą z `globals.css:42`.
+
+              ⚠ Eventy i wizerunek NIE były tu bezpieczne, tylko miały szczęście:
+              akapit siedział w `.reveal` na wszystkich czterech usługach, więc
+              skrócenie tekstu albo zmiana kadru wpychały je w ten sam dół. */}
+          <div className="hero-intro md:col-start-1 md:row-start-1 text-center md:text-left">
             {/* Kicker: ten sam zabieg typograficzny co H1 na stronie głównej
                 (wersaliki, tracking 0.16em, 11-12 px, kolor steel). Renderuje
                 się tylko tam, gdzie usługa ma `heroLabel`. Wersalik robi CSS,
@@ -91,7 +115,7 @@ export default function ServiceHero({ service, crumbs }: Props) {
             <p className="mt-4 md:mt-5 text-text-body dark:text-dark-text text-[15px] leading-relaxed md:max-w-[52ch]">
               {service.description}
             </p>
-          </AnimatedSection>
+          </div>
 
           {/* 2. Zdjęcie usługi (mobile: zaraz po krótkim opisie; desktop: prawa
               kolumna przez oba rzędy) — priority, LCP element strony.

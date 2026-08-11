@@ -78,10 +78,35 @@ export default function PortfolioPage() {
             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
               Portfolio realizacji foto i wideo
             </h1>
-            <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-6 max-w-2xl mx-auto leading-relaxed">
               Wybrane realizacje dla firm: event firmowy, headshoty zespołu,
               packshoty i film z produkcji oraz sesja do przewodnika Michelin.
             </p>
+            {/* CTA POD LEADEM, 11.08.2026 (audyt UI, finding A2, decyzja Marcina).
+                Powód, zmierzony przy 1280 px: strona miała 2612 px i ANI JEDNEGO
+                elementu prowadzącego do kontaktu aż do przycisku „Wyślij zapytanie"
+                na y = 1872, czyli na 72% długości. Osiem kafli realizacji, potem
+                od razu formularz. Dla porównania `/galeria` i `/uslugi` mają
+                gradientowe CTA wysoko, a `/portfolio` jest stroną, na którą
+                wchodzi ruch z wizytówki Google.
+
+                Wzorzec skopiowany 1:1 z `/galeria` (`galeria/page.tsx`), bo tam
+                układ jest ten sam: kicker, H1, lead, CTA, siatka. Ta sama klasa,
+                ta sama etykieta ze słownika, to samo miejsce. Nie tworzy nowego
+                wariantu przycisku.
+
+                Odstęp: lead zszedł z `mb-12` na `mb-6`, a `mb-12` przejął wrapper
+                CTA, więc dystans lead → siatka rośnie tylko o wysokość przycisku,
+                a nie o cały nowy blok. */}
+            <div className="flex justify-center mb-12">
+              <a
+                href="#kontakt"
+                data-cta="wycena_hub_portfolio"
+                className="inline-block bg-gradient-to-br from-blue to-blue text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
+              >
+                Zapytaj o ofertę
+              </a>
+            </div>
           </AnimatedSection>
 
           <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">

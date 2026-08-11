@@ -63,20 +63,26 @@ export default function PortfolioVideoShowcase({
               <p className="text-text-body dark:text-dark-text-muted text-[15px] leading-relaxed">
                 {category.description}
               </p>
-              <div className="mt-7 flex flex-wrap gap-3 justify-center md:justify-start">
+              {/* ⚠ JEDEN PRZYCISK, NIE DWA (audyt UI 11.08.2026, finding A1,
+                  decyzja Marcina). Stały tu obok siebie „Zapytaj o podobną
+                  realizację" (gradient) i „Zapytaj o ofertę" (obrys), OBA
+                  z `href="#kontakt"`, czyli dwa wejścia do tego samego
+                  formularza udające wybór. Obrysowany zniknął razem
+                  z `data-cta="oferta_case_video"`.
+
+                  Zostaje etykieta „Zapytaj o podobną realizację", bo na case
+                  study wideo mówi więcej niż ogólne „Zapytaj o ofertę": klient
+                  właśnie obejrzał konkretny materiał.
+
+                  ⛔ Ta sama zasada co w `PortfolioHero.tsx`: drugi przycisk
+                  wraca tylko z własnym celem, innym niż `#kontakt`. */}
+              <div className="mt-7 flex justify-center md:justify-start">
                 <a
                   href="#kontakt"
                   data-cta="wycena_case_video"
                   className="bg-gradient-to-br from-blue to-blue text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
                 >
                   Zapytaj o podobną realizację
-                </a>
-                <a
-                  href="#kontakt"
-                  data-cta="oferta_case_video"
-                  className="border border-border dark:border-dark-border text-navy dark:text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:border-blue hover:text-blue dark:hover:border-blue-light dark:hover:text-blue-light transition-colors"
-                >
-                  Zapytaj o ofertę
                 </a>
               </div>
             </div>
