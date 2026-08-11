@@ -163,6 +163,12 @@ export const portfolioCategories: PortfolioCategory[] = [
         role: "Growth & Partnerships Manager, Woohoo · opinia Google",
       },
     },
+    // Powrót do usługi (11.08.2026, audyt F4). Realizacja wideo z wydarzenia branżowego: film podsumowujący, trzy reelsy,
+    // studio wywiadów i dron w obiekcie. Mapowanie jednoznaczne.
+    serviceLink: {
+      label: "Poznaj usługę fotografii i wideo wydarzeń firmowych",
+      href: "/uslugi/eventy-reportaze",
+    },
     seo: {
       title: "E-commerce All-in: realizacja wideo | Szabunia",
       description:
@@ -286,6 +292,12 @@ export const portfolioCategories: PortfolioCategory[] = [
         role: "Prezes Artech Group · opinia Google",
       },
     },
+    // Powrót do usługi (11.08.2026, audyt F4). Mimo filmu z hali: wszystkie dziewięć kadrów w galerii to packshoty na białym
+    // tle. Sam film stoi dalej jako przykład wideo na podstronie przemysłowej.
+    serviceLink: {
+      label: "Poznaj usługę fotografii produktowej",
+      href: "/uslugi/fotografia-produktowa",
+    },
     seo: {
       title: "Artech: packshoty i film z produkcji | Szabunia",
       description:
@@ -395,6 +407,12 @@ export const portfolioCategories: PortfolioCategory[] = [
         { label: "dzień zdjęciowy w działającym lokalu", value: "1" },
         { label: "zdjęcia na profilu restauracji w przewodniku", value: "Michelin" },
       ],
+    },
+    // Powrót do usługi (11.08.2026, audyt F4). Realizacja wielousługowa (dron, wnętrza, portrety, produkt). Przypisana do
+    // obiektów, bo 7 z 9 kadrów to wnętrza lokalu. Decyzja Marcina 11.08.2026.
+    serviceLink: {
+      label: "Poznaj usługę fotografii nieruchomości i obiektów",
+      href: "/uslugi/nieruchomosci-przemysl",
     },
     seo: {
       title: "Yes Butcher w przewodniku Michelin | Szabunia",
@@ -646,6 +664,11 @@ export const portfolioCategories: PortfolioCategory[] = [
         a: "Przy packshotach na białym tle: ok. 30-50 produktów dziennie (zależy od złożoności). Zdjęcia kreatywne to ok. 8-15 ujęć dziennie.",
       },
     ],
+    // Powrót do usługi (11.08.2026, audyt F4). Packshoty, zdjęcia kreatywne i aranżacje na e-commerce. Mapowanie jednoznaczne.
+    serviceLink: {
+      label: "Poznaj usługę fotografii produktowej",
+      href: "/uslugi/fotografia-produktowa",
+    },
     seo: {
       title: "Przykłady packshotów i zdjęć produktów | Szabunia",
       description:
@@ -701,6 +724,11 @@ export const portfolioCategories: PortfolioCategory[] = [
         a: "Tak, oprócz indywidualnych headshotów mogę sfotografować przestrzeń biurową, teamwork i klimat firmy. Idealny materiał na stronę kariery i social media.",
       },
     ],
+    // Powrót do usługi (11.08.2026, audyt F4). Headshoty zespołu i mobilne studio w biurze, czyli dosłownie zakres tej usługi.
+    serviceLink: {
+      label: "Poznaj usługę fotografii wizerunkowej",
+      href: "/uslugi/wizerunek-portrety",
+    },
     seo: {
       title: "Przykłady headshotów zespołu: studio i biuro | Szabunia",
       description:

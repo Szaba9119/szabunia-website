@@ -132,7 +132,25 @@ export interface ServiceData {
     items: { title: string; desc: string }[];
   };
   faqs: FAQItem[];
-  portfolioSlug?: string;
+  /** Realizacje pokazywane pod przyciskiem „Zapytaj o ofertę" w połowie podstrony.
+
+      Historia: pole nazywało się `portfolioSlug` (pojedyncze), było ustawione
+      na trzech usługach i NIE BYŁO ODCZYTYWANE NIGDZIE. Martwe dane od momentu
+      dodania. Audyt 11.08.2026 (F1) je znalazł, decyzja Marcina: podpiąć
+      istniejące pole zamiast budować drugie, i zmienić na liczbę mnogą.
+
+      Mnogie, bo trzy z czterech usług mają po dwie opublikowane realizacje.
+      Przy pojedynczym cztery case studies zostawałyby z jednym wejściem
+      z kafla na `/portfolio`.
+
+      ⛔ NIE WPISYWAĆ tu slugów z `DRAFT_SLUGS` (`portfolio.ts`). Render i tak
+      je odfiltrowuje przez `isPortfolioDraft`, ale wpis byłby mylący.
+
+      ⚠ `wizerunek-portrety` celowo wskazuje TYLKO `sesja-korporacyjna`.
+      Pozostałe dwie realizacje wizerunkowe są już linkowane wyżej na tej samej
+      podstronie, z pasków galerii (idcom i sesja-wizerunkowa). Dopisanie ich tu
+      postawiłoby ten sam link dwa razy. */
+  portfolioSlugs?: string[];
   galleryCategory?:
     | "portrety"
     | "eventy"
@@ -477,7 +495,9 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Fotografujesz wieczorne gale przy słabym świetle?", a: "Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają pracować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Dwa aparaty Canon R6 z zapisem na dwie karty, więc materiał z wydarzenia jest zabezpieczony od pierwszego kadru. Do tego jasne obiektywy Sigma, Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilne oświetlenie Godox i dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC." },
     ],
-    portfolioSlug: "woohoo-autopay",
+    // `fotografia-eventowa` dołożone 11.08.2026: miało JEDEN link przychodzący
+    // w całym serwisie (kafel na `/portfolio`), mimo że to case study tej usługi.
+    portfolioSlugs: ["woohoo-autopay", "fotografia-eventowa"],
     // Struktura zdaniowa taka sama jak w domyślnym nagłówku („czasownik w 1. os.
     // l. mn. + dopełnienie w drugim wierszu"), więc kompozycja bloku się nie zmienia.
     // Nie obiecuje dostępności terminu: to zdanie stoi nad formularzem, a terminu
@@ -771,7 +791,10 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Zrobisz film przy okazji sesji zdjęciowej?", a: "Tak. Krótki film o firmie, wypowiedzi do kamery i pionowe formaty na LinkedIn nagrywam w tym samym dniu co zdjęcia, bez osobnego terminu. Zdjęcia dostajesz w 14 dni, film w 21 dni. W cenie filmu są trzy tury poprawek montażowych." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Canon R6 z zapisem na dwie karty, Sigma 70-200 mm f/2.8 jako podstawowy obiektyw portretowy, bo dłuższa ogniskowa nie zniekształca rysów twarzy, i studyjne oświetlenie Godox. Do biura przywożę cały zestaw ze sobą." },
     ],
-    portfolioSlug: "idcom-headshoty-zespolu",
+    // ⚠ CELOWO BEZ `idcom-headshoty-zespolu` i `sesja-wizerunkowa`. Obie są już
+    // linkowane wyżej na tej podstronie, z pasków galerii. Zostaje trzecia
+    // realizacja wizerunkowa, która miała jedno wejście z kafla na `/portfolio`.
+    portfolioSlugs: ["sesja-korporacyjna"],
     formServiceCode: "wizerunek",
     seo: {
       title: "Fotografia i wideo wizerunkowe dla firm, Poznań | Szabunia",
@@ -908,7 +931,12 @@ const serviceCategoriesRaw: ServiceData[] = [
       { q: "Czy realizujesz wideo produktowe?", a: "Tak, krótkie filmy pokazujące produkt, jego użycie i detale, a także spoty pod kampanie w social mediach. Przykłady są w pasku wideo wyżej." },
       { q: "Na jakim sprzęcie pracujesz?", a: "Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Ten sam zestaw nagrywa wideo produktowe. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce, nawet pół roku później." },
     ],
-    portfolioSlug: "artech-fotografia-produktowa",
+    // Artech mimo filmu z hali produkcyjnej należy tu, nie do przemysłu:
+    // wszystkie dziewięć kadrów w jego galerii to packshoty na białym tle.
+    // Sam film (`ivvZQ5lQ7FE`) stoi dalej jako przykład wideo na podstronie
+    // nieruchomości i przemysłu. Dwa materiały tego samego klienta, dwa
+    // zastosowania, świadomie zaakceptowane przez Marcina 11.08.2026.
+    portfolioSlugs: ["artech-fotografia-produktowa", "packshoty-produktowe"],
     // Nagłówek formularza dla tej usługi (decyzja Marcina 10.08.2026, wariant A).
     // Wcześniej podstrona produktowa otwierała formularz domyślnym „Zacznijmy
     // budować Twój wizerunek", czyli komunikatem o innej usłudze. Krótka forma
@@ -1125,8 +1153,23 @@ const serviceCategoriesRaw: ServiceData[] = [
     // niezależne hasła.
     ctaHeading: ["Zaplanujmy zdjęcia", "Twojego obiektu"],
     formServiceCode: "obiekty",
+    // Jedyna usługa, która nie miała żadnej realizacji w tym polu (audyt F1).
+    // Yes Butcher pokrywa ją najlepiej: 7 z 9 kadrów to wnętrza lokalu,
+    // do tego budynek z drona. Realizacja jest wielousługowa (wyniki mówią
+    // „4 rodzaje zdjęć: dron, wnętrza, portrety, produkt"), więc przypisanie
+    // jest decyzją Marcina z 11.08.2026, nie wnioskiem z samego sluga.
+    portfolioSlugs: ["yes-butcher-przewodnik-michelin"],
     seo: {
-      title: "Fotografia nieruchomości i przemysłu, Poznań | Szabunia",
+      // PRZEPISANY 11.08.2026 (audyt F5, wariant Marcina). Poprzedni brzmiał
+      // „Fotografia nieruchomości i przemysłu" i jako JEDYNY z czterech tytułów
+      // usług gubił wideo, mimo że ta podstrona ma sekcję „Przykładowa
+      // realizacja wideo" z filmem z hali Artechu, a H1 mówi „Fotografia i wideo".
+      //
+      // Fraza przesunięta na początek, bo to ona niesie pozycje. Dwukropek
+      // zamiast drugiego „i": wariant „Fotografia i wideo nieruchomości
+      // i przemysłu" ma 63 znaki i podwójny spójnik, odrzucony przez Marcina.
+      // „foto" jest słownikiem strony („foto + wideo", „foto-wideo eventu").
+      title: "Nieruchomości i przemysł: foto i wideo, Poznań | Szabunia",
       description: "Zdjęcia i wideo hal, budynków i wnętrz, z powietrza i z poziomu ziemi. Retusz architektoniczny, pliki do druku i pod www. Poznań i cała Polska.",
     },
   },

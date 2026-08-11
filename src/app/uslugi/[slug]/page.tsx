@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { serviceCategories, getServiceBySlug, getPriceFaq, SERVICE_TESTIMONIALS } from "@/data/services";
+import { getCategoryBySlug, isPortfolioDraft } from "@/data/portfolio";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import ServiceHero from "@/components/ServiceHero";
@@ -78,6 +80,17 @@ export default async function ServicePage({ params }: PageProps) {
   // Pytanie cenowe zawsze pierwsze w FAQ (brief-22 zad. 4) — ta sama tablica
   // zasila widoczną sekcję i JSON-LD, żeby nie rozjechały się jak wcześniej.
   const faqs = [getPriceFaq(service), ...service.faqs];
+
+  // Realizacje tej usługi, pokazywane pod przyciskiem w połowie podstrony.
+  // Podpięcie martwego pola `portfolioSlug` (audyt 11.08.2026, F1): wartości
+  // siedziały w danych trzech usług i nic ich nie renderowało. Nazwa bierze się
+  // z `portfolioCategories`, więc nie ma drugiej kopii tytułu realizacji.
+  // `isPortfolioDraft` odsiewa nieopublikowane, żeby wpis w danych nie mógł
+  // wystawić na produkcję case study ukrytego w `DRAFT_SLUGS`.
+  const caseLinks = (service.portfolioSlugs ?? [])
+    .filter((s) => !isPortfolioDraft(s))
+    .map((s) => getCategoryBySlug(s))
+    .filter((c) => !!c);
 
   // Cena startowa usługi (np. "od 1 000 zł") → liczba do JSON-LD Offer.
   const priceMatch = service.price.match(/\d[\d\s]*\d|\d/);
@@ -304,6 +317,33 @@ export default async function ServicePage({ params }: PageProps) {
             Zapytaj o ofertę
             <span className="text-white/80">→</span>
           </a>
+          {/* Realizacje tej usługi (11.08.2026). Doklejone do istniejącego bloku
+              CTA, bez nowej sekcji, lustro `serviceLink` na case studies:
+              tam realizacja prowadzi do usługi, tu usługa prowadzi do realizacji.
+
+              Każda realizacja to OSOBNY link z własną nazwą, nie wspólne
+              „Zobacz przykładową realizację" (decyzja Marcina, wariant B):
+              przy dwóch realizacjach użytkownik ma wiedzieć, co otwiera.
+              Nazwy z `label` w `portfolio.ts`, czyli te same, które stoją
+              na kaflach `/portfolio`. */}
+          {caseLinks.length > 0 && (
+            <div className="mt-5 flex flex-col items-center gap-2">
+              <span className="text-[12px] text-steel dark:text-dark-text-muted">
+                {caseLinks.length > 1 ? "Przykładowe realizacje" : "Przykładowa realizacja"}
+              </span>
+              {caseLinks.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/portfolio/${c.slug}`}
+                  data-cta="case_z_uslugi"
+                  className="inline-flex items-center gap-1.5 text-[13px] font-barlow font-semibold text-blue dark:text-blue-light hover:gap-2.5 transition-all"
+                >
+                  {c.label}
+                  <span aria-hidden="true">→</span>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
         <ErrorBoundary>
           <PortfolioFAQ faqs={faqs} heading={service.h2Faq} />
