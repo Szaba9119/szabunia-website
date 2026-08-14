@@ -12,14 +12,17 @@ interface Props {
 }
 
 export default function ServiceHero({ service, crumbs }: Props) {
-  // `price` w services.tsx niesie już słowo „netto" („od 600 zł netto").
-  // Historycznie `heroPriceLabel` go nie niósł („pakiety od 1 100 zł") — dziś
-  // wszystkie trzy etykiety mają „netto", ale zabezpieczenie zostaje, bo nowa
-  // etykieta bez tego słowa wróciłaby do starego błędu. Doklejanie „ netto" w JSX
-  // dawało na sześciu z siedmiu opublikowanych podstron „od 600 zł netto netto"
-  // (na produkcji od 2026-07-23). Doklejamy tylko wtedy, gdy słowa jeszcze nie ma.
-  const rawPrice = service.heroPriceLabel ?? service.price;
-  const priceLabel = rawPrice.includes("netto") ? rawPrice : `${rawPrice} netto`;
+  // ⚠ DOKLEJANIE „ netto" USUNIĘTE 14.08.2026 (depricing).
+  //
+  // Do 14.08 `price` niosło kwotę („od 600 zł netto"), a ten kod dopisywał słowo
+  // „netto", gdy go brakowało. Zabezpieczenie miało sens, dopóki etykieta była
+  // kwotą. Po depricingu `price` mówi „wycena w 24h", więc stara reguła dawałaby
+  // „wycena w 24h netto", czyli dokładnie ten sam gatunek błędu co „netto netto",
+  // który naprawiała.
+  //
+  // Etykieta idzie teraz na stronę dokładnie taka, jaka stoi w `services.tsx`.
+  // Jeśli kwoty kiedyś wrócą, słowo „netto" ma stać W DANYCH, nie tutaj.
+  const priceLabel = service.heroPriceLabel ?? service.price;
 
   return (
     // Pionowe marginesy ścięte 10.08.2026 (brief hero, punkt 1 i 10): było
@@ -233,7 +236,7 @@ export default function ServiceHero({ service, crumbs }: Props) {
                   data-cta="wycena_hero"
                   className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-6 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]"
                 >
-                  Zapytaj o ofertę
+                  Sprawdź termin i cenę
                   <span className="text-white/80" aria-hidden="true">→</span>
                 </a>
                 {/* min-h-11 (44 px): telefon jest drugą ścieżką kontaktu i ma

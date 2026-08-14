@@ -104,7 +104,7 @@ export default function PortfolioPage() {
                 data-cta="wycena_hub_portfolio"
                 className="inline-block bg-gradient-to-br from-blue to-blue text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
               >
-                Zapytaj o ofertę
+                Sprawdź termin i cenę
               </a>
             </div>
           </AnimatedSection>

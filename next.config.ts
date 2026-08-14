@@ -14,7 +14,23 @@ const isDev = process.env.NODE_ENV === "development";
 // traci static rendering — gorszy kompromis niz zostawienie unsafe-inline.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval'" : ""} https://*.youtube.com https://www.googletagmanager.com https://challenges.cloudflare.com`,
+  // `va.vercel-scripts.com` TYLKO W DEV, świadomie (14.08.2026).
+  //
+  // Sprawdzone w kodzie obu paczek (`getScriptSrc`):
+  //   @vercel/analytics      → dev: https://va.vercel-scripts.com/v1/script.debug.js
+  //                          → prod (bez `scriptSrc`/`basePath`): /_vercel/insights/script.js
+  //   @vercel/speed-insights → dev: https://va.vercel-scripts.com/v1/speed-insights/script.debug.js
+  //                          → prod (bez `dsn`/`basePath`): /_vercel/speed-insights/script.js
+  //
+  // `layout.tsx` renderuje `<Analytics />` i `<SpeedInsights />` BEZ propsów, więc
+  // na produkcji oba skrypty są same-origin i `'self'` już je przepuszcza. Dodanie
+  // tej domeny do produkcyjnej polityki niczego by nie naprawiło, a poszerzyłoby
+  // `script-src` o hosta, z którego produkcja nic nie ładuje.
+  //
+  // ⚠ Gdyby kiedyś doszedł prop `dsn` do `<SpeedInsights />` (scenariusz hostingu
+  // poza Vercelem), produkcja zacznie ładować z tej domeny i wtedy trzeba ją tu
+  // dopuścić również poza devem.
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ""} https://*.youtube.com https://www.googletagmanager.com https://challenges.cloudflare.com`,
   // Fonty sa self-hostowane przez next/font — domeny Google Fonts celowo usuniete z allowlisty.
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self'",

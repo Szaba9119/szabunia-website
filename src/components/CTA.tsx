@@ -62,6 +62,14 @@ export default function CTA({
     email: "",
     phone: "",
     service: defaultService,
+    // Dodane 14.08.2026 razem z nowym CTA „Sprawdź termin i cenę".
+    // Powód jest w samym CTA: obiecuje termin, więc formularz musi o niego
+    // zapytać. Przycisk obiecujący coś, o co formularz nie pyta, to najgorszy
+    // możliwy rozjazd w lejku. Pole OPCJONALNE i świadomie jedyne nowe:
+    // przy dwóch zapytaniach miesięcznie utrata jednego leada na dłuższym
+    // formularzu kosztuje więcej niż zysk z lepszej kwalifikacji reszty,
+    // a kwalifikację robi i tak pierwszy mail (SZABLON 2).
+    timing: "",
     message: "",
   });
   const [consent, setConsent] = useState(false);
@@ -106,6 +114,7 @@ export default function CTA({
           email: formData.email,
           phone: formData.phone,
           service: formData.service,
+          timing: formData.timing,
           message: formData.message,
           // Dowód zgody RODO — do tej pory checkbox żył wyłącznie po stronie
           // klienta, więc nie było czym wykazać, że zgoda została udzielona
@@ -422,6 +431,10 @@ export default function CTA({
                           // pola: druga wiadomość z tej samej strony dotyczy
                           // zwykle tej samej usługi.
                           service: defaultService,
+                          // Termin czyścimy do pustego, w odróżnieniu od usługi:
+                          // druga wiadomość dotyczy zwykle tej samej usługi,
+                          // ale rzadko tego samego terminu.
+                          timing: "",
                           message: "",
                         });
                       }}
@@ -569,6 +582,26 @@ export default function CTA({
                           />
                         </svg>
                       </div>
+                    </div>
+
+                    {/* Pole terminu (14.08.2026). Tekstowe, nie `type="date"`:
+                        klient na etapie zapytania zwykle nie ma jeszcze daty
+                        dziennej, tylko miesiąc albo widełki, a kalendarz
+                        wymuszałby precyzję, której nie ma, i odrzucał tych,
+                        którzy jej nie mają. */}
+                    <div className="mb-3">
+                      <label htmlFor="contact-timing" className="block text-[11px] text-steel dark:text-dark-text-muted font-barlow font-semibold uppercase tracking-wide mb-1.5">
+                        Przewidywany termin (opcjonalnie)
+                      </label>
+                      <input
+                        id="contact-timing"
+                        type="text"
+                        name="timing"
+                        value={formData.timing}
+                        onChange={handleChange}
+                        placeholder="wrzesień, albo konkretna data"
+                        className="w-full bg-white dark:bg-white/[0.08] border border-border dark:border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel dark:placeholder-dark-text-muted font-inter focus:border-blue transition-colors"
+                      />
                     </div>
 
                     <div className="mb-4">

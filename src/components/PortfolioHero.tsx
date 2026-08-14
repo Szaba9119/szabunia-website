@@ -97,7 +97,7 @@ export default function PortfolioHero({ category, crumbs }: Props) {
                 data-cta="wycena_case_hero"
                 className="bg-gradient-to-br from-blue to-blue text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow transition-transform hover:scale-[1.02]"
               >
-                Zapytaj o ofertę
+                Sprawdź termin i cenę
               </a>
             </div>
             {category.proofLink && (

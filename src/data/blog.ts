@@ -196,7 +196,7 @@ export const blogPosts: BlogPost[] = [
       <p>Pliki dostajesz w pełnej jakości plus wersje zoptymalizowane pod web, a na życzenie także PNG z przezroczystym tłem i TIFF do druku. W cenie są dwie tury poprawek, realizowane w ciągu 7 dni od zgłoszenia.</p>
 
       <h2>ROI profesjonalnego headshota</h2>
-      <p>Ceny <a href="/uslugi/wizerunek-portrety">portretów</a> dla jednej osoby zaczynają się od 700 zł netto. Na wycenę pracują trzy rzeczy: liczba stylizacji, długość sesji i liczba wyretuszowanych zdjęć do wyboru. Pakiety obejmują poseboard z referencjami przed spotkaniem, bez dopłaty.</p>
+      <p>Na wycenę <a href="/uslugi/wizerunek-portrety">portretów</a> pracują trzy rzeczy: liczba stylizacji, długość sesji i liczba wyretuszowanych zdjęć do wyboru. Pakiety obejmują poseboard z referencjami przed spotkaniem, bez dopłaty.</p>
       <p>Jeden nowy klient pozyskany dzięki lepszemu profilowi na LinkedIn zwraca tę inwestycję wielokrotnie, a zdjęcie pracuje przez najbliższe dwa lata w każdym miejscu, w którym ktoś sprawdza, z kim ma do czynienia. Pracuję z bazy w Poznaniu, na terenie miasta dojazd jest wliczony w cenę, poza miastem doliczam 2,50 zł netto za kilometr w obie strony, a sesje realizuję w całej Polsce i Europie. Napisz w kilku zdaniach, czego potrzebujesz. Wstępną wycenę odsyłam w 24h.</p>
       <p>Zanim umówisz sesję, sprawdź, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, pobierz <a href="/poradnik">darmowy poradnik przygotowania do sesji</a> i zobacz <a href="/galeria?kat=portrety">przykładowe realizacje sesji wizerunkowych</a>.</p>
     `,
@@ -211,7 +211,7 @@ export const blogPosts: BlogPost[] = [
     faq: [
       { q: "Czym różni się reportaż od sesji eventowej?", a: "Reportaż to dyskretne dokumentowanie autentycznych momentów. Fotograf jest „niewidzialny\", nie pozuje uczestników. Sesja eventowa to podejście zaaranżowane: grupowe zdjęcia, portrety prelegentów i kluczowe momenty z najlepszej perspektywy. Oba style dają zupełnie inny materiał." },
       { q: "Które podejście wybrać na konferencję firmową?", a: "Najczęściej sprawdza się podejście hybrydowe: reportaż podczas rejestracji, networkingu i paneli, w przerwach portrety prelegentów i zdjęcia grupowe, a wieczorem reportaż z części oficjalnej. Dzięki temu firma dostaje kompletny materiał na social media i do materiałów prasowych." },
-      { q: "Od czego zależy cena fotografii eventowej?", a: "Cena nie zależy od stylu fotografii, tylko od czasu pracy i opcji dodatkowych. Reportaż zaczyna się od 600 zł netto, a dalej liczy się liczba godzin obecności na evencie oraz to, czy dochodzi live editing na social media i ujęcia z drona. Opisz wydarzenie w kilku zdaniach, a wstępną wycenę odeślę w 24h." },
+      { q: "Od czego zależy cena fotografii eventowej?", a: "Cena nie zależy od stylu fotografii, tylko od czasu pracy i opcji dodatkowych. Liczy się liczba godzin obecności na evencie oraz to, czy dochodzi live editing na social media i ujęcia z drona. Opisz wydarzenie w kilku zdaniach, a wstępną wycenę odeślę w 24h." },
     ],
     title: "Fotografia eventowa vs reportaż: co wybrać dla Twojej konferencji",
     excerpt:
@@ -250,7 +250,7 @@ export const blogPosts: BlogPost[] = [
       <p>W praktyce najczęściej łączę oba style. Pierwsza część eventu to reportaż: rejestracja, networking, panele. W przerwach robię portrety prelegentów i zdjęcia grupowe, a wieczorem wracam do reportażu z części oficjalnej. Dzięki temu dostajesz kompletny materiał.</p>
 
       <h2>Porównanie kosztów</h2>
-      <p><a href="/uslugi/eventy-reportaze">Fotografia eventowa</a> zaczyna się od 600 zł netto. Cena nie zależy od stylu, bo reportaż i sesja eventowa to ten sam czas na miejscu, tylko inaczej wykorzystany. Na wycenę pracują trzy rzeczy:</p>
+      <p>Przy <a href="/uslugi/eventy-reportaze">fotografii eventowej</a> cena nie zależy od stylu, bo reportaż i sesja eventowa to ten sam czas na miejscu, tylko inaczej wykorzystany. Na wycenę pracują trzy rzeczy:</p>
       <ul>
         <li><strong>Czas obecności:</strong> od jednej godziny po pełny dzień zdjęciowy.</li>
         <li><strong>Live editing:</strong> zdjęcia obrabiane na miejscu i wysyłane na social media jeszcze w trakcie eventu.</li>
@@ -273,7 +273,7 @@ export const blogPosts: BlogPost[] = [
     faq: [
       { q: "Jakie światło jest najlepsze do zdjęcia do CV w domu?", a: "Naturalne, rozproszone światło dzienne. Stań twarzą do dużego okna, z jednolitą ścianą za plecami, najlepiej w godzinach przedpołudniowych. Unikaj sztucznego oświetlenia sufitowego, które tworzy cienie pod oczami, a pochmurny dzień daje najmiększe i najbardziej równomierne światło." },
       { q: "Jak ustawić telefon do zdjęcia do CV?", a: "Postaw telefon pionowo na statywie lub stabilnym podparciu na wysokości oczu, w odległości około 1-1,5 metra. Użyj tylnego aparatu (ma lepszą jakość) i samowyzwalacza na 3-10 sekund. Kadruj od klatki piersiowej w górę, z twarzą w centrum, a jeśli telefon ma tryb portretowy, włącz go." },
-      { q: "Kiedy zamiast zdjęcia z telefonu wybrać fotografa?", a: "Zdjęcie z telefonu wystarczy na szybką aplikację. Jeśli jednak zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), profesjonalna sesja portretowa zwróci się wielokrotnie. Zaczyna się od 700 zł netto, a taki portret posłuży Ci na LinkedIn, stronę firmową i materiały branżowe." },
+      { q: "Kiedy zamiast zdjęcia z telefonu wybrać fotografa?", a: "Zdjęcie z telefonu wystarczy na szybką aplikację. Jeśli jednak zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), profesjonalna sesja portretowa zwróci się wielokrotnie. Taki portret posłuży Ci na LinkedIn, stronę firmową i materiały branżowe." },
     ],
     title: "Jak zrobić profesjonalne zdjęcie do CV w domu: kompletny poradnik",
     excerpt:
@@ -312,7 +312,7 @@ export const blogPosts: BlogPost[] = [
       <p>Użyj bezpłatnych aplikacji jak Snapseed lub Lightroom Mobile. Wystarczy: lekko podnieść jasność, wyrównać balans bieli, przyciąć kadr do proporcji paszportowych. Nie przesadzaj z filtrami: zdjęcie do CV ma wyglądać naturalnie.</p>
 
       <h2>Kiedy lepiej iść do fotografa?</h2>
-      <p>Zdjęcie z telefonu wystarczy na szybką aplikację. Ale jeśli zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), <a href="/uslugi/wizerunek-portrety">profesjonalna sesja portretowa</a> zwróci się wielokrotnie. Sesja headshot zaczyna się od 700 zł netto, a jedno dobrze zrobione zdjęcie posłuży Ci na LinkedIn, stronę firmową i materiały branżowe. Sesje realizuję w Poznaniu (dojazd na terenie miasta wliczony), a na zapytania odpowiadam w ciągu 24h.</p>
+      <p>Zdjęcie z telefonu wystarczy na szybką aplikację. Ale jeśli zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), <a href="/uslugi/wizerunek-portrety">profesjonalna sesja portretowa</a> zwróci się wielokrotnie. Jedno dobrze zrobione zdjęcie posłuży Ci na LinkedIn, stronę firmową i materiały branżowe. Sesje realizuję w Poznaniu (dojazd na terenie miasta wliczony), a na zapytania odpowiadam w ciągu 24h.</p>
       <p>Jeśli chcesz, żeby profil naprawdę pracował, przeczytaj, jak <a href="/blog/headshoty-linkedin-konwersja">headshoty zwiększają konwersję na LinkedIn</a>.</p>
     `,
     seo: {
@@ -465,7 +465,7 @@ export const blogPosts: BlogPost[] = [
       <p>W cenie są dwie tury poprawek, realizowane w ciągu 7 dni od zgłoszenia, bez liczenia terminu podstawowego od nowa. Licencja komercyjna nie ma limitów czasowych, więc zdjęcia mogą pracować na stronie, na LinkedIn, w materiałach drukowanych i w reklamie online tak długo, jak potrzebujecie.</p>
 
       <h2>Co wpływa na wycenę sesji zespołowej</h2>
-      <p>Dwie rzeczy: liczba osób i miejsce sesji. <a href="/uslugi/wizerunek-portrety">Sesje zespołowe</a> kosztują 1 400 zł netto za dwie osoby, a każda kolejna osoba to 120 zł. W cenie są dwa wyretuszowane zdjęcia na osobę oraz dojazd z mobilnym studiem. Im większy zespół, tym niżej schodzi kwota za osobę.</p>
+      <p>Dwie rzeczy: liczba osób i miejsce sesji. <a href="/uslugi/wizerunek-portrety">Sesje zespołowe</a> wyceniam za osobę, a nie za długość sesji. W cenie są dwa wyretuszowane zdjęcia na osobę oraz dojazd z mobilnym studiem. Im większy zespół, tym niżej schodzi kwota za osobę.</p>
       <p>Sesje zespołowe realizuję od 2 osób, bez minimum zlecenia. W cenie są dwa wyretuszowane zdjęcia na osobę oraz dojazd z mobilnym studiem. Podaj liczbę osób i miejsce, a wstępną wycenę odeślę w 24h.</p>
 
       <h2>Bonus: jak zorganizować sesję zespołową?</h2>
@@ -481,14 +481,14 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "ile-kosztuje-sesja-wizerunkowa-dla-firmy",
     faq: [
-      { q: "Od jakiej kwoty zaczyna się sesja wizerunkowa dla firmy?", a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a sesja zespołowa od 1 400 zł netto za dwie osoby i 120 zł za każdą kolejną. W kwocie startowej jest sesja w studiu w Poznaniu albo dojazd z mobilnym studiem do Twojego biura. Wyżej wchodzą pakiety z dłuższą sesją i większym wyborem kadrów. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek." },
+      { q: "Od czego zależy cena sesji wizerunkowej dla firmy?", a: "Portret jednej osoby i sesja zespołowa liczą się inaczej: przy zespole płacisz za liczbę osób, a nie za długość jednej sesji. W podstawowym zakresie jest sesja w studiu w Poznaniu albo dojazd z mobilnym studiem do Twojego biura. Wyżej wchodzą pakiety z dłuższą sesją i większym wyborem kadrów. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek." },
       { q: "Co wpływa na cenę sesji wizerunkowej?", a: "Sześć policzalnych czynników: liczba osób, liczba finalnych ujęć z autorskim retuszem, lokalizacja i dojazd (na terenie Poznania wliczony), sceneria i przygotowanie planu, zakres licencji na wykorzystanie zdjęć oraz ewentualny tryb ekspresowy, gdy materiał jest potrzebny szybciej niż standardowo." },
       { q: "Ile czasu trwa portret jednej osoby przy sesji zespołowej?", a: "Realnie 5-15 minut na dobry portret jednej osoby, wliczając ustawienie i kilka prób. Właśnie dlatego liczba osób to główny czynnik wyceny przy sesjach zespołowych: czas pracy rośnie wraz z wielkością grupy." },
-      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a sesja zespołowa od 1 400 zł netto za dwie osoby. Cennika w formie tabeli nie ma, bo cena zależy od liczby osób, liczby ujęć i tego, gdzie zdjęcia będą używane. Opisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24 godziny." },
+      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Cennika w formie tabeli nie ma, bo cena zależy od liczby osób, liczby ujęć i tego, gdzie zdjęcia będą używane. Opisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24 godziny." },
     ],
     title: "Ile kosztuje sesja wizerunkowa dla firmy: co realnie wpływa na cenę",
     excerpt:
-      "Cena sesji wizerunkowej dla jednej osoby zaczyna się od 700 zł netto. Tłumaczę, za co realnie płacisz i jak zaplanować budżet sesji.",
+      "Co realnie wpływa na cenę sesji wizerunkowej dla firmy. Tłumaczę, za co płacisz i jak zaplanować budżet sesji.",
     category: "poradnik",
     date: "2026-03-10",
     updated: "2026-07-29",
@@ -498,7 +498,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">„Ile kosztuje sesja wizerunkowa?" to pytanie, które dostaję najczęściej. Uczciwa odpowiedź brzmi: to zależy, ale od konkretnych, policzalnych rzeczy. Poniżej tłumaczę, co realnie wpływa na cenę <a href="/uslugi/wizerunek-portrety">sesji wizerunkowej dla firmy</a>, żebyś wiedział, za co płacisz i jak zaplanować budżet.</p>
 
       <h2>Od czego zaczyna się wycena</h2>
-      <p>Ceny portretów dla jednej osoby zaczynają się od <strong>700 zł</strong> netto. Wyżej wchodzą pakiety z dłuższą sesją, większą liczbą stylizacji i szerszym wyborem kadrów do retuszu. <a href="/uslugi/wizerunek-portrety">Sesja zespołowa</a> liczona jest inaczej: 1 400 zł netto za dwie osoby i 120 zł za każdą kolejną, więc tych kwot nie porównuj wprost. Im więcej elementów dochodzi, tym wyżej idzie wycena. Zawsze jednak ustalamy ją z góry, przed sesją, bez niespodzianek.</p>
+      <p>Portret jednej osoby ma swój punkt wyjścia, a wyżej wchodzą pakiety z dłuższą sesją, większą liczbą stylizacji i szerszym wyborem kadrów do retuszu. <a href="/uslugi/wizerunek-portrety">Sesja zespołowa</a> liczona jest zupełnie inaczej, bo płacisz za liczbę osób, a nie za długość jednej sesji, więc obu stawek nie porównuj wprost. Im więcej elementów dochodzi, tym wyżej idzie wycena. Zawsze jednak ustalamy ją z góry, przed sesją, bez niespodzianek.</p>
 
       <h2>1. Liczba osób</h2>
       <p>Sesja jednej osoby to inny nakład pracy niż <a href="/uslugi/wizerunek-portrety">sesja całego zespołu</a>. Przy większej grupie liczy się czas na osobę: realnie 5–15 minut na dobry portret, wliczając ustawienie i kilka prób. To główny czynnik przy zespołach.</p>
@@ -519,7 +519,7 @@ export const blogPosts: BlogPost[] = [
       <p>Standardowo gotowe zdjęcia dostajesz w ustalonym terminie. Jeśli materiał jest potrzebny „na wczoraj", możliwy jest tryb przyśpieszony. To dodatkowa opcja, a nie ukryty koszt.</p>
 
       <h2>Cennik: jak dostać konkretną kwotę</h2>
-      <p>Punkt wyjścia jest jeden: <a href="/uslugi/wizerunek-portrety">portret biznesowy</a> zaczyna się od 700 zł netto. Dalej wszystko zależy od tego, ile osób fotografujemy, ile ujęć ma zostać po selekcji i gdzie zdjęcia będą używane. Dlatego zamiast tabeli, która i tak rzadko trafia w konkretny przypadek, wolę policzyć to raz, a dobrze. <a href="/kontakt">Napisz w kilku zdaniach, czego potrzebujesz</a>, a wstępną wycenę z rozpisanymi pozycjami odeślę mailem w 24 godziny. Bez umawiania rozmowy na start, jeśli tak Ci wygodniej.</p>
+      <p>Przy <a href="/uslugi/wizerunek-portrety">portrecie biznesowym</a> wszystko zależy od tego, ile osób fotografujemy, ile ujęć ma zostać po selekcji i gdzie zdjęcia będą używane. Dlatego zamiast tabeli, która i tak rzadko trafia w konkretny przypadek, wolę policzyć to raz, a dobrze. <a href="/kontakt">Napisz w kilku zdaniach, czego potrzebujesz</a>, a wstępną wycenę z rozpisanymi pozycjami odeślę mailem w 24 godziny. Bez umawiania rozmowy na start, jeśli tak Ci wygodniej.</p>
 
       <h2>Jak zaplanować budżet</h2>
       <p>Zamiast zgadywać, opisz zakres: liczbę osób, miejsce i to, gdzie zdjęcia będą używane. Wstępną wycenę odeślę w 24h.</p>
@@ -528,7 +528,7 @@ export const blogPosts: BlogPost[] = [
     seo: {
       title: "Ile kosztuje sesja wizerunkowa dla firmy | Szabunia",
       description:
-        "Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja, licencja. Ceny od 700 zł netto, wycena mailem w 24 godziny.",
+        "Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja i licencja. Wstępna wycena mailem w 24 godziny, bez rozmowy na start.",
     },
   },
   {
@@ -603,7 +603,7 @@ export const blogPosts: BlogPost[] = [
       <p>Gotowe pliki dostajesz w 14 dni kalendarzowych. Jeśli gonisz z premierą, jest tryb ekspresowy do 48 godzin za dopłatą 50 procent wartości zlecenia. W cenie masz dwie tury poprawek, realizowane w ciągu 7 dni od zgłoszenia, i nie liczę wtedy terminu podstawowego od nowa. Tura poprawek to korekta w obrębie wybranego materiału. Jeśli po rozpoczęciu retuszu chcesz zmienić wybór kadrów, wyceniam to osobno i zawsze uprzedzam wcześniej.</p>
 
       <h2>Co wpływa na wycenę</h2>
-      <p>Sesje produktowe zaczynają się od 600 zł netto i tyle wynosi też minimalna wartość zamówienia. Na końcową kwotę pracują trzy rzeczy:</p>
+      <p>Sesje produktowe mają minimalną wartość zamówienia, poniżej której nie schodzę, bo pojedyncze ujęcie kosztuje tyle samo przygotowania co seria. Na końcową kwotę pracują trzy rzeczy:</p>
       <ul>
         <li><strong>liczba produktów</strong> (większe zamówienia rozliczam progresywnie, więc stawka za sztukę spada wraz z wielkością partii),</li>
         <li><strong>rodzaj ujęć</strong> (packshot na białym tle albo zdjęcia kreatywne z aranżacją),</li>
@@ -686,7 +686,7 @@ export const blogPosts: BlogPost[] = [
       <p>Jeden film raz w roku rzadko buduje obecność. Przy stałych potrzebach contentowych sprawdza się ustalenie wolumenu na rok z góry: firma deklaruje, ile realizacji planuje, a ja rezerwuję terminy i trzymam dzisiejsze ceny na całość. Każdą realizację rozliczamy osobno, więc nie płacicie za materiał, którego nie zamówiliście, a ja mogę planować ujęcia z wyprzedzeniem, zamiast reagować na zgłoszenia z tygodnia na tydzień.</p>
 
       <h2>Ile kosztuje wideo dla firmy</h2>
-      <p>Produkcja wideo zaczyna się od 400 zł netto. Na wycenę pracują dwie rzeczy: czas nagrania oraz długość i złożoność finalnego materiału, od krótkiego teasera po kilkuminutowy film. Krótko mówiąc, minuta gotowego materiału to nie minuta pracy, tylko kilka godzin zdjęciowych i montażowych, i to widać w wycenie.</p>
+      <p>Na wycenę produkcji wideo pracują dwie rzeczy: czas nagrania oraz długość i złożoność finalnego materiału, od krótkiego teasera po kilkuminutowy film. Krótko mówiąc, minuta gotowego materiału to nie minuta pracy, tylko kilka godzin zdjęciowych i montażowych, i to widać w wycenie.</p>
       <p>Opisz w kilku zdaniach, co chcesz nagrać i gdzie to trafi. Wstępną wycenę odsyłam w 24h.</p>
 
       <h2>Terminy i poprawki</h2>
@@ -1006,7 +1006,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">Zamawiasz zdjęcia dla firmy i nagle z oferty wyskakują słowa: packshot, lifestyle, poseboard, live editing. Branża fotograficzna lubi swój żargon, ale Ty nie musisz go znać, żeby dobrze zamówić. Oto słownik pojęć, które najczęściej padają w rozmowach z klientami, wyjaśniony prostym językiem.</p>
 
       <h2>Packshot</h2>
-      <p>Zdjęcie produktu na jednolitym, najczęściej białym tle. Czyste, powtarzalne, bez rozpraszaczy: sam produkt, idealnie oświetlony. To podstawa karty produktu w sklepie internetowym i standard wymagany przez większość marketplace'ów. Packshot odpowiada na pytanie „jak dokładnie wygląda ta rzecz". W mojej ofercie znajdziesz go w <a href="/uslugi/fotografia-produktowa">fotografii produktowej</a>, od 55 zł za sztukę przy większych seriach.</p>
+      <p>Zdjęcie produktu na jednolitym, najczęściej białym tle. Czyste, powtarzalne, bez rozpraszaczy: sam produkt, idealnie oświetlony. To podstawa karty produktu w sklepie internetowym i standard wymagany przez większość marketplace'ów. Packshot odpowiada na pytanie „jak dokładnie wygląda ta rzecz". W mojej ofercie znajdziesz go w <a href="/uslugi/fotografia-produktowa">fotografii produktowej</a>, a przy większych seriach koszt pojedynczego ujęcia wyraźnie spada.</p>
 
       <h2>Zdjęcie lifestyle</h2>
       <p>Przeciwieństwo packshota: produkt pokazany w użyciu, w realnej scenerii. Kubek na stole przy porannej kawie, kosmetyk w dłoni, butelka na evencie. Lifestyle buduje emocje i kontekst, packshot podaje fakty. Dobry sklep potrzebuje obu, o czym piszę więcej w tekście o <a href="/blog/fotografia-produktowa-ecommerce">fotografii produktowej dla e-commerce</a>.</p>
@@ -1108,14 +1108,14 @@ export const blogPosts: BlogPost[] = [
       <p>W standardowych lokalizacjach latam bez dopłat, a w strefach kontrolowanych koordynację lotniczą biorę na siebie, bez ukrytych kosztów. Dla Ciebie oznacza to jedno: strona formalna nie jest Twoim problemem.</p>
 
       <h2>Ile to kosztuje</h2>
-      <p><a href="/uslugi/nieruchomosci-przemysl">Zdjęcia i wideo z drona</a> zaczynają się od <strong>900 zł</strong> netto. Dalej decyduje przede wszystkim to, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy, zmontowany film. Komplet z jednej sesji wychodzi taniej niż te same usługi zamawiane osobno, bo płacisz za jeden dojazd i jedno wejście w powietrze. Co jeszcze wpływa na cenę, rozkładam we wpisie <a href="/blog/ile-kosztuje-film-z-drona">ile kosztuje film z drona</a>. Opisz obiekt i lokalizację, a wycenę odeślę w 24h.</p>
+      <p>O cenie <a href="/uslugi/nieruchomosci-przemysl">zdjęć i wideo z drona</a> decyduje przede wszystkim to, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy, zmontowany film. Komplet z jednej sesji wychodzi taniej niż te same usługi zamawiane osobno, bo płacisz za jeden dojazd i jedno wejście w powietrze. Co jeszcze wpływa na cenę, rozkładam we wpisie <a href="/blog/ile-kosztuje-film-z-drona">ile kosztuje film z drona</a>. Opisz obiekt i lokalizację, a wycenę odeślę w 24h.</p>
 
       <h2>Dron jako dodatek, nie tylko osobna usługa</h2>
       <p>Materiał z drona świetnie łączy się z sesją naziemną. Na <a href="/uslugi/eventy-reportaze">evencie</a> kilka ujęć z góry pokazuje skalę wydarzenia, a w filmie firmowym otwierają one całość i nadają jej rozmach. Z jednej sesji powstaje wtedy spójny komplet zdjęć i wideo, bez logistyki dwóch ekip.</p>
 
       <h2>Podsumowanie</h2>
       <p>Zdjęcia i film z drona to dla firmy narzędzie, które sprzedaje skalę i kontekst, a przy okazji wyróżnia materiał na tle konkurencji. Najważniejsze: ustal cel (zdjęcia, gotowy film czy przebitki), a resztę, łącznie z formalnościami, zostaw operatorowi. Bazę mam w Poznaniu, a loty realizuję w całej Polsce: w Poznaniu bez kosztów dojazdu, poza miastem dochodzi dojazd 2,50 zł netto/km liczony od granic miasta.</p>
-      <p>Zobacz <a href="/galeria?kat=dron">przykładowe kadry z drona</a> albo od razu <a href="/uslugi/nieruchomosci-przemysl">zapytaj o wycenę</a> swojego obiektu.</p>
+      <p>Zobacz <a href="/galeria?kat=dron">przykładowe kadry z drona</a> albo od razu <a href="/kontakt">zapytaj o wycenę</a> swojego obiektu.</p>
     `,
     seo: {
       title: "Zdjęcia i film z drona dla firm: koszt | Szabunia",
@@ -1299,7 +1299,7 @@ export const blogPosts: BlogPost[] = [
     faq: [
       { q: "Po co deweloperowi zdjęcia z drona?", a: "Ujęcia z drona pokazują to, czego nie widać z chodnika: skalę osiedla, położenie względem miasta, dojazd, zieleń wokół i widok z górnych pięter. Służą do dokumentacji postępu budowy, materiałów sprzedażowych oraz budowania zaufania, gdy realne ujęcie stoi obok wizualizacji." },
       { q: "Czy loty dronem nad inwestycją są legalne?", a: "Tak, pod warunkiem uprawnień: loty odbywają się zgodnie z przepisami EASA, z numerem operatora i uprawnieniami w kategorii otwartej (A1/A3), a w strefach kontrolowanych po wymaganych zgłoszeniach i zgodach. Koordynację lotniczą biorę na siebie. Dostęp do terenu budowy i zasady bezpieczeństwa ustalane są wcześniej." },
-      { q: "Ile kosztują zdjęcia z drona dla dewelopera?", a: "Zdjęcia i wideo z drona zaczynają się od 900 zł netto. Na wycenę pracuje przede wszystkim to, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy film, a do tego zakres lotu, lokalizacja i strefa powietrzna. Komplet zdjęć i filmu z jednej sesji wychodzi taniej niż zamawianie tych usług osobno. Opisz inwestycję w kilku zdaniach, a wycenę odeślę w 24h." },
+      { q: "Od czego zależy cena zdjęć z drona dla dewelopera?", a: "Na wycenę pracuje przede wszystkim to, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy film, a do tego zakres lotu, lokalizacja i strefa powietrzna. Komplet zdjęć i filmu z jednej sesji wychodzi taniej niż zamawianie tych usług osobno. Opisz inwestycję w kilku zdaniach, a wycenę odeślę w 24h." },
     ],
     title: "Zdjęcia z drona dla deweloperów i nieruchomości: jak pokazać inwestycję z lotu ptaka",
     excerpt:
@@ -1335,7 +1335,7 @@ export const blogPosts: BlogPost[] = [
       <p>Loty nad inwestycją to nie tylko kwestia sprzętu. Latam zgodnie z przepisami EASA, mam numer operatora i uprawnienia w kategorii otwartej (A1/A3), a przy strefach kontrolowanych wymagane zgłoszenia i zgody lotnicze biorę na siebie. Nad terenem budowy ustalamy wcześniej dostęp i zasady bezpieczeństwa. Dla Ciebie to oznacza materiał zrobiony legalnie, bez ryzyka i formalnych przestojów.</p>
 
       <h2>Ile to kosztuje</h2>
-      <p>Cena zależy przede wszystkim od tego, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy, zmontowany film. <a href="/uslugi/nieruchomosci-przemysl">Zdjęcia i wideo z drona</a> zaczynają się od 900 zł netto. Komplet zdjęć i filmu albo zdjęć i przebitek z jednej sesji wychodzi taniej niż zamawianie tego osobno, bo płacisz za jeden dojazd i jedno wejście w powietrze. Pracuję z bazą w Poznaniu i realizuję zlecenia w całej Polsce, w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr od granic miasta. Dokładną wycenę odeślę po krótkim opisie inwestycji.</p>
+      <p>Cena zależy przede wszystkim od tego, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy, zmontowany film. Komplet zdjęć i filmu albo zdjęć i przebitek z jednej sesji wychodzi taniej niż zamawianie tego osobno, bo płacisz za jeden dojazd i jedno wejście w powietrze. Pracuję z bazą w Poznaniu i realizuję zlecenia w całej Polsce, w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr od granic miasta. Dokładną wycenę odeślę po krótkim opisie inwestycji.</p>
 
       <h2>Podsumowanie</h2>
       <p>Dla dewelopera zdjęcia i film z drona to nie ozdoba, tylko argument sprzedażowy. Pokazują lokalizację, skalę i postęp inwestycji tak, jak nie zrobi tego żadne ujęcie z ziemi. Najwięcej zyskujesz, biorąc z jednego lotu komplet foto i wideo gotowy do kampanii.</p>
@@ -1350,13 +1350,13 @@ export const blogPosts: BlogPost[] = [
   {
     slug: "ile-kosztuje-film-z-drona",
     faq: [
-      { q: "Ile kosztuje film z drona dla firmy?", a: "Zdjęcia i wideo z drona zaczynają się od 900 zł netto. Najwięcej zmienia to, co ma powstać: surowe przebitki 4K do własnego montażu są najtańsze, wyretuszowane zdjęcia droższe, a gotowy, zmontowany film z muzyką i kolorystyką najdroższy. Komplet z jednej sesji kosztuje mniej niż te same usługi zamawiane osobno. Konkretną kwotę dla Twojego obiektu odeślę po krótkim opisie zlecenia." },
+      { q: "Ile kosztuje film z drona dla firmy?", a: "Najwięcej zmienia to, co ma powstać: surowe przebitki 4K do własnego montażu są najtańsze, wyretuszowane zdjęcia droższe, a gotowy, zmontowany film z muzyką i kolorystyką najdroższy. Komplet z jednej sesji kosztuje mniej niż te same usługi zamawiane osobno. Konkretną kwotę dla Twojego obiektu odeślę po krótkim opisie zlecenia." },
       { q: "Od czego zależy cena filmu z drona?", a: "Głównie od tego, co ma powstać: same zdjęcia, gotowy zmontowany film czy surowe przebitki 4K. Na cenę wpływają też zakres lotu, lokalizacja i dojazd, strefa powietrzna oraz postprodukcja. Gotowy film z muzyką i kolorystyką kosztuje więcej niż surowe ujęcia." },
       { q: "Czy komplet zdjęć i filmu z jednego lotu się opłaca?", a: "Tak. Skoro dron i tak jest na miejscu, zdjęcia plus przebitki albo zdjęcia plus film z tej samej sesji kosztują mniej niż te same usługi zamawiane osobno, bo płacisz za jeden dojazd, jedno przygotowanie i jedną sesję w powietrzu." },
     ],
     title: "Ile kosztuje film z drona dla firmy i od czego zależy cena",
     excerpt:
-      "Ile kosztuje film z drona dla firmy i od czego zależy cena. Warianty, komplety z jednej sesji, strefy kontrolowane i kwota, od której zaczynamy.",
+      "Ile kosztuje film z drona dla firmy i od czego zależy cena. Warianty materiału, komplety z jednej sesji, strefy kontrolowane i sposób, w jaki liczę wycenę.",
     category: "poradnik",
     date: "2026-06-28",
     updated: "2026-07-29",
@@ -1391,8 +1391,8 @@ export const blogPosts: BlogPost[] = [
       <h2>Komplet z jednej sesji wychodzi taniej</h2>
       <p>Skoro dron i tak jest na miejscu, najwięcej zyskujesz, biorąc komplet. Zdjęcia plus przebitki albo zdjęcia plus film z tej samej sesji kosztują mniej niż te same usługi osobno, bo płacisz za jeden dojazd, jedno przygotowanie i jedną sesję w powietrzu.</p>
 
-      <h2>Od jakiej kwoty zaczynamy</h2>
-      <p><a href="/uslugi/nieruchomosci-przemysl">Zdjęcia i wideo z drona</a> zaczynają się od <strong>900 zł</strong> netto. Od tego punktu cena rośnie w przewidywalnej kolejności: najtańsze są surowe przebitki 4K do własnego montażu, wyżej stoją wyretuszowane zdjęcia, a najdrożej wychodzi gotowy, zmontowany film. Komplety z jednej sesji plasują się poniżej sumy tych samych usług zamawianych osobno.</p>
+      <h2>Jak dostać konkretną kwotę</h2>
+      <p>Przy <a href="/uslugi/nieruchomosci-przemysl">zdjęciach i wideo z drona</a> cena rośnie w przewidywalnej kolejności: najtańsze są surowe przebitki 4K do własnego montażu, wyżej stoją wyretuszowane zdjęcia, a najdrożej wychodzi gotowy, zmontowany film. Komplety z jednej sesji plasują się poniżej sumy tych samych usług zamawianych osobno.</p>
       <p>Cennika pozycja po pozycji nie publikuję, bo dwa obiekty tej samej wielkości potrafią się różnić strefą powietrzną i dojazdem, a tabela i tak nie trafiłaby w Twój przypadek. Opisz obiekt, lokalizację i to, do czego materiał ma służyć, a konkretną kwotę odeślę mailem w 24h.</p>
 
       <h2>Podsumowanie</h2>
@@ -1402,7 +1402,7 @@ export const blogPosts: BlogPost[] = [
     seo: {
       title: "Ile kosztuje film z drona dla firmy | Szabunia",
       description:
-        "Ile kosztuje film z drona i od czego zależy cena: warianty, strefy kontrolowane, komplet z jednej sesji. Od 900 zł netto. Poznań.",
+        "Ile kosztuje film z drona i od czego zależy cena: warianty materiału, strefy kontrolowane, komplet z jednej sesji. Wycena mailem w 24h. Poznań.",
     },
   },
   {
@@ -1631,7 +1631,7 @@ export const blogPosts: BlogPost[] = [
     slug: "ile-kosztuje-film-promocyjny",
     faq: [
       { q: "Od czego zależy cena filmu promocyjnego?", a: "Od czterech czynników: długości i typu materiału (teaser, reels, recap z eventu czy dłuższy film to różne nakłady montażu), czasu nagrań na planie, złożoności realizacji (liczba lokalizacji, scenariusz, napisy, grafika) oraz dodatków, takich jak ujęcia z drona, lektor, licencjonowana muzyka czy wersje językowe." },
-      { q: "Jak liczona jest cena filmu promocyjnego?", a: "Cena składa się z dwóch przejrzystych części: pracy operatora na planie, liczonej za godziny spędzone na miejscu, oraz pakietu montażowego, czyli obróbki nagranego materiału. Dzięki temu płacisz za realny zakres, a nie za sztywny pakiet, którego nie wykorzystasz. Produkcja wideo zaczyna się od 400 zł netto." },
+      { q: "Jak liczona jest cena filmu promocyjnego?", a: "Cena składa się z dwóch przejrzystych części: pracy operatora na planie, liczonej za godziny spędzone na miejscu, oraz pakietu montażowego, czyli obróbki nagranego materiału. Dzięki temu płacisz za realny zakres, a nie za sztywny pakiet, którego nie wykorzystasz. Opisz, co ma powstać, a wstępną wycenę odeślę w 24h." },
       { q: "Ile kosztuje montaż filmu dla firmy?", a: "Montaż wyceniam pakietami dobranymi do formatu: od krótkiego teasera do 15 sekund, przez montaż wywiadu i reels, po recap z eventu, film promocyjny i dłuższy materiał o firmie. Im dłuższy i bardziej złożony materiał, tym wyższy pakiet. Pakiet montażowy obejmuje samą postprodukcję: jeśli materiał nagrywam ja, dochodzi praca operatora na planie. Napisz, co chcesz zmontować, a wycenę odeślę w 24h." },
     ],
     title: "Ile kosztuje film promocyjny dla firmy i od czego zależy cena",
@@ -1654,7 +1654,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Jak liczę: praca operatora plus montaż</h2>
-      <p>Cenę składam z dwóch części, żeby była przejrzysta. Pierwsza to praca operatora na planie, liczona za godziny spędzone na miejscu, ze stawką za pierwszą godzinę wyższą niż za każdą kolejną. Druga to pakiet montażowy, czyli obróbka gotowego materiału. Dzięki temu płacisz za realny zakres, a nie za sztywny pakiet, którego nie wykorzystasz. <a href="/uslugi/wizerunek-portrety">Produkcja wideo</a> zaczyna się od 400 zł netto. Bazuję w Poznaniu: na terenie miasta dojazd jest bezpłatny, a poza Poznaniem doliczam 2,50 zł netto za kilometr, licząc od granic miasta w obie strony.</p>
+      <p>Cenę składam z dwóch części, żeby była przejrzysta. Pierwsza to praca operatora na planie, liczona za godziny spędzone na miejscu, ze stawką za pierwszą godzinę wyższą niż za każdą kolejną. Druga to pakiet montażowy, czyli obróbka gotowego materiału. Dzięki temu płacisz za realny zakres, a nie za sztywny pakiet, którego nie wykorzystasz. Wstępną wycenę <a href="/uslugi/wizerunek-portrety">produkcji wideo</a> odsyłam w 24h. Bazuję w Poznaniu: na terenie miasta dojazd jest bezpłatny, a poza Poznaniem doliczam 2,50 zł netto za kilometr, licząc od granic miasta w obie strony.</p>
 
       <h2>Formaty montażu</h2>
       <p>Pakiet montażowy dobierasz pod cel, a kolejne pozycje rosną razem z długością i złożonością materiału:</p>
@@ -1678,7 +1678,7 @@ export const blogPosts: BlogPost[] = [
     seo: {
       title: "Ile kosztuje film promocyjny dla firmy | Szabunia",
       description:
-        "Ile kosztuje film promocyjny i od czego zależy cena: praca operatora i pakiety montażowe (teaser, reels, recap, promo). Od 400 zł netto, Poznań.",
+        "Ile kosztuje film promocyjny i od czego zależy cena: praca operatora i pakiety montażowe (teaser, reels, recap, promo). Wycena w 24h, Poznań.",
     },
   },
 ];

@@ -230,8 +230,18 @@ export default async function BlogPostPage({ params }: PageProps) {
           {/* Powiązana usługa */}
           {relatedService && (
             <AnimatedSection className="mt-10">
+              {/* `data-cta` DODANE 14.08.2026. Wcześniej ta karta nie miała żadnego,
+                  więc przejście blog → usługa było niemierzone na 26 wpisach, czyli
+                  na najliczniejszej powierzchni w serwisie. To NOWA nazwa, nie zmiana
+                  istniejącej, więc nie zrywa ciągłości żadnej serii w GA4 (ten sam
+                  precedens co `wycena_home_portfolio`).
+
+                  Nazwa świadomie NIE zaczyna się od `wycena_`: ta karta nie prowadzi
+                  do formularza, tylko na stronę opisową usługi. Wrzucenie jej do serii
+                  `wycena_*` zafałszowałoby liczbę wejść do lejka wyceny. */}
               <Link
                 href={`/uslugi/${relatedService.slug}`}
+                data-cta="usluga_blog_polecana"
                 className="group block rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card p-5 md:p-6 hover:border-blue dark:hover:border-blue transition-all"
               >
                 <p className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-blue dark:text-blue-light mb-1">
@@ -243,8 +253,13 @@ export default async function BlogPostPage({ params }: PageProps) {
                 <p className="text-[13px] text-steel dark:text-dark-text-muted leading-relaxed mb-3">
                   {relatedService.subtitle}
                 </p>
+                {/* „Poznaj usługę", nie „Zobacz ofertę" (14.08.2026). Po depricingu
+                    słowo „oferta" jest mniej precyzyjne i może sugerować publiczny
+                    cennik, którego strona nie ma. Ta sama etykieta co przy przejściu
+                    case study → usługa (`usluga_z_case`), więc obie ścieżki do strony
+                    opisowej mówią tak samo. */}
                 <span className="inline-flex items-center gap-2 text-blue dark:text-blue-light font-barlow font-semibold text-sm">
-                  Zobacz ofertę · {relatedService.price}
+                  Poznaj usługę
                   <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
@@ -282,7 +297,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 data-cta="wycena_blog_wpis"
                 className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
               >
-                Zapytaj o ofertę <span className="text-white/80">→</span>
+                Sprawdź termin i cenę <span className="text-white/80">→</span>
               </Link>
             </div>
           </AnimatedSection>

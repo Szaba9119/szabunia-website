@@ -29,7 +29,7 @@ export interface HomeFaqItem {
 export const homeFaqs: HomeFaqItem[] = [
   {
     q: "Ile kosztuje sesja?",
-    a: "Ceny portretów dla jednej osoby zaczynają się od 700 zł netto, a sesja zespołowa od 1 400 zł netto za dwie osoby i 120 zł za każdą kolejną: przy grupie płacisz za liczbę osób, a nie za długość jednej sesji. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24h. Cena zależy od liczby osób, lokalizacji i zakresu postprodukcji. Zawsze wyceniam indywidualnie, żeby nie przepłacać za to, czego nie potrzebujesz.",
+    a: "Cena zależy od liczby osób, lokalizacji, czasu na miejscu i zakresu postprodukcji. Przy grupie płacisz za liczbę osób, a nie za długość jednej sesji, więc sesja zespołowa liczy się inaczej niż portret jednej osoby. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24h.",
   },
   {
     q: "Jak szybko otrzymam gotowe materiały?",

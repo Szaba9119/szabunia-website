@@ -91,24 +91,19 @@ export default function Services() {
               );
             })}
           </div>
-          {/* DOPRECYZOWANIE KWOT, 10.08.2026 (decyzja Marcina, przegląd strony głównej).
-              Problem, który to zdanie zamyka: kafelek eventów mówi „Zdjęcia, film
-              i dron z jednego dnia", a pod spodem stoi „od 600 zł netto". Czytane
-              razem sugerowało cały dzień z fotografem, filmem i dronem za 600 zł.
+          {/* ⛔ ZDANIE „Kwoty startowe. Zakres i cena ustalane indywidualnie."
+              USUNIĘTE 14.08.2026 (depricing).
 
-              Świadomie JEDNA linijka pod całą siatką, a nie dopisek przy każdej
-              z czterech cen: dotyczy wszystkich usług tak samo, a cztery powtórzenia
-              zrobiłyby z tego szum.
+              Powstało 10.08.2026, żeby zamknąć realny problem: kafelek eventów
+              mówił „Zdjęcia, film i dron z jednego dnia", a pod spodem stała
+              kwota startowa, więc czytane razem sugerowały cały dzień z filmem
+              i dronem za tę kwotę. Słowo „startowe" było wtedy nośnikiem
+              informacji, nie ozdobą.
 
-              Słowo „startowe" jest tu nośnikiem informacji, nie ozdobą. Zdanie
-              o indywidualnej wycenie stoi już niżej, przy CTA, ale mówi tylko
-              JAK wyceniam, a nie CZYM jest kwota na kafelku.
-
-              To zdanie przejęło też rolę słowa „pakiety", które do dziś stało
-              przy cenie nieruchomości (`services.tsx`, `heroPriceLabel`). */}
-          <p className="mt-6 text-center text-[13px] text-steel dark:text-dark-text-muted">
-            Kwoty startowe. Zakres i cena ustalane indywidualnie.
-          </p>
+              Po zdjęciu kwot zdanie mówi nieprawdę (żadnych kwot na kafelkach
+              nie ma) i dubluje komunikat stojący kilkanaście linijek niżej
+              („Każdy projekt wyceniam indywidualnie... wstępna wycena w 24h"),
+              który mówi to samo i jest przy CTA. Nie przywracać bez kwot. */}
         </AnimatedSection>
 
         {/* Linijka o modelu wyceny „na zapytanie" + CTA do formularza
@@ -127,7 +122,7 @@ export default function Services() {
               data-cta="wycena_home_uslugi"
               className="mt-6 inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]"
             >
-              Zapytaj o ofertę
+              Sprawdź termin i cenę
               <span className="text-white/80">→</span>
             </a>
           </div>

@@ -61,16 +61,21 @@ export async function POST(req: Request) {
   const email = String(data.email ?? "").trim();
   const phone = String(data.phone ?? "").trim();
   const service = String(data.service ?? "").trim();
+  // Termin (14.08.2026). Pole wolnotekstowe i opcjonalne — patrz komentarz przy
+  // `timing` w CTA.tsx. Nie waliduje się go jako daty, bo „wrzesień" i „druga
+  // połowa Q4" są tu poprawnymi odpowiedziami.
+  const timing = String(data.timing ?? "").trim();
   const message = String(data.message ?? "").trim();
 
   // Twarde limity długości pól — chronią przed wielomegabajtowym payloadem
   // i nadużyciem maila jako przekaźnika treści (realne dane nigdy ich nie tkną).
-  const LIMITS = { name: 200, email: 320, phone: 50, service: 100, message: 5000 } as const;
+  const LIMITS = { name: 200, email: 320, phone: 50, service: 100, timing: 200, message: 5000 } as const;
   if (
     name.length > LIMITS.name ||
     email.length > LIMITS.email ||
     phone.length > LIMITS.phone ||
     service.length > LIMITS.service ||
+    timing.length > LIMITS.timing ||
     message.length > LIMITS.message
   ) {
     return NextResponse.json({ error: "Treść pola jest zbyt długa" }, { status: 400 });
@@ -159,6 +164,7 @@ export async function POST(req: Request) {
     <p><strong>E-mail:</strong> ${escapeHtml(email)}</p>
     <p><strong>Telefon:</strong> ${escapeHtml(phone) || "—"}</p>
     <p><strong>Usługa:</strong> ${escapeHtml(serviceLabel) || "—"}</p>
+    <p><strong>Przewidywany termin:</strong> ${escapeHtml(timing) || "—"}</p>
     <p><strong>Wiadomość:</strong><br>${escapeHtml(message).replace(/\n/g, "<br>") || "—"}</p>
     <p><strong>Zgoda RODO:</strong> TAK${consentTs ? `, ${escapeHtml(consentTs)}` : ""}${
       consentText ? `<br><em>${escapeHtml(consentText)}</em>` : ""
@@ -170,7 +176,7 @@ export async function POST(req: Request) {
   // Zapis do CRM PRZED wysyłką maila — best-effort. Wcześniej `pushToCrm`
   // stało w gałęzi sukcesu, więc awaria Resend kasowała leada z obu kanałów
   // naraz (audyt PELNY2907-14). CRM jest niezależną usługą i może go uratować.
-  void pushToCrm({ name, email, phone, service, message, source: "contact", consent: consentTs, ...utm }).catch(
+  void pushToCrm({ name, email, phone, service, timing, message, source: "contact", consent: consentTs, ...utm }).catch(
     (crmErr) => console.error("CRM webhook error:", crmErr)
   );
 

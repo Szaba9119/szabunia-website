@@ -13,6 +13,7 @@ import LogoBar from "@/components/LogoBar";
 import YouTubeFacade from "@/components/YouTubeFacade";
 import PortfolioProcess from "@/components/PortfolioProcess";
 import PortfolioFAQ from "@/components/PortfolioFAQ";
+import PricingExplainer from "@/components/PricingExplainer";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import MobileFAB from "@/components/MobileFAB";
@@ -98,9 +99,11 @@ export default async function ServicePage({ params }: PageProps) {
     .map((s) => getCategoryBySlug(s))
     .filter((c) => !!c);
 
-  // Cena startowa usługi (np. "od 1 000 zł") → liczba do JSON-LD Offer.
-  const priceMatch = service.price.match(/\d[\d\s]*\d|\d/);
-  const startingPrice = priceMatch ? priceMatch[0].replace(/\s/g, "") : undefined;
+  // ⛔ `priceMatch` / `startingPrice` USUNIĘTE 14.08.2026 (depricing).
+  // Wyciągały regexem pierwszą liczbę z `service.price` i zasilały `minPrice`
+  // w JSON-LD Offer. Po zdjęciu kwot `price` nie zawiera już żadnej liczby,
+  // a zostawienie Offer bez ceny deklarowałoby Google ofertę, której strona
+  // nie składa. Cały blok `offers` zszedł razem z nimi.
 
   // Okruszek bierze `shortTitle`, nie `title` (wariant C decyzji Marcina,
   // 10.08.2026, finding UXUI2608-03). `title` jest dziś pełną nazwą marketingową
@@ -124,23 +127,6 @@ export default async function ServicePage({ params }: PageProps) {
       description: service.seo.description,
       provider: { "@id": "https://szabunia.pl/#business" },
       areaServed: ["Poznań", "Polska", "Europa"],
-      ...(startingPrice && {
-        offers: {
-          "@type": "Offer",
-          // `price` deklaruje cenę dokładną, a strona podaje wyłącznie kotwice
-          // "od X zł" (model "cena na zapytanie"). PriceSpecification z minPrice
-          // opisuje to zgodnie z prawdą i nie generuje w Google ceny, której nie ma
-          // (audyt PELNY2907-10).
-          priceSpecification: {
-            "@type": "PriceSpecification",
-            priceCurrency: "PLN",
-            minPrice: startingPrice,
-            valueAddedTaxIncluded: false,
-          },
-          availability: "https://schema.org/InStock",
-          url: `https://szabunia.pl/uslugi/${service.slug}`,
-        },
-      }),
     },
     breadcrumbJsonLd(crumbs),
     {
@@ -292,7 +278,7 @@ export default async function ServicePage({ params }: PageProps) {
             data-cta="wycena_uslugi_zakres"
             className="inline-flex items-center gap-2 border border-blue dark:border-blue-light text-blue dark:text-blue-light px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:bg-blue-pale dark:hover:bg-blue/15 transition-colors"
           >
-            Zapytaj o ofertę
+            Sprawdź termin i cenę
             <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -359,7 +345,7 @@ export default async function ServicePage({ params }: PageProps) {
             data-cta="wycena_uslugi"
             className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
           >
-            Zapytaj o ofertę
+            Sprawdź termin i cenę
             <span className="text-white/80">→</span>
           </a>
           {/* Realizacje tej usługi (11.08.2026). Doklejone do istniejącego bloku
@@ -400,6 +386,14 @@ export default async function ServicePage({ params }: PageProps) {
             </div>
           )}
         </div>
+        {/* Blok „Jak powstaje wycena" (14.08.2026, depricing). Stoi TUŻ PRZED FAQ,
+            bo pierwszym pytaniem FAQ jest pytanie cenowe: klient dostaje najpierw
+            mechanizm i termin odpowiedzi, a zaraz potem czynniki właściwe dla tej
+            usługi. `showFactors={false}`, żeby ogólna piątka czynników nie stanęła
+            kilka ekranów nad bardziej szczegółowym `pricingBlurb` w FAQ. */}
+        <ErrorBoundary>
+          <PricingExplainer className="px-4 pt-2 pb-4 max-w-3xl mx-auto" showFactors={false} />
+        </ErrorBoundary>
         <ErrorBoundary>
           <PortfolioFAQ faqs={faqs} heading={service.h2Faq} />
         </ErrorBoundary>

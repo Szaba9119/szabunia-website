@@ -217,7 +217,7 @@ export default function Hero() {
                   data-cta="wycena_home_hero"
                   className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-8 py-4 rounded-xl font-barlow font-bold text-base btn-glow transition-transform hover:scale-[1.02]"
                 >
-                  Zapytaj o ofertę
+                  Sprawdź termin i cenę
                   <span className="text-white/80">→</span>
                 </a>
                 <a

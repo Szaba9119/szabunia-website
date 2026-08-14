@@ -103,10 +103,16 @@ export interface ServiceData {
   pricingBlurb: string;
   /** Pytanie cenowe w FAQ, np. "Ile kosztuje sesja portretowa?" (brief-22 zad. 4). */
   priceFaqQuestion: string;
-  /** Łącznik zdaniowy przed kwotą, np. "Sesje portretowe zaczynają się". */
-  priceFaqIntro: string;
-  /** Opcjonalny dalszy ciąg PIERWSZEGO zdania odpowiedzi, doklejany zaraz po "{price} netto" i przed kropką. */
-  priceFaqSuffix?: string;
+  // ⛔ `priceFaqIntro` i `priceFaqSuffix` USUNIĘTE 14.08.2026 (depricing).
+  //
+  // Oba pola istniały wyłącznie po to, żeby okleić kwotę zdaniem: intro było
+  // łącznikiem PRZED kwotą („Reportaże zaczynają się"), suffix dalszym ciągiem
+  // PO niej („, a sesja zespołowa od 1 400 zł netto za dwie osoby"). Po zdjęciu
+  // kwoty intro zostawiało zdanie urwane w pół, a suffix był ostatnim miejscem
+  // w `services.tsx`, gdzie kwota siedziała na twardo.
+  //
+  // Odpowiedź cenową niesie teraz `pricingBlurb` (czynniki wyceny) plus wspólne
+  // zamknięcie z obietnicą 24h. Nie przywracać bez przywrócenia kwot.
   /** Sekcja „Dla jakich wydarzeń / obiektów / produktów" plus „gdzie ten materiał
       potem trafia". Dodane 10.08.2026 razem z nową narracją podstron usług
       (pakiet 4): H1 → lead → ZASTOSOWANIA → zakres → jak pracujemy → portfolio
@@ -479,7 +485,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     // trafił, filtr `exclude` skróciłby pasek z sześciu kadrów na pięć, a wtedy
     // wyłącza się on całkowicie i hero wróciłoby w pasku drugi raz.
     heroImage: "/images/galeria/eventy/event-12-za-kierownica-auta.jpg",
-    price: "od 600 zł netto",
+    price: "wycena w 24h",
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
       { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
@@ -492,7 +498,6 @@ const serviceCategoriesRaw: ServiceData[] = [
     pricingBlurb:
       "Na wycenę wpływa liczba godzin obecności, to, czy dochodzi wideo i ujęcia z powietrza, oraz czy chcesz zdjęcia gotowe do publikacji jeszcze w trakcie wydarzenia. Przy dłuższych realizacjach przygotowuję korzystniejszą wycenę całościową.",
     priceFaqQuestion: "Ile kosztuje fotograf na event firmowy?",
-    priceFaqIntro: "Reportaże zaczynają się",
     // Kolejność ustawiona przez Marcina 10.08.2026: od obaw BIZNESOWYCH do
     // szczegółów technicznych. Pytanie cenowe wchodzi automatycznie jako
     // pierwsze (getPriceFaq w uslugi/[slug]/page.tsx), więc tu zaczyna się
@@ -750,10 +755,10 @@ const serviceCategoriesRaw: ServiceData[] = [
     // Próg wejściowy obniżony 04.08.2026 decyzją Marcina: PORTRET START 700 zł netto
     // (1 osoba, sesja do 30 min, w cenie studio zewnętrzne w Poznaniu ALBO dojazd
     // z mobilnym studiem do klienta). Kanon: cennik_2026_07_v3.md §1.
-    // UWAGA: to pole zasila też `minPrice` w JSON-LD (uslugi/[slug]/page.tsx wyciąga regexem
-    // pierwszą liczbę), więc dane strukturalne schodzą z 1100 na 700. Zamierzone i prawdziwe.
-    price: "od 700 zł netto",
-    heroPriceLabel: "od 700 zł netto",
+    // DEPRICING 14.08.2026: kwota zdjęta razem z pozostałymi trzema usługami.
+    // `minPrice` w JSON-LD zniknął przy tej samej zmianie, więc to pole nie zasila
+    // już danych strukturalnych.
+    price: "wycena w 24h",
     process: [
       // Proces przepisany 10.08.2026 pod scaloną usługę. Poprzedni opisywał
       // wyłącznie sesję JEDNEJ osoby (konsultacja, poseboard), a od scalenia
@@ -778,13 +783,6 @@ const serviceCategoriesRaw: ServiceData[] = [
     pricingBlurb:
       "Na wycenę wpływa liczba osób, długość sesji, liczba stylizacji i liczba zdjęć wybranych do retuszu. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu.",
     priceFaqQuestion: "Ile kosztuje sesja wizerunkowa dla firmy?",
-    priceFaqIntro: "Ceny portretów dla jednej osoby zaczynają się",
-    // Brzmienie z 04.08.2026, podyktowane przez Marcina: „ceny portretów dla jednej osoby
-    // startują od 700 zł netto, a dla zespołów od 120". NIE dopisuj „za pierwsze zdjęcie"
-    // ani „za jedno ujęcie" — obie formy zostały wprost odrzucone. Kwoty pakietów świadomie
-    // tu nie wchodzą: prośba Marcina, żeby nie kotwiczyć klienta stosem liczb w pierwszym
-    // zdaniu. Rozwinięcie jest niżej, w osobnym pytaniu FAQ.
-    priceFaqSuffix: ", a sesja zespołowa od 1 400 zł netto za dwie osoby",
     // Kolejność 10.08.2026 (pakiet 4, zatwierdzona przez Marcina): od obaw
     // logistycznych i o spójność, przez obiekcję „nie umiem pozować", po
     // warunki i technikalia. Pytanie cenowe wchodzi automatycznie jako pierwsze.
@@ -967,7 +965,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     // domyślnym wyśrodkowaniu: toast z czytelnym logo na kieliszkach, danie
     // i butelka mieszczą się w kadrze. Nie dorabiać tu wartości „dla pewności".
     heroImage: "/images/galeria/produktowe/produkt-01-toast-belvedere.jpg",
-    price: "od 600 zł netto",
+    price: "wycena w 24h",
     process: [
       { num: 1, title: "Rozmowa", desc: "Cel, platforma sprzedaży, wytyczne marki" },
       { num: 2, title: "Sesja", desc: "Fotografowanie w studiu z kontrolą światła" },
@@ -977,8 +975,6 @@ const serviceCategoriesRaw: ServiceData[] = [
     pricingBlurb:
       "Wycena zależy od liczby produktów, rodzaju ujęć (packshot na białym tle albo zdjęcia kreatywne z aranżacją) oraz pola eksploatacji: inaczej wyceniam zdjęcia na social media, inaczej do druku i outdooru. Większe zamówienia rozliczam progresywnie.",
     priceFaqQuestion: "Ile kosztuje packshot i sesja produktowa?",
-    priceFaqIntro: "Sesje produktowe zaczynają się",
-    priceFaqSuffix: " i tyle wynosi też minimalna wartość zamówienia",
     // Kolejność 10.08.2026 (pakiet 4): cena, potem retusz jako druga najmocniejsza
     // rzecz na tej stronie, dalej skala zlecenia, logistyka i technikalia.
     //
@@ -1154,18 +1150,12 @@ const serviceCategoriesRaw: ServiceData[] = [
     // Marcina 04.08.2026: rząd 1 hale, rząd 2 obiekt i strefy wspólne, rząd 3 lokale).
     // Przy przenumerowaniu folderu sprawdź tę ścieżkę, bo się rozjedzie po cichu.
     heroImage: "/images/galeria/wnetrza/wnetrze-03-hala-bramki-wejsciowe.jpg",
-    price: "od 900 zł netto",
-    // FORMAT UJEDNOLICONY 10.08.2026 (decyzja Marcina, przegląd strony głównej):
-    // było „pakiety od 900 zł netto", czyli jedyna z czterech usług z innym zapisem.
-    // Wszystkie cztery mówią teraz „od X zł netto". KWOTA BEZ ZMIAN.
-    //
-    // Słowo „pakiety" niosło tu sens, nie było ozdobą: sygnalizowało, że 900 zł
-    // kupuje OBIEKT PODSTAWOWY (do 8 ujęć z powietrza), a blok wnętrz to osobne
-    // 600 zł. Ta informacja nie ginie, bo pod siatką czterech kafelków stoi teraz
-    // zdanie „Kwoty startowe. Zakres i cena ustalane indywidualnie." (Services.tsx),
-    // które mówi to samo dla wszystkich usług naraz, zamiast dla jednej.
-    // Gdyby to zdanie kiedyś zniknęło, „pakiety" trzeba tu przywrócić.
-    heroPriceLabel: "od 900 zł netto",
+    // DEPRICING 14.08.2026. Historia, bo tłumaczy, czego tu już nie ma:
+    // do 10.08 pole mówiło „pakiety od 900 zł netto", a słowo „pakiety" niosło sens,
+    // nie ozdobę — sygnalizowało, że kwota kupuje OBIEKT PODSTAWOWY (do 8 ujęć
+    // z powietrza), a blok wnętrz jest osobną pozycją. Tę informację przejmuje dziś
+    // `pricingBlurb` i blok „Jak powstaje wycena", więc nie ginie razem z kwotą.
+    price: "wycena w 24h",
     process: [
       { num: 1, title: "Ustalenia", desc: "Co ma być widać: bryła, elewacja, wnętrza, kontekst lokalizacji" },
       { num: 2, title: "Zgody", desc: "Strefę lotu sprawdzam i koordynuję przed potwierdzeniem daty" },
@@ -1184,7 +1174,6 @@ const serviceCategoriesRaw: ServiceData[] = [
     pricingBlurb:
       "Wycena zależy od liczby ujęć i od tego, czy dochodzą kadry z poziomu ziemi oraz blok wnętrz. Drugi obiekt tego samego typu w tym samym dniu jest tańszy, bo profil korekcji perspektywy jest już gotowy. Przy obiektach w strefach kontrolowanych koordynację lotu biorę na siebie.",
     priceFaqQuestion: "Ile kosztuje sesja obiektu?",
-    priceFaqIntro: "Pakiety obiektowe zaczynają się",
     // Kolejność 10.08.2026 (pakiet 4, zatwierdzona przez Marcina): od zakresu
     // dostawy, przez wariant „tylko dron" i koszt drugiego obiektu, po zgody,
     // termin, wnętrza, pogodę i sprzęt. Pytanie cenowe wchodzi automatycznie
@@ -1203,7 +1192,11 @@ const serviceCategoriesRaw: ServiceData[] = [
       // Odpowiedź uproszczona przez Marcina 10.08.2026. Poprzednia zaczynała się
       // od porównania („tak samo jak sesja obiektu"), zamiast wprost odpowiedzieć
       // na zadane pytanie.
-      { q: "Potrzebuję tylko ujęć z powietrza, bez wnętrz. Ile to kosztuje?", a: "Tak, same ujęcia z powietrza zaczynają się od 900 zł netto. W podstawowym zakresie fotografuję bryłę obiektu, plac manewrowy i otoczenie. Kadry z poziomu ziemi, wnętrza i film można dołączyć do realizacji zależnie od potrzeb." },
+      // ⚠ KWOTA ZDJĘTA 14.08.2026 (depricing). To była ostatnia żywa kotwica
+      // cenowa w treści FAQ usług: hero mówiłby „wycena w 24h", a trzy ekrany
+      // niżej stałoby „od 900 zł netto". Odpowiedź zachowuje zakres, bo o niego
+      // pytanie realnie pyta.
+      { q: "Potrzebuję tylko ujęć z powietrza, bez wnętrz. Ile to kosztuje?", a: "Tak, same ujęcia z powietrza zamawia się bez bloku wnętrz i wychodzi taniej niż pełna sesja obiektu. W podstawowym zakresie fotografuję bryłę obiektu, plac manewrowy i otoczenie. Kadry z poziomu ziemi, wnętrza i film można dołączyć do realizacji zależnie od potrzeb. Wycenę odsyłam w 24h." },
       { q: "Mamy dwa takie same budynki. Płacę dwa razy?", a: "Nie. Drugi obiekt tego samego typu, fotografowany tego samego dnia, jest wyraźnie tańszy, bo profil korekcji perspektywy jest gotowy z pierwszego i postprodukcja idzie szybciej. Warunek to ten sam dzień zdjęciowy. Osobny wyjazd to pełna stawka plus dojazd." },
       { q: "Czy dron poleci nad naszą halą?", a: "W standardowych lokalizacjach tak, bez dopłat. Mam certyfikat operatora A1/A3 i ubezpieczenie OC. W strefach kontrolowanych, na przykład przy lotnisku albo jednostce wojskowej, koordynację biorę na siebie i sprawdzam ją przed potwierdzeniem daty. Zgoda bywa terminowa, więc warto zgłosić się z wyprzedzeniem." },
       { q: "Kiedy najlepiej fotografować obiekt?", a: "Tuż przed odbiorem albo zaraz po nim. Elewacja jest wtedy czysta, plac jeszcze niezastawiony, a w środku nie ma rzeczy najemcy. Przy budowie, którą chcesz dokumentować w czasie, umawiamy stały punkt i stałą porę." },
@@ -1312,19 +1305,24 @@ export function getServiceBySlug(slug: string): ServiceData | undefined {
 // w całym lejku — brief-22 §2). Jedna zmiana tutaj aktualizuje wszystkie 7 usług.
 const PRICE_FAQ_CLOSING = "Napisz w kilku zdaniach, czego potrzebujesz. Wstępną wycenę odsyłam w 24h.";
 
-// Pytanie cenowe budowane z danych usługi (price + pricingBlurb), nie
-// hardkodowane per usługa — zmiana ceny lub pricingBlurb aktualizuje FAQ
-// wszędzie naraz (brief-22 zad. 4).
+// Pytanie cenowe budowane z danych usługi, nie hardkodowane per usługa —
+// zmiana `pricingBlurb` aktualizuje FAQ wszędzie naraz (brief-22 zad. 4).
+//
+// ⚠ PRZEBUDOWANE 14.08.2026 (depricing). Wcześniej szablon brzmiał
+// `{priceFaqIntro} {price}{priceFaqSuffix}. {pricingBlurb} {zamknięcie}`,
+// czyli kwota była gramatycznym środkiem pierwszego zdania. Po zdjęciu kwoty
+// z `price` sama podmiana wartości dałaby „Reportaże zaczynają się wycena
+// w 24h." w widocznym FAQ ORAZ w JSON-LD typu FAQPage, czyli w danych, które
+// czyta Google. Dlatego generator przestał czytać `price`, a nie tylko dostał
+// inną kwotę.
+//
+// Odpowiedź niesie teraz to, co realnie odpowiada na pytanie „ile to kosztuje"
+// bez podawania liczby: od czego cena zależy (`pricingBlurb`) i kiedy klient
+// ją dostanie (`PRICE_FAQ_CLOSING`).
 export function getPriceFaq(service: ServiceData): FAQItem {
-  // Drugie miejsce z tym samym błędem co hero (analiza lejka 2026-08-02):
-  // pola `price` niosą już słowo „netto" od czasu wyrównania kotwic cenowych,
-  // a szablon doklejał je jeszcze raz. Efekt na produkcji: „Reportaże zaczynają
-  // się od 600 zł netto netto." w widocznym FAQ ORAZ w JSON-LD typu FAQPage,
-  // czyli w danych, które czyta Google. Doklejamy tylko, gdy słowa brakuje.
-  const cena = service.price.includes("netto") ? service.price : `${service.price} netto`;
   return {
     q: service.priceFaqQuestion,
-    a: `${service.priceFaqIntro} ${cena}${service.priceFaqSuffix ?? ""}. ${service.pricingBlurb} ${PRICE_FAQ_CLOSING}`,
+    a: `${service.pricingBlurb} ${PRICE_FAQ_CLOSING}`,
   };
 }
 

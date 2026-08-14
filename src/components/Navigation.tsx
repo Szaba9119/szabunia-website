@@ -214,7 +214,7 @@ export default function Navigation() {
             onClick={(e) => goToContact(e)}
             className="bg-gradient-to-br from-blue to-blue text-white px-5 py-2 rounded-full font-barlow font-semibold text-xs btn-glow whitespace-nowrap"
           >
-            Zapytaj o ofertę
+            Sprawdź termin i cenę
           </Link>
         </div>
 
@@ -331,7 +331,7 @@ export default function Navigation() {
             }}
             className="mt-5 block bg-gradient-to-br from-blue to-blue text-white px-5 py-3.5 rounded-xl font-barlow font-semibold text-[15px] text-center btn-glow"
           >
-            Zapytaj o ofertę
+            Sprawdź termin i cenę
           </Link>
         </div>
       )}

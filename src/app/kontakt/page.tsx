@@ -4,6 +4,7 @@ import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
 import AnimatedSection from "@/components/AnimatedSection";
 import CTA from "@/components/CTA";
+import PricingExplainer from "@/components/PricingExplainer";
 import Footer from "@/components/Footer";
 import ErrorBoundary from "@/components/ErrorBoundary";
 import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
@@ -204,6 +205,16 @@ export default function KontaktPage() {
               </div>
             </div>
           </AnimatedSection>
+        </div>
+
+        {/* Blok „Jak powstaje wycena" (14.08.2026, depricing) TUŻ NAD formularzem.
+            Tu stoi w pełnej formie, z listą czynników: `/kontakt` nie ma FAQ
+            cenowego, więc nic tej listy nie dubluje, a klient czyta, od czego
+            zależy cena, chwilę przed tym, jak opisze własne zlecenie. */}
+        <div className="max-w-3xl mx-auto px-4 mt-12">
+          <ErrorBoundary>
+            <PricingExplainer />
+          </ErrorBoundary>
         </div>
 
         <div className="mt-12">

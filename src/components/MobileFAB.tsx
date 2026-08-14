@@ -96,7 +96,7 @@ export default function MobileFAB() {
           // Dostępna nazwa musi zaczynać się od widocznego tekstu „Oferta",
           // inaczej sterowanie głosem nie trafia w jedyny stały przycisk
           // konwersji na telefonie (WCAG 2.1 SC 2.5.3, audyt PELNY2608-17).
-          aria-label="Oferta, zapytaj o wycenę"
+          aria-label="Oferta, sprawdź termin i cenę"
           // `min-h-11` (44 px) — bez tego `py-2.5 text-sm` dawało 40 px, czyli
           // główny CTA konwersji był NIŻSZY od sąsiednich ikon e-mail/telefon
           // (44×44 px). Finding UXUI2608-02. Wysokość wyspy się nie zmienia:
