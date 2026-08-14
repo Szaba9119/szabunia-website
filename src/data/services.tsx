@@ -1379,11 +1379,17 @@ export const serviceItems = serviceCategories.map((s) => ({
   title: s.title,
   icon: s.icon,
   desc: s.subtitle,
-  price: s.price,
-  /** Etykieta na kafelku: `heroPriceLabel`, gdy usługa go ma, inaczej `price`.
-      Dzięki temu kafelek może powiedzieć „za osobę" albo „pakiety", a kwota
-      i tak pochodzi z jednego miejsca. */
-  priceLabel: s.heroPriceLabel ?? s.price,
+  /* ⛔ `price` i `priceLabel` USUNIĘTE Z `serviceItems` 14.08.2026, razem ze zdjęciem
+     etykiety „wycena w 24h" z kafelka na stronie głównej.
+
+     Oba istniały wyłącznie dla tego jednego kafelka. `serviceItems` czyta tylko
+     `Services.tsx`, a on po tej zmianie sięga po `slug`, `title`, `icon`, `desc`,
+     `image` i `imagePos`. Zostawienie ich tutaj dałoby dokładnie ten sam martwy
+     dług, który audyt 11.08.2026 znalazł przy `portfolioSlug`.
+
+     ⚠ To NIE dotyczy `price` ani `heroPriceLabel` w `ServiceData` — tamte żyją
+     i zasilają `/uslugi` (który importuje `serviceCategories`, nie `serviceItems`)
+     oraz hero podstrony usługi przez `ServiceHero.tsx`. */
   /** Kafelek pokazuje DOKŁADNIE ten sam plik co hero podstrony (reguła Marcina
       z 10.08.2026: „mają być jedne zdjęcia"). Jedno źródło, więc obie powierzchnie
       nie mogą się rozjechać. Kadrowanie zostaje osobne, bo kontenery mają inne

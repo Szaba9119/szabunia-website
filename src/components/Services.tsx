@@ -79,11 +79,21 @@ export default function Services() {
                           {s.title}
                         </h3>
                       </div>
-                      <p className="text-steel dark:text-dark-text-muted text-[13px] leading-relaxed mb-3">
+                      {/* ⛔ ETYKIETA „wycena w 24h" ZDJĘTA Z KAFELKA 14.08.2026
+                          (decyzja Marcina, przegląd po deployu).
+
+                          Powód jest kompozycyjny, nie treściowy. Na `/uslugi` ta sama
+                          etykieta siedzi w wierszu z separatorem (`border-t`) i jest
+                          sparowana z „Zobacz szczegóły →", więc ma przeciwwagę. Tutaj
+                          stała jako samotny akapit pod opisem, bez linii i bez pary,
+                          i wisiała pod kafelkiem.
+
+                          Informacja nie ginie: pod siatką stoi zdanie „Każdy projekt
+                          wyceniam indywidualnie... wstępna wycena w ciągu 24h", które
+                          mówi to samo raz dla wszystkich czterech usług zamiast
+                          czterokrotnie. Kafelek na `/uslugi` zostaje bez zmian. */}
+                      <p className="text-steel dark:text-dark-text-muted text-[13px] leading-relaxed">
                         {s.desc}
-                      </p>
-                      <p className="text-blue dark:text-blue-light text-[12px] font-barlow font-semibold">
-                        {s.priceLabel}
                       </p>
                     </div>
                   </Link>
