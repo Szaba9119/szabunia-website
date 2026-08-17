@@ -101,7 +101,26 @@ export default function CookieConsent() {
       // strony) i blokował BackToTopButton na /blog/[slug] (audyt PELNY2608-21).
       className="fixed bottom-0 left-0 right-0 z-50 p-4 md:p-6 pointer-events-none"
     >
-      <div className="pointer-events-auto max-w-3xl mx-auto bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border shadow-xl shadow-navy/10 dark:shadow-black/30 p-5 md:p-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+      {/* ⚠ `md:max-w-md md:mr-0` DODANE 17.08.2026 (audyt Landing Page Experience).
+          Karta miała `max-w-3xl mx-auto`, czyli 768 px wyśrodkowane. Przy oknie
+          1920 px zajmowała poziomo 576 do 1344 px i wchodziła w prawą część lewej
+          kolumny hero: na /uslugi/nieruchomosci-przemysl przycisk telefoniczny
+          (631 do 747 px) był pod kartą, a `document.elementFromPoint` w jego
+          środku zwracał baner, nie przycisk. Czyli przy PIERWSZEJ wizycie, a więc
+          przy każdym kliknięciu z reklamy, numer telefonu był nieklikalny.
+          Od `md` w górę karta ma 448 px i stoi przy prawej krawędzi.
+          Wariant mobilny NIETKNIĘTY: kolizji na telefonie nie zmierzono.
+
+          ⚠ `mx-auto` ROZBITE NA `ml-auto mr-auto` CELOWO. Przy `mx-auto` o tym,
+          czy `md:mr-0` wygra, decydowałaby kolejność grup narzędziowych
+          w wygenerowanym CSS (mx kontra mr), czyli szczegół implementacyjny
+          Tailwinda. Po rozbiciu `md:mr-0` nadpisuje `mr-auto`, czyli TĘ SAMĄ
+          właściwość, a wariant responsywny stojący po wersji bazowej to
+          gwarancja Tailwinda, nie założenie. Efekt wizualny identyczny.
+          Sprawdzone 17.08.2026 w CSS produkcyjnym: `.max-w-md` już istnieje,
+          `.mr-*` nie istnieje wcale, więc kolejności nie dało się potwierdzić
+          empirycznie przed buildem. Stąd wariant bez zakładu. */}
+      <div className="pointer-events-auto max-w-3xl ml-auto mr-auto md:max-w-md md:mr-0 bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border shadow-xl shadow-navy/10 dark:shadow-black/30 p-5 md:p-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
         <div className="flex-1 min-w-0">
           <p className="text-[13px] text-text-body dark:text-dark-text leading-relaxed">
             Ta strona korzysta z plików cookie w celu zapewnienia prawidłowego
