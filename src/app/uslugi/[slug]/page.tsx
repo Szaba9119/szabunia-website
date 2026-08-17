@@ -193,6 +193,25 @@ export default async function ServicePage({ params }: PageProps) {
             <ServiceApplications data={service.applications} />
           </ErrorBoundary>
         )}
+        {/* Sekcja doprecyzowująca usługę, dodana 17.08.2026 po audycie Landing
+            Page Experience. Stoi PO „Kogo/Co fotografuję", czyli po kwalifikacji,
+            a przed pierwszym paskiem galerii. Klasy nagłówka skopiowane z sekcji
+            „Z bloga" niżej w tym pliku, żeby typografia nie rozjechała się z resztą
+            strony. Pole opcjonalne: usługa bez `pitch` renderuje się jak dotąd. */}
+        {service.pitch && (
+          <ErrorBoundary>
+            <section className="py-12 md:py-16 px-4">
+              <div className="max-w-3xl mx-auto">
+                <h2 className="font-barlow font-extrabold text-2xl md:text-[32px] leading-tight tracking-tight text-navy dark:text-white mb-2 text-center">
+                  {service.pitch.heading}
+                </h2>
+                <p className="text-text-body dark:text-dark-text text-[15px] leading-relaxed text-center">
+                  {service.pitch.body}
+                </p>
+              </div>
+            </section>
+          </ErrorBoundary>
+        )}
         {/* Kolejność bloku przykładów (Marcin, 04.08.2026): GŁÓWNY PASEK → FILM
             → DRUGI PASEK, czyli film rozdziela dwie siatki miniatur, zamiast
             stać obok drugiej.

@@ -131,6 +131,10 @@ export interface ServiceData {
     usesHeading: string;
     uses: string[];
   };
+  /** Krótka sekcja doprecyzowująca usługę, renderowana pod „Kogo/Co fotografuję".
+      Dodane 17.08.2026. Opcjonalne na tej samej zasadzie co `applications`:
+      usługi bez tego pola renderują się bez zmian. */
+  pitch?: { heading: string; body: string };
   /** Sekcja „Zakres realizacji". Bloki „nazwa + jedno zdanie konkretu”.
       Opcjonalne na tej samej zasadzie co `applications`. */
   scope?: {
@@ -266,7 +270,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     // w nagłówkach" używa zdania „Obsługa eventów firmowych w Poznaniu" jako
     // przykładu nagłówka DOPUSZCZALNEGO. Ten przykład jest teraz sprzeczny
     // ze stanem strony. Reguły celowo NIE przepisano (polecenie Marcina).
-    h1: "Fotografia i wideo wydarzeń firmowych",
+    h1: "Fotograf eventowy na konferencje, targi i gale",
     galleryCategory: "eventy",
     extraGallery: {
       // Portrety zamiast kadrów z sesji IDcom (Marcin, 04.08.2026). Sekcja renderuje
@@ -316,7 +320,7 @@ const serviceCategoriesRaw: ServiceData[] = [
       // Kafelek mówił „część kadrów na social media jeszcze w trakcie wydarzenia"
       // bez żadnego zastrzeżenia, czyli obiecywał to w standardzie.
       // Ta sama zasada obowiązuje w `scope`, `process`, `faqs` i w `portfolio.ts`.
-      "Konferencje, targi, gale i integracje. Zdjęcia, film i dron z jednego dnia, a w opcji dodatkowej część kadrów na social media jeszcze w trakcie wydarzenia.",
+      "Reportaż firmowy z konferencji, targów i gali. Zdjęcia, film i dron z jednego dnia, a w opcji dodatkowej część kadrów na social media jeszcze w trakcie wydarzenia.",
     heroLabel: "Dokumentacja wydarzeń",
     // Lead ukryty w hero 10.08.2026 (ósma tura). Treść ZOSTAJE w danych, bo
     // renderuje ją kafelek na `/uslugi` i karta pod wpisem blogowym.
@@ -373,6 +377,15 @@ const serviceCategoriesRaw: ServiceData[] = [
         "Materiały prasowe i raporty",
         "Strona wydarzenia",
       ],
+    },
+    /* Sekcja „pitch" dodana 17.08.2026 po audycie Landing Page Experience.
+       Powód, na liczbach: nagłówki aktywnych reklam obiecywały frazy, które na
+       tej podstronie nie występowały ani razu. Treść przeniesiona z istniejących
+       powierzchni TEJ SAMEJ podstrony, zero nowych obietnic. */
+    pitch: {
+      heading: "Fotograf na konferencję i na galę firmową",
+      body:
+        "Wystąpienia, prelegenci, uczestnicy, rozmowy w kuluarach. Około 30 gotowych zdjęć na każdą godzinę obecności, po selekcji i obróbce. Wybrane kadry obrabiam na miejscu i przesyłam w trakcie wydarzenia, to opcja zamawiana osobno.",
     },
     scope: {
       items: [
@@ -561,7 +574,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     slug: "wizerunek-portrety",
     h2Process: "Jak wygląda sesja wizerunkowa",
     h2Faq: "Wizerunek firmy: najczęstsze pytania",
-    h1: "Fotografia i wideo wizerunkowe dla firm",
+    h1: "Fotografia biznesowa i wideo dla firm",
     galleryCategory: "portrety",
     // ⚠ `gallerySecondaryLink` ZDJĘTY 11.08.2026 (C2, decyzja Marcina).
     //
@@ -639,7 +652,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     title: "Fotografia i wideo wizerunkowe dla firm",
     shortTitle: "Wizerunek firmy",
     subtitle:
-      "Portrety biznesowe, headshoty całego zespołu i film wizerunkowy. Prowadzę przez pozowanie, nie musisz nic umieć.",
+      "Sesja biznesowa dla jednej osoby albo dla całego zespołu. Zdjęcie na LinkedIn, headshoty i film wizerunkowy.",
     // Lead przepisany 10.08.2026 (pakiet 4, zatwierdzony przez Marcina bez
     // łagodzenia). Poprzedni mówił, czym JEST portret biznesowy. Nowy nazywa
     // problem, który osoba odpowiedzialna za stronę firmy realnie widzi
@@ -687,6 +700,15 @@ const serviceCategoriesRaw: ServiceData[] = [
         "Prezentacje i materiały sprzedażowe",
         "Publikacje i wystąpienia",
       ],
+    },
+    /* Sekcja „pitch" dodana 17.08.2026 po audycie Landing Page Experience.
+       Powód, na liczbach: nagłówki aktywnych reklam obiecywały frazy, które na
+       tej podstronie nie występowały ani razu. Treść przeniesiona z istniejących
+       powierzchni TEJ SAMEJ podstrony, zero nowych obietnic. */
+    pitch: {
+      heading: "Fotograf biznesowy w Poznaniu i w całej Polsce",
+      body:
+        "Sesja biznesowa może się odbyć w studiu w Poznaniu albo w Twoim biurze, bo mobilne studio wożę ze sobą. Potrzebuję 5 m² i gniazdka, rozstawienie zajmuje 30 minut. Do 40 osób w jeden dzień, 5 do 15 minut na osobę, wyretuszowane zdjęcia w 14 dni.",
     },
     scope: {
       items: [
@@ -1017,7 +1039,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     slug: "nieruchomosci-przemysl",
     h2Process: "Jak wygląda sesja obiektu",
     h2Faq: "Nieruchomości i przemysł: najczęstsze pytania",
-    h1: "Fotografia i wideo nieruchomości i przemysłu",
+    h1: "Fotografia nieruchomości i przemysłu",
     // Zamienione 04.08.2026, gdy do public/images/galeria/wnetrza trafiło 12 kadrów
     // (magazyn H&M/Sellpy, lokal Yes Butcher, lokal Domu). Wcześniej odwrotnie:
     // główny pasek pokazywał bryły z powietrza, bo wnętrz w serwisie nie było wcale,
@@ -1064,7 +1086,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     // co kafelek na mobile był o 21 px wyższy od pozostałych.
     // Nowy wymienia oba segmenty z nazwy usługi i mówi o rezultacie.
     subtitle:
-      "Hale, zakłady, biurowce i inwestycje. Z powietrza, z poziomu ziemi i od środka, w jednym dniu zdjęciowym.",
+      "Hale, zakłady, biurowce i inwestycje. Zdjęcia z drona, fotografia wnętrz i wideo obiektu w jednym dniu zdjęciowym.",
     // Lead przepisany 10.08.2026 (pakiet 4, wersja zatwierdzona przez Marcina).
     // Poprzedni otwierał zdaniem o hali, czyli sprzedawał TYLKO przemysł, mimo
     // że usługa nazywa się „Nieruchomości i przemysł". Nowy otwiera problemem
@@ -1076,7 +1098,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     // z Michelinem daje wnętrza komercyjne i jakość. H&M/Sellpy świadomie NIE
     // dopisany: lead ma nie być listą klientów (decyzja Marcina).
     description:
-      "Inwestycja, hala albo lokal sprzedaje się zdjęciami, zanim ktokolwiek pojedzie je obejrzeć. Fotografuję obiekty z trzech poziomów w jednym dniu zdjęciowym: z powietrza widać skalę i otoczenie, z poziomu ziemi bryłę i wjazd, a od środka to, czego z góry nie widać nigdy. Ile naprawdę jest miejsca między regałami, jak szeroki jest ciąg komunikacyjny, czy w lokalu da się posadzić trzydzieści osób. Pracuję dla deweloperów, agencji nieruchomości, zarządców biurowców, hoteli, architektów i zakładów produkcyjnych. Dla Artech Group fotografowałem zakład produkcyjny, a wnętrza steakhouse\'u Yes Butcher! w Starych Koszarach trafiły na profil restauracji w przewodniku Michelin.",
+      "Inwestycja, hala albo lokal sprzedaje się zdjęciami, zanim ktokolwiek pojedzie je obejrzeć. Fotografuję obiekty z trzech poziomów w jednym dniu zdjęciowym: z powietrza widać skalę i otoczenie, z poziomu ziemi bryłę i wjazd, a od środka to, czego z góry nie widać nigdy. Ile naprawdę jest miejsca między regałami, jak szeroki jest ciąg komunikacyjny, czy w lokalu da się posadzić trzydzieści osób.",
     applications: {
       heading: "Co fotografuję",
       // Hale i zakłady NA POCZĄTKU listy, tą samą zasadą co kolejność galerii:
@@ -1100,6 +1122,15 @@ const serviceCategoriesRaw: ServiceData[] = [
         "Strona firmy produkcyjnej",
         "Portale ogłoszeniowe",
       ],
+    },
+    /* Sekcja „pitch" dodana 17.08.2026 po audycie Landing Page Experience.
+       Powód, na liczbach: nagłówki aktywnych reklam obiecywały frazy, które na
+       tej podstronie nie występowały ani razu. Treść przeniesiona z istniejących
+       powierzchni TEJ SAMEJ podstrony, zero nowych obietnic. */
+    pitch: {
+      heading: "Fotograf nieruchomości i zdjęcia dla deweloperów",
+      body:
+        "Pracuję dla deweloperów, agencji nieruchomości, zarządców biurowców, hoteli, architektów i zakładów produkcyjnych. Dla Artech Group fotografowałem zakład produkcyjny, a wnętrza steakhouse\'u Yes Butcher! w Starych Koszarach trafiły na profil restauracji w przewodniku Michelin.",
     },
     scope: {
       items: [
