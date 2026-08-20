@@ -26,6 +26,20 @@
  * komercyjny (to budynek mieszkalny), `dron-04` jako biurowiec (ma balkony na każdej
  * kondygnacji). Nazwy plików nadane w ZDJ2608-01 mówią prawdę, opisy jeszcze nie.
  *
+ * ⚠ AKTUALIZACJA 20.08.2026, ten akapit czyta się dziś mylnie. Dwa z trzech plików już
+ * nie istnieją: ówczesne `wnetrze-11` i `wnetrze-12` wypadły przy sprzątaniu V4
+ * (20.08.2026, sprawdzone przez wylistowanie `public/images/galeria/wnetrza/`), a numer
+ * `wnetrze-11` nosi dziś ZUPEŁNIE INNY kadr, hala z bramkami wejściowymi. Otwarty
+ * zostaje wyłącznie trzeci przypadek, po przenumerowaniu `dron-08-biurowiec-poznan`:
+ * nazwa mówi „biurowiec", a budynek ma balkony na każdej kondygnacji.
+ *
+ * Przy tej samej okazji skasowane zostało SZEŚĆ osieroconych wpisów, czyli opisów
+ * dla plików, których już nie ma: `event-07-joga-na-trawie-osiol`,
+ * `wnetrze-06-budka-akustyczna-panele`, `wnetrze-10-biurowiec-z-drona`,
+ * `wnetrze-11-kompleks-budynkow-z-drona`, `wnetrze-12-budynek-mieszkalny-z-drona`,
+ * `dron-12-wiezowiec-biurowy-poznan`. Niczego nie psuły, bo `galleryAlt` szuka klucza
+ * od nazwy ISTNIEJĄCEGO pliku, ale sugerowały pokrycie, którego nie ma.
+ *
  * Zasady tekstu wg `docs/zasady-tekstow.md`: bez długich myślników, bez fraz
  * z czarnej listy, bez doklejania miasta przecinkiem, liczba mnoga tam, gdzie
  * na kadrze jest więcej niż jedna osoba.
@@ -35,117 +49,105 @@
  */
 export const GALLERY_ALTS: Record<string, string> = {
   /* ── eventy (15 z 15 obejrzanych) ── */
-  "event-01-zespol-na-scenie":
+  "event-25-zespol-na-scenie":
     "Zespół muzyczny na scenie z ekranem LED, oprawa artystyczna imprezy firmowej",
-  "event-02-zdjecie-grupowe-tor":
+  "event-03-zdjecie-grupowe-tor":
     "Zdjęcie grupowe uczestników integracji na torze wyścigowym, przed dwoma autami sportowymi",
-  "event-03-integracja-przybicie-piatki":
+  "event-08-integracja-przybicie-piatki":
     "Dwaj uczestnicy integracji firmowej przybijają piątkę przy torze",
-  "event-04-gala-wreczenie-wyroznien":
+  "event-20-gala-wreczenie-wyroznien":
     "Wręczenie wyróżnień na gali firmowej, troje nagrodzonych z dyplomami",
-  "event-05-networking-foyer":
+  "event-02-networking-foyer":
     "Rozmowa dwóch uczestników konferencji w foyer, w tle kuluary",
-  "event-06-przeciaganie-liny-integracja":
+  "event-14-przeciaganie-liny-integracja":
     "Przeciąganie liny na pikniku firmowym, uczestnicy w plenerze",
-  "event-07-joga-na-trawie-osiol":
-    "Zajęcia jogi na trawniku podczas wyjazdu firmowego, na pierwszym planie osioł",
-  "event-09-dj-za-konsoleta":
+  "event-21-dj-za-konsoleta":
     "DJ przy konsolecie na imprezie firmowej, lampy sceniczne w tle",
-  "event-10-parkiet-taneczny":
+  "event-15-parkiet-taneczny":
     "Parkiet taneczny na balu firmowym, goście w strojach wieczorowych",
-  "event-12-za-kierownica-auta":
+  "event-18-za-kierownica-auta":
     "Uczestnik integracji za kierownicą sportowego auta na torze",
-  "event-13-dj-scena-plenerowa":
+  "event-22-dj-scena-plenerowa":
     "DJ na scenie plenerowej, w tle strefa gastronomiczna imprezy miejskiej",
-  "event-14-saksofonista-bankiet":
+  "event-24-saksofonista-bankiet":
     "Saksofonista gra na przyjęciu firmowym, w tle tańcząca para",
-  "event-15-goscie-przy-stole":
+  "event-16-goscie-przy-stole":
     "Trzej goście przy stole na bankiecie firmowym, wieczorna część wydarzenia",
-  "event-16-wystep-na-scenie-hali":
+  "event-09-wystep-na-scenie-hali":
     "Występ solowy na scenie hali widowiskowej, reflektory i dym sceniczny",
-  "event-17-dj-slupy-ognia":
+  "event-05-dj-slupy-ognia":
     "DJ przed publicznością, słupy ognia z rampy podczas imprezy",
 
   /* ── portrety (14 z 14 obejrzanych) ── */
-  "portret-01-operator-z-kamera":
+  "portret-25-operator-z-kamera":
     "Operator z kamerą na gimbalu, zdjęcie wizerunkowe na czarnym tle",
-  "portret-02-kobieta-z-laptopem":
+  "portret-19-kobieta-z-laptopem":
     "Portret biznesowy kobiety z laptopem, szare tło studyjne",
-  "portret-03-mezczyzna-czarne-tlo":
+  "portret-10-mezczyzna-czarne-tlo":
     "Portret mężczyzny z brodą na czarnym tle, sesja wizerunkowa w studiu",
-  "portret-04-kobieta-na-hokerze":
+  "portret-28-kobieta-na-hokerze":
     "Kobieta z laptopem na hokerze, portret całej sylwetki w studiu",
-  "portret-05-mezczyzna-zielony-garnitur":
+  "portret-18-mezczyzna-zielony-garnitur":
     "Mężczyzna w zielonym garniturze na krześle, portret wizerunkowy w studiu",
-  "portret-06-dwie-osoby-duet":
+  "portret-30-dwie-osoby-duet":
     "Portret dwóch osób z jednej firmy, mężczyzna z laptopem i kobieta w czerwonym komplecie",
-  "portret-07-kobieta-czarna-marynarka":
+  "portret-26-kobieta-czarna-marynarka":
     "Portret kobiety w czarnej marynarce, jasne tło studyjne",
-  "portret-08-kobieta-morski-kombinezon":
+  "portret-04-kobieta-morski-kombinezon":
     "Portret kobiety w morskim kombinezonie na białym tle",
-  "portret-09-mezczyzna-czarny-tshirt":
+  "portret-15-mezczyzna-czarny-tshirt":
     "Portret mężczyzny w czarnym T-shircie, ręce skrzyżowane, jasne tło",
-  "portret-10-kobieta-bezowa-marynarka":
+  "portret-12-kobieta-bezowa-marynarka":
     "Portret biznesowy kobiety w beżowej marynarce, szare tło studyjne",
-  "portret-11-mezczyzna-w-fotelu":
+  "portret-23-mezczyzna-w-fotelu":
     "Mężczyzna w garniturze w fotelu, portret wizerunkowy w studiu",
-  "portret-12-kobieta-w-plenerze":
+  "portret-29-kobieta-w-plenerze":
     "Portret kobiety w granatowej marynarce, zieleń w tle, sesja w plenerze",
-  "portret-13-kobieta-przy-oknie":
+  "portret-16-kobieta-przy-oknie":
     "Kobieta z segregatorem przy oknie w biurze, portret w świetle dziennym",
-  "portret-14-mezczyzna-z-telefonem":
+  "portret-24-mezczyzna-z-telefonem":
     "Mężczyzna rozmawia przez telefon na ławce, portret w plenerze miejskim",
 
   /* ── wnętrza (12 z 12) ── opisy z 04.08.2026, przeniesione tutaj z galeria/page.tsx
      bez zmiany treści, żeby pasek na podstronie obiektowej miał te same opisy co galeria.
      Kolejność ustawiona przez Marcina 04.08.2026: rząd 1 hale, rząd 2 obiekt z zewnątrz
      i strefy wspólne, rząd 3 lokale gastronomiczne, rząd 4 obiekty z powietrza. */
-  "wnetrze-01-hala-magazynowa-regaly":
+  "wnetrze-03-hala-magazynowa-regaly":
     "Wnętrze hali magazynowej, regały i ciąg komunikacyjny, Poznań",
-  "wnetrze-02-hala-strefa-kompletacji":
+  "wnetrze-07-hala-strefa-kompletacji":
     "Hala logistyczna, stanowiska pracy i strefa kompletacji",
-  "wnetrze-03-hala-bramki-wejsciowe":
+  "wnetrze-10-hala-bramki-wejsciowe":
     "Hala magazynowa od środka, bramki i otwarta powierzchnia składowania",
-  "wnetrze-04-elewacja-szklana-fasada":
+  "wnetrze-01-elewacja-szklana-fasada":
     "Elewacja budynku biurowego o zmierzchu, fotografia architektury",
-  "wnetrze-05-silownia-w-biurze":
+  "wnetrze-16-silownia-w-biurze":
     "Siłownia w biurze, strefa dla pracowników w budynku biurowym",
-  "wnetrze-06-budka-akustyczna-panele":
-    "Wnętrze kabiny akustycznej w biurze, wykończenie i oświetlenie",
-  "wnetrze-07-restauracja-ceglana-sciana":
+  "wnetrze-21-restauracja-ceglana-sciana":
     "Wnętrze lokalu gastronomicznego, sala restauracyjna, Poznań",
-  "wnetrze-08-restauracja-bar-i-kuchnia":
+  "wnetrze-11-restauracja-bar-i-kuchnia":
     "Wnętrze restauracji, bar i sala, fotografia lokalu",
-  "wnetrze-09-bistro-z-antresoli":
+  "wnetrze-14-bistro-z-antresoli":
     "Sala lokalu użytkowego w świetle dziennym, fotografia wnętrza",
-  "wnetrze-10-biurowiec-z-drona":
-    "Wieżowiec biurowy w Poznaniu z powietrza, fotografia obiektu",
-  "wnetrze-11-kompleks-budynkow-z-drona":
-    "Biurowiec z lotu ptaka, bryła i otoczenie inwestycji, Poznań",
-  "wnetrze-12-budynek-mieszkalny-z-drona":
-    "Nowoczesny budynek komercyjny z drona, elewacja i kontekst lokalizacji",
 
   /* ── dron (9 z 9) ── opisy z 04.08.2026, przeniesione tutaj z galeria/page.tsx
      bez zmiany treści. Kategoria `obiekty` wskazuje te same pliki, więc korzysta
      z tych samych opisów bez kopiowania. */
   "dron-01-centrum-poznania-biurowce":
     "Zdjęcia z drona, biurowce w centrum Poznania z lotu ptaka",
-  "dron-03-nowoczesny-budynek-poznan":
+  "dron-04-nowoczesny-budynek-poznan":
     "Fotografia z drona dla firm, nowoczesny budynek komercyjny, Poznań",
-  "dron-04-biurowiec-poznan":
+  "dron-08-biurowiec-poznan":
     "Biurowiec z lotu ptaka, bryła i otoczenie inwestycji, Poznań",
   "dron-05-panorama-poznania-zachod-slonca":
     "Panorama Poznania z drona o zachodzie słońca",
-  "dron-06-apartamenty-nad-rzeka-poznan":
+  "dron-03-apartamenty-nad-rzeka-poznan":
     "Zdjęcia z drona nieruchomości, apartamenty nad rzeką, Poznań",
-  "dron-07-osiedle-mieszkaniowe-poznan":
+  "dron-09-osiedle-mieszkaniowe-poznan":
     "Zdjęcia z drona osiedla mieszkaniowego, Poznań",
-  "dron-08-inwestycja-tereny-zielone-poznan":
+  "dron-07-inwestycja-tereny-zielone-poznan":
     "Zdjęcia z drona inwestycji i terenów zielonych, Poznań i okolice",
-  "dron-09-nowoczesne-osiedle-poznan":
+  "dron-06-nowoczesne-osiedle-poznan":
     "Nowoczesne osiedle z lotu ptaka, fotografia dla dewelopera",
-  "dron-10-wiezowiec-biurowy-poznan":
-    "Wideo i zdjęcia z drona, wieżowiec biurowy w Poznaniu",
 
   /* ── ZDJ2608-11: kadry poza galerią, obejrzane 04.08.2026 ──
      Hero i kafelki usług, kafelki i hero realizacji, okładki blogowe. Wcześniej ich
@@ -157,7 +159,7 @@ export const GALLERY_ALTS: Record<string, string> = {
   /* usługi i realizacje */
   "sesje-zespolowe-cover":
     "Dwie osoby w studiu na jasnoszarym tle, mężczyzna w białej koszuli i kobieta w czerwonej sukience",
-  "produkt-02-amarula":
+  "produkt-43-amarula":
     "Butelka likieru na książce i drink ze słomką, aranżacja produktowa na tle w kolorze rdzy",
   "woohoo-ecommerce-4x3":
     "Plansza tytułowa filmu z napisem E-commerce All in na ujęciu Starego Rynku z powietrza",
@@ -264,7 +266,7 @@ export const GALLERY_ALTS: Record<string, string> = {
     "Studyjny portret młodej kobiety w beżowej marynarce na szarym tle, kadr do ramion",
 };
 
-/** Nazwa pliku bez katalogu i bez rozszerzenia, np. `/images/galeria/eventy/event-09-dj.jpg` → `event-09-dj`. */
+/** Nazwa pliku bez katalogu i bez rozszerzenia, np. `/images/galeria/eventy/event-NN-opis-kadru.jpg` → `event-NN-opis-kadru`. */
 export function imageKey(src: string): string {
   const file = src.split("/").pop() ?? src;
   return file.replace(/\.[a-z0-9]+$/i, "");

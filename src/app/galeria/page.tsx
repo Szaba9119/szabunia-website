@@ -38,9 +38,11 @@ import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcru
 // co innego, niż pokazuje. Zakładka zachowuje swoje własne przejście do dwóch
 // case studies w `GalleryView`. Nie dopisywać tu `wideo` bez nowej decyzji.
 //
-// `dron` i `wnetrza` celowo wskazują TĘ SAMĄ usługę: wszystkie dziewięć kadrów
+// `dron` i `wnetrza` celowo wskazują TĘ SAMĄ usługę: siedem z dziewięciu kadrów
 // dronowych to budynki i osiedla, a pasek dronowy stoi już na tej podstronie
-// jako `extraGallery`. Ten sam tekst dla obu jest świadomy (Marcin, 11.08.2026:
+// jako `extraGallery`. Dwa pozostałe są terenem, nie obiektem: panorama miasta
+// i jarmark z nadiru (poprawione 20.08.2026, wcześniej stało tu „wszystkie dziewięć",
+// co przeczyło komentarzowi przy `CURATED.obiekty` w `ServiceGalleryStrip.tsx`). Ten sam tekst dla obu jest świadomy (Marcin, 11.08.2026:
 // „chcę zachować prosty, spójny wzorzec").
 const CATEGORY_SERVICE: Record<string, { label: string; href: string }> = {
   portrety: { label: "Wizerunek firmy", href: "/uslugi/wizerunek-portrety" },
@@ -48,6 +50,11 @@ const CATEGORY_SERVICE: Record<string, { label: string; href: string }> = {
   produktowe: { label: "Fotografia produktowa", href: "/uslugi/fotografia-produktowa" },
   wnetrza: { label: "Nieruchomości i przemysł", href: "/uslugi/nieruchomosci-przemysl" },
   dron: { label: "Nieruchomości i przemysł", href: "/uslugi/nieruchomosci-przemysl" },
+  // ⛔ KATEGORIA `gastronomia` CELOWO NIE MA TU WPISU, tą samą zasadą co `wideo` wyżej.
+  // Nie istnieje podstrona usługi gastronomicznej, a jedyna sąsiednia tematycznie
+  // (`fotografia-produktowa`) sprzedaje packshoty do e-commerce, nie zdjęcia dań
+  // i wnętrz lokali. Link obiecywałby co innego, niż pokazuje strona docelowa.
+  // Do dopisania dopiero razem z decyzją o otwarciu usługi gastronomicznej.
 };
 
 export const metadata: Metadata = {
@@ -121,6 +128,19 @@ export default async function GaleriaPage({
       ],
     },
     {
+      // Nowa kategoria, wdrożenie V4 (20.08.2026). Materiał: 21 kadrów z realizacji
+      // gastronomicznych, m.in. Yes Butcher (rekomendacja Michelin), Klub 58, Carla,
+      // Pizzeria Siciliana, Too Matcha, Sunday.
+      //
+      // `uniformTiles` włączone z tego samego powodu co w produktowej: rozrzut
+      // proporcji wynosi 0,83 (od 0,67 do 1,50), więc siatka murowana rozjeżdża rzędy.
+      key: "gastronomia",
+      label: "Gastronomia",
+      folder: "gastronomia",
+      uniformTiles: true,
+      alt: "Fotografia kulinarna i gastronomiczna, Marcin Szabunia, Poznań",
+    },
+    {
       key: "wnetrza",
       // ZDJ2608-06 (04.08.2026): etykieta poszerzona z „Wnętrza i hale". Cztery z dwunastu
       // kadrów w tej zakładce to zewnętrza (czwarty rząd, obiekty z powietrza), a nazwa
@@ -151,8 +171,16 @@ export default async function GaleriaPage({
   // ZDJ2608-04 (04.08.2026): opis alternatywny bierze się z pliku, nie z pozycji.
   // Kategoria, która nie ma własnej listy w `defs`, dostaje po jednym opisie na kadr
   // z `GALLERY_ALTS` (klucz to nazwa pliku), w kolejności plików. Kategoria z własną,
-  // krótszą listą (dziś tylko `produktowe`, 4 warianty na 24 kadry) zostaje na rotacji
+  // krótszą listą (dziś tylko `produktowe`, 4 warianty na 46 kadrów) zostaje na rotacji
   // do czasu własnej rundy: jej kadrów ta tura nie oglądała.
+  //
+  // ⚠ STAN OPISÓW PO 20.08.2026, do zamknięcia osobną rundą. Galerie urosły ze 128
+  // do 158 kadrów, a mapa `GALLERY_ALTS` nie. 68 kadrów poza produktową nie ma własnego
+  // opisu i dostaje opis kategorii, jeden i ten sam dla całej zakładki: gastronomia 21 z 21,
+  // portrety 17 z 31, wnętrza 16 z 24, eventy 13 z 27, dron 1 z 9. Dla kategorii bez własnej listy
+  // `altVariants` długość wariantów równa się liczbie zdjęć, więc `altFor` w `GalleryView`
+  // nie dokłada nawet „, kadr N" i czytnik ekranu dostaje to samo zdanie przy kolejnych
+  // kafelkach. To jest ta sama regresja, którą ZDJ2608-04 zamykał 04.08.2026.
   const categories: GalleryCategory[] = defs
     .map((d) => {
       const images = listGalleryImagesSized(d.folder);

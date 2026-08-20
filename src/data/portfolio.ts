@@ -430,23 +430,28 @@ export const portfolioCategories: PortfolioCategory[] = [
       "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a w pakietach przed sesją dostajesz poseboard z referencjami.",
     // ZDJ2608-17 (04.08.2026), WARIANT B. Poprzednia miniatura (plik `portfolio-1`, dziś
     // w `_to_delete/`) to zdjęcie grupowe przy autach sportowych, czyli ten sam kadr, który 04.08 wyleciał
-    // z galerii tej realizacji jako obcy. Wariant A briefu (portret-05) odpadł: portret-05
-    // jest już hero usługi „Wizerunek i portrety" i kafelkiem tej usługi, więc stanąłby
+    // z galerii tej realizacji jako obcy. Wariant A briefu (`portret-18-mezczyzna-zielony-garnitur`, do 20.08.2026 `portret-05`) odpadł: ten kadr
+    // był wtedy hero usługi „Wizerunek i portrety" i kafelkiem tej usługi, więc stanąłby
     // trzeci raz, a ta sama tura usuwa powtórzenia (ZDJ2608-27, ZDJ2608-34).
-    thumbnail: "/images/galeria/portrety/portret-12-kobieta-w-plenerze.jpg",
+    // ⚠ Przesłanka wygasła 20.08.2026: hero tej usługi to dziś
+    // `portret-19-kobieta-z-laptopem`, a kafelek bierze `heroImage`, więc
+    // `portret-18` nie stoi już ani jako hero, ani jako kafelek. Sam wybór
+    // miniatury zostaje, bo nie zależał wyłącznie od tej przesłanki.
+    thumbnail: "/images/galeria/portrety/portret-29-kobieta-w-plenerze.jpg",
     gallery: [
       // Zdjęcie grupowe przy samochodach sportowych przeniesione 04.08.2026: na sesji
-      // wizerunkowej było obce, a ten sam kadr żyje już w galerii eventowej (event-02)
+      // wizerunkowej było obce, a ten sam kadr żyje już w galerii eventowej
+      // (`event-03-zdjecie-grupowe-tor`, do 20.08.2026 `event-02`)
       // i przez nią trafia na eventy, pakiety foto + wideo i portfolio eventowe.
       // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
       // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
-      { src: "/images/galeria/portrety/portret-05-mezczyzna-zielony-garnitur.jpg", alt: "Portret wizerunkowy mężczyzny w garniturze, sesja dla firmy, Poznań" },
-      { src: "/images/galeria/portrety/portret-07-kobieta-czarna-marynarka.jpg", alt: "Portret biznesowy kobiety w marynarce, sesja wizerunkowa, Poznań" },
-      { src: "/images/galeria/portrety/portret-03-mezczyzna-czarne-tlo.jpg", alt: "Portret wizerunkowy na czarnym tle, personal branding, Poznań" },
-      { src: "/images/galeria/portrety/portret-08-kobieta-morski-kombinezon.jpg", alt: "Portret biznesowy kobiety na jasnym tle, sesja wizerunkowa dla firmy" },
-      { src: "/images/galeria/portrety/portret-14-mezczyzna-z-telefonem.jpg", alt: "Portret wizerunkowy w naturalnym świetle, sesja dla firmy, Poznań" },
-      { src: "/images/galeria/portrety/portret-10-kobieta-bezowa-marynarka.jpg", alt: "Portret biznesowy kobiety, zdjęcie na stronę firmy i LinkedIn" },
+      { src: "/images/galeria/portrety/portret-18-mezczyzna-zielony-garnitur.jpg", alt: "Portret wizerunkowy mężczyzny w garniturze, sesja dla firmy, Poznań" },
+      { src: "/images/galeria/portrety/portret-26-kobieta-czarna-marynarka.jpg", alt: "Portret biznesowy kobiety w marynarce, sesja wizerunkowa, Poznań" },
+      { src: "/images/galeria/portrety/portret-10-mezczyzna-czarne-tlo.jpg", alt: "Portret wizerunkowy na czarnym tle, personal branding, Poznań" },
+      { src: "/images/galeria/portrety/portret-04-kobieta-morski-kombinezon.jpg", alt: "Portret biznesowy kobiety na jasnym tle, sesja wizerunkowa dla firmy" },
+      { src: "/images/galeria/portrety/portret-24-mezczyzna-z-telefonem.jpg", alt: "Portret wizerunkowy w naturalnym świetle, sesja dla firmy, Poznań" },
+      { src: "/images/galeria/portrety/portret-12-kobieta-bezowa-marynarka.jpg", alt: "Portret biznesowy kobiety, zdjęcie na stronę firmy i LinkedIn" },
     ],
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
@@ -496,7 +501,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     // targowego nie ma w całym `public/images` (sprawdzone przeszukaniem katalogu).
     // Marcin potwierdził, że takiego materiału nie ma.
     //
-    // „konferencji" ZOSTAJE: `event-05-networking-foyer` to rozmowy uczestników
+    // „konferencji" ZOSTAJE: `event-02-networking-foyer` to rozmowy uczestników
     // konferencji, więc kategoria ma pokrycie. Nie ma natomiast kadru z prelegentem,
     // sceną ani salą i to jest osobna, otwarta luka.
     //
@@ -519,11 +524,11 @@ export const portfolioCategories: PortfolioCategory[] = [
     // ⛔ WYLICZENIE W DRUGIM ZDANIU MA POKRYCIE W GALERII PONIŻEJ, kadr po kadrze.
     // To nie jest ozdobnik, tylko zapowiedź tego, co użytkownik zaraz zobaczy,
     // więc każda pozycja musi wskazywać istniejące zdjęcie:
-    //   rozmowy w kuluarach        → event-05-networking-foyer
-    //   wręczenie wyróżnień na gali → event-04-gala-wreczenie-wyroznien
-    //   goście przy stołach        → event-15-goscie-przy-stole
-    //   oprawa wieczoru            → event-14-saksofonista-bankiet, event-01-zespol-na-scenie
-    //   integracja w plenerze      → event-02-zdjecie-grupowe-tor, event-03-integracja-przybicie-piatki
+    //   rozmowy w kuluarach        → event-02-networking-foyer
+    //   wręczenie wyróżnień na gali → event-20-gala-wreczenie-wyroznien
+    //   goście przy stołach        → event-16-goscie-przy-stole
+    //   oprawa wieczoru            → event-24-saksofonista-bankiet, event-25-zespol-na-scenie
+    //   integracja w plenerze      → event-03-zdjecie-grupowe-tor, event-08-integracja-przybicie-piatki
     //
     // ⛔ NIE DOPISYWAĆ „wystąpień", „prelegentów", „sceny konferencyjnej" ani
     // „targów". Taka wersja stała w drafcie i została odrzucona: w `public/images`
@@ -540,19 +545,19 @@ export const portfolioCategories: PortfolioCategory[] = [
       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
       //
       // ⚠ `portfolio/fotografia-eventowa/01.jpg` USUNIĘTE Z TEJ LISTY 10.08.2026:
-      // to był TEN SAM kadr co `event-05-networking-foyer` niżej, w drugim pliku
+      // to był TEN SAM kadr co `event-02-networking-foyer` niżej, w drugim pliku
       // i gorszej rozdzielczości (1472×984 wobec 1920×1280). Oba stały obok siebie
       // na pozycjach 1 i 2, więc galeria otwierała się tym samym zdjęciem dwa razy.
       // Powstało to przy rozbudowie z 04.08: dokładano kadry z `galeria/eventy`
       // do jedynego zdjęcia, które tu wtedy było, i nie sprawdzono, że jedno z nich
       // jest jego wyższą wersją. Plik zostaje na dysku, znika tylko z listy.
-      { src: "/images/galeria/eventy/event-05-networking-foyer.jpg", alt: "Rozmowy uczestników konferencji firmowej, fotografia eventowa, Poznań" },
-      { src: "/images/galeria/eventy/event-04-gala-wreczenie-wyroznien.jpg", alt: "Gala firmowa, wręczenie wyróżnień, reportaż z wydarzenia, Poznań" },
-      { src: "/images/galeria/eventy/event-15-goscie-przy-stole.jpg", alt: "Networking na evencie biznesowym, fotografia reportażowa, Poznań" },
-      { src: "/images/galeria/eventy/event-14-saksofonista-bankiet.jpg", alt: "Oprawa muzyczna gali firmowej, reportaż z wydarzenia" },
-      { src: "/images/galeria/eventy/event-01-zespol-na-scenie.jpg", alt: "Scena podczas eventu firmowego, fotografia w trudnym świetle" },
-      { src: "/images/galeria/eventy/event-02-zdjecie-grupowe-tor.jpg", alt: "Zdjęcie grupowe uczestników wydarzenia firmowego na torze" },
-      { src: "/images/galeria/eventy/event-03-integracja-przybicie-piatki.jpg", alt: "Integracja firmowa w plenerze, reportaż z wydarzenia" },
+      { src: "/images/galeria/eventy/event-02-networking-foyer.jpg", alt: "Rozmowy uczestników konferencji firmowej, fotografia eventowa, Poznań" },
+      { src: "/images/galeria/eventy/event-20-gala-wreczenie-wyroznien.jpg", alt: "Gala firmowa, wręczenie wyróżnień, reportaż z wydarzenia, Poznań" },
+      { src: "/images/galeria/eventy/event-16-goscie-przy-stole.jpg", alt: "Networking na evencie biznesowym, fotografia reportażowa, Poznań" },
+      { src: "/images/galeria/eventy/event-24-saksofonista-bankiet.jpg", alt: "Oprawa muzyczna gali firmowej, reportaż z wydarzenia" },
+      { src: "/images/galeria/eventy/event-25-zespol-na-scenie.jpg", alt: "Scena podczas eventu firmowego, fotografia w trudnym świetle" },
+      { src: "/images/galeria/eventy/event-03-zdjecie-grupowe-tor.jpg", alt: "Zdjęcie grupowe uczestników wydarzenia firmowego na torze" },
+      { src: "/images/galeria/eventy/event-08-integracja-przybicie-piatki.jpg", alt: "Integracja firmowa w plenerze, reportaż z wydarzenia" },
     ],
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda eventu, kluczowe momenty, VIP-y" },
@@ -629,14 +634,14 @@ export const portfolioCategories: PortfolioCategory[] = [
       // Rozbudowane 04.08.2026. Strona miała jedno zdjęcie, co przy pozycji w menu
       // „Portfolio" działało na niekorzyść. Kadry wskazują istniejące pliki z galerii,
       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
-      { src: "/images/galeria/produktowe/produkt-13-hob-koszulka.jpg", alt: "Packshot koszulki na białym tle, zdjęcie produktowe do sklepu internetowego" },
-      { src: "/images/galeria/produktowe/produkt-15-hob-czapka.jpg", alt: "Packshot czapki na białym tle, fotografia produktowa e-commerce" },
-      { src: "/images/galeria/produktowe/produkt-17-brembo.jpg", alt: "Packshot produktu na białym tle, zdjęcie katalogowe" },
-      { src: "/images/galeria/produktowe/produkt-18-kule-3d.jpg", alt: "Packshot produktu technicznego na białym tle, zdjęcie do katalogu" },
-      { src: "/images/galeria/produktowe/produkt-14-hob-koszulki.jpg", alt: "Zdjęcie produktowe koszulki na ciemnym tle, fotografia reklamowa" },
-      { src: "/images/galeria/produktowe/produkt-03-caprice.jpg", alt: "Aranżacja produktowa napojów, zdjęcia kreatywne na social media" },
-      { src: "/images/galeria/produktowe/produkt-02-amarula.jpg", alt: "Aranżacja produktowa z butelką, fotografia reklamowa produktu" },
-      { src: "/images/galeria/produktowe/produkt-01-toast-belvedere.jpg", alt: "Zdjęcie produktowe alkoholu w scenerii, fotografia reklamowa" },
+      { src: "/images/galeria/produktowe/produkt-22-hob-koszulka.jpg", alt: "Packshot koszulki na białym tle, zdjęcie produktowe do sklepu internetowego" },
+      { src: "/images/galeria/produktowe/produkt-14-hob-czapka-kremowy-nadruk.jpg", alt: "Packshot czapki na białym tle, fotografia produktowa e-commerce" },
+      { src: "/images/galeria/produktowe/produkt-02-brembo.jpg", alt: "Packshot produktu na białym tle, zdjęcie katalogowe" },
+      { src: "/images/galeria/produktowe/produkt-41-kule-3d.jpg", alt: "Packshot produktu technicznego na białym tle, zdjęcie do katalogu" },
+      { src: "/images/galeria/produktowe/produkt-06-hob-koszulki.jpg", alt: "Zdjęcie produktowe koszulki na ciemnym tle, fotografia reklamowa" },
+      { src: "/images/galeria/produktowe/produkt-01-caprice.jpg", alt: "Aranżacja produktowa napojów, zdjęcia kreatywne na social media" },
+      { src: "/images/galeria/produktowe/produkt-43-amarula.jpg", alt: "Aranżacja produktowa z butelką, fotografia reklamowa produktu" },
+      { src: "/images/galeria/produktowe/produkt-13-toast-belvedere.jpg", alt: "Zdjęcie produktowe alkoholu w scenerii, fotografia reklamowa" },
     ],
     process: [
       { num: 1, title: "Rozmowa", desc: "Cel, platforma sprzedaży, wytyczne marki" },
@@ -693,10 +698,10 @@ export const portfolioCategories: PortfolioCategory[] = [
       // bez kopiowania na dysk, tak jak kategoria `obiekty` wskazuje pliki `dron`.
       { src: "/images/portfolio/idcom/_F2A9424-Edit-2.jpg", alt: "Headshot korporacyjny na białym tle, sesja dla zespołu IDcom Group" },
       { src: "/images/portfolio/idcom/_F0I9883-Edit-2.jpg", alt: "Headshot korporacyjny na kremowym tle, spójny standard dla zespołu" },
-      { src: "/images/galeria/portrety/portret-02-kobieta-z-laptopem.jpg", alt: "Portret korporacyjny kobiety, zdjęcie na stronę firmy" },
-      { src: "/images/galeria/portrety/portret-11-mezczyzna-w-fotelu.jpg", alt: "Portret korporacyjny mężczyzny w garniturze, zdjęcie dla firmy" },
-      { src: "/images/galeria/portrety/portret-13-kobieta-przy-oknie.jpg", alt: "Portret korporacyjny w naturalnym świetle, zdjęcie na LinkedIn" },
-      { src: "/images/galeria/portrety/portret-12-kobieta-w-plenerze.jpg", alt: "Portret korporacyjny w plenerze, zdjęcie na stronę firmową" },
+      { src: "/images/galeria/portrety/portret-19-kobieta-z-laptopem.jpg", alt: "Portret korporacyjny kobiety, zdjęcie na stronę firmy" },
+      { src: "/images/galeria/portrety/portret-23-mezczyzna-w-fotelu.jpg", alt: "Portret korporacyjny mężczyzny w garniturze, zdjęcie dla firmy" },
+      { src: "/images/galeria/portrety/portret-16-kobieta-przy-oknie.jpg", alt: "Portret korporacyjny w naturalnym świetle, zdjęcie na LinkedIn" },
+      { src: "/images/galeria/portrety/portret-29-kobieta-w-plenerze.jpg", alt: "Portret korporacyjny w plenerze, zdjęcie na stronę firmową" },
     ],
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram sesji w biurze" },

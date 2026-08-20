@@ -463,7 +463,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     // wysokości hero, którego używają trzy pozostałe usługi.
     //
     // HISTORIA, żeby nikt nie cofnął tego przez przypadek. Do 10.08 stało tu
-    // `event-02-zdjecie-grupowe-tor` (zdjęcie grupowe na torze, 1920×1280).
+    // `event-03-zdjecie-grupowe-tor` (zdjęcie grupowe na torze, 1920×1280).
     // Kwadratowy kontener obcinał mu boki, w tym lewe auto i skrajne osoby, więc
     // dołożono `heroImageAspect: "aspect-[3/2]"`, żeby kontener dostał proporcje
     // pliku i `cover` nie miał czego przyciąć. Rozwiązywało to problem kadru
@@ -475,14 +475,15 @@ const serviceCategoriesRaw: ServiceData[] = [
     // (przy 1000 px szerokości: 140 px). Hero eventów było jedynym pierwszym
     // ekranem w serwisie, który łamał wzorzec.
     //
-    // Dlaczego podmiana pliku, a nie samo zdjęcie `heroImageAspect`: WSZYSTKIE
-    // 15 kadrów w `public/images/galeria/eventy/` ma 1920×1280, czyli dokładnie
-    // 3:2. Nie ma w repo eventowego kadru o proporcji bliższej kwadratowi, więc
+    // Dlaczego podmiana pliku, a nie samo zdjęcie `heroImageAspect`: 24 z 27 kadrów
+    // w `public/images/galeria/eventy/` ma 1920×1280, czyli dokładnie 3:2, a pozostałe
+    // trzy są pionami, więc pasują jeszcze gorzej (liczby przeliczone 20.08.2026,
+    // wcześniej stało „wszystkie 15 kadrów", co odpowiadało folderowi sprzed V4). Nie ma w repo eventowego kadru o proporcji bliższej kwadratowi, więc
     // wspólny kontener zawsze coś przytnie. Policzone: kontener bez tej flagi
     // ma tu 517×520 px, czyli z pliku zostaje 66% szerokości, po 17% z każdej
     // strony. Zdjęcie grupowe tego nie znosi, bo ludzie stoją do samych krawędzi.
     //
-    // `event-12` znosi, i to jest jedyny powód wyboru: pojedyncza sylwetka
+    // `event-18-za-kierownica-auta` (do 20.08.2026 `event-12`) znosi, i to jest jedyny powód wyboru: pojedyncza sylwetka
     // dokładnie w centrum, wypełnia kadr na całej wysokości, a przy krawędziach
     // są tylko karoseria i tło. Do tego firmowa koszulka i identyfikator mówią
     // „wydarzenie firmowe" bez podpisu, a kadr nie wygląda na koncertowy.
@@ -493,11 +494,11 @@ const serviceCategoriesRaw: ServiceData[] = [
     // wypadek", bo każda wartość inna niż `center` przesuwa kadr na WSZYSTKICH
     // breakpointach naraz.
     //
-    // ⚠ `event-12` NIE JEST w wyselekcjonowanej szóstce paska eventowego
+    // ⚠ `event-18-za-kierownica-auta` NIE JEST w wyselekcjonowanej szóstce paska eventowego
     // (`CURATED.eventy` w `ServiceGalleryStrip.tsx`) i tak ma zostać. Gdyby tam
     // trafił, filtr `exclude` skróciłby pasek z sześciu kadrów na pięć, a wtedy
     // wyłącza się on całkowicie i hero wróciłoby w pasku drugi raz.
-    heroImage: "/images/galeria/eventy/event-12-za-kierownica-auta.jpg",
+    heroImage: "/images/galeria/eventy/event-18-za-kierownica-auta.jpg",
     price: "wycena w 24h",
     process: [
       { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty, VIP-y" },
@@ -767,8 +768,8 @@ const serviceCategoriesRaw: ServiceData[] = [
     ),
     // ZDJĘCIE Z KAFELKA, 10.08.2026 (decyzja Marcina: „to co jest na kafelku
     // ma być w hero"). Hero i kafelek tej usługi pokazują ten sam plik.
-    // Poprzednio: `portret-05-mezczyzna-zielony-garnitur`.
-    heroImage: "/images/galeria/portrety/portret-02-kobieta-z-laptopem.jpg",
+    // Poprzednio: `portret-18-mezczyzna-zielony-garnitur`.
+    heroImage: "/images/galeria/portrety/portret-19-kobieta-z-laptopem.jpg",
     // ⚠ WARTOŚĆ ZWERYFIKOWANA POD TEN PLIK, nie przepisana ze starego.
     // Hero jest KWADRATOWE, a plik ma 1536×1920 (0,80:1), więc widać 80%
     // wysokości kadru i obcina się 20%. Sprawdzone wycinkiem 1536×1536:
@@ -913,7 +914,9 @@ const serviceCategoriesRaw: ServiceData[] = [
     // Decyzja Marcina: mówimy, CO klient dostaje, zamiast twierdzić coś o cudzych
     // cennikach, których nie znamy. Ta sama zasada obowiązuje w FAQ o retuszu.
     //
-    // ⚠ Volvo NIE jest nazwane, mimo trzech kadrów w galerii (`produkt-22/23/24`).
+    // ⚠ Volvo NIE jest nazwane, mimo czterech kadrów w galerii: `produkt-08-volvo-las`,
+    // `produkt-26-srebro-ceglanej-czerwieni`, `produkt-40-volvo-budynek`,
+    // `produkt-45-volvo-las-przod`.
     // Sprawdzone 10.08.2026: nazwa nie występuje w logotypach, portfolio ani
     // w opisach alternatywnych, więc nie ma źródła na relację klienta.
     description:
@@ -981,12 +984,12 @@ const serviceCategoriesRaw: ServiceData[] = [
     ),
     // ZDJĘCIE Z KAFELKA, 10.08.2026 (decyzja Marcina: „mają być jedne zdjęcia,
     // na obydwu Belweder"). Hero i kafelek pokazują ten sam plik.
-    // Poprzednio: `produkt-02-amarula`.
+    // Poprzednio: `produkt-43-amarula`.
     // ⚠ BRAK `heroImagePos` JEST CELOWY. Plik ma 1080×1620 (0,67:1), hero jest
     // kwadratowe, więc widać 67% wysokości. Sprawdzone wycinkiem 1080×1080 przy
     // domyślnym wyśrodkowaniu: toast z czytelnym logo na kieliszkach, danie
     // i butelka mieszczą się w kadrze. Nie dorabiać tu wartości „dla pewności".
-    heroImage: "/images/galeria/produktowe/produkt-01-toast-belvedere.jpg",
+    heroImage: "/images/galeria/produktowe/produkt-13-toast-belvedere.jpg",
     price: "wycena w 24h",
     process: [
       { num: 1, title: "Rozmowa", desc: "Cel, platforma sprzedaży, wytyczne marki" },
@@ -1180,7 +1183,7 @@ const serviceCategoriesRaw: ServiceData[] = [
     // UWAGA: ten sam plik stoi trzeci w galerii wnętrz (układ ustawiony przez
     // Marcina 04.08.2026: rząd 1 hale, rząd 2 obiekt i strefy wspólne, rząd 3 lokale).
     // Przy przenumerowaniu folderu sprawdź tę ścieżkę, bo się rozjedzie po cichu.
-    heroImage: "/images/galeria/wnetrza/wnetrze-03-hala-bramki-wejsciowe.jpg",
+    heroImage: "/images/galeria/wnetrza/wnetrze-10-hala-bramki-wejsciowe.jpg",
     // DEPRICING 14.08.2026. Historia, bo tłumaczy, czego tu już nie ma:
     // do 10.08 pole mówiło „pakiety od 900 zł netto", a słowo „pakiety" niosło sens,
     // nie ozdobę — sygnalizowało, że kwota kupuje OBIEKT PODSTAWOWY (do 8 ujęć
@@ -1387,15 +1390,15 @@ const SERVICE_TILE_POS: Record<string, string> = {
   // a pliki portretowe i produktowe są pionowe 1536×1920, więc widać tylko
   // 45% wysokości kadru na mobile. Sprawdzać wycinkiem, nie na oko.
 
-  // `portret-02-kobieta-z-laptopem`: twarz i laptop w górnej części pionowego kadru.
+  // `portret-19-kobieta-z-laptopem`: twarz i laptop w górnej części pionowego kadru.
   "wizerunek-portrety": "center 25%",
-  // `produkt-01-toast-belvedere`: kieliszki i butelka w środkowo-dolnej części;
+  // `produkt-13-toast-belvedere`: kieliszki i butelka w środkowo-dolnej części;
   // góra to ciemne tło lokalu.
   "fotografia-produktowa": "center 45%",
   // ⚠ OPIS POPRAWIONY 11.08.2026 (F1). Mówił „auta i grupa w dolnych dwóch
-  // trzecich, góra to niebo" i opisywał `event-02-zdjecie-grupowe-tor`, czyli
+  // trzecich, góra to niebo" i opisywał `event-03-zdjecie-grupowe-tor`, czyli
   // plik, którego tu już nie ma. WARTOŚĆ ZOSTAJE BEZ ZMIAN, bo sprawdzona na
-  // renderze po podmianie kadru: przy `event-12-za-kierownica-auta` te 62%
+  // renderze po podmianie kadru: przy `event-18-za-kierownica-auta` te 62%
   // ścinają dach auta i niebo, a zostawiają twarz, identyfikator i firmową
   // koszulkę w całości.
   //

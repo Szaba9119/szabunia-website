@@ -5,6 +5,10 @@ export type GalleryCategoryKey =
   | "portrety"
   | "eventy"
   | "produktowe"
+  // Dodane przy wdrożeniu V4 (20.08.2026). Gastronomia była największym brakiem
+  // wykrytym w audycie: opublikowane case study lokalu z rekomendacją Michelin,
+  // a w galerii ani jednej kategorii kulinarnej. Folder `public/images/galeria/gastronomia`.
+  | "gastronomia"
   | "wideo"
   | "dron"
   | "zespolowe"

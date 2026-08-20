@@ -27,6 +27,14 @@ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string
     sub: "Wybrane packshoty i zdjęcia produktów z realizacji e-commerce.",
     alt: "Fotografia produktowa, packshot, Marcin Szabunia",
   },
+  // Wpis wymagany przez typ (META jest Record<GalleryCategoryKey, …>), ale dziś nieużywany:
+  // żadna usługa nie ma `galleryCategory: "gastronomia"`, bo podstrona usługi gastronomicznej
+  // nie istnieje. Wejdzie do gry dopiero razem z decyzją o otwarciu tej usługi.
+  gastronomia: {
+    label: "Przykłady z galerii: gastronomia",
+    sub: "Dania, bary i wnętrza lokali z realizacji dla gastronomii.",
+    alt: "Fotografia kulinarna i gastronomiczna, Marcin Szabunia, Poznań",
+  },
   wideo: {
     label: "Przykłady z galerii: wideo",
     sub: "Wybrane realizacje wideo i reelsy.",
@@ -62,18 +70,18 @@ const META: Record<GalleryCategoryKey, { label: string; sub: string; alt: string
 // Wyselekcjonowane najlepsze 6 kadrów per kategoria (zamiast pierwszych z
 // brzegu). Dobrane pod B2B: różnorodność i jakość. Reszta kategorii → fallback.
 const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
-  // portret-07 (dziś `portret-07-kobieta-czarna-marynarka`) wypadł 04.08.2026: to ta sama
+  // `portret-26-kobieta-czarna-marynarka` (do 20.08.2026 `portret-07`) wypadł 04.08.2026: to ta sama
   // osoba w tej samej marynarce co `_F2A9376-Edit-2` z sesji IDcom, więc na podstronie
   // sesji zespołowych ta sama twarz wychodziła dwa razy, raz w każdym pasku (Marcin).
   // Nazwy plików dostały opis 04.08.2026 (ZDJ2608-01), numery NN bez zmian, więc
   // kolejność i skład tej listy są takie same jak przed zmianą nazw.
   portrety: [
-    "portret-12-kobieta-w-plenerze",
-    "portret-03-mezczyzna-czarne-tlo",
-    "portret-10-kobieta-bezowa-marynarka",
-    "portret-11-mezczyzna-w-fotelu",
-    "portret-05-mezczyzna-zielony-garnitur",
-    "portret-08-kobieta-morski-kombinezon",
+    "portret-29-kobieta-w-plenerze",
+    "portret-10-mezczyzna-czarne-tlo",
+    "portret-12-kobieta-bezowa-marynarka",
+    "portret-23-mezczyzna-w-fotelu",
+    "portret-18-mezczyzna-zielony-garnitur",
+    "portret-04-kobieta-morski-kombinezon",
   ].map(
     (n) => `/images/galeria/portrety/${n}.jpg`
   ),
@@ -89,20 +97,20 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
     // koncertem: raper w dresie na scenie areny. Dwa z sześciu kafelków to byli
     // DJ-e, w tym jeden na festiwalu z pirotechniką.
     //
-    // WYSZŁY: `event-09-dj-za-konsoleta` i `event-17-dj-slupy-ognia` (klub i festiwal).
-    // WESZŁY: `event-04-gala-wreczenie-wyroznien` (gala, wręczenie wyróżnień,
-    //   branding klienta w kadrze) i `event-03-integracja-przybicie-piatki`
+    // WYSZŁY: `event-21-dj-za-konsoleta` i `event-05-dj-slupy-ognia` (klub i festiwal).
+    // WESZŁY: `event-20-gala-wreczenie-wyroznien` (gala, wręczenie wyróżnień,
+    //   branding klienta w kadrze) i `event-08-integracja-przybicie-piatki`
     //   (integracja firmowa, koszulki z identyfikatorami, ten sam event co hero).
     //
     // KOLEJNOŚĆ jest teraz od najbardziej firmowego kadru do rozrywkowego, bo
     // pierwszy kafelek to jedyny, który klient widzi na pewno. Jeden kadr sceniczny
-    // (`event-16`) zostaje świadomie na końcu: oprawa artystyczna gali to realna
+    // (`event-09-wystep-na-scenie-hali`) zostaje świadomie na końcu: oprawa artystyczna gali to realna
     // część tej pracy i udawanie, że jej nie ma, byłoby nieuczciwe wobec zakresu.
     //
-    // ⚠ `event-04` NIE BYŁO OSIEROCONE, wbrew temu, co mówił poprzedni komentarz
+    // ⚠ `event-20-gala-wreczenie-wyroznien` NIE BYŁO OSIEROCONE, wbrew temu, co mówił poprzedni komentarz
     // w tym miejscu. Wypadło stąd rano 10.08 (UXUI2608-04), bo zostało wtedy hero
     // tej podstrony, a hero i pas renderują się na jednym ekranie. Po południu
-    // commit `401329f` zmienił hero na `event-02-zdjecie-grupowe-tor`, więc powód
+    // commit `401329f` zmienił hero na `event-03-zdjecie-grupowe-tor`, więc powód
     // wykluczenia zniknął, ale kadr nie wrócił. Przez cały ten czas był i jest
     // renderowany w galerii case study `fotografia-eventowa` (`portfolio.ts`),
     // więc chodziło o nieobecność na TEJ stronie, nie w całym serwisie.
@@ -113,46 +121,60 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
     // wydarzeń" obiecuje osiem typów, portfolio pokrywa cztery. Marcin potwierdził,
     // że takiego materiału nie ma. To brak materiału, nie doboru: przetasowanie
     // tej listy go nie zamknie.
-    "event-05-networking-foyer",
-    "event-04-gala-wreczenie-wyroznien",
-    "event-03-integracja-przybicie-piatki",
-    "event-15-goscie-przy-stole",
-    "event-14-saksofonista-bankiet",
-    "event-16-wystep-na-scenie-hali",
+    "event-02-networking-foyer",
+    "event-20-gala-wreczenie-wyroznien",
+    "event-08-integracja-przybicie-piatki",
+    "event-16-goscie-przy-stole",
+    "event-24-saksofonista-bankiet",
+    "event-09-wystep-na-scenie-hali",
   ].map(
     (n) => `/images/galeria/eventy/${n}.jpg`
   ),
   produktowe: [
-    "produkt-01-toast-belvedere", // toast kieliszkami wódki
-    "produkt-23-volvo-las", // auto w środku lasu
-    "produkt-05-danie-talerz", // danie z fasolką na białym talerzu
-    "produkt-19-bransoletka-dlon", // bransoletka na dłoni
-    "produkt-10-sukienka-zolta", // kobieta w żółtej sukience
-    "produkt-14-hob-koszulki", // koszulka na ciemnym tle
-    "produkt-16-pedzelek", // patyczek do makijażu
-    "produkt-03-caprice", // grejfrutowy koktajl / alkohol
+    "produkt-13-toast-belvedere", // toast kieliszkami wódki
+    "produkt-08-volvo-las", // auto w środku lasu
+    "produkt-35-danie-talerz", // danie z fasolką na białym talerzu
+    "produkt-10-bransoletka-dlon", // bransoletka na dłoni
+    "produkt-17-sukienka-zolta", // kobieta w żółtej sukience
+    "produkt-06-hob-koszulki", // koszulka na ciemnym tle
+    "produkt-19-pedzelek", // patyczek do makijażu
+    "produkt-01-caprice", // grejfrutowy koktajl / alkohol
   ].map((n) => `/images/galeria/produktowe/${n}.jpg`),
   // 6 różnych obiektów (bez powtórki tego samego budynku, np. Bałtyk z dwóch stron).
   dron: [
     "dron-01-centrum-poznania-biurowce",
-    "dron-03-nowoczesny-budynek-poznan",
-    "dron-09-nowoczesne-osiedle-poznan",
-    "dron-06-apartamenty-nad-rzeka-poznan",
-    "dron-07-osiedle-mieszkaniowe-poznan",
+    "dron-04-nowoczesny-budynek-poznan",
+    "dron-06-nowoczesne-osiedle-poznan",
+    "dron-03-apartamenty-nad-rzeka-poznan",
+    "dron-09-osiedle-mieszkaniowe-poznan",
     "dron-05-panorama-poznania-zachod-slonca",
   ].map((n) => `/images/galeria/dron/${n}.jpg`),
-  // Te same pliki co w galerii dronowej: osiem z dziewięciu kadrów w folderze `dron`
-  // to budynki i inwestycje, nie tereny (sprawdzone 2026-07-31). Wskazujemy je stąd
-  // zamiast kopiować pliki: jeden plik na dysku, dwa konteksty użycia. Panorama
-  // (`dron-05`) świadomie NIE wchodzi tutaj, bo to jedyny kadr, który jest terenem,
-  // i zostaje wyróżnikiem galerii dronowej.
+  // Te same pliki co w galerii dronowej: siedem z dziewięciu kadrów w folderze `dron`
+  // to budynki i inwestycje, nie tereny. Wskazujemy je stąd zamiast kopiować pliki:
+  // jeden plik na dysku, dwa konteksty użycia. Poza listą świadomie zostają dwa kadry,
+  // które terenem są: panorama miasta (`dron-05`) i jarmark z nadiru (`dron-02`).
+  //
+  // ⚠ AKTUALIZACJA 20.08.2026. Było „osiem z dziewięciu" i było prawdą przy innym
+  // składzie folderu. Tego dnia kuracja Marcina zabrała z dronów trzy kadry, które
+  // w numeracji bezpośrednio sprzed kuracji nazywały się `dron-03-slonce-wpada-dokladnie`
+  // (nowoczesny kompleks biurowy), `dron-08-kamienica-helmem-ciemna` i
+  // `dron-12-wiezowiec-biurowy-poznan`. Pierwsza pozycja tej listy wskazywała
+  // na ostatni z nich, więc wstawiony został `dron-04-nowoczesny-budynek-poznan`,
+  // najbliższy charakterem obiekt komercyjny z tego, co zostało.
+  //
+  // ⚠ SKUTEK DO ODNOTOWANIA, nie do naprawienia tutaj: po tej kuracji galeria dronowa
+  // pokazuje głównie zabudowę mieszkaniową i osiedla. Czystym biurowcem jest już tylko
+  // `dron-01-centrum-poznania-biurowce`, a `dron-08-biurowiec-poznan` ma balkony na
+  // każdej kondygnacji, czyli nazwa mówi „biurowiec", a kadr pokazuje budynek mieszkalny
+  // (ten sam rozjazd opisany jest w nagłówku `galleryAlts.ts`). Jeżeli podstrona
+  // nieruchomościowa ma sprzedawać obiekty komercyjne, brakuje materiału, nie doboru.
   obiekty: [
-    "dron-10-wiezowiec-biurowy-poznan",
-    "dron-04-biurowiec-poznan",
-    "dron-08-inwestycja-tereny-zielone-poznan",
+    "dron-04-nowoczesny-budynek-poznan",
+    "dron-08-biurowiec-poznan",
+    "dron-07-inwestycja-tereny-zielone-poznan",
     "dron-01-centrum-poznania-biurowce",
-    "dron-06-apartamenty-nad-rzeka-poznan",
-    "dron-09-nowoczesne-osiedle-poznan",
+    "dron-03-apartamenty-nad-rzeka-poznan",
+    "dron-06-nowoczesne-osiedle-poznan",
   ].map((n) => `/images/galeria/dron/${n}.jpg`),
   // Kolejność ustawiona jawnie 10.08.2026 (decyzja Marcina: „przemysł pierwszy").
   // Wcześniej pasek brał pliki alfabetycznie z folderu i wychodziło poprawnie
@@ -164,16 +186,16 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
   // mocniejsze po stronie nieruchomości. Chodzi o pierwszy sygnał: „tak,
   // fotografuję również takie obiekty".
   //
-  // Siedem pozycji, nie sześć: `wnetrze-03` jest zdjęciem hero tej podstrony,
+  // Siedem pozycji, nie sześć: `wnetrze-10-hala-bramki-wejsciowe` jest zdjęciem hero tej podstrony,
   // więc filtr `exclude` je wytnie i zostanie równo sześć na pasek.
   wnetrza: [
-    "wnetrze-01-hala-magazynowa-regaly",
-    "wnetrze-02-hala-strefa-kompletacji",
-    "wnetrze-03-hala-bramki-wejsciowe",
-    "wnetrze-04-elewacja-szklana-fasada",
-    "wnetrze-07-restauracja-ceglana-sciana",
-    "wnetrze-09-bistro-z-antresoli",
-    "wnetrze-05-silownia-w-biurze",
+    "wnetrze-03-hala-magazynowa-regaly",
+    "wnetrze-07-hala-strefa-kompletacji",
+    "wnetrze-10-hala-bramki-wejsciowe",
+    "wnetrze-01-elewacja-szklana-fasada",
+    "wnetrze-21-restauracja-ceglana-sciana",
+    "wnetrze-14-bistro-z-antresoli",
+    "wnetrze-16-silownia-w-biurze",
   ].map((n) => `/images/galeria/wnetrza/${n}.jpg`),
   // Sesja dla IDcom: po kolei trzy tła (białe, czarne z niebieskim, kremowe), jedna osoba na kadr.
   zespolowe: [

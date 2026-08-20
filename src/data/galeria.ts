@@ -29,5 +29,13 @@ export const galleryVideos: GalleryVideo[] = [
   //
   // Nadal istnieje w `portfolio.ts` wewnątrz case study `box17-budki-akustyczne`,
   // ale to case jest w `DRAFT_SLUGS` i pozostaje nieopublikowane, więc nikt go nie zobaczy.
-  // Trzy ZDJĘCIA Box17 zostają w galerii produktowej (`produkt-07/08/09`) bez zmian.
+  // ⚠ POPRAWIONE 20.08.2026. Zapis mówił „trzy ZDJĘCIA Box17 zostają w galerii produktowej
+  // (`produkt-07/08/09`)". Dwa z tych kadrów wyjechały tego dnia do `_to_delete/`
+  // (`produkt-07-box17-budka-pojedyncza` i `produkt-08-box17-budka-dwuosobowa`),
+  // a jedyny pozostały nazywa się po przenumerowaniu `produkt-12-box17-budka-duza`.
+  // Uwaga przy czytaniu: same numery 07 i 08 nadal w folderze SĄ, noszą je dziś zupełnie
+  // inne zdjęcia. To dokładnie ten powód, dla którego nazwa pliku musi zawierać opis.
+  // Sprawdzone przez wylistowanie
+  // `public/images/galeria/produktowe/`. Stan faktyczny: JEDEN kadr Box17 w galerii
+  // produktowej, dziesięć kolejnych w `public/images/portfolio/box17/` (case nieopublikowany).
 ];
