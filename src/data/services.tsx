@@ -133,7 +133,19 @@ export interface ServiceData {
 	};
 	/** Krótka sekcja doprecyzowująca usługę, renderowana pod „Kogo/Co fotografuję".
       Dodane 17.08.2026. Opcjonalne na tej samej zasadzie co `applications`:
-      usługi bez tego pola renderują się bez zmian. */
+      usługi bez tego pola renderują się bez zmian.
+
+      ⚠ POLE JEST DZIŚ PUSTE WE WSZYSTKICH CZTERECH USŁUGACH (09.09.2026, decyzja
+      Marcina). Trzy bloki, które tu stały („Fotograf na konferencję i na galę
+      firmową", „Fotograf biznesowy w Poznaniu i w całej Polsce", „Fotograf
+      nieruchomości i zdjęcia dla deweloperów"), zostały usunięte, bo jedyna
+      podstrona bez `pitch`, czyli produktowa, miała przez to inny schemat sekcji niż
+      pozostałe trzy. Po usunięciu wszystkie cztery idą tym samym układem.
+
+      Mechanizm (typ + render w `uslugi/[slug]/page.tsx`) zostaje, bo powstał
+      z konkretnego powodu: audyt Landing Page Experience 17.08.2026 pokazał, że
+      nagłówki aktywnych reklam obiecywały frazy, których na podstronach nie było
+      ani razu. Jeżeli ten problem wróci w Google Ads, wystarczy dopisać dane. */
 	pitch?: { heading: string; body: string };
 	/** Sekcja „Zakres realizacji". Bloki „nazwa + jedno zdanie konkretu”.
       Opcjonalne na tej samej zasadzie co `applications`. */
@@ -378,14 +390,6 @@ const serviceCategoriesRaw: ServiceData[] = [
 				'Materiały prasowe i raporty',
 				'Strona wydarzenia',
 			],
-		},
-		/* Sekcja „pitch" dodana 17.08.2026 po audycie Landing Page Experience.
-       Powód, na liczbach: nagłówki aktywnych reklam obiecywały frazy, które na
-       tej podstronie nie występowały ani razu. Treść przeniesiona z istniejących
-       powierzchni TEJ SAMEJ podstrony, zero nowych obietnic. */
-		pitch: {
-			heading: 'Fotograf na konferencję i na galę firmową',
-			body: 'Wystąpienia, prelegenci, uczestnicy, rozmowy w kuluarach. Około 30 gotowych zdjęć na każdą godzinę obecności, po selekcji i obróbce. Wybrane kadry obrabiam na miejscu i przesyłam w trakcie wydarzenia, to opcja zamawiana osobno.',
 		},
 		scope: {
 			items: [
@@ -724,8 +728,19 @@ const serviceCategoriesRaw: ServiceData[] = [
 		//
 		// NIE dopisywać tu nowych nazw bez potwierdzenia u Marcina. Sama wzmianka
 		// w komentarzu albo w pliku wewnętrznym NIE jest źródłem.
+		//
+		// ⚠ ZDANIE O WYNAJĘTYM STUDIU DOPISANE 09.09.2026 (polecenie Marcina).
+		// Świadome odstępstwo od notki wyżej, że logistyka studia stoi już w „Zakresie
+		// realizacji" i w FAQ: tego samego dnia zniknęła sekcja `pitch`, która na tej
+		// podstronie niosła zdanie „Sesja biznesowa może się odbyć w studiu w Poznaniu
+		// albo w Twoim biurze". Bez tego dopisku lead mówił już tylko o dojeździe do
+		// biura i wyglądał na jedyną opcję.
+		//
+		// ⚠ BEZ SŁOWA O CENIE. Studio zewnętrzne w Poznaniu wchodzi w próg tylko przy
+		// JEDNEJ osobie (cennik v3 §1) i Marcin przepisał zdanie w FAQ 10.08.2026
+		// właśnie dlatego, że dawało się czytać jako „studio zawsze w cenie".
 		description:
-			'Na zakładce „Zespół” widać wszystko: kto ma zdjęcie z sesji, kto przycięty kadr z wesela, a kto szare kółko z inicjałami. Fotografuję ludzi w firmie tak, żeby cały zespół wyglądał jak jedna firma: ten sam standard światła i retuszu. Przyjeżdżam z mobilnym studiem do biura, więc nikt nie traci pół dnia na dojazd. Sesje zespołowe robiłem między innymi dla IDcom Group i Poznańskich Nieruchomości.',
+			'Na zakładce „Zespół” widać wszystko: kto ma zdjęcie z sesji, kto przycięty kadr z wesela, a kto szare kółko z inicjałami. Fotografuję ludzi w firmie tak, żeby cały zespół wyglądał jak jedna firma: ten sam standard światła i retuszu. Przyjeżdżam z mobilnym studiem do biura, więc nikt nie traci pół dnia na dojazd. Jeśli sesja tego wymaga, wynajmuję studio dopasowane do klienta. Sesje zespołowe robiłem między innymi dla IDcom Group i Poznańskich Nieruchomości.',
 		applications: {
 			heading: 'Kogo fotografuję',
 			items: [
@@ -745,14 +760,6 @@ const serviceCategoriesRaw: ServiceData[] = [
 				'Prezentacje i materiały sprzedażowe',
 				'Publikacje i wystąpienia',
 			],
-		},
-		/* Sekcja „pitch" dodana 17.08.2026 po audycie Landing Page Experience.
-       Powód, na liczbach: nagłówki aktywnych reklam obiecywały frazy, które na
-       tej podstronie nie występowały ani razu. Treść przeniesiona z istniejących
-       powierzchni TEJ SAMEJ podstrony, zero nowych obietnic. */
-		pitch: {
-			heading: 'Fotograf biznesowy w Poznaniu i w całej Polsce',
-			body: 'Sesja biznesowa może się odbyć w studiu w Poznaniu albo w Twoim biurze, bo mobilne studio wożę ze sobą. Potrzebuję 5 m² i gniazdka, rozstawienie zajmuje 30 minut. Do 40 osób w jeden dzień, 5 do 15 minut na osobę, wyretuszowane zdjęcia w 14 dni.',
 		},
 		scope: {
 			items: [
@@ -1271,14 +1278,6 @@ const serviceCategoriesRaw: ServiceData[] = [
 				'Strona firmy produkcyjnej',
 				'Portale ogłoszeniowe',
 			],
-		},
-		/* Sekcja „pitch" dodana 17.08.2026 po audycie Landing Page Experience.
-       Powód, na liczbach: nagłówki aktywnych reklam obiecywały frazy, które na
-       tej podstronie nie występowały ani razu. Treść przeniesiona z istniejących
-       powierzchni TEJ SAMEJ podstrony, zero nowych obietnic. */
-		pitch: {
-			heading: 'Fotograf nieruchomości i zdjęcia dla deweloperów',
-			body: "Pracuję dla deweloperów, agencji nieruchomości, zarządców biurowców, hoteli, architektów i zakładów produkcyjnych. Dla Artech Group fotografowałem zakład produkcyjny, a wnętrza steakhouse\'u Yes Butcher! w Starych Koszarach trafiły na profil restauracji w przewodniku Michelin.",
 		},
 		scope: {
 			items: [
