@@ -508,6 +508,8 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// trafił, filtr `exclude` skróciłby pasek z sześciu kadrów na pięć, a wtedy
 		// wyłącza się on całkowicie i hero wróciłoby w pasku drugi raz.
 		heroImage: '/images/galeria/eventy/event-03-zdjecie-grupowe-tor.jpg',
+		heroImageAspect: 'aspect-[3/2]',
+		heroPriceLabel: 'Wstępna wycena',
 		price: 'wycena w 24h',
 		process: [
 			{ num: 1, title: 'Rozmowa', desc: 'Agenda, kluczowe momenty, VIP-y' },
@@ -832,6 +834,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// DEPRICING 14.08.2026: kwota zdjęta razem z pozostałymi trzema usługami.
 		// `minPrice` w JSON-LD zniknął przy tej samej zmianie, więc to pole nie zasila
 		// już danych strukturalnych.
+		heroPriceLabel: 'Wstępna wycena',
 		price: 'wycena w 24h',
 		process: [
 			// Proces przepisany 10.08.2026 pod scaloną usługę. Poprzedni opisywał
@@ -1097,6 +1100,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// domyślnym wyśrodkowaniu: toast z czytelnym logo na kieliszkach, danie
 		// i butelka mieszczą się w kadrze. Nie dorabiać tu wartości „dla pewności".
 		heroImage: '/images/galeria/produktowe/produkt-13-toast-belvedere.jpg',
+		heroPriceLabel: 'Wstępna wycena',
 		price: 'wycena w 24h',
 		process: [
 			{
@@ -1340,6 +1344,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// nie ozdobę — sygnalizowało, że kwota kupuje OBIEKT PODSTAWOWY (do 8 ujęć
 		// z powietrza), a blok wnętrz jest osobną pozycją. Tę informację przejmuje dziś
 		// `pricingBlurb` i blok „Jak powstaje wycena", więc nie ginie razem z kwotą.
+		heroPriceLabel: 'Wstępna wycena',
 		price: 'wycena w 24h',
 		process: [
 			{

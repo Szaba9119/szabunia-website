@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { serviceCategories } from '@/data/services';
 import Navigation from '@/components/Navigation';
 import ScrollProgress from '@/components/ScrollProgress';
@@ -127,27 +128,33 @@ export default function UslugiPage() {
 									<Link
 										href={`/uslugi/${s.slug}`}
 										data-cta={`uslugi_karta_${s.slug}`}
-										className='flex flex-col p-6 h-full'
+										className='flex flex-col h-full'
 									>
-										<div
-											className='w-10 h-10 rounded-xl bg-blue-pale dark:bg-blue/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform'
-											aria-hidden='true'
-										>
-											{s.icon}
+										<div className='relative aspect-[3/2] overflow-hidden rounded-t-2xl bg-border dark:bg-dark-border'>
+											<Image
+												src={s.heroImage}
+												alt={`${s.title}, przykładowa realizacja`}
+												fill
+												sizes='(max-width: 640px) 100vw, 50vw'
+												style={{ objectPosition: s.heroImagePos ?? 'center' }}
+												className='object-cover transition-transform duration-500 group-hover:scale-105'
+											/>
 										</div>
-										<h2 className='font-barlow font-bold text-base text-navy dark:text-white mb-1.5'>
-											{s.title}
-										</h2>
-										<p className='text-steel dark:text-dark-text-muted text-[13px] leading-relaxed mb-4 flex-grow'>
-											{s.subtitle}
-										</p>
-										<div className='flex items-center justify-between pt-3 border-t border-border dark:border-dark-border'>
-											<span className='text-blue dark:text-blue-light text-[12px] font-barlow font-semibold'>
-												{s.heroPriceLabel ?? s.price}
-											</span>
-											<span className='text-blue dark:text-blue-light text-[12px] font-barlow font-semibold group-hover:translate-x-0.5 transition-transform'>
-												Zobacz szczegóły →
-											</span>
+										<div className='flex flex-1 flex-col p-6'>
+											<h2 className='font-barlow font-bold text-base text-navy dark:text-white mb-1.5'>
+												{s.title}
+											</h2>
+											<p className='text-steel dark:text-dark-text-muted text-[13px] leading-relaxed mb-4 flex-grow'>
+												{s.subtitle}
+											</p>
+											<div className='flex items-center justify-between pt-3 border-t border-border dark:border-dark-border'>
+												<span className='text-blue dark:text-blue-light text-[12px] font-barlow font-semibold'>
+													{s.heroPriceLabel ?? s.price}
+												</span>
+												<span className='text-blue dark:text-blue-light text-[12px] font-barlow font-semibold group-hover:translate-x-0.5 transition-transform'>
+													Zobacz szczegóły →
+												</span>
+											</div>
 										</div>
 									</Link>
 								</div>

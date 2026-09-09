@@ -12,18 +12,6 @@ interface Props {
 }
 
 export default function ServiceHero({ service, crumbs }: Props) {
-	// ⚠ DOKLEJANIE „ netto" USUNIĘTE 14.08.2026 (depricing).
-	//
-	// Do 14.08 `price` niosło kwotę („od 600 zł netto"), a ten kod dopisywał słowo
-	// „netto", gdy go brakowało. Zabezpieczenie miało sens, dopóki etykieta była
-	// kwotą. Po depricingu `price` mówi „wycena w 24h", więc stara reguła dawałaby
-	// „wycena w 24h netto", czyli dokładnie ten sam gatunek błędu co „netto netto",
-	// który naprawiała.
-	//
-	// Etykieta idzie teraz na stronę dokładnie taka, jaka stoi w `services.tsx`.
-	// Jeśli kwoty kiedyś wrócą, słowo „netto" ma stać W DANYCH, nie tutaj.
-	const priceLabel = service.heroPriceLabel ?? service.price;
-
 	return (
 		// Pionowe marginesy ścięte 10.08.2026 (brief hero, punkt 1 i 10): było
 		// md:pt-36 / md:pb-20, czyli 144 i 80 px, przy nagłówku, który zaczynał się
@@ -184,6 +172,7 @@ export default function ServiceHero({ service, crumbs }: Props) {
                    Bez wpisu w mapie zostaje stary szablon, żeby nic nie zniknęło. */
 								alt={galleryAlt(service.heroImage, `${service.title}, Poznań`)}
 								fill
+								unoptimized={service.slug === 'eventy-reportaze'}
 								className='object-cover'
 								style={{ objectPosition: service.heroImagePos ?? 'center' }}
 								priority
@@ -219,18 +208,8 @@ export default function ServiceHero({ service, crumbs }: Props) {
                 ⚠ `data-cta` na obu linkach zostaje bez zmian
                 (`wycena_hero`, `tel_service_hero`) — po tych atrybutach chodzi
                 pomiar konwersji, podmiana nazwy zrywa ciągłość danych. */}
-						{/* Kotwica cenowa, mały element typograficzny, nie badge (brief-22 §3).
-                ZESZŁA Z 17-18 px BOLD NA 15 px SEMIBOLD (ósma tura, punkt 8):
-                w poprzedniej turze podniosłem ją tak, że razem z własnym
-                marginesem tworzyła osobne piętro między opisem a przyciskiem.
-                Teraz jest pierwszą linijką bloku CTA i przykleja się do przycisku
-                (12 px), a nie do tekstu wyżej.
-                Kwota i jej zapis bez zmian, z `heroPriceLabel ?? price`. */}
 						<div className='mt-6 md:mt-7'>
-							<p className='font-barlow font-semibold text-[15px] text-navy dark:text-white'>
-								{priceLabel}
-							</p>
-							<div className='mt-3 flex flex-wrap items-center gap-x-5 gap-y-3 justify-center md:justify-start'>
+							<div className='mt-0 flex flex-wrap items-center gap-x-5 gap-y-3 justify-center md:justify-start'>
 								<a
 									href='#kontakt'
 									data-cta='wycena_hero'

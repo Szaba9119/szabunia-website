@@ -1,23 +1,23 @@
 export interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  content: string;
-  category: "poradnik" | "realizacja" | "branża";
-  /** Data publikacji. NIE podnosić przy korektach — od tego jest `updated`. */
-  date: string;
-  /** Data ostatniej istotnej zmiany treści (ceny, CTA, fakty). Zasila `lastModified`
+	slug: string;
+	title: string;
+	excerpt: string;
+	content: string;
+	category: 'poradnik' | 'realizacja' | 'branża';
+	/** Data publikacji. NIE podnosić przy korektach — od tego jest `updated`. */
+	date: string;
+	/** Data ostatniej istotnej zmiany treści (ceny, CTA, fakty). Zasila `lastModified`
       w sitemapie — bez tego Google dostawał datę publikacji jako datę modyfikacji
       (audyt PELNY2907-45). Podnosić ręcznie przy realnej zmianie treści. */
-  updated?: string;
-  readTime: number;
-  thumbnail: string;
-  seo: {
-    title: string;
-    description: string;
-  };
-  /** Q&A pod FAQPage JSON-LD (featured snippets / AEO) — wyłącznie parafrazy treści wpisu. */
-  faq?: { q: string; a: string }[];
+	updated?: string;
+	readTime: number;
+	thumbnail: string;
+	seo: {
+		title: string;
+		description: string;
+	};
+	/** Q&A pod FAQPage JSON-LD (featured snippets / AEO) — wyłącznie parafrazy treści wpisu. */
+	faq?: { q: string; a: string }[];
 }
 
 /** Wpisy, pod którymi pokazujemy CTA lead magneta `/poradnik`.
@@ -27,14 +27,14 @@ export interface BlogPost {
     „przygotowanie do sesji" ma 157 wyświetleń w GSC, przy 1 wyświetleniu /poradnik,
     więc linkowanie wewnętrzne jest jedynym kanałem dojścia do tej strony). */
 export const PORADNIK_CTA_SLUGS = [
-  "jak-przygotowac-sie-do-sesji-biznesowej",
-  "co-zalozyc-na-sesje-biznesowa",
-  "zdjecie-do-cv-w-domu",
-  "sesja-wizerunkowa-poznan",
-  "zdjecia-ai-vs-profesjonalna-sesja",
-  "bledy-zdjecia-zespolu",
-  "spojne-portrety-zespolu",
-  "headshoty-zespolu-w-jeden-dzien",
+	'jak-przygotowac-sie-do-sesji-biznesowej',
+	'co-zalozyc-na-sesje-biznesowa',
+	'zdjecie-do-cv-w-domu',
+	'sesja-wizerunkowa-poznan',
+	'zdjecia-ai-vs-profesjonalna-sesja',
+	'bledy-zdjecia-zespolu',
+	'spojne-portrety-zespolu',
+	'headshoty-zespolu-w-jeden-dzien',
 ] as const;
 
 /**
@@ -50,37 +50,49 @@ export const PORADNIK_CTA_SLUGS = [
  * strukturalnych, Google je zna, a podnoszenie daty publikacji przy korekcie jest
  * przepisywaniem historii (zasada zapisana przy polu `date` w interfejsie wyżej).
  */
-export function postDate(post: Pick<BlogPost, "date" | "updated">): {
-  iso: string;
-  /** Czy pokazujemy datę aktualizacji, a nie publikacji (do etykiety w UI). */
-  isUpdate: boolean;
+export function postDate(post: Pick<BlogPost, 'date' | 'updated'>): {
+	iso: string;
+	/** Czy pokazujemy datę aktualizacji, a nie publikacji (do etykiety w UI). */
+	isUpdate: boolean;
 } {
-  return post.updated ? { iso: post.updated, isUpdate: true } : { iso: post.date, isUpdate: false };
+	return post.updated
+		? { iso: post.updated, isUpdate: true }
+		: { iso: post.date, isUpdate: false };
 }
 
 /** Sortowanie listy: najpierw data widoczna, przy remisie starsza publikacja niżej. */
 export function byNewest(a: BlogPost, b: BlogPost): number {
-  const da = postDate(a).iso, db = postDate(b).iso;
-  if (da !== db) return db.localeCompare(da);
-  return b.date.localeCompare(a.date);
+	const da = postDate(a).iso,
+		db = postDate(b).iso;
+	if (da !== db) return db.localeCompare(da);
+	return b.date.localeCompare(a.date);
 }
 
 export const blogPosts: BlogPost[] = [
-  {
-    slug: "jak-przygotowac-sie-do-sesji-biznesowej",
-    faq: [
-      { q: "Co założyć na sesję biznesową?", a: "Ubierz się o jeden poziom bardziej elegancko niż na co dzień w pracy. Bezpieczne kolory to granat, szarość, biel, czerń i butelkowa zieleń. Unikaj pasków, kratki, fluorescencyjnych barw i ubrań z dużymi logotypami. Warto przygotować 2-3 stylizacje, żeby na sesji mieć z czego wybierać." },
-      { q: "Czy muszę umieć pozować na sesji biznesowej?", a: "Nie. Dobry fotograf biznesowy prowadzi Cię przez całą sesję: pokazuje, jak stanąć, gdzie patrzeć i kiedy się uśmiechnąć. Nie musisz być modelem. Twoim jedynym zadaniem jest być sobą, a o światło, kompozycję i klimat zdjęć zadba fotograf." },
-      { q: "Jak przygotować się dzień przed sesją biznesową?", a: "Wyśpij się, pij wodę i unikaj alkoholu dzień przed sesją. Cienie pod oczami i sucha skóra to pierwsze rzeczy widoczne na profesjonalnych zdjęciach. Zadbaj też o detale: wyprasowaną koszulę, schludną fryzurę i czyste szkła okularów, bo refleksy na brudnych szkłach to koszmar w retuszu." },
-    ],
-    title: "Jak przygotować się do sesji biznesowej: 7 praktycznych wskazówek",
-    excerpt:
-      "Odpowiednie przygotowanie to połowa sukcesu. Oto sprawdzona checklista, dzięki której Twoje portrety biznesowe będą wyglądać profesjonalnie i naturalnie.",
-    category: "poradnik",
-    date: "2025-01-15",
-    readTime: 6,
-    thumbnail: "/images/blog/jak-przygotowac-sie-do-sesji-biznesowej-2.jpg",
-    content: `
+	{
+		slug: 'jak-przygotowac-sie-do-sesji-biznesowej',
+		faq: [
+			{
+				q: 'Co założyć na sesję biznesową?',
+				a: 'Ubierz się o jeden poziom bardziej elegancko niż na co dzień w pracy. Bezpieczne kolory to granat, szarość, biel, czerń i butelkowa zieleń. Unikaj pasków, kratki, fluorescencyjnych barw i ubrań z dużymi logotypami. Warto przygotować 2-3 stylizacje, żeby na sesji mieć z czego wybierać.',
+			},
+			{
+				q: 'Czy muszę umieć pozować na sesji biznesowej?',
+				a: 'Nie. Dobry fotograf biznesowy prowadzi Cię przez całą sesję: pokazuje, jak stanąć, gdzie patrzeć i kiedy się uśmiechnąć. Nie musisz być modelem. Twoim jedynym zadaniem jest być sobą, a o światło, kompozycję i klimat zdjęć zadba fotograf.',
+			},
+			{
+				q: 'Jak przygotować się dzień przed sesją biznesową?',
+				a: 'Wyśpij się, pij wodę i unikaj alkoholu dzień przed sesją. Cienie pod oczami i sucha skóra to pierwsze rzeczy widoczne na profesjonalnych zdjęciach. Zadbaj też o detale: wyprasowaną koszulę, schludną fryzurę i czyste szkła okularów, bo refleksy na brudnych szkłach to koszmar w retuszu.',
+			},
+		],
+		title: 'Jak przygotować się do sesji biznesowej: 7 praktycznych wskazówek',
+		excerpt:
+			'Odpowiednie przygotowanie to połowa sukcesu. Oto sprawdzona checklista, dzięki której Twoje portrety biznesowe będą wyglądać profesjonalnie i naturalnie.',
+		category: 'poradnik',
+		date: '2025-01-15',
+		readTime: 6,
+		thumbnail: '/images/blog/jak-przygotowac-sie-do-sesji-biznesowej-2.jpg',
+		content: `
       <p class="lead">Sesja biznesowa to inwestycja w Twój wizerunek. Niezależnie od tego, czy potrzebujesz headshota na LinkedIn, zdjęcia do materiałów prasowych, czy kompleksowej <a href="/uslugi/wizerunek-portrety">sesji personal branding</a>, odpowiednie przygotowanie sprawi, że efekt końcowy będzie dokładnie taki, jak sobie wymarzyłeś.</p>
 
       <h2>1. Określ cel zdjęć</h2>
@@ -113,28 +125,37 @@ export const blogPosts: BlogPost[] = [
       <p>Przygotowanie do sesji biznesowej nie wymaga godzin planowania. Wystarczy checklista powyżej i 30 minut na dobór stylizacji. Reszta to moja robota: zadbam o światło, kompozycję i klimat, który odda Twój profesjonalizm. Sesje realizuję w Poznaniu, gdzie mam bazę, a na życzenie dojeżdżam do klientów w całej Polsce i Europie.</p>
       <p>Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">profesjonalne headshoty zwiększają konwersję na LinkedIn</a>, przejrzyj moje <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> albo pobierz <a href="/poradnik">darmowy poradnik przygotowania do sesji</a>.</p>
     `,
-    seo: {
-      title: "Jak przygotować się do sesji biznesowej | Szabunia",
-      description:
-        "Checklista przed sesją portretową: stylizacja, detale, inspiracje. Co przygotować, żeby zdjęcia biznesowe wyszły dobrze za pierwszym razem.",
-    },
-  },
-  {
-    slug: "headshoty-linkedin-konwersja",
-    faq: [
-      { q: "Ile więcej wyświetleń daje profesjonalne zdjęcie na LinkedIn?", a: "W materiałach o LinkedIn powtarza się jeden zestaw proporcji dla profilu ze zdjęciem w porównaniu z profilem bez niego: 21x więcej wyświetleń profilu, 36x więcej otrzymywanych wiadomości i 9x więcej zaproszeń do połączenia. Traktuj te liczby jako rząd wielkości, a nie obietnicę wyniku: samo zdjęcie nie zastąpi opisu profilu ani aktywności." },
-      { q: "Jak często aktualizować zdjęcie profilowe na LinkedIn?", a: "Zdjęcie na LinkedIn powinno wyglądać jak Ty dzisiaj. Jeśli ktoś umówi się z Tobą na spotkanie i Cię nie rozpozna, masz problem. Dobra zasada to aktualizacja headshota co 1-2 lata lub po każdej znaczącej zmianie wizerunku." },
-      { q: "Co wyróżnia dobry headshot na LinkedIn?", a: "Dobry headshot buduje zaufanie, a nie tylko dobrze wygląda. Kluczowe elementy to kontakt wzrokowy z obiektywem, delikatny uśmiech sygnalizujący dostępność, czyste lub lekko rozmyte tło, kadr od ramion w górę z twarzą zajmującą około 60% kadru oraz stylizacja dopasowana do branży." },
-    ],
-    title: "Dlaczego profesjonalne headshoty zwiększają konwersję na LinkedIn",
-    excerpt:
-      "Profil ze zdjęciem bywa oglądany 21x częściej niż profil bez niego. Jak wykorzystać portret biznesowy, żeby LinkedIn pracował na Twoją markę?",
-    category: "branża",
-    date: "2025-02-08",
-    updated: "2026-07-29",
-    readTime: 5,
-    thumbnail: "/images/blog/headshoty-linkedin-konwersja-2.jpg",
-    content: `
+		seo: {
+			title: 'Jak przygotować się do sesji biznesowej | Szabunia',
+			description:
+				'Checklista przed sesją portretową: stylizacja, detale, inspiracje. Co przygotować, żeby zdjęcia biznesowe wyszły dobrze za pierwszym razem.',
+		},
+	},
+	{
+		slug: 'headshoty-linkedin-konwersja',
+		faq: [
+			{
+				q: 'Ile więcej wyświetleń daje profesjonalne zdjęcie na LinkedIn?',
+				a: 'W materiałach o LinkedIn powtarza się jeden zestaw proporcji dla profilu ze zdjęciem w porównaniu z profilem bez niego: 21x więcej wyświetleń profilu, 36x więcej otrzymywanych wiadomości i 9x więcej zaproszeń do połączenia. Traktuj te liczby jako rząd wielkości, a nie obietnicę wyniku: samo zdjęcie nie zastąpi opisu profilu ani aktywności.',
+			},
+			{
+				q: 'Jak często aktualizować zdjęcie profilowe na LinkedIn?',
+				a: 'Zdjęcie na LinkedIn powinno wyglądać jak Ty dzisiaj. Jeśli ktoś umówi się z Tobą na spotkanie i Cię nie rozpozna, masz problem. Dobra zasada to aktualizacja headshota co 1-2 lata lub po każdej znaczącej zmianie wizerunku.',
+			},
+			{
+				q: 'Co wyróżnia dobry headshot na LinkedIn?',
+				a: 'Dobry headshot buduje zaufanie, a nie tylko dobrze wygląda. Kluczowe elementy to kontakt wzrokowy z obiektywem, delikatny uśmiech sygnalizujący dostępność, czyste lub lekko rozmyte tło, kadr od ramion w górę z twarzą zajmującą około 60% kadru oraz stylizacja dopasowana do branży.',
+			},
+		],
+		title: 'Dlaczego profesjonalne headshoty zwiększają konwersję na LinkedIn',
+		excerpt:
+			'Profil ze zdjęciem bywa oglądany 21x częściej niż profil bez niego. Jak wykorzystać portret biznesowy, żeby LinkedIn pracował na Twoją markę?',
+		category: 'branża',
+		date: '2025-02-08',
+		updated: '2026-07-29',
+		readTime: 5,
+		thumbnail: '/images/blog/headshoty-linkedin-konwersja-2.jpg',
+		content: `
       <p class="lead">LinkedIn to nie Facebook. To narzędzie biznesowe, w którym pierwsze wrażenie decyduje o tym, czy ktoś kliknie „Połącz", czy przewinie dalej. A pierwsze wrażenie zaczyna się od zdjęcia profilowego.</p>
 
       <h2>Ile realnie daje zdjęcie na profilu</h2>
@@ -200,28 +221,37 @@ export const blogPosts: BlogPost[] = [
       <p>Jeden nowy klient pozyskany dzięki lepszemu profilowi na LinkedIn zwraca tę inwestycję wielokrotnie, a zdjęcie pracuje przez najbliższe dwa lata w każdym miejscu, w którym ktoś sprawdza, z kim ma do czynienia. Pracuję z bazy w Poznaniu, na terenie miasta dojazd jest wliczony w cenę, poza miastem doliczam 2,50 zł netto za kilometr w obie strony, a sesje realizuję w całej Polsce i Europie. Napisz w kilku zdaniach, czego potrzebujesz. Wstępną wycenę odsyłam w 24h.</p>
       <p>Zanim umówisz sesję, sprawdź, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, pobierz <a href="/poradnik">darmowy poradnik przygotowania do sesji</a> i zobacz <a href="/galeria?kat=portrety">przykładowe realizacje sesji wizerunkowych</a>.</p>
     `,
-    seo: {
-      title: "Headshoty na LinkedIn a konwersja | Szabunia",
-      description:
-        "Profil ze zdjęciem bywa oglądany 21x częściej niż profil bez niego. Jak zrobić headshot, który buduje zaufanie i przyciąga klientów?",
-    },
-  },
-  {
-    slug: "fotografia-eventowa-vs-reportaz",
-    faq: [
-      { q: "Czym różni się reportaż od sesji eventowej?", a: "Reportaż to dyskretne dokumentowanie autentycznych momentów. Fotograf jest „niewidzialny\", nie pozuje uczestników. Sesja eventowa to podejście zaaranżowane: grupowe zdjęcia, portrety prelegentów i kluczowe momenty z najlepszej perspektywy. Oba style dają zupełnie inny materiał." },
-      { q: "Które podejście wybrać na konferencję firmową?", a: "Najczęściej sprawdza się podejście hybrydowe: reportaż podczas rejestracji, networkingu i paneli, w przerwach portrety prelegentów i zdjęcia grupowe, a wieczorem reportaż z części oficjalnej. Dzięki temu firma dostaje kompletny materiał na social media i do materiałów prasowych." },
-      { q: "Od czego zależy cena fotografii eventowej?", a: "Cena nie zależy od stylu fotografii, tylko od czasu pracy i opcji dodatkowych. Liczy się liczba godzin obecności na evencie oraz to, czy dochodzi live editing na social media i ujęcia z drona. Opisz wydarzenie w kilku zdaniach, a wstępną wycenę odeślę w 24h." },
-    ],
-    title: "Fotografia eventowa vs reportaż: co wybrać dla Twojej konferencji",
-    excerpt:
-      "Reportaż i sesja eventowa to dwa różne podejścia. Które lepiej opowie historię Twojego wydarzenia? Porównanie stylów, kosztów i efektów.",
-    category: "poradnik",
-    date: "2025-03-02",
-    updated: "2026-07-29",
-    readTime: 7,
-    thumbnail: "/images/blog/fotografia-eventowa-vs-reportaz-2.jpg",
-    content: `
+		seo: {
+			title: 'Headshoty na LinkedIn a konwersja | Szabunia',
+			description:
+				'Profil ze zdjęciem bywa oglądany 21x częściej niż profil bez niego. Jak zrobić headshot, który buduje zaufanie i przyciąga klientów?',
+		},
+	},
+	{
+		slug: 'fotografia-eventowa-vs-reportaz',
+		faq: [
+			{
+				q: 'Czym różni się reportaż od sesji eventowej?',
+				a: 'Reportaż to dyskretne dokumentowanie autentycznych momentów. Fotograf jest „niewidzialny", nie pozuje uczestników. Sesja eventowa to podejście zaaranżowane: grupowe zdjęcia, portrety prelegentów i kluczowe momenty z najlepszej perspektywy. Oba style dają zupełnie inny materiał.',
+			},
+			{
+				q: 'Które podejście wybrać na konferencję firmową?',
+				a: 'Najczęściej sprawdza się podejście hybrydowe: reportaż podczas rejestracji, networkingu i paneli, w przerwach portrety prelegentów i zdjęcia grupowe, a wieczorem reportaż z części oficjalnej. Dzięki temu firma dostaje kompletny materiał na social media i do materiałów prasowych.',
+			},
+			{
+				q: 'Od czego zależy cena fotografii eventowej?',
+				a: 'Cena nie zależy od stylu fotografii, tylko od czasu pracy i opcji dodatkowych. Liczy się liczba godzin obecności na evencie oraz to, czy dochodzi live editing na social media i ujęcia z drona. Opisz wydarzenie w kilku zdaniach, a wstępną wycenę odeślę w 24h.',
+			},
+		],
+		title: 'Fotografia eventowa vs reportaż: co wybrać dla Twojej konferencji',
+		excerpt:
+			'Reportaż i sesja eventowa to dwa różne podejścia. Które lepiej opowie historię Twojego wydarzenia? Porównanie stylów, kosztów i efektów.',
+		category: 'poradnik',
+		date: '2025-03-02',
+		updated: '2026-07-29',
+		readTime: 7,
+		thumbnail: '/images/blog/fotografia-eventowa-vs-reportaz-2.jpg',
+		content: `
       <p class="lead">Organizujesz konferencję, galę lub targi branżowe i potrzebujesz fotografa. Ale czy chcesz reportaż (dyskretne chwytanie momentów) czy sesję eventową (zaplanowane ujęcia)? Te dwa podejścia dają zupełnie inny materiał. Oto, jak wybrać mądrze.</p>
 
       <h2>Reportaż: historia opowiedziana kadrami</h2>
@@ -262,28 +292,37 @@ export const blogPosts: BlogPost[] = [
       <p>Zadaj sobie pytanie: do czego będziesz używać tych zdjęć? Na social media i szybkie relacje najlepszy będzie reportaż, do materiałów prasowych i raportów sesja eventowa, a jeśli potrzebujesz jednego i drugiego, wybierz podejście hybrydowe. Niezależnie od wyboru, kluczowe jest omówienie agendy przed eventem, żeby fotograf wiedział, co jest najważniejsze.</p>
       <p>Sprawdź pełną ofertę <a href="/uslugi/eventy-reportaze">fotografii eventowej</a> i napisz, jeśli chcesz omówić swoje wydarzenie. Działam z Poznania, obsługuję eventy w całej Polsce i Europie, a na zapytania odpowiadam w ciągu 24h.</p>
     `,
-    seo: {
-      title: "Fotografia eventowa vs reportaż: co wybrać | Szabunia",
-      description:
-        "Reportaż czy sesja eventowa? Porównanie stylów fotografii na konferencjach, targach i galach. Koszty, efekty, kiedy co wybrać.",
-    },
-  },
-  {
-    slug: "zdjecie-do-cv-w-domu",
-    faq: [
-      { q: "Jakie światło jest najlepsze do zdjęcia do CV w domu?", a: "Naturalne, rozproszone światło dzienne. Stań twarzą do dużego okna, z jednolitą ścianą za plecami, najlepiej w godzinach przedpołudniowych. Unikaj sztucznego oświetlenia sufitowego, które tworzy cienie pod oczami, a pochmurny dzień daje najmiększe i najbardziej równomierne światło." },
-      { q: "Jak ustawić telefon do zdjęcia do CV?", a: "Postaw telefon pionowo na statywie lub stabilnym podparciu na wysokości oczu, w odległości około 1-1,5 metra. Użyj tylnego aparatu (ma lepszą jakość) i samowyzwalacza na 3-10 sekund. Kadruj od klatki piersiowej w górę, z twarzą w centrum, a jeśli telefon ma tryb portretowy, włącz go." },
-      { q: "Kiedy zamiast zdjęcia z telefonu wybrać fotografa?", a: "Zdjęcie z telefonu wystarczy na szybką aplikację. Jeśli jednak zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), profesjonalna sesja portretowa zwróci się wielokrotnie. Taki portret posłuży Ci na LinkedIn, stronę firmową i materiały branżowe." },
-    ],
-    title: "Jak zrobić profesjonalne zdjęcie do CV w domu: kompletny poradnik",
-    excerpt:
-      "Nie masz czasu na sesję u fotografa? Oto jak zrobić przyzwoite zdjęcie do CV telefonem, i kiedy lepiej jednak zainwestować w profesjonalną sesję.",
-    category: "poradnik",
-    date: "2025-04-10",
-    updated: "2026-07-29",
-    readTime: 8,
-    thumbnail: "/images/blog/zdjecie-do-cv-w-domu-2.jpg",
-    content: `
+		seo: {
+			title: 'Fotografia eventowa vs reportaż: co wybrać | Szabunia',
+			description:
+				'Reportaż czy sesja eventowa? Porównanie stylów fotografii na konferencjach, targach i galach. Koszty, efekty, kiedy co wybrać.',
+		},
+	},
+	{
+		slug: 'zdjecie-do-cv-w-domu',
+		faq: [
+			{
+				q: 'Jakie światło jest najlepsze do zdjęcia do CV w domu?',
+				a: 'Naturalne, rozproszone światło dzienne. Stań twarzą do dużego okna, z jednolitą ścianą za plecami, najlepiej w godzinach przedpołudniowych. Unikaj sztucznego oświetlenia sufitowego, które tworzy cienie pod oczami, a pochmurny dzień daje najmiększe i najbardziej równomierne światło.',
+			},
+			{
+				q: 'Jak ustawić telefon do zdjęcia do CV?',
+				a: 'Postaw telefon pionowo na statywie lub stabilnym podparciu na wysokości oczu, w odległości około 1-1,5 metra. Użyj tylnego aparatu (ma lepszą jakość) i samowyzwalacza na 3-10 sekund. Kadruj od klatki piersiowej w górę, z twarzą w centrum, a jeśli telefon ma tryb portretowy, włącz go.',
+			},
+			{
+				q: 'Kiedy zamiast zdjęcia z telefonu wybrać fotografa?',
+				a: 'Zdjęcie z telefonu wystarczy na szybką aplikację. Jeśli jednak zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), profesjonalna sesja portretowa zwróci się wielokrotnie. Taki portret posłuży Ci na LinkedIn, stronę firmową i materiały branżowe.',
+			},
+		],
+		title: 'Jak zrobić profesjonalne zdjęcie do CV w domu: kompletny poradnik',
+		excerpt:
+			'Nie masz czasu na sesję u fotografa? Oto jak zrobić przyzwoite zdjęcie do CV telefonem, i kiedy lepiej jednak zainwestować w profesjonalną sesję.',
+		category: 'poradnik',
+		date: '2025-04-10',
+		updated: '2026-07-29',
+		readTime: 8,
+		thumbnail: '/images/blog/zdjecie-do-cv-w-domu-2.jpg',
+		content: `
       <p class="lead">Zdjęcie do CV to często pierwsza rzecz, którą widzi rekruter. Nie musisz od razu iść do studia, telefonem też da się zrobić przyzwoite zdjęcie. Oto jak to zrobić krok po kroku, i kiedy warto jednak postawić na profesjonalistę.</p>
 
       <h2>1. Oświetlenie: klucz do sukcesu</h2>
@@ -315,28 +354,37 @@ export const blogPosts: BlogPost[] = [
       <p>Zdjęcie z telefonu wystarczy na szybką aplikację. Ale jeśli zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), <a href="/uslugi/wizerunek-portrety">profesjonalna sesja portretowa</a> zwróci się wielokrotnie. Jedno dobrze zrobione zdjęcie posłuży Ci na LinkedIn, stronę firmową i materiały branżowe. Sesje realizuję w Poznaniu (dojazd na terenie miasta wliczony), a na zapytania odpowiadam w ciągu 24h.</p>
       <p>Jeśli chcesz, żeby profil naprawdę pracował, przeczytaj, jak <a href="/blog/headshoty-linkedin-konwersja">headshoty zwiększają konwersję na LinkedIn</a>.</p>
     `,
-    seo: {
-      title: "Jak zrobić zdjęcie do CV w domu: poradnik | Szabunia",
-      description:
-        "Praktyczny poradnik: jak zrobić profesjonalne zdjęcie do CV telefonem w domu. Oświetlenie, tło, ustawienie i kiedy lepiej wybrać fotografa.",
-    },
-  },
-  {
-    slug: "fotografia-przemyslowa-fabryka",
-    faq: [
-      { q: "Do czego firmom służą zdjęcia przemysłowe?", a: "Profesjonalne zdjęcia z fabryki pracują na wielu frontach jednocześnie: budują wiarygodność strony internetowej i pokazują skalę działalności, dokumentują procesy i inwestycje w raportach ESG i rocznych, wspierają rekrutację, prezentacje sprzedażowe B2B i oferty przetargowe, a w social media dostarczają contentu pokazującego kulisy produkcji." },
-      { q: "Jak wygląda kwestia BHP podczas sesji zdjęciowej w fabryce?", a: "Na każdą sesję przemysłową fotograf przyjeżdża w odpowiednim obuwiu i odzieży ochronnej. Przed wejściem na halę zapoznaje się z regulaminem BHP i konsultuje z kierownikiem produkcji, które obszary wymagają szczególnej ostrożności. Bezpieczeństwo jest priorytetem. Żadne zdjęcie nie jest warte ryzyka." },
-      { q: "Co warto pokazać na zdjęciach z hali produkcyjnej?", a: "Najskuteczniejsze zdjęcia przemysłowe łączą skalę maszyn z ludzkim elementem: operator przy panelu sterowania, inżynier kontrolujący jakość, zespół na tle linii produkcyjnej. Warto uzupełnić je o zdjęcia procesów, portrety pracowników, detale obróbki CNC oraz szersze perspektywy, na przykład ujęcia z drona i panoramy hal." },
-    ],
-    title: "Fotografia przemysłowa: jak pokazać fabrykę z najlepszej strony",
-    excerpt:
-      "Hale produkcyjne, maszyny CNC, linie montażowe. Jak uchwycić skalę i precyzję nowoczesnego zakładu? Praktyczne wskazówki od fotografa przemysłowego.",
-    category: "branża",
-    date: "2025-05-05",
-    updated: "2026-07-29",
-    readTime: 6,
-    thumbnail: "/images/blog/fotografia-przemyslowa-fabryka-3.jpg",
-    content: `
+		seo: {
+			title: 'Jak zrobić zdjęcie do CV w domu: poradnik | Szabunia',
+			description:
+				'Praktyczny poradnik: jak zrobić profesjonalne zdjęcie do CV telefonem w domu. Oświetlenie, tło, ustawienie i kiedy lepiej wybrać fotografa.',
+		},
+	},
+	{
+		slug: 'fotografia-przemyslowa-fabryka',
+		faq: [
+			{
+				q: 'Do czego firmom służą zdjęcia przemysłowe?',
+				a: 'Profesjonalne zdjęcia z fabryki pracują na wielu frontach jednocześnie: budują wiarygodność strony internetowej i pokazują skalę działalności, dokumentują procesy i inwestycje w raportach ESG i rocznych, wspierają rekrutację, prezentacje sprzedażowe B2B i oferty przetargowe, a w social media dostarczają contentu pokazującego kulisy produkcji.',
+			},
+			{
+				q: 'Jak wygląda kwestia BHP podczas sesji zdjęciowej w fabryce?',
+				a: 'Na każdą sesję przemysłową fotograf przyjeżdża w odpowiednim obuwiu i odzieży ochronnej. Przed wejściem na halę zapoznaje się z regulaminem BHP i konsultuje z kierownikiem produkcji, które obszary wymagają szczególnej ostrożności. Bezpieczeństwo jest priorytetem. Żadne zdjęcie nie jest warte ryzyka.',
+			},
+			{
+				q: 'Co warto pokazać na zdjęciach z hali produkcyjnej?',
+				a: 'Najskuteczniejsze zdjęcia przemysłowe łączą skalę maszyn z ludzkim elementem: operator przy panelu sterowania, inżynier kontrolujący jakość, zespół na tle linii produkcyjnej. Warto uzupełnić je o zdjęcia procesów, portrety pracowników, detale obróbki CNC oraz szersze perspektywy, na przykład ujęcia z drona i panoramy hal.',
+			},
+		],
+		title: 'Fotografia przemysłowa: jak pokazać fabrykę z najlepszej strony',
+		excerpt:
+			'Hale produkcyjne, maszyny CNC, linie montażowe. Jak uchwycić skalę i precyzję nowoczesnego zakładu? Praktyczne wskazówki od fotografa przemysłowego.',
+		category: 'branża',
+		date: '2025-05-05',
+		updated: '2026-07-29',
+		readTime: 6,
+		thumbnail: '/images/blog/fotografia-przemyslowa-fabryka-3.jpg',
+		content: `
       <p class="lead">Fotografia przemysłowa to nie zdjęcia maszyn, to opowieść o ludziach, procesach i innowacji. Dobrze wykonane zdjęcia fabryki mogą odmienić stronę internetową, raport roczny czy materiały rekrutacyjne. Oto jak to robię.</p>
 
       <h2>Specyfika hal produkcyjnych</h2>
@@ -400,28 +448,37 @@ export const blogPosts: BlogPost[] = [
       <p>Po stronie zakładu warto zadbać o cztery rzeczy: osobę, która oprowadzi po hali i zna harmonogram zmian, uprzedzenie pracowników, że tego dnia będzie fotograf, uprzątnięcie stanowisk, które mają trafić do kadru (kurz i przypadkowe kartony widać na zdjęciu bardziej niż na żywo), oraz informację o obszarach objętych tajemnicą, których nie wolno pokazywać. Bazuję w Poznaniu, a sesje przemysłowe realizuję w zakładach w całej Polsce i Europie.</p>
       <p>Zobacz <a href="/portfolio/artech-fotografia-produktowa">realizację dla Artech Group</a>, a potem <a href="/kontakt">napisz, co dzieje się w Twoim zakładzie</a>.</p>
     `,
-    seo: {
-      title: "Fotografia przemysłowa: zdjęcia fabryki | Szabunia",
-      description:
-        "Jak fotografować hale produkcyjne, maszyny i procesy przemysłowe. Praktyczne wskazówki od fotografa z doświadczeniem w branży produkcyjnej.",
-    },
-  },
-  {
-    slug: "bledy-zdjecia-zespolu",
-    faq: [
-      { q: "Ile czasu zaplanować na zdjęcie jednej osoby podczas sesji zespołowej?", a: "Realistyczny czas to 5-15 minut na osobę, wliczając ustawienie światła, rozgrzewkę i kilka prób. Sesja dla 30 osób w 2 godziny daje tylko 4 minuty na portret. To za mało na dobry efekt. Czas sesji to inwestycja w wizerunek firmy." },
-      { q: "Jak przygotować zespół do firmowej sesji zdjęciowej?", a: "Poinformuj pracowników o sesji minimum tydzień wcześniej i wyślij wskazówki dotyczące ubioru. Gdy zespół dowiaduje się o zdjęciach 5 minut przed, efektem są pogniecione koszule i stresowe miny. Czas na przygotowanie daje wielokrotnie lepszy rezultat." },
-      { q: "Jak często aktualizować zdjęcia zespołu na stronie firmowej?", a: "Warto ustalić harmonogram aktualizacji, na przykład sesję co rok lub przy każdej większej zmianie w zespole. Regularne sesje utrzymują stronę aktualną i pokazują, że firma się rozwija. Trzyletnie zdjęcia z nieaktualnym składem działają odwrotnie." },
-    ],
-    title: "5 błędów, które firmy popełniają przy zdjęciach zespołu",
-    excerpt:
-      "Zdjęcia zespołowe to wizytówka firmy. Oto najczęstsze błędy, które sprawiają, że wyglądają nieprofesjonalnie, i jak ich uniknąć.",
-    category: "poradnik",
-    date: "2025-06-01",
-    updated: "2026-07-29",
-    readTime: 5,
-    thumbnail: "/images/blog/bledy-zdjecia-zespolu-2.jpg",
-    content: `
+		seo: {
+			title: 'Fotografia przemysłowa: zdjęcia fabryki | Szabunia',
+			description:
+				'Jak fotografować hale produkcyjne, maszyny i procesy przemysłowe. Praktyczne wskazówki od fotografa z doświadczeniem w branży produkcyjnej.',
+		},
+	},
+	{
+		slug: 'bledy-zdjecia-zespolu',
+		faq: [
+			{
+				q: 'Ile czasu zaplanować na zdjęcie jednej osoby podczas sesji zespołowej?',
+				a: 'Realistyczny czas to 5-15 minut na osobę, wliczając ustawienie światła, rozgrzewkę i kilka prób. Sesja dla 30 osób w 2 godziny daje tylko 4 minuty na portret. To za mało na dobry efekt. Czas sesji to inwestycja w wizerunek firmy.',
+			},
+			{
+				q: 'Jak przygotować zespół do firmowej sesji zdjęciowej?',
+				a: 'Poinformuj pracowników o sesji minimum tydzień wcześniej i wyślij wskazówki dotyczące ubioru. Gdy zespół dowiaduje się o zdjęciach 5 minut przed, efektem są pogniecione koszule i stresowe miny. Czas na przygotowanie daje wielokrotnie lepszy rezultat.',
+			},
+			{
+				q: 'Jak często aktualizować zdjęcia zespołu na stronie firmowej?',
+				a: 'Warto ustalić harmonogram aktualizacji, na przykład sesję co rok lub przy każdej większej zmianie w zespole. Regularne sesje utrzymują stronę aktualną i pokazują, że firma się rozwija. Trzyletnie zdjęcia z nieaktualnym składem działają odwrotnie.',
+			},
+		],
+		title: '5 błędów, które firmy popełniają przy zdjęciach zespołu',
+		excerpt:
+			'Zdjęcia zespołowe to wizytówka firmy. Oto najczęstsze błędy, które sprawiają, że wyglądają nieprofesjonalnie, i jak ich uniknąć.',
+		category: 'poradnik',
+		date: '2025-06-01',
+		updated: '2026-07-29',
+		readTime: 5,
+		thumbnail: '/images/blog/bledy-zdjecia-zespolu-2.jpg',
+		content: `
       <p class="lead">Zdjęcia zespołu na stronie firmowej budują zaufanie klientów i pomagają w rekrutacji. Ale źle zrobione potrafią osiągnąć efekt odwrotny. Oto 5 najczęstszych błędów, które widzę u swoich klientów, i jak ich uniknąć.</p>
 
       <h2>1. Niespójny styl zdjęć</h2>
@@ -472,29 +529,42 @@ export const blogPosts: BlogPost[] = [
       <p>Mogę przyjechać do Waszego biura z <a href="/uslugi/wizerunek-portrety">mobilnym studiem</a>. Bazuję w Poznaniu, gdzie dojazd jest bezpłatny, a poza miastem doliczam 2,50 zł netto/km od granic Poznania, w obie strony. Setup zajmuje ok. 30 minut, a potem fotografuję osoby jedna po drugiej. Zero stresu, zero logistyki po Waszej stronie. Gotowe zdjęcia w 14 dni.</p>
       <p>Przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje sesji korporacyjnych</a>, sprawdź, jak zaplanować <a href="/blog/headshoty-zespolu-w-jeden-dzien">headshoty całego zespołu w jeden dzień</a>, i daj znać, kiedy zaplanować sesję u Was.</p>
     `,
-    seo: {
-      title: "5 błędów przy zdjęciach zespołu | Szabunia",
-      description:
-        "Najczęstsze błędy w zdjęciach zespołowych: niespójność, złe tło, brak zapowiedzi. Jak zorganizować profesjonalną sesję dla pracowników.",
-    },
-  },
-  {
-    slug: "ile-kosztuje-sesja-wizerunkowa-dla-firmy",
-    faq: [
-      { q: "Od czego zależy cena sesji wizerunkowej dla firmy?", a: "Portret jednej osoby i sesja zespołowa liczą się inaczej: przy zespole płacisz za liczbę osób, a nie za długość jednej sesji. W podstawowym zakresie jest sesja w studiu w Poznaniu albo dojazd z mobilnym studiem do Twojego biura. Wyżej wchodzą pakiety z dłuższą sesją i większym wyborem kadrów. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek." },
-      { q: "Co wpływa na cenę sesji wizerunkowej?", a: "Sześć policzalnych czynników: liczba osób, liczba finalnych ujęć z autorskim retuszem, lokalizacja i dojazd (na terenie Poznania wliczony), sceneria i przygotowanie planu, zakres licencji na wykorzystanie zdjęć oraz ewentualny tryb ekspresowy, gdy materiał jest potrzebny szybciej niż standardowo." },
-      { q: "Ile czasu trwa portret jednej osoby przy sesji zespołowej?", a: "Realnie 5-15 minut na dobry portret jednej osoby, wliczając ustawienie i kilka prób. Właśnie dlatego liczba osób to główny czynnik wyceny przy sesjach zespołowych: czas pracy rośnie wraz z wielkością grupy." },
-      { q: "Gdzie znajdę cennik sesji wizerunkowej?", a: "Cennika w formie tabeli nie ma, bo cena zależy od liczby osób, liczby ujęć i tego, gdzie zdjęcia będą używane. Opisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24 godziny." },
-    ],
-    title: "Ile kosztuje sesja wizerunkowa dla firmy: co realnie wpływa na cenę",
-    excerpt:
-      "Co realnie wpływa na cenę sesji wizerunkowej dla firmy. Tłumaczę, za co płacisz i jak zaplanować budżet sesji.",
-    category: "poradnik",
-    date: "2026-03-10",
-    updated: "2026-07-29",
-    readTime: 6,
-    thumbnail: "/images/blog/ile-kosztuje-sesja-wizerunkowa-dla-firmy-2.jpg",
-    content: `
+		seo: {
+			title: '5 błędów przy zdjęciach zespołu | Szabunia',
+			description:
+				'Najczęstsze błędy w zdjęciach zespołowych: niespójność, złe tło, brak zapowiedzi. Jak zorganizować profesjonalną sesję dla pracowników.',
+		},
+	},
+	{
+		slug: 'ile-kosztuje-sesja-wizerunkowa-dla-firmy',
+		faq: [
+			{
+				q: 'Od czego zależy cena sesji wizerunkowej dla firmy?',
+				a: 'Portret jednej osoby i sesja zespołowa liczą się inaczej: przy zespole płacisz za liczbę osób, a nie za długość jednej sesji. W podstawowym zakresie jest sesja w studiu w Poznaniu albo dojazd z mobilnym studiem do Twojego biura. Wyżej wchodzą pakiety z dłuższą sesją i większym wyborem kadrów. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek.',
+			},
+			{
+				q: 'Co wpływa na cenę sesji wizerunkowej?',
+				a: 'Sześć policzalnych czynników: liczba osób, liczba finalnych ujęć z autorskim retuszem, lokalizacja i dojazd (na terenie Poznania wliczony), sceneria i przygotowanie planu, zakres licencji na wykorzystanie zdjęć oraz ewentualny tryb ekspresowy, gdy materiał jest potrzebny szybciej niż standardowo.',
+			},
+			{
+				q: 'Ile czasu trwa portret jednej osoby przy sesji zespołowej?',
+				a: 'Realnie 5-15 minut na dobry portret jednej osoby, wliczając ustawienie i kilka prób. Właśnie dlatego liczba osób to główny czynnik wyceny przy sesjach zespołowych: czas pracy rośnie wraz z wielkością grupy.',
+			},
+			{
+				q: 'Gdzie znajdę cennik sesji wizerunkowej?',
+				a: 'Cennika w formie tabeli nie ma, bo cena zależy od liczby osób, liczby ujęć i tego, gdzie zdjęcia będą używane. Opisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24 godziny.',
+			},
+		],
+		title:
+			'Ile kosztuje sesja wizerunkowa dla firmy: co realnie wpływa na cenę',
+		excerpt:
+			'Co realnie wpływa na cenę sesji wizerunkowej dla firmy. Tłumaczę, za co płacisz i jak zaplanować budżet sesji.',
+		category: 'poradnik',
+		date: '2026-03-10',
+		updated: '2026-07-29',
+		readTime: 6,
+		thumbnail: '/images/blog/ile-kosztuje-sesja-wizerunkowa-dla-firmy-2.jpg',
+		content: `
       <p class="lead">„Ile kosztuje sesja wizerunkowa?" to pytanie, które dostaję najczęściej. Uczciwa odpowiedź brzmi: to zależy, ale od konkretnych, policzalnych rzeczy. Poniżej tłumaczę, co realnie wpływa na cenę <a href="/uslugi/wizerunek-portrety">sesji wizerunkowej dla firmy</a>, żebyś wiedział, za co płacisz i jak zaplanować budżet.</p>
 
       <h2>Od czego zaczyna się wycena</h2>
@@ -525,28 +595,38 @@ export const blogPosts: BlogPost[] = [
       <p>Zamiast zgadywać, opisz zakres: liczbę osób, miejsce i to, gdzie zdjęcia będą używane. Wstępną wycenę odeślę w 24h.</p>
       <p>Zanim umówimy sesję, zobacz, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, a gdy będziesz gotowy, <a href="/kontakt">napisz, czego potrzebujesz</a>.</p>
     `,
-    seo: {
-      title: "Ile kosztuje sesja wizerunkowa dla firmy | Szabunia",
-      description:
-        "Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja i licencja. Wstępna wycena mailem w 24 godziny, bez rozmowy na start.",
-    },
-  },
-  {
-    slug: "fotografia-produktowa-ecommerce",
-    faq: [
-      { q: "Czym różni się packshot od zdjęcia lifestyle?", a: "Packshot to produkt na białym tle: czysty, powtarzalny, podstawa karty produktu i wymóg większości platform sprzedażowych. Lifestyle pokazuje produkt w kontekście i realnej scenerii, budując emocje oraz pokazując skalę i zastosowanie. Packshot sprzedaje fakty, lifestyle wyobrażenie. Sklepy łączące oba dają klientowi komplet informacji do decyzji." },
-      { q: "Czy zdjęcia produktowe zmniejszają liczbę zwrotów?", a: "Tak. Kiedy klient dokładnie widzi, co kupuje (kolor, fakturę, proporcje i wykończenie), rzadziej jest rozczarowany po rozpakowaniu. Mniejsza rozbieżność między oczekiwaniem a rzeczywistością oznacza mniej zwrotów i mniej pytań kierowanych do obsługi sklepu." },
-      { q: "Jak przygotować sesję zdjęciową produktów do sklepu internetowego?", a: "Przed sesją ustala się listę produktów, liczbę ujęć na produkt (front, tył, detale, produkt w użyciu) oraz docelowe proporcje kadru pod konkretny sklep. Dobry plan pozwala odfotografować większą partię produktów sprawnie i bez chaosu, a katalog zachowuje jeden spójny standard tła, światła i kadru." },
-    ],
-    title: "Fotografia produktowa dla e-commerce: jak zdjęcia wpływają na sprzedaż",
-    excerpt:
-      "W e-commerce klient kupuje to, co widzi na zdjęciu. Jak packshot i lifestyle, spójność katalogu i kadr pod mobile realnie wpływają na sprzedaż.",
-    category: "branża",
-    date: "2026-04-14",
-    updated: "2026-07-29",
-    readTime: 6,
-    thumbnail: "/images/blog/fotografia-produktowa-ecommerce-3.jpg",
-    content: `
+		seo: {
+			title: 'Ile kosztuje sesja wizerunkowa dla firmy | Szabunia',
+			description:
+				'Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja i licencja. Wstępna wycena mailem w 24 godziny, bez rozmowy na start.',
+		},
+	},
+	{
+		slug: 'fotografia-produktowa-ecommerce',
+		faq: [
+			{
+				q: 'Czym różni się packshot od zdjęcia lifestyle?',
+				a: 'Packshot to produkt na białym tle: czysty, powtarzalny, podstawa karty produktu i wymóg większości platform sprzedażowych. Lifestyle pokazuje produkt w kontekście i realnej scenerii, budując emocje oraz pokazując skalę i zastosowanie. Packshot sprzedaje fakty, lifestyle wyobrażenie. Sklepy łączące oba dają klientowi komplet informacji do decyzji.',
+			},
+			{
+				q: 'Czy zdjęcia produktowe zmniejszają liczbę zwrotów?',
+				a: 'Tak. Kiedy klient dokładnie widzi, co kupuje (kolor, fakturę, proporcje i wykończenie), rzadziej jest rozczarowany po rozpakowaniu. Mniejsza rozbieżność między oczekiwaniem a rzeczywistością oznacza mniej zwrotów i mniej pytań kierowanych do obsługi sklepu.',
+			},
+			{
+				q: 'Jak przygotować sesję zdjęciową produktów do sklepu internetowego?',
+				a: 'Przed sesją ustala się listę produktów, liczbę ujęć na produkt (front, tył, detale, produkt w użyciu) oraz docelowe proporcje kadru pod konkretny sklep. Dobry plan pozwala odfotografować większą partię produktów sprawnie i bez chaosu, a katalog zachowuje jeden spójny standard tła, światła i kadru.',
+			},
+		],
+		title:
+			'Fotografia produktowa dla e-commerce: jak zdjęcia wpływają na sprzedaż',
+		excerpt:
+			'W e-commerce klient kupuje to, co widzi na zdjęciu. Jak packshot i lifestyle, spójność katalogu i kadr pod mobile realnie wpływają na sprzedaż.',
+		category: 'branża',
+		date: '2026-04-14',
+		updated: '2026-07-29',
+		readTime: 6,
+		thumbnail: '/images/blog/fotografia-produktowa-ecommerce-3.jpg',
+		content: `
       <p class="lead">W e-commerce klient nie weźmie produktu do ręki, ogląda go wyłącznie na zdjęciu. Dlatego <a href="/uslugi/fotografia-produktowa">fotografia produktowa</a> to nie koszt, lecz część maszyny sprzedażowej. Oto, co realnie robi dobre zdjęcie produktu i jak je zaplanować.</p>
 
       <h2>Packshot vs lifestyle: potrzebujesz obu</h2>
@@ -619,28 +699,37 @@ export const blogPosts: BlogPost[] = [
       <p>Przed sesją ustalamy listę produktów, liczbę ujęć na produkt (front, tył, detale, w użyciu) i docelowe proporcje kadru pod Twój sklep. Dobry plan pozwala odfotografować większą partię sprawnie i bez chaosu. Przydaje się też komplet informacji o marce: kod koloru z identyfikacji, wzorcowy egzemplarz produktu w idealnym stanie i lista pozycji, które mają wyglądać identycznie obok siebie na liście w sklepie.</p>
       <p>Zobacz <a href="/portfolio/artech-fotografia-produktowa">realizacje packshotów produktowych</a>, sprawdź <a href="/blog/co-to-jest-packshot">słownik pojęć fotografii produktowej</a>, a potem <a href="/kontakt">napisz, co chcesz sfotografować</a>.</p>
     `,
-    seo: {
-      title: "Fotografia produktowa dla e-commerce | Szabunia",
-      description:
-        "Jak zdjęcia produktowe wpływają na sprzedaż w e-commerce: packshot vs lifestyle, spójność katalogu, kadr pod mobile i mniej zwrotów. Praktyczny przewodnik.",
-    },
-  },
-  {
-    slug: "wideo-marketing-dla-firm-formaty",
-    faq: [
-      { q: "Jaki format wideo wybrać na stronę firmową?", a: "Film wizerunkowy to wizytówka firmy w 60–120 sekundach, która odpowiada na pytania: kim jesteście, co robicie i dlaczego warto. Sprawdza się na stronie głównej, w stopce maila i prezentacjach sprzedażowych. To format „evergreen\", pracujący miesiącami, więc warto zrobić go porządnie." },
-      { q: "Dlaczego testimonial wideo działa w B2B?", a: "Zadowolony klient mówiący o współpracy to jeden z najmocniejszych formatów B2B. Buduje zaufanie lepiej niż dowolny opis na stronie, bo to nie firma mówi o sobie, tylko ktoś inny mówi o niej, a taka rekomendacja jest dla odbiorcy dużo bardziej wiarygodna." },
-      { q: "Czy warto łączyć zdjęcia i wideo na jednej realizacji?", a: "Tak, to najefektywniejsze podejście: jedna rozmowa na starcie, jeden dzień zdjęciowy i spójny styl materiałów. Firma otrzymuje jednocześnie zdjęcia i wideo, na przykład na stronę i do social mediów, zamiast organizować dwie osobne realizacje z osobnymi ustaleniami i terminami." },
-    ],
-    title: "Wideo marketing dla firm: jakie formaty naprawdę się sprawdzają",
-    excerpt:
-      "Film wizerunkowy, pionowy reels, testimonial czy aftermovie z eventu? Przegląd formatów wideo marketingu dla firm i tego, gdzie każdy z nich naprawdę działa.",
-    category: "poradnik",
-    date: "2026-05-12",
-    updated: "2026-07-29",
-    readTime: 6,
-    thumbnail: "/images/blog/wideo-marketing-dla-firm-formaty-2.jpg",
-    content: `
+		seo: {
+			title: 'Fotografia produktowa dla e-commerce | Szabunia',
+			description:
+				'Jak zdjęcia produktowe wpływają na sprzedaż w e-commerce: packshot vs lifestyle, spójność katalogu, kadr pod mobile i mniej zwrotów. Praktyczny przewodnik.',
+		},
+	},
+	{
+		slug: 'wideo-marketing-dla-firm-formaty',
+		faq: [
+			{
+				q: 'Jaki format wideo wybrać na stronę firmową?',
+				a: 'Film wizerunkowy to wizytówka firmy w 60–120 sekundach, która odpowiada na pytania: kim jesteście, co robicie i dlaczego warto. Sprawdza się na stronie głównej, w stopce maila i prezentacjach sprzedażowych. To format „evergreen", pracujący miesiącami, więc warto zrobić go porządnie.',
+			},
+			{
+				q: 'Dlaczego testimonial wideo działa w B2B?',
+				a: 'Zadowolony klient mówiący o współpracy to jeden z najmocniejszych formatów B2B. Buduje zaufanie lepiej niż dowolny opis na stronie, bo to nie firma mówi o sobie, tylko ktoś inny mówi o niej, a taka rekomendacja jest dla odbiorcy dużo bardziej wiarygodna.',
+			},
+			{
+				q: 'Czy warto łączyć zdjęcia i wideo na jednej realizacji?',
+				a: 'Tak, to najefektywniejsze podejście: jedna rozmowa na starcie, jeden dzień zdjęciowy i spójny styl materiałów. Firma otrzymuje jednocześnie zdjęcia i wideo, na przykład na stronę i do social mediów, zamiast organizować dwie osobne realizacje z osobnymi ustaleniami i terminami.',
+			},
+		],
+		title: 'Wideo marketing dla firm: jakie formaty naprawdę się sprawdzają',
+		excerpt:
+			'Film wizerunkowy, pionowy reels, testimonial czy aftermovie z eventu? Przegląd formatów wideo marketingu dla firm i tego, gdzie każdy z nich naprawdę działa.',
+		category: 'poradnik',
+		date: '2026-05-12',
+		updated: '2026-07-29',
+		readTime: 6,
+		thumbnail: '/images/blog/wideo-marketing-dla-firm-formaty-2.jpg',
+		content: `
       <p class="lead">„Potrzebujemy wideo" to dopiero początek rozmowy. Bo film wizerunkowy, pionowy reels i materiał z eventu to zupełnie różne formaty, które rozwiązują różne problemy. Oto przegląd formatów <a href="/uslugi/wizerunek-portrety">wideo dla firm</a> i tego, gdzie każdy się sprawdza.</p>
 
       <h2>1. Film wizerunkowy (film korporacyjny)</h2>
@@ -696,28 +785,37 @@ export const blogPosts: BlogPost[] = [
       <p>Najefektywniej jest łączyć materiał foto i wideo na jednej realizacji: jedna rozmowa na starcie, jeden dzień zdjęciowy, spójny styl. Nie koordynujesz dwóch ekip i nie tłumaczysz dwa razy tego samego. Bazuję w Poznaniu, gdzie dojazd kosztuje 0 zł, poza miastem doliczam 2,50 zł netto za kilometr w obie strony, a realizacje prowadzę w całej Polsce i Europie.</p>
       <p>Sprawdź, co obejmują <a href="/uslugi/wizerunek-portrety">zdjęcia i film dla firm</a>, zobacz, kiedy bardziej opłaca się <a href="/blog/pakiet-foto-wideo-czy-osobno">pakiet, a kiedy usługi osobno</a>, i zajrzyj do <a href="/blog/slownik-pojec-wideo">słownika pojęć wideo</a>, jeśli chcesz rozumieć, o czym mówimy przy ustalaniu zakresu. A potem <a href="/kontakt">opisz swój projekt</a>. Podpowiem, który format da najwięcej przy Twoim budżecie.</p>
     `,
-    seo: {
-      title: "Wideo marketing dla firm: jakie formaty | Szabunia",
-      description:
-        "Film wizerunkowy, reels, testimonial, wideo produktowe, relacja z eventu, przegląd formatów wideo marketingu B2B i tego, gdzie każdy się sprawdza.",
-    },
-  },
-  {
-    slug: "sesja-wizerunkowa-poznan",
-    faq: [
-      { q: "Studio czy własne biuro: gdzie zrobić sesję wizerunkową?", a: "Studio daje pełną kontrolę nad światłem i powtarzalny, ponadczasowy portret, idealny na headshoty, portrety zarządu i zdjęcia do mediów. Sesja w biurze pokazuje realną przestrzeń marki i nie wyrywa zespołu z pracy: fotograf przyjeżdża z mobilnym studiem, którego rozłożenie zajmuje około 30 minut." },
-      { q: "Czy dojazd na sesję na terenie Poznania jest dodatkowo płatny?", a: "Nie. Fotograf bazuje w Poznaniu, więc dojazd na terenie miasta jest wliczony w cenę, niezależnie od tego, czy sesja odbywa się w studiu, w Twoim biurze, czy w plenerze. Realizacje poza Poznaniem ustalane są indywidualnie." },
-      { q: "Dla kogo sprawdzi się sesja wizerunkowa w plenerze?", a: "Plener daje zdjęciom charakter i „oddech\". Świetnie sprawdza się w personal brandingu, u twórców i przy mniej formalnych wizerunkach. Poznań oferuje różnorodne tła: architekturę Starego Miasta, nowoczesne dzielnice biurowe czy zieleń nad Wartą. Minusem jest zależność od pogody i pory dnia." },
-    ],
-    title: "Sesja wizerunkowa w Poznaniu: studio, biuro czy plener?",
-    excerpt:
-      "Gdzie najlepiej zrobić zdjęcia biznesowe w Poznaniu? Porównanie trzech podejść: studio, Twoje biuro i plener. Plusy, minusy i to, dla kogo każde z nich sprawdzi się najlepiej.",
-    category: "poradnik",
-    date: "2026-05-27",
-    updated: "2026-07-29",
-    readTime: 6,
-    thumbnail: "/images/blog/sesja-wizerunkowa-poznan-2.jpg",
-    content: `
+		seo: {
+			title: 'Wideo marketing dla firm: jakie formaty | Szabunia',
+			description:
+				'Film wizerunkowy, reels, testimonial, wideo produktowe, relacja z eventu, przegląd formatów wideo marketingu B2B i tego, gdzie każdy się sprawdza.',
+		},
+	},
+	{
+		slug: 'sesja-wizerunkowa-poznan',
+		faq: [
+			{
+				q: 'Studio czy własne biuro: gdzie zrobić sesję wizerunkową?',
+				a: 'Studio daje pełną kontrolę nad światłem i powtarzalny, ponadczasowy portret, idealny na headshoty, portrety zarządu i zdjęcia do mediów. Sesja w biurze pokazuje realną przestrzeń marki i nie wyrywa zespołu z pracy: fotograf przyjeżdża z mobilnym studiem, którego rozłożenie zajmuje około 30 minut.',
+			},
+			{
+				q: 'Czy dojazd na sesję na terenie Poznania jest dodatkowo płatny?',
+				a: 'Nie. Fotograf bazuje w Poznaniu, więc dojazd na terenie miasta jest wliczony w cenę, niezależnie od tego, czy sesja odbywa się w studiu, w Twoim biurze, czy w plenerze. Realizacje poza Poznaniem ustalane są indywidualnie.',
+			},
+			{
+				q: 'Dla kogo sprawdzi się sesja wizerunkowa w plenerze?',
+				a: 'Plener daje zdjęciom charakter i „oddech". Świetnie sprawdza się w personal brandingu, u twórców i przy mniej formalnych wizerunkach. Poznań oferuje różnorodne tła: architekturę Starego Miasta, nowoczesne dzielnice biurowe czy zieleń nad Wartą. Minusem jest zależność od pogody i pory dnia.',
+			},
+		],
+		title: 'Sesja wizerunkowa w Poznaniu: studio, biuro czy plener?',
+		excerpt:
+			'Gdzie najlepiej zrobić zdjęcia biznesowe w Poznaniu? Porównanie trzech podejść: studio, Twoje biuro i plener. Plusy, minusy i to, dla kogo każde z nich sprawdzi się najlepiej.',
+		category: 'poradnik',
+		date: '2026-05-27',
+		updated: '2026-07-29',
+		readTime: 6,
+		thumbnail: '/images/blog/sesja-wizerunkowa-poznan-2.jpg',
+		content: `
       <p class="lead">Szukasz fotografa do zdjęć biznesowych w Poznaniu i zastanawiasz się, gdzie właściwie zrobić sesję? Studio, Twoje biuro, a może plener? Każde z tych miejsc daje inny efekt i pasuje do innych potrzeb. Oto praktyczne porównanie, które pomoże Ci wybrać.</p>
 
       <h2>Studio: pełna kontrola nad efektem</h2>
@@ -751,27 +849,37 @@ export const blogPosts: BlogPost[] = [
       <p>Bazuję w Poznaniu, więc dojazd na terenie miasta jest wliczony w cenę, niezależnie od tego, czy to studio, Twoje biuro, czy plener. Realizacje poza Poznaniem ustalamy indywidualnie. Przed sesją zawsze omawiamy lokalizację, żeby światło i tło grały na Twoją korzyść.</p>
       <p>Zobacz <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> i <a href="/portfolio/idcom-headshoty-zespolu">sesji korporacyjnych</a>, a potem <a href="/kontakt">napisz, co chcesz osiągnąć</a>. Dobiorę miejsce pod Twój cel.</p>
     `,
-    seo: {
-      title: "Sesja wizerunkowa Poznań: gdzie ją zrobić | Szabunia",
-      description:
-        "Gdzie zrobić sesję wizerunkową w Poznaniu: studio, biuro czy plener? Porównanie podejść, plusy i minusy każdego, dojazd na terenie Poznania w cenie.",
-    },
-  },
-  {
-    slug: "zdjecia-ai-vs-profesjonalna-sesja",
-    faq: [
-      { q: "Kiedy zdjęcia z generatora AI wystarczą?", a: "AI sprawdza się tam, gdzie liczy się tempo i niska cena: przy szybkich eksperymentach z tłem, kadrem czy stylizacją oraz przy pomocniczych awatarach do wewnętrznych narzędzi, roboczych prezentacji i prototypów. Prosta zasada: im dalej od twarzy marki, tym więcej miejsca na AI." },
-      { q: "Dlaczego headshot z AI nie sprawdza się w B2B?", a: "AI wygładza i zmienia rysy, więc klient może Cię nie rozpoznać na żywo, a to podważa wiarygodność. Generatory wciąż mylą się w detalach (dłonie, biżuteria, logo, faktura tkaniny), efekt rzadko pasuje stylem do reszty zdjęć firmy, a rozpoznana „twarz z generatora\" sygnalizuje, że marka idzie na skróty." },
-      { q: "Czy AI zastąpi profesjonalną sesję wizerunkową?", a: "Nie. AI to narzędzie, a nie zamiennik. Świetnie działa przy szkicach i zastosowaniach pomocniczych, ale zawodzi wszędzie tam, gdzie liczy się, że zdjęcie przedstawia naprawdę Ciebie. Twarz prezesa na stronie głównej czy profil handlowca, na podstawie których ktoś decyduje o współpracy, wymagają realnej sesji." },
-    ],
-    title: "Zdjęcia AI vs profesjonalna sesja: czy generator headshotów wystarczy firmie?",
-    excerpt:
-      "Generatory zdjęć AI kuszą ceną i tempem. Ale czy headshot z AI nadaje się na profil eksperta i stronę firmy? Trzeźwe spojrzenie fotografa na mocne i słabe strony.",
-    category: "branża",
-    date: "2026-05-23",
-    readTime: 6,
-    thumbnail: "/images/blog/zdjecia-ai-vs-profesjonalna-sesja-2.jpg",
-    content: `
+		seo: {
+			title: 'Sesja wizerunkowa Poznań: gdzie ją zrobić | Szabunia',
+			description:
+				'Gdzie zrobić sesję wizerunkową w Poznaniu: studio, biuro czy plener? Porównanie podejść, plusy i minusy każdego, dojazd na terenie Poznania w cenie.',
+		},
+	},
+	{
+		slug: 'zdjecia-ai-vs-profesjonalna-sesja',
+		faq: [
+			{
+				q: 'Kiedy zdjęcia z generatora AI wystarczą?',
+				a: 'AI sprawdza się tam, gdzie liczy się tempo i niska cena: przy szybkich eksperymentach z tłem, kadrem czy stylizacją oraz przy pomocniczych awatarach do wewnętrznych narzędzi, roboczych prezentacji i prototypów. Prosta zasada: im dalej od twarzy marki, tym więcej miejsca na AI.',
+			},
+			{
+				q: 'Dlaczego headshot z AI nie sprawdza się w B2B?',
+				a: 'AI wygładza i zmienia rysy, więc klient może Cię nie rozpoznać na żywo, a to podważa wiarygodność. Generatory wciąż mylą się w detalach (dłonie, biżuteria, logo, faktura tkaniny), efekt rzadko pasuje stylem do reszty zdjęć firmy, a rozpoznana „twarz z generatora" sygnalizuje, że marka idzie na skróty.',
+			},
+			{
+				q: 'Czy AI zastąpi profesjonalną sesję wizerunkową?',
+				a: 'Nie. AI to narzędzie, a nie zamiennik. Świetnie działa przy szkicach i zastosowaniach pomocniczych, ale zawodzi wszędzie tam, gdzie liczy się, że zdjęcie przedstawia naprawdę Ciebie. Twarz prezesa na stronie głównej czy profil handlowca, na podstawie których ktoś decyduje o współpracy, wymagają realnej sesji.',
+			},
+		],
+		title:
+			'Zdjęcia AI vs profesjonalna sesja: czy generator headshotów wystarczy firmie?',
+		excerpt:
+			'Generatory zdjęć AI kuszą ceną i tempem. Ale czy headshot z AI nadaje się na profil eksperta i stronę firmy? Trzeźwe spojrzenie fotografa na mocne i słabe strony.',
+		category: 'branża',
+		date: '2026-05-23',
+		readTime: 6,
+		thumbnail: '/images/blog/zdjecia-ai-vs-profesjonalna-sesja-2.jpg',
+		content: `
       <p class="lead">Generatory zdjęć AI obiecują headshot w kilka minut, za ułamek ceny sesji. Brzmi kusząco, zwłaszcza gdy materiał jest potrzebny „na wczoraj". Ale czy portret z AI nadaje się na profil eksperta, stronę firmy i materiały, które mają budować zaufanie? Spójrzmy na to trzeźwo.</p>
 
       <h2>Co AI robi naprawdę dobrze</h2>
@@ -801,27 +909,37 @@ export const blogPosts: BlogPost[] = [
       <p>AI to narzędzie, nie zamiennik. Świetne do szkiców i zastosowań pomocniczych, słabe wszędzie tam, gdzie liczy się, że to naprawdę Ty. Twarz, która ma reprezentować Ciebie i Twoją firmę, warta jest jednej dobrej sesji.</p>
       <p>Zobacz <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> albo od razu <a href="/kontakt">napisz, czego potrzebujesz</a>. Podpowiem, ile ujęć i wariantów realnie wystarczy. Bazuję w Poznaniu, a sesje realizuję w całej Polsce i Europie.</p>
     `,
-    seo: {
-      title: "Zdjęcia AI vs profesjonalna sesja | Szabunia",
-      description:
-        "Headshot z generatora AI czy zwykła sesja? Porównanie kosztów, wiarygodności i ryzyk. Kiedy AI wystarczy, a kiedy szkodzi marce.",
-    },
-  },
-  {
-    slug: "co-zalozyc-na-sesje-biznesowa",
-    faq: [
-      { q: "Jakie kolory najlepiej wychodzą na zdjęciach biznesowych?", a: "Stonowane, jednolite barwy: granat, grafit, szarość, biel, butelkowa zieleń i burgund. Pozwalają skupić uwagę na twarzy, a nie na ubraniu. Ostrożnie z czystą czernią, która bywa ciężka, oraz z jaskrawymi neonami. Jeśli firma ma mocną identyfikację, jej kolor warto wpleść w detal stylizacji." },
-      { q: "Jakich materiałów i wzorów unikać na sesji biznesowej?", a: "Unikaj drobnej kratki i wąskich pasków, które potrafią „migotać\" na zdjęciu (efekt mory), oraz połyskliwych satyn odbijających światło. Stawiaj na matowe, gęste tkaniny dobrej jakości i gładkie faktury. Ubranie, które po prostu dobrze leży, wygrywa z drogim, ale źle skrojonym." },
-      { q: "Co spakować na sesję biznesową?", a: "Przygotuj 2-3 stylizacje przewiezione na wieszaku (nie zwinięte w torbie), zapasową koszulę lub bluzkę w neutralnym kolorze oraz wałek do ubrań i drobne przybory na ostatnie poprawki. Zabierz też strój, w którym czujesz się najpewniej. Komfort widać na twarzy." },
-    ],
-    title: "Co założyć na sesję biznesową: kolory, fasony i błędy, których lepiej unikać",
-    excerpt:
-      "Stylizacja potrafi zrobić albo zepsuć portret biznesowy. Praktyczny przewodnik po kolorach, fasonach i materiałach, które dobrze wyglądają na zdjęciach, i częstych błędach.",
-    category: "poradnik",
-    date: "2026-05-19",
-    readTime: 7,
-    thumbnail: "/images/blog/co-zalozyc-na-sesje-biznesowa-2.jpg",
-    content: `
+		seo: {
+			title: 'Zdjęcia AI vs profesjonalna sesja | Szabunia',
+			description:
+				'Headshot z generatora AI czy zwykła sesja? Porównanie kosztów, wiarygodności i ryzyk. Kiedy AI wystarczy, a kiedy szkodzi marce.',
+		},
+	},
+	{
+		slug: 'co-zalozyc-na-sesje-biznesowa',
+		faq: [
+			{
+				q: 'Jakie kolory najlepiej wychodzą na zdjęciach biznesowych?',
+				a: 'Stonowane, jednolite barwy: granat, grafit, szarość, biel, butelkowa zieleń i burgund. Pozwalają skupić uwagę na twarzy, a nie na ubraniu. Ostrożnie z czystą czernią, która bywa ciężka, oraz z jaskrawymi neonami. Jeśli firma ma mocną identyfikację, jej kolor warto wpleść w detal stylizacji.',
+			},
+			{
+				q: 'Jakich materiałów i wzorów unikać na sesji biznesowej?',
+				a: 'Unikaj drobnej kratki i wąskich pasków, które potrafią „migotać" na zdjęciu (efekt mory), oraz połyskliwych satyn odbijających światło. Stawiaj na matowe, gęste tkaniny dobrej jakości i gładkie faktury. Ubranie, które po prostu dobrze leży, wygrywa z drogim, ale źle skrojonym.',
+			},
+			{
+				q: 'Co spakować na sesję biznesową?',
+				a: 'Przygotuj 2-3 stylizacje przewiezione na wieszaku (nie zwinięte w torbie), zapasową koszulę lub bluzkę w neutralnym kolorze oraz wałek do ubrań i drobne przybory na ostatnie poprawki. Zabierz też strój, w którym czujesz się najpewniej. Komfort widać na twarzy.',
+			},
+		],
+		title:
+			'Co założyć na sesję biznesową: kolory, fasony i błędy, których lepiej unikać',
+		excerpt:
+			'Stylizacja potrafi zrobić albo zepsuć portret biznesowy. Praktyczny przewodnik po kolorach, fasonach i materiałach, które dobrze wyglądają na zdjęciach, i częstych błędach.',
+		category: 'poradnik',
+		date: '2026-05-19',
+		readTime: 7,
+		thumbnail: '/images/blog/co-zalozyc-na-sesje-biznesowa-2.jpg',
+		content: `
       <p class="lead">Możesz mieć idealne światło i najlepszego fotografa, ale jeśli stylizacja nie gra, portret nie zadziała. Ubranie to jedyny element sesji, który w całości zależy od Ciebie. Oto przewodnik po tym, co założyć na <a href="/uslugi/wizerunek-portrety">sesję biznesową</a>, żeby wyglądać profesjonalnie i jak Ty.</p>
 
       <h2>Zasada nadrzędna: o jeden poziom wyżej</h2>
@@ -861,28 +979,37 @@ export const blogPosts: BlogPost[] = [
       <p>Zbyt nowy, jeszcze „sztywny" garnitur. Logo na pół klatki piersiowej. Stylizacja kompletnie oderwana od branży (smoking do firmy technologicznej). I najważniejszy błąd: strój, w którym jest Ci niewygodnie. Jeśli ciągle poprawiasz kołnierzyk, widać to na każdym ujęciu.</p>
       <p>Resztę przygotowań znajdziesz w poradniku <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>. Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">headshot pracuje na konwersję na LinkedIn</a>, i przejrzyj <a href="/galeria?kat=portrety">przykładowe realizacje</a>. Gotowy? <a href="/kontakt">Napisz do mnie</a>, umówimy termin. Odpowiadam w ciągu 24h. Sesje realizuję w Poznaniu, a także w całej Polsce i Europie.</p>
     `,
-    seo: {
-      title: "Co założyć na sesję biznesową: stylizacje | Szabunia",
-      description:
-        "Jak ubrać się na sesję wizerunkową: kolory, które dobrze wyglądają na zdjęciach, fasony, materiały i błędy do uniknięcia.",
-    },
-  },
-  {
-    slug: "zdjecia-na-strone-firmowa",
-    faq: [
-      { q: "Jakich zdjęć potrzebuje strona internetowa firmy?", a: "Kompletny zestaw obejmuje: mocne autorskie zdjęcie hero na pierwszy ekran, spójne portrety zespołu do sekcji „o nas\", zdjęcia biura i przestrzeni firmy, zdjęcia produktów lub usług (packshot plus ujęcia w kontekście) oraz materiał z realizacji do sekcji portfolio. Uzupełnieniem może być krótki film wizerunkowy." },
-      { q: "Dlaczego nie warto używać zdjęć stockowych na stronie firmowej?", a: "Stocki mają trzy wady: każdy ma do nich dostęp, więc konkurent może użyć tego samego zdjęcia, nie pokazują realnej firmy i często widać w nich sztuczność. Autentyczne, autorskie zdjęcia odróżniają markę, podczas gdy stock upodabnia ją do innych." },
-      { q: "Jak zaplanować zdjęcia na stronę firmową?", a: "Najtaniej i najspójniej jest zebrać potrzeby z całej strony i zrealizować je w jednej, dobrze zaplanowanej sesji albo serii sesji. Praca zaczyna się od listy sekcji i ujęć, potem dobiera się lokalizację i styl, a efektem jest komplet spójnego materiału na wszystkie sekcje." },
-    ],
-    title: "Jakie zdjęcia potrzebuje strona internetowa firmy: kompletna lista",
-    excerpt:
-      "Strona firmowa to często pierwszy kontakt klienta z marką. Oto, jakich zdjęć naprawdę potrzebujesz, sekcja po sekcji, żeby budowała zaufanie, a nie wyglądała jak baza stocków.",
-    category: "poradnik",
-    date: "2026-05-15",
-    updated: "2026-07-29",
-    readTime: 7,
-    thumbnail: "/images/blog/zdjecia-na-strone-firmowa-2.jpg",
-    content: `
+		seo: {
+			title: 'Co założyć na sesję biznesową: stylizacje | Szabunia',
+			description:
+				'Jak ubrać się na sesję wizerunkową: kolory, które dobrze wyglądają na zdjęciach, fasony, materiały i błędy do uniknięcia.',
+		},
+	},
+	{
+		slug: 'zdjecia-na-strone-firmowa',
+		faq: [
+			{
+				q: 'Jakich zdjęć potrzebuje strona internetowa firmy?',
+				a: 'Kompletny zestaw obejmuje: mocne autorskie zdjęcie hero na pierwszy ekran, spójne portrety zespołu do sekcji „o nas", zdjęcia biura i przestrzeni firmy, zdjęcia produktów lub usług (packshot plus ujęcia w kontekście) oraz materiał z realizacji do sekcji portfolio. Uzupełnieniem może być krótki film wizerunkowy.',
+			},
+			{
+				q: 'Dlaczego nie warto używać zdjęć stockowych na stronie firmowej?',
+				a: 'Stocki mają trzy wady: każdy ma do nich dostęp, więc konkurent może użyć tego samego zdjęcia, nie pokazują realnej firmy i często widać w nich sztuczność. Autentyczne, autorskie zdjęcia odróżniają markę, podczas gdy stock upodabnia ją do innych.',
+			},
+			{
+				q: 'Jak zaplanować zdjęcia na stronę firmową?',
+				a: 'Najtaniej i najspójniej jest zebrać potrzeby z całej strony i zrealizować je w jednej, dobrze zaplanowanej sesji albo serii sesji. Praca zaczyna się od listy sekcji i ujęć, potem dobiera się lokalizację i styl, a efektem jest komplet spójnego materiału na wszystkie sekcje.',
+			},
+		],
+		title: 'Jakie zdjęcia potrzebuje strona internetowa firmy: kompletna lista',
+		excerpt:
+			'Strona firmowa to często pierwszy kontakt klienta z marką. Oto, jakich zdjęć naprawdę potrzebujesz, sekcja po sekcji, żeby budowała zaufanie, a nie wyglądała jak baza stocków.',
+		category: 'poradnik',
+		date: '2026-05-15',
+		updated: '2026-07-29',
+		readTime: 7,
+		thumbnail: '/images/blog/zdjecia-na-strone-firmowa-2.jpg',
+		content: `
       <p class="lead">Strona internetowa to często pierwszy kontakt klienta z Twoją firmą, a ocena zapada w kilka sekund. Zdjęcia decydują o tym pierwszym wrażeniu bardziej niż tekst. Oto kompletna lista zdjęć, których realnie potrzebuje strona firmowa, sekcja po sekcji.</p>
 
       <h2>Zdjęcie główne (hero)</h2>
@@ -909,28 +1036,37 @@ export const blogPosts: BlogPost[] = [
       <h2>Jak to zaplanować</h2>
       <p>Najtaniej i najspójniej jest zebrać potrzeby z całej strony i zrealizować je w jednej, dobrze zaplanowanej sesji (albo serii). Zaczynamy od listy sekcji i ujęć, dobieramy lokalizację i styl, a Ty dostajesz komplet spójnego materiału. Działam z Poznania, tu dojazd masz w cenie, a sesje realizuję w całej Polsce i Europie. Przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje</a> i <a href="/kontakt">napisz, co jest na Twojej stronie</a>, ułożymy plan zdjęć pod nią.</p>
     `,
-    seo: {
-      title: "Jakie zdjęcia na stronę firmową: lista | Szabunia",
-      description:
-        "Jakich zdjęć potrzebuje strona internetowa firmy: hero, zespół, biuro, produkty, realizacje. Lista sekcja po sekcji i dlaczego lepiej odpuścić stocki.",
-    },
-  },
-  {
-    slug: "slownik-pojec-wideo",
-    faq: [
-      { q: "Co to jest b-roll?", a: "B-roll to ujęcia uzupełniające: detale biura, dłonie przy pracy, maszyny w ruchu, przebitki z eventu. Same w sobie nie opowiadają historii, ale sprawiają, że film nie jest jedną gadającą głową. Im lepszy b-roll, tym dynamiczniejszy montaż gotowego materiału." },
-      { q: "Co to jest setka w wideo?", a: "Setka to wypowiedź wprost do kamery: eksperta, prezesa albo uczestnika eventu. Nazwa pochodzi z żargonu telewizyjnego; po angielsku mówi się talking head. Setki najlepiej nagrywać w kontrolowanych warunkach, na przykład w mobilnym studiu z porządnym światłem i dźwiękiem." },
-      { q: "Czym jest color grading?", a: "Color grading to nadawanie filmowi spójnego charakteru kolorystycznego: cieplejszego i bardziej kinowego albo chłodnego i technologicznego. To ostatni etap postprodukcji, dzięki któremu materiał wygląda profesjonalnie i spójnie z marką." },
-    ],
-    title: "Co to jest b-roll? Słownik pojęć wideo, które warto znać",
-    excerpt:
-      "Reels, b-roll, color grading, teaser, setka. Krótki słownik pojęć, które padają przy zamawianiu wideo dla firmy, wyjaśniony prostym językiem, bez branżowego żargonu.",
-    category: "poradnik",
-    date: "2026-06-12",
-    updated: "2026-07-29",
-    readTime: 7,
-    thumbnail: "/images/blog/slownik-pojec-wideo.jpg",
-    content: `
+		seo: {
+			title: 'Jakie zdjęcia na stronę firmową: lista | Szabunia',
+			description:
+				'Jakich zdjęć potrzebuje strona internetowa firmy: hero, zespół, biuro, produkty, realizacje. Lista sekcja po sekcji i dlaczego lepiej odpuścić stocki.',
+		},
+	},
+	{
+		slug: 'slownik-pojec-wideo',
+		faq: [
+			{
+				q: 'Co to jest b-roll?',
+				a: 'B-roll to ujęcia uzupełniające: detale biura, dłonie przy pracy, maszyny w ruchu, przebitki z eventu. Same w sobie nie opowiadają historii, ale sprawiają, że film nie jest jedną gadającą głową. Im lepszy b-roll, tym dynamiczniejszy montaż gotowego materiału.',
+			},
+			{
+				q: 'Co to jest setka w wideo?',
+				a: 'Setka to wypowiedź wprost do kamery: eksperta, prezesa albo uczestnika eventu. Nazwa pochodzi z żargonu telewizyjnego; po angielsku mówi się talking head. Setki najlepiej nagrywać w kontrolowanych warunkach, na przykład w mobilnym studiu z porządnym światłem i dźwiękiem.',
+			},
+			{
+				q: 'Czym jest color grading?',
+				a: 'Color grading to nadawanie filmowi spójnego charakteru kolorystycznego: cieplejszego i bardziej kinowego albo chłodnego i technologicznego. To ostatni etap postprodukcji, dzięki któremu materiał wygląda profesjonalnie i spójnie z marką.',
+			},
+		],
+		title: 'Co to jest b-roll? Słownik pojęć wideo, które warto znać',
+		excerpt:
+			'Reels, b-roll, color grading, teaser, setka. Krótki słownik pojęć, które padają przy zamawianiu wideo dla firmy, wyjaśniony prostym językiem, bez branżowego żargonu.',
+		category: 'poradnik',
+		date: '2026-06-12',
+		updated: '2026-07-29',
+		readTime: 7,
+		thumbnail: '/images/blog/slownik-pojec-wideo.jpg',
+		content: `
       <p class="lead">Zamawiasz wideo dla firmy i nagle z oferty wyskakują słowa: b-roll, color grading, setka, recap. Branża wideo ma swój żargon, ale Ty nie musisz go znać, żeby dobrze zamówić. Oto słownik pojęć, które najczęściej padają w rozmowach o filmach dla firm, wyjaśniony prostym językiem.</p>
 
       <h2>Reels (rolka)</h2>
@@ -981,28 +1117,37 @@ export const blogPosts: BlogPost[] = [
       <h2>Nie musisz znać żargonu</h2>
       <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan realizacji. Zobacz <a href="/uslugi/wizerunek-portrety">zdjęcia i film dla firm</a>, a potem <a href="/kontakt">napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
     `,
-    seo: {
-      title: "B-roll, setka, recap: słownik wideo | Szabunia",
-      description:
-        "Co to jest b-roll, setka, recap, teaser, color grading i gimbal. Pojęcia wideo wyjaśnione tak, żeby dogadać się z ekipą na planie.",
-    },
-  },
-  {
-    slug: "co-to-jest-packshot",
-    faq: [
-      { q: "Co to jest packshot?", a: "Packshot to zdjęcie produktu na jednolitym, najczęściej białym tle: czyste, powtarzalne i pozbawione rozpraszaczy. Odpowiada na pytanie, jak dokładnie wygląda dana rzecz. To podstawa karty produktu w sklepie internetowym i standard wymagany przez większość marketplace'ów." },
-      { q: "Czy fotograf przekazuje klientowi pliki RAW?", a: "Standardowo nie. RAW to surowy plik z aparatu, cyfrowy odpowiednik negatywu. Zawiera pełne dane obrazu, ale wymaga obróbki i nie nadaje się do bezpośredniej publikacji. Klient otrzymuje gotowy, spójny materiał po autorskiej postprodukcji, podobnie jak drukarnia nie oddaje projektów otwartych. Udostępnienie plików RAW jest natomiast dostępne jako opcja dodatkowa za 30 procent wartości zlecenia, z decyzją przed sesją." },
-      { q: "Co obejmuje licencja na zdjęcia biznesowe?", a: "Licencja określa, gdzie i jak można używać zdjęć. Standardowo obejmuje pełny użytek komercyjny: stronę internetową, social media, druk i reklamę online, bez limitów czasowych. Szerszy zakres, na przykład ogólnopolską kampanię outdoor, ustala się indywidualnie przy wycenie." },
-    ],
-    title: "Co to jest packshot? Słownik pojęć fotografii, które warto znać",
-    excerpt:
-      "Packshot, lifestyle, headshot, brief, RAW, retusz. Krótki słownik pojęć, które padają przy zamawianiu zdjęć dla firmy, wyjaśniony prostym językiem, bez branżowego żargonu.",
-    category: "poradnik",
-    date: "2026-06-11",
-    updated: "2026-07-29",
-    readTime: 7,
-    thumbnail: "/images/blog/co-to-jest-packshot.jpg",
-    content: `
+		seo: {
+			title: 'B-roll, setka, recap: słownik wideo | Szabunia',
+			description:
+				'Co to jest b-roll, setka, recap, teaser, color grading i gimbal. Pojęcia wideo wyjaśnione tak, żeby dogadać się z ekipą na planie.',
+		},
+	},
+	{
+		slug: 'co-to-jest-packshot',
+		faq: [
+			{
+				q: 'Co to jest packshot?',
+				a: "Packshot to zdjęcie produktu na jednolitym, najczęściej białym tle: czyste, powtarzalne i pozbawione rozpraszaczy. Odpowiada na pytanie, jak dokładnie wygląda dana rzecz. To podstawa karty produktu w sklepie internetowym i standard wymagany przez większość marketplace'ów.",
+			},
+			{
+				q: 'Czy fotograf przekazuje klientowi pliki RAW?',
+				a: 'Standardowo nie. RAW to surowy plik z aparatu, cyfrowy odpowiednik negatywu. Zawiera pełne dane obrazu, ale wymaga obróbki i nie nadaje się do bezpośredniej publikacji. Klient otrzymuje gotowy, spójny materiał po autorskiej postprodukcji, podobnie jak drukarnia nie oddaje projektów otwartych. Udostępnienie plików RAW jest natomiast dostępne jako opcja dodatkowa za 30 procent wartości zlecenia, z decyzją przed sesją.',
+			},
+			{
+				q: 'Co obejmuje licencja na zdjęcia biznesowe?',
+				a: 'Licencja określa, gdzie i jak można używać zdjęć. Standardowo obejmuje pełny użytek komercyjny: stronę internetową, social media, druk i reklamę online, bez limitów czasowych. Szerszy zakres, na przykład ogólnopolską kampanię outdoor, ustala się indywidualnie przy wycenie.',
+			},
+		],
+		title: 'Co to jest packshot? Słownik pojęć fotografii, które warto znać',
+		excerpt:
+			'Packshot, lifestyle, headshot, brief, RAW, retusz. Krótki słownik pojęć, które padają przy zamawianiu zdjęć dla firmy, wyjaśniony prostym językiem, bez branżowego żargonu.',
+		category: 'poradnik',
+		date: '2026-06-11',
+		updated: '2026-07-29',
+		readTime: 7,
+		thumbnail: '/images/blog/co-to-jest-packshot.jpg',
+		content: `
       <p class="lead">Zamawiasz zdjęcia dla firmy i nagle z oferty wyskakują słowa: packshot, lifestyle, poseboard, live editing. Branża fotograficzna lubi swój żargon, ale Ty nie musisz go znać, żeby dobrze zamówić. Oto słownik pojęć, które najczęściej padają w rozmowach z klientami, wyjaśniony prostym językiem.</p>
 
       <h2>Packshot</h2>
@@ -1044,28 +1189,37 @@ export const blogPosts: BlogPost[] = [
       <h2>Nie musisz znać żargonu</h2>
       <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan sesji. <a href="/kontakt">Napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
     `,
-    seo: {
-      title: "Co to jest packshot? Słownik fotografii | Szabunia",
-      description:
-        "Packshot, lifestyle, headshot, brief, RAW, retusz, licencja. Słownik pojęć fotografii biznesowej i produktowej wyjaśniony prostym językiem, bez żargonu.",
-    },
-  },
-  {
-    slug: "zdjecia-film-z-drona-dla-firm",
-    faq: [
-      { q: "Czy komercyjne loty dronem dla firm są legalne?", a: "Tak, loty komercyjne dronem są w Polsce uregulowane i wymagają uprawnień. Po stronie operatora jest komplet formalności: certyfikat A1/A3 zgodny z przepisami unijnymi, ubezpieczenie OC oraz uzyskanie zgód przed lotem w strefach kontrolowanych. Strona formalna nie jest problemem klienta." },
-      { q: "W jakiej formie dostanę materiał z drona?", a: "W zależności od celu materiał ma trzy formy: wyretuszowane zdjęcia do oferty i na stronę, zmontowany film 4K gotowy na stronę i social media albo przebitki 4K z korekcją barwną do własnego montażu. Jeśli potrzebujesz tylko surowca do swojego montażu, płacisz mniej." },
-      { q: "Jak długo trwa realizacja zdjęć i filmu z drona?", a: "Zwykle godzina w powietrzu wystarcza na komplet ujęć jednego obiektu. Zdjęcia dostarczam do 14 dni, wideo do 21 dni, dostępny jest też tryb ekspresowy. Wcześniej ustalamy brief, ujęcia i sprawdzam, czy teren leży w strefie wymagającej zgody." },
-    ],
-    title: "Zdjęcia i film z drona dla firm: zastosowania, legalność i koszt",
-    excerpt:
-      "Do czego firmie zdjęcia i film z drona, jak wygląda realizacja, co z legalnością lotów i ile to kosztuje. Praktyczny przewodnik B2B z Poznania.",
-    category: "poradnik",
-    date: "2026-06-27",
-    updated: "2026-07-29",
-    readTime: 7,
-    thumbnail: "/images/blog/zdjecia-film-z-drona-dla-firm.jpg",
-    content: `
+		seo: {
+			title: 'Co to jest packshot? Słownik fotografii | Szabunia',
+			description:
+				'Packshot, lifestyle, headshot, brief, RAW, retusz, licencja. Słownik pojęć fotografii biznesowej i produktowej wyjaśniony prostym językiem, bez żargonu.',
+		},
+	},
+	{
+		slug: 'zdjecia-film-z-drona-dla-firm',
+		faq: [
+			{
+				q: 'Czy komercyjne loty dronem dla firm są legalne?',
+				a: 'Tak, loty komercyjne dronem są w Polsce uregulowane i wymagają uprawnień. Po stronie operatora jest komplet formalności: certyfikat A1/A3 zgodny z przepisami unijnymi, ubezpieczenie OC oraz uzyskanie zgód przed lotem w strefach kontrolowanych. Strona formalna nie jest problemem klienta.',
+			},
+			{
+				q: 'W jakiej formie dostanę materiał z drona?',
+				a: 'W zależności od celu materiał ma trzy formy: wyretuszowane zdjęcia do oferty i na stronę, zmontowany film 4K gotowy na stronę i social media albo przebitki 4K z korekcją barwną do własnego montażu. Jeśli potrzebujesz tylko surowca do swojego montażu, płacisz mniej.',
+			},
+			{
+				q: 'Jak długo trwa realizacja zdjęć i filmu z drona?',
+				a: 'Zwykle godzina w powietrzu wystarcza na komplet ujęć jednego obiektu. Zdjęcia dostarczam do 14 dni, wideo do 21 dni, dostępny jest też tryb ekspresowy. Wcześniej ustalamy brief, ujęcia i sprawdzam, czy teren leży w strefie wymagającej zgody.',
+			},
+		],
+		title: 'Zdjęcia i film z drona dla firm: zastosowania, legalność i koszt',
+		excerpt:
+			'Do czego firmie zdjęcia i film z drona, jak wygląda realizacja, co z legalnością lotów i ile to kosztuje. Praktyczny przewodnik B2B z Poznania.',
+		category: 'poradnik',
+		date: '2026-06-27',
+		updated: '2026-07-29',
+		readTime: 7,
+		thumbnail: '/images/blog/zdjecia-film-z-drona-dla-firm.jpg',
+		content: `
       <p class="lead">Perspektywa z lotu ptaka pokazuje to, czego nie odda żadne zdjęcie z poziomu ziemi: skalę inwestycji, układ terenu, sąsiedztwo i kontekst całego obiektu. Dla firmy to nie efekt „wow" dla samego efektu, tylko konkretne narzędzie sprzedaży i dokumentacji. Poniżej tłumaczę, do czego realnie przydają się zdjęcia i film z drona, jak wygląda realizacja, co z legalnością lotów i od czego zależy koszt.</p>
 
       <h2>Do czego firmie zdjęcia i film z drona</h2>
@@ -1117,27 +1271,36 @@ export const blogPosts: BlogPost[] = [
       <p>Zdjęcia i film z drona to dla firmy narzędzie, które sprzedaje skalę i kontekst, a przy okazji wyróżnia materiał na tle konkurencji. Najważniejsze: ustal cel (zdjęcia, gotowy film czy przebitki), a resztę, łącznie z formalnościami, zostaw operatorowi. Bazę mam w Poznaniu, a loty realizuję w całej Polsce: w Poznaniu bez kosztów dojazdu, poza miastem dochodzi dojazd 2,50 zł netto/km liczony od granic miasta.</p>
       <p>Zobacz <a href="/galeria?kat=dron">przykładowe kadry z drona</a> albo od razu <a href="/kontakt">zapytaj o wycenę</a> swojego obiektu.</p>
     `,
-    seo: {
-      title: "Zdjęcia i film z drona dla firm: koszt | Szabunia",
-      description:
-        "Zastosowania zdjęć i filmów z drona w B2B, przebieg realizacji, legalność (A1/A3, OC, strefy kontrolowane) i koszt. Poznań i cała Polska.",
-    },
-  },
-  {
-    slug: "foto-wideo-dron-z-jednego-wejscia",
-    faq: [
-      { q: "Co znaczy, że zdjęcia, film i dron robi jedna osoba?", a: "To jedna osoba na planie, która tym samym okiem i w jednym standardzie realizuje zdjęcia, wideo i w razie potrzeby ujęcia z drona. Jest jeden brief, jeden harmonogram i jeden komplet materiału, bez dwóch stylów kolorystycznych i ekip wchodzących sobie w kadr." },
-      { q: "Kiedy jeden twórca opłaca się bardziej niż dwie ekipy?", a: "Wtedy, gdy z jednego wydarzenia ma powstać kilka formatów: reportaż zdjęciowy, film podsumowujący, teaser do social mediów i ujęcia z drona (np. event, premiera albo dzień zdjęciowy pod stały content). Jeśli potrzebujesz tylko zdjęć albo tylko filmu, łączenie nie ma sensu." },
-      { q: "Jakie są terminy dostawy, gdy zdjęcia i film robi jedna osoba?", a: "Zdjęcia dostarczane są do 14 dni, wideo do 21 dni, całość w jednym spójnym standardzie. Na planie pracuję na dwóch aparatach równolegle, z dźwiękiem i dronem, jeśli jest w planie, a kolejność dnia układam tak, żeby foto i wideo nie wchodziły sobie w drogę." },
-    ],
-    title: "Zdjęcia, film i dron od jednej osoby: dlaczego to mniej logistyki",
-    excerpt:
-      "Dwie osobne ekipy do zdjęć i wideo to więcej kosztów, koordynacji i ryzyka. Jeden twórca, który ogarnia foto, wideo i dron, daje spójny materiał i prostszą logistykę.",
-    category: "branża",
-    date: "2026-06-28",
-    readTime: 5,
-    thumbnail: "/images/blog/foto-wideo-dron-z-jednego-wejscia.jpg",
-    content: `
+		seo: {
+			title: 'Zdjęcia i film z drona dla firm: koszt | Szabunia',
+			description:
+				'Zastosowania zdjęć i filmów z drona w B2B, przebieg realizacji, legalność (A1/A3, OC, strefy kontrolowane) i koszt. Poznań i cała Polska.',
+		},
+	},
+	{
+		slug: 'foto-wideo-dron-z-jednego-wejscia',
+		faq: [
+			{
+				q: 'Co znaczy, że zdjęcia, film i dron robi jedna osoba?',
+				a: 'To jedna osoba na planie, która tym samym okiem i w jednym standardzie realizuje zdjęcia, wideo i w razie potrzeby ujęcia z drona. Jest jeden brief, jeden harmonogram i jeden komplet materiału, bez dwóch stylów kolorystycznych i ekip wchodzących sobie w kadr.',
+			},
+			{
+				q: 'Kiedy jeden twórca opłaca się bardziej niż dwie ekipy?',
+				a: 'Wtedy, gdy z jednego wydarzenia ma powstać kilka formatów: reportaż zdjęciowy, film podsumowujący, teaser do social mediów i ujęcia z drona (np. event, premiera albo dzień zdjęciowy pod stały content). Jeśli potrzebujesz tylko zdjęć albo tylko filmu, łączenie nie ma sensu.',
+			},
+			{
+				q: 'Jakie są terminy dostawy, gdy zdjęcia i film robi jedna osoba?',
+				a: 'Zdjęcia dostarczane są do 14 dni, wideo do 21 dni, całość w jednym spójnym standardzie. Na planie pracuję na dwóch aparatach równolegle, z dźwiękiem i dronem, jeśli jest w planie, a kolejność dnia układam tak, żeby foto i wideo nie wchodziły sobie w drogę.',
+			},
+		],
+		title: 'Zdjęcia, film i dron od jednej osoby: dlaczego to mniej logistyki',
+		excerpt:
+			'Dwie osobne ekipy do zdjęć i wideo to więcej kosztów, koordynacji i ryzyka. Jeden twórca, który ogarnia foto, wideo i dron, daje spójny materiał i prostszą logistykę.',
+		category: 'branża',
+		date: '2026-06-28',
+		readTime: 5,
+		thumbnail: '/images/blog/foto-wideo-dron-z-jednego-wejscia.jpg',
+		content: `
       <p class="lead">Kiedy firma potrzebuje i zdjęć, i wideo, naturalny odruch to zatrudnić fotografa oraz osobno ekipę filmową. W praktyce oznacza to dwa briefy, dwa grafiki, dwie umowy i dwie wizje na jednym planie. Da się prościej. Jedna osoba, która w tym samym dniu robi zdjęcia, film i ujęcia z drona, to mniej logistyki, spójny materiał i zwykle niższy koszt. Wyjaśniam, na czym to polega i kiedy się sprawdza.</p>
 
       <h2>Co znaczy: jedna osoba na planie</h2>
@@ -1171,27 +1334,36 @@ export const blogPosts: BlogPost[] = [
       <p>Jeden twórca od foto, wideo i drona to dla firmy prostsza logistyka, spójniejszy materiał i niższy koszt niż dwie osobne ekipy. Najwięcej zyskujesz tam, gdzie z jednego dnia ma powstać kilka formatów: event, premiera, stały content. Pracuję z bazą w Poznaniu, a zlecenia realizuję w całej Polsce i Europie; na zapytania odpowiadam w ciągu 24 godzin.</p>
       <p>Zobacz <a href="/uslugi/eventy-reportaze">zdjęcia i film z wydarzeń firmowych</a>, a po przykłady realizacji zajrzyj do <a href="/galeria">galerii</a>.</p>
     `,
-    seo: {
-      title: "Jedna osoba czy dwie ekipy do foto i wideo | Szabunia",
-      description:
-        "Dlaczego zdjęcia, film i dron od jednej osoby to mniej logistyki, spójny materiał i niższy koszt niż dwie osobne ekipy. Eventy i content, Poznań.",
-    },
-  },
-  {
-    slug: "obsluga-foto-wideo-eventu-firmowego",
-    faq: [
-      { q: "Co ustalić na briefie przed obsługą foto-wideo eventu?", a: "Cel materiału (relacja, employer branding, sprzedaż, prasa), kluczowe momenty, których nie można przegapić, najważniejsze osoby i gości, którzy muszą znaleźć się w kadrze, oraz formaty na wyjściu: zdjęcia, film, teaser, reelsy czy ujęcia z drona." },
-      { q: "Co firma dostaje po evencie z kompleksowej obsługi foto-wideo?", a: "Reportaż zdjęciowy po selekcji i pełnej obróbce, film podsumowujący (recap) i krótszy teaser do social mediów, reelsy pionowe na Instagram czy TikTok, a przy opcji live editingu wybrane zdjęcia obrobione na bieżąco, gotowe do publikacji jeszcze tego samego dnia." },
-      { q: "Jakie ujęcia to must-have na evencie firmowym?", a: "Scena i prelegenci (wystąpienia, slajdy, wręczenia, panel), ludzie i emocje (reakcje sali, rozmowy, networking), detale brandingu, cateringu i gadżetów oraz szerokie kadry pokazujące skalę, w tym ujęcia z drona przy dużych lub plenerowych wydarzeniach." },
-    ],
-    title: "Jak zaplanować kompleksową obsługę foto-wideo eventu firmowego",
-    excerpt:
-      "Event firmowy zdarza się raz. Jak zaplanować obsługę foto-wideo, żeby wyjść z kompletem materiału: brief, harmonogram, must-have ujęcia, dron i live editing.",
-    category: "poradnik",
-    date: "2026-06-28",
-    readTime: 6,
-    thumbnail: "/images/blog/obsluga-foto-wideo-eventu-firmowego.jpg",
-    content: `
+		seo: {
+			title: 'Jedna osoba czy dwie ekipy do foto i wideo | Szabunia',
+			description:
+				'Dlaczego zdjęcia, film i dron od jednej osoby to mniej logistyki, spójny materiał i niższy koszt niż dwie osobne ekipy. Eventy i content, Poznań.',
+		},
+	},
+	{
+		slug: 'obsluga-foto-wideo-eventu-firmowego',
+		faq: [
+			{
+				q: 'Co ustalić na briefie przed obsługą foto-wideo eventu?',
+				a: 'Cel materiału (relacja, employer branding, sprzedaż, prasa), kluczowe momenty, których nie można przegapić, najważniejsze osoby i gości, którzy muszą znaleźć się w kadrze, oraz formaty na wyjściu: zdjęcia, film, teaser, reelsy czy ujęcia z drona.',
+			},
+			{
+				q: 'Co firma dostaje po evencie z kompleksowej obsługi foto-wideo?',
+				a: 'Reportaż zdjęciowy po selekcji i pełnej obróbce, film podsumowujący (recap) i krótszy teaser do social mediów, reelsy pionowe na Instagram czy TikTok, a przy opcji live editingu wybrane zdjęcia obrobione na bieżąco, gotowe do publikacji jeszcze tego samego dnia.',
+			},
+			{
+				q: 'Jakie ujęcia to must-have na evencie firmowym?',
+				a: 'Scena i prelegenci (wystąpienia, slajdy, wręczenia, panel), ludzie i emocje (reakcje sali, rozmowy, networking), detale brandingu, cateringu i gadżetów oraz szerokie kadry pokazujące skalę, w tym ujęcia z drona przy dużych lub plenerowych wydarzeniach.',
+			},
+		],
+		title: 'Jak zaplanować kompleksową obsługę foto-wideo eventu firmowego',
+		excerpt:
+			'Event firmowy zdarza się raz. Jak zaplanować obsługę foto-wideo, żeby wyjść z kompletem materiału: brief, harmonogram, must-have ujęcia, dron i live editing.',
+		category: 'poradnik',
+		date: '2026-06-28',
+		readTime: 6,
+		thumbnail: '/images/blog/obsluga-foto-wideo-eventu-firmowego.jpg',
+		content: `
       <p class="lead">Event firmowy zdarza się raz. Nie ma drugiego podejścia, nie ma poprawek następnego dnia. Dlatego o materiale foto i wideo warto pomyśleć zanim zacznie się wydarzenie, a nie w jego trakcie. Oto praktyczny przewodnik, jak zaplanować kompleksową obsługę foto-wideo eventu, żeby wyjść z niego z kompletem materiału gotowym do publikacji.</p>
 
       <h2>Po co firmie foto i wideo z jednego eventu</h2>
@@ -1231,28 +1403,38 @@ export const blogPosts: BlogPost[] = [
       <p>Kompleksowa obsługa foto-wideo eventu zaczyna się od briefu, a nie od pierwszego zdjęcia. Ustal cel, kluczowe momenty i formaty, a resztę, łącznie z dronem i live editingiem, zaplanuj z wyprzedzeniem. Wtedy z jednego dnia wychodzi materiał na miesiące. Eventy obsługuję z bazy w Poznaniu, dojazd w granicach miasta jest bezpłatny, a realizacje prowadzę w całej Polsce i Europie.</p>
       <p>Zobacz <a href="/uslugi/eventy-reportaze">zdjęcia i film z wydarzeń firmowych</a>, a przykładowe kadry znajdziesz w <a href="/galeria?kat=eventy">galerii eventowej</a>.</p>
     `,
-    seo: {
-      title: "Obsługa foto-wideo eventu firmowego | Szabunia",
-      description:
-        "Praktyczny przewodnik: brief, harmonogram, must-have ujęcia, dron i live editing. Jak zaplanować kompleksową obsługę foto-wideo eventu firmowego. Poznań.",
-    },
-  },
-  {
-    slug: "pakiet-foto-wideo-czy-osobno",
-    faq: [
-      { q: "Kiedy pakiet foto + wideo + dron się opłaca?", a: "Gdy z jednego wydarzenia ma powstać kilka rodzajów materiału: zdjęcia, film i ujęcia pokazujące skalę (np. event albo konferencja). Jedna osoba ogarnia to taniej niż dwie ekipy za ten sam dzień, a materiał jest spójny i spięty jednym briefem, fakturą i terminem." },
-      { q: "Kiedy lepiej zamówić usługi foto i wideo osobno?", a: "Gdy potrzebujesz tylko jednej rzeczy (samego reportażu zdjęciowego albo samego filmu), pakiet byłby przepłacaniem. Osobne usługi mają też sens przy dużej produkcji: wielokamerowym filmie ze scenariuszem i filmowym oświetleniem plus osobną ekipą fotograficzną, gdzie jeden twórca to za mało." },
-      { q: "Na co patrzeć przy wyborze poza ceną?", a: "Na spójność (czy foto i wideo będą wyglądać jak komplet, czy jak dwa różne style), logistykę (ile osób koordynujesz w dniu wydarzenia), czas dostawy (jeden harmonogram postprodukcji zamiast czekania na dwie ekipy) oraz formalności: jedna umowa i faktura zamiast kilku." },
-    ],
-    title: "Pakiet foto + wideo + dron czy usługi osobno: co się bardziej opłaca firmie",
-    excerpt:
-      "Gotowy pakiet foto, wideo i dron u jednej osoby czy ekipa z osobnych specjalistów? Kiedy opłaca się pakiet, kiedy usługi osobno i na co patrzeć poza ceną.",
-    category: "branża",
-    date: "2026-06-28",
-    updated: "2026-07-29",
-    readTime: 5,
-    thumbnail: "/images/blog/pakiet-foto-wideo-czy-osobno.jpg",
-    content: `
+		seo: {
+			title: 'Obsługa foto-wideo eventu firmowego | Szabunia',
+			description:
+				'Praktyczny przewodnik: brief, harmonogram, must-have ujęcia, dron i live editing. Jak zaplanować kompleksową obsługę foto-wideo eventu firmowego. Poznań.',
+		},
+	},
+	{
+		slug: 'pakiet-foto-wideo-czy-osobno',
+		faq: [
+			{
+				q: 'Kiedy pakiet foto + wideo + dron się opłaca?',
+				a: 'Gdy z jednego wydarzenia ma powstać kilka rodzajów materiału: zdjęcia, film i ujęcia pokazujące skalę (np. event albo konferencja). Jedna osoba ogarnia to taniej niż dwie ekipy za ten sam dzień, a materiał jest spójny i spięty jednym briefem, fakturą i terminem.',
+			},
+			{
+				q: 'Kiedy lepiej zamówić usługi foto i wideo osobno?',
+				a: 'Gdy potrzebujesz tylko jednej rzeczy (samego reportażu zdjęciowego albo samego filmu), pakiet byłby przepłacaniem. Osobne usługi mają też sens przy dużej produkcji: wielokamerowym filmie ze scenariuszem i filmowym oświetleniem plus osobną ekipą fotograficzną, gdzie jeden twórca to za mało.',
+			},
+			{
+				q: 'Na co patrzeć przy wyborze poza ceną?',
+				a: 'Na spójność (czy foto i wideo będą wyglądać jak komplet, czy jak dwa różne style), logistykę (ile osób koordynujesz w dniu wydarzenia), czas dostawy (jeden harmonogram postprodukcji zamiast czekania na dwie ekipy) oraz formalności: jedna umowa i faktura zamiast kilku.',
+			},
+		],
+		title:
+			'Pakiet foto + wideo + dron czy usługi osobno: co się bardziej opłaca firmie',
+		excerpt:
+			'Gotowy pakiet foto, wideo i dron u jednej osoby czy ekipa z osobnych specjalistów? Kiedy opłaca się pakiet, kiedy usługi osobno i na co patrzeć poza ceną.',
+		category: 'branża',
+		date: '2026-06-28',
+		updated: '2026-07-29',
+		readTime: 5,
+		thumbnail: '/images/blog/pakiet-foto-wideo-czy-osobno.jpg',
+		content: `
       <p class="lead">Firma, która potrzebuje zdjęć i filmu z jednego wydarzenia, staje przed wyborem: zamówić gotowy pakiet foto, wideo i dron u jednej osoby, czy złożyć ekipę z osobnych specjalistów. Obie drogi mają sens, ale w różnych sytuacjach. Poniżej tłumaczę, kiedy bardziej opłaca się pakiet, a kiedy usługi osobno, i na co realnie patrzeć poza ceną.</p>
 
       <h2>Co zwykle wchodzi w pakiet</h2>
@@ -1288,28 +1470,38 @@ export const blogPosts: BlogPost[] = [
       <p>Pakiet foto + wideo + dron opłaca się tam, gdzie z jednego wydarzenia ma powstać kilka spójnych formatów, a Ty chcesz prostej logistyki i niższego kosztu niż dwie osobne ekipy. Usługi osobno mają sens przy pojedynczej potrzebie albo bardzo dużej produkcji.</p>
       <p>Zobacz <a href="/uslugi/eventy-reportaze">zdjęcia i film z wydarzeń firmowych</a> albo <a href="/kontakt">opisz swój wariant</a>.</p>
     `,
-    seo: {
-      title: "Pakiet foto, wideo i dron czy osobno | Szabunia",
-      description:
-        "Kiedy opłaca się pakiet foto + wideo + dron, a kiedy usługi osobno. Porównanie kosztu, spójności i logistyki obsługi eventu firmowego. Poznań.",
-    },
-  },
-  {
-    slug: "zdjecia-z-drona-dla-deweloperow",
-    faq: [
-      { q: "Po co deweloperowi zdjęcia z drona?", a: "Ujęcia z drona pokazują to, czego nie widać z chodnika: skalę osiedla, położenie względem miasta, dojazd, zieleń wokół i widok z górnych pięter. Służą do dokumentacji postępu budowy, materiałów sprzedażowych oraz budowania zaufania, gdy realne ujęcie stoi obok wizualizacji." },
-      { q: "Czy loty dronem nad inwestycją są legalne?", a: "Tak, pod warunkiem uprawnień: loty odbywają się zgodnie z przepisami EASA, z numerem operatora i uprawnieniami w kategorii otwartej (A1/A3), a w strefach kontrolowanych po wymaganych zgłoszeniach i zgodach. Koordynację lotniczą biorę na siebie. Dostęp do terenu budowy i zasady bezpieczeństwa ustalane są wcześniej." },
-      { q: "Od czego zależy cena zdjęć z drona dla dewelopera?", a: "Na wycenę pracuje przede wszystkim to, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy film, a do tego zakres lotu, lokalizacja i strefa powietrzna. Komplet zdjęć i filmu z jednej sesji wychodzi taniej niż zamawianie tych usług osobno. Opisz inwestycję w kilku zdaniach, a wycenę odeślę w 24h." },
-    ],
-    title: "Zdjęcia z drona dla deweloperów i nieruchomości: jak pokazać inwestycję z lotu ptaka",
-    excerpt:
-      "Zdjęcia i film z drona pokazują inwestycję tak, jak nie zrobi tego ujęcie z ziemi: lokalizację, skalę i postęp budowy. Zastosowania, legalność i koszt dla deweloperów.",
-    category: "branża",
-    date: "2026-06-28",
-    updated: "2026-07-29",
-    readTime: 5,
-    thumbnail: "/images/blog/zdjecia-z-drona-dla-deweloperow.jpg",
-    content: `
+		seo: {
+			title: 'Pakiet foto, wideo i dron czy osobno | Szabunia',
+			description:
+				'Kiedy opłaca się pakiet foto + wideo + dron, a kiedy usługi osobno. Porównanie kosztu, spójności i logistyki obsługi eventu firmowego. Poznań.',
+		},
+	},
+	{
+		slug: 'zdjecia-z-drona-dla-deweloperow',
+		faq: [
+			{
+				q: 'Po co deweloperowi zdjęcia z drona?',
+				a: 'Ujęcia z drona pokazują to, czego nie widać z chodnika: skalę osiedla, położenie względem miasta, dojazd, zieleń wokół i widok z górnych pięter. Służą do dokumentacji postępu budowy, materiałów sprzedażowych oraz budowania zaufania, gdy realne ujęcie stoi obok wizualizacji.',
+			},
+			{
+				q: 'Czy loty dronem nad inwestycją są legalne?',
+				a: 'Tak, pod warunkiem uprawnień: loty odbywają się zgodnie z przepisami EASA, z numerem operatora i uprawnieniami w kategorii otwartej (A1/A3), a w strefach kontrolowanych po wymaganych zgłoszeniach i zgodach. Koordynację lotniczą biorę na siebie. Dostęp do terenu budowy i zasady bezpieczeństwa ustalane są wcześniej.',
+			},
+			{
+				q: 'Od czego zależy cena zdjęć z drona dla dewelopera?',
+				a: 'Na wycenę pracuje przede wszystkim to, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy film, a do tego zakres lotu, lokalizacja i strefa powietrzna. Komplet zdjęć i filmu z jednej sesji wychodzi taniej niż zamawianie tych usług osobno. Opisz inwestycję w kilku zdaniach, a wycenę odeślę w 24h.',
+			},
+		],
+		title:
+			'Zdjęcia z drona dla deweloperów i nieruchomości: jak pokazać inwestycję z lotu ptaka',
+		excerpt:
+			'Zdjęcia i film z drona pokazują inwestycję tak, jak nie zrobi tego ujęcie z ziemi: lokalizację, skalę i postęp budowy. Zastosowania, legalność i koszt dla deweloperów.',
+		category: 'branża',
+		date: '2026-06-28',
+		updated: '2026-07-29',
+		readTime: 5,
+		thumbnail: '/images/blog/zdjecia-z-drona-dla-deweloperow.jpg',
+		content: `
       <p class="lead">Deweloperzy i agencje nieruchomości sprzedają nie tylko metry, ale i lokalizację, otoczenie oraz postęp inwestycji. Zdjęcia z drona pokazują to, czego nie widać z poziomu chodnika: skalę osiedla, dojazd, zieleń wokół i widok z górnych pięter. Poniżej tłumaczę, jak wykorzystać fotografię i wideo z powietrza w sprzedaży inwestycji oraz ile to kosztuje.</p>
 
       <h2>Dlaczego widok z góry sprzedaje</h2>
@@ -1341,28 +1533,37 @@ export const blogPosts: BlogPost[] = [
       <p>Dla dewelopera zdjęcia i film z drona to nie ozdoba, tylko argument sprzedażowy. Pokazują lokalizację, skalę i postęp inwestycji tak, jak nie zrobi tego żadne ujęcie z ziemi. Najwięcej zyskujesz, biorąc z jednego lotu komplet foto i wideo gotowy do kampanii.</p>
       <p>Zobacz <a href="/uslugi/nieruchomosci-przemysl">zdjęcia i wideo z drona</a> albo przykłady w <a href="/galeria?kat=dron">galerii z drona</a>.</p>
     `,
-    seo: {
-      title: "Zdjęcia z drona dla deweloperów | Szabunia",
-      description:
-        "Zdjęcia i film z drona w sprzedaży inwestycji: postęp budowy, lokalizacja, materiały sprzedażowe, legalność i koszt. Poznań i cała Polska.",
-    },
-  },
-  {
-    slug: "ile-kosztuje-film-z-drona",
-    faq: [
-      { q: "Ile kosztuje film z drona dla firmy?", a: "Najwięcej zmienia to, co ma powstać: surowe przebitki 4K do własnego montażu są najtańsze, wyretuszowane zdjęcia droższe, a gotowy, zmontowany film z muzyką i kolorystyką najdroższy. Komplet z jednej sesji kosztuje mniej niż te same usługi zamawiane osobno. Konkretną kwotę dla Twojego obiektu odeślę po krótkim opisie zlecenia." },
-      { q: "Od czego zależy cena filmu z drona?", a: "Głównie od tego, co ma powstać: same zdjęcia, gotowy zmontowany film czy surowe przebitki 4K. Na cenę wpływają też zakres lotu, lokalizacja i dojazd, strefa powietrzna oraz postprodukcja. Gotowy film z muzyką i kolorystyką kosztuje więcej niż surowe ujęcia." },
-      { q: "Czy komplet zdjęć i filmu z jednego lotu się opłaca?", a: "Tak. Skoro dron i tak jest na miejscu, zdjęcia plus przebitki albo zdjęcia plus film z tej samej sesji kosztują mniej niż te same usługi zamawiane osobno, bo płacisz za jeden dojazd, jedno przygotowanie i jedną sesję w powietrzu." },
-    ],
-    title: "Ile kosztuje film z drona dla firmy i od czego zależy cena",
-    excerpt:
-      "Ile kosztuje film z drona dla firmy i od czego zależy cena. Warianty materiału, komplety z jednej sesji, strefy kontrolowane i sposób, w jaki liczę wycenę.",
-    category: "poradnik",
-    date: "2026-06-28",
-    updated: "2026-07-29",
-    readTime: 5,
-    thumbnail: "/images/blog/ile-kosztuje-film-z-drona.jpg",
-    content: `
+		seo: {
+			title: 'Zdjęcia z drona dla deweloperów | Szabunia',
+			description:
+				'Zdjęcia i film z drona w sprzedaży inwestycji: postęp budowy, lokalizacja, materiały sprzedażowe, legalność i koszt. Poznań i cała Polska.',
+		},
+	},
+	{
+		slug: 'ile-kosztuje-film-z-drona',
+		faq: [
+			{
+				q: 'Ile kosztuje film z drona dla firmy?',
+				a: 'Najwięcej zmienia to, co ma powstać: surowe przebitki 4K do własnego montażu są najtańsze, wyretuszowane zdjęcia droższe, a gotowy, zmontowany film z muzyką i kolorystyką najdroższy. Komplet z jednej sesji kosztuje mniej niż te same usługi zamawiane osobno. Konkretną kwotę dla Twojego obiektu odeślę po krótkim opisie zlecenia.',
+			},
+			{
+				q: 'Od czego zależy cena filmu z drona?',
+				a: 'Głównie od tego, co ma powstać: same zdjęcia, gotowy zmontowany film czy surowe przebitki 4K. Na cenę wpływają też zakres lotu, lokalizacja i dojazd, strefa powietrzna oraz postprodukcja. Gotowy film z muzyką i kolorystyką kosztuje więcej niż surowe ujęcia.',
+			},
+			{
+				q: 'Czy komplet zdjęć i filmu z jednego lotu się opłaca?',
+				a: 'Tak. Skoro dron i tak jest na miejscu, zdjęcia plus przebitki albo zdjęcia plus film z tej samej sesji kosztują mniej niż te same usługi zamawiane osobno, bo płacisz za jeden dojazd, jedno przygotowanie i jedną sesję w powietrzu.',
+			},
+		],
+		title: 'Ile kosztuje film z drona dla firmy i od czego zależy cena',
+		excerpt:
+			'Ile kosztuje film z drona dla firmy i od czego zależy cena. Warianty materiału, komplety z jednej sesji, strefy kontrolowane i sposób, w jaki liczę wycenę.',
+		category: 'poradnik',
+		date: '2026-06-28',
+		updated: '2026-07-29',
+		readTime: 5,
+		thumbnail: '/images/blog/ile-kosztuje-film-z-drona.jpg',
+		content: `
       <p class="lead">„Ile kosztuje film z drona" to pytanie, na które najuczciwsza odpowiedź brzmi: zależy. Poniżej rozkładam cenę na czynniki, pokazuję warianty i podaję kwotę, od której zaczynamy, żebyś wiedział, czego się spodziewać jeszcze przed wysłaniem zapytania.</p>
 
       <h2>Od czego zależy cena</h2>
@@ -1399,27 +1600,37 @@ export const blogPosts: BlogPost[] = [
       <p>Cena filmu z drona zależy głównie od tego, co ma powstać, ile czasu zajmie lot i gdzie się odbywa. Najtaniej wychodzą przebitki do własnego montażu, najwięcej daje gotowy komplet zdjęć i wideo z jednej sesji.</p>
       <p>Zobacz <a href="/uslugi/nieruchomosci-przemysl">zdjęcia i wideo z drona</a> albo <a href="/kontakt">opisz swój wariant</a>.</p>
     `,
-    seo: {
-      title: "Ile kosztuje film z drona dla firmy | Szabunia",
-      description:
-        "Ile kosztuje film z drona i od czego zależy cena: warianty materiału, strefy kontrolowane, komplet z jednej sesji. Wycena mailem w 24h. Poznań.",
-    },
-  },
-  {
-    slug: "jak-wybrac-fotografa-na-event",
-    faq: [
-      { q: "Czego wymagać od fotografa na event firmowy?", a: "Portfolio z podobnych realizacji eventowych, jasnych obiektywów do trudnego światła sal, dwóch korpusów na wypadek awarii, zapisu na dwie karty jednocześnie, backupu plików na bieżąco oraz konkretnej daty oddania zdjęć, nie „kiedyś po evencie\"." },
-      { q: "Jakie są czerwone flagi przy wyborze fotografa eventowego?", a: "Brak portfolio eventowego albo same zdjęcia pozowane bez reportażu, jeden aparat i jedna karta bez słowa o backupie, wycena bez pytania o program i charakter wydarzenia oraz niejasny termin dostawy i brak umowy." },
-      { q: "Co powinien zawierać brief dla fotografa na event?", a: "Program i godziny wydarzenia, kluczowe momenty (wystąpienia, wręczenia, networking), liczbę gości, miejsce i światło, oczekiwane formaty (poziome i pionowe pod social media) oraz informację, czy potrzebne są zdjęcia na bieżąco. Im konkretniej, tym trafniejsza wycena i lepszy materiał." },
-    ],
-    title: "Jak wybrać fotografa na event firmowy: checklista przed konferencją lub galą",
-    excerpt:
-      "Checklista wyboru fotografa na event firmowy: czego wymagać, jakie pytania zadać i jakie czerwone flagi powinny Cię zaniepokoić przed konferencją lub galą.",
-    category: "poradnik",
-    date: "2026-06-28",
-    readTime: 5,
-    thumbnail: "/images/blog/jak-wybrac-fotografa-na-event.jpg",
-    content: `
+		seo: {
+			title: 'Ile kosztuje film z drona dla firmy | Szabunia',
+			description:
+				'Ile kosztuje film z drona i od czego zależy cena: warianty materiału, strefy kontrolowane, komplet z jednej sesji. Wycena mailem w 24h. Poznań.',
+		},
+	},
+	{
+		slug: 'jak-wybrac-fotografa-na-event',
+		faq: [
+			{
+				q: 'Czego wymagać od fotografa na event firmowy?',
+				a: 'Portfolio z podobnych realizacji eventowych, jasnych obiektywów do trudnego światła sal, dwóch korpusów na wypadek awarii, zapisu na dwie karty jednocześnie, backupu plików na bieżąco oraz konkretnej daty oddania zdjęć, nie „kiedyś po evencie".',
+			},
+			{
+				q: 'Jakie są czerwone flagi przy wyborze fotografa eventowego?',
+				a: 'Brak portfolio eventowego albo same zdjęcia pozowane bez reportażu, jeden aparat i jedna karta bez słowa o backupie, wycena bez pytania o program i charakter wydarzenia oraz niejasny termin dostawy i brak umowy.',
+			},
+			{
+				q: 'Co powinien zawierać brief dla fotografa na event?',
+				a: 'Program i godziny wydarzenia, kluczowe momenty (wystąpienia, wręczenia, networking), liczbę gości, miejsce i światło, oczekiwane formaty (poziome i pionowe pod social media) oraz informację, czy potrzebne są zdjęcia na bieżąco. Im konkretniej, tym trafniejsza wycena i lepszy materiał.',
+			},
+		],
+		title:
+			'Jak wybrać fotografa na event firmowy: checklista przed konferencją lub galą',
+		excerpt:
+			'Checklista wyboru fotografa na event firmowy: czego wymagać, jakie pytania zadać i jakie czerwone flagi powinny Cię zaniepokoić przed konferencją lub galą.',
+		category: 'poradnik',
+		date: '2026-06-28',
+		readTime: 5,
+		thumbnail: '/images/blog/jak-wybrac-fotografa-na-event.jpg',
+		content: `
       <p class="lead">Event firmowy zdarza się raz. Konferencji, gali czy jubileuszu nie powtórzysz, więc fotograf musi dowieźć materiał za pierwszym razem. Poniżej checklista, która pomoże Ci wybrać dobrze i uniknąć rozczarowania po fakcie.</p>
 
       <h2>Dlaczego wybór fotografa ma znaczenie</h2>
@@ -1458,27 +1669,37 @@ export const blogPosts: BlogPost[] = [
       <p>Fotografa na event wybieraj po doświadczeniu, zabezpieczeniu pracy i jasnych warunkach dostawy, nie po najniższej cenie. Jedno dobrze obsłużone wydarzenie daje materiał, który pracuje na wizerunek firmy przez cały rok.</p>
       <p>Zobacz <a href="/uslugi/eventy-reportaze">obsługę fotograficzną eventów</a> albo przykłady w <a href="/galeria?kat=eventy">galerii eventowej</a>. Bazuję w Poznaniu, a eventy obsługuję w całej Polsce. W granicach Poznania nie doliczam kosztów dojazdu.</p>
     `,
-    seo: {
-      title: "Jak wybrać fotografa na event firmowy | Szabunia",
-      description:
-        "Checklista wyboru fotografa na event firmowy: czego wymagać, jakie pytania zadać, czerwone flagi i brief. Fotograf eventowy Poznań.",
-    },
-  },
-  {
-    slug: "live-editing-na-evencie",
-    faq: [
-      { q: "Co to jest live editing na evencie?", a: "To wybór, obróbka i dostarczanie zdjęć w trakcie trwania eventu, a nie po nim. Co jakiś czas przekazywana jest paczka gotowych, wyretuszowanych kadrów, które od razu trafiają na firmowe social media, do działu marketingu albo na ekran w sali. Pełny reportaż przychodzi później." },
-      { q: "Jak technicznie wygląda live editing?", a: "Fotograf pracuje z zapisem na dwie karty, a wybrane kadry zgrywa i obrabia na miejscu. Gotowe zdjęcia trafiają ustaloną drogą: przez wspólny folder w chmurze, bezpośrednio do osoby od social mediów albo na dedykowany adres, na przykład paczka co godzinę lub po każdym kluczowym punkcie programu." },
-      { q: "Co przygotować po stronie firmy przed live editingiem?", a: "Osobę, która odbiera zdjęcia i publikuje je na kanałach firmy, kanał przekazywania (folder w chmurze lub kontakt do konkretnej osoby), listę priorytetowych momentów, które muszą pójść w świat najszybciej, oraz informację, czy potrzebne są kadry pionowe pod relacje i stories." },
-    ],
-    title: "Live editing na evencie: zdjęcia w social mediach jeszcze tego samego dnia",
-    excerpt:
-      "Live editing to obróbka i przekazywanie zdjęć z eventu na bieżąco, jeszcze tego samego dnia. Jak to działa, co przygotować i dlaczego daje firmie przewagę w social mediach.",
-    category: "branża",
-    date: "2026-06-28",
-    readTime: 5,
-    thumbnail: "/images/blog/live-editing-na-evencie.jpg",
-    content: `
+		seo: {
+			title: 'Jak wybrać fotografa na event firmowy | Szabunia',
+			description:
+				'Checklista wyboru fotografa na event firmowy: czego wymagać, jakie pytania zadać, czerwone flagi i brief. Fotograf eventowy Poznań.',
+		},
+	},
+	{
+		slug: 'live-editing-na-evencie',
+		faq: [
+			{
+				q: 'Co to jest live editing na evencie?',
+				a: 'To wybór, obróbka i dostarczanie zdjęć w trakcie trwania eventu, a nie po nim. Co jakiś czas przekazywana jest paczka gotowych, wyretuszowanych kadrów, które od razu trafiają na firmowe social media, do działu marketingu albo na ekran w sali. Pełny reportaż przychodzi później.',
+			},
+			{
+				q: 'Jak technicznie wygląda live editing?',
+				a: 'Fotograf pracuje z zapisem na dwie karty, a wybrane kadry zgrywa i obrabia na miejscu. Gotowe zdjęcia trafiają ustaloną drogą: przez wspólny folder w chmurze, bezpośrednio do osoby od social mediów albo na dedykowany adres, na przykład paczka co godzinę lub po każdym kluczowym punkcie programu.',
+			},
+			{
+				q: 'Co przygotować po stronie firmy przed live editingiem?',
+				a: 'Osobę, która odbiera zdjęcia i publikuje je na kanałach firmy, kanał przekazywania (folder w chmurze lub kontakt do konkretnej osoby), listę priorytetowych momentów, które muszą pójść w świat najszybciej, oraz informację, czy potrzebne są kadry pionowe pod relacje i stories.',
+			},
+		],
+		title:
+			'Live editing na evencie: zdjęcia w social mediach jeszcze tego samego dnia',
+		excerpt:
+			'Live editing to obróbka i przekazywanie zdjęć z eventu na bieżąco, jeszcze tego samego dnia. Jak to działa, co przygotować i dlaczego daje firmie przewagę w social mediach.',
+		category: 'branża',
+		date: '2026-06-28',
+		readTime: 5,
+		thumbnail: '/images/blog/live-editing-na-evencie.jpg',
+		content: `
       <p class="lead">Najlepszy moment na publikację zdjęć z eventu to nie tydzień później, tylko w trakcie wydarzenia. Live editing to obróbka i przekazywanie wybranych kadrów na bieżąco, jeszcze zanim goście wrócą do domu. Poniżej tłumaczę, jak to działa i dlaczego daje firmie realną przewagę.</p>
 
       <h2>Co to jest live editing</h2>
@@ -1513,27 +1734,37 @@ export const blogPosts: BlogPost[] = [
       <p>Live editing zamienia zdjęcia z eventu z archiwum w narzędzie marketingowe, które pracuje, gdy wydarzenie jeszcze trwa. Dla firmy to większe zasięgi, więcej udostępnień i wizerunek marki, która działa sprawnie.</p>
       <p>Zobacz <a href="/uslugi/eventy-reportaze">obsługę wydarzeń firmowych</a> albo <a href="/kontakt">opisz swój event</a>.</p>
     `,
-    seo: {
-      title: "Live editing na evencie: zdjęcia od ręki | Szabunia",
-      description:
-        "Live editing na evencie: obróbka i przekazywanie zdjęć na bieżąco, jeszcze w trakcie wydarzenia. Większe zasięgi relacji w social mediach. Poznań.",
-    },
-  },
-  {
-    slug: "headshoty-zespolu-w-jeden-dzien",
-    faq: [
-      { q: "Ile miejsca potrzeba na mobilne studio w biurze?", a: "Wystarczy około 5 m² wolnej przestrzeni i dostęp do gniazdka. Tło, światło i statywy przywozi fotograf. Sprawdzi się jedna sala albo wydzielony kąt w open space, a sesja toczy się obok normalnej pracy, więc zespół nie musi nigdzie jechać." },
-      { q: "Ile trwa sesja headshotów dla jednej osoby?", a: "Na jedną osobę rezerwuje się 5-15 minut, zależnie od liczby ujęć, co przy standardowym headshocie daje realnie 4-6 osób na godzinę. Ludzie przychodzą według wcześniej rozesłanej listy, w okienkach z buforem na spóźnienia, nikt nie stoi w kolejce i każdy wie, o której przyjść na swoje zdjęcie." },
-      { q: "Co zrobić, gdy część zespołu jest nieobecna w dniu sesji?", a: "Rozwiązań jest kilka: dogrywka przy kolejnej wizycie, krótka sesja uzupełniająca albo zachowanie ustawienia i parametrów, żeby dorobić brakujące portrety w tym samym standardzie. Ważne, żeby z góry ustalić, co z nieobecnymi, zanim galeria trafi na stronę." },
-    ],
-    title: "Headshoty całego zespołu w jeden dzień: jak to zorganizować bez chaosu",
-    excerpt:
-      "Jak zorganizować headshoty całego zespołu w jeden dzień bez chaosu: mobilne studio w biurze, harmonogram 5-15 minut na osobę, przygotowanie zespołu i spójność.",
-    category: "poradnik",
-    date: "2026-06-28",
-    readTime: 5,
-    thumbnail: "/images/blog/headshoty-zespolu-w-jeden-dzien.jpg",
-    content: `
+		seo: {
+			title: 'Live editing na evencie: zdjęcia od ręki | Szabunia',
+			description:
+				'Live editing na evencie: obróbka i przekazywanie zdjęć na bieżąco, jeszcze w trakcie wydarzenia. Większe zasięgi relacji w social mediach. Poznań.',
+		},
+	},
+	{
+		slug: 'headshoty-zespolu-w-jeden-dzien',
+		faq: [
+			{
+				q: 'Ile miejsca potrzeba na mobilne studio w biurze?',
+				a: 'Wystarczy około 5 m² wolnej przestrzeni i dostęp do gniazdka. Tło, światło i statywy przywozi fotograf. Sprawdzi się jedna sala albo wydzielony kąt w open space, a sesja toczy się obok normalnej pracy, więc zespół nie musi nigdzie jechać.',
+			},
+			{
+				q: 'Ile trwa sesja headshotów dla jednej osoby?',
+				a: 'Na jedną osobę rezerwuje się 5-15 minut, zależnie od liczby ujęć, co przy standardowym headshocie daje realnie 4-6 osób na godzinę. Ludzie przychodzą według wcześniej rozesłanej listy, w okienkach z buforem na spóźnienia, nikt nie stoi w kolejce i każdy wie, o której przyjść na swoje zdjęcie.',
+			},
+			{
+				q: 'Co zrobić, gdy część zespołu jest nieobecna w dniu sesji?',
+				a: 'Rozwiązań jest kilka: dogrywka przy kolejnej wizycie, krótka sesja uzupełniająca albo zachowanie ustawienia i parametrów, żeby dorobić brakujące portrety w tym samym standardzie. Ważne, żeby z góry ustalić, co z nieobecnymi, zanim galeria trafi na stronę.',
+			},
+		],
+		title:
+			'Headshoty całego zespołu w jeden dzień: jak to zorganizować bez chaosu',
+		excerpt:
+			'Jak zorganizować headshoty całego zespołu w jeden dzień bez chaosu: mobilne studio w biurze, harmonogram 5-15 minut na osobę, przygotowanie zespołu i spójność.',
+		category: 'poradnik',
+		date: '2026-06-28',
+		readTime: 5,
+		thumbnail: '/images/blog/headshoty-zespolu-w-jeden-dzien.jpg',
+		content: `
       <p class="lead">Zrobienie spójnych portretów całemu zespołowi brzmi jak logistyczny koszmar: kilkadziesiąt osób, jeden dzień, normalna praca w tle. W praktyce da się to ogarnąć bez chaosu, jeśli dobrze zaplanujesz harmonogram. Poniżej tłumaczę, jak zorganizować to krok po kroku.</p>
 
       <h2>Wyzwanie: cały zespół, jeden dzień</h2>
@@ -1568,27 +1799,37 @@ export const blogPosts: BlogPost[] = [
       <p>Headshoty całego zespołu w jeden dzień to przede wszystkim kwestia harmonogramu i jednego, dobrze ustawionego stanowiska. Mobilne studio w biurze, okienka co kilkanaście minut i wcześniejszy brief sprawiają, że sesja idzie sprawnie, a Wy dostajecie spójną galerię zespołu.</p>
       <p>Zobacz <a href="/uslugi/wizerunek-portrety">sesje zespołowe</a> albo sprawdź <a href="/poradnik">poradnik przygotowania do sesji</a>.</p>
     `,
-    seo: {
-      title: "Headshoty całego zespołu w jeden dzień | Szabunia",
-      description:
-        "Jak zrobić headshoty całego zespołu w jeden dzień: mobilne studio w biurze, harmonogram 5-15 minut na osobę, przygotowanie zespołu i spójność. Poznań.",
-    },
-  },
-  {
-    slug: "spojne-portrety-zespolu",
-    faq: [
-      { q: "Co składa się na spójny standard portretów zespołu?", a: "Cztery elementy: ten sam schemat oświetlenia dla każdej osoby, jednolite kadrowanie i ustawienie sylwetki, jeden zestaw teł używany konsekwentnie oraz ten sam standard retuszu. Spójność nie oznacza, że wszyscy wyglądają identycznie. Portrety powstają w jednym, świadomym systemie." },
-      { q: "Jak zachować spójność zdjęć zespołu przy rotacji pracowników?", a: "Po sesji zapisywane są parametry: ustawienie świateł, obiektyw, kadr i sposób obróbki. Dzięki temu nową osobę nawet po pół roku można sfotografować dokładnie tak samo, a jej portret wpasuje się w istniejącą galerię, zamiast z niej wystawać." },
-      { q: "Dlaczego przypadkowe zdjęcia w sekcji „Zespół\" szkodzą firmie?", a: "Różne tła, kadry, selfie i wycięte zdjęcia ślubne sprawiają, że sekcja wygląda niechlujnie i podświadomie obniża wiarygodność firmy, nawet jeśli ludzie i kompetencje są pierwszej klasy. Spójne portrety w jednym standardzie zmieniają ją w element budujący zaufanie." },
-    ],
-    title: "Spójne portrety zespołu: dlaczego warto fotografować wszystkich w jednym standardzie",
-    excerpt:
-      "Galeria zespołu złożona z przypadkowych zdjęć obniża wiarygodność firmy. Dlaczego warto fotografować wszystkich w jednym standardzie i jak utrzymać spójność przy rotacji.",
-    category: "branża",
-    date: "2026-06-28",
-    readTime: 5,
-    thumbnail: "/images/blog/spojne-portrety-zespolu.jpg",
-    content: `
+		seo: {
+			title: 'Headshoty całego zespołu w jeden dzień | Szabunia',
+			description:
+				'Jak zrobić headshoty całego zespołu w jeden dzień: mobilne studio w biurze, harmonogram 5-15 minut na osobę, przygotowanie zespołu i spójność. Poznań.',
+		},
+	},
+	{
+		slug: 'spojne-portrety-zespolu',
+		faq: [
+			{
+				q: 'Co składa się na spójny standard portretów zespołu?',
+				a: 'Cztery elementy: ten sam schemat oświetlenia dla każdej osoby, jednolite kadrowanie i ustawienie sylwetki, jeden zestaw teł używany konsekwentnie oraz ten sam standard retuszu. Spójność nie oznacza, że wszyscy wyglądają identycznie. Portrety powstają w jednym, świadomym systemie.',
+			},
+			{
+				q: 'Jak zachować spójność zdjęć zespołu przy rotacji pracowników?',
+				a: 'Po sesji zapisywane są parametry: ustawienie świateł, obiektyw, kadr i sposób obróbki. Dzięki temu nową osobę nawet po pół roku można sfotografować dokładnie tak samo, a jej portret wpasuje się w istniejącą galerię, zamiast z niej wystawać.',
+			},
+			{
+				q: 'Dlaczego przypadkowe zdjęcia w sekcji „Zespół" szkodzą firmie?',
+				a: 'Różne tła, kadry, selfie i wycięte zdjęcia ślubne sprawiają, że sekcja wygląda niechlujnie i podświadomie obniża wiarygodność firmy, nawet jeśli ludzie i kompetencje są pierwszej klasy. Spójne portrety w jednym standardzie zmieniają ją w element budujący zaufanie.',
+			},
+		],
+		title:
+			'Spójne portrety zespołu: dlaczego warto fotografować wszystkich w jednym standardzie',
+		excerpt:
+			'Galeria zespołu złożona z przypadkowych zdjęć obniża wiarygodność firmy. Dlaczego warto fotografować wszystkich w jednym standardzie i jak utrzymać spójność przy rotacji.',
+		category: 'branża',
+		date: '2026-06-28',
+		readTime: 5,
+		thumbnail: '/images/blog/spojne-portrety-zespolu.jpg',
+		content: `
       <p class="lead">Strona „Zespół" to często najsłabszy wizualnie element firmowej witryny: zlepek selfie, zdjęć z wesela i kadrów robionych telefonem w różnym świetle. Spójne portrety całego zespołu w jednym standardzie zmieniają to w element, który buduje zaufanie. Poniżej tłumaczę, dlaczego warto i jak to ugryźć.</p>
 
       <h2>Problem: galeria zespołu z przypadkowych zdjęć</h2>
@@ -1621,28 +1862,37 @@ export const blogPosts: BlogPost[] = [
       <p>Spójne portrety zespołu to jeden z najtańszych sposobów, żeby firmowa strona wyglądała poważnie. Jeden system światła, kadru i retuszu sprawia, że sekcja „Zespół" pracuje na wizerunek marki, a nie przeciw niemu. Takie sesje realizuję z bazy w Poznaniu, a dojeżdżam do firm w całej Polsce i Europie.</p>
       <p>Zobacz <a href="/uslugi/wizerunek-portrety">sesje zespołowe</a> albo przykład <a href="/portfolio/idcom-headshoty-zespolu">headshotów IDcom</a>.</p>
     `,
-    seo: {
-      title: "Spójne portrety zespołu: jeden standard | Szabunia",
-      description:
-        "Dlaczego fotografować cały zespół w jednym standardzie: spójne światło, kadr, tło i retusz. Jak utrzymać spójność przy rotacji. Przykład IDcom, Poznań.",
-    },
-  },
-  {
-    slug: "ile-kosztuje-film-promocyjny",
-    faq: [
-      { q: "Od czego zależy cena filmu promocyjnego?", a: "Od czterech czynników: długości i typu materiału (teaser, reels, recap z eventu czy dłuższy film to różne nakłady montażu), czasu nagrań na planie, złożoności realizacji (liczba lokalizacji, scenariusz, napisy, grafika) oraz dodatków, takich jak ujęcia z drona, lektor, licencjonowana muzyka czy wersje językowe." },
-      { q: "Jak liczona jest cena filmu promocyjnego?", a: "Cena składa się z dwóch przejrzystych części: pracy operatora na planie, liczonej za godziny spędzone na miejscu, oraz pakietu montażowego, czyli obróbki nagranego materiału. Dzięki temu płacisz za realny zakres, a nie za sztywny pakiet, którego nie wykorzystasz. Opisz, co ma powstać, a wstępną wycenę odeślę w 24h." },
-      { q: "Ile kosztuje montaż filmu dla firmy?", a: "Montaż wyceniam pakietami dobranymi do formatu: od krótkiego teasera do 15 sekund, przez montaż wywiadu i reels, po recap z eventu, film promocyjny i dłuższy materiał o firmie. Im dłuższy i bardziej złożony materiał, tym wyższy pakiet. Pakiet montażowy obejmuje samą postprodukcję: jeśli materiał nagrywam ja, dochodzi praca operatora na planie. Napisz, co chcesz zmontować, a wycenę odeślę w 24h." },
-    ],
-    title: "Ile kosztuje film promocyjny dla firmy i od czego zależy cena",
-    excerpt:
-      "Ile kosztuje film promocyjny i od czego zależy cena. Jak liczę pracę operatora i montaż oraz czym różnią się formaty od teasera po film o firmie.",
-    category: "poradnik",
-    date: "2026-06-28",
-    updated: "2026-07-29",
-    readTime: 5,
-    thumbnail: "/images/blog/ile-kosztuje-film-promocyjny.jpg",
-    content: `
+		seo: {
+			title: 'Spójne portrety zespołu: jeden standard | Szabunia',
+			description:
+				'Dlaczego fotografować cały zespół w jednym standardzie: spójne światło, kadr, tło i retusz. Jak utrzymać spójność przy rotacji. Przykład IDcom, Poznań.',
+		},
+	},
+	{
+		slug: 'ile-kosztuje-film-promocyjny',
+		faq: [
+			{
+				q: 'Od czego zależy cena filmu promocyjnego?',
+				a: 'Od czterech czynników: długości i typu materiału (teaser, reels, recap z eventu czy dłuższy film to różne nakłady montażu), czasu nagrań na planie, złożoności realizacji (liczba lokalizacji, scenariusz, napisy, grafika) oraz dodatków, takich jak ujęcia z drona, lektor, licencjonowana muzyka czy wersje językowe.',
+			},
+			{
+				q: 'Jak liczona jest cena filmu promocyjnego?',
+				a: 'Cena składa się z dwóch przejrzystych części: pracy operatora na planie, liczonej za godziny spędzone na miejscu, oraz pakietu montażowego, czyli obróbki nagranego materiału. Dzięki temu płacisz za realny zakres, a nie za sztywny pakiet, którego nie wykorzystasz. Opisz, co ma powstać, a wstępną wycenę odeślę w 24h.',
+			},
+			{
+				q: 'Ile kosztuje montaż filmu dla firmy?',
+				a: 'Montaż wyceniam pakietami dobranymi do formatu: od krótkiego teasera do 15 sekund, przez montaż wywiadu i reels, po recap z eventu, film promocyjny i dłuższy materiał o firmie. Im dłuższy i bardziej złożony materiał, tym wyższy pakiet. Pakiet montażowy obejmuje samą postprodukcję: jeśli materiał nagrywam ja, dochodzi praca operatora na planie. Napisz, co chcesz zmontować, a wycenę odeślę w 24h.',
+			},
+		],
+		title: 'Ile kosztuje film promocyjny dla firmy i od czego zależy cena',
+		excerpt:
+			'Ile kosztuje film promocyjny i od czego zależy cena. Jak liczę pracę operatora i montaż oraz czym różnią się formaty od teasera po film o firmie.',
+		category: 'poradnik',
+		date: '2026-06-28',
+		updated: '2026-07-29',
+		readTime: 5,
+		thumbnail: '/images/blog/ile-kosztuje-film-promocyjny.jpg',
+		content: `
       <p class="lead">„Ile kosztuje film promocyjny" to pytanie bez jednej odpowiedzi, bo film filmowi nierówny. Inaczej wycenia się 15-sekundowy teaser, a inaczej trzyminutowy materiał o firmie. Poniżej pokazuję, od czego zależy cena, jak liczę pracę i czym różnią się poszczególne formaty.</p>
 
       <h2>Od czego zależy cena</h2>
@@ -1675,19 +1925,19 @@ export const blogPosts: BlogPost[] = [
       <p>Cena filmu promocyjnego zależy przede wszystkim od formatu i czasu nagrań. Rozbicie na pracę operatora i pakiet montażowy sprawia, że płacisz za realny zakres, bez płacenia za rzeczy, których nie potrzebujesz.</p>
       <p>Zobacz <a href="/uslugi/wizerunek-portrety">zdjęcia i film dla firm</a> albo <a href="/kontakt">opisz swój film</a>.</p>
     `,
-    seo: {
-      title: "Ile kosztuje film promocyjny dla firmy | Szabunia",
-      description:
-        "Ile kosztuje film promocyjny i od czego zależy cena: praca operatora i pakiety montażowe (teaser, reels, recap, promo). Wycena w 24h, Poznań.",
-    },
-  },
+		seo: {
+			title: 'Ile kosztuje film promocyjny dla firmy | Szabunia',
+			description:
+				'Ile kosztuje film promocyjny i od czego zależy cena: praca operatora i pakiety montażowe (teaser, reels, recap, promo). Wycena w 24h, Poznań.',
+		},
+	},
 ];
 
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
-  return blogPosts.find((p) => p.slug === slug);
+	return blogPosts.find((p) => p.slug === slug);
 }
 
-export const blogCategories = ["poradnik", "realizacja", "branża"] as const;
+export const blogCategories = ['poradnik', 'realizacja', 'branża'] as const;
 
 /* ── Linkowanie wewnętrzne blog ↔ usługi ──
    Mapa: slug wpisu → slug najbardziej powiązanej usługi (z src/data/services.tsx).
@@ -1712,66 +1962,72 @@ export const blogCategories = ["poradnik", "realizacja", "branża"] as const;
 // obiektowej. Nie ruszam, bo Marcin zatwierdził dokładnie 12 przepięć i tego wśród
 // nich nie ma.
 export const blogServiceMap: Record<string, string> = {
-  "jak-przygotowac-sie-do-sesji-biznesowej": "wizerunek-portrety",
-  "headshoty-linkedin-konwersja": "wizerunek-portrety",
-  "fotografia-eventowa-vs-reportaz": "eventy-reportaze",
-  "jak-wybrac-fotografa-na-event": "eventy-reportaze",
-  "live-editing-na-evencie": "eventy-reportaze",
-  "zdjecie-do-cv-w-domu": "wizerunek-portrety",
-  "fotografia-przemyslowa-fabryka": "fotografia-produktowa",
-  "bledy-zdjecia-zespolu": "wizerunek-portrety",
-  "headshoty-zespolu-w-jeden-dzien": "wizerunek-portrety",
-  "spojne-portrety-zespolu": "wizerunek-portrety",
-  "ile-kosztuje-sesja-wizerunkowa-dla-firmy": "wizerunek-portrety",
-  "fotografia-produktowa-ecommerce": "fotografia-produktowa",
-  "wideo-marketing-dla-firm-formaty": "wizerunek-portrety",
-  "sesja-wizerunkowa-poznan": "wizerunek-portrety",
-  "zdjecia-ai-vs-profesjonalna-sesja": "wizerunek-portrety",
-  "co-zalozyc-na-sesje-biznesowa": "wizerunek-portrety",
-  "zdjecia-na-strone-firmowa": "wizerunek-portrety",
-  "co-to-jest-packshot": "fotografia-produktowa",
-  "slownik-pojec-wideo": "wizerunek-portrety",
-  "ile-kosztuje-film-promocyjny": "wizerunek-portrety",
-  "zdjecia-film-z-drona-dla-firm": "nieruchomosci-przemysl",
-  "zdjecia-z-drona-dla-deweloperow": "nieruchomosci-przemysl",
-  "ile-kosztuje-film-z-drona": "nieruchomosci-przemysl",
-  "foto-wideo-dron-z-jednego-wejscia": "eventy-reportaze",
-  "obsluga-foto-wideo-eventu-firmowego": "eventy-reportaze",
-  "pakiet-foto-wideo-czy-osobno": "eventy-reportaze",
+	'jak-przygotowac-sie-do-sesji-biznesowej': 'wizerunek-portrety',
+	'headshoty-linkedin-konwersja': 'wizerunek-portrety',
+	'fotografia-eventowa-vs-reportaz': 'eventy-reportaze',
+	'jak-wybrac-fotografa-na-event': 'eventy-reportaze',
+	'live-editing-na-evencie': 'eventy-reportaze',
+	'zdjecie-do-cv-w-domu': 'wizerunek-portrety',
+	'fotografia-przemyslowa-fabryka': 'fotografia-produktowa',
+	'bledy-zdjecia-zespolu': 'wizerunek-portrety',
+	'headshoty-zespolu-w-jeden-dzien': 'wizerunek-portrety',
+	'spojne-portrety-zespolu': 'wizerunek-portrety',
+	'ile-kosztuje-sesja-wizerunkowa-dla-firmy': 'wizerunek-portrety',
+	'fotografia-produktowa-ecommerce': 'fotografia-produktowa',
+	'wideo-marketing-dla-firm-formaty': 'wizerunek-portrety',
+	'sesja-wizerunkowa-poznan': 'wizerunek-portrety',
+	'zdjecia-ai-vs-profesjonalna-sesja': 'wizerunek-portrety',
+	'co-zalozyc-na-sesje-biznesowa': 'wizerunek-portrety',
+	'zdjecia-na-strone-firmowa': 'wizerunek-portrety',
+	'co-to-jest-packshot': 'fotografia-produktowa',
+	'slownik-pojec-wideo': 'wizerunek-portrety',
+	'ile-kosztuje-film-promocyjny': 'wizerunek-portrety',
+	'zdjecia-film-z-drona-dla-firm': 'nieruchomosci-przemysl',
+	'zdjecia-z-drona-dla-deweloperow': 'nieruchomosci-przemysl',
+	'ile-kosztuje-film-z-drona': 'nieruchomosci-przemysl',
+	'foto-wideo-dron-z-jednego-wejscia': 'eventy-reportaze',
+	'obsluga-foto-wideo-eventu-firmowego': 'eventy-reportaze',
+	'pakiet-foto-wideo-czy-osobno': 'eventy-reportaze',
 };
 
 /** Slug usługi powiązanej z danym wpisem (lub undefined). */
 export function getServiceSlugForPost(slug: string): string | undefined {
-  return blogServiceMap[slug];
+	return blogServiceMap[slug];
 }
 
 /** Powiązane wpisy: najpierw ta sama usługa, potem ta sama kategoria, potem reszta. */
 export function getRelatedPosts(slug: string, limit = 3): BlogPost[] {
-  const svc = blogServiceMap[slug];
-  const current = getBlogPostBySlug(slug);
-  const pool = blogPosts.filter((p) => p.slug !== slug);
-  const sameService = pool.filter((p) => !!svc && blogServiceMap[p.slug] === svc);
-  const sameCategory = pool.filter(
-    (p) => !!current && p.category === current.category && !sameService.includes(p)
-  );
-  const rest = pool.filter((p) => !sameService.includes(p) && !sameCategory.includes(p));
-  return [...sameService, ...sameCategory, ...rest].slice(0, limit);
+	const svc = blogServiceMap[slug];
+	const current = getBlogPostBySlug(slug);
+	const pool = blogPosts.filter((p) => p.slug !== slug);
+	const sameService = pool.filter(
+		(p) => !!svc && blogServiceMap[p.slug] === svc,
+	);
+	const sameCategory = pool.filter(
+		(p) =>
+			!!current && p.category === current.category && !sameService.includes(p),
+	);
+	const rest = pool.filter(
+		(p) => !sameService.includes(p) && !sameCategory.includes(p),
+	);
+	return [...sameService, ...sameCategory, ...rest].slice(0, limit);
 }
 
 /** Wpisy bloga powiązane z daną usługą (od najnowszych). Gdy usługa ma mniej
     niż `limit` własnych wpisów, dopełniamy tematycznie: najpierw ta sama
     kategoria, potem najnowsze pozostałe, żeby każda usługa pokazała `limit`. */
 export function getPostsForService(serviceSlug: string, limit = 3): BlogPost[] {
-  const byDate = (a: BlogPost, b: BlogPost) => +new Date(b.date) - +new Date(a.date);
-  const mapped = blogPosts
-    .filter((p) => blogServiceMap[p.slug] === serviceSlug)
-    .sort(byDate);
-  if (mapped.length >= limit) return mapped.slice(0, limit);
+	const byDate = (a: BlogPost, b: BlogPost) =>
+		+new Date(b.date) - +new Date(a.date);
+	const mapped = blogPosts
+		.filter((p) => blogServiceMap[p.slug] === serviceSlug)
+		.sort(byDate);
+	if (mapped.length >= limit) return mapped.slice(0, limit);
 
-  const used = new Set(mapped.map((p) => p.slug));
-  const cats = new Set(mapped.map((p) => p.category));
-  const rest = blogPosts.filter((p) => !used.has(p.slug));
-  const sameCat = rest.filter((p) => cats.has(p.category)).sort(byDate);
-  const others = rest.filter((p) => !cats.has(p.category)).sort(byDate);
-  return [...mapped, ...sameCat, ...others].slice(0, limit);
+	const used = new Set(mapped.map((p) => p.slug));
+	const cats = new Set(mapped.map((p) => p.category));
+	const rest = blogPosts.filter((p) => !used.has(p.slug));
+	const sameCat = rest.filter((p) => cats.has(p.category)).sort(byDate);
+	const others = rest.filter((p) => !cats.has(p.category)).sort(byDate);
+	return [...mapped, ...sameCat, ...others].slice(0, limit);
 }

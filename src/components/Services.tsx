@@ -75,12 +75,6 @@ export default function Services() {
 										)}
 										<div className='p-6'>
 											<div className='flex items-center gap-2.5 mb-2'>
-												<div
-													className='w-9 h-9 rounded-lg bg-blue-pale dark:bg-blue/15 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform'
-													aria-hidden='true'
-												>
-													{s.icon}
-												</div>
 												<h3 className='font-barlow font-bold text-base text-navy dark:text-white'>
 													{s.title}
 												</h3>
