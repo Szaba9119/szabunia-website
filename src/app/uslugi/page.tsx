@@ -1,79 +1,85 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import { serviceCategories } from "@/data/services";
-import Navigation from "@/components/Navigation";
-import ScrollProgress from "@/components/ScrollProgress";
-import AnimatedSection from "@/components/AnimatedSection";
-import CTA from "@/components/CTA";
-import Footer from "@/components/Footer";
-import MobileFAB from "@/components/MobileFAB";
-import ErrorBoundary from "@/components/ErrorBoundary";
-import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { serviceCategories } from '@/data/services';
+import Navigation from '@/components/Navigation';
+import ScrollProgress from '@/components/ScrollProgress';
+import AnimatedSection from '@/components/AnimatedSection';
+import CTA from '@/components/CTA';
+import Footer from '@/components/Footer';
+import MobileFAB from '@/components/MobileFAB';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import Breadcrumbs, {
+	breadcrumbJsonLd,
+	type Crumb,
+} from '@/components/Breadcrumbs';
 
 export const metadata: Metadata = {
-  title: "Usługi foto i wideo dla firm, Poznań | Szabunia",
-  // TRESC2608-03 (04.08.2026), TEKST WŁASNY DO AKCEPTACJI: dopisana linia obiektowa,
-  // ósma usługa. 151 znaków przy progu 155, policzone skryptem.
-  description:
-    // Przepisane 10.08.2026 na cztery filary. Poprzedni opis wyliczał sześć
-    // ze starych ośmiu usług. Bez nazw klientów (to hub, nie strona główna)
-    // i bez kwoty: kotwica 600 zł dotyczy dwóch usług z czterech, więc
-    // w opisie CAŁEGO katalogu byłaby myląca. 144 znaki.
-    "Cztery obszary fotografii i wideo dla firm: wydarzenia firmowe, wizerunek zespołu, nieruchomości i przemysł oraz produkty. Poznań i cała Polska.",
-  alternates: { canonical: "/uslugi" },
-  openGraph: {
-    title: "Usługi foto i wideo dla firm, Poznań | Szabunia",
-    description:
-      "Wydarzenia firmowe, wizerunek zespołu, nieruchomości i przemysł, produkty. Cztery obszary, zdjęcia i film w każdym z nich.",
-    url: "https://szabunia.pl/uslugi",
-    images: [
-      {
-        url: "/images/og/strony/uslugi.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Usługi fotograficzne i wideo dla firm, Marcin Szabunia",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Usługi foto i wideo dla firm, Poznań | Szabunia",
-    description:
-      "Wydarzenia firmowe, wizerunek zespołu, nieruchomości i przemysł, produkty. Cztery obszary, zdjęcia i film w każdym z nich.",
-    images: ["/images/og/strony/uslugi.jpg"],
-  },
+	title: 'Usługi foto i wideo dla firm, Poznań | Szabunia',
+	// TRESC2608-03 (04.08.2026), TEKST WŁASNY DO AKCEPTACJI: dopisana linia obiektowa,
+	// ósma usługa. 151 znaków przy progu 155, policzone skryptem.
+	description:
+		// Przepisane 10.08.2026 na cztery filary. Poprzedni opis wyliczał sześć
+		// ze starych ośmiu usług. Bez nazw klientów (to hub, nie strona główna)
+		// i bez kwoty: kotwica 600 zł dotyczy dwóch usług z czterech, więc
+		// w opisie CAŁEGO katalogu byłaby myląca. 144 znaki.
+		'Cztery obszary fotografii i wideo dla firm: wydarzenia firmowe, wizerunek zespołu, nieruchomości i przemysł oraz produkty. Poznań i cała Polska.',
+	alternates: { canonical: '/uslugi' },
+	openGraph: {
+		title: 'Usługi foto i wideo dla firm, Poznań | Szabunia',
+		description:
+			'Wydarzenia firmowe, wizerunek zespołu, nieruchomości i przemysł, produkty. Cztery obszary, zdjęcia i film w każdym z nich.',
+		url: 'https://szabunia.pl/uslugi',
+		images: [
+			{
+				url: '/images/og/strony/uslugi.jpg',
+				width: 1200,
+				height: 630,
+				alt: 'Usługi fotograficzne i wideo dla firm, Marcin Szabunia',
+			},
+		],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Usługi foto i wideo dla firm, Poznań | Szabunia',
+		description:
+			'Wydarzenia firmowe, wizerunek zespołu, nieruchomości i przemysł, produkty. Cztery obszary, zdjęcia i film w każdym z nich.',
+		images: ['/images/og/strony/uslugi.jpg'],
+	},
 };
 
 export default function UslugiPage() {
-  const crumbs: Crumb[] = [{ name: "Strona główna", href: "/" }, { name: "Usługi" }];
+	const crumbs: Crumb[] = [
+		{ name: 'Strona główna', href: '/' },
+		{ name: 'Usługi' },
+	];
 
-  const structuredData = [
-    breadcrumbJsonLd(crumbs),
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      name: "Usługi fotograficzne i wideo — Marcin Szabunia",
-      itemListElement: serviceCategories.map((s, i) => ({
-        "@type": "ListItem",
-        position: i + 1,
-        // `shortTitle` jak w `Service.name` na podstronie (wariant C, 10.08.2026):
-        // dane strukturalne dostają krótką nazwę encji, a widoczny kafelek niżej
-        // zostaje przy pełnym `title`. Te dwa miejsca nie muszą być identyczne
-        // i celowo nie są.
-        name: s.shortTitle ?? s.title,
-        url: `https://szabunia.pl/uslugi/${s.slug}`,
-      })),
-    },
-  ];
+	const structuredData = [
+		breadcrumbJsonLd(crumbs),
+		{
+			'@context': 'https://schema.org',
+			'@type': 'ItemList',
+			name: 'Usługi fotograficzne i wideo — Marcin Szabunia',
+			itemListElement: serviceCategories.map((s, i) => ({
+				'@type': 'ListItem',
+				position: i + 1,
+				// `shortTitle` jak w `Service.name` na podstronie (wariant C, 10.08.2026):
+				// dane strukturalne dostają krótką nazwę encji, a widoczny kafelek niżej
+				// zostaje przy pełnym `title`. Te dwa miejsca nie muszą być identyczne
+				// i celowo nie są.
+				name: s.shortTitle ?? s.title,
+				url: `https://szabunia.pl/uslugi/${s.slug}`,
+			})),
+		},
+	];
 
-  return (
-    <>
-      <ScrollProgress />
-      <Navigation />
-      <main id="main" className="pt-28 pb-16 px-4">
-        <div className="max-w-6xl mx-auto">
-          <Breadcrumbs items={crumbs} className="mb-6" />
-          {/* ⛔ TU NIE WOLNO UŻYĆ `AnimatedSection`, patrz ten sam komentarz
+	return (
+		<>
+			<ScrollProgress />
+			<Navigation />
+			<main id='main' className='pt-28 pb-16 px-4'>
+				<div className='max-w-6xl mx-auto'>
+					<Breadcrumbs items={crumbs} className='mb-6' />
+					{/* ⛔ TU NIE WOLNO UŻYĆ `AnimatedSection`, patrz ten sam komentarz
               w `ServiceHero.tsx` przy pierwszym bloku hero. Pomiar Lighthouse 13
               na produkcji 11.08.2026, mobile: elementem LCP tej strony jest
               akapit wprowadzenia niżej (`p.text-steel`), a `.reveal` trzyma go
@@ -84,14 +90,14 @@ export default function UslugiPage() {
               znika, element jest pomalowany od razu. Siatka kafelków niżej
               zostaje na `AnimatedSection` — jest pod zgięciem i nie bierze
               udziału w pomiarze LCP. */}
-          <div className="hero-intro">
-            <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
-              Oferta
-            </p>
-            <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
-              Usługi fotograficzne i wideo dla biznesu
-            </h1>
-            {/* Przepisane 10.08.2026. To NIE jest tekst SEO, tylko wprowadzenie
+					<div className='hero-intro'>
+						<p className='text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center'>
+							Oferta
+						</p>
+						<h1 className='font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center'>
+							Usługi fotograficzne i wideo dla biznesu
+						</h1>
+						{/* Przepisane 10.08.2026. To NIE jest tekst SEO, tylko wprowadzenie
                 w architekturę strony, i każde z trzech zdań ma osobne zadanie:
                   1. nazywa cztery obszary językiem klienta, nie moim,
                   2. mówi, że każdemu obszarowi odpowiada JEDNA usługa, więc
@@ -100,78 +106,82 @@ export default function UslugiPage() {
                      sposobem realizacji każdej z czterech.
                 Poprzednia wersja („Od obsługi wydarzeń firmowych po wizerunek
                 zespołów: jeden twórca…") opisywała ofertę dwufilarową. */}
-            <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed">
-              Firma potrzebuje pokazać cztery rzeczy: ludzi, wydarzenia, obiekty
-              i produkty. Na każdą z nich jest tu osobna usługa. Zdjęcia i film nie
-              są osobnymi pozycjami, tylko sposobem realizacji każdej z czterech.
-              Bazuję w Poznaniu, pracuję w całej Polsce i Europie.
-            </p>
-          </div>
+						<p className='text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed'>
+							Firma potrzebuje pokazać cztery rzeczy: ludzi, wydarzenia, obiekty
+							i produkty. Na każdą z nich jest tu osobna usługa. Zdjęcia i film
+							nie są osobnymi pozycjami, tylko sposobem realizacji każdej z
+							czterech. Bazuję w Poznaniu, pracuję w całej Polsce i Europie.
+						</p>
+					</div>
 
-          {/* Siatka 2×2 (10.08.2026, po przejściu na cztery usługi). Wcześniej
+					{/* Siatka 2×2 (10.08.2026, po przejściu na cztery usługi). Wcześniej
               sześć kolumn z dwoma szerokimi kafelkami — konstrukcja potrzebna
               wyłącznie po to, żeby przy ośmiu usługach układ 3+3+2 nie zostawiał
               dziury w prawym dolnym rogu. Cztery kafelki dzielą się równo. */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6">
-            {serviceCategories.map((s, i) => (
-              <AnimatedSection key={s.slug} delay={i * 0.06}>
-                <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5 group h-full">
-                  {/* Ta sama nazwa `data-cta` co na stronie głównej, żeby oba huby
+					<div className='grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6'>
+						{serviceCategories.map((s, i) => (
+							<AnimatedSection key={s.slug} delay={i * 0.06}>
+								<div className='bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5 group h-full'>
+									{/* Ta sama nazwa `data-cta` co na stronie głównej, żeby oba huby
                       dały się zsumować w jednym raporcie (PELNY2608-13). */}
-                  <Link href={`/uslugi/${s.slug}`} data-cta={`uslugi_karta_${s.slug}`} className="flex flex-col p-6 h-full">
-                    <div
-                      className="w-10 h-10 rounded-xl bg-blue-pale dark:bg-blue/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
-                      aria-hidden="true"
-                    >
-                      {s.icon}
-                    </div>
-                    <h2 className="font-barlow font-bold text-base text-navy dark:text-white mb-1.5">
-                      {s.title}
-                    </h2>
-                    <p className="text-steel dark:text-dark-text-muted text-[13px] leading-relaxed mb-4 flex-grow">
-                      {s.subtitle}
-                    </p>
-                    <div className="flex items-center justify-between pt-3 border-t border-border dark:border-dark-border">
-                      <span className="text-blue dark:text-blue-light text-[12px] font-barlow font-semibold">
-                        {s.heroPriceLabel ?? s.price}
-                      </span>
-                      <span className="text-blue dark:text-blue-light text-[12px] font-barlow font-semibold group-hover:translate-x-0.5 transition-transform">
-                        Zobacz szczegóły →
-                      </span>
-                    </div>
-                  </Link>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
+									<Link
+										href={`/uslugi/${s.slug}`}
+										data-cta={`uslugi_karta_${s.slug}`}
+										className='flex flex-col p-6 h-full'
+									>
+										<div
+											className='w-10 h-10 rounded-xl bg-blue-pale dark:bg-blue/15 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform'
+											aria-hidden='true'
+										>
+											{s.icon}
+										</div>
+										<h2 className='font-barlow font-bold text-base text-navy dark:text-white mb-1.5'>
+											{s.title}
+										</h2>
+										<p className='text-steel dark:text-dark-text-muted text-[13px] leading-relaxed mb-4 flex-grow'>
+											{s.subtitle}
+										</p>
+										<div className='flex items-center justify-between pt-3 border-t border-border dark:border-dark-border'>
+											<span className='text-blue dark:text-blue-light text-[12px] font-barlow font-semibold'>
+												{s.heroPriceLabel ?? s.price}
+											</span>
+											<span className='text-blue dark:text-blue-light text-[12px] font-barlow font-semibold group-hover:translate-x-0.5 transition-transform'>
+												Zobacz szczegóły →
+											</span>
+										</div>
+									</Link>
+								</div>
+							</AnimatedSection>
+						))}
+					</div>
 
-          {/* Mierzalne CTA na hubie (LEJ2608-02, audyt lejka 2026-08-02). Kafle
+					{/* Mierzalne CTA na hubie (LEJ2608-02, audyt lejka 2026-08-02). Kafle
               prowadzą dalej w lejek, ale strona nie miała ani jednego elementu
               z `data-cta`, a to najlepiej rankująca strona w całym serwisie.
               Dla kogoś, kto już wie, czego chce, to skrót prosto do formularza. */}
-          <div className="pt-10 text-center">
-            <a
-              href="#kontakt"
-              data-cta="wycena_hub_uslugi"
-              className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
-            >
-              Sprawdź termin i cenę
-              <span className="text-white/80">→</span>
-            </a>
-          </div>
-        </div>
-        <div className="mt-12">
-          <ErrorBoundary>
-            <CTA />
-          </ErrorBoundary>
-        </div>
-      </main>
-      <Footer />
-      <MobileFAB />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-    </>
-  );
+					<div className='pt-10 text-center'>
+						<a
+							href='#kontakt'
+							data-cta='wycena_hub_uslugi'
+							className='inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform'
+						>
+							Zapytaj o ofertę
+							<span className='text-white/80'>→</span>
+						</a>
+					</div>
+				</div>
+				<div className='mt-12'>
+					<ErrorBoundary>
+						<CTA />
+					</ErrorBoundary>
+				</div>
+			</main>
+			<Footer />
+			<MobileFAB />
+			<script
+				type='application/ld+json'
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+			/>
+		</>
+	);
 }

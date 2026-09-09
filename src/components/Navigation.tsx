@@ -1,18 +1,18 @@
-"use client";
+'use client';
 
 import {
-  useState,
-  useEffect,
-  useRef,
-  useCallback,
-  type KeyboardEvent as ReactKeyboardEvent,
-  type MouseEvent as ReactMouseEvent,
-} from "react";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import ThemeToggle from "./ThemeToggle";
-import { useScrolledPast } from "@/hooks/useScrollPosition";
-import { useActiveSection } from "@/hooks/useActiveSection";
+	useState,
+	useEffect,
+	useRef,
+	useCallback,
+	type KeyboardEvent as ReactKeyboardEvent,
+	type MouseEvent as ReactMouseEvent,
+} from 'react';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
+import { useScrolledPast } from '@/hooks/useScrollPosition';
+import { useActiveSection } from '@/hooks/useActiveSection';
 
 // Kolejność linków = kolejność sekcji na stronie głównej, żeby podświetlenie
 // przy scrollu szło od lewej do prawej bez przeskoków.
@@ -30,311 +30,382 @@ import { useActiveSection } from "@/hooks/useActiveSection";
 // „O mnie" i „Portfolio" zostają kotwicami wszędzie, bo nie mają odpowiednika
 // w postaci osobnej strony.
 const navLinks = [
-  { label: "O mnie", href: "#o-mnie", section: "o-mnie", page: null, subHref: null },
-  { label: "Usługi", href: "#uslugi", section: "uslugi", page: null, subHref: "/uslugi" },
-  { label: "Portfolio", href: "#portfolio", section: "portfolio", page: null, subHref: null },
-  { label: "Galeria", href: "/galeria", section: "galeria", page: "/galeria", subHref: null },
-  { label: "Blog", href: "/blog", section: "blog", page: "/blog", subHref: null },
-  { label: "Poradnik", href: "/poradnik", section: "poradnik", page: "/poradnik", subHref: null },
+	{
+		label: 'O mnie',
+		href: '#o-mnie',
+		section: 'o-mnie',
+		page: null,
+		subHref: null,
+	},
+	{
+		label: 'Usługi',
+		href: '#uslugi',
+		section: 'uslugi',
+		page: null,
+		subHref: '/uslugi',
+	},
+	{
+		label: 'Portfolio',
+		href: '#portfolio',
+		section: 'portfolio',
+		page: null,
+		subHref: null,
+	},
+	{
+		label: 'Galeria',
+		href: '/galeria',
+		section: 'galeria',
+		page: '/galeria',
+		subHref: null,
+	},
+	{
+		label: 'Blog',
+		href: '/blog',
+		section: 'blog',
+		page: '/blog',
+		subHref: null,
+	},
+	{
+		label: 'Poradnik',
+		href: '/poradnik',
+		section: 'poradnik',
+		page: '/poradnik',
+		subHref: null,
+	},
 ];
 
 // Scroll-spy w kolejności DOM na home; #kontakt domyka listę, żeby podświetlenie
 // nie „zamarzało" na ostatniej sekcji.
-const sectionIds = [...navLinks.map((l) => l.section), "kontakt"];
+const sectionIds = [...navLinks.map((l) => l.section), 'kontakt'];
 
 export default function Navigation() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const navRef = useRef<HTMLElement>(null);
-  const hamburgerRef = useRef<HTMLButtonElement>(null);
-  const pathname = usePathname();
-  const isHome = pathname === "/";
+	const [mobileOpen, setMobileOpen] = useState(false);
+	const navRef = useRef<HTMLElement>(null);
+	const hamburgerRef = useRef<HTMLButtonElement>(null);
+	const pathname = usePathname();
+	const isHome = pathname === '/';
 
-  // Boolean zamiast surowego scrollY: bez re-renderu nawigacji co piksel.
-  const scrolled = useScrolledPast(40);
+	// Boolean zamiast surowego scrollY: bez re-renderu nawigacji co piksel.
+	const scrolled = useScrolledPast(40);
 
-  // Prefix for links: on subpages, prepend "/" so #anchor becomes /#anchor
-  const linkPrefix = isHome ? "" : "/";
+	// Prefix for links: on subpages, prepend "/" so #anchor becomes /#anchor
+	const linkPrefix = isHome ? '' : '/';
 
-  // Scroll-spy (IntersectionObserver) — aktywny tylko na stronie głównej, gdzie istnieją sekcje.
-  const activeSection = useActiveSection(sectionIds, isHome);
+	// Scroll-spy (IntersectionObserver) — aktywny tylko na stronie głównej, gdzie istnieją sekcje.
+	const activeSection = useActiveSection(sectionIds, isHome);
 
-  const closeMobileMenu = useCallback(() => {
-    setMobileOpen(false);
-    setTimeout(() => hamburgerRef.current?.focus(), 0);
-  }, []);
+	const closeMobileMenu = useCallback(() => {
+		setMobileOpen(false);
+		setTimeout(() => hamburgerRef.current?.focus(), 0);
+	}, []);
 
-  // JEDNA ŚCIEŻKA GŁÓWNEGO CTA (finding PELNY2608-18 / SPOJ2608-09, otwarty od
-  // 05.08.2026, zatwierdzony wariant A z 10.08.2026).
-  //
-  // Problem: przycisk „Zapytaj o ofertę" w pasku prowadził zawsze do `/kontakt`
-  // (przeładowanie), a identycznie nazwany przycisk w hero do `#kontakt` (scroll).
-  // Ten sam przycisk, ta sama etykieta, dwa różne zachowania.
-  //
-  // Rozwiązanie jest ŻYWCEM PRZENIESIONE z `MobileFAB.tsx:58-64`, gdzie działa
-  // od dawna. Celowo nie wymyślam drugiego wzorca na ten sam problem:
-  //   • `href="/kontakt"` zostaje PRAWDZIWYM adresem, więc działa bez JS,
-  //     środkowy przycisk myszy i „otwórz w nowej karcie" nadal dają stronę kontaktu,
-  //   • klik przechwytujemy TYLKO wtedy, gdy sekcja `#kontakt` istnieje na
-  //     bieżącej stronie; na `/blog/[slug]`, `/poradnik` i stronie błędu jej nie ma,
-  //     więc link po prostu prowadzi na `/kontakt` i nigdy nie jest martwy.
-  //
-  // ⚠ `data-cta` NIE ZMIENIAMY. Nazwy (`wycena_navbar`, `wycena_home_hero`,
-  // `wycena_sticky`) kodują POWIERZCHNIĘ kliknięcia i po nich chodzi pomiar
-  // konwersji. Sumowanie ich do jednego lejka to grupa zdarzeń w GA4, nie zmiana
-  // w kodzie. Pierwsze porównanie 28-dniowe wypada 07.09.2026 i podmiana nazwy
-  // zerwałaby ciągłość danych tuż przed nim.
-  const goToContact = useCallback(
-    (e: ReactMouseEvent<HTMLAnchorElement>, fromMobileMenu = false) => {
-      const el = document.getElementById("kontakt");
-      if (!el) return; // brak sekcji na tej stronie → zwykła nawigacja do /kontakt
-      e.preventDefault();
-      // Menu mobilne zamykamy PRZED scrollem, inaczej panel zasłania cel.
-      // `closeMobileMenu` oddaje fokus hamburgerowi, a ten siedzi w pasku
-      // `fixed top-0`, więc jest zawsze w kadrze i jego focus() nie przewija
-      // strony z powrotem na górę. Sprawdzone pomiarem, nie założone.
-      if (fromMobileMenu) closeMobileMenu();
-      el.scrollIntoView({ behavior: "smooth" });
-    },
-    [closeMobileMenu]
-  );
+	// JEDNA ŚCIEŻKA GŁÓWNEGO CTA (finding PELNY2608-18 / SPOJ2608-09, otwarty od
+	// 05.08.2026, zatwierdzony wariant A z 10.08.2026).
+	//
+	// Problem: przycisk „Zapytaj o ofertę" w pasku prowadził zawsze do `/kontakt`
+	// (przeładowanie), a identycznie nazwany przycisk w hero do `#kontakt` (scroll).
+	// Ten sam przycisk, ta sama etykieta, dwa różne zachowania.
+	//
+	// Rozwiązanie jest ŻYWCEM PRZENIESIONE z `MobileFAB.tsx:58-64`, gdzie działa
+	// od dawna. Celowo nie wymyślam drugiego wzorca na ten sam problem:
+	//   • `href="/kontakt"` zostaje PRAWDZIWYM adresem, więc działa bez JS,
+	//     środkowy przycisk myszy i „otwórz w nowej karcie" nadal dają stronę kontaktu,
+	//   • klik przechwytujemy TYLKO wtedy, gdy sekcja `#kontakt` istnieje na
+	//     bieżącej stronie; na `/blog/[slug]`, `/poradnik` i stronie błędu jej nie ma,
+	//     więc link po prostu prowadzi na `/kontakt` i nigdy nie jest martwy.
+	//
+	// ⚠ `data-cta` NIE ZMIENIAMY. Nazwy (`wycena_navbar`, `wycena_home_hero`,
+	// `wycena_sticky`) kodują POWIERZCHNIĘ kliknięcia i po nich chodzi pomiar
+	// konwersji. Sumowanie ich do jednego lejka to grupa zdarzeń w GA4, nie zmiana
+	// w kodzie. Pierwsze porównanie 28-dniowe wypada 07.09.2026 i podmiana nazwy
+	// zerwałaby ciągłość danych tuż przed nim.
+	const goToContact = useCallback(
+		(e: ReactMouseEvent<HTMLAnchorElement>, fromMobileMenu = false) => {
+			const el = document.getElementById('kontakt');
+			if (!el) return; // brak sekcji na tej stronie → zwykła nawigacja do /kontakt
+			e.preventDefault();
+			// Menu mobilne zamykamy PRZED scrollem, inaczej panel zasłania cel.
+			// `closeMobileMenu` oddaje fokus hamburgerowi, a ten siedzi w pasku
+			// `fixed top-0`, więc jest zawsze w kadrze i jego focus() nie przewija
+			// strony z powrotem na górę. Sprawdzone pomiarem, nie założone.
+			if (fromMobileMenu) closeMobileMenu();
+			el.scrollIntoView({ behavior: 'smooth' });
+		},
+		[closeMobileMenu],
+	);
 
-  // Close mobile menu when clicking outside
-  useEffect(() => {
-    if (!mobileOpen) return;
-    const handleClickOutside = (e: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) {
-        closeMobileMenu();
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [mobileOpen, closeMobileMenu]);
+	// Close mobile menu when clicking outside
+	useEffect(() => {
+		if (!mobileOpen) return;
+		const handleClickOutside = (e: MouseEvent) => {
+			if (navRef.current && !navRef.current.contains(e.target as Node)) {
+				closeMobileMenu();
+			}
+		};
+		document.addEventListener('mousedown', handleClickOutside);
+		return () => document.removeEventListener('mousedown', handleClickOutside);
+	}, [mobileOpen, closeMobileMenu]);
 
-  // Close mobile menu on Escape key
-  useEffect(() => {
-    if (!mobileOpen) return;
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === "Escape") closeMobileMenu();
-    };
-    document.addEventListener("keydown", handleEsc);
-    return () => document.removeEventListener("keydown", handleEsc);
-  }, [mobileOpen, closeMobileMenu]);
+	// Close mobile menu on Escape key
+	useEffect(() => {
+		if (!mobileOpen) return;
+		const handleEsc = (e: KeyboardEvent) => {
+			if (e.key === 'Escape') closeMobileMenu();
+		};
+		document.addEventListener('keydown', handleEsc);
+		return () => document.removeEventListener('keydown', handleEsc);
+	}, [mobileOpen, closeMobileMenu]);
 
-  // Auto-focus first item when mobile menu opens
-  useEffect(() => {
-    if (!mobileOpen) return;
-    const menu = document.getElementById("mobile-menu");
-    const firstItem = menu?.querySelector<HTMLElement>("a, button");
-    if (firstItem) firstItem.focus();
-  }, [mobileOpen]);
+	// Auto-focus first item when mobile menu opens
+	useEffect(() => {
+		if (!mobileOpen) return;
+		const menu = document.getElementById('mobile-menu');
+		const firstItem = menu?.querySelector<HTMLElement>('a, button');
+		if (firstItem) firstItem.focus();
+	}, [mobileOpen]);
 
-  // Jedno miejsce rozstrzygające adres linku, wspólne dla paska i menu mobilnego
-  // (wcześniej obie listy budowały href osobno i rozjechałyby się przy pierwszej
-  // zmianie). Kolejność warunków ma znaczenie: pełne podstrony biorą swój href
-  // bez prefiksu, bo `linkPrefix` zrobiłby z „/galeria" adres „//galeria".
-  const hrefFor = useCallback(
-    (link: (typeof navLinks)[number]) => {
-      if (link.page !== null) return link.href;
-      if (!isHome && link.subHref) return link.subHref;
-      return `${linkPrefix}${link.href}`;
-    },
-    [isHome, linkPrefix]
-  );
+	// Jedno miejsce rozstrzygające adres linku, wspólne dla paska i menu mobilnego
+	// (wcześniej obie listy budowały href osobno i rozjechałyby się przy pierwszej
+	// zmianie). Kolejność warunków ma znaczenie: pełne podstrony biorą swój href
+	// bez prefiksu, bo `linkPrefix` zrobiłby z „/galeria" adres „//galeria".
+	const hrefFor = useCallback(
+		(link: (typeof navLinks)[number]) => {
+			if (link.page !== null) return link.href;
+			if (!isHome && link.subHref) return link.subHref;
+			return `${linkPrefix}${link.href}`;
+		},
+		[isHome, linkPrefix],
+	);
 
-  const isActive = useCallback(
-    (link: (typeof navLinks)[number]) =>
-      activeSection === link.section ||
-      (link.page !== null &&
-        (link.page === "/blog" ? pathname.startsWith("/blog") : pathname === link.page)),
-    [activeSection, pathname]
-  );
+	const isActive = useCallback(
+		(link: (typeof navLinks)[number]) =>
+			activeSection === link.section ||
+			(link.page !== null &&
+				(link.page === '/blog'
+					? pathname.startsWith('/blog')
+					: pathname === link.page)),
+		[activeSection, pathname],
+	);
 
-  return (
-    <nav
-      ref={navRef}
-      className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4"
-      aria-label="Nawigacja główna"
-    >
-      <div
-        className={`glass max-w-4xl w-full rounded-full px-6 transition-all duration-300 flex items-center justify-between ${
-          scrolled
-            ? "py-2.5 shadow-lg shadow-navy/5 dark:shadow-black/20 bg-white/90 dark:bg-dark-bg/90"
-            : "py-3 shadow-md shadow-navy/[0.03] dark:shadow-black/10"
-        }`}
-      >
-        {/* min-h-[24px] + inline-flex: sam tekst dawał cel 141×20 px
+	return (
+		<nav
+			ref={navRef}
+			className='fixed top-0 left-0 right-0 z-50 flex justify-center px-4 pt-4'
+			aria-label='Nawigacja główna'
+		>
+			<div
+				className={`glass max-w-4xl w-full rounded-full px-6 transition-all duration-300 flex items-center justify-between ${
+					scrolled
+						? 'py-2.5 shadow-lg shadow-navy/5 dark:shadow-black/20 bg-white/90 dark:bg-dark-bg/90'
+						: 'py-3 shadow-md shadow-navy/[0.03] dark:shadow-black/10'
+				}`}
+			>
+				{/* min-h-[24px] + inline-flex: sam tekst dawał cel 141×20 px
             (WCAG 2.2 SC 2.5.8, audyt PELNY2907-23). Wysokość paska nawigacji
             bez zmian, bo rząd i tak jest wyższy niż 24 px. */}
-        <Link
-          href="/"
-          className="inline-flex items-center min-h-[24px] font-barlow font-extrabold text-sm tracking-wide text-navy dark:text-white"
-        >
-          MARCIN SZABUNIA
-        </Link>
+				<Link
+					href='/'
+					className='inline-flex items-center min-h-[24px] font-barlow font-extrabold text-sm tracking-wide text-navy dark:text-white'
+				>
+					MARCIN SZABUNIA
+				</Link>
 
-        <div className="hidden md:flex items-center gap-3">
-          {navLinks.map((link) => {
-            // `py-2`: cel dotykowy z ~16 px na 32 px (WCAG 2.2 SC 2.5.8).
-            // Wysokość paska bez zmian, bo przycisk CTA obok ma już `py-2`.
-            const cls = `text-[13px] py-2 transition-colors font-inter ${
-              isActive(link)
-                ? "text-blue dark:text-blue-light font-semibold"
-                : "text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white"
-            }`;
-            // O tym, czy to <a> czy <Link>, decyduje POSTAĆ ADRESU, a nie typ
-            // wpisu: „Usługi" poza home jest zwykłą trasą i ma iść klientowym
-            // routingiem, żeby ScrollRestorer wyzerował scroll jak przy każdej
-            // innej podstronie. Kotwice zostają na <a>, bo mają scrollować.
-            const href = hrefFor(link);
-            return href.includes("#") ? (
-              <a key={link.label} href={href} className={cls}>
-                {link.label}
-              </a>
-            ) : (
-              <Link key={link.label} href={href} className={cls}>
-                {link.label}
-              </Link>
-            );
-          })}
-          <a
-            href="tel:+48514900688"
-            data-cta="tel_navbar"
-            aria-label="Zadzwoń: +48 514 900 688"
-            title="+48 514 900 688"
-            className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-border dark:border-dark-border text-steel hover:text-blue hover:border-blue dark:text-dark-text-muted dark:hover:text-blue-light transition-colors"
-          >
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-            </svg>
-          </a>
-          <ThemeToggle />
-          <Link
-            href="/kontakt"
-            data-cta="wycena_navbar"
-            onClick={(e) => goToContact(e)}
-            className="bg-gradient-to-br from-blue to-blue text-white px-5 py-2 rounded-full font-barlow font-semibold text-xs btn-glow whitespace-nowrap"
-          >
-            Sprawdź termin i cenę
-          </Link>
-        </div>
+				<div className='hidden md:flex items-center gap-3'>
+					{navLinks.map((link) => {
+						// `py-2`: cel dotykowy z ~16 px na 32 px (WCAG 2.2 SC 2.5.8).
+						// Wysokość paska bez zmian, bo przycisk CTA obok ma już `py-2`.
+						const cls = `text-[13px] py-2 transition-colors font-inter ${
+							isActive(link)
+								? 'text-blue dark:text-blue-light font-semibold'
+								: 'text-steel hover:text-navy dark:text-dark-text-muted dark:hover:text-white'
+						}`;
+						// O tym, czy to <a> czy <Link>, decyduje POSTAĆ ADRESU, a nie typ
+						// wpisu: „Usługi" poza home jest zwykłą trasą i ma iść klientowym
+						// routingiem, żeby ScrollRestorer wyzerował scroll jak przy każdej
+						// innej podstronie. Kotwice zostają na <a>, bo mają scrollować.
+						const href = hrefFor(link);
+						return href.includes('#') ? (
+							<a key={link.label} href={href} className={cls}>
+								{link.label}
+							</a>
+						) : (
+							<Link key={link.label} href={href} className={cls}>
+								{link.label}
+							</Link>
+						);
+					})}
+					<a
+						href='tel:+48514900688'
+						data-cta='tel_navbar'
+						aria-label='Zadzwoń: +48 514 900 688'
+						title='+48 514 900 688'
+						className='inline-flex items-center justify-center w-8 h-8 rounded-full border border-border dark:border-dark-border text-steel hover:text-blue hover:border-blue dark:text-dark-text-muted dark:hover:text-blue-light transition-colors'
+					>
+						<svg
+							className='w-4 h-4'
+							fill='none'
+							viewBox='0 0 24 24'
+							stroke='currentColor'
+							strokeWidth={2}
+							aria-hidden='true'
+						>
+							<path
+								strokeLinecap='round'
+								strokeLinejoin='round'
+								d='M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z'
+							/>
+						</svg>
+					</a>
+					<ThemeToggle />
+					<Link
+						href='/kontakt'
+						data-cta='wycena_navbar'
+						onClick={(e) => goToContact(e)}
+						className='bg-gradient-to-br from-blue to-blue text-white px-5 py-2 rounded-full font-barlow font-semibold text-xs btn-glow whitespace-nowrap'
+					>
+						Zapytaj o ofertę
+					</Link>
+				</div>
 
-        <div className="flex items-center gap-2 md:hidden">
-          <ThemeToggle />
-          <button
-            ref={hamburgerRef}
-            onClick={() => setMobileOpen(!mobileOpen)}
-            className="flex flex-col gap-1.5 p-2"
-            aria-label={mobileOpen ? "Zamknij menu" : "Otwórz menu"}
-            aria-expanded={mobileOpen}
-            aria-controls="mobile-menu"
-          >
-            <span
-              className={`w-5 h-0.5 bg-navy dark:bg-white transition-transform ${
-                mobileOpen ? "rotate-45 translate-y-2" : ""
-              }`}
-            />
-            <span
-              className={`w-5 h-0.5 bg-navy dark:bg-white transition-opacity ${
-                mobileOpen ? "opacity-0" : ""
-              }`}
-            />
-            <span
-              className={`w-5 h-0.5 bg-navy dark:bg-white transition-transform ${
-                mobileOpen ? "-rotate-45 -translate-y-2" : ""
-              }`}
-            />
-          </button>
-        </div>
-      </div>
+				<div className='flex items-center gap-2 md:hidden'>
+					<ThemeToggle />
+					<button
+						ref={hamburgerRef}
+						onClick={() => setMobileOpen(!mobileOpen)}
+						className='flex flex-col gap-1.5 p-2'
+						aria-label={mobileOpen ? 'Zamknij menu' : 'Otwórz menu'}
+						aria-expanded={mobileOpen}
+						aria-controls='mobile-menu'
+					>
+						<span
+							className={`w-5 h-0.5 bg-navy dark:bg-white transition-transform ${
+								mobileOpen ? 'rotate-45 translate-y-2' : ''
+							}`}
+						/>
+						<span
+							className={`w-5 h-0.5 bg-navy dark:bg-white transition-opacity ${
+								mobileOpen ? 'opacity-0' : ''
+							}`}
+						/>
+						<span
+							className={`w-5 h-0.5 bg-navy dark:bg-white transition-transform ${
+								mobileOpen ? '-rotate-45 -translate-y-2' : ''
+							}`}
+						/>
+					</button>
+				</div>
+			</div>
 
-      {mobileOpen && (
-        <div
-          id="mobile-menu"
-          className="absolute top-full mt-2 left-4 right-4 rounded-2xl p-6 md:hidden shadow-xl shadow-navy/10 dark:shadow-black/30 bg-white/95 dark:bg-[rgba(11,15,26,0.96)] backdrop-blur-xl border border-white/25 dark:border-white/[0.08]"
-          onKeyDown={(e: ReactKeyboardEvent<HTMLDivElement>) => {
-            if (e.key === "Tab") {
-              const focusable = e.currentTarget.querySelectorAll<HTMLElement>(
-                'a, button, [tabindex]:not([tabindex="-1"])'
-              );
-              if (focusable.length === 0) return;
-              const first = focusable[0];
-              const last = focusable[focusable.length - 1];
-              if (e.shiftKey && document.activeElement === first) {
-                e.preventDefault();
-                last.focus();
-              } else if (!e.shiftKey && document.activeElement === last) {
-                e.preventDefault();
-                first.focus();
-              }
-            }
-          }}
-        >
-          <div className="flex flex-col divide-y divide-border dark:divide-white/10">
-            {navLinks.map((link) => {
-              const active = isActive(link);
-              const cls = `flex items-center justify-between py-3.5 text-[15px] font-barlow font-semibold transition-colors ${
-                active
-                  ? "text-blue dark:text-blue-light"
-                  : "text-navy dark:text-white hover:text-blue dark:hover:text-blue-light"
-              }`;
-              const chevron = (
-                <svg className="w-4 h-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-              );
-              const href = hrefFor(link);
-              return href.includes("#") ? (
-                <a
-                  key={link.label}
-                  href={href}
-                  onClick={() => closeMobileMenu()}
-                  className={cls}
-                >
-                  {link.label}
-                  {chevron}
-                </a>
-              ) : (
-                <Link
-                  key={link.label}
-                  href={href}
-                  onClick={() => closeMobileMenu()}
-                  className={cls}
-                >
-                  {link.label}
-                  {chevron}
-                </Link>
-              );
-            })}
-            {/* Telefon w menu mobilnym: dane GA4 pokazują, że klienci częściej
+			{mobileOpen && (
+				<div
+					id='mobile-menu'
+					className='absolute top-full mt-2 left-4 right-4 rounded-2xl p-6 md:hidden shadow-xl shadow-navy/10 dark:shadow-black/30 bg-white/95 dark:bg-[rgba(11,15,26,0.96)] backdrop-blur-xl border border-white/25 dark:border-white/[0.08]'
+					onKeyDown={(e: ReactKeyboardEvent<HTMLDivElement>) => {
+						if (e.key === 'Tab') {
+							const focusable = e.currentTarget.querySelectorAll<HTMLElement>(
+								'a, button, [tabindex]:not([tabindex="-1"])',
+							);
+							if (focusable.length === 0) return;
+							const first = focusable[0];
+							const last = focusable[focusable.length - 1];
+							if (e.shiftKey && document.activeElement === first) {
+								e.preventDefault();
+								last.focus();
+							} else if (!e.shiftKey && document.activeElement === last) {
+								e.preventDefault();
+								first.focus();
+							}
+						}
+					}}
+				>
+					<div className='flex flex-col divide-y divide-border dark:divide-white/10'>
+						{navLinks.map((link) => {
+							const active = isActive(link);
+							const cls = `flex items-center justify-between py-3.5 text-[15px] font-barlow font-semibold transition-colors ${
+								active
+									? 'text-blue dark:text-blue-light'
+									: 'text-navy dark:text-white hover:text-blue dark:hover:text-blue-light'
+							}`;
+							const chevron = (
+								<svg
+									className='w-4 h-4 opacity-40'
+									fill='none'
+									viewBox='0 0 24 24'
+									stroke='currentColor'
+									strokeWidth={2}
+									aria-hidden='true'
+								>
+									<path
+										strokeLinecap='round'
+										strokeLinejoin='round'
+										d='M9 5l7 7-7 7'
+									/>
+								</svg>
+							);
+							const href = hrefFor(link);
+							return href.includes('#') ? (
+								<a
+									key={link.label}
+									href={href}
+									onClick={() => closeMobileMenu()}
+									className={cls}
+								>
+									{link.label}
+									{chevron}
+								</a>
+							) : (
+								<Link
+									key={link.label}
+									href={href}
+									onClick={() => closeMobileMenu()}
+									className={cls}
+								>
+									{link.label}
+									{chevron}
+								</Link>
+							);
+						})}
+						{/* Telefon w menu mobilnym: dane GA4 pokazują, że klienci częściej
                 dzwonią niż piszą — numer nie może być dostępny dopiero po scrollu (FAB). */}
-            <a
-              href="tel:+48514900688"
-              data-cta="tel_mobile_menu"
-              onClick={() => closeMobileMenu()}
-              className="flex items-center justify-between py-3.5 text-[15px] font-barlow font-semibold text-navy dark:text-white hover:text-blue dark:hover:text-blue-light transition-colors"
-            >
-              Zadzwoń: 514 900 688
-              <svg className="w-4 h-4 opacity-40" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-              </svg>
-            </a>
-          </div>
-          <Link
-            href="/kontakt"
-            data-cta="wycena_navbar"
-            // Na stronie z sekcją kontaktu: zamknij menu i przewiń.
-            // Bez sekcji: `goToContact` nie robi nic, więc zostaje zwykła
-            // nawigacja do `/kontakt`, ale menu i tak trzeba zamknąć.
-            onClick={(e) => {
-              goToContact(e, true);
-              if (!document.getElementById("kontakt")) closeMobileMenu();
-            }}
-            className="mt-5 block bg-gradient-to-br from-blue to-blue text-white px-5 py-3.5 rounded-xl font-barlow font-semibold text-[15px] text-center btn-glow"
-          >
-            Sprawdź termin i cenę
-          </Link>
-        </div>
-      )}
-    </nav>
-  );
+						<a
+							href='tel:+48514900688'
+							data-cta='tel_mobile_menu'
+							onClick={() => closeMobileMenu()}
+							className='flex items-center justify-between py-3.5 text-[15px] font-barlow font-semibold text-navy dark:text-white hover:text-blue dark:hover:text-blue-light transition-colors'
+						>
+							Zadzwoń: 514 900 688
+							<svg
+								className='w-4 h-4 opacity-40'
+								fill='none'
+								viewBox='0 0 24 24'
+								stroke='currentColor'
+								strokeWidth={2}
+								aria-hidden='true'
+							>
+								<path
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									d='M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z'
+								/>
+							</svg>
+						</a>
+					</div>
+					<Link
+						href='/kontakt'
+						data-cta='wycena_navbar'
+						// Na stronie z sekcją kontaktu: zamknij menu i przewiń.
+						// Bez sekcji: `goToContact` nie robi nic, więc zostaje zwykła
+						// nawigacja do `/kontakt`, ale menu i tak trzeba zamknąć.
+						onClick={(e) => {
+							goToContact(e, true);
+							if (!document.getElementById('kontakt')) closeMobileMenu();
+						}}
+						className='mt-5 block bg-gradient-to-br from-blue to-blue text-white px-5 py-3.5 rounded-xl font-barlow font-semibold text-[15px] text-center btn-glow'
+					>
+						Zapytaj o ofertę
+					</Link>
+				</div>
+			)}
+		</nav>
+	);
 }

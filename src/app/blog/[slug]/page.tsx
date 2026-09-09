@@ -1,135 +1,149 @@
-import { notFound } from "next/navigation";
-import type { Metadata } from "next";
-import Image from "next/image";
-import Link from "next/link";
-import { blogPosts, getBlogPostBySlug, getServiceSlugForPost, getRelatedPosts, postDate, PORADNIK_CTA_SLUGS } from "@/data/blog";
-import { getServiceBySlug } from "@/data/services";
-import Navigation from "@/components/Navigation";
-import ScrollProgress from "@/components/ScrollProgress";
-import BackToTopButton from "@/components/BackToTopButton";
-import Footer from "@/components/Footer";
-import MobileFAB from "@/components/MobileFAB";
-import BlogContent from "@/components/BlogContent";
-import BlogCard from "@/components/BlogCard";
-import AnimatedSection from "@/components/AnimatedSection";
-import ErrorBoundary from "@/components/ErrorBoundary";
-import PoradnikBlogCTA from "@/components/PoradnikBlogCTA";
-import Breadcrumbs, { breadcrumbJsonLd, type Crumb } from "@/components/Breadcrumbs";
+import { notFound } from 'next/navigation';
+import type { Metadata } from 'next';
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+	blogPosts,
+	getBlogPostBySlug,
+	getServiceSlugForPost,
+	getRelatedPosts,
+	postDate,
+	PORADNIK_CTA_SLUGS,
+} from '@/data/blog';
+import { getServiceBySlug } from '@/data/services';
+import Navigation from '@/components/Navigation';
+import ScrollProgress from '@/components/ScrollProgress';
+import BackToTopButton from '@/components/BackToTopButton';
+import Footer from '@/components/Footer';
+import MobileFAB from '@/components/MobileFAB';
+import BlogContent from '@/components/BlogContent';
+import BlogCard from '@/components/BlogCard';
+import AnimatedSection from '@/components/AnimatedSection';
+import ErrorBoundary from '@/components/ErrorBoundary';
+import PoradnikBlogCTA from '@/components/PoradnikBlogCTA';
+import Breadcrumbs, {
+	breadcrumbJsonLd,
+	type Crumb,
+} from '@/components/Breadcrumbs';
 
 const blurPlaceholder =
-  "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==";
+	'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg==';
 
 const categoryLabels: Record<string, string> = {
-  poradnik: "Poradnik",
-  realizacja: "Realizacja",
-  branża: "Branża",
+	poradnik: 'Poradnik',
+	realizacja: 'Realizacja',
+	branża: 'Branża',
 };
 
 export function generateStaticParams() {
-  return blogPosts.map((p) => ({ slug: p.slug }));
+	return blogPosts.map((p) => ({ slug: p.slug }));
 }
 
 type PageProps = { params: Promise<{ slug: string }> };
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
-  if (!post) return {};
-  return {
-    title: post.seo.title,
-    description: post.seo.description,
-    alternates: { canonical: `/blog/${post.slug}` },
-    openGraph: {
-      title: post.seo.title,
-      description: post.seo.description,
-      url: `https://szabunia.pl/blog/${post.slug}`,
-      type: "article",
-      publishedTime: post.date,
-      images: [
-        {
-          url: `/images/og/blog/${post.slug}.png`,
-          width: 1200,
-          height: 630,
-          alt: post.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: post.seo.title,
-      description: post.seo.description,
-      images: [`/images/og/blog/${post.slug}.png`],
-    },
-  };
+export async function generateMetadata({
+	params,
+}: PageProps): Promise<Metadata> {
+	const { slug } = await params;
+	const post = getBlogPostBySlug(slug);
+	if (!post) return {};
+	return {
+		title: post.seo.title,
+		description: post.seo.description,
+		alternates: { canonical: `/blog/${post.slug}` },
+		openGraph: {
+			title: post.seo.title,
+			description: post.seo.description,
+			url: `https://szabunia.pl/blog/${post.slug}`,
+			type: 'article',
+			publishedTime: post.date,
+			images: [
+				{
+					url: `/images/og/blog/${post.slug}.png`,
+					width: 1200,
+					height: 630,
+					alt: post.title,
+				},
+			],
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title: post.seo.title,
+			description: post.seo.description,
+			images: [`/images/og/blog/${post.slug}.png`],
+		},
+	};
 }
 
 export default async function BlogPostPage({ params }: PageProps) {
-  const { slug } = await params;
-  const post = getBlogPostBySlug(slug);
-  if (!post) notFound();
+	const { slug } = await params;
+	const post = getBlogPostBySlug(slug);
+	if (!post) notFound();
 
-  const crumbs: Crumb[] = [
-    { name: "Strona główna", href: "/" },
-    { name: "Blog", href: "/blog" },
-    { name: post.title },
-  ];
+	const crumbs: Crumb[] = [
+		{ name: 'Strona główna', href: '/' },
+		{ name: 'Blog', href: '/blog' },
+		{ name: post.title },
+	];
 
-  const structuredData = [
-    {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      headline: post.title,
-      description: post.seo.description,
-      datePublished: post.date,
-      // Sygnał świeżości dla Google. `updated` ustawiane przy realnej zmianie treści,
-      // nie przy każdym deployu (audyt PELNY2907-10).
-      dateModified: post.updated ?? post.date,
-      author: {
-        "@type": "Person",
-        name: "Marcin Szabunia",
-        url: "https://szabunia.pl",
-      },
-      publisher: {
-        "@type": "Organization",
-        name: "Marcin Szabunia",
-        url: "https://szabunia.pl",
-      },
-      image: `https://szabunia.pl/images/og/blog/${post.slug}.png`,
-      mainEntityOfPage: `https://szabunia.pl/blog/${post.slug}`,
-    },
-    breadcrumbJsonLd(crumbs),
-    // FAQPage tylko dla wpisów z sekcją Q&A (featured snippets / AEO)
-    ...(post.faq && post.faq.length > 0
-      ? [
-          {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: post.faq.map((f) => ({
-              "@type": "Question",
-              name: f.q,
-              acceptedAnswer: { "@type": "Answer", text: f.a },
-            })),
-          },
-        ]
-      : []),
-  ];
+	const structuredData = [
+		{
+			'@context': 'https://schema.org',
+			'@type': 'BlogPosting',
+			headline: post.title,
+			description: post.seo.description,
+			datePublished: post.date,
+			// Sygnał świeżości dla Google. `updated` ustawiane przy realnej zmianie treści,
+			// nie przy każdym deployu (audyt PELNY2907-10).
+			dateModified: post.updated ?? post.date,
+			author: {
+				'@type': 'Person',
+				name: 'Marcin Szabunia',
+				url: 'https://szabunia.pl',
+			},
+			publisher: {
+				'@type': 'Organization',
+				name: 'Marcin Szabunia',
+				url: 'https://szabunia.pl',
+			},
+			image: `https://szabunia.pl/images/og/blog/${post.slug}.png`,
+			mainEntityOfPage: `https://szabunia.pl/blog/${post.slug}`,
+		},
+		breadcrumbJsonLd(crumbs),
+		// FAQPage tylko dla wpisów z sekcją Q&A (featured snippets / AEO)
+		...(post.faq && post.faq.length > 0
+			? [
+					{
+						'@context': 'https://schema.org',
+						'@type': 'FAQPage',
+						mainEntity: post.faq.map((f) => ({
+							'@type': 'Question',
+							name: f.q,
+							acceptedAnswer: { '@type': 'Answer', text: f.a },
+						})),
+					},
+				]
+			: []),
+	];
 
-  const serviceSlug = getServiceSlugForPost(post.slug);
-  const relatedService = serviceSlug ? getServiceBySlug(serviceSlug) : undefined;
-  const relatedPosts = getRelatedPosts(post.slug, 3);
+	const serviceSlug = getServiceSlugForPost(post.slug);
+	const relatedService = serviceSlug
+		? getServiceBySlug(serviceSlug)
+		: undefined;
+	const relatedPosts = getRelatedPosts(post.slug, 3);
 
-  return (
-    <>
-      <ScrollProgress />
-      <Navigation />
-      <main id="main" className="pt-28 pb-16 px-4">
-        <article className="max-w-3xl mx-auto">
-          <AnimatedSection>
-            <Breadcrumbs items={crumbs} className="mb-6" />
-          </AnimatedSection>
+	return (
+		<>
+			<ScrollProgress />
+			<Navigation />
+			<main id='main' className='pt-28 pb-16 px-4'>
+				<article className='max-w-3xl mx-auto'>
+					<AnimatedSection>
+						<Breadcrumbs items={crumbs} className='mb-6' />
+					</AnimatedSection>
 
-          {/* Header */}
-          {/* ⛔ TRZY BLOKI NIŻEJ (nagłówek, miniatura, treść) NIE MOGĄ UŻYWAĆ
+					{/* Header */}
+					{/* ⛔ TRZY BLOKI NIŻEJ (nagłówek, miniatura, treść) NIE MOGĄ UŻYWAĆ
               `AnimatedSection` — ten sam mechanizm, który psuł podstrony usług
               (patrz `ServiceHero.tsx` i `globals.css` przy `@keyframes heroIntro`).
 
@@ -147,90 +161,93 @@ export default async function BlogPostPage({ params }: PageProps) {
               czystym CSS-em. `prefers-reduced-motion` wyłącza ruch globalną
               regułą z `globals.css:42`. Okruszki wyżej zostają na `.reveal` —
               są za małe, żeby kiedykolwiek wygrać pomiar LCP. */}
-          <div className="hero-intro">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-blue dark:text-blue-light bg-blue-pale dark:bg-blue/15 px-2.5 py-0.5 rounded-full">
-                {categoryLabels[post.category] ?? post.category}
-              </span>
-              <span className="text-[12px] text-steel dark:text-dark-text-muted">
-                {post.readTime} min czytania
-              </span>
-              {/* Bez `/60`: obniżona alfa dawała 3,39:1 przy progu 4,5:1 (PELNY2608-41). */}
-              <time dateTime={postDate(post).iso} className="text-[12px] text-steel dark:text-dark-text-muted">
-                {postDate(post).isUpdate ? "Zaktualizowano " : ""}
-                {new Date(postDate(post).iso).toLocaleDateString("pl-PL", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-            </div>
+					<div className='hero-intro'>
+						<div className='flex items-center gap-3 mb-4'>
+							<span className='text-[11px] font-barlow font-semibold uppercase tracking-wider text-blue dark:text-blue-light bg-blue-pale dark:bg-blue/15 px-2.5 py-0.5 rounded-full'>
+								{categoryLabels[post.category] ?? post.category}
+							</span>
+							<span className='text-[12px] text-steel dark:text-dark-text-muted'>
+								{post.readTime} min czytania
+							</span>
+							{/* Bez `/60`: obniżona alfa dawała 3,39:1 przy progu 4,5:1 (PELNY2608-41). */}
+							<time
+								dateTime={postDate(post).iso}
+								className='text-[12px] text-steel dark:text-dark-text-muted'
+							>
+								{postDate(post).isUpdate ? 'Zaktualizowano ' : ''}
+								{new Date(postDate(post).iso).toLocaleDateString('pl-PL', {
+									year: 'numeric',
+									month: 'long',
+									day: 'numeric',
+								})}
+							</time>
+						</div>
 
-            <h1 className="font-barlow font-extrabold text-2xl md:text-4xl leading-tight tracking-tight text-navy dark:text-white mb-8">
-              {post.title}
-            </h1>
-          </div>
+						<h1 className='font-barlow font-extrabold text-2xl md:text-4xl leading-tight tracking-tight text-navy dark:text-white mb-8'>
+							{post.title}
+						</h1>
+					</div>
 
-          {/* Thumbnail */}
-          <div className="hero-intro">
-            <div className="relative aspect-[16/9] rounded-2xl overflow-hidden mb-10 bg-border dark:bg-dark-card">
-              <Image
-                src={post.thumbnail}
-                alt={post.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 768px"
-                placeholder="blur"
-                blurDataURL={blurPlaceholder}
-                priority
-              />
-            </div>
-          </div>
+					{/* Thumbnail */}
+					<div className='hero-intro'>
+						<div className='relative aspect-[16/9] rounded-2xl overflow-hidden mb-10 bg-border dark:bg-dark-card'>
+							<Image
+								src={post.thumbnail}
+								alt={post.title}
+								fill
+								className='object-cover'
+								sizes='(max-width: 768px) 100vw, 768px'
+								placeholder='blur'
+								blurDataURL={blurPlaceholder}
+								priority
+							/>
+						</div>
+					</div>
 
-          {/* Content — `ErrorBoundary` zgodnie z `CLAUDE.md §5` i `§11.10`.
+					{/* Content — `ErrorBoundary` zgodnie z `CLAUDE.md §5` i `§11.10`.
               To jedyna trasa, która nie miała ani jednego wrappera, a renderuje
               `dangerouslySetInnerHTML` (audyt PELNY2608-31). */}
-          <ErrorBoundary>
-            <div className="hero-intro">
-              <BlogContent html={post.content} />
-            </div>
-          </ErrorBoundary>
+					<ErrorBoundary>
+						<div className='hero-intro'>
+							<BlogContent html={post.content} />
+						</div>
+					</ErrorBoundary>
 
-          {/* FAQ wpisu — widoczna treść odpowiadająca znacznikom FAQPage JSON-LD */}
-          {post.faq && post.faq.length > 0 && (
-            <AnimatedSection className="mt-12">
-              <h2 className="font-barlow font-bold text-xl text-navy dark:text-white mb-5">
-                Najczęstsze pytania
-              </h2>
-              <div className="flex flex-col gap-3">
-                {post.faq.map((f) => (
-                  <div
-                    key={f.q}
-                    className="rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card p-5"
-                  >
-                    <h3 className="font-barlow font-bold text-[15px] text-navy dark:text-white mb-1.5">
-                      {f.q}
-                    </h3>
-                    <p className="text-[13px] text-steel dark:text-dark-text-muted leading-relaxed">
-                      {f.a}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-          )}
+					{/* FAQ wpisu — widoczna treść odpowiadająca znacznikom FAQPage JSON-LD */}
+					{post.faq && post.faq.length > 0 && (
+						<AnimatedSection className='mt-12'>
+							<h2 className='font-barlow font-bold text-xl text-navy dark:text-white mb-5'>
+								Najczęstsze pytania
+							</h2>
+							<div className='flex flex-col gap-3'>
+								{post.faq.map((f) => (
+									<div
+										key={f.q}
+										className='rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card p-5'
+									>
+										<h3 className='font-barlow font-bold text-[15px] text-navy dark:text-white mb-1.5'>
+											{f.q}
+										</h3>
+										<p className='text-[13px] text-steel dark:text-dark-text-muted leading-relaxed'>
+											{f.a}
+										</p>
+									</div>
+								))}
+							</div>
+						</AnimatedSection>
+					)}
 
-          {/* Lead magnet CTA — tylko przy wpisach o przygotowaniu / stylizacji */}
-          {(PORADNIK_CTA_SLUGS as readonly string[]).includes(post.slug) && (
-            <AnimatedSection className="mt-10">
-              <PoradnikBlogCTA />
-            </AnimatedSection>
-          )}
+					{/* Lead magnet CTA — tylko przy wpisach o przygotowaniu / stylizacji */}
+					{(PORADNIK_CTA_SLUGS as readonly string[]).includes(post.slug) && (
+						<AnimatedSection className='mt-10'>
+							<PoradnikBlogCTA />
+						</AnimatedSection>
+					)}
 
-          {/* Powiązana usługa */}
-          {relatedService && (
-            <AnimatedSection className="mt-10">
-              {/* `data-cta` DODANE 14.08.2026. Wcześniej ta karta nie miała żadnego,
+					{/* Powiązana usługa */}
+					{relatedService && (
+						<AnimatedSection className='mt-10'>
+							{/* `data-cta` DODANE 14.08.2026. Wcześniej ta karta nie miała żadnego,
                   więc przejście blog → usługa było niemierzone na 26 wpisach, czyli
                   na najliczniejszej powierzchni w serwisie. To NOWA nazwa, nie zmiana
                   istniejącej, więc nie zrywa ciągłości żadnej serii w GA4 (ten sam
@@ -239,91 +256,111 @@ export default async function BlogPostPage({ params }: PageProps) {
                   Nazwa świadomie NIE zaczyna się od `wycena_`: ta karta nie prowadzi
                   do formularza, tylko na stronę opisową usługi. Wrzucenie jej do serii
                   `wycena_*` zafałszowałoby liczbę wejść do lejka wyceny. */}
-              <Link
-                href={`/uslugi/${relatedService.slug}`}
-                data-cta="usluga_blog_polecana"
-                className="group block rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card p-5 md:p-6 hover:border-blue dark:hover:border-blue transition-all"
-              >
-                <p className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-blue dark:text-blue-light mb-1">
-                  Powiązana usługa
-                </p>
-                <h2 className="font-barlow font-bold text-lg text-navy dark:text-white mb-1.5 group-hover:text-blue dark:group-hover:text-blue-light transition-colors">
-                  {relatedService.title}
-                </h2>
-                <p className="text-[13px] text-steel dark:text-dark-text-muted leading-relaxed mb-3">
-                  {relatedService.subtitle}
-                </p>
-                {/* „Poznaj usługę", nie „Zobacz ofertę" (14.08.2026). Po depricingu
+							<Link
+								href={`/uslugi/${relatedService.slug}`}
+								data-cta='usluga_blog_polecana'
+								className='group block rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card p-5 md:p-6 hover:border-blue dark:hover:border-blue transition-all'
+							>
+								<p className='text-[11px] font-barlow font-semibold uppercase tracking-wider text-blue dark:text-blue-light mb-1'>
+									Powiązana usługa
+								</p>
+								<h2 className='font-barlow font-bold text-lg text-navy dark:text-white mb-1.5 group-hover:text-blue dark:group-hover:text-blue-light transition-colors'>
+									{relatedService.title}
+								</h2>
+								<p className='text-[13px] text-steel dark:text-dark-text-muted leading-relaxed mb-3'>
+									{relatedService.subtitle}
+								</p>
+								{/* „Poznaj usługę", nie „Zobacz ofertę" (14.08.2026). Po depricingu
                     słowo „oferta" jest mniej precyzyjne i może sugerować publiczny
                     cennik, którego strona nie ma. Ta sama etykieta co przy przejściu
                     case study → usługa (`usluga_z_case`), więc obie ścieżki do strony
                     opisowej mówią tak samo. */}
-                <span className="inline-flex items-center gap-2 text-blue dark:text-blue-light font-barlow font-semibold text-sm">
-                  Poznaj usługę
-                  <svg className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                  </svg>
-                </span>
-              </Link>
-            </AnimatedSection>
-          )}
+								<span className='inline-flex items-center gap-2 text-blue dark:text-blue-light font-barlow font-semibold text-sm'>
+									Poznaj usługę
+									<svg
+										className='w-4 h-4 group-hover:translate-x-0.5 transition-transform'
+										fill='none'
+										viewBox='0 0 24 24'
+										stroke='currentColor'
+										strokeWidth={2}
+									>
+										<path
+											strokeLinecap='round'
+											strokeLinejoin='round'
+											d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'
+										/>
+									</svg>
+								</span>
+							</Link>
+						</AnimatedSection>
+					)}
 
-          {/* Powiązane artykuły */}
-          {relatedPosts.length > 0 && (
-            <AnimatedSection className="mt-12 pt-8 border-t border-border dark:border-dark-border">
-              <h2 className="font-barlow font-bold text-xl text-navy dark:text-white mb-5">
-                Powiązane artykuły
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                {relatedPosts.map((p) => (
-                  <BlogCard key={p.slug} post={p} />
-                ))}
-              </div>
-            </AnimatedSection>
-          )}
+					{/* Powiązane artykuły */}
+					{relatedPosts.length > 0 && (
+						<AnimatedSection className='mt-12 pt-8 border-t border-border dark:border-dark-border'>
+							<h2 className='font-barlow font-bold text-xl text-navy dark:text-white mb-5'>
+								Powiązane artykuły
+							</h2>
+							<div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
+								{relatedPosts.map((p) => (
+									<BlogCard key={p.slug} post={p} />
+								))}
+							</div>
+						</AnimatedSection>
+					)}
 
-          {/* Kontakt CTA — prowadzi do końca lejka */}
-          <ErrorBoundary>
-          <AnimatedSection className="mt-12">
-            <div className="rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card p-6 md:p-8 text-center">
-              <h2 className="font-barlow font-extrabold text-xl md:text-2xl text-navy dark:text-white mb-2">
-                Potrzebujesz zdjęć lub wideo dla firmy?
-              </h2>
-              <p className="text-steel dark:text-dark-text-muted text-[14px] mb-5 max-w-md mx-auto">
-                Napisz, co chcesz pokazać. Wstępną wycenę dostaniesz w 24h.
-              </p>
-              <Link
-                href="/kontakt"
-                data-cta="wycena_blog_wpis"
-                className="inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform"
-              >
-                Sprawdź termin i cenę <span className="text-white/80">→</span>
-              </Link>
-            </div>
-          </AnimatedSection>
-          </ErrorBoundary>
+					{/* Kontakt CTA — prowadzi do końca lejka */}
+					<ErrorBoundary>
+						<AnimatedSection className='mt-12'>
+							<div className='rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card p-6 md:p-8 text-center'>
+								<h2 className='font-barlow font-extrabold text-xl md:text-2xl text-navy dark:text-white mb-2'>
+									Potrzebujesz zdjęć lub wideo dla firmy?
+								</h2>
+								<p className='text-steel dark:text-dark-text-muted text-[14px] mb-5 max-w-md mx-auto'>
+									Napisz, co chcesz pokazać. Wstępną wycenę dostaniesz w 24h.
+								</p>
+								<Link
+									href='/kontakt'
+									data-cta='wycena_blog_wpis'
+									className='inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] btn-glow hover:scale-[1.02] transition-transform'
+								>
+									Zapytaj o ofertę <span className='text-white/80'>→</span>
+								</Link>
+							</div>
+						</AnimatedSection>
+					</ErrorBoundary>
 
-          {/* Back link */}
-          <AnimatedSection className="mt-12 pt-8 border-t border-border dark:border-dark-border">
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-blue dark:text-blue-light font-barlow font-semibold text-sm hover:gap-3 transition-all"
-            >
-              <svg className="w-4 h-4 rotate-180" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-              </svg>
-              Wróć do bloga
-            </Link>
-          </AnimatedSection>
-        </article>
-      </main>
-      <Footer />
-      <MobileFAB />
-      <BackToTopButton />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-      />
-    </>
-  );
+					{/* Back link */}
+					<AnimatedSection className='mt-12 pt-8 border-t border-border dark:border-dark-border'>
+						<Link
+							href='/blog'
+							className='inline-flex items-center gap-2 text-blue dark:text-blue-light font-barlow font-semibold text-sm hover:gap-3 transition-all'
+						>
+							<svg
+								className='w-4 h-4 rotate-180'
+								fill='none'
+								viewBox='0 0 24 24'
+								stroke='currentColor'
+								strokeWidth={2}
+							>
+								<path
+									strokeLinecap='round'
+									strokeLinejoin='round'
+									d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'
+								/>
+							</svg>
+							Wróć do bloga
+						</Link>
+					</AnimatedSection>
+				</article>
+			</main>
+			<Footer />
+			<MobileFAB />
+			<BackToTopButton />
+			<script
+				type='application/ld+json'
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+			/>
+		</>
+	);
 }
