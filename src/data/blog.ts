@@ -784,7 +784,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Zdjęcia i film w jednej sesji</h2>
       <p>Najefektywniej jest łączyć materiał foto i wideo na jednej realizacji: jedna rozmowa na starcie, jeden dzień zdjęciowy, spójny styl. Nie koordynujesz dwóch ekip i nie tłumaczysz dwa razy tego samego. Pracuję z Poznania, gdzie dojazd kosztuje 0 zł, poza miastem doliczam 2,50 zł netto za kilometr w obie strony, a realizacje prowadzę w całej Polsce i Europie.</p>
-      <p>Sprawdź, co obejmują <a href="/uslugi/wizerunek-portrety">zdjęcia i film dla firm</a>, zobacz, kiedy bardziej opłaca się <a href="/blog/pakiet-foto-wideo-czy-osobno">pakiet, a kiedy usługi osobno</a>, i zajrzyj do <a href="/blog/slownik-pojec-wideo">słownika pojęć wideo</a>, jeśli chcesz rozumieć, o czym mówimy przy ustalaniu zakresu. A potem <a href="/kontakt">opisz swój projekt</a>. Podpowiem, który format da najwięcej przy Twoim budżecie.</p>
+      <p>Sprawdź, co obejmują <a href="/uslugi/wizerunek-portrety">zdjęcia i film dla firm</a>, zobacz, kiedy bardziej opłaca się <a href="/blog/pakiet-foto-wideo-czy-osobno">zamówić zdjęcia i film u jednej osoby, a kiedy osobno</a>, i zajrzyj do <a href="/blog/slownik-pojec-wideo">słownika pojęć wideo</a>, jeśli chcesz rozumieć, o czym mówimy przy ustalaniu zakresu. A potem <a href="/kontakt">opisz swój projekt</a>. Podpowiem, który format da najwięcej przy Twoim budżecie.</p>
     `,
 		seo: {
 			title: 'Wideo marketing dla firm: jakie formaty | Szabunia',
@@ -1413,69 +1413,72 @@ export const blogPosts: BlogPost[] = [
 	},
 	{
 		slug: 'pakiet-foto-wideo-czy-osobno',
+		// ⚠ SLUG ZOSTAJE MIMO NOWEGO TYTUŁU (13.09.2026). Marcin: „nie ma pakietów”.
+		// Wpis przepisany z „pakiet foto + wideo + dron” na wybór „jedna osoba czy
+		// osobne ekipy”. Adres jest zaindeksowany, więc go nie zmieniamy.
 		faq: [
 			{
-				q: 'Kiedy pakiet foto + wideo + dron się opłaca?',
-				a: 'Gdy z jednego wydarzenia ma powstać kilka rodzajów materiału: zdjęcia, film i ujęcia pokazujące skalę (np. event albo konferencja). Wspólny plan ułatwia połączenie formatów i dopasowanie składu do agendy, a materiał jest spójny i spięty jednym briefem, fakturą i terminem.',
+				q: 'Kiedy opłaca się zamówić zdjęcia, film i dron u jednej osoby?',
+				a: 'Gdy z jednego wydarzenia ma powstać kilka rodzajów materiału: zdjęcia, film i ujęcia pokazujące skalę, np. z konferencji albo gali. Jeden plan dnia łatwiej dopasować do agendy, materiał wygląda jak z jednej produkcji, a Ty masz jeden brief, jedną fakturę i jeden termin dostawy.',
 			},
 			{
-				q: 'Kiedy lepiej zamówić usługi foto i wideo osobno?',
-				a: 'Gdy potrzebujesz tylko jednej rzeczy (samego reportażu zdjęciowego albo samego filmu), pakiet byłby przepłacaniem. Osobne usługi mają też sens przy dużej produkcji: wielokamerowym filmie ze scenariuszem i filmowym oświetleniem plus osobnej ekipie fotograficznej, gdzie jeden twórca to za mało.',
+				q: 'Kiedy lepiej zamówić zdjęcia i film osobno?',
+				a: 'Gdy potrzebujesz tylko jednej rzeczy, np. samego reportażu zdjęciowego. Wtedy nie ma czego łączyć. Osobne ekipy mają też sens przy dużej produkcji filmowej ze scenariuszem, kilkoma kamerami i własnym oświetleniem, obok której ma równolegle pracować fotograf.',
 			},
 			{
 				q: 'Na co patrzeć przy wyborze poza ceną?',
-				a: 'Na spójność (czy foto i wideo będą wyglądać jak komplet, czy jak dwa różne style), logistykę (ile osób koordynujesz w dniu wydarzenia), czas dostawy (jeden harmonogram postprodukcji zamiast czekania na dwie ekipy) oraz formalności: jedna umowa i faktura zamiast kilku.',
+				a: 'Na spójność (czy zdjęcia i film będą wyglądać jak komplet), logistykę (ile osób koordynujesz w dniu wydarzenia), terminy (czy zdjęcia i film będą gotowe w jednym, uzgodnionym czasie) oraz formalności: jedna umowa i faktura zamiast kilku.',
 			},
 		],
 		title:
-			'Pakiet foto + wideo + dron czy usługi osobno: co się bardziej opłaca firmie',
+			'Zdjęcia, film i dron od jednej osoby czy od kilku ekip: co się bardziej opłaca firmie',
 		excerpt:
-			'Gotowy pakiet foto, wideo i dron u jednego partnera czy ekipa z osobnych specjalistów? Kiedy opłaca się pakiet, kiedy usługi osobno i na co patrzeć poza ceną.',
+			'Jedna osoba odpowiedzialna za zdjęcia, film i ujęcia z drona czy osobni specjaliści? Kiedy które rozwiązanie ma sens i na co patrzeć poza ceną.',
 		category: 'branża',
 		date: '2026-06-28',
-		updated: '2026-09-12',
+		updated: '2026-09-13',
 		readTime: 5,
 		thumbnail: '/images/blog/pakiet-foto-wideo-czy-osobno.jpg',
 		content: `
-      <p class="lead">Firma, która potrzebuje zdjęć i filmu z jednego wydarzenia, staje przed wyborem: zamówić gotowy pakiet foto, wideo i dron u jednego partnera, czy złożyć ekipę z osobnych specjalistów. Obie drogi mają sens, ale w różnych sytuacjach. Poniżej tłumaczę, kiedy bardziej opłaca się pakiet, a kiedy usługi osobno, i na co realnie patrzeć poza ceną.</p>
+      <p class="lead">Firma, która potrzebuje zdjęć i filmu z jednego wydarzenia, ma dwie drogi. Może zamówić wszystko u jednej osoby, która odpowiada za zdjęcia, film i ujęcia z drona, albo zebrać kilku osobnych specjalistów. Obie drogi mają sens, tylko w innych sytuacjach. Poniżej wyjaśniam, kiedy która się opłaca i na co patrzeć poza ceną.</p>
 
-      <h2>Co zwykle wchodzi w pakiet</h2>
-      <p>Pakiet foto + wideo + dron to wspólnie zaplanowany zestaw materiałów z jednym kontaktem i osobą odpowiedzialną za jakość. Skład dobieram do zakresu; przy równoległych wydarzeniach może być potrzebny drugi operator. Z jednego dnia dostajesz reportaż zdjęciowy, film podsumowujący, krótki teaser do social mediów i ujęcia z drona, a wszystko spięte jednym briefem, jedną fakturą i jednym terminem.</p>
+      <h2>Jak to wygląda u jednej osoby</h2>
+      <p>Zdjęcia, film i ujęcia z drona planujemy razem, na jednym briefie. Masz jeden kontakt i jedną osobę odpowiedzialną za jakość całego materiału. Zakres ustalamy pod wydarzenie: z jednego dnia może powstać reportaż zdjęciowy, film podsumowujący, krótki teaser do social mediów i ujęcia z drona. Przy dużym wydarzeniu, gdzie dwie rzeczy dzieją się naraz, dochodzi drugi operator, ale nadal rozmawiasz z jedną osobą i dostajesz jedną fakturę.</p>
 
-      <h2>Kiedy pakiet się opłaca</h2>
-      <p>Pakiet wygrywa wtedy, gdy z jednego wydarzenia ma powstać kilka rodzajów materiału:</p>
+      <h2>Kiedy to się opłaca</h2>
+      <p>Najwięcej zyskujesz, gdy z jednego wydarzenia ma powstać kilka rodzajów materiału:</p>
       <ul>
-        <li><strong>Eventy i konferencje:</strong> potrzebujesz i zdjęć, i filmu, i ujęć pokazujących skalę. Wspólny plan ułatwia połączenie formatów i dopasowanie składu do agendy.</li>
-        <li><strong>Spójność jest ważna:</strong> zdjęcia i wideo mają wyglądać jak z jednej produkcji, bo trafią obok siebie na stronę i do social mediów.</li>
-        <li><strong>Zależy Ci na prostocie:</strong> jeden kontakt zamiast koordynowania kilku osób na miejscu.</li>
+        <li><strong>Eventy i konferencje:</strong> potrzebujesz zdjęć, filmu i ujęć pokazujących skalę. Jeden plan dnia łatwiej dopasować do agendy.</li>
+        <li><strong>Spójność jest ważna:</strong> zdjęcia i film trafią obok siebie na stronę i do social mediów, więc mają wyglądać jak z jednej produkcji.</li>
+        <li><strong>Liczy się prosta organizacja:</strong> w dniu wydarzenia masz jedną osobę do kontaktu zamiast kilku.</li>
       </ul>
 
       <h2>Kiedy lepiej osobno</h2>
-      <p>Usługi osobno mają sens, gdy:</p>
+      <p>Osobni specjaliści mają sens, gdy:</p>
       <ul>
-        <li><strong>Potrzebujesz tylko jednej rzeczy:</strong> sam reportaż zdjęciowy albo sam film. Wtedy pakiet to przepłacanie za coś, czego nie wykorzystasz.</li>
-        <li><strong>Produkcja jest duża:</strong> wielokamerowy film ze scenariuszem i filmowym oświetleniem, a do tego osobna ekipa fotograficzna jednocześnie. Przy takiej skali jeden twórca to za mało i lepiej złożyć dedykowany zespół.</li>
+        <li><strong>Potrzebujesz tylko jednej rzeczy:</strong> sam reportaż zdjęciowy albo sam film. Wtedy nie ma czego łączyć.</li>
+        <li><strong>Produkcja jest duża:</strong> film ze scenariuszem, kilkoma kamerami i własnym oświetleniem, a obok równolegle pracuje fotograf. Przy takiej skali lepiej złożyć osobny zespół filmowy.</li>
       </ul>
 
       <h2>Na co patrzeć poza ceną</h2>
       <ul>
-        <li><strong>Spójność:</strong> czy foto i wideo będą wyglądać jak komplet, czy jak dwa różne style.</li>
+        <li><strong>Spójność:</strong> czy zdjęcia i film będą wyglądać jak komplet, czy jak dwa różne style.</li>
         <li><strong>Logistyka:</strong> ile osób musisz koordynować w dniu wydarzenia.</li>
-        <li><strong>Czas dostawy:</strong> zdjęcia i film mają wspólny harmonogram postprodukcji oraz uzgodnione terminy dostawy.</li>
+        <li><strong>Terminy:</strong> czy zdjęcia i film będą gotowe w jednym, uzgodnionym czasie.</li>
         <li><strong>Formalności:</strong> jedna umowa i faktura zamiast kilku.</li>
       </ul>
 
       <h2>Jak to wygląda przy Twoim wydarzeniu</h2>
-      <p>Najprościej porównać konkretne liczby dla Twojego wydarzenia. Gdy zdjęcia, film i ujęcia z drona powstają tego samego dnia, logistykę planuje się raz; o cenie decydują zakres, czas i liczba operatorów. Dokładne kwoty dla Twojej skali odeślę po krótkim opisie wydarzenia. Na zapytania odpowiadam w ciągu 24 godzin. Pracuję z Poznania, a zlecenia realizuję w całej Polsce: w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr.</p>
+      <p>Najprościej porównać to na konkretnym przykładzie. Gdy zdjęcia, film i ujęcia z drona powstają tego samego dnia, logistykę planuje się raz. O cenie decydują zakres, czas na miejscu i liczba operatorów. Opisz krótko wydarzenie, a wstępną wycenę odeślę w ciągu 24 godzin. Pracuję z Poznania i realizuję zlecenia w całej Polsce. W Poznaniu nie doliczam dojazdu, poza miastem to 2,50 zł netto za kilometr.</p>
 
       <h2>Podsumowanie</h2>
-      <p>Pakiet foto + wideo + dron opłaca się tam, gdzie z jednego wydarzenia ma powstać kilka spójnych formatów, a Ty chcesz prostej logistyki oraz zakresu dopasowanego do budżetu. Usługi osobno mają sens przy pojedynczej potrzebie albo bardzo dużej produkcji.</p>
-      <p>Zobacz <a href="/uslugi/eventy-reportaze">zdjęcia i film z wydarzeń firmowych</a> albo <a href="/kontakt">opisz swój wariant</a>.</p>
+      <p>Zdjęcia, film i dron od jednej osoby opłacają się tam, gdzie z jednego wydarzenia ma powstać kilka spójnych formatów, a Ty chcesz prostej organizacji. Osobni specjaliści mają sens przy pojedynczej potrzebie albo bardzo dużej produkcji filmowej.</p>
+      <p>Zobacz <a href="/uslugi/eventy-reportaze">zdjęcia i film z wydarzeń firmowych</a> albo <a href="/kontakt">opisz swoje wydarzenie</a>.</p>
     `,
 		seo: {
-			title: 'Pakiet foto, wideo i dron czy osobno | Szabunia',
+			title: 'Foto, wideo i dron od jednej osoby czy osobno | Szabunia',
 			description:
-				'Kiedy opłaca się pakiet foto + wideo + dron, a kiedy usługi osobno. Porównanie kosztu, spójności i logistyki obsługi eventu firmowego. Poznań.',
+				'Kiedy opłaca się zamówić zdjęcia, film i dron u jednej osoby, a kiedy u osobnych specjalistów. Spójność, logistyka i terminy przy evencie firmowym.',
 		},
 	},
 	{
