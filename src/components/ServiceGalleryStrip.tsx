@@ -132,14 +132,28 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
 		'event-24-saksofonista-bankiet',
 		'event-09-wystep-na-scenie-hali',
 	].map((n) => `/images/galeria/eventy/${n}.jpg`),
+	// SKŁAD I KOLEJNOŚĆ ZMIENIONE 14.09.2026 (brief dopracowania usług).
+	//
+	// 1. Wyszedł `produkt-13-toast-belvedere`. To hero podstrony produktowej, a lista
+	//    miała dokładnie osiem pozycji, więc filtr `exclude` (ZDJ2608-27) nie mógł go
+	//    odjąć i ten sam kadr stał w hero i w pierwszym kafelku paska, jeden ekran niżej.
+	// 2. Wszedł `produkt-33-packshot-bieli-detal`: element z tworzywa na białym tle.
+	//    H1 podstrony zaczyna się od „Packshoty", pierwsza karta zakresu to „Packshoty
+	//    na białym tle", a w pasku był jeden taki kadr na osiem (pędzel, na siódmym
+	//    miejscu). Obejrzane: to czysty packshot, bez aranżacji.
+	// 3. Packshoty na początku, potem aranżacje. Pierwszy kafelek to jedyny, który
+	//    klient widzi na pewno (ta sama zasada co przy eventach, 10.08.2026), a na
+	//    telefonie siatka ma dwie kolumny, więc pierwszy rząd to dwa packshoty.
+	//    Dalej kolejność poprzedniej listy bez zmian.
+	// Aby cofnąć: przywróć `produkt-13-toast-belvedere` na początek i usuń `produkt-33`.
 	produktowe: [
-		'produkt-13-toast-belvedere', // toast kieliszkami wódki
+		'produkt-33-packshot-bieli-detal', // element z tworzywa, białe tło
+		'produkt-19-pedzelek', // pędzel do makijażu, białe tło
 		'produkt-08-volvo-las', // auto w środku lasu
 		'produkt-35-danie-talerz', // danie z fasolką na białym talerzu
 		'produkt-10-bransoletka-dlon', // bransoletka na dłoni
 		'produkt-17-sukienka-zolta', // kobieta w żółtej sukience
 		'produkt-06-hob-koszulki', // koszulka na ciemnym tle
-		'produkt-19-pedzelek', // patyczek do makijażu
 		'produkt-01-caprice', // grejfrutowy koktajl / alkohol
 	].map((n) => `/images/galeria/produktowe/${n}.jpg`),
 	// 6 różnych obiektów (bez powtórki tego samego budynku, np. Bałtyk z dwóch stron).

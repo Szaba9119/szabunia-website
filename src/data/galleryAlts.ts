@@ -44,11 +44,23 @@
  * z czarnej listy, bez doklejania miasta przecinkiem, liczba mnoga tam, gdzie
  * na kadrze jest więcej niż jedna osoba.
  *
- * Kategorie bez wpisów (dziś: `produktowe`) korzystają dalej ze swojego mechanizmu
- * i czekają na własną rundę.
+ * Kategorie bez wpisów korzystają dalej ze swojego mechanizmu i czekają na własną rundę.
+ * `produktowe` ma od 14.09.2026 wpisy dla ośmiu kadrów z paska na podstronie usługi
+ * (obejrzane jeden po drugim). Wcześniej siedem z nich dostawało ten sam opis
+ * „Fotografia produktowa, packshot", również sukienka na modelce i auto w lesie.
+ * Pozostałe pliki tej kategorii nadal czekają.
  */
 export const GALLERY_ALTS: Record<string, string> = {
   "produkt-13-toast-belvedere": "Dłonie unoszą kieliszki w toaście przy barze, fotografia produktu w użyciu",
+  "produkt-33-packshot-bieli-detal":
+    "Czerwony element z tworzywa o ażurowej strukturze, packshot na białym tle",
+  "produkt-19-pedzelek": "Różowy pędzel do makijażu, packshot na białym tle",
+  "produkt-08-volvo-las": "Biały samochód na leśnej drodze między wysokimi drzewami, zdjęcie reklamowe auta",
+  "produkt-35-danie-talerz": "Tartaletka z zielonymi warzywami na białym talerzu, ciemne tło, fotografia kulinarna",
+  "produkt-10-bransoletka-dlon": "Bransoletka z koralików i pierścionki na dłoni, zdjęcie biżuterii w aranżacji",
+  "produkt-17-sukienka-zolta": "Modelka w żółtej sukience z falbanami na jasnym tle, zdjęcie odzieży",
+  "produkt-06-hob-koszulki": "Koszulka i bluza z nadrukiem ułożone na dwukolorowym tle, zdjęcie odzieży",
+  "produkt-01-caprice": "Butelka aperitifu i koktajl z grejpfrutem na żółtym blacie, aranżacja produktowa",
   /* ── eventy (15 z 15 obejrzanych) ── */
   "event-25-zespol-na-scenie":
     "Zespół muzyczny na scenie z ekranem LED, oprawa artystyczna imprezy firmowej",

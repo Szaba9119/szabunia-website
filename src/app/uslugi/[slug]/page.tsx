@@ -28,7 +28,7 @@ import PoradnikBlogCTA from '@/components/PoradnikBlogCTA';
 import Link from 'next/link';
 import Image from 'next/image';
 import ErrorBoundary from '@/components/ErrorBoundary';
-import { getPostsForService } from '@/data/blog';
+import { getPostsForService, getBlogPostBySlug } from '@/data/blog';
 import { breadcrumbJsonLd, type Crumb } from '@/components/Breadcrumbs';
 
 // Poradnik (lead magnet) dotyczy wyłącznie stylizacji/pozowania do pojedynczego
@@ -89,7 +89,13 @@ export default async function ServicePage({ params }: PageProps) {
 	const service = getServiceBySlug(slug);
 	if (!service) notFound();
 
-	const relatedPosts = getPostsForService(service.slug, 3);
+	// `blogSlugs` wybiera wpisy ręcznie (14.09.2026, wizerunek). Bez niego zostaje
+	// automat: trzy najnowsze wpisy przypisane usłudze w `blogServiceMap`.
+	const relatedPosts = service.blogSlugs
+		? service.blogSlugs
+				.map((s) => getBlogPostBySlug(s))
+				.filter((p) => !!p)
+		: getPostsForService(service.slug, 3);
 	const testimonial = SERVICE_TESTIMONIALS[service.slug];
 	const pillar = getPillar(service.slug);
 	// Pytanie cenowe zawsze pierwsze w FAQ (brief-22 zad. 4) — ta sama tablica
@@ -497,7 +503,15 @@ export default async function ServicePage({ params }: PageProps) {
 								<p className='text-steel dark:text-dark-text-muted text-[15px] text-center mb-8'>
 									Praktyczne porady powiązane z tą usługą.
 								</p>
-								<div className='grid grid-cols-1 sm:grid-cols-3 gap-5'>
+								{/* Siatka wg liczby wpisów (14.09.2026): produktowa ma ręcznie
+								    wybrane dwa, a przy stałych trzech kolumnach trzecia stałaby pusta. */}
+								<div
+									className={`grid grid-cols-1 gap-5 ${
+										relatedPosts.length === 2
+											? 'sm:grid-cols-2 max-w-3xl mx-auto'
+											: 'sm:grid-cols-3'
+									}`}
+								>
 									{relatedPosts.map((p) => (
 										<BlogCard key={p.slug} post={p} />
 									))}

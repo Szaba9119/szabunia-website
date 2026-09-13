@@ -168,10 +168,9 @@ export interface ServiceData {
       ⛔ NIE WPISYWAĆ tu slugów z `DRAFT_SLUGS` (`portfolio.ts`). Render i tak
       je odfiltrowuje przez `isPortfolioDraft`, ale wpis byłby mylący.
 
-      ⚠ `wizerunek-portrety` celowo wskazuje TYLKO `sesja-korporacyjna`.
-      Pozostałe dwie realizacje wizerunkowe są już linkowane wyżej na tej samej
-      podstronie, z pasków galerii (idcom i sesja-wizerunkowa). Dopisanie ich tu
-      postawiłoby ten sam link dwa razy. */
+      ⚠ Zapis „`wizerunek-portrety` celowo wskazuje TYLKO `sesja-korporacyjna`"
+      jest nieaktualny od 11.08.2026 (C2): usługa wskazuje trzy realizacje, a dwie
+      z nich są dziś w `DRAFT_SLUGS`, więc renderuje się tylko IDcom (stan 14.09.2026). */
 	portfolioSlugs?: string[];
 	galleryCategory?:
 		| 'portrety'
@@ -220,10 +219,16 @@ export interface ServiceData {
       otwierał się nagłówkiem o wizerunku, czyli o innej usłudze niż ta,
       którą klient przed chwilą czytał.
 
-      Celowo wypełnione TYLKO dla eventów. Pozostałe trzy usługi zostają na
-      domyślnym tekście do swojej kolejki, tak samo jak przy `applications`
-      i `scope`. */
+      Stan od 14.09.2026: wypełnione we WSZYSTKICH czterech usługach (wizerunek
+      dostał nagłówek jako ostatni). Zapis „celowo tylko dla eventów" z 10.08.2026
+      jest nieaktualny: produktowa i nieruchomości dostały własny nagłówek w swojej
+      kolejce. Domyślny tekst renderuje się dziś na stronie głównej, `/uslugi`
+      i pozostałych stronach bez usługi. */
 	ctaHeading?: string[];
+	/** Wpisy blogowe do sekcji „Z bloga", w podanej kolejności. Brak wartości =
+      trzy najnowsze wpisy przypisane usłudze w `blogServiceMap` (`getPostsForService`).
+      Dodane 14.09.2026 dla wizerunku, gdzie automat pokazywał wpis o innej usłudze. */
+	blogSlugs?: string[];
 	/** Kod usługi wstawiany z góry do pola „Rodzaj usługi" w formularzu (`CTA.tsx`).
 
       Dodane 10.08.2026 po drugim audycie zewnętrznym, §17. Klient na podstronie
@@ -516,20 +521,36 @@ const serviceCategoriesRaw: ServiceData[] = [
 		heroPriceLabel: 'Wstępna wycena',
 		price: 'wycena w 24h',
 		process: [
-			{ num: 1, title: 'Rozmowa', desc: 'Agenda, kluczowe momenty, VIP-y' },
-			{ num: 2, title: 'Realizacja', desc: 'Dyskretna fotografia reportażowa' },
+			// PROCES PRZEPISANY 14.09.2026. Krok 3 brzmiał „Zdjęcia na bieżąco: opcja
+			// dodatkowa", czyli etap, który w podstawowym zakresie w ogóle nie zachodzi.
+			// Klient czytał cztery kroki, z których jeden był dopłatą. Teraz krok 3 to
+			// selekcja i obróbka (dzieje się zawsze), a opcja zostaje w nawiasie.
+			// Fakty z tej samej usługi: agenda i osoby z `servicePillars.ts`, dwie karty
+			// z tego samego miejsca, 30 zdjęć na godzinę z karty zakresu, 14 i 21 dni
+			// z kanonu terminów w CLAUDE.md §9. Filmu nie było w kroku dostawy, mimo że
+			// wideo stoi w zakresie.
+			{
+				num: 1,
+				title: 'Rozmowa',
+				desc: 'Agenda, kluczowe momenty i osoby, których nie może zabraknąć na zdjęciach',
+			},
+			{
+				num: 2,
+				title: 'Realizacja',
+				desc: 'Dyskretny reportaż, każde zdjęcie zapisane od razu na dwóch kartach',
+			},
 			{
 				num: 3,
-				title: 'Zdjęcia na bieżąco',
-				desc: 'Opcja dodatkowa: zdjęcia na social media w trakcie eventu',
+				title: 'Selekcja i obróbka',
+				desc: 'Około 30 gotowych zdjęć na godzinę obecności, wybrane kadry także w trakcie wydarzenia (opcja)',
 			},
-			{ num: 4, title: 'Dostawa', desc: 'Pełna galeria w 14 dni' },
+			{ num: 4, title: 'Dostawa', desc: 'Pełna galeria w 14 dni, film w 21 dni' },
 		],
 		// Przepisane 10.08.2026. Poprzednia wersja mówiła „rozliczenie dniówką
 		// wychodzi korzystniej niż sumowanie godzin", czyli odsłaniała mechanikę
 		// cenową zamiast obiecywać korzyść (korekta Marcina).
 		pricingBlurb:
-			'Na wycenę wpływa liczba godzin obecności, to, czy dochodzi wideo i ujęcia z powietrza, oraz czy chcesz zdjęcia gotowe do publikacji jeszcze w trakcie wydarzenia. Przy dłuższych realizacjach przygotowuję korzystniejszą wycenę całościową.',
+			'Na wycenę wpływa liczba godzin obecności, to, czy dochodzi wideo i ujęcia z powietrza, oraz czy chcesz zdjęcia gotowe do publikacji jeszcze w trakcie wydarzenia. Przy dłuższych realizacjach przygotowuję korzystniejszą wycenę całościową. Wydarzenia obsługuję w całej Polsce, a poza Poznaniem do wyceny dochodzi dojazd.',
 		priceFaqQuestion: 'Ile kosztuje fotograf na event firmowy?',
 		// Kolejność ustawiona przez Marcina 10.08.2026: od obaw BIZNESOWYCH do
 		// szczegółów technicznych. Pytanie cenowe wchodzi automatycznie jako
@@ -543,8 +564,10 @@ const serviceCategoriesRaw: ServiceData[] = [
 		//    co pytanie cenowe, tylko innymi słowami.
 		faqs: [
 			{
-				q: 'Ile zdjęć dostanę?',
-				a: 'Około 30 gotowych zdjęć na każdą godzinę obecności, po selekcji i obróbce. Przy realizacji z wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali wydarzenia i dodatkowych zadań w trakcie. To autorski wybór najlepszych momentów, a nie wszystkie wykonane kadry.',
+				// „i kiedy" dopisane 14.09.2026: termin dostawy padał tylko w kroku procesu,
+				// w FAQ (i w danych FAQPage) nie było go wcale. 14 i 21 dni to kanon terminów.
+				q: 'Ile zdjęć dostanę i kiedy?',
+				a: 'Około 30 gotowych zdjęć na każdą godzinę obecności, po selekcji i obróbce. Przy realizacji z wideo jest ich mniej, bo część czasu idzie na nagrywanie. Dokładna liczba zależy też od skali wydarzenia i dodatkowych zadań w trakcie. To autorski wybór najlepszych momentów, a nie wszystkie wykonane kadry. Pełną galerię dostajesz w 14 dni, film w 21 dni.',
 			},
 			// Pytanie o licencję dodane 10.08.2026 (audyt zewnętrzny §12). Treść oparta
 			// na istniejącej odpowiedzi z `faq.ts` („Czy mogę użyć zdjęć na LinkedIn /
@@ -599,14 +622,28 @@ const serviceCategoriesRaw: ServiceData[] = [
 				q: 'Fotografujesz wieczorne gale przy słabym świetle?',
 				a: 'Tak. Jasne obiektywy f/1.4 i f/2.8 pozwalają pracować bez nachalnego flesza, z zachowaniem klimatu sali. Gdy trzeba, dokładam dyskretne doświetlenie.',
 			},
+			// ⚠ PYTANIE O SPRZĘT PRZEFORMUŁOWANE 14.09.2026. Organizator nie wybiera
+			// fotografa po modelu aparatu, tylko boi się, że wydarzenia nie da się
+			// powtórzyć. Ta sama treść (dwa korpusy, dwie karty, certyfikat, OC)
+			// odpowiada teraz na tę obawę. Modele obiektywów wypadły; jasne obiektywy
+			// zostają w pytaniu o gale przy słabym świetle wyżej.
 			{
-				q: 'Na jakim sprzęcie pracujesz?',
-				a: 'Dwa aparaty Canon R6 z zapisem na dwie karty, więc materiał z wydarzenia jest zabezpieczony od pierwszego kadru. Do tego jasne obiektywy Sigma, Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilne oświetlenie Godox i dron DJI Mini 5 Pro. Mam certyfikat operatora drona i ubezpieczenie OC.',
+				q: 'Co, jeśli w trakcie wydarzenia zawiedzie sprzęt?',
+				a: 'Pracuję na dwóch aparatach Canon R6, a każde zdjęcie zapisuje się od razu na dwóch kartach. Awaria jednego korpusu albo jednej karty nie przerywa reportażu i nie kasuje materiału. Przy ujęciach z powietrza latam z certyfikatem operatora drona i ubezpieczeniem OC.',
 			},
 		],
 		// `fotografia-eventowa` dołożone 11.08.2026: miało JEDEN link przychodzący
 		// w całym serwisie (kafel na `/portfolio`), mimo że to case study tej usługi.
 		portfolioSlugs: ['woohoo-autopay', 'fotografia-eventowa'],
+		// Wpisy wybrane ręcznie 14.09.2026. Automat pokazywał trzy najnowsze z sześciu,
+		// w tym dwa o tym samym temacie („foto, wideo i dron od jednego partnera"
+		// i „od jednej osoby czy od kilku ekip"). Teraz: wybór fotografa, plan obsługi
+		// eventu i zdjęcia w trakcie wydarzenia, czyli opcja dodatkowa z zakresu.
+		blogSlugs: [
+			'jak-wybrac-fotografa-na-event',
+			'obsluga-foto-wideo-eventu-firmowego',
+			'live-editing-na-evencie',
+		],
 		// Struktura zdaniowa taka sama jak w domyślnym nagłówku („czasownik w 1. os.
 		// l. mn. + dopełnienie w drugim wierszu"), więc kompozycja bloku się nie zmienia.
 		// Nie obiecuje dostępności terminu: to zdanie stoi nad formularzem, a terminu
@@ -614,7 +651,13 @@ const serviceCategoriesRaw: ServiceData[] = [
 		ctaHeading: ['Zaplanujmy obsługę', 'Twojego wydarzenia'],
 		formServiceCode: 'event',
 		seo: {
-			title: 'Fotografia i wideo wydarzeń firmowych, Poznań | Szabunia',
+			// ⚠ TITLE ZMIENIONY 14.09.2026 (brief dopracowania usług). Było: „Fotografia
+			// i wideo wydarzeń firmowych, Poznań". H1 mówi „Fotograf eventowy", a w tytule
+			// nie było ani „eventowej", ani „eventu", czyli słowa, którym klient szuka
+			// tej usługi (GSC 07.2026: „fotografia eventowa poznań", „zdjęcia eventowe
+			// poznań"). Budowa jak w pozostałych usługach. Linia eventowa ma dziś
+			// pojedyncze wyświetlenia, więc ryzyko utraty pozycji jest znikome.
+			title: 'Fotografia eventowa i wideo z wydarzeń, Poznań | Szabunia',
 			description:
 				'Konferencje, targi, gale i integracje. Zdjęcia, film i dron od jednego partnera. Obsługiwałem eventy dla H&M, Santandera i Warner Music.',
 		},
@@ -653,6 +696,14 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// `ServiceGalleryStrip` kieruje kategorię `zespolowe` na case study
 			// `/portfolio/idcom-headshoty-zespolu`, nie na filtrowaną galerię.
 			category: 'zespolowe',
+			// MAŁE CASE STUDY IDcom W PODPISIE PASKA, 14.09.2026. Zdjęcia zostają głównym
+			// dowodem, podpis dokłada tylko cel i sposób realizacji, bez nowej sekcji
+			// i bez komponentu, którego nie mają trzy pozostałe usługi. Wszystkie fakty
+			// z `portfolio.ts` (opis i `caseStudy` realizacji `idcom-headshoty-zespolu`).
+			// Warunek z notki ⛔ niżej spełniony: zdanie o trzech tłach i wspólnym
+			// standardzie światła i retuszu zostaje, a domyślny podpis kategorii
+			// w `ServiceGalleryStrip.tsx` nie renderuje się dziś nigdzie indziej.
+			sub: 'Realizacja dla IDcom Group, software house’u z Poznania. Zespół potrzebował portretów na stronę internetową i do materiałów firmowych, więc z jednej sesji powstały trzy wersje: na białym, czarnym z niebieskim światłem i kremowym tle. Każda osoba ma ten sam standard światła i retuszu.',
 			// Etykieta poprawiona 10.08.2026 (decyzja Marcina). Poprzednia, „Zobacz sesje
 			// zespołowe", myliła podwójnie: obiecywała galerię, a przycisk prowadzi do case
 			// study jednego klienta (IDcom), i sugerowała osobną usługę, którą sesje
@@ -676,6 +727,8 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// Domyślny podpis mówi dokładnie to, co trzeba (trzy tła, ten sam standard
 			// światła i retuszu, realizacja dla IDcom Group), więc pole zostaje puste:
 			// jedno źródło prawdy zamiast dwóch kopii tego samego zdania.
+			// ⚠ „POLE ZOSTAJE PUSTE" NIEAKTUALNE OD 14.09.2026: `sub` wyżej rozszerza
+			// ten podpis o cel realizacji i zachowuje zdanie o trzech tłach.
 			//
 			// Logistyka mobilnego studia nie ginie, stoi w „Zakresie realizacji"
 			// (karta „Mobilne studio w Twoim biurze") i w FAQ („Sesja u nas w biurze
@@ -922,9 +975,25 @@ const serviceCategoriesRaw: ServiceData[] = [
 				a: 'Jak wolisz. Przy jednej osobie możesz wybrać studio w Poznaniu albo mój dojazd z mobilnym studiem. Przy większym zespole biuro wychodzi zwykle taniej i szybciej, bo nikt nie musi nigdzie jechać. Jeśli zależy Ci na innym klimacie, rezerwuję studio zewnętrzne dobrane do charakteru firmy.',
 			},
 			// Głos strony, nie nowy tekst: oba zdania są wzorcami z docs/zasady-tekstow.md.
+			// Zapis zmieniony na pytanie 14.09.2026: w danych FAQPage `name` jest typu
+			// Question, a oznajmienie „Nie umiem pozować i źle wypadam..." pytaniem nie było.
+			// Drugie zdanie odpowiedzi to konkret z wpisu `jak-przygotowac-sie-do-sesji-biznesowej`
+			// (punkt 7, „pokaże, jak stanąć, gdzie patrzeć, kiedy się uśmiechnąć"), nie nowa obietnica.
 			{
-				q: 'Nie umiem pozować i źle wypadam na zdjęciach.',
-				a: 'Słyszę to bardzo często i za każdym razem efekt pozytywnie zaskakuje. Nie musisz być modelem, wystarczy być sobą. Reszta to moja robota.',
+				q: 'Nie umiem pozować i źle wypadam na zdjęciach. Czy to problem?',
+				a: 'Nie. Słyszę to bardzo często i za każdym razem efekt pozytywnie zaskakuje. W trakcie sesji pokazuję, jak stanąć, gdzie patrzeć i kiedy się uśmiechnąć. Nie musisz być modelem, wystarczy być sobą. Reszta to moja robota.',
+			},
+			// ⚠ PYTANIE O SPRZĘT ZASTĄPIONE 14.09.2026 (brief dopracowania podstrony). Stoi zaraz
+			// po pozowaniu, bo oba pytania zadaje osoba fotografowana, nie zamawiająca.
+			// Było: „Na jakim sprzęcie pracujesz?" (Canon R6, Sigma 70-200, Godox). Model
+			// aparatu nie usuwa żadnej bariery zakupowej, a pytania „co założyć" i „jak się
+			// przygotować" nie było w FAQ wcale, mimo że strona ma o tym dwa wpisy i poradnik.
+			// Treść odpowiedzi to skrót istniejących tekstów, zero nowych zaleceń:
+			// `co-zalozyc-na-sesje-biznesowa` (zasada „o jeden poziom wyżej", kolory,
+			// kratka i paski, 2-3 stylizacje) oraz poradnik PDF linkowany niżej na tej stronie.
+			{
+				q: 'Jak przygotować się do sesji i co założyć?',
+				a: 'Ubierz się o jeden poziom bardziej elegancko niż na co dzień w pracy. Najlepiej wychodzą stonowane, jednolite kolory: granat, grafit, szarość, biel. Unikaj drobnej kratki, wąskich pasków i dużych logotypów. Weź 2-3 stylizacje, żeby było z czego wybierać. Pełną listę znajdziesz w bezpłatnym poradniku przygotowania do sesji.',
 			},
 			// Licencja sprawdzona 10.08.2026 wobec src/data/faq.ts:60 — ta sama
 			// obietnica stoi już na produkcji, więc to nie jest nowe zobowiązanie.
@@ -956,10 +1025,6 @@ const serviceCategoriesRaw: ServiceData[] = [
 				q: 'Zrobisz film przy okazji sesji zdjęciowej?',
 				a: 'Tak. Krótki film o firmie, wypowiedzi do kamery i pionowe formaty na LinkedIn nagrywam w tym samym dniu co zdjęcia, bez osobnego terminu. Zdjęcia dostajesz w 14 dni, film w 21 dni. W cenie filmu są trzy tury poprawek montażowych.',
 			},
-			{
-				q: 'Na jakim sprzęcie pracujesz?',
-				a: 'Canon R6 z zapisem na dwie karty, Sigma 70-200 mm f/2.8 jako podstawowy obiektyw portretowy, bo dłuższa ogniskowa nie zniekształca rysów twarzy, i studyjne oświetlenie Godox. Do biura przywożę cały zestaw ze sobą.',
-			},
 		],
 		// WSZYSTKIE TRZY REALIZACJE WIZERUNKOWE W JEDNYM BLOKU (C2, decyzja Marcina,
 		// 11.08.2026). Cofa zapis z tego samego dnia („celowo bez `idcom-headshoty-zespolu`
@@ -986,9 +1051,33 @@ const serviceCategoriesRaw: ServiceData[] = [
 			'sesja-wizerunkowa',
 			'idcom-headshoty-zespolu',
 		],
+		// Wpisy w „Z bloga" wybrane ręcznie 14.09.2026. Automat (`getPostsForService`,
+		// trzy najnowsze z czternastu przypisanych) stawiał tu wpis o koszcie filmu
+		// promocyjnego z kadrem tokarki, czyli tekst o innej usłudze na stronie o portretach.
+		// Trzy wpisy odpowiadają na trzy obiekcje z tej podstrony: cena, organizacja
+		// sesji zespołu, strój. Wpis o cenie to też jedyna strona serwisu rankująca
+		// na klaster „ile kosztuje sesja wizerunkowa" (24% wyświetleń w GSC 07.2026).
+		blogSlugs: [
+			'ile-kosztuje-sesja-wizerunkowa-dla-firmy',
+			'headshoty-zespolu-w-jeden-dzien',
+			'co-zalozyc-na-sesje-biznesowa',
+		],
+		// Nagłówek formularza dołożony 14.09.2026. Trzy pozostałe usługi mają własny
+		// od 10-11.08, wizerunek jako jedyny został na ogólnym „Opowiedz mi o projekcie".
+		// „Sesję biznesową", nie „Twojego zespołu": ta sama strona obsługuje jedną osobę.
+		ctaHeading: ['Zaplanujmy', 'sesję biznesową'],
 		formServiceCode: 'wizerunek',
 		seo: {
-			title: 'Fotografia i wideo wizerunkowe dla firm, Poznań | Szabunia',
+			// ⚠ TITLE ZMIENIONY 14.09.2026 (brief dopracowania podstrony, zgoda Marcina
+			// w treści briefu). Było: „Fotografia i wideo wizerunkowe dla firm, Poznań".
+			// Powód: w tytule nie było ani „sesji biznesowej", ani „portretów", czyli
+			// dwóch rdzeni zapytań przypisanych tej stronie w MASTER-SEO-BASELINE
+			// (wiersz „sesja biznesowa, portret biznesowy"). Budowa jak w pozostałych
+			// trzech usługach: fraza, przecinek, Poznań, marka. „Fotografia biznesowa"
+			// świadomie POZA tytułem: tę frazę trzyma strona główna, kopia tutaj
+			// ustawiłaby dwie strony serwisu na jedno zapytanie.
+			// Pomiar: dane GSC od 14.09.2026 mają tę zmianę jako nową zmienną.
+			title: 'Sesja biznesowa i portrety dla firm, Poznań | Szabunia',
 			description:
 				'Portrety biznesowe, headshoty zespołu i film wizerunkowy. Sesja w studiu albo mobilne studio w Twoim biurze. Poznań i cała Polska.',
 		},
@@ -1152,8 +1241,12 @@ const serviceCategoriesRaw: ServiceData[] = [
 				a: 'Tak, produkty do 20×20 cm przyjmuję do studia. Przy większych przyjeżdżam ze studiem mobilnym albo rezerwuję studio zewnętrzne. Koszt przesyłki zwrotnej ustalamy przy wycenie.',
 			},
 			{
-				q: 'Czym różni się fotografia produktowa od reklamowej?',
-				a: 'Produktowa pokazuje produkt wprost: packshot do sklepu albo katalogu. Reklamowa buduje wokół niego historię, z aranżacją i rekwizytami, pod konkretną kampanię. Reklamowe wyceniam według pola eksploatacji, bo inna jest wartość zdjęcia na Instagramie, a inna na billboardzie.',
+				// Rozszerzone 14.09.2026 z dwóch rodzajów do trzech. Zakres realizacji
+				// rozdziela packshot, aranżację i zdjęcie reklamowe, a pytanie porównywało
+				// tylko „produktową" z „reklamową", więc aranżacja (8 do 15 ujęć dziennie)
+				// nie miała w FAQ żadnego punktu odniesienia. Treść z kart zakresu.
+				q: 'Czym różni się packshot od zdjęcia w aranżacji i reklamowego?',
+				a: 'Packshot pokazuje sam produkt na białym tle, do karty produktu, marketplace\'u albo katalogu. Zdjęcie w aranżacji dokłada scenografię, rekwizyty i światło pod charakter marki, a każde ujęcie wymaga osobnego ustawienia, więc w dzień powstaje ich kilka razy mniej. Zdjęcie reklamowe powstaje pod konkretną kampanię, z koncepcją i moodboardem. Wyceniam je według pola eksploatacji, bo inna jest wartość zdjęcia na Instagramie, a inna na billboardzie.',
 			},
 			{
 				q: 'Jakie pliki dostanę?',
@@ -1163,9 +1256,14 @@ const serviceCategoriesRaw: ServiceData[] = [
 				q: 'Czy realizujesz wideo produktowe?',
 				a: 'Tak, krótkie filmy pokazujące produkt, jego użycie i detale, a także spoty pod kampanie w social mediach. Przykłady są w sekcji z filmami powyżej.',
 			},
+			// ⚠ PYTANIE O SPRZĘT ZASTĄPIONE 14.09.2026. Jedyna część odpowiedzi, która
+			// usuwała barierę zakupową, to ostatnie zdanie o powtarzalnym ustawieniu,
+			// więc to ono stało się pytaniem. Sklep dokłada produkty partiami i boi się,
+			// że nowe zdjęcia nie będą pasować do starych. Fakty z `servicePillars.ts`
+			// („Zapisuję ustawienie światła i tła") i z karty zakresu packshotów.
 			{
-				q: 'Na jakim sprzęcie pracujesz?',
-				a: 'Canon R6, obiektywy do detalu i packshotu, stół bezcieniowy i studyjne oświetlenie ciągłe LED Godox. Ten sam zestaw nagrywa wideo produktowe. Powtarzalny setup pozwala dokładać kolejne produkty do katalogu w tej samej stylistyce, nawet pół roku później.',
+				q: 'Czy kolejne produkty dołożę później w tej samej stylistyce?',
+				a: 'Tak. Zapisuję ustawienie światła i tła, więc kolejną partię fotografuję w tym samym standardzie, nawet pół roku później.',
 			},
 		],
 		// Artech mimo filmu z hali produkcyjnej należy tu, nie do przemysłu:
@@ -1174,6 +1272,11 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// nieruchomości i przemysłu. Dwa materiały tego samego klienta, dwa
 		// zastosowania, świadomie zaakceptowane przez Marcina 11.08.2026.
 		portfolioSlugs: ['artech-fotografia-produktowa', 'packshoty-produktowe'],
+		// Wpisy wybrane ręcznie 14.09.2026. Usługa ma DWA własne wpisy, a automat
+		// dopełniał do trzech najnowszym z innej kategorii („Zdjęcia, film i dron od
+		// jednego partnera"). Dwa trafne zamiast trzech z jednym przypadkowym;
+		// siatka w `uslugi/[slug]/page.tsx` dopasowuje się do liczby kart.
+		blogSlugs: ['co-to-jest-packshot', 'fotografia-produktowa-ecommerce'],
 		// Nagłówek formularza dla tej usługi (decyzja Marcina 10.08.2026, wariant A).
 		// Wcześniej podstrona produktowa otwierała formularz domyślnym „Zacznijmy
 		// budować Twój wizerunek", czyli komunikatem o innej usłudze. Krótka forma
@@ -1428,9 +1531,16 @@ const serviceCategoriesRaw: ServiceData[] = [
 				q: 'Co jeśli pogoda nie dopisze?',
 				a: 'Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji wracam raz w ramach ustalonej kwoty. Każdy kolejny przyjazd to 300 zł plus dojazd.',
 			},
+			// ⚠ PYTANIE O SPRZĘT ZASTĄPIONE 14.09.2026. Dron, certyfikat A1/A3 i OC stały
+			// na tej podstronie już trzy razy (podpis paska dronowego, karta zakresu,
+			// pytanie „Czy dron poleci nad naszą halą?"), więc to było czwarte powtórzenie.
+			// Brakowało za to odpowiedzi dla drugiej połowy tej usługi: zakładu, który
+			// w dniu zdjęć normalnie pracuje. Treść z wpisu `fotografia-przemyslowa-fabryka`
+			// (sekcje „BHP na sesji zdjęciowej" i „Sprzęt, który radzi sobie z halą"),
+			// zero nowych deklaracji.
 			{
-				q: 'Na jakim sprzęcie pracujesz?',
-				a: 'Dron DJI Mini 5 Pro, 50 Mpix, poniżej 249 g, czyli kategoria otwarta, do tego certyfikat operatora A1/A3 i ubezpieczenie OC. Z poziomu ziemi Canon R6 na statywie, obiektywy szerokokątne do wnętrz i elewacji.',
+				q: 'Jak wygląda sesja na czynnej hali produkcyjnej?',
+				a: 'Przyjeżdżam w obuwiu i odzieży ochronnej. Przed wejściem na halę zapoznaję się z regulaminem BHP i ustalam z kierownikiem produkcji, które obszary wymagają ostrożności. Pracuję na dwóch aparatach, więc nie zmieniam obiektywu w zapylonym otoczeniu, a każde zdjęcie zapisuje się od razu na dwóch kartach.',
 			},
 		],
 		// Nagłówek formularza dla tej usługi (decyzja Marcina 10.08.2026, wariant B).
@@ -1440,6 +1550,15 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// niezależne hasła.
 		ctaHeading: ['Zaplanujmy zdjęcia', 'Twojego obiektu'],
 		formServiceCode: 'obiekty',
+		// Wpisy wybrane ręcznie 14.09.2026. Automat pokazywał trzy wpisy o dronie,
+		// a jedyny tekst o przemyśle (`fotografia-przemyslowa-fabryka`, starszy) nie
+		// mieścił się w trójce. Podstrona nazywa się „nieruchomości i przemysł" i ma
+		// film z hali, więc: przemysł, nieruchomości z drona, dron dla firm (legalność).
+		blogSlugs: [
+			'fotografia-przemyslowa-fabryka',
+			'zdjecia-z-drona-dla-deweloperow',
+			'zdjecia-film-z-drona-dla-firm',
+		],
 		// Jedyna usługa, która nie miała żadnej realizacji w tym polu (audyt F1).
 		// Yes Butcher pokrywa ją najlepiej: 7 z 9 kadrów to wnętrza lokalu,
 		// do tego budynek z drona. Realizacja jest wielousługowa (wyniki mówią

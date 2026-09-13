@@ -77,10 +77,14 @@ export default function PricingExplainer({
         >
           Jak powstaje wycena
         </h2>
+        {/* Wstęp przepisany 14.09.2026. Poprzedni zaczynał od tego, czego nie ma
+            („Cennika w formie tabeli nie ma..."), a na podstronach usług to samo
+            zdanie stoi kilkaset pikseli niżej w odpowiedzi na pytanie cenowe FAQ
+            (`pricingBlurb`, gdzie słowo „cennik" zostaje celowo, bo jest wpisywane
+            w wyszukiwarkę). Tutaj blok ma mówić, co klient dostaje. */}
         <p className="text-steel dark:text-dark-text-muted text-[14px] leading-relaxed mb-6">
-          Cennika w formie tabeli nie ma, bo dwie realizacje o tej samej nazwie
-          potrafią różnić się zakresem na tyle, że jedna cena byłaby nieprawdziwa
-          dla obu. Zamiast tabeli wygląda to tak:
+          Wyceniam konkretny zakres, bo dwie realizacje o tej samej nazwie potrafią
+          się mocno różnić. Wygląda to tak:
         </p>
 
         {/* Kroki procesu. `<ol>`, bo kolejność niesie znaczenie. */}

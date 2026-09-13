@@ -28,60 +28,47 @@ export default function PortfolioProcess({ steps, heading }: Props) {
           </Parallax>
         </AnimatedSection>
 
-        {/* Desktop: pozioma oś czasu */}
+        {/* JEDNA LISTA W DOM, 14.09.2026 (audyt MASTER, P0-035). Wcześniej komponent
+            renderował dwie kopie tych samych kroków: pozioma oś `hidden md:block`
+            i pionowa `md:hidden`. W HTML każda podstrona usługi i każde case study
+            z procesem miały więc po osiem nagłówków h3 zamiast czterech, a zmiana
+            wyglądu jednej wersji nie przenosiła się na drugą.
+            Wygląd obu wersji zostaje jeden do jednego, przełącza go wyłącznie CSS:
+            telefon = pionowa oś z łącznikiem między kółkami, desktop = pozioma oś
+            z gradientową linią przez cztery kroki. */}
         <AnimatedSection>
-          <div className="hidden md:block" role="list" aria-label="Etapy współpracy">
-            <div className="relative">
-              {steps.length === 4 && (
-                <div
-                  className="absolute top-[28px] left-[calc(12.5%+20px)] right-[calc(12.5%+20px)] h-0.5 bg-gradient-to-r from-blue/30 via-blue to-blue/30"
-                  aria-hidden="true"
-                />
-              )}
-              <div className="grid grid-cols-4 gap-6 relative">
-                {steps.map((step) => (
-                  <div key={step.num} role="listitem" className="flex flex-col items-center text-center">
-                    <div className="relative z-10 w-14 h-14 rounded-full bg-gradient-to-br from-blue to-blue text-white flex items-center justify-center font-barlow font-extrabold text-xl shadow-lg shadow-blue/25 mb-5">
+          <div className="relative">
+            {steps.length === 4 && (
+              <div
+                className="hidden md:block absolute top-[28px] left-[calc(12.5%+20px)] right-[calc(12.5%+20px)] h-0.5 bg-gradient-to-r from-blue/30 via-blue to-blue/30"
+                aria-hidden="true"
+              />
+            )}
+            <ol aria-label="Etapy współpracy" className="relative md:grid md:grid-cols-4 md:gap-6">
+              {steps.map((step, i) => (
+                <li
+                  key={step.num}
+                  className="flex gap-4 md:gap-0 md:flex-col md:items-center md:text-center"
+                >
+                  <div className="flex flex-col items-center">
+                    <div className="relative z-10 shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-blue to-blue text-white flex items-center justify-center font-barlow font-extrabold text-base md:text-xl shadow-md shadow-blue/20 md:shadow-lg md:shadow-blue/25 md:mb-5">
                       {step.num}
                     </div>
-                    <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border w-full flex-1 hover:border-blue dark:hover:border-blue hover:-translate-y-0.5 transition-all">
-                      <h3 className="font-barlow font-bold text-base text-navy dark:text-white mb-1.5">
-                        {step.title}
-                      </h3>
-                      <p className="text-[13px] text-steel dark:text-dark-text-muted leading-relaxed">
-                        {step.desc}
-                      </p>
-                    </div>
+                    {i < steps.length - 1 && (
+                      <div className="md:hidden w-0.5 flex-1 bg-blue/20 my-1" aria-hidden="true" />
+                    )}
                   </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Mobile: pionowa oś czasu */}
-        <AnimatedSection>
-          <div className="md:hidden space-y-0" role="list" aria-label="Etapy współpracy">
-            {steps.map((step, i) => (
-              <div key={step.num} role="listitem" className="flex gap-4 relative">
-                <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue to-blue text-white flex items-center justify-center font-barlow font-extrabold text-base shadow-md shadow-blue/20 shrink-0 z-10">
-                    {step.num}
+                  <div className="bg-white dark:bg-dark-card rounded-2xl p-4 md:p-5 border border-border dark:border-dark-border flex-1 w-full mb-3 md:mb-0 md:hover:border-blue md:hover:-translate-y-0.5 transition-all">
+                    <h3 className="font-barlow font-bold text-sm md:text-base text-navy dark:text-white mb-1 md:mb-1.5">
+                      {step.title}
+                    </h3>
+                    <p className="text-xs md:text-[13px] text-steel dark:text-dark-text-muted leading-relaxed">
+                      {step.desc}
+                    </p>
                   </div>
-                  {i < steps.length - 1 && (
-                    <div className="w-0.5 flex-1 bg-blue/20 my-1" aria-hidden="true" />
-                  )}
-                </div>
-                <div className="bg-white dark:bg-dark-card rounded-2xl p-4 border border-border dark:border-dark-border flex-1 mb-3">
-                  <h3 className="font-barlow font-bold text-sm text-navy dark:text-white mb-1">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs text-steel dark:text-dark-text-muted leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
+                </li>
+              ))}
+            </ol>
           </div>
         </AnimatedSection>
       </div>

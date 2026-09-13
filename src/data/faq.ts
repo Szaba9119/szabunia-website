@@ -15,9 +15,11 @@
 // szczegółów (RAW, poprawki, odwołanie sesji).
 //
 // ⚠ TE DZIEWIĘĆ NIE MA DZIŚ ŻADNEJ POWIERZCHNI. Zostają w kodzie, żeby nic nie
-// zginęło, ale nigdzie się nie renderują. Wyjątek: „Na jakim sprzęcie pracujesz?"
-// istnieje niezależnie na WSZYSTKICH czterech podstronach usług (services.tsx),
-// więc ta informacja nie zniknęła z serwisu.
+// zginęło, ale nigdzie się nie renderują. „Na jakim sprzęcie pracujesz?" stało do
+// 14.09.2026 na wszystkich czterech podstronach usług; tego dnia każde przepisano
+// na pytanie o obawę klienta (awaria sprzętu, czynna hala, kolejne partie produktów,
+// przygotowanie do sesji). Dwa korpusy, dwie karty, certyfikat drona i OC nadal
+// padają w FAQ eventów i nieruchomości; pełnej listy obiektywów nie ma dziś nigdzie.
 // Docelowe miejsce dla pozostałych ośmiu wskaże Marcin: osobna strona `/faq`,
 // dopisanie do FAQ podstron usług, albo sekcja warunków. Do tego czasu NIE
 // kasować tej tablicy i nie traktować jej jako martwego kodu.
@@ -69,8 +71,8 @@ export const offHomeFaqs: HomeFaqItem[] = [
     a: "Słyszę to bardzo często i za każdym razem efekt pozytywnie zaskakuje. Prowadzę Cię przez całą sesję: pomagam z pozowaniem, ustawiam światło pod Twoją twarz, dbam o naturalny wyraz. W studiu zawsze ustawiam lustro przed modelem, żebyś mógł na bieżąco widzieć siebie i poprawiać drobne detale. Nie musisz być modelem, wystarczy być sobą. Reszta to moja robota.",
   },
   {
-    // Ta informacja NIE zniknęła z serwisu: własne pytanie o sprzęt stoi na
-    // wszystkich czterech podstronach usług, dopasowane do każdej z nich.
+    // ⚠ Nieaktualne od 14.09.2026: podstrony usług nie mają już pytania o sprzęt
+    // (patrz komentarz na górze pliku). Część faktów żyje w FAQ eventów i nieruchomości.
     q: "Na jakim sprzęcie pracujesz?",
     a: "Pracuję na dwóch aparatach Canon R6, każdy zapisuje materiał równolegle na dwóch kartach, więc zdjęcia z sesji są bezpieczne. Obiektywy: Sigma 20, 35 i 50 mm f/1.4 Art, Sigma 70-200 mm f/2.8 Sport, Tamron 24-70 mm f/2.8 i Tokina 16-28 mm f/2.8, czyli pełne pokrycie ogniskowych od 16 do 200 mm. Oświetlenie Godox: mobilny system lamp błyskowych z modyfikatorami oraz studyjne światło ciągłe LED. Dźwięk: Rode Wireless PRO, Rode VideoMicro II i rejestrator Zoom. Do tego dron DJI Mini 5 Pro z certyfikatem operatora A1/A3 i ubezpieczeniem OC. Ten zestaw daje powtarzalność na planie i spójną jakość między kadrami, niezależnie od tego, czy sesja trwa godzinę, czy cały dzień.",
   },
