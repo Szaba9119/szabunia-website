@@ -13,18 +13,20 @@ export default function About() {
           {/* Zdjęcie widoczne na każdej szerokości (decyzja Marcina, 13.09.2026:
               „to co jest na komputerach to też może być na mobile").
               Wcześniej `hidden lg:block`, czyli na telefonie sekcja była tekstowa.
-              Hero pokazuje portret studyjny, tu jest kadr z pracy przy sesji,
-              więc to nie jest ten sam obraz dwa razy. Na telefonie kwadrat,
-              bo plik źródłowy ma 1385×1385 i 3:4 ucinało aparat. */}
+              Hero pokazuje kolaż realizacji, więc tu wrócił portret w marynarce
+              (wcześniej główne zdjęcie hero, 13.09.2026). To jedyna wyraźna twarz
+              na stronie głównej. Plik 877×1168 (3:4): na telefonie kwadrat od góry.
+              origin 37%: przy scale 1.15 zapas nad głową równa się zakresowi
+              parallaxu (±40 px), więc włosy nie wjeżdżają pod krawędź. */}
           <AnimatedSection>
             <div className="relative aspect-square lg:aspect-[3/4] rounded-2xl overflow-hidden bg-border dark:bg-dark-card">
               <Parallax distance={PARALLAX.subtle} direction="up" className="absolute inset-0">
-                <div className="absolute inset-0 scale-[1.15]">
+                <div className="absolute inset-0 scale-[1.15] origin-[50%_37%]">
                   <Image
-                    src="/images/marcin-o-mnie.jpg"
+                    src="/images/marcin-hero-light-4.jpg"
                     alt="Marcin Szabunia, fotograf biznesowy, portret, Poznań"
                     fill
-                    className="object-cover"
+                    className="object-cover object-top"
                     // ZDJ2608-25 (04.08.2026): kolumna w max-w-6xl z gap-16 to (1152-64)/2 = 544 px,
                     // a obraz siedzi w scale-[1.15] (wyżej), czyli renderuje się na ~626 px.
                     // Poprzednie 520 px kazało przeglądarce pobrać węższy wariant, niż potrzeba.

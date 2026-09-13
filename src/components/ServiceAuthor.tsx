@@ -23,11 +23,11 @@ export default function ServiceAuthor() {
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 md:gap-8">
               <div className="relative w-28 h-28 md:w-40 md:h-40 shrink-0 rounded-2xl overflow-hidden bg-border dark:bg-dark-bg">
                 <Image
-                  // Portret z hero strony głównej, nie marcin-o-mnie.jpg: w kadrze
-                  // 112-160 px sylwetka z aparatem daje twarz wielkości znaczka,
-                  // a headshot na jasnym tle czyta się od razu. Na podstronie usług
-                  // hero ze zdjęciem Marcina i tak się nie renderuje, więc nie ma
-                  // duplikatu w obrębie strony.
+                  // Portret w marynarce (ten sam co w sekcji „O mnie" na stronie
+                  // głównej), nie marcin-o-mnie.jpg: w kadrze 112-160 px sylwetka
+                  // z aparatem daje twarz wielkości znaczka, a headshot na jasnym
+                  // tle czyta się od razu. About renderuje się tylko na stronie
+                  // głównej, więc nie ma duplikatu w obrębie strony.
                   src="/images/marcin-hero-light-4.jpg"
                   alt="Marcin Szabunia, fotograf biznesowy i twórca wideo, Poznań"
                   fill

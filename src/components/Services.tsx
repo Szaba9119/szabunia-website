@@ -12,15 +12,18 @@ export default function Services() {
 		<section id='uslugi' className='pt-6 pb-8 md:pt-8 md:pb-12 px-4'>
 			<div className='max-w-6xl mx-auto'>
 				<AnimatedSection>
+					{/* Nagłówek i podtytuł w JEDNYM Parallaxie (13.09.2026). Wcześniej jeździł
+					    sam h2 (±24 px) nad odstępem 12 px, więc przy scrollu nachodził na
+					    podtytuł. max-w-xl: dwie linie zamiast trzech na desktopie. */}
 					<Parallax distance={PARALLAX.accent} direction='up'>
-						<h2 className='font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center'>
+						<h2 className='font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-4 text-center'>
 							Czym mogę pomóc Twojej firmie
 						</h2>
+						<p className='text-steel dark:text-dark-text-muted text-[15px] leading-relaxed text-center mb-10 max-w-xl mx-auto'>
+							{/* MASTER: cztery potrzeby klienta; foto, wideo i dron są narzędziami realizacji. */}
+							Cztery obszary, w których pomagam firmom. Zdjęcia, wideo i ujęcia z drona dobieram do celu realizacji.
+						</p>
 					</Parallax>
-					<p className='text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-md mx-auto'>
-						{/* MASTER: cztery potrzeby klienta; foto, wideo i dron są narzędziami realizacji. */}
-						Cztery obszary, w których pomagam firmom. Zdjęcia, wideo i ujęcia z drona dobieram do celu realizacji.
-					</p>
 				</AnimatedSection>
 
 				{/* Usługi — siatka 2×2 (10.08.2026, po przejściu na cztery usługi).

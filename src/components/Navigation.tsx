@@ -29,14 +29,11 @@ import { useActiveSection } from '@/hooks/useActiveSection';
 // Na stronie głównej nic się nie zmienia: „Usługi" nadal jest kotwicą do sekcji.
 // „Portfolio” poza home prowadzi do pełnej listy realizacji.
 // „O mnie” zostaje kotwicą, bo nie ma osobnej podstrony.
+// 13.09.2026: „O mnie” stało na początku, choć sekcja #o-mnie jest na home
+// trzecia (po usługach i portfolio). useActiveSection przerywa pętlę na pierwszej
+// sekcji poniżej linii, więc Usługi i Portfolio nigdy się nie podświetlały.
+// Galeria nie ma sekcji na home, stoi przy Portfolio, bo to też realizacje.
 const navLinks = [
-	{
-		label: 'O mnie',
-		href: '#o-mnie',
-		section: 'o-mnie',
-		page: null,
-		subHref: null,
-	},
 	{
 		label: 'Usługi',
 		href: '#uslugi',
@@ -59,10 +56,10 @@ const navLinks = [
 		subHref: null,
 	},
 	{
-		label: 'Blog',
-		href: '/blog',
-		section: 'blog',
-		page: '/blog',
+		label: 'O mnie',
+		href: '#o-mnie',
+		section: 'o-mnie',
+		page: null,
 		subHref: null,
 	},
 	{
@@ -70,6 +67,13 @@ const navLinks = [
 		href: '/poradnik',
 		section: 'poradnik',
 		page: '/poradnik',
+		subHref: null,
+	},
+	{
+		label: 'Blog',
+		href: '/blog',
+		section: 'blog',
+		page: '/blog',
 		subHref: null,
 	},
 ];

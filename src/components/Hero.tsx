@@ -2,8 +2,33 @@ import Image from 'next/image';
 import Link from 'next/link';
 import TrustLine from '@/components/TrustLine';
 
-// Zachowane SEO H1 i cztery filary. Jeden obraz w DOM; kolejność mobilna:
-// nagłówki → opis → kontakt → zdjęcie → dowód. Desktop: zdjęcie w prawej kolumnie.
+const heroPhotos = [
+  {
+    src: '/images/galeria/portrety/portret-26-kobieta-czarna-marynarka.jpg',
+    alt: 'Roześmiana kobieta w czarnej marynarce, portret biznesowy na jasnym tle',
+    className: 'object-cover object-top',
+  },
+  {
+    src: '/images/galeria/eventy/event-23-scena-gali-orkiestra.jpg',
+    alt: 'Scena gali muzycznej z orkiestrą, publicznością i kolorową oprawą świetlną',
+    // Środek ekranu scenicznego (postać + napis), nie sam napis: przy 76-82%
+    // postać była ucięta na lewej krawędzi i kadr wyglądał na przesunięty.
+    className: 'object-cover object-[47%_50%]',
+  },
+  {
+    src: '/images/galeria/dron/dron-08-biurowiec-poznan.jpg',
+    alt: 'Wielokondygnacyjny budynek w Poznaniu otoczony zielenią, zdjęcie z drona',
+    className: 'object-cover object-center',
+  },
+  {
+    src: '/images/galeria/produktowe/produkt-43-amarula.jpg',
+    alt: 'Butelka Amarula i koktajl w ciepłej brązowo-kremowej scenografii',
+    className: 'object-cover object-[50%_40%]',
+  },
+];
+
+// Kolejność mobilna: nagłówki → opis → kontakt → kolaż → dowód.
+// Na desktopie ten sam kolaż zajmuje prawą kolumnę hero.
 export default function Hero() {
   return (
     <section className='relative pt-28 pb-4 md:pt-32 overflow-hidden'>
@@ -38,12 +63,18 @@ export default function Hero() {
             <p className='mt-4 text-[13px] text-steel dark:text-dark-text-muted'>Wstępną wycenę otrzymasz w ciągu 24 godzin.</p>
           </div>
           <div className='mt-8 md:mt-0 md:col-start-2 md:row-start-1 md:row-span-3 md:mr-[calc(-1*min(5rem,max(1rem,(100vw-72rem)/2)))]'>
-            <div className='w-full aspect-square md:aspect-[4/5] md:max-h-[640px] md:ml-auto rounded-3xl md:rounded-r-none overflow-hidden bg-border dark:bg-dark-card relative'>
-              <Image src='/images/marcin-hero-light-4.jpg'
-                alt='Marcin Szabunia, fotograf biznesowy i twórca wideo, Poznań'
-                fill className='object-cover object-top' priority fetchPriority='high'
-                sizes='(max-width: 767px) calc(100vw - 32px), (max-width: 1279px) 45vw, 560px' quality={72} />
-            </div>
+            <figure aria-label='Wybrane realizacje: ludzie, wydarzenia, obiekty i produkty'
+              className='grid grid-cols-2 grid-rows-2 gap-1.5 md:gap-2 w-full aspect-square md:aspect-[4/5] md:max-h-[640px] md:ml-auto rounded-2xl overflow-hidden'>
+              {heroPhotos.map((photo, index) => (
+                <div key={photo.src} className='relative min-h-0 min-w-0 overflow-hidden bg-border dark:bg-dark-card'>
+                  <Image src={photo.src} alt={photo.alt}
+                    fill className={photo.className}
+                    loading='eager' fetchPriority={index === 0 ? 'high' : 'auto'}
+                    sizes='(max-width: 767px) calc((100vw - 38px) / 2), (max-width: 1279px) 23vw, 280px'
+                    quality={80} />
+                </div>
+              ))}
+            </figure>
           </div>
           <div className='md:col-start-1 md:row-start-3'>
             <TrustLine className='mt-7' />
