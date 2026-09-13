@@ -10,13 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Podnosić RĘCZNIE przy realnej zmianie treści — `new Date()` przy każdym
   // buildzie byłoby fałszywym sygnałem świeżości (audyt PELNY2907-29).
   //
-  // Podniesione 11.08.2026 z 2026-08-05 (audyt CTR-SERP, F3). Stała przestała
-  // nadążać za dwiema dużymi zmianami: 10.08 przejściem oferty z ośmiu usług
-  // na cztery, 11.08 zmianą tytułu usługi obiektowej. Dwadzieścia adresów,
-  // w tym strona główna i wszystkie cztery usługi, raportowało Google `lastmod`
-  // sprzed przebudowy, czyli sygnał „nie ma po co wracać" akurat wtedy, gdy
-  // zależy nam na odświeżeniu snippetów.
-  const SITE_UPDATED = new Date("2026-08-11");
+  // 12.09.2026: wdrożenie MASTER — treści usług, kontaktu i realizacji.
+  const SITE_UPDATED = new Date("2026-09-12");
 
   const portfolioPages = portfolioCategories
     .filter((c) => !c.externalUrl && !isPortfolioDraft(c.slug))
@@ -89,7 +84,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/polityka-prywatnosci`,
-      lastModified: SITE_UPDATED,
+      lastModified: new Date("2026-08-11"),
       changeFrequency: "yearly",
       priority: 0.3,
     },

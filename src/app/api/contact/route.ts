@@ -27,17 +27,34 @@ export async function POST(req: Request) {
   }
 
   const ip = getClientIp(req);
-  if (await isRateLimited(ip)) {
+  try {
+    if (await isRateLimited(ip)) {
+      return NextResponse.json(
+        { error: "Zbyt wiele prób. Spróbuj ponownie za chwilę." },
+        { status: 429 }
+      );
+    }
+  } catch {
+    console.error("[ALERT] contact: rate-limit unavailable");
     return NextResponse.json(
-      { error: "Zbyt wiele prób. Spróbuj ponownie za chwilę." },
-      { status: 429 }
+      { error: "Formularz jest chwilowo niedostępny. Spróbuj ponownie lub napisz na marcin@szabunia.pl." },
+      { status: 503 }
     );
   }
 
   let data: Record<string, unknown>;
   try {
-    data = await req.json();
+    const payload: unknown = await req.json();
+    if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+      return NextResponse.json({ error: "Nieprawidłowe dane" }, { status: 400 });
+    }
+    data = payload as Record<string, unknown>;
   } catch {
+    return NextResponse.json({ error: "Nieprawidłowe dane" }, { status: 400 });
+  }
+
+  const textFields = ["email", "_gotcha", "turnstileToken", "name", "phone", "service", "timing", "message", "page", "scope"];
+  if (textFields.some((key) => data[key] !== undefined && typeof data[key] !== "string")) {
     return NextResponse.json({ error: "Nieprawidłowe dane" }, { status: 400 });
   }
 
@@ -65,17 +82,19 @@ export async function POST(req: Request) {
   // `timing` w CTA.tsx. Nie waliduje się go jako daty, bo „wrzesień" i „druga
   // połowa Q4" są tu poprawnymi odpowiedziami.
   const timing = String(data.timing ?? "").trim();
+  const scope = String(data.scope ?? "").trim();
   const message = String(data.message ?? "").trim();
 
   // Twarde limity długości pól — chronią przed wielomegabajtowym payloadem
   // i nadużyciem maila jako przekaźnika treści (realne dane nigdy ich nie tkną).
-  const LIMITS = { name: 200, email: 320, phone: 50, service: 100, timing: 200, message: 5000 } as const;
+  const LIMITS = { name: 200, email: 320, phone: 50, service: 100, timing: 200, scope: 200, message: 5000 } as const;
   if (
     name.length > LIMITS.name ||
     email.length > LIMITS.email ||
     phone.length > LIMITS.phone ||
     service.length > LIMITS.service ||
     timing.length > LIMITS.timing ||
+    scope.length > LIMITS.scope ||
     message.length > LIMITS.message
   ) {
     return NextResponse.json({ error: "Treść pola jest zbyt długa" }, { status: 400 });
@@ -84,7 +103,7 @@ export async function POST(req: Request) {
   // Źródło ruchu (UTM/gclid) — opcjonalne, przechwycone z URL wejściowego (src/lib/utm.ts).
   // `wbraid`/`gbraid`: Google Ads wysyła je zamiast `gclid` przy ograniczeniach
   // prywatności (iOS, ruch z aplikacji). Lista musi być zgodna z UTM_KEYS w utm.ts.
-  const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "wbraid", "gbraid"] as const;
+  const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "wbraid", "gbraid", "landing_page", "referrer"] as const;
   const utm: Record<string, string> = {};
   for (const key of UTM_FIELDS) {
     const value = String(data[key] ?? "").trim();
@@ -117,7 +136,7 @@ export async function POST(req: Request) {
   };
   // Twarda lista kodów usług — bez niej pole `service` przyjmowało dowolne
   // 100 znaków i trafiało do maila jako „kategoria z listy" (audyt PELNY2907-21).
-  if (service && !(service in SERVICE_LABELS)) {
+  if (service && !Object.hasOwn(SERVICE_LABELS, service)) {
     return NextResponse.json({ error: "Nieznany rodzaj usługi" }, { status: 400 });
   }
   const serviceLabel = SERVICE_LABELS[service] ?? service;
@@ -165,6 +184,7 @@ export async function POST(req: Request) {
     <p><strong>Telefon:</strong> ${escapeHtml(phone) || "—"}</p>
     <p><strong>Usługa:</strong> ${escapeHtml(serviceLabel) || "—"}</p>
     <p><strong>Przewidywany termin:</strong> ${escapeHtml(timing) || "—"}</p>
+    <p><strong>Skala realizacji:</strong> ${escapeHtml(scope) || "—"}</p>
     <p><strong>Wiadomość:</strong><br>${escapeHtml(message).replace(/\n/g, "<br>") || "—"}</p>
     <p><strong>Zgoda RODO:</strong> TAK${consentTs ? `, ${escapeHtml(consentTs)}` : ""}${
       consentText ? `<br><em>${escapeHtml(consentText)}</em>` : ""
@@ -176,7 +196,7 @@ export async function POST(req: Request) {
   // Zapis do CRM PRZED wysyłką maila — best-effort. Wcześniej `pushToCrm`
   // stało w gałęzi sukcesu, więc awaria Resend kasowała leada z obu kanałów
   // naraz (audyt PELNY2907-14). CRM jest niezależną usługą i może go uratować.
-  void pushToCrm({ name, email, phone, service, timing, message, source: "contact", consent: consentTs, ...utm }).catch(
+  void pushToCrm({ name, email, phone, service, timing, scope, message, source: "contact", consent: consentTs, ...utm }).catch(
     (crmErr) => console.error("CRM webhook error:", crmErr)
   );
 

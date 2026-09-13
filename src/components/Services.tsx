@@ -4,11 +4,12 @@ import { galleryAlt } from '@/data/galleryAlts';
 import AnimatedSection from './AnimatedSection';
 import Parallax from './Parallax';
 import { PARALLAX } from '@/lib/motion';
+import { servicePillars } from '@/data/servicePillars';
 import { serviceItems } from '@/data/services';
 
 export default function Services() {
 	return (
-		<section id='uslugi' className='py-12 md:py-16 px-4'>
+		<section id='uslugi' className='pt-6 pb-8 md:pt-8 md:pb-12 px-4'>
 			<div className='max-w-6xl mx-auto'>
 				<AnimatedSection>
 					<Parallax distance={PARALLAX.accent} direction='up'>
@@ -16,17 +17,9 @@ export default function Services() {
 							Czym mogę pomóc Twojej firmie
 						</h2>
 					</Parallax>
-					<p className='text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto'>
-						{/* Przepisane 10.08.2026. Poprzednio: „Zdjęcia, film i dron dla firm,
-                od jednej osoby". Dron stał jako trzeci RÓWNORZĘDNY element oferty,
-                co było prawdą przy ośmiu usługach, a dziś jest fragmentem jednej
-                z czterech (Nieruchomości i przemysł) i nie występuje w Wizerunku
-                ani w Produktowej.
-                „Od jednej osoby" zostaje świadomie: audyt 10.08.2026 potwierdził,
-                że nigdzie nie obiecuje jednoosobowej realizacji, tylko jednego
-                wykonawcę odpowiedzialnego za całość. FAQ na podstronie Wydarzeń
-                wprost mówi o drugim operatorze przy dużym wydarzeniu. */}
-						Zdjęcia i film dla firm w czterech obszarach, od jednej osoby.
+					<p className='text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-md mx-auto'>
+						{/* MASTER: cztery potrzeby klienta; foto, wideo i dron są narzędziami realizacji. */}
+						Cztery obszary potrzeb firmy. Zdjęcia, wideo i ujęcia z drona dobieram do celu realizacji.
 					</p>
 				</AnimatedSection>
 
@@ -39,7 +32,7 @@ export default function Services() {
             Obrazy na mobile w 16:9 zamiast 4:3 — sekcja zajmowała ~6,4 ekranu. */}
 				<AnimatedSection>
 					<div className='grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6'>
-						{serviceItems.map((s) => {
+						{servicePillars.map((pillar) => serviceItems.find((item) => item.slug === pillar.slug)!).map((s) => {
 							// Wariant C (chowanie zdjęć części usług na mobile) WYCOFANY decyzją
 							// Marcina po obejrzeniu (2026-07-06): zdjęcia zawsze widoczne — to
 							// wizytówka fotografa. Nie przywracać bez jego wyraźnej prośby.
@@ -131,7 +124,7 @@ export default function Services() {
 							.
 						</p>
 						<a
-							href='#kontakt'
+							href='/kontakt'
 							data-cta='wycena_home_uslugi'
 							className='mt-6 inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]'
 						>

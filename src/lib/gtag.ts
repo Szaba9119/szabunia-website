@@ -1,6 +1,6 @@
 // Cienki helper GA4 (gtag.js). Loader i consent-init są w layout.tsx.
-// Zdarzenia trafiają do dataLayer niezależnie od zgody — GA respektuje
-// consent mode (denied = brak cookies, pingi cookieless lub brak wysyłki).
+// Własne zdarzenia są wysyłane dopiero po akceptacji, bez odtwarzania historii.
+import { hasAnalyticsConsent, setSessionConsent } from "@/lib/consent";
 
 export const GA_ID = "G-MD8FJ0CZG3";
 
@@ -13,7 +13,7 @@ declare global {
 
 /** Wyślij zdarzenie GA4 (no-op w SSR i gdy gtag nie jest załadowany). */
 export function gtagEvent(name: string, params?: Record<string, unknown>): void {
-  if (typeof window === "undefined") return;
+  if (!hasAnalyticsConsent()) return;
   window.gtag?.("event", name, params ?? {});
 }
 
@@ -29,4 +29,5 @@ export function updateAnalyticsConsent(granted: boolean): void {
     ad_user_data: value,
     ad_personalization: value,
   });
+  setSessionConsent(granted);
 }

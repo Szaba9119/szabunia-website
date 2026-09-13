@@ -15,7 +15,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="font-barlow font-extrabold text-sm tracking-wide text-navy dark:text-white mb-2">
-              MARCIN SZABUNIA
+              SZABUNIA
             </div>
             <p className="text-xs text-text-body dark:text-dark-text-muted">
               Fotograf biznesowy i twórca wideo

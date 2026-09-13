@@ -63,10 +63,13 @@ export default function PoradnikForm() {
         }),
       });
       if (res.ok) {
-        const body: { guideSent?: boolean } | null = await res.json().catch(() => null);
-        setGuideSent(body?.guideSent !== false);
+        const body: { accepted?: boolean; guideSent?: boolean } | null = await res.json().catch(() => null);
+        setGuideSent(body?.guideSent === true);
         setSubmitted(true);
-        gtagEvent("generate_lead", { source: "poradnik" });
+        if (body?.accepted === true) {
+          gtagEvent("generate_lead", { source: "poradnik" });
+          gtagEvent("guide_download", { source: "poradnik", method: "automatic" });
+        }
         triggerDownload();
       } else {
         const body: { error?: string } | null = await res.json().catch(() => null);
@@ -104,6 +107,7 @@ export default function PoradnikForm() {
         <a
           href={PDF_URL}
           download="Poradnik-przygotowanie-do-sesji-Marcin-Szabunia.pdf"
+          onClick={() => gtagEvent("guide_download", { source: "poradnik", method: "link" })}
           className="inline-block bg-gradient-to-br from-blue to-blue text-white px-5 py-2.5 rounded-xl font-barlow font-bold text-sm btn-glow hover:scale-[1.01] transition-transform"
         >
           Pobierz ponownie
@@ -138,6 +142,7 @@ export default function PoradnikForm() {
         </label>
         <input
           id="lead-email"
+          maxLength={320}
           type="email"
           name="email"
           required

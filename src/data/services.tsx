@@ -616,14 +616,14 @@ const serviceCategoriesRaw: ServiceData[] = [
 		seo: {
 			title: 'Fotografia i wideo wydarzeń firmowych, Poznań | Szabunia',
 			description:
-				'Konferencje, targi, gale i integracje. Zdjęcia, film i dron od jednej osoby. Obsługiwałem eventy dla H&M, Santandera i Warner Music.',
+				'Konferencje, targi, gale i integracje. Zdjęcia, film i dron od jednego partnera. Obsługiwałem eventy dla H&M, Santandera i Warner Music.',
 		},
 	},
 	{
 		slug: 'wizerunek-portrety',
 		h2Process: 'Jak wygląda sesja wizerunkowa',
 		h2Faq: 'Wizerunek firmy: najczęstsze pytania',
-		h1: 'Fotografia biznesowa i wideo dla firm',
+		h1: 'Sesje biznesowe i headshoty zespołu',
 		galleryCategory: 'portrety',
 		// ⚠ `gallerySecondaryLink` ZDJĘTY 11.08.2026 (C2, decyzja Marcina).
 		//
@@ -1000,7 +1000,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// ruchu organicznego na tej usłudze, ale wchodzi w nową nazwę usługi zamiast
 		// stać obok niej (decyzja Marcina).
 		h2Faq: 'Packshoty i fotografia produktowa: najczęstsze pytania',
-		h1: 'Fotografia i wideo produktowe',
+		h1: 'Packshoty, fotografia i wideo produktowe',
 		galleryCategory: 'produktowe',
 		extraGallery: {
 			// Href zdjęty 10.08.2026: prowadził na usuniętą podstronę „wideo marketing".
@@ -1182,7 +1182,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		ctaHeading: ['Pokażmy', 'Twój produkt'],
 		formServiceCode: 'produkt',
 		seo: {
-			title: 'Fotografia i wideo produktowe, Poznań | Szabunia',
+			title: 'Packshoty i fotografia produktowa Poznań | Szabunia',
 			description:
 				'Packshoty na białym tle i zdjęcia produktowe w studiu w Poznaniu. E-commerce, katalogi, social media. Retusz w cenie zdjęcia.',
 		},

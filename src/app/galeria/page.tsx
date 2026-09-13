@@ -10,7 +10,6 @@ import LogoBar from '@/components/LogoBar';
 import Testimonials from '@/components/Testimonials';
 import Publications from '@/components/Publications';
 import Process from '@/components/Process';
-import Warunki from '@/components/Warunki';
 import FAQ from '@/components/FAQ';
 import BlogPreview from '@/components/BlogPreview';
 import PoradnikTeaser from '@/components/PoradnikTeaser';
@@ -286,13 +285,11 @@ export default async function GaleriaPage({
 					<Process />
 				</ErrorBoundary>
 
-				{/* Warunki (wydzielone z Process.tsx, 2026-07-06) — bez tego /galeria
-            straciłaby je razem z wydzieleniem. Sekcja Wycena skasowana
-            całkowicie (brief-22) — kotwice „od X zł" zostają w kartach usług
-            na home, /galeria ich nie duplikowała. */}
-				<ErrorBoundary>
-					<Warunki />
-				</ErrorBoundary>
+				<div className='px-4 py-6 text-center'>
+					<a href='/kontakt#warunki' className='inline-flex min-h-11 items-center text-sm text-blue dark:text-blue-light underline'>
+						Warunki współpracy i przygotowanie zapytania
+					</a>
+				</div>
 
 				<ErrorBoundary>
 					<BlogPreview />

@@ -1,3 +1,4 @@
+import ProjectMetadata from '@/components/ProjectMetadata';
 import Image from "next/image";
 import AnimatedSection from "./AnimatedSection";
 import YouTubeFacade from "./YouTubeFacade";
@@ -46,6 +47,7 @@ export default function PortfolioVideoShowcase({
           <h1 className="font-barlow font-extrabold text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-4">
             {category.heroTitle}
           </h1>
+            <ProjectMetadata data={category.caseStudy} />
           <p className="text-steel dark:text-dark-text-muted text-[15px] md:text-base max-w-2xl mx-auto md:mx-0">
             {category.heroSubtitle}
           </p>

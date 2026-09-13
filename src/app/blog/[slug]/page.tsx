@@ -1,3 +1,5 @@
+import { getCategoryBySlug } from '@/data/portfolio';
+import { serviceCaseMap, postCaseOverrides } from '@/data/contentRelations';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -97,13 +99,15 @@ export default async function BlogPostPage({ params }: PageProps) {
 			// nie przy każdym deployu (audyt PELNY2907-10).
 			dateModified: post.updated ?? post.date,
 			author: {
+        '@id': 'https://szabunia.pl/#person',
 				'@type': 'Person',
 				name: 'Marcin Szabunia',
 				url: 'https://szabunia.pl',
 			},
 			publisher: {
-				'@type': 'Organization',
-				name: 'Marcin Szabunia',
+        '@id': 'https://szabunia.pl/#business',
+				'@type': 'ProfessionalService',
+				name: 'SZABUNIA',
 				url: 'https://szabunia.pl',
 			},
 			image: `https://szabunia.pl/images/og/blog/${post.slug}.png`,
@@ -127,6 +131,8 @@ export default async function BlogPostPage({ params }: PageProps) {
 	];
 
 	const serviceSlug = getServiceSlugForPost(post.slug);
+  const caseSlug = postCaseOverrides[post.slug] ?? (serviceSlug && serviceSlug !== 'nieruchomosci-przemysl' ? serviceCaseMap[serviceSlug] : undefined);
+  const relatedCase = caseSlug ? getCategoryBySlug(caseSlug) : undefined;
 	const relatedService = serviceSlug
 		? getServiceBySlug(serviceSlug)
 		: undefined;
@@ -294,6 +300,12 @@ export default async function BlogPostPage({ params }: PageProps) {
 							</Link>
 						</AnimatedSection>
 					)}
+
+          {relatedCase && <aside className='mt-8 border-l-2 border-blue pl-5 py-2'>
+            <p className='text-xs uppercase tracking-wider text-steel dark:text-dark-text-muted mb-2'>Przykład realizacji</p>
+            <Link href={`/portfolio/${relatedCase.slug}`} data-cta='case_blog_powiazany' className='font-semibold text-blue dark:text-blue-light'>{relatedCase.label} →</Link>
+            <p className='mt-2 text-sm text-steel dark:text-dark-text-muted'>{relatedCase.caseStudy?.goal}</p>
+          </aside>}
 
 					{/* Powiązane artykuły */}
 					{relatedPosts.length > 0 && (

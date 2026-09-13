@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { stats } from "@/data/proof";
 import AnimatedSection from "./AnimatedSection";
 import CountUp from "./CountUp";
 import Parallax from "./Parallax";
@@ -6,13 +7,17 @@ import { PARALLAX } from "@/lib/motion";
 
 export default function About() {
   return (
-    <section id="o-mnie" className="py-12 md:py-16 px-4">
+    <section id="o-mnie" className="py-8 md:py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-          {/* Zdjęcie — tylko na desktopie. Na telefonie sekcja jest tekstowa
-              (bez dublowania portretu z hero w pierwszym przewinięciu). */}
-          <AnimatedSection className="hidden lg:block">
-            <div className="relative aspect-[3/4] rounded-2xl overflow-hidden bg-border dark:bg-dark-card">
+          {/* Zdjęcie widoczne na każdej szerokości (decyzja Marcina, 13.09.2026:
+              „to co jest na komputerach to też może być na mobile").
+              Wcześniej `hidden lg:block`, czyli na telefonie sekcja była tekstowa.
+              Hero pokazuje portret studyjny, tu jest kadr z pracy przy sesji,
+              więc to nie jest ten sam obraz dwa razy. Na telefonie kwadrat,
+              bo plik źródłowy ma 1385×1385 i 3:4 ucinało aparat. */}
+          <AnimatedSection>
+            <div className="relative aspect-square lg:aspect-[3/4] rounded-2xl overflow-hidden bg-border dark:bg-dark-card">
               <Parallax distance={PARALLAX.subtle} direction="up" className="absolute inset-0">
                 <div className="absolute inset-0 scale-[1.15]">
                   <Image
@@ -23,7 +28,8 @@ export default function About() {
                     // ZDJ2608-25 (04.08.2026): kolumna w max-w-6xl z gap-16 to (1152-64)/2 = 544 px,
                     // a obraz siedzi w scale-[1.15] (wyżej), czyli renderuje się na ~626 px.
                     // Poprzednie 520 px kazało przeglądarce pobrać węższy wariant, niż potrzeba.
-                    sizes="(max-width: 1024px) 0px, 630px"
+                    // Poniżej lg kolumna ma pełną szerokość kontenera (px-4), obraz jest już widoczny.
+                    sizes="(max-width: 1023px) calc(100vw - 32px), 630px"
                     quality={80}
                     placeholder="blur"
                     blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg=="
@@ -39,7 +45,7 @@ export default function About() {
             <div>
               <Parallax distance={PARALLAX.accent} direction="up">
                 <h2 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-6 text-center lg:text-left">
-                  O mnie
+                  Marcin Szabunia
                 </h2>
               </Parallax>
 
@@ -48,7 +54,7 @@ export default function About() {
                   {/* „wideo marketing" (nazwa usuniętej usługi) zdjęte 10.08.2026.
                       Słowo „profesjonalny" świadomie NIE dopisane, mimo propozycji:
                       docs/zasady-tekstow.md:31 zakazuje go jako jedynego określenia. */}
-                  Cześć, jestem Marcin. <strong>Od 2018 roku</strong> buduję wizerunek firm poprzez
+                  Cześć, jestem Marcin. Pod marką SZABUNIA odpowiadam za kontakt, plan i jakość realizacji. <strong>Od 2018 roku</strong> buduję wizerunek firm poprzez
                   fotografię i wideo. Bazuję w Poznaniu,
                   pracuję w całej Polsce i Europie.
                 </p>
@@ -125,13 +131,8 @@ export default function About() {
                   `whitespace-nowrap` pilnuje, żeby „250 000+" nie łamało się
                   na spacji tysięcznej z toLocaleString("pl-PL"). */}
               <div className="mt-8 pt-6 border-t border-border dark:border-dark-border">
-                <div className="grid grid-cols-2 sm:grid-cols-[1.5fr_1fr_1fr_1fr] gap-x-6 gap-y-6">
-                  {[
-                    { end: 250000, suffix: "+", label: "wykonanych zdjęć" },
-                    { end: 1000, suffix: "+", label: "zrealizowanych sesji i eventów" },
-                    { end: 100, suffix: "+", label: "obsłużonych marek i firm" },
-                    { end: 8, suffix: "+", label: "lat doświadczenia" },
-                  ].map((stat) => (
+                <div className="grid grid-cols-2 sm:grid-cols-[1fr_1fr_1fr_1.5fr] gap-x-6 gap-y-6">
+                  {stats.map((stat) => (
                     <div key={stat.label} className="text-center">
                       <p className="font-barlow font-extrabold text-2xl text-blue dark:text-blue-light leading-none mb-1 whitespace-nowrap">
                         <CountUp end={stat.end} suffix={stat.suffix} duration={stat.end > 10000 ? 2500 : 2000} />

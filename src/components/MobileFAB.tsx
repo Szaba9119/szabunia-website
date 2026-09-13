@@ -75,16 +75,16 @@ export default function MobileFAB() {
 		const el = document.getElementById('kontakt');
 		if (el) {
 			e.preventDefault();
-			el.scrollIntoView({ behavior: 'smooth' });
+			el.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
 		}
 	};
 
 	const iconBtn =
-		'w-11 h-11 rounded-full flex items-center justify-center text-navy dark:text-white hover:bg-blue-pale dark:hover:bg-blue/15 transition-colors';
+		'w-11 h-11 shrink-0 rounded-full flex items-center justify-center text-navy dark:text-white hover:bg-blue-pale dark:hover:bg-blue/15 transition-colors';
 
 	return (
 		<div
-			className='fixed left-1/2 -translate-x-1/2 z-40 md:hidden transition-[bottom] duration-300'
+			className='fixed w-max left-1/2 -translate-x-1/2 z-40 md:hidden transition-[bottom] duration-300'
 			style={{ bottom: bannerH ? bannerH + 16 : 20 }}
 		>
 			{/* Wyśrodkowana „wyspa" — jeden spójny pasek akcji: Oferta, e-mail, telefon */}
@@ -93,7 +93,7 @@ export default function MobileFAB() {
 					href='/kontakt'
 					onClick={handleCtaClick}
 					data-cta='wycena_sticky'
-					// Dostępna nazwa musi zaczynać się od widocznego tekstu „Oferta",
+					// Dostępna nazwa odpowiada widocznemu tekstowi przycisku,
 					// inaczej sterowanie głosem nie trafia w jedyny stały przycisk
 					// konwersji na telefonie (WCAG 2.1 SC 2.5.3, audyt PELNY2608-17).
 					aria-label='Zapytaj o ofertę'
@@ -101,23 +101,9 @@ export default function MobileFAB() {
 					// główny CTA konwersji był NIŻSZY od sąsiednich ikon e-mail/telefon
 					// (44×44 px). Finding UXUI2608-02. Wysokość wyspy się nie zmienia:
 					// ikony i tak wyznaczały 44 px.
-					className='flex items-center gap-2 pl-4 pr-5 py-2.5 min-h-11 bg-gradient-to-br from-blue to-blue text-white rounded-full btn-glow font-barlow font-bold text-sm'
+					className='flex items-center whitespace-nowrap gap-2 pl-4 pr-5 py-2.5 min-h-11 bg-gradient-to-br from-blue to-blue text-white rounded-full btn-glow font-barlow font-bold text-sm'
 				>
-					<svg
-						className='w-4 h-4'
-						fill='none'
-						viewBox='0 0 24 24'
-						stroke='currentColor'
-						strokeWidth={2}
-						aria-hidden='true'
-					>
-						<path
-							strokeLinecap='round'
-							strokeLinejoin='round'
-							d='M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125'
-						/>
-					</svg>
-					Oferta
+					Zapytaj o ofertę
 				</a>
 				<a
 					href={`mailto:${EMAIL}`}

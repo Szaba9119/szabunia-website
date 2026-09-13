@@ -28,23 +28,40 @@ export async function POST(req: Request) {
   }
 
   const ip = getClientIp(req);
-  if (await isLeadRateLimited(ip)) {
+  try {
+    if (await isLeadRateLimited(ip)) {
+      return NextResponse.json(
+        { error: "Zbyt wiele prób. Spróbuj ponownie za chwilę." },
+        { status: 429 }
+      );
+    }
+  } catch {
+    console.error("[ALERT] lead: rate-limit unavailable");
     return NextResponse.json(
-      { error: "Zbyt wiele prób. Spróbuj ponownie za chwilę." },
-      { status: 429 }
+      { error: "Formularz jest chwilowo niedostępny. Spróbuj ponownie lub napisz na marcin@szabunia.pl." },
+      { status: 503 }
     );
   }
 
   let data: Record<string, unknown>;
   try {
-    data = await req.json();
+    const payload: unknown = await req.json();
+    if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+      return NextResponse.json({ error: "Nieprawidłowe dane" }, { status: 400 });
+    }
+    data = payload as Record<string, unknown>;
   } catch {
+    return NextResponse.json({ error: "Nieprawidłowe dane" }, { status: 400 });
+  }
+
+  const textFields = ["email", "_gotcha", "turnstileToken"];
+  if (textFields.some((key) => data[key] !== undefined && typeof data[key] !== "string")) {
     return NextResponse.json({ error: "Nieprawidłowe dane" }, { status: 400 });
   }
 
   // Honeypot — boty wypełniają to pole; udajemy sukces i nic nie wysyłamy.
   if (typeof data._gotcha === "string" && data._gotcha.trim() !== "") {
-    return NextResponse.json({ ok: true });
+    return NextResponse.json({ ok: true, accepted: false, guideSent: false });
   }
 
   const turnstileOk = await verifyTurnstile(String(data.turnstileToken ?? ""), ip);
@@ -72,7 +89,7 @@ export async function POST(req: Request) {
   // Limit 200 zn./pole — ochrona przed sztucznie napompowanym payloadem.
   // `wbraid`/`gbraid`: Google Ads wysyła je zamiast `gclid` przy ograniczeniach
   // prywatności (iOS, ruch z aplikacji). Lista zgodna z UTM_KEYS w utm.ts.
-  const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "wbraid", "gbraid"] as const;
+  const UTM_FIELDS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "gclid", "wbraid", "gbraid", "landing_page", "referrer"] as const;
   const utm: Record<string, string> = {};
   for (const key of UTM_FIELDS) {
     const value = String(data[key] ?? "").trim();
@@ -112,7 +129,7 @@ export async function POST(req: Request) {
   // dowiadywał się nawet, że ktoś próbował pobrać poradnik.
   try {
     const utmHtml = utmHtmlBlock(utm);
-    await sendEmail(apiKey, {
+    const notifyRes = await sendEmail(apiKey, {
       from: FROM,
       to: [TO],
       reply_to: email,
@@ -123,8 +140,11 @@ export async function POST(req: Request) {
         CONSENT_TEXT
       )}</em></p>${utmHtml}`,
     });
-  } catch (notifyErr) {
-    console.error("Resend notify error:", notifyErr);
+    if (!notifyRes.ok) {
+      console.error("[ALERT] Resend notification rejected:", notifyRes.status);
+    }
+  } catch {
+    console.error("[ALERT] Resend notification unavailable");
   }
 
   // Bez `await` — tak samo jak w /api/contact (audyt PELNY2907-28). Dopóki
@@ -149,14 +169,13 @@ export async function POST(req: Request) {
       // po stronie klienta — dlatego odbicie tego maila NIE wywraca całej
       // odpowiedzi. Błąd zostaje w logach z markerem do wyfiltrowania, a front
       // dostaje `guideSent: false` i nie obiecuje maila, którego nie ma.
-      const detail = await guideRes.text();
-      console.error("[ALERT] Resend error (guide):", guideRes.status, detail);
-      return NextResponse.json({ ok: true, guideSent: false });
+      console.error("[ALERT] Resend error (guide):", guideRes.status);
+      return NextResponse.json({ ok: true, accepted: true, guideSent: false });
     }
 
-    return NextResponse.json({ ok: true, guideSent: true });
-  } catch (err) {
-    console.error("Błąd /api/lead:", err);
-    return NextResponse.json({ error: "Błąd serwera" }, { status: 500 });
+    return NextResponse.json({ ok: true, accepted: true, guideSent: true });
+  } catch {
+    console.error("[ALERT] Resend guide unavailable");
+    return NextResponse.json({ ok: true, accepted: true, guideSent: false });
   }
 }

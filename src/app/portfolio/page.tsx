@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { portfolioItems } from '@/data/portfolio';
+import { portfolioItems, getCategoryBySlug } from '@/data/portfolio';
 import { galleryAlt } from '@/data/galleryAlts';
 import Navigation from '@/components/Navigation';
 import ScrollProgress from '@/components/ScrollProgress';
@@ -144,7 +144,8 @@ export default function PortfolioPage() {
 										priority={i < 2}
 									/>
 									<div className='absolute bottom-0 left-0 right-0 bg-navy/85 backdrop-blur-sm text-white px-4 py-3 text-[13px] font-barlow font-semibold'>
-										{item.label}
+										<span className='block text-[10px] uppercase tracking-wider text-white/75 mb-1'>{getCategoryBySlug(item.slug)?.caseStudy ? 'Realizacja dla klienta' : 'Galeria tematyczna'}</span>
+                    {item.label}
 									</div>
 								</>
 							);
@@ -160,7 +161,7 @@ export default function PortfolioPage() {
 											href={item.externalUrl}
 											target='_blank'
 											rel='noopener noreferrer'
-											className='block w-full h-full'
+											className='relative block w-full h-full'
 											data-cta={`case_${item.slug}`}
 											aria-label={`${item.label}, otwiera się w nowej karcie`}
 										>
@@ -172,7 +173,7 @@ export default function PortfolioPage() {
 										<Link
 											href={`/portfolio/${item.slug}`}
 											data-cta={`case_${item.slug}`}
-											className='block w-full h-full'
+											className='relative block w-full h-full'
 										>
 											{overlay}
 										</Link>

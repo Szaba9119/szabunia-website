@@ -3,7 +3,6 @@ import { galleryAlt } from '@/data/galleryAlts';
 import AnimatedSection from './AnimatedSection';
 import type { ServiceData } from '@/data/services';
 import Breadcrumbs, { type Crumb } from './Breadcrumbs';
-import TrustLine from './TrustLine';
 
 interface Props {
 	service: ServiceData;
@@ -193,7 +192,9 @@ export default function ServiceHero({ service, crumbs }: Props) {
                 Marcin: „nie twórz nowego komponentu wizualnego tylko dla
                 podstrony". Typografia, ikony i odstępy wewnętrzne przychodzą
                 z `TrustLine.tsx`, tutaj ustawiamy wyłącznie margines górny. */}
-						<TrustLine />
+						{/* Szare hasło nad przyciskiem („Mobilne studio i spójny standard zespołu")
+						    zdjęte 13.09.2026 na prośbę Marcina, na wszystkich czterech usługach.
+						    Ta sama myśl stoi pełnym zdaniem w bloku „Co biorę na siebie". */}
 						{/* BLOK CENA → KONTAKT (brief hero, punkty 7 i 8).
                 Zastąpił trzy osobne kapsułki („Wstępna wycena w 24h",
                 „Faktura VAT", numer w ramce) plus stojący pod nimi przycisk.

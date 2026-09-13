@@ -1,66 +1,16 @@
-import AnimatedSection from "./AnimatedSection";
+import AnimatedSection from "@/components/AnimatedSection";
+import { clients } from "@/data/proof";
 
-// ⚠ KOLEJNOŚĆ NIE JEST PRZYPADKOWA (decyzja Marcina, 10.08.2026).
-// Pasek przewija się w pętli, ale klient nie analizuje go w całości: widzi
-// pierwsze trzy do pięciu nazw. Dlatego na początku stoją marki najbardziej
-// rozpoznawalne, a lokalne i branżowe dalej. Nie sortować alfabetycznie ani
-// po długości nazwy.
-const clients = [
-  "H&M",
-  "Santander",
-  "Warner Music",
-  "John Deere",
-  "IQOS",
-  "Amica",
-  "Forte",
-  "Centrum Posnania",
-  "Woohoo",
-];
-
+// Kolejność marek zachowuje decyzję właściciela z 10.08.2026.
+// Jeden zestaw w DOM, bez automatycznego przewijania wymagającego zatrzymania.
 export default function LogoBar() {
   return (
     <AnimatedSection>
-      {/* Mobile py-8: ~90 px treści nie potrzebuje 2×48 px pustki (rytm odstępów,
-          2026-07-07). Desktop bez zmian. */}
-      {/* Górny padding na desktopie ścięty 10.08.2026 z 64 na 32 px, razem
-          z md:pb-4 w Hero.tsx. Pasek klientów ma być odpowiedzią na hero,
-          a nie osobną wyspą po dużej pustce.
-          ⚠ Mobile (py-8) BEZ ZMIAN: tam ten komponent renderuje się w innym
-          miejscu, pod sekcją „O mnie" (decyzja Marcina 2026-07-07), więc
-          zmiana odstępu dotyczyłaby zupełnie innego sąsiedztwa. */}
-      <section className="py-8 md:pt-8 md:pb-12">
-        <p className="text-center text-[11px] md:text-xs font-barlow font-semibold uppercase tracking-[0.16em] text-steel dark:text-dark-text-muted mb-6">
-          Współpracowałem m.in. z
-        </p>
-        <div
-          className="relative overflow-hidden"
-          style={{
-            maskImage:
-              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-            WebkitMaskImage:
-              "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-          }}
-        >
-          <div
-            className="flex gap-12 md:gap-20 items-center w-max motion-safe:animate-[marquee_30s_linear_infinite]"
-          >
-            {[...clients, ...clients].map((client, i) => (
-              <span
-                key={i}
-                // Jasny motyw: `text-steel` (#64748B), NIE `text-steel-light`
-                // (#94A3B8). Ten drugi dawał na tle body (#F9FAFB) kontrast
-                // 2,45:1, czyli poniżej 3:1 wymaganych nawet dla dużego,
-                // pogrubionego tekstu (WCAG 1.4.3; finding UXUI2608-01
-                // z 10.08.2026). `text-steel` daje 4,55:1. Ciemny motyw był
-                // poprawny (#94A3B8 na #0B0F1A to 7,46:1), więc został.
-                className="font-barlow font-bold text-xl md:text-2xl tracking-tight text-steel dark:text-dark-text-muted whitespace-nowrap flex-shrink-0"
-                aria-hidden={i >= clients.length}
-              >
-                {client}
-              </span>
-            ))}
-          </div>
-        </div>
+      <section className="pt-8 pb-6 px-4" aria-label="Wybrani klienci">
+        <p className="text-center text-[11px] md:text-xs font-barlow font-semibold uppercase tracking-[0.16em] text-steel dark:text-dark-text-muted mb-6">Współpracowałem m.in. z</p>
+        <ul className="max-w-6xl mx-auto flex flex-wrap justify-center items-center gap-x-7 md:gap-x-10 gap-y-5">
+          {clients.map(client => <li key={client} className="font-barlow font-bold text-base md:text-xl tracking-tight text-steel dark:text-dark-text-muted">{client}</li>)}
+        </ul>
       </section>
     </AnimatedSection>
   );

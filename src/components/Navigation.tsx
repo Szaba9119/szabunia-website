@@ -27,8 +27,8 @@ import { useActiveSection } from '@/hooks/useActiveSection';
 // samej nazwie szły w dwa różne miejsca. Teraz oba prowadzą do `/uslugi`.
 //
 // Na stronie głównej nic się nie zmienia: „Usługi" nadal jest kotwicą do sekcji.
-// „O mnie" i „Portfolio" zostają kotwicami wszędzie, bo nie mają odpowiednika
-// w postaci osobnej strony.
+// „Portfolio” poza home prowadzi do pełnej listy realizacji.
+// „O mnie” zostaje kotwicą, bo nie ma osobnej podstrony.
 const navLinks = [
 	{
 		label: 'O mnie',
@@ -49,7 +49,7 @@ const navLinks = [
 		href: '#portfolio',
 		section: 'portfolio',
 		page: null,
-		subHref: null,
+		subHref: '/portfolio',
 	},
 	{
 		label: 'Galeria',
@@ -129,7 +129,7 @@ export default function Navigation() {
 			// `fixed top-0`, więc jest zawsze w kadrze i jego focus() nie przewija
 			// strony z powrotem na górę. Sprawdzone pomiarem, nie założone.
 			if (fromMobileMenu) closeMobileMenu();
-			el.scrollIntoView({ behavior: 'smooth' });
+			el.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
 		},
 		[closeMobileMenu],
 	);
@@ -207,7 +207,7 @@ export default function Navigation() {
 					href='/'
 					className='inline-flex items-center min-h-[24px] font-barlow font-extrabold text-sm tracking-wide text-navy dark:text-white'
 				>
-					MARCIN SZABUNIA
+					SZABUNIA
 				</Link>
 
 				<div className='hidden md:flex items-center gap-3'>
@@ -299,7 +299,7 @@ export default function Navigation() {
 			{mobileOpen && (
 				<div
 					id='mobile-menu'
-					className='absolute top-full mt-2 left-4 right-4 rounded-2xl p-6 md:hidden shadow-xl shadow-navy/10 dark:shadow-black/30 bg-white/95 dark:bg-[rgba(11,15,26,0.96)] backdrop-blur-xl border border-white/25 dark:border-white/[0.08]'
+					className='absolute top-full mt-2 left-4 right-4 max-h-[calc(100dvh-6.5rem)] overflow-y-auto overscroll-contain rounded-2xl p-6 md:hidden shadow-xl shadow-navy/10 dark:shadow-black/30 bg-white/95 dark:bg-[rgba(11,15,26,0.96)] backdrop-blur-xl border border-white/25 dark:border-white/[0.08]'
 					onKeyDown={(e: ReactKeyboardEvent<HTMLDivElement>) => {
 						if (e.key === 'Tab') {
 							const focusable = e.currentTarget.querySelectorAll<HTMLElement>(

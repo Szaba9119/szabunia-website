@@ -4,7 +4,7 @@ import AnimatedSection from "./AnimatedSection";
 
 export default function PoradnikTeaser() {
   return (
-    <section id="poradnik" className="py-12 md:py-16 px-4">
+    <section id="poradnik" className="py-8 md:py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <div className="relative rounded-[20px] overflow-hidden bg-white border border-border dark:bg-dark-card dark:border-dark-border px-6 py-10 md:px-12 md:py-14">

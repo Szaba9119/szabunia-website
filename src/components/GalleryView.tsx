@@ -3,6 +3,7 @@
 import { useState, useCallback, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import YouTubeFacade from './YouTubeFacade';
 import SecondaryLink from './SecondaryLink';
 import { useFocusTrap } from '@/hooks/useFocusTrap';
@@ -61,7 +62,6 @@ function altFor(
 export default function GalleryView({
 	categories,
 	videos,
-	initialActive,
 }: {
 	categories: GalleryCategory[];
 	videos: GalleryVideo[];
@@ -71,9 +71,11 @@ export default function GalleryView({
 		...categories.map((c) => ({ key: c.key, label: c.label })),
 		{ key: 'wideo', label: 'Wideo' },
 	];
-	const [active, setActive] = useState(
-		initialActive ?? tabs[0]?.key ?? 'wideo',
-	);
+	const searchParams = useSearchParams();
+	const requested = searchParams.get('kat');
+	const active = tabs.some((tab) => tab.key === requested)
+		? requested!
+		: tabs[0]?.key ?? 'wideo';
 	const [lightbox, setLightbox] = useState<number | null>(null);
 	const triggerRef = useRef<HTMLButtonElement | null>(null);
 	const dialogRef = useRef<HTMLDivElement | null>(null);
@@ -102,7 +104,7 @@ export default function GalleryView({
 	);
 
 	const selectTab = (key: string) => {
-		setActive(key);
+    if (key === active) return;
 		setLightbox(null);
 		// Na telefonie pasek przewija się w poziomie: dosuwamy klikniętą zakładkę,
 		// żeby po zmianie kategorii było widać, która jest aktywna.
@@ -111,7 +113,7 @@ export default function GalleryView({
 			?.scrollIntoView({
 				block: 'nearest',
 				inline: 'center',
-				behavior: 'smooth',
+				behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth',
 			});
 		// Powrót na górę sekcji. Bez tego po przełączeniu kategorii w połowie galerii
 		// lądujesz w środku nowego zestawu i nie wiadomo, gdzie jest początek
@@ -126,12 +128,20 @@ export default function GalleryView({
 		if (root) {
 			const y = root.getBoundingClientRect().top + window.scrollY - 96;
 			if (window.scrollY > y + 4)
-				window.scrollTo({ top: y, behavior: 'smooth' });
+				window.scrollTo({ top: y, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
 		}
 		if (typeof window !== 'undefined') {
-			window.history.replaceState(null, '', `/galeria?kat=${key}`);
+			const url = new URL(window.location.href);
+			url.searchParams.set('kat', key);
+			window.history.pushState(null, '', url);
 		}
 	};
+
+	useEffect(() => {
+    const closeOnHistory = () => setLightbox(null);
+    window.addEventListener('popstate', closeOnHistory);
+    return () => window.removeEventListener('popstate', closeOnHistory);
+  }, []);
 
 	// Klawiatura + blokada scrolla, gdy otwarty lightbox
 	useEffect(() => {
@@ -282,7 +292,7 @@ export default function GalleryView({
 								triggerRef.current = e.currentTarget;
 								setLightbox(i);
 							}}
-							aria-label={`Powiększ zdjęcie ${i + 1}`}
+							aria-label={`Powiększ: ${altFor(activeCat, i)}`}
 							className={`relative block w-full rounded-xl overflow-hidden bg-border dark:bg-dark-card group ${
 								activeCat?.key === 'portrety' || activeCat?.key === 'zespolowe'
 									? 'aspect-[3/4]'

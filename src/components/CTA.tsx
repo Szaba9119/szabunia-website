@@ -5,6 +5,7 @@ import AnimatedSection from './AnimatedSection';
 import Parallax from './Parallax';
 import { PARALLAX } from '@/lib/motion';
 import { gtagEvent } from '@/lib/gtag';
+import { servicePillars } from '@/data/servicePillars';
 import { getUtmParams } from '@/lib/utm';
 import TurnstileWidget, { type TurnstileWidgetHandle } from './TurnstileWidget';
 
@@ -43,7 +44,7 @@ function validateField(name: string, value: string): string | undefined {
 //
 // ⚠ Akapit pod nagłówkiem („Odpowiadam w ciągu 24h...") i lista zbijająca ryzyko
 // są WSPÓLNE i celowo nieparametryzowane: mówią o sposobie pracy, nie o usłudze.
-const CTA_HEADING_DEFAULT = ['Zacznijmy budować', 'Twój wizerunek'];
+const CTA_HEADING_DEFAULT = ['Opowiedz mi', 'o projekcie'];
 
 // `defaultService` wstawia z góry kod usługi do listy „Rodzaj usługi".
 // Dodane 10.08.2026 (drugi audyt zewnętrzny, §17). Na podstronie usługi klient
@@ -72,6 +73,7 @@ export default function CTA({
 		// formularzu kosztuje więcej niż zysk z lepszej kwalifikacji reszty,
 		// a kwalifikację robi i tak pierwszy mail (SZABLON 2).
 		timing: '',
+		scope: '',
 		message: '',
 	});
 	const [consent, setConsent] = useState(false);
@@ -121,6 +123,7 @@ export default function CTA({
 					phone: formData.phone,
 					service: formData.service,
 					timing: formData.timing,
+					scope: formData.scope,
 					message: formData.message,
 					// Dowód zgody RODO — do tej pory checkbox żył wyłącznie po stronie
 					// klienta, więc nie było czym wykazać, że zgoda została udzielona
@@ -177,7 +180,7 @@ export default function CTA({
 			formStartedRef.current = true;
 			gtagEvent('contact_form_started', { field: name });
 		}
-		setFormData((prev) => ({ ...prev, [name]: value }));
+		setFormData((prev) => ({ ...prev, [name]: value, ...(name === 'service' ? { scope: '' } : {}) }));
 		// Clear error on change if field was touched
 		if (touched[name]) {
 			const err = validateField(name, value);
@@ -193,7 +196,7 @@ export default function CTA({
 	};
 
 	return (
-		<section id='kontakt' className='py-12 md:py-16 px-4'>
+		<section id='kontakt' className='py-8 md:py-12 px-4'>
 			<div className='max-w-6xl mx-auto'>
 				<AnimatedSection>
 					<div className='relative rounded-[20px] overflow-hidden bg-white border border-border dark:bg-dark-card dark:border-dark-border px-6 py-12 md:px-10 md:py-16'>
@@ -481,6 +484,7 @@ export default function CTA({
 													// druga wiadomość dotyczy zwykle tej samej usługi,
 													// ale rzadko tego samego terminu.
 													timing: '',
+                          scope: '',
 													message: '',
 												});
 											}}
@@ -609,7 +613,7 @@ export default function CTA({
 													id='contact-service'
 													name='service'
 													value={formData.service}
-													onChange={handleChange}
+                          onChange={handleChange}
 													className='w-full bg-white dark:bg-white/[0.08] border border-border dark:border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white font-inter focus:border-blue transition-colors appearance-none pr-10'
 												>
 													{/* Lista przepisana 10.08.2026 przy przejściu z ośmiu usług
@@ -681,6 +685,12 @@ export default function CTA({
 											</div>
 										</div>
 
+                    {servicePillars.filter((pillar) => pillar.formCode === formData.service).map((pillar) => (
+                      <div key={pillar.formCode} className='mb-3'>
+                        <label htmlFor='contact-scope' className='block text-[11px] text-steel dark:text-dark-text-muted font-barlow font-semibold uppercase tracking-wide mb-1.5'>{pillar.question} (opcjonalnie)</label>
+                        <input id='contact-scope' name='scope' type='text' maxLength={200} value={formData.scope} onChange={handleChange} placeholder={pillar.placeholder} className='w-full bg-white dark:bg-white/[0.08] border border-border dark:border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel dark:placeholder-dark-text-muted focus:border-blue' />
+                      </div>
+                    ))}
 										{/* Pole terminu (14.08.2026). Tekstowe, nie `type="date"`:
                         klient na etapie zapytania zwykle nie ma jeszcze daty
                         dziennej, tylko miesiąc albo widełki, a kalendarz

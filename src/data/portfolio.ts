@@ -35,6 +35,16 @@ export interface PricingTable {
 export interface CaseStudy {
   client: string;
   industry: string;
+  area?: string[];
+  capabilities?: string[];
+  use?: string[];
+  location?: string;
+  date?: string;
+  goal?: string;
+  scope?: string[];
+  productionFacts?: { label: string; value: string }[];
+  deliverables?: string[];
+  whereItWent?: { label: string; url?: string }[];
   challenge: string;
   solution: string;
   results: { label: string; value: string }[];
@@ -146,6 +156,14 @@ export const portfolioCategories: PortfolioCategory[] = [
     ],
     caseStudy: {
       client: "Woohoo, partner wydarzenia E-commerce All In",
+      area: ["Wydarzenia"],
+      capabilities: ["Wideo", "Dron"],
+      use: ["Social media", "Relacja z wydarzenia"],
+      location: "Enea Stadion, Poznań",
+      goal: "Pokazać wydarzenie i wypowiedzi ekspertów w formatach dla YouTube i Instagrama.",
+      productionFacts: [{"label": "na realizację", "value": "1 wieczór"}],
+      deliverables: ["Film podsumowujący na YouTube", "3 pionowe reelsy z wywiadami"],
+      whereItWent: [{"label": "YouTube", "url": "https://www.youtube.com/watch?v=4INLtKcKcZk"}, {"label": "Instagram Woohoo"}],
       industry: "Wydarzenie branżowe e-commerce (org. ICEA i Autopay), Enea Stadion w Poznaniu",
       challenge:
         "Jeden wieczór i trzy zadania naprzemiennie: relacja z wydarzenia, wywiady z ekspertami i ujęcia z drona, w tym loty wewnątrz stadionu. Do tego mobilne studio do filmowania na sali eventowej: rozstawione tak, żeby nie przeszkadzało gościom, a tło kadru wyglądało jak w studiu.",
@@ -275,6 +293,13 @@ export const portfolioCategories: PortfolioCategory[] = [
     },
     caseStudy: {
       client: "Artech Group",
+      area: ["Produkty", "Obiekty"],
+      capabilities: ["Foto", "Wideo"],
+      use: ["WWW", "Katalog", "Sklep internetowy"],
+      location: "Poznań",
+      goal: "Zaprezentować produkty, park maszynowy i sposób pracy firmy.",
+      deliverables: ["20 packshotów produktów i półfabrykatów", "Film z hali produkcyjnej"],
+      whereItWent: [{"label": "Strona WWW, katalog i sklep internetowy"}, {"label": "Film na YouTube", "url": "https://www.youtube.com/watch?v=ivvZQ5lQ7FE"}],
       industry: "Centrum obróbki tworzyw sztucznych CNC, Poznań",
       challenge:
         "Spójne packshoty półfabrykatów i detali z tworzyw pod stronę, katalog i sklep oraz film, który pokaże park maszynowy i sposób pracy firmom z przemysłu.",
@@ -333,6 +358,14 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [],
     caseStudy: {
       client: "IDcom Group",
+      area: ["Ludzie"],
+      capabilities: ["Foto"],
+      use: ["WWW", "Materiały firmowe"],
+      location: "Poznań",
+      goal: "Przygotować portrety zespołu do różnych zastosowań przy zachowaniu spójnego standardu.",
+      productionFacts: [{"label": "tła w jednej sesji", "value": "3"}],
+      deliverables: ["Portrety na białym tle", "Portrety na czarnym tle z niebieskim światłem", "Portrety na kremowym tle"],
+      whereItWent: [{"label": "Strona internetowa i materiały firmowe IDcom"}],
       industry: "Software house, IT dla samorządów i biznesu (Poznań)",
       challenge:
         "Portrety zespołu, które muszą działać w kilku kontekstach naraz, na stronie internetowej i w materiałach firmowych, i utrzymać jeden standard dla wszystkich osób.",
@@ -361,7 +394,7 @@ export const portfolioCategories: PortfolioCategory[] = [
   },
   {
     slug: "yes-butcher-przewodnik-michelin",
-    label: "Yes Butcher!: sesja do przewodnika Michelin ★",
+    label: "Yes Butcher!: sesja do przewodnika Michelin",
     heroTitle: "Yes Butcher!: sesja do przewodnika Michelin",
     heroSubtitle:
       "Wnętrza, nagrodzony stek i portrety szefa kuchni dla steakhouse'u w poznańskich Starych Koszarach. Zdjęcia trafiły na profil restauracji w przewodniku Michelin.",
@@ -397,6 +430,14 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [],
     caseStudy: {
       client: "Yes Butcher! Shop & Bistro",
+      area: ["Obiekty", "Ludzie", "Produkty"],
+      capabilities: ["Foto", "Dron"],
+      use: ["Publikacja", "Reklama"],
+      location: "Stare Koszary, Poznań",
+      goal: "Przygotować komplet zdjęć restauracji do profilu w przewodniku i reklam.",
+      productionFacts: [{"label": "zdjęciowy w działającym lokalu", "value": "1 dzień"}],
+      deliverables: ["Ujęcia budynku z drona", "Zdjęcia wnętrz", "Portrety szefa kuchni", "Fotografie steka"],
+      whereItWent: [{"label": "Profil Yes Butcher! w przewodniku Michelin", "url": "https://guide.michelin.com/en/wielkopolskie/poznan_2395985/restaurant/yes-butcher"}, {"label": "Reklamy restauracji"}],
       industry: "Gastronomia: steakhouse i butcher shop, Poznań (Stare Koszary)",
       challenge:
         "Komplet zdjęć pod profil w przewodniku Michelin i materiały promocyjne: budynek, wnętrza, danie popisowe i ludzie. Wszystko w jeden dzień, w działającym lokalu.",

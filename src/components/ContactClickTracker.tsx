@@ -1,7 +1,10 @@
 "use client";
 
-import { useEffect } from "react";
-import { gtagEvent } from "@/lib/gtag";
+import { useEffect, useRef } from "react";
+import { publicCaseSlugs } from "@/data/contentRelations";
+import { usePathname } from "next/navigation";
+import { hasAnalyticsConsent } from "@/lib/consent";
+import { gtagEvent, updateAnalyticsConsent } from "@/lib/gtag";
 import { captureUtmParams } from "@/lib/utm";
 
 /**
@@ -13,8 +16,28 @@ import { captureUtmParams } from "@/lib/utm";
  * kontaktowym (CTA, Footer, /kontakt, podstrony usług).
  */
 export default function ContactClickTracker() {
+  const pathname = usePathname();
+  const lastTrackedPath = useRef<string | null>(null);
   useEffect(() => {
+    const trackPage = () => {
+      if (!hasAnalyticsConsent() || lastTrackedPath.current === pathname) return;
+      const match = pathname.match(/^\/(uslugi|portfolio)\/([^/]+)$/);
+      if (match && (match[1] === 'uslugi' || publicCaseSlugs.includes(match[2]))) gtagEvent(match[1] === 'uslugi' ? 'service_view' : 'case_study_view', { slug: match[2], page_path: pathname });
+      lastTrackedPath.current = pathname;
+    };
+    trackPage();
+    window.addEventListener('analytics-consent-change', trackPage);
+    return () => window.removeEventListener('analytics-consent-change', trackPage);
+  }, [pathname]);
+
+  useEffect(() => {
+    const syncStorage = (event: StorageEvent) => {
+      if (event.key === 'cookie-consent' || event.key === null) updateAnalyticsConsent(event.newValue === 'accepted');
+    };
+    window.addEventListener('storage', syncStorage);
     captureUtmParams();
+    window.addEventListener("analytics-consent-change", captureUtmParams);
+    return () => { window.removeEventListener("analytics-consent-change", captureUtmParams); window.removeEventListener("storage", syncStorage); };
   }, []);
 
   useEffect(() => {

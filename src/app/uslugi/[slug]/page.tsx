@@ -1,3 +1,4 @@
+import { getPillar } from '@/data/servicePillars';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import {
@@ -24,7 +25,8 @@ import Footer from '@/components/Footer';
 import MobileFAB from '@/components/MobileFAB';
 import BlogCard from '@/components/BlogCard';
 import PoradnikBlogCTA from '@/components/PoradnikBlogCTA';
-import SecondaryLink from '@/components/SecondaryLink';
+import Link from 'next/link';
+import Image from 'next/image';
 import ErrorBoundary from '@/components/ErrorBoundary';
 import { getPostsForService } from '@/data/blog';
 import { breadcrumbJsonLd, type Crumb } from '@/components/Breadcrumbs';
@@ -89,6 +91,7 @@ export default async function ServicePage({ params }: PageProps) {
 
 	const relatedPosts = getPostsForService(service.slug, 3);
 	const testimonial = SERVICE_TESTIMONIALS[service.slug];
+	const pillar = getPillar(service.slug);
 	// Pytanie cenowe zawsze pierwsze w FAQ (brief-22 zad. 4) — ta sama tablica
 	// zasila widoczną sekcję i JSON-LD, żeby nie rozjechały się jak wcześniej.
 	const faqs = [getPriceFaq(service), ...service.faqs];
@@ -222,6 +225,10 @@ export default async function ServicePage({ params }: PageProps) {
 						</section>
 					</ErrorBoundary>
 				)}
+        {pillar && <ErrorBoundary><section className='py-10 px-4'><div className='max-w-5xl mx-auto border-y border-border dark:border-dark-border py-6 grid md:grid-cols-[1fr_2fr] gap-4'>
+          <div><h2 className='font-barlow font-bold text-xl text-navy dark:text-white'>Co biorę na siebie</h2></div>
+          <div><h3 className='font-barlow font-semibold text-base text-navy dark:text-white mb-2'>{pillar.responsibility}</h3><p className='text-sm leading-relaxed text-text-body dark:text-dark-text'>{pillar.details}</p></div>
+        </div></section></ErrorBoundary>}
 				{/* Kolejność bloku przykładów (Marcin, 04.08.2026): GŁÓWNY PASEK → FILM
             → DRUGI PASEK, czyli film rozdziela dwie siatki miniatur, zamiast
             stać obok drugiej.
@@ -409,22 +416,60 @@ export default async function ServicePage({ params }: PageProps) {
               `mt-5` ZOSTAJE bez kompensacji, w odróżnieniu od pozostałych miejsc
               użycia `SecondaryLink`. Ten margines prowadzi do PODPISU, a nie
               do odsyłacza, więc padding linku go nie dotyczy. */}
+					{/* PRZEBUDOWANE 13.09.2026 na prośbę Marcina („tutaj też można to
+					    jakoś ładniej porobić"). Świadomie zmienia decyzję z 11.08.2026,
+					    która zakazywała kart: trzy linki jeden pod drugim wyglądały jak
+					    luźna lista i ginęły pod przyciskiem.
+					    Kompromis z tamtą decyzją: przycisk dalej jest jedynym gradientem,
+					    a kafle stoją 48 px niżej, bez tła przycisku, z samą miniaturą,
+					    nazwą i linkiem tekstowym. `data-cta='case_z_uslugi'` bez zmian,
+					    żeby nie zerwać ciągłości pomiaru. */}
 					{caseLinks.length > 0 && (
-						<div className='mt-5 flex flex-col items-center'>
-							<span className='text-[12px] text-steel dark:text-dark-text-muted'>
+						<div className='mt-12 max-w-4xl mx-auto'>
+							<p className='text-[11px] md:text-xs font-barlow font-semibold uppercase tracking-[0.16em] text-steel dark:text-dark-text-muted mb-5'>
 								{caseLinks.length > 1
 									? 'Przykładowe realizacje'
 									: 'Przykładowa realizacja'}
-							</span>
-							{caseLinks.map((c) => (
-								<SecondaryLink
-									key={c.slug}
-									href={`/portfolio/${c.slug}`}
-									cta='case_z_uslugi'
-								>
-									{c.label}
-								</SecondaryLink>
-							))}
+							</p>
+							<ul
+								className={`grid grid-cols-1 gap-4 text-left ${
+									caseLinks.length === 1
+										? 'max-w-sm mx-auto'
+										: caseLinks.length === 2
+											? 'sm:grid-cols-2 max-w-2xl mx-auto'
+											: 'sm:grid-cols-3'
+								}`}
+							>
+								{caseLinks.map((c) => (
+									<li key={c.slug}>
+										<Link
+											href={`/portfolio/${c.slug}`}
+											data-cta='case_z_uslugi'
+											className='group grid grid-cols-[96px_minmax(0,1fr)] sm:grid-cols-1 h-full overflow-hidden rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card hover:border-blue dark:hover:border-blue transition-colors'
+										>
+											<div className='relative min-h-[96px] sm:aspect-[4/3] overflow-hidden bg-border dark:bg-dark-border'>
+												<Image
+													src={c.tileImage ?? c.thumbnail}
+													alt=''
+													fill
+													sizes='(max-width: 639px) 96px, 300px'
+													className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
+														c.tileImagePosition === 'top' ? 'object-top' : ''
+													}`}
+												/>
+											</div>
+											<div className='p-4 flex flex-col justify-center gap-1.5'>
+												<span className='font-barlow font-bold text-[15px] leading-snug text-navy dark:text-white'>
+													{c.label}
+												</span>
+												<span className='text-[13px] font-semibold text-blue dark:text-blue-light'>
+													Zobacz realizację →
+												</span>
+											</div>
+										</Link>
+									</li>
+								))}
+							</ul>
 						</div>
 					)}
 				</div>

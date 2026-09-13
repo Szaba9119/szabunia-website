@@ -2,14 +2,8 @@ import AnimatedSection from "./AnimatedSection";
 import Parallax from "./Parallax";
 import { PARALLAX } from "@/lib/motion";
 
-export interface CaseStudyData {
-  client: string;
-  industry: string;
-  challenge: string;
-  solution: string;
-  results: { label: string; value: string }[];
-  testimonial?: { quote: string; author: string; role: string };
-}
+import type { CaseStudy } from '@/data/portfolio';
+export type CaseStudyData = CaseStudy;
 
 export default function PortfolioCaseStudy({ data }: { data: CaseStudyData }) {
   return (
@@ -18,11 +12,13 @@ export default function PortfolioCaseStudy({ data }: { data: CaseStudyData }) {
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">
             <h2 className="font-barlow font-extrabold text-3xl md:text-[40px] leading-tight tracking-tight text-navy dark:text-white mb-8 text-center">
-              Case Study
+              Cel i przebieg realizacji
             </h2>
           </Parallax>
         </AnimatedSection>
 
+        {data.goal && <p className="text-lg leading-relaxed text-text-body dark:text-dark-text max-w-3xl mx-auto mb-8">{data.goal}</p>}
+        {data.productionFacts?.length ? <dl className="flex flex-wrap gap-8 mb-8 border-y border-border dark:border-dark-border py-5">{data.productionFacts.map((fact) => <div key={fact.label}><dt className="text-xs text-steel dark:text-dark-text-muted">{fact.label}</dt><dd className="font-barlow font-bold text-xl text-navy dark:text-white">{fact.value}</dd></div>)}</dl> : null}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
           {/* Client info */}
           <AnimatedSection className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6">
@@ -64,11 +60,15 @@ export default function PortfolioCaseStudy({ data }: { data: CaseStudyData }) {
           </p>
         </AnimatedSection>
 
+        {data.scope?.length ? <div className="mb-8"><h3 className="font-barlow font-bold text-lg text-navy dark:text-white mb-3">Zakres realizacji</h3><ul className="list-disc pl-5 space-y-2 text-sm text-text-body dark:text-dark-text">{data.scope.map((item) => <li key={item}>{item}</li>)}</ul></div> : null}
+        {data.deliverables?.length ? <div className="mb-8"><h3 className="font-barlow font-bold text-lg text-navy dark:text-white mb-3">Co powstało</h3><ul className="list-disc pl-5 space-y-2 text-sm text-text-body dark:text-dark-text">{data.deliverables.map((item) => <li key={item}>{item}</li>)}</ul></div> : null}
+        {data.whereItWent?.length ? <div className="mb-8"><h3 className="font-barlow font-bold text-lg text-navy dark:text-white mb-3">Gdzie materiały zostały wykorzystane</h3><ul className="space-y-2 text-sm text-text-body dark:text-dark-text">{data.whereItWent.map((item) => <li key={item.label}>{item.url ? <a href={item.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center min-h-11 text-blue dark:text-blue-light underline">{item.label} ↗</a> : item.label}</li>)}</ul></div> : null}
+
         {/* Results */}
         <AnimatedSection delay={0.3}>
           <div className="bg-navy dark:bg-dark-card rounded-2xl border border-navy-light dark:border-dark-border p-8">
             <p className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-steel-light mb-4 text-center">
-              Efekty
+              Materiały i efekty
             </p>
             <div className={`grid gap-6 ${
               data.results.length === 2 ? "grid-cols-2" :

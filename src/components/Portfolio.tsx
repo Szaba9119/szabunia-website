@@ -1,10 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
-import Parallax from "./Parallax";
-import { PARALLAX } from "@/lib/motion";
-import { portfolioItems } from "@/data/portfolio";
+import { portfolioItems, getCategoryBySlug } from "@/data/portfolio";
 import { galleryAlt } from "@/data/galleryAlts";
+import ProjectMetadata from "./ProjectMetadata";
 import type { PortfolioItem } from "@/data/portfolio";
 
 const blurPlaceholder =
@@ -32,132 +31,37 @@ const FEATURED_SLUGS = [
 ];
 
 export default function Portfolio() {
-  const featured = FEATURED_SLUGS.map((slug) =>
-    portfolioItems.find((item) => item.slug === slug)
-  ).filter((item): item is PortfolioItem => Boolean(item));
-  if (featured.length === 0) return null;
-
-  const tile = (item: PortfolioItem) => (
-    <>
-      <Parallax distance={PARALLAX.accent} direction="up" className="absolute inset-0">
-        <div className="absolute inset-0 scale-[1.15]">
-          <Image
-            src={item.image}
-            /* ZDJ2608-11: opis obejrzanego kadru zamiast etykiety realizacji. */
-            alt={galleryAlt(item.image, `Zdjęcie z realizacji: ${item.label}`)}
-            fill
-            className={`object-cover ${item.imagePosition === "top" ? "object-top" : ""} transition-transform duration-500 group-hover:scale-105`}
-            sizes="(max-width: 768px) 100vw, 576px"
-            quality={85}
-            placeholder="blur"
-            blurDataURL={blurPlaceholder}
-          />
-        </div>
-      </Parallax>
-      {item.hasVideo && (
-        <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <span className="w-14 h-14 rounded-full bg-white/15 backdrop-blur-sm border border-white/50 flex items-center justify-center text-white shadow-lg">
-            <svg className="w-6 h-6 ml-0.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M8 5v14l11-7z" />
-            </svg>
-          </span>
-        </span>
-      )}
-      <div className="absolute bottom-0 left-0 right-0 bg-navy/85 backdrop-blur-sm text-white px-4 py-3 text-[13px] font-barlow font-semibold flex items-center justify-between gap-3">
-        <span>{item.label}</span>
-        <span className="text-white/70 text-xs shrink-0">Zobacz case study →</span>
-      </div>
-    </>
-  );
-
+  const featured = FEATURED_SLUGS.map((slug) => portfolioItems.find((item) => item.slug === slug))
+    .filter((item): item is PortfolioItem => Boolean(item));
   return (
-    <section id="portfolio" className="py-12 md:py-16 px-4">
+    <section id="portfolio" className="py-8 md:py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
-          <Parallax distance={PARALLAX.accent} direction="up">
-            <h2 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
-              Wybrane realizacje
-            </h2>
-            <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
-              Pełne case study: cel, przebieg realizacji i efekt końcowy.
-            </p>
-          </Parallax>
+          <p className="text-blue dark:text-blue-light text-xs uppercase tracking-widest mb-3">Wybrane projekty</p>
+          <h2 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3">Wybrane realizacje</h2>
+          <p className="text-steel dark:text-dark-text-muted text-[15px] mb-8">Cel, zakres i materiały, które trafiły do komunikacji firm.</p>
         </AnimatedSection>
-
-        <div
-          className={`grid grid-cols-1 gap-3 ${
-            featured.length > 1 ? "md:grid-cols-2" : ""
-          }`}
-        >
-          {featured.map((item, i) => (
-            <AnimatedSection
-              key={item.slug}
-              delay={i * 0.1}
-              className="group relative overflow-hidden rounded-2xl bg-border dark:bg-dark-card h-[260px] md:h-[340px]"
-            >
-              {item.externalUrl ? (
-                <a
-                  href={item.externalUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  data-cta={`case_${item.slug}`}
-                  className="block w-full h-full"
-                  aria-label={`${item.label} (otwiera się w nowej karcie)`}
-                >
-                  {tile(item)}
-                </a>
-              ) : (
-                <Link
-                  href={`/portfolio/${item.slug}`}
-                  data-cta={`case_${item.slug}`}
-                  className="block w-full h-full"
-                >
-                  {tile(item)}
-                </Link>
-              )}
-            </AnimatedSection>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {featured.map((item, index) => {
+            const project = getCategoryBySlug(item.slug)?.caseStudy;
+            return <AnimatedSection key={item.slug} className={index === 0 ? 'md:col-span-3' : ''}>
+              <Link href={`/portfolio/${item.slug}`} data-cta={`case_${item.slug}`} className={`group grid overflow-hidden rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card h-full ${index === 0 ? 'md:grid-cols-2' : 'grid-cols-[104px_minmax(0,1fr)] sm:grid-cols-[144px_minmax(0,1fr)] md:grid-cols-1'}`}>
+                <div className={`relative overflow-hidden ${index === 0 ? 'aspect-[16/10] md:aspect-auto md:min-h-[340px]' : 'min-h-[168px] md:min-h-0 md:aspect-[4/3]'}`}>
+                  <Image src={item.image} alt={galleryAlt(item.image, `Zdjęcie z realizacji: ${item.label}`)} fill className={`object-cover ${item.imagePosition === 'top' ? 'object-top' : ''} transition-transform duration-500 group-hover:scale-105`} sizes={index === 0 ? '(max-width: 768px) 100vw, 576px' : '(max-width: 639px) 104px, (max-width: 767px) 144px, 380px'} quality={85} placeholder="blur" blurDataURL={blurPlaceholder} />
+                  {item.hasVideo && <span className="absolute bottom-4 left-4 bg-navy/85 text-white rounded-full px-3 py-1.5 text-xs">▶ Film z realizacji</span>}
+                </div>
+                <div className={`${index === 0 ? 'p-5' : 'p-4'} md:p-6 flex flex-col justify-center`}>
+                  <p className="text-[10px] text-blue dark:text-blue-light uppercase tracking-widest mb-2">{index === 0 ? project?.client : project?.area?.join(' · ')}</p>
+                  <h3 className={`font-barlow font-bold ${index === 0 ? 'text-xl' : 'text-base'} md:text-2xl text-navy dark:text-white`}>{item.label}</h3>
+                  {index === 0 ? <ProjectMetadata data={project} compact /> : <p className='text-xs text-steel dark:text-dark-text-muted my-3'>{project?.capabilities?.join(' · ')}</p>}
+                  {index === 0 && <p className="text-sm text-steel dark:text-dark-text-muted leading-relaxed mb-4">{project?.goal}</p>}
+                  <span className="text-sm text-blue dark:text-blue-light font-semibold">Zobacz realizację →</span>
+                </div>
+              </Link>
+            </AnimatedSection>;
+          })}
         </div>
-
-        {/* Link „Zobacz pełne portfolio" usunięty (decyzja Marcina, 2026-07-06 noc:
-            lejek bez bocznych wyjść — zostaje kafel „Napisz do mnie"). Link SEO
-            z home do huba /portfolio przeniesiony do stopki (Footer.tsx). */}
-        <AnimatedSection
-          delay={0.15}
-          className="group mt-3 relative overflow-hidden rounded-2xl bg-white dark:bg-dark-card border border-border dark:border-dark-border hover:scale-[1.005] transition-transform duration-300"
-        >
-          {/* COPY POPRAWIONE 10.08.2026 (decyzja Marcina, runda CRO).
-              Było: „Chcesz zobaczyć więcej? Napisz do mnie".
-              Problem był w niezgodności obietnicy z celem: pytanie zapowiadało
-              WIĘCEJ PORTFOLIO, a link prowadzi do formularza kontaktowego.
-              Nowe copy pyta o projekt klienta, czyli o to, po co ten link istnieje,
-              i od razu mówi, co klient dostanie po wysłaniu.
-
-              Element ŚWIADOMIE zostaje subtelną kartą, a nie banerem: Marcin
-              prosił o moduł spójny wizualnie z resztą strony, bez agresji.
-              Nie dodawałem drugiego CTA obok, bo to już jest CTA po case studies
-              i zdublowanie dałoby dwa wezwania na jednym ekranie.
-
-              ⚠ `data-cta` DODANE, wcześniej go NIE BYŁO. To jedyny element
-              konwersyjny na stronie głównej, który nie był mierzony, więc kliknięcia
-              z portfolio do formularza nie pojawiały się w danych. Nazwa trzyma
-              konwencję `wycena_<powierzchnia>` (jak `wycena_home_hero`,
-              `wycena_home_uslugi`). To NOWA nazwa, nie zmiana istniejącej,
-              więc nic nie zrywa ciągłości pomiaru. */}
-          <a
-            href="#kontakt"
-            data-cta="wycena_home_portfolio"
-            className="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-3 text-center px-6 py-5"
-          >
-            <span className="hidden sm:inline text-blue dark:text-blue-light text-2xl group-hover:scale-110 transition-transform duration-300" aria-hidden="true">→</span>
-            <span className="font-barlow font-semibold text-navy dark:text-white text-[14px]">
-              Masz podobny projekt?
-            </span>
-            <span className="text-steel dark:text-dark-text-muted text-[11px]">
-              Opisz, czego potrzebujesz. Odpowiem w ciągu 24h z propozycją zakresu, ceny i terminu.
-            </span>
-          </a>
-        </AnimatedSection>
+        <Link href="/kontakt" data-cta="wycena_home_portfolio" className="block mt-5 rounded-2xl border border-border dark:border-dark-border p-5 text-center text-navy dark:text-white font-semibold">Masz podobny projekt? <span className="text-blue dark:text-blue-light">Zapytaj o ofertę →</span></Link>
       </div>
     </section>
   );

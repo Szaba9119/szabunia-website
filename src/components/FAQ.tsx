@@ -25,7 +25,7 @@ export default function FAQ() {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <section className="py-12 md:py-16 px-4">
+    <section className="py-8 md:py-12 px-4">
       <div className="max-w-2xl mx-auto">
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">
@@ -33,7 +33,7 @@ export default function FAQ() {
               Najczęstsze pytania
             </h2>
           </Parallax>
-          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
+          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-md mx-auto">
             Zanim napiszesz, sprawdź, czy odpowiedź już tu jest.
           </p>
         </AnimatedSection>

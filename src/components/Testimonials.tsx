@@ -1,316 +1,50 @@
-"use client";
+'use client';
 
-import { useState, useEffect, useCallback, useRef } from "react";
-import AnimatedSection from "./AnimatedSection";
-import Parallax from "./Parallax";
-import { PARALLAX } from "@/lib/motion";
-import { useMediaQuery } from "@/hooks/useMediaQuery";
-
-const testimonials = [
-  {
-    quote:
-      "Mieliśmy przyjemność współpracować z Marcinem przy realizacji materiałów foto i wideo z eventu biznesowego oraz przygotowaniu treści na potrzeby social media. Współpraca od początku do końca przebiegała wzorowo. Marcin wyróżnia się nie tylko wysokimi kompetencjami technicznymi, ale również doskonałym wyczuciem biznesowym i marketingowym. Potrafi uchwycić najważniejsze momenty wydarzenia, a jednocześnie przygotować materiały, które świetnie sprawdzają się w komunikacji marki i działaniach promocyjnych. Ogromnie doceniamy sprawną komunikację, elastyczność oraz ekspresowe tempo realizacji. Na każdym etapie mogliśmy liczyć na profesjonalne wsparcie, zaangażowanie i proaktywne podejście. To współpraca, do której z przyjemnością będziemy wracać przy kolejnych projektach.",
-    author: "Maja Formalik",
-    meta: "Growth & Partnerships Manager, Woohoo · Opinia Google",
-    initials: "MF",
-  },
-  {
-    quote:
-      "Z pełnym przekonaniem polecamy współpracę z Marcinem! Realizował dla naszego biura sesję biznesową i od samego początku współpraca przebiegała na najwyższym poziomie. Zdjęcia wyszły bardzo estetyczne, naturalne i w pełni spełniły nasze oczekiwania. Podczas sesji panowała swobodna atmosfera, a Marcin zadbał o to, aby każdy czuł się komfortowo przed obiektywem. Dodatkowo mogliśmy liczyć na wiele cennych wskazówek oraz bardzo sprawny kontakt na każdym etapie realizacji. Z pewnością wrócimy przy kolejnych projektach i serdecznie polecamy jego usługi. :)",
-    author: "Aleksandra Burzyńska",
-    meta: "Poznańskie Nieruchomości · Opinia Google",
-    initials: "AB",
-  },
-  {
-    quote:
-      "Miałam przyjemność współpracować z Marcinem już kilkukrotnie i sesje studyjne są pełne profesjonalizmu i zaangażowania. Marcin daje z siebie 100% i bardzo szybko przełamuje lody, nawet jeśli ktoś staje przed obiektywem po raz pierwszy. Polecam z pełnym przekonaniem!",
-    author: "Zuzanna Fortuniak",
-    meta: "Menedżerka ds. marketingu, Weranda · Opinia Google",
-    initials: "ZF",
-  },
-];
+import { useId, useRef, useState } from 'react';
+import { testimonials } from '@/data/proof';
+import AnimatedSection from '@/components/AnimatedSection';
 
 export default function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
-
-  const goTo = useCallback(
-    (index: number) => {
-      if (isAnimating || index === currentIndex) return;
-      setIsAnimating(true);
-      setCurrentIndex(index);
-      setTimeout(() => setIsAnimating(false), 500);
-    },
-    [isAnimating, currentIndex]
-  );
-
-  const next = useCallback(() => {
-    goTo((currentIndex + 1) % testimonials.length);
-  }, [currentIndex, goTo]);
-
-  const prev = useCallback(() => {
-    goTo((currentIndex - 1 + testimonials.length) % testimonials.length);
-  }, [currentIndex, goTo]);
-
-  const nextRef = useRef(next);
-  useEffect(() => {
-    nextRef.current = next;
-  }, [next]);
-
-  const prefersReducedMotion = useMediaQuery("(prefers-reduced-motion: reduce)");
-
-  useEffect(() => {
-    if (!isPaused && !prefersReducedMotion) {
-      timerRef.current = setInterval(() => nextRef.current(), 15000);
-    }
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
-  }, [isPaused, prefersReducedMotion]);
-
-  const t = testimonials[currentIndex];
-
+  const quoteId = useId();
+  const [expanded, setExpanded] = useState<Record<string, boolean>>({});
+  const listRef = useRef<HTMLUListElement>(null);
+  const move = (direction: number) => {
+    const list = listRef.current;
+    if (!list) return;
+    const card = list.firstElementChild?.getBoundingClientRect().width ?? list.clientWidth;
+    list.scrollBy({ left: direction * (card + 24), behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+  };
   return (
-    <section className="py-12 md:py-16 px-4">
-      <div className="max-w-6xl mx-auto">
+    <section className='py-8 md:py-12 px-4' aria-labelledby='testimonials-heading'>
+      <div className='max-w-6xl mx-auto'>
         <AnimatedSection>
-          <Parallax distance={PARALLAX.accent} direction="up">
-            <h2 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
-              Co mówią klienci
-            </h2>
-          </Parallax>
-          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-md mx-auto">
-            Opinie klientów, z którymi miałem przyjemność współpracować.
-          </p>
-        </AnimatedSection>
-
-        {/* Desktop: wszystkie opinie naraz (bez klikania) */}
-        <AnimatedSection delay={0.1}>
-          <div className="hidden md:grid md:grid-cols-3 gap-4 max-w-6xl mx-auto">
-            {testimonials.map((item) => (
-              <div
-                key={item.author}
-                className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-7 flex flex-col relative overflow-hidden"
-              >
-                <svg
-                  className="absolute top-5 right-5 w-12 h-12 text-blue/[0.06] dark:text-blue-light/[0.06]"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                >
-                  <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z" />
-                </svg>
-                <div className="text-blue dark:text-blue-light text-sm mb-3" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
-                  ★★★★★
-                </div>
-                {/* line-clamp: cytat Woohoo jest ~3× dłuższy od pozostałych — bez przycięcia
-                    dwie sąsiednie karty świecą pustką (audyt UX 2026-07-06). Pełna treść
-                    opinii pozostaje w case studies i w Google. */}
-                <blockquote className="text-navy dark:text-white text-[15px] leading-relaxed mb-6 font-inter italic relative z-10 flex-grow line-clamp-[9]">
-                  &bdquo;{item.quote}&rdquo;
+          <h2 id='testimonials-heading' className='font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center'>Co mówią klienci</h2>
+          <p className='text-steel dark:text-dark-text-muted text-[15px] text-center mb-10'>Opinie o materiale, kontakcie i przebiegu współpracy.</p>
+          <ul ref={listRef} tabIndex={0} aria-label='Opinie klientów — przewiń, aby przeczytać kolejne' className='flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 md:pb-0 md:grid md:grid-cols-3 md:overflow-visible'>
+            {testimonials.map((item, index) => (
+              <li key={item.author} className='min-w-[90%] md:min-w-0 snap-start bg-white dark:bg-dark-card border border-border dark:border-dark-border rounded-2xl p-6 flex flex-col'>
+                <p className='text-blue dark:text-blue-light mb-4' aria-label='Ocena: 5 na 5 gwiazdek'>★★★★★</p>
+                <blockquote className='text-text-body dark:text-dark-text text-[15px] leading-relaxed italic flex-1 mb-6'>
+                  <p id={`${quoteId}-${index}`} className={item.quote.length > 350 && !expanded[item.author] ? 'line-clamp-[9]' : undefined}>&bdquo;{item.quote}&rdquo;</p>
                 </blockquote>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-blue/10 dark:bg-blue-light/10 flex items-center justify-center text-xs font-bold text-blue dark:text-blue-light flex-shrink-0">
-                    {item.initials}
-                  </div>
-                  <div>
-                    <div className="font-barlow font-bold text-[14px] text-navy dark:text-white">
-                      {item.author}
-                    </div>
-                    <div className="text-[12px] text-steel dark:text-dark-text-muted">
-                      {item.meta}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-          {/* Link do opinii Google — wspólny dla obu widoków (desktop) */}
-          <div className="hidden md:block mt-6 text-center">
-            <a
-              href="https://g.page/r/CcGxT8A_KfJREBM/review"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 py-2 text-[13px] text-steel dark:text-dark-text-muted hover:text-blue dark:hover:text-blue-light transition-colors font-barlow font-semibold"
-            >
-              <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
-                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-              </svg>
-              Przeczytaj więcej opinii lub dodaj swoją
-            </a>
-          </div>
-        </AnimatedSection>
-
-        {/* Mobile: karuzela */}
-        <AnimatedSection delay={0.1}>
-          <div
-            className="relative max-w-3xl mx-auto md:hidden"
-            role="region"
-            aria-roledescription="karuzela"
-            aria-label="Opinie klientów"
-            // ⚠ NIE dodawać tu `aria-atomic="true"` (usunięte 10.08.2026,
-            // finding PELNY2608-66). Przy zmianie treści czytnik szuka
-            // aria-atomic w PRZODKACH regionu live, więc ten atrybut kazał mu
-            // odczytywać całą karuzelę od nowa zamiast jednego komunikatu
-            // o zmianie opinii.
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-          >
-            {/* Main testimonial card */}
-            <div className="bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-8 md:p-12 min-h-[240px] flex flex-col justify-center relative overflow-hidden">
-              {/* Quote decoration */}
-              <svg
-                className="absolute top-6 right-6 w-16 h-16 text-blue/[0.06] dark:text-blue-light/[0.06]"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983z" />
-              </svg>
-
-              {/* JEDEN region live na całą karuzelę: krótki licznik „Opinia X z Y".
-                  Widoczna karta NIE ma już `aria-live` (usunięte 10.08.2026,
-                  finding PELNY2608-66). Dwa nakładające się regiony powodowały,
-                  że przy autoprzewijaniu czytnik odczytywał licznik i zaraz po
-                  nim cały, kilkuzdaniowy cytat. Nie przywracać `aria-live` niżej. */}
-              <div className="sr-only" aria-live="polite" aria-atomic="true">
-                Opinia {currentIndex + 1} z {testimonials.length}
-              </div>
-              <div
-                key={currentIndex}
-                style={{
-                  animation: "fadeIn 0.4s ease-out",
-                }}
-              >
-                <div className="text-blue dark:text-blue-light text-sm mb-4" role="img" aria-label="Ocena: 5 na 5 gwiazdek">
-                  ★★★★★
-                </div>
-                <blockquote className="text-navy dark:text-white text-lg md:text-xl leading-relaxed mb-8 font-inter italic relative z-10 line-clamp-[10]">
-                  &bdquo;{t.quote}&rdquo;
-                </blockquote>
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-blue/10 dark:bg-blue-light/10 flex items-center justify-center text-xs font-bold text-blue dark:text-blue-light flex-shrink-0">
-                    {t.initials}
-                  </div>
-                  <div>
-                    <div className="font-barlow font-bold text-[14px] text-navy dark:text-white">
-                      {t.author}
-                    </div>
-                    <div className="text-[12px] text-steel dark:text-dark-text-muted">
-                      {t.meta}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Google Reviews link */}
-            <div className="mt-6 text-center">
-              <a
-                href="https://g.page/r/CcGxT8A_KfJREBM/review"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 py-2 text-[13px] text-steel dark:text-dark-text-muted hover:text-blue dark:hover:text-blue-light transition-colors font-barlow font-semibold"
-              >
-                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/>
-                  <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-                  <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-                  <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-                </svg>
-                Przeczytaj więcej opinii lub dodaj swoją
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
-                </svg>
-              </a>
-            </div>
-
-            {/* Controls */}
-            <div className="flex items-center justify-between mt-4">
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setIsPaused((p) => !p)}
-                  className="w-10 h-10 rounded-xl border border-border dark:border-dark-border flex items-center justify-center text-steel dark:text-dark-text-muted hover:text-blue dark:hover:text-blue-light hover:border-blue dark:hover:border-blue-light transition-all"
-                  aria-label={isPaused ? "Wznów automatyczne przewijanie" : "Zatrzymaj automatyczne przewijanie"}
-                >
-                  {isPaused ? (
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
-                  ) : (
-                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" /></svg>
-                  )}
-                </button>
-                <button
-                  onClick={prev}
-                  disabled={isAnimating}
-                  className="w-10 h-10 rounded-xl border border-border dark:border-dark-border flex items-center justify-center text-steel dark:text-dark-text-muted hover:text-blue dark:hover:text-blue-light hover:border-blue dark:hover:border-blue-light transition-all disabled:opacity-50"
-                  aria-label="Poprzednia opinia"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15 19l-7-7 7-7"
-                    />
-                  </svg>
-                </button>
-                <button
-                  onClick={next}
-                  disabled={isAnimating}
-                  className="w-10 h-10 rounded-xl border border-border dark:border-dark-border flex items-center justify-center text-steel dark:text-dark-text-muted hover:text-blue dark:hover:text-blue-light hover:border-blue dark:hover:border-blue-light transition-all disabled:opacity-50"
-                  aria-label="Następna opinia"
-                >
-                  <svg
-                    className="w-5 h-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </button>
-              </div>
-
-              {/* Pagination dots — kropka zostaje wizualnie taka sama (8 px
-                  wysokości), ale przycisk dostaje 24×24 px pola dotyku przez
-                  padding (WCAG 2.2 SC 2.5.8, audyt PELNY2907-23). Wcześniej cel
-                  miał 8×8 px. Padding zastępuje gap-2, ujemny margines na
-                  kontenerze wyrównuje krawędzie rzędu do poprzedniego stanu. */}
-              <div className="flex -mx-2 -my-2">
-                {testimonials.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => goTo(i)}
-                    className="p-2 flex items-center"
-                    aria-label={`Przejdź do opinii ${i + 1}`}
-                    aria-current={i === currentIndex ? "step" : undefined}
-                  >
-                    <span
-                      className={`block h-2 rounded-full transition-all duration-400 ${
-                        i === currentIndex
-                          ? "bg-blue dark:bg-blue-light w-6"
-                          : "bg-border dark:bg-dark-border w-2 hover:bg-steel-light dark:hover:bg-dark-text-muted"
-                      }`}
-                    />
+                {item.quote.length > 350 && (
+                  <button type='button' aria-expanded={Boolean(expanded[item.author])} aria-controls={`${quoteId}-${index}`}
+                    onClick={() => setExpanded((previous) => ({ ...previous, [item.author]: !previous[item.author] }))}
+                    className='self-start min-h-11 mb-4 text-sm font-semibold text-blue dark:text-blue-light underline underline-offset-4'>
+                    {expanded[item.author] ? 'Zwiń opinię' : 'Czytaj całą opinię'}
                   </button>
-                ))}
-              </div>
-            </div>
+                )}
+                <p className='font-barlow font-bold text-sm text-navy dark:text-white'>{item.author}</p>
+                <p className='text-xs text-steel dark:text-dark-text-muted mt-1'>{item.meta}</p>
+              </li>
+            ))}
+          </ul>
+          <div className='flex justify-end gap-2 md:hidden mt-3'>
+            <button type='button' onClick={() => move(-1)} aria-label='Poprzednia opinia' className='w-11 h-11 border border-border dark:border-dark-border rounded-xl text-navy dark:text-white'>←</button>
+            <button type='button' onClick={() => move(1)} aria-label='Następna opinia' className='w-11 h-11 border border-border dark:border-dark-border rounded-xl text-navy dark:text-white'>→</button>
+          </div>
+          <div className='mt-6 text-center'>
+            <a href='https://share.google/2OMRlIblNmEKlthIl' target='_blank' rel='noopener noreferrer' className='inline-flex items-center min-h-11 text-sm text-blue dark:text-blue-light underline'>Zobacz profil i opinie w Google</a>
           </div>
         </AnimatedSection>
       </div>

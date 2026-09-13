@@ -1,0 +1,793 @@
+{
+  "pages": 46,
+  "rows": [
+    {
+      "path": "/",
+      "status": 200,
+      "title": "Fotograf biznesowy Poznań | Zdjęcia i film | Szabunia",
+      "canonical": "https://szabunia.pl",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Fotograf biznesowy w Poznaniu. Zdjęcia i film."
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog",
+      "status": 200,
+      "title": "Blog o fotografii i wideo dla firm | Szabunia",
+      "canonical": "https://szabunia.pl/blog",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Blog o fotografii i wideo dla firm"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/bledy-zdjecia-zespolu",
+      "status": 200,
+      "title": "5 błędów przy zdjęciach zespołu | Szabunia",
+      "canonical": "https://szabunia.pl/blog/bledy-zdjecia-zespolu",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "5 błędów, które firmy popełniają przy zdjęciach zespołu"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/co-to-jest-packshot",
+      "status": 200,
+      "title": "Co to jest packshot? Słownik fotografii | Szabunia",
+      "canonical": "https://szabunia.pl/blog/co-to-jest-packshot",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Co to jest packshot? Słownik pojęć fotografii, które warto znać"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/co-zalozyc-na-sesje-biznesowa",
+      "status": 200,
+      "title": "Co założyć na sesję biznesową: stylizacje | Szabunia",
+      "canonical": "https://szabunia.pl/blog/co-zalozyc-na-sesje-biznesowa",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Co założyć na sesję biznesową: kolory, fasony i błędy, których lepiej unikać"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/foto-wideo-dron-z-jednego-wejscia",
+      "status": 200,
+      "title": "Foto, wideo i dron od jednego partnera | Szabunia",
+      "canonical": "https://szabunia.pl/blog/foto-wideo-dron-z-jednego-wejscia",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Zdjęcia, film i dron od jednego partnera: mniej logistyki"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/fotografia-eventowa-vs-reportaz",
+      "status": 200,
+      "title": "Fotografia eventowa vs reportaż: co wybrać | Szabunia",
+      "canonical": "https://szabunia.pl/blog/fotografia-eventowa-vs-reportaz",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Fotografia eventowa vs reportaż: co wybrać dla Twojej konferencji"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/fotografia-produktowa-ecommerce",
+      "status": 200,
+      "title": "Fotografia produktowa dla e-commerce | Szabunia",
+      "canonical": "https://szabunia.pl/blog/fotografia-produktowa-ecommerce",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Fotografia produktowa dla e-commerce: jak zdjęcia wpływają na sprzedaż"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/fotografia-przemyslowa-fabryka",
+      "status": 200,
+      "title": "Fotografia przemysłowa: zdjęcia fabryki | Szabunia",
+      "canonical": "https://szabunia.pl/blog/fotografia-przemyslowa-fabryka",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Fotografia przemysłowa: jak pokazać fabrykę z najlepszej strony"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/headshoty-linkedin-konwersja",
+      "status": 200,
+      "title": "Headshoty na LinkedIn a konwersja | Szabunia",
+      "canonical": "https://szabunia.pl/blog/headshoty-linkedin-konwersja",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Dlaczego profesjonalne headshoty zwiększają konwersję na LinkedIn"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/headshoty-zespolu-w-jeden-dzien",
+      "status": 200,
+      "title": "Headshoty całego zespołu w jeden dzień | Szabunia",
+      "canonical": "https://szabunia.pl/blog/headshoty-zespolu-w-jeden-dzien",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Headshoty całego zespołu w jeden dzień: jak to zorganizować bez chaosu"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/ile-kosztuje-film-promocyjny",
+      "status": 200,
+      "title": "Ile kosztuje film promocyjny dla firmy | Szabunia",
+      "canonical": "https://szabunia.pl/blog/ile-kosztuje-film-promocyjny",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Ile kosztuje film promocyjny dla firmy i od czego zależy cena"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/ile-kosztuje-film-z-drona",
+      "status": 200,
+      "title": "Ile kosztuje film z drona dla firmy | Szabunia",
+      "canonical": "https://szabunia.pl/blog/ile-kosztuje-film-z-drona",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Ile kosztuje film z drona dla firmy i od czego zależy cena"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/ile-kosztuje-sesja-wizerunkowa-dla-firmy",
+      "status": 200,
+      "title": "Ile kosztuje sesja wizerunkowa dla firmy | Szabunia",
+      "canonical": "https://szabunia.pl/blog/ile-kosztuje-sesja-wizerunkowa-dla-firmy",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Ile kosztuje sesja wizerunkowa dla firmy: co realnie wpływa na cenę"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/jak-przygotowac-sie-do-sesji-biznesowej",
+      "status": 200,
+      "title": "Jak przygotować się do sesji biznesowej | Szabunia",
+      "canonical": "https://szabunia.pl/blog/jak-przygotowac-sie-do-sesji-biznesowej",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Jak przygotować się do sesji biznesowej: 7 praktycznych wskazówek"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/jak-wybrac-fotografa-na-event",
+      "status": 200,
+      "title": "Jak wybrać fotografa na event firmowy | Szabunia",
+      "canonical": "https://szabunia.pl/blog/jak-wybrac-fotografa-na-event",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Jak wybrać fotografa na event firmowy: checklista przed konferencją lub galą"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/live-editing-na-evencie",
+      "status": 200,
+      "title": "Live editing na evencie: zdjęcia od ręki | Szabunia",
+      "canonical": "https://szabunia.pl/blog/live-editing-na-evencie",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Live editing na evencie: zdjęcia w social mediach jeszcze tego samego dnia"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/obsluga-foto-wideo-eventu-firmowego",
+      "status": 200,
+      "title": "Obsługa foto-wideo eventu firmowego | Szabunia",
+      "canonical": "https://szabunia.pl/blog/obsluga-foto-wideo-eventu-firmowego",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Jak zaplanować kompleksową obsługę foto-wideo eventu firmowego"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/pakiet-foto-wideo-czy-osobno",
+      "status": 200,
+      "title": "Pakiet foto, wideo i dron czy osobno | Szabunia",
+      "canonical": "https://szabunia.pl/blog/pakiet-foto-wideo-czy-osobno",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Pakiet foto + wideo + dron czy usługi osobno: co się bardziej opłaca firmie"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/sesja-wizerunkowa-poznan",
+      "status": 200,
+      "title": "Sesja wizerunkowa Poznań: gdzie ją zrobić | Szabunia",
+      "canonical": "https://szabunia.pl/blog/sesja-wizerunkowa-poznan",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Sesja wizerunkowa w Poznaniu: studio, biuro czy plener?"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/slownik-pojec-wideo",
+      "status": 200,
+      "title": "B-roll, setka, recap: słownik wideo | Szabunia",
+      "canonical": "https://szabunia.pl/blog/slownik-pojec-wideo",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Co to jest b-roll? Słownik pojęć wideo, które warto znać"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/spojne-portrety-zespolu",
+      "status": 200,
+      "title": "Spójne portrety zespołu: jeden standard | Szabunia",
+      "canonical": "https://szabunia.pl/blog/spojne-portrety-zespolu",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Spójne portrety zespołu: dlaczego warto fotografować wszystkich w jednym standardzie"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/wideo-marketing-dla-firm-formaty",
+      "status": 200,
+      "title": "Wideo marketing dla firm: jakie formaty | Szabunia",
+      "canonical": "https://szabunia.pl/blog/wideo-marketing-dla-firm-formaty",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Wideo marketing dla firm: jakie formaty naprawdę się sprawdzają"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/zdjecia-ai-vs-profesjonalna-sesja",
+      "status": 200,
+      "title": "Zdjęcia AI vs profesjonalna sesja | Szabunia",
+      "canonical": "https://szabunia.pl/blog/zdjecia-ai-vs-profesjonalna-sesja",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Zdjęcia AI vs profesjonalna sesja: czy generator headshotów wystarczy firmie?"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/zdjecia-film-z-drona-dla-firm",
+      "status": 200,
+      "title": "Zdjęcia i film z drona dla firm: koszt | Szabunia",
+      "canonical": "https://szabunia.pl/blog/zdjecia-film-z-drona-dla-firm",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Zdjęcia i film z drona dla firm: zastosowania, legalność i koszt"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/zdjecia-na-strone-firmowa",
+      "status": 200,
+      "title": "Jakie zdjęcia na stronę firmową: lista | Szabunia",
+      "canonical": "https://szabunia.pl/blog/zdjecia-na-strone-firmowa",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Jakie zdjęcia potrzebuje strona internetowa firmy: kompletna lista"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/zdjecia-z-drona-dla-deweloperow",
+      "status": 200,
+      "title": "Zdjęcia z drona dla deweloperów | Szabunia",
+      "canonical": "https://szabunia.pl/blog/zdjecia-z-drona-dla-deweloperow",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Zdjęcia z drona dla deweloperów i nieruchomości: jak pokazać inwestycję z lotu ptaka"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/blog/zdjecie-do-cv-w-domu",
+      "status": 200,
+      "title": "Jak zrobić zdjęcie do CV w domu: poradnik | Szabunia",
+      "canonical": "https://szabunia.pl/blog/zdjecie-do-cv-w-domu",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Jak zrobić profesjonalne zdjęcie do CV w domu: kompletny poradnik"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/galeria",
+      "status": 200,
+      "title": "Galeria kadrów z realizacji | Szabunia",
+      "canonical": "https://szabunia.pl/galeria",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Galeria kadrów z realizacji"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/kontakt",
+      "status": 200,
+      "title": "Kontakt i wycena, fotograf Poznań | Szabunia",
+      "canonical": "https://szabunia.pl/kontakt",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Porozmawiajmy o Twoim projekcie"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/polityka-prywatnosci",
+      "status": 200,
+      "title": "Polityka prywatności | Szabunia",
+      "canonical": "https://szabunia.pl/polityka-prywatnosci",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Polityka prywatności"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/poradnik",
+      "status": 200,
+      "title": "Darmowy poradnik: sesja biznesowa | Szabunia",
+      "canonical": "https://szabunia.pl/poradnik",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Pakiet przygotowania do sesji biznesowej"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/portfolio",
+      "status": 200,
+      "title": "Portfolio realizacji foto i wideo | Szabunia",
+      "canonical": "https://szabunia.pl/portfolio",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Portfolio realizacji foto i wideo"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/portfolio/artech-fotografia-produktowa",
+      "status": 200,
+      "title": "Artech: packshoty i film z produkcji | Szabunia",
+      "canonical": "https://szabunia.pl/portfolio/artech-fotografia-produktowa",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Artech: packshoty i film z produkcji"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/portfolio/fotografia-eventowa",
+      "status": 200,
+      "title": "Przykłady zdjęć z eventów firmowych | Szabunia",
+      "canonical": "https://szabunia.pl/portfolio/fotografia-eventowa",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Fotografia eventowa"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/portfolio/idcom-headshoty-zespolu",
+      "status": 200,
+      "title": "IDcom: headshoty zespołu na 3 tłach | Szabunia",
+      "canonical": "https://szabunia.pl/portfolio/idcom-headshoty-zespolu",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "IDcom: headshoty zespołu na trzech tłach"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/portfolio/packshoty-produktowe",
+      "status": 200,
+      "title": "Przykłady packshotów i zdjęć produktów | Szabunia",
+      "canonical": "https://szabunia.pl/portfolio/packshoty-produktowe",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Fotografia produktowa"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/portfolio/sesja-korporacyjna",
+      "status": 200,
+      "title": "Przykłady headshotów zespołu: studio i biuro | Szabunia",
+      "canonical": "https://szabunia.pl/portfolio/sesja-korporacyjna",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Sesja korporacyjna"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/portfolio/sesja-wizerunkowa",
+      "status": 200,
+      "title": "Przykłady sesji wizerunkowych dla firm | Szabunia",
+      "canonical": "https://szabunia.pl/portfolio/sesja-wizerunkowa",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Sesja wizerunkowa firmy"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/portfolio/woohoo-autopay",
+      "status": 200,
+      "title": "E-commerce All-in: realizacja wideo | Szabunia",
+      "canonical": "https://szabunia.pl/portfolio/woohoo-autopay",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "E-commerce All-in"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/portfolio/yes-butcher-przewodnik-michelin",
+      "status": 200,
+      "title": "Yes Butcher w przewodniku Michelin | Szabunia",
+      "canonical": "https://szabunia.pl/portfolio/yes-butcher-przewodnik-michelin",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Yes Butcher!: sesja do przewodnika Michelin"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/uslugi",
+      "status": 200,
+      "title": "Usługi foto i wideo dla firm, Poznań | Szabunia",
+      "canonical": "https://szabunia.pl/uslugi",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Usługi fotograficzne i wideo dla biznesu"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/uslugi/eventy-reportaze",
+      "status": 200,
+      "title": "Fotografia i wideo wydarzeń firmowych, Poznań | Szabunia",
+      "canonical": "https://szabunia.pl/uslugi/eventy-reportaze",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Fotograf eventowy na konferencje, targi i gale"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/uslugi/fotografia-produktowa",
+      "status": 200,
+      "title": "Packshoty i fotografia produktowa Poznań | Szabunia",
+      "canonical": "https://szabunia.pl/uslugi/fotografia-produktowa",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Packshoty, fotografia i wideo produktowe"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/uslugi/nieruchomosci-przemysl",
+      "status": 200,
+      "title": "Nieruchomości i przemysł: foto i wideo, Poznań | Szabunia",
+      "canonical": "https://szabunia.pl/uslugi/nieruchomosci-przemysl",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Fotografia nieruchomości i przemysłu"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    },
+    {
+      "path": "/uslugi/wizerunek-portrety",
+      "status": 200,
+      "title": "Fotografia i wideo wizerunkowe dla firm, Poznań | Szabunia",
+      "canonical": "https://szabunia.pl/uslugi/wizerunek-portrety",
+      "h1": [
+        {
+          "level": "h1",
+          "text": "Sesje biznesowe i headshoty zespołu"
+        }
+      ],
+      "main": 1,
+      "robots": "index, follow"
+    }
+  ],
+  "errors": [],
+  "missing_assets": [],
+  "broken_anchors": [],
+  "homepage_comparison": {
+    "title": {
+      "before": "Fotograf biznesowy Poznań | Zdjęcia i film | Szabunia",
+      "after": "Fotograf biznesowy Poznań | Zdjęcia i film | Szabunia",
+      "same": true
+    },
+    "description": {
+      "before": "Fotografia biznesowa i wideo dla firm w Poznaniu: wydarzenia, wizerunek zespołu, nieruchomości i przemysł, produkty. Zdjęcia dla H&M i Santandera.",
+      "after": "Fotografia biznesowa i wideo dla firm w Poznaniu: wydarzenia, wizerunek zespołu, nieruchomości i przemysł, produkty. Zdjęcia dla H&M i Santandera.",
+      "same": true
+    },
+    "canonical": {
+      "before": "https://szabunia.pl",
+      "after": "https://szabunia.pl",
+      "same": true
+    },
+    "h1": {
+      "before": "Fotograf biznesowy w Poznaniu. Zdjęcia i film.",
+      "after": "Fotograf biznesowy w Poznaniu. Zdjęcia i film.",
+      "same": true
+    }
+  },
+  "homepage_headings": [
+    {
+      "level": "h1",
+      "text": "Fotograf biznesowy w Poznaniu. Zdjęcia i film."
+    },
+    {
+      "level": "h2",
+      "text": "LUDZIE.WYDARZENIA.OBIEKTY.PRODUKTY."
+    },
+    {
+      "level": "h2",
+      "text": "Czym mogę pomóc Twojej firmie"
+    },
+    {
+      "level": "h2",
+      "text": "Wybrane realizacje"
+    },
+    {
+      "level": "h2",
+      "text": "Gdzie trafiły moje zdjęcia"
+    },
+    {
+      "level": "h2",
+      "text": "Co mówią klienci"
+    },
+    {
+      "level": "h2",
+      "text": "Jak wygląda współpraca"
+    },
+    {
+      "level": "h2",
+      "text": "Marcin Szabunia"
+    },
+    {
+      "level": "h2",
+      "text": "Przygotuj się do sesjijak zawodowiec"
+    },
+    {
+      "level": "h2",
+      "text": "Najczęstsze pytania"
+    },
+    {
+      "level": "h2",
+      "text": "Z bloga"
+    },
+    {
+      "level": "h2",
+      "text": "Opowiedz mio projekcie"
+    }
+  ],
+  "extra_routes": [
+    {
+      "path": "/galeria?kat=dron&utm_source=audit",
+      "status": 200,
+      "robots": "index, follow",
+      "canonical": "https://szabunia.pl/galeria"
+    },
+    {
+      "path": "/galeria/edytor",
+      "status": 404,
+      "robots": "noindex, follow",
+      "canonical": "https://szabunia.pl"
+    },
+    {
+      "path": "/api/gallery-editor",
+      "status": 403,
+      "robots": "",
+      "canonical": ""
+    },
+    {
+      "path": "/cennik",
+      "status": 404,
+      "robots": "noindex, follow",
+      "canonical": "https://szabunia.pl"
+    },
+    {
+      "path": "/portfolio/box17-budki-akustyczne",
+      "status": 200,
+      "robots": "noindex, follow",
+      "canonical": "https://szabunia.pl/portfolio/box17-budki-akustyczne"
+    }
+  ],
+  "redirects": [
+    {
+      "path": "/uslugi/sesje-zespolowe",
+      "status": 308,
+      "location": "/uslugi/wizerunek-portrety"
+    },
+    {
+      "path": "/uslugi/wideo-marketing",
+      "status": 308,
+      "location": "/uslugi/wizerunek-portrety"
+    },
+    {
+      "path": "/uslugi/pakiety-foto-wideo",
+      "status": 308,
+      "location": "/uslugi/eventy-reportaze"
+    },
+    {
+      "path": "/uslugi/zdjecia-wideo-z-drona",
+      "status": 308,
+      "location": "/uslugi/nieruchomosci-przemysl"
+    },
+    {
+      "path": "/uslugi/wnetrza-obiekty-architektura",
+      "status": 308,
+      "location": "/uslugi/nieruchomosci-przemysl"
+    },
+    {
+      "path": "/kalkulator",
+      "status": 308,
+      "location": "/kontakt"
+    },
+    {
+      "path": "/sesje-prywatne",
+      "status": 308,
+      "location": "/kontakt"
+    }
+  ]
+}

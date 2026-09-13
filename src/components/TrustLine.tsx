@@ -1,42 +1,5 @@
-// Wiersz dowodu społecznego: „100+ obsłużonych firm" i „Realizacje w Polsce
-// i Europie", z ikonami, bez ramek.
-//
-// WYDZIELONE Z Hero.tsx 10.08.2026 (ósma tura), bo ten sam wiersz stoi teraz
-// w dwóch miejscach: w hero strony głównej i w hero podstron usług. Marcin
-// poprosił wprost, żeby podstrona używała TEGO SAMEGO elementu, a nie własnej
-// kopii („nie twórz nowego komponentu wizualnego tylko dla podstrony").
-// Kopia w drugim pliku rozjechałaby się przy pierwszej korekcie treści, tak jak
-// rozjechały się kiedyś liczby w TrustStats i About.
-//
-// ⚠ IKONY TAK, KAPSUŁKI NIE. Wcześniejsza decyzja Marcina (10.08.2026, trzecia
-// tura hero): obramowane pigułki z ikonami sprawiały, że strona zaczynała
-// przypominać landing SaaS. Dlatego tu NIE MA `border`, tła ani `rounded-full`:
-// jest ikona akcentowa i zwykły tekst. Dorobienie ramek przywróci ten problem.
-//
-// ⚠ Treść jest wspólna dla całego serwisu i ma jedno brzmienie (siódma tura:
-// „100+ firm B2B z całej Polski" w CTA.tsx zostało sprowadzone do „100+
-// obsłużonych firm"). Zmiana tekstu tutaj zmienia go wszędzie i o to chodzi.
-//
-// TRZECIA POZYCJA, „Foto, wideo i dron od jednej osoby", dodana 10.08.2026
-// (runda CRO). Powód dodania: na stronie głównej słowo „dron" padało dotąd
-// 2 razy, wyłącznie wewnątrz opisu jednej usługi, więc argument o pełnym
-// zakresie nie istniał jako samodzielny komunikat.
-//
-// ⚠ HISTORIA TEGO SFORMUŁOWANIA, żeby nie kręcić nim czwarty raz.
-// 10.08.2026 rano Marcin odrzucił „jeden twórca" jako nieprawdziwe („przy
-// większych realizacjach pracuję z ekipą") i usunęliśmy je z `About.tsx`.
-// Tego samego dnia wieczorem Marcin przywrócił ten kierunek jako świadomy USP
-// i zaakceptował warianty „od jednej osoby" / „jeden twórca".
-//
-// Co rozstrzygnęło: claim NIE BYŁ nowy. „Od jednej osoby" stało już wtedy
-// na powierzchniach klienckich, m.in. w `Services.tsx` („Zdjęcia i film dla firm
-// w czterech obszarach, od jednej osoby") i w opisie usługi eventowej.
-// Usunięcie go z jednego miejsca zrobiło niespójność, a nie porządek.
-//
-// ⚠ Granica, która nadal obowiązuje: to claim o ŹRÓDLE zlecenia (jeden dostawca,
-// jedne ustalenia, jedna faktura), nie deklaracja obsady na planie. FAQ podstrony
-// eventowej mówi wprost, że przy dużym wydarzeniu dochodzi drugi operator,
-// i te dwa zdania mają prawo współistnieć. Nie dopisywać „wszystko robię sam".
+// MASTER 12.09.2026: dowód skali na homepage; usługi mają własny kontekst.
+// Jeden partner oznacza odpowiedzialność za całość, ze składem dobranym do planu.
 export default function TrustLine({ className = "" }: { className?: string }) {
   return (
     <ul
@@ -64,7 +27,7 @@ export default function TrustLine({ className = "" }: { className?: string }) {
         <svg className="w-4 h-4 flex-shrink-0 text-blue dark:text-blue-light" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
           <path strokeLinecap="round" strokeLinejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3" />
         </svg>
-        Foto, wideo i dron od jednej osoby
+        Prowadzę całą realizację od rozmowy do gotowych materiałów
       </li>
     </ul>
   );

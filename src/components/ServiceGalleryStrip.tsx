@@ -386,7 +386,14 @@ export default function ServiceGalleryStrip({
 						? 'center 20%'
 						: 'center'
 				}
-				/* Siatka 2/4 kolumny dla produktowej, 3/6 dla reszty. Uzasadnienie stoi
+				/* ZMIANA 13.09.2026 (Marcin: „grid 2x po 3 tak jak jest w produktach,
+				   też w innych usługach"). Pozostałe kategorie przeszły z jednego rzędu
+				   sześciu kafli (~162 px) na dwa rzędy po trzy (~335 px na desktopie,
+				   2 kolumny na telefonie). `limit` 6 zostaje, więc rzędy są pełne.
+				   Wartości `sizes` dla nich przeliczone z nowej siatki; pomiary opisane
+				   niżej dotyczą starego układu 3/6.
+
+				   Siatka 2/4 kolumny dla produktowej, 3/6 dla reszty (stan do 13.09.2026). Uzasadnienie stoi
            przy `limit` wyżej: packshot ocenia się po detalu, więc kafel musi być
            większy. Te dwie liczby chodzą w parze z `limit` (8 kafli w 4 kolumnach
            daje pełne dwa rzędy, 6 w 6 daje jeden). Zmiana jednej bez drugiej
@@ -394,7 +401,7 @@ export default function ServiceGalleryStrip({
 				gridClass={
 					category === 'produktowe'
 						? 'grid grid-cols-2 sm:grid-cols-4 gap-2.5'
-						: 'grid grid-cols-3 sm:grid-cols-6 gap-2.5'
+						: 'grid grid-cols-2 sm:grid-cols-3 gap-2.5'
 				}
 				/* ZDJ2608-07 (04.08.2026): `sizes` policzone z siatki I z kontenera, potem
            ZMIERZONE w przeglądarce na 390, 900 i 1728 px przy DPR 2 (localhost, dev).
@@ -410,7 +417,7 @@ export default function ServiceGalleryStrip({
 				sizes={
 					category === 'produktowe'
 						? '(max-width: 640px) 45vw, (max-width: 1056px) 21vw, 250px'
-						: '(max-width: 640px) 32vw, (max-width: 1056px) 14vw, 165px'
+						: '(max-width: 640px) 45vw, (max-width: 1056px) 31vw, 330px'
 				}
 			/>
 		</Shell>

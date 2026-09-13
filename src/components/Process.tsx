@@ -56,7 +56,7 @@ const steps = [
 // (2026-07-06, decyzja Marcina) — na home renderowane po FAQ, na /galeria po cenniku.
 export default function Process() {
   return (
-    <section className="py-12 md:py-16 px-4">
+    <section className="py-8 md:py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">
@@ -64,78 +64,23 @@ export default function Process() {
               Jak wygląda współpraca
             </h2>
           </Parallax>
-          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-14 max-w-md mx-auto">
+          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-md mx-auto">
             4 kroki od pierwszego kontaktu do gotowych materiałów.
           </p>
         </AnimatedSection>
 
-        {/* Desktop: horizontal timeline */}
         <AnimatedSection>
-          <div className="hidden md:block" role="list" aria-label="Etapy współpracy">
-            <div className="relative">
-              {/* Connecting line */}
-              <div className="absolute top-[28px] left-[calc(12.5%+20px)] right-[calc(12.5%+20px)] h-0.5 bg-gradient-to-r from-blue/30 via-blue to-blue/30" aria-hidden="true" />
-
-              <div className="grid grid-cols-4 gap-6 relative">
-                {steps.map((step) => (
-                  <div
-                    key={step.num}
-                    role="listitem"
-                    className="flex flex-col items-center text-center"
-                  >
-                    {/* Number circle */}
-                    <div className="relative z-10 w-14 h-14 rounded-full bg-gradient-to-br from-blue to-blue text-white flex items-center justify-center font-barlow font-extrabold text-xl shadow-lg shadow-blue/25 mb-5">
-                      {step.num}
-                    </div>
-                    <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border w-full flex-1 hover:border-blue dark:hover:border-blue hover:-translate-y-0.5 transition-all">
-                      <div className="w-9 h-9 rounded-lg bg-blue-pale dark:bg-blue/15 flex items-center justify-center text-blue mx-auto mb-3" aria-hidden="true">
-                        {step.icon}
-                      </div>
-                      <h3 className="font-barlow font-bold text-base text-navy dark:text-white mb-1.5">
-                        {step.title}
-                      </h3>
-                      <p className="text-[13px] text-steel dark:text-dark-text-muted leading-relaxed">
-                        {step.desc}
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </AnimatedSection>
-
-        {/* Mobile: vertical timeline */}
-        <AnimatedSection>
-          <div className="md:hidden space-y-0" role="list" aria-label="Etapy współpracy">
-            {steps.map((step, i) => (
-              <div
-                key={step.num}
-                role="listitem"
-                className="flex gap-4 relative"
-              >
-                {/* Vertical line + circle */}
-                <div className="flex flex-col items-center">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-blue to-blue text-white flex items-center justify-center font-barlow font-extrabold text-base shadow-md shadow-blue/20 shrink-0 z-10">
-                    {step.num}
-                  </div>
-                  {i < steps.length - 1 && (
-                    <div className="w-0.5 flex-1 bg-blue/20 my-1" aria-hidden="true" />
-                  )}
+          <ol aria-label="Etapy współpracy" className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {steps.map((step) => (
+              <li key={step.num} className="flex md:flex-col gap-4 md:items-center md:text-center">
+                <span className="shrink-0 w-11 h-11 md:w-14 md:h-14 rounded-full bg-blue text-white flex items-center justify-center font-barlow font-bold text-lg">{step.num}</span>
+                <div className="flex-1 w-full border-t border-border dark:border-dark-border pt-4">
+                  <h3 className="font-barlow font-bold text-base text-navy dark:text-white mb-2">{step.title}</h3>
+                  <p className="text-sm text-steel dark:text-dark-text-muted leading-relaxed">{step.desc}</p>
                 </div>
-
-                {/* Content card */}
-                <div className="bg-white dark:bg-dark-card rounded-2xl p-4 border border-border dark:border-dark-border flex-1 mb-3">
-                  <h3 className="font-barlow font-bold text-sm text-navy dark:text-white mb-1">
-                    {step.title}
-                  </h3>
-                  <p className="text-xs text-steel dark:text-dark-text-muted leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
-              </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </AnimatedSection>
       </div>
     </section>

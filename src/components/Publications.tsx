@@ -6,7 +6,7 @@ import { PARALLAX } from "@/lib/motion";
 
 export default function Publications() {
   return (
-    <section className="py-12 md:py-16 px-4">
+    <section className="py-8 md:py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
@@ -17,7 +17,7 @@ export default function Publications() {
               Gdzie trafiły moje zdjęcia
             </h2>
           </Parallax>
-          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-2xl mx-auto leading-relaxed">
             Zdjęcia, które robię dla klientów, przechodzą przez cudzą redakcję. Trafiają do reklam drukowanych, outdooru, katalogów, międzynarodowej prasy branżowej i do przewodnika Michelin.
           </p>
         </AnimatedSection>

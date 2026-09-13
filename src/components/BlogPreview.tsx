@@ -23,7 +23,7 @@ export default function BlogPreview() {
       : [...blogPosts].sort(byNewest).slice(0, 3);
 
   return (
-    <section id="blog" className="py-12 md:py-16 px-4">
+    <section id="blog" className="py-8 md:py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <Parallax distance={PARALLAX.accent} direction="up">
@@ -31,7 +31,7 @@ export default function BlogPreview() {
               Z bloga
             </h2>
           </Parallax>
-          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
+          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-md mx-auto">
             Praktyczne porady, kulisy realizacji i trendy w fotografii biznesowej.
           </p>
         </AnimatedSection>

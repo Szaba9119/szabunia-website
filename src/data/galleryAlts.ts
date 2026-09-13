@@ -48,6 +48,7 @@
  * i czekają na własną rundę.
  */
 export const GALLERY_ALTS: Record<string, string> = {
+  "produkt-13-toast-belvedere": "Dłonie unoszą kieliszki w toaście przy barze, fotografia produktu w użyciu",
   /* ── eventy (15 z 15 obejrzanych) ── */
   "event-25-zespol-na-scenie":
     "Zespół muzyczny na scenie z ekranem LED, oprawa artystyczna imprezy firmowej",

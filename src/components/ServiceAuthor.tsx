@@ -56,7 +56,7 @@ export default function ServiceAuthor() {
                     w Poznaniu, pracuję w całej Polsce i Europie.
                   </p>
                   <p>
-                    Zdjęcia, film i ujęcia z drona robię sam. Dostajesz jeden
+                    Odpowiadam za plan i jakość zdjęć, filmu oraz ujęć z drona. Dostajesz jeden
                     termin, jedną fakturę i spójny materiał. Ukończyłem studia
                     z zarządzania, więc patrzę nie tylko na kadr, ale i na cel,
                     któremu zdjęcia mają służyć.

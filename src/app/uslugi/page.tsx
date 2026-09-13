@@ -1,3 +1,4 @@
+import { servicePillars } from '@/data/servicePillars';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -120,7 +121,7 @@ export default function UslugiPage() {
               wyłącznie po to, żeby przy ośmiu usługach układ 3+3+2 nie zostawiał
               dziury w prawym dolnym rogu. Cztery kafelki dzielą się równo. */}
 					<div className='grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6'>
-						{serviceCategories.map((s, i) => (
+						{servicePillars.map((pillar) => serviceCategories.find((service) => service.slug === pillar.slug)!).map((s, i) => (
 							<AnimatedSection key={s.slug} delay={i * 0.06}>
 								<div className='bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue transition-all hover:-translate-y-0.5 group h-full'>
 									{/* Ta sama nazwa `data-cta` co na stronie głównej, żeby oba huby
@@ -133,6 +134,7 @@ export default function UslugiPage() {
 										<div className='relative aspect-[3/2] overflow-hidden rounded-t-2xl bg-border dark:bg-dark-border'>
 											<Image
 												src={s.heroImage}
+                        loading={i === 0 ? 'eager' : 'lazy'}
 												alt={`${s.title}, przykładowa realizacja`}
 												fill
 												sizes='(max-width: 640px) 100vw, 50vw'
@@ -152,7 +154,7 @@ export default function UslugiPage() {
 													{s.heroPriceLabel ?? s.price}
 												</span>
 												<span className='text-blue dark:text-blue-light text-[12px] font-barlow font-semibold group-hover:translate-x-0.5 transition-transform'>
-													Zobacz szczegóły →
+													Poznaj usługę →
 												</span>
 											</div>
 										</div>

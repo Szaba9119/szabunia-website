@@ -25,7 +25,7 @@
 const STEPS = [
   "Piszesz w kilku zdaniach, co planujesz.",
   "Dopytuję o to, czego brakuje: skalę, termin, lokalizację i to, gdzie materiał trafi.",
-  "Odsyłam wycenę w trzech wariantach, w ciągu 24 godzin.",
+  "Przygotowuję trzy możliwe zakresy i rekomenduję wariant dopasowany do planowanego wykorzystania. Wstępną wycenę odsyłam w ciągu 24 godzin.",
 ];
 
 const FACTORS = [

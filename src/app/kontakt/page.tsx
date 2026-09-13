@@ -4,6 +4,7 @@ import Navigation from '@/components/Navigation';
 import ScrollProgress from '@/components/ScrollProgress';
 import AnimatedSection from '@/components/AnimatedSection';
 import CTA from '@/components/CTA';
+import Warunki from '@/components/Warunki';
 import PricingExplainer from '@/components/PricingExplainer';
 import Footer from '@/components/Footer';
 import ErrorBoundary from '@/components/ErrorBoundary';
@@ -235,6 +236,7 @@ export default function KontaktPage() {
 						<CTA />
 					</ErrorBoundary>
 				</div>
+				<div id='warunki'><ErrorBoundary><Warunki /></ErrorBoundary></div>
 			</main>
 			<Footer />
 			<script
