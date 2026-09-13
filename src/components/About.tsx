@@ -12,34 +12,33 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           {/* Zdjęcie widoczne na każdej szerokości (decyzja Marcina, 13.09.2026:
               „to co jest na komputerach to też może być na mobile").
-              Wcześniej `hidden lg:block`, czyli na telefonie sekcja była tekstowa.
-              Hero pokazuje kolaż realizacji, więc tu wrócił portret w marynarce
-              (wcześniej główne zdjęcie hero, 13.09.2026). To jedyna wyraźna twarz
-              na stronie głównej. Plik 877×1168 (3:4): na telefonie kwadrat od góry.
-              origin 37%: przy scale 1.15 zapas nad głową równa się zakresowi
-              parallaxu (±40 px), więc włosy nie wjeżdżają pod krawędź. */}
+              Hero pokazuje kolaż realizacji, więc tu jest portret w marynarce
+              (wcześniej główne zdjęcie hero). To jedyna wyraźna twarz na stronie głównej.
+
+              14.09.2026, zgłoszenie Marcina „za duże, słaba jakość, mocno mnie przybliżyło".
+              Plik ma 877×1168 i większego oryginału nie ma (sprawdzone: strona, PDF
+              portfolio, staging, ARCHIVE_01). Wcześniej ramka zajmowała całą kolumnę
+              (544×725), a obraz siedział w scale-[1.15] pod parallax, czyli 626×834 px:
+              na ekranie retina 1,43 raza większy niż plik. Na telefonie kwadrat plus to
+              samo powiększenie ucinały portret do samej głowy.
+              Teraz: ramka 3:4 jak plik (zero kadrowania), max 440 px (×2 = 880 ≈ 877),
+              parallax przesuwa CAŁĄ ramkę, więc obraz nie potrzebuje zapasu i powiększenia. */}
           <AnimatedSection>
-            <div className="relative aspect-square lg:aspect-[3/4] rounded-2xl overflow-hidden bg-border dark:bg-dark-card">
-              <Parallax distance={PARALLAX.subtle} direction="up" className="absolute inset-0">
-                <div className="absolute inset-0 scale-[1.15] origin-[50%_37%]">
-                  <Image
-                    src="/images/marcin-hero-light-4.jpg"
-                    alt="Marcin Szabunia, fotograf biznesowy, portret, Poznań"
-                    fill
-                    className="object-cover object-top"
-                    // ZDJ2608-25 (04.08.2026): kolumna w max-w-6xl z gap-16 to (1152-64)/2 = 544 px,
-                    // a obraz siedzi w scale-[1.15] (wyżej), czyli renderuje się na ~626 px.
-                    // Poprzednie 520 px kazało przeglądarce pobrać węższy wariant, niż potrzeba.
-                    // Poniżej lg kolumna ma pełną szerokość kontenera (px-4), obraz jest już widoczny.
-                    sizes="(max-width: 1023px) calc(100vw - 32px), 630px"
-                    quality={80}
-                    placeholder="blur"
-                    blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg=="
-                  />
-                </div>
-              </Parallax>
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
-            </div>
+            <Parallax distance={PARALLAX.subtle} direction="up">
+              <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[440px] aspect-[3/4] rounded-2xl overflow-hidden bg-border dark:bg-dark-card">
+                <Image
+                  src="/images/marcin-hero-light-4.jpg"
+                  alt="Marcin Szabunia, fotograf biznesowy, portret, Poznań"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 371px) calc(100vw - 32px), (max-width: 639px) 340px, (max-width: 1023px) 400px, 440px"
+                  quality={85}
+                  placeholder="blur"
+                  blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNTMiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzFhMjUzYSIvPjwvc3ZnPg=="
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/30 via-transparent to-transparent" />
+              </div>
+            </Parallax>
           </AnimatedSection>
 
           {/* Tekst */}
