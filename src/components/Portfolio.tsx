@@ -38,7 +38,7 @@ export default function Portfolio() {
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
           <p className="text-blue dark:text-blue-light text-xs uppercase tracking-widest mb-3">Wybrane projekty</p>
-          <h2 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3">Wybrane realizacje</h2>
+          <h2 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-4">Wybrane realizacje</h2>
           <p className="text-steel dark:text-dark-text-muted text-[15px] mb-8">Cel, zakres i materiały, które trafiły do komunikacji firm.</p>
         </AnimatedSection>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5">

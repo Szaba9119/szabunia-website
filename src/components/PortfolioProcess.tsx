@@ -16,14 +16,16 @@ export default function PortfolioProcess({ steps, heading }: Props) {
     <section className="py-12 md:py-16 px-4">
       <div className="max-w-5xl mx-auto">
         <AnimatedSection>
+          {/* Nagłówek i podtytuł w jednym Parallaxie (14.09.2026): sam h2 jeździł ±24 px
+              nad odstępem 12 px i przy scrollu nachodził na podtytuł. Wzór z Services.tsx. */}
           <Parallax distance={PARALLAX.accent} direction="up">
-            <h2 className="font-barlow font-extrabold text-3xl md:text-[40px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
+            <h2 className="font-barlow font-extrabold text-3xl md:text-[40px] leading-tight tracking-tight text-navy dark:text-white mb-4 text-center">
               {heading ?? "Jak wygląda współpraca"}
             </h2>
+            <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed text-center mb-12 max-w-md mx-auto">
+              Cztery kroki od pierwszego kontaktu do gotowych materiałów.
+            </p>
           </Parallax>
-          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-md mx-auto">
-            Cztery kroki od pierwszego kontaktu do gotowych materiałów.
-          </p>
         </AnimatedSection>
 
         {/* Desktop: pozioma oś czasu */}

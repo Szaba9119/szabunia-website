@@ -9,17 +9,20 @@ export default function Publications() {
     <section className="py-8 md:py-12 px-4">
       <div className="max-w-6xl mx-auto">
         <AnimatedSection>
-          <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
-            Publikacje
-          </p>
+          {/* Etykieta, nagłówek i podtytuł w jednym Parallaxie (14.09.2026): sam h2 jeździł
+              ±24 px między dwoma odstępami po 12 px i nachodził na etykietę albo podtytuł.
+              Wzór z Services.tsx. */}
           <Parallax distance={PARALLAX.accent} direction="up">
-            <h2 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
+            <p className="text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center">
+              Publikacje
+            </p>
+            <h2 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-4 text-center">
               Gdzie trafiły moje zdjęcia
             </h2>
+            <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-2xl mx-auto leading-relaxed">
+              Zdjęcia, które robię dla klientów, trafiają do reklam drukowanych, na billboardy, do katalogów, międzynarodowej prasy branżowej i przewodnika Michelin. O publikacji decydowały tam redakcje i agencje, nie ja.
+            </p>
           </Parallax>
-          <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-2xl mx-auto leading-relaxed">
-            Zdjęcia, które robię dla klientów, trafiają do reklam drukowanych, na billboardy, do katalogów, międzynarodowej prasy branżowej i przewodnika Michelin. O publikacji decydowały tam redakcje i agencje, nie ja.
-          </p>
         </AnimatedSection>
 
         {/* Dwie publikacje wydzielone z rzędu logotypów (korekta_pozycjonowania_2026-07.md

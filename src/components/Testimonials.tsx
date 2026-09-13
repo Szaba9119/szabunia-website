@@ -18,7 +18,7 @@ export default function Testimonials() {
     <section className='py-8 md:py-12 px-4' aria-labelledby='testimonials-heading'>
       <div className='max-w-6xl mx-auto'>
         <AnimatedSection>
-          <h2 id='testimonials-heading' className='font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center'>Co mówią klienci</h2>
+          <h2 id='testimonials-heading' className='font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-4 text-center'>Co mówią klienci</h2>
           <p className='text-steel dark:text-dark-text-muted text-[15px] text-center mb-10'>Opinie o materiale, kontakcie i przebiegu współpracy.</p>
           <ul ref={listRef} tabIndex={0} aria-label='Opinie klientów — przewiń, aby przeczytać kolejne' className='flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 md:pb-0 md:grid md:grid-cols-3 md:overflow-visible'>
             {testimonials.map((item, index) => (

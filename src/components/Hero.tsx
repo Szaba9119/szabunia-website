@@ -1,31 +1,59 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import TrustLine from '@/components/TrustLine';
+import { getServiceBySlug } from '@/data/services';
 
+// Kafel = link do podstrony usługi (14.09.2026, prośba Marcina: „żeby te zdjęcia
+// były klikalne, przy najechaniu żeby się pokazywała nazwa usługi"). Nazwa idzie
+// z `shortTitle` w services.tsx, więc zmiana nazwy usługi nie rozjedzie kolażu.
+//
+// `ratio` = szerokość / wysokość pliku. Potrzebne do `sizes`: object-cover
+// wypełnia kafel WYSOKOŚCIĄ, więc kadr poziomy renderuje się szerzej niż kafel.
+// Poprzednie wspólne `280px` kazało pobrać wariant 640 px dla kadru gali, który
+// na ekranie 2x potrzebuje ~950 px, stąd miękki, rozmyty obraz.
+//
+// Kadr eventowy zostaje `event-23-scena-gali-orkiestra` (decyzja Marcina 14.09.2026,
+// po porównaniu z wręczeniem wyróżnień i networkingiem w foyer).
 const heroPhotos = [
   {
+    slug: 'wizerunek-portrety',
     src: '/images/galeria/portrety/portret-26-kobieta-czarna-marynarka.jpg',
     alt: 'Roześmiana kobieta w czarnej marynarce, portret biznesowy na jasnym tle',
-    className: 'object-cover object-top',
+    ratio: 1280 / 1920,
+    className: 'object-top',
   },
   {
+    slug: 'eventy-reportaze',
     src: '/images/galeria/eventy/event-23-scena-gali-orkiestra.jpg',
     alt: 'Scena gali muzycznej z orkiestrą, publicznością i kolorową oprawą świetlną',
+    ratio: 1920 / 1280,
     // Środek ekranu scenicznego (postać + napis), nie sam napis: przy 76-82%
     // postać była ucięta na lewej krawędzi i kadr wyglądał na przesunięty.
-    className: 'object-cover object-[47%_50%]',
+    className: 'object-[47%_50%]',
   },
   {
+    slug: 'nieruchomosci-przemysl',
     src: '/images/galeria/dron/dron-08-biurowiec-poznan.jpg',
     alt: 'Wielokondygnacyjny budynek w Poznaniu otoczony zielenią, zdjęcie z drona',
-    className: 'object-cover object-center',
+    ratio: 1920 / 1440,
+    className: 'object-center',
   },
   {
+    slug: 'fotografia-produktowa',
     src: '/images/galeria/produktowe/produkt-43-amarula.jpg',
     alt: 'Butelka Amarula i koktajl w ciepłej brązowo-kremowej scenografii',
-    className: 'object-cover object-[50%_40%]',
+    ratio: 1536 / 1920,
+    className: 'object-[50%_40%]',
   },
 ];
+
+// Telefon: kafel kwadratowy (wysokość = szerokość). Od md: kafel ~4:5, liczone
+// z zapasem jako 1.25. Kadr pionowy nigdy nie potrzebuje więcej niż szerokość kafla.
+function tileSizes(ratio: number) {
+  const mobile = Math.max(1, ratio);
+  const desktop = Math.max(1, ratio * 1.25);
+  return `(max-width: 767px) calc((100vw - 38px) / 2 * ${mobile.toFixed(2)}), (max-width: 1279px) calc(23vw * ${desktop.toFixed(2)}), ${Math.ceil(280 * desktop)}px`;
+}
 
 // Kolejność mobilna: nagłówki → opis → kontakt → kolaż → dowód.
 // Na desktopie ten sam kolaż zajmuje prawą kolumnę hero.
@@ -65,15 +93,28 @@ export default function Hero() {
           <div className='mt-8 md:mt-0 md:col-start-2 md:row-start-1 md:row-span-3 md:mr-[calc(-1*min(5rem,max(1rem,(100vw-72rem)/2)))]'>
             <figure aria-label='Wybrane realizacje: ludzie, wydarzenia, obiekty i produkty'
               className='grid grid-cols-2 grid-rows-2 gap-1.5 md:gap-2 w-full aspect-square md:aspect-[4/5] md:max-h-[640px] md:ml-auto rounded-2xl overflow-hidden'>
-              {heroPhotos.map((photo, index) => (
-                <div key={photo.src} className='relative min-h-0 min-w-0 overflow-hidden bg-border dark:bg-dark-card'>
-                  <Image src={photo.src} alt={photo.alt}
-                    fill className={photo.className}
-                    loading='eager' fetchPriority={index === 0 ? 'high' : 'auto'}
-                    sizes='(max-width: 767px) calc((100vw - 38px) / 2), (max-width: 1279px) 23vw, 280px'
-                    quality={80} />
-                </div>
-              ))}
+              {heroPhotos.map((photo, index) => {
+                const label = getServiceBySlug(photo.slug)?.shortTitle ?? '';
+                return (
+                  <Link key={photo.src} href={`/uslugi/${photo.slug}`} data-cta={`hero_kolaz_${photo.slug}`}
+                    className='group relative block min-h-0 min-w-0 overflow-hidden bg-border dark:bg-dark-card focus-visible:outline-offset-[-4px]'>
+                    <Image src={photo.src} alt={photo.alt}
+                      fill className={`object-cover ${photo.className} transition-transform duration-500 group-hover:scale-105 group-focus-visible:scale-105`}
+                      loading='eager' fetchPriority={index === 0 ? 'high' : 'auto'}
+                      sizes={tileSizes(photo.ratio)}
+                      quality={80} />
+                    {/* Na ekranach bez hovera (telefon, tablet) nazwa jest widoczna stale,
+                        inaczej nie byłoby wiadomo, że kafel prowadzi do usługi. */}
+                    <span aria-hidden='true'
+                      className='pointer-events-none absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/10 to-transparent transition-opacity duration-300 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-focus-visible:opacity-100' />
+                    <span
+                      className='pointer-events-none absolute inset-x-0 bottom-0 p-2.5 md:p-4 flex items-end justify-between gap-2 font-barlow font-bold text-[12px] md:text-[15px] leading-tight text-white transition-all duration-300 [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:translate-y-2 [@media(hover:hover)]:group-hover:opacity-100 [@media(hover:hover)]:group-hover:translate-y-0 [@media(hover:hover)]:group-focus-visible:opacity-100 [@media(hover:hover)]:group-focus-visible:translate-y-0'>
+                      <span>{label}</span>
+                      <span aria-hidden='true' className='hidden md:inline'>→</span>
+                    </span>
+                  </Link>
+                );
+              })}
             </figure>
           </div>
           <div className='md:col-start-1 md:row-start-3'>
