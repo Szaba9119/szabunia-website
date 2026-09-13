@@ -74,7 +74,7 @@ export const blogPosts: BlogPost[] = [
 		faq: [
 			{
 				q: 'Co założyć na sesję biznesową?',
-				a: 'Ubierz się o jeden poziom bardziej elegancko niż na co dzień w pracy. Bezpieczne kolory to granat, szarość, biel, czerń i butelkowa zieleń. Unikaj pasków, kratki, fluorescencyjnych barw i ubrań z dużymi logotypami. Warto przygotować 2-3 stylizacje, żeby na sesji mieć z czego wybierać.',
+				a: 'Ubierz się o jeden poziom bardziej elegancko niż na co dzień w pracy. Bezpieczne kolory to granat, grafit, szarość, biel i butelkowa zieleń. Ostrożnie z czystą czernią, która na zdjęciu bywa ciężka. Unikaj pasków, kratki, fluorescencyjnych barw i ubrań z dużymi logotypami. Warto przygotować 2-3 stylizacje, żeby na sesji mieć z czego wybierać.',
 			},
 			{
 				q: 'Czy muszę umieć pozować na sesji biznesowej?',
@@ -93,17 +93,18 @@ export const blogPosts: BlogPost[] = [
 		readTime: 6,
 		thumbnail: '/images/blog/jak-przygotowac-sie-do-sesji-biznesowej-2.jpg',
 		content: `
-      <p class="lead">Sesja biznesowa to inwestycja w Twój wizerunek. Niezależnie od tego, czy potrzebujesz headshota na LinkedIn, zdjęcia do materiałów prasowych, czy kompleksowej <a href="/uslugi/wizerunek-portrety">sesji personal branding</a>, odpowiednie przygotowanie sprawi, że efekt końcowy będzie dokładnie taki, jak sobie wymarzyłeś.</p>
+      <p class="lead">Sesja biznesowa to inwestycja w Twój wizerunek. Niezależnie od tego, czy potrzebujesz headshota na LinkedIn, zdjęcia do materiałów prasowych, czy <a href="/uslugi/wizerunek-portrety">sesji wizerunkowej</a>, odpowiednie przygotowanie sprawi, że efekt końcowy będzie dokładnie taki, jakiego oczekujesz.</p>
 
       <h2>1. Określ cel zdjęć</h2>
       <p>Zanim zaczniesz wybierać garnitur, zastanów się, <strong>do czego będziesz używać tych zdjęć</strong>. LinkedIn? Strona firmowa? Materiały prasowe? Każdy kanał ma swoje wymagania: na LinkedIn sprawdzi się bliższy kadr z uśmiechem, na stronę firmową bardziej formalne ujęcie.</p>
 
       <h2>2. Wybierz odpowiednią stylizację</h2>
-      <p>Zasada jest prosta: ubierz się o jeden level wyżej niż na co dzień w pracy. Jeśli pracujesz w casualu, załóż koszulę. Jeśli nosisz koszulę, dobierz marynarkę. Unikaj intensywnych wzorów, neonowych kolorów i ubrań z dużymi logotypami.</p>
+      <p>Zasada jest prosta: ubierz się o jeden poziom bardziej formalnie niż na co dzień w pracy. Jeśli pracujesz w casualu, załóż koszulę. Jeśli nosisz koszulę, dobierz marynarkę. Unikaj intensywnych wzorów, neonowych kolorów i ubrań z dużymi logotypami.</p>
       <ul>
-        <li><strong>Kolory bezpieczne:</strong> granat, szarość, biel, czerń, butelkowa zieleń</li>
+        <li><strong>Kolory bezpieczne:</strong> granat, grafit, szarość, biel, butelkowa zieleń</li>
+        <li><strong>Ostrożnie:</strong> czysta czerń (na zdjęciu bywa ciężka)</li>
         <li><strong>Do uniknięcia:</strong> paski, kratka, fluorescencyjne kolory</li>
-        <li><strong>Pro tip:</strong> przygotuj 2-3 stylizacje, żeby mieć z czego wybierać</li>
+        <li><strong>Wskazówka:</strong> przygotuj 2–3 stylizacje, żeby mieć z czego wybierać</li>
       </ul>
 
       <h2>3. Zadbaj o detale</h2>
@@ -113,10 +114,10 @@ export const blogPosts: BlogPost[] = [
       <p>Brzmi banalnie? Może. Ale cienie pod oczami i sucha skóra to pierwsze rzeczy, które widać na profesjonalnych zdjęciach. Wyśpij się, pij wodę, unikaj alkoholu dzień przed sesją.</p>
 
       <h2>5. Przygotuj inspiracje</h2>
-      <p>Podeślij fotografowi 3-5 zdjęć, które Ci się podobają. Nie muszą być Twoje, mogą to być portrety biznesowe z internetu. Dzięki temu fotograf od razu zrozumie, jaki styl Ci odpowiada.</p>
+      <p>Podeślij fotografowi 3-5 zdjęć, które Ci się podobają. Nie muszą przedstawiać Ciebie, mogą to być portrety biznesowe z internetu. Dzięki temu fotograf od razu zrozumie, jaki styl Ci odpowiada.</p>
 
       <h2>6. Zaplanuj czas</h2>
-      <p>Nie umawiaj się na sesję między dwoma spotkaniami. Stres i pośpiech widać na zdjęciach. Najlepiej wybierz luźniejszy dzień, bez deadline'ów na karku.</p>
+      <p>Nie umawiaj się na sesję między dwoma spotkaniami. Stres i pośpiech widać na zdjęciach. Najlepiej wybierz luźniejszy dzień, bez terminów na karku.</p>
 
       <h2>7. Zaufaj fotografowi</h2>
       <p>Dobry fotograf biznesowy będzie Cię prowadził: pokaże, jak stanąć, gdzie patrzeć, kiedy się uśmiechnąć. Nie musisz być modelem. Twoim jedynym zadaniem jest być sobą.</p>
@@ -136,7 +137,7 @@ export const blogPosts: BlogPost[] = [
 		faq: [
 			{
 				q: 'Ile więcej wyświetleń daje profesjonalne zdjęcie na LinkedIn?',
-				a: 'W materiałach o LinkedIn powtarza się jeden zestaw proporcji dla profilu ze zdjęciem w porównaniu z profilem bez niego: 21x więcej wyświetleń profilu, 36x więcej otrzymywanych wiadomości i 9x więcej zaproszeń do połączenia. Traktuj te liczby jako rząd wielkości, a nie obietnicę wyniku: samo zdjęcie nie zastąpi opisu profilu ani aktywności.',
+				a: 'W materiałach o LinkedIn powtarza się jeden zestaw proporcji dla profilu ze zdjęciem w porównaniu z profilem bez niego: 21 razy więcej wyświetleń profilu, 36 razy więcej otrzymywanych wiadomości i 9 razy więcej zaproszeń do połączenia. Traktuj te liczby jako rząd wielkości, a nie obietnicę wyniku: samo zdjęcie nie zastąpi opisu profilu ani aktywności.',
 			},
 			{
 				q: 'Jak często aktualizować zdjęcie profilowe na LinkedIn?',
@@ -149,7 +150,7 @@ export const blogPosts: BlogPost[] = [
 		],
 		title: 'Dlaczego profesjonalne headshoty zwiększają konwersję na LinkedIn',
 		excerpt:
-			'Profil ze zdjęciem bywa oglądany 21x częściej niż profil bez niego. Jak wykorzystać portret biznesowy, żeby LinkedIn pracował na Twoją markę?',
+			'Profil ze zdjęciem bywa oglądany 21 razy częściej niż profil bez niego. Jak wykorzystać portret biznesowy, żeby LinkedIn pracował na Twoją markę?',
 		category: 'branża',
 		date: '2025-02-08',
 		updated: '2026-07-29',
@@ -161,9 +162,9 @@ export const blogPosts: BlogPost[] = [
       <h2>Ile realnie daje zdjęcie na profilu</h2>
       <p>W materiałach o LinkedIn od lat powtarza się jeden zestaw proporcji dla profilu ze zdjęciem, w porównaniu z profilem bez niego:</p>
       <ul>
-        <li>21x więcej wyświetleń profilu</li>
-        <li>36x więcej otrzymywanych wiadomości</li>
-        <li>9x więcej zaproszeń do połączenia</li>
+        <li>21 razy więcej wyświetleń profilu</li>
+        <li>36 razy więcej otrzymywanych wiadomości</li>
+        <li>9 razy więcej zaproszeń do połączenia</li>
       </ul>
       <p>Traktuj te liczby jako rząd wielkości, nie jako obietnicę wyniku. Samo zdjęcie nie zastąpi opisu profilu ani regularnej aktywności. Pokazuje jednak kierunek: przy identycznym doświadczeniu i identycznej treści profilu, wersja ze zdjęciem po prostu wygrywa uwagę.</p>
 
@@ -186,14 +187,14 @@ export const blogPosts: BlogPost[] = [
       <p>Prosta zasada: zdjęcie na LinkedIn powinno wyglądać jak Ty <strong>dzisiaj</strong>. Jeśli ktoś umówi się z Tobą na spotkanie i nie rozpozna Cię, masz problem. Aktualizuj headshot co 1-2 lata lub po znaczącej zmianie wizerunku.</p>
 
       <h2>Jak wygląda sesja headshotowa</h2>
-      <p>Sesja portretowa nie musi zjeść pół dnia. Sama sesja może trwać od 30 minut, a przychodzisz na gotowe: studio rezerwuję na 30 minut przed Twoją godziną i wcześniej rozkładam oraz dopasowuję światło. Nie siedzisz i nie czekasz, aż fotograf się rozstawi.</p>
+      <p>Sesja portretowa nie musi zjeść pół dnia. Sama sesja może trwać od 30 minut, a przychodzisz na gotowe: studio rezerwuję od pół godziny przed Twoim terminem i wcześniej rozstawiam lampy. Nie siedzisz i nie czekasz, aż fotograf się rozstawi.</p>
       <ul>
         <li><strong>1. Konsultacja.</strong> Omawiamy cel, styl i to, gdzie zdjęcia mają pracować.</li>
-        <li><strong>2. Poseboard.</strong> W pakietach przygotowuję moodboard z referencjami, żebyśmy oboje wiedzieli, do czego dążymy.</li>
+        <li><strong>2. Przykładowe pozy.</strong> Przed sesją przygotowuję zestaw przykładowych póz i kadrów, żebyśmy oboje wiedzieli, do czego dążymy.</li>
         <li><strong>3. Sesja.</strong> Prowadzę Cię przez pozowanie, w studiu albo w Twoim biurze.</li>
         <li><strong>4. Dostawa.</strong> Wybrane, wyretuszowane zdjęcia w 14 dni kalendarzowych.</li>
       </ul>
-      <p>Dłuższe pakiety nie znaczą „więcej czekania", tylko więcej czasu na ujęcia i zmiany stylizacji. Jeśli potrzebujesz zdjęć na wczoraj, jest tryb ekspresowy do 48 godzin za dopłatą 50 procent.</p>
+      <p>Dłuższa sesja nie znaczy „więcej czekania", tylko więcej czasu na ujęcia i zmiany stylizacji. Jeśli potrzebujesz zdjęć na wczoraj, jest tryb ekspresowy do 48 godzin za dopłatą 50 procent.</p>
 
       <h2>Studio, Twoje biuro czy sesja dla całego zespołu</h2>
       <p>Nie musisz nigdzie jechać. Na sesję w Twoim biurze przywożę mobilne studio: potrzebuję około 5 m² wolnej przestrzeni i dostępu do gniazdka. Sala konferencyjna w zupełności wystarczy.</p>
@@ -203,7 +204,7 @@ export const blogPosts: BlogPost[] = [
       <p>Słyszę to bardzo często i za każdym razem efekt pozytywnie zaskakuje. Prowadzę Cię przez całą sesję: pomagam z pozowaniem, ustawiam światło pod Twoją twarz, pilnuję naturalnego wyrazu. W studiu zawsze ustawiam lustro przed osobą fotografowaną, żebyś na bieżąco widział siebie i mógł poprawić drobne detale, zamiast dowiadywać się o nich dopiero z gotowych zdjęć. Nie musisz być modelem, wystarczy być sobą. Reszta to moja robota.</p>
 
       <h2>Co założyć na headshot</h2>
-      <p>Zasada jest prosta: ubierz się o jeden poziom bardziej elegancko niż na co dzień w pracy. Bezpieczne kolory to granat, szarość, biel, czerń i butelkowa zieleń. Odpuść drobne paski i kratkę (potrafią migotać na zdjęciu), jaskrawe neony i ubrania z dużym logo. Warto wziąć 2 lub 3 stylizacje, żeby mieć z czego wybierać. Szerzej rozkładam to w tekście o tym, <a href="/blog/co-zalozyc-na-sesje-biznesowa">co założyć na sesję biznesową</a>.</p>
+      <p>Zasada jest prosta: ubierz się o jeden poziom bardziej elegancko niż na co dzień w pracy. Bezpieczne kolory to granat, grafit, szarość, biel i butelkowa zieleń. Ostrożnie z czystą czernią, która na zdjęciu bywa ciężka. Odpuść drobne paski i kratkę (potrafią migotać na zdjęciu), jaskrawe neony i ubrania z dużym logo. Warto wziąć 2 lub 3 stylizacje, żeby mieć z czego wybierać. Szerzej rozkładam to w tekście o tym, <a href="/blog/co-zalozyc-na-sesje-biznesowa">co założyć na sesję biznesową</a>.</p>
 
       <h2>Jeden headshot czy kilka wariantów</h2>
       <p>LinkedIn to nie jedyne miejsce, w którym pracuje Twój portret. Zwykle potrzebne są jeszcze zdjęcia na stronę firmową, do materiałów prasowych i do prezentacji. Dobrze zaplanowana sesja daje kilka wariantów naraz.</p>
@@ -216,15 +217,15 @@ export const blogPosts: BlogPost[] = [
       <p>Licencja komercyjna jest w cenie i nie ma limitów czasowych. To samo zdjęcie może pójść na LinkedIn, na stronę firmową, do materiałów drukowanych, do raportu rocznego i do reklamy online. Nie wracasz po zgody i nie pilnujesz dat wygaśnięcia.</p>
       <p>Pliki dostajesz w pełnej jakości plus wersje zoptymalizowane pod web, a na życzenie także PNG z przezroczystym tłem i TIFF do druku. W cenie są dwie tury poprawek, realizowane w ciągu 7 dni od zgłoszenia.</p>
 
-      <h2>ROI profesjonalnego headshota</h2>
-      <p>Na wycenę <a href="/uslugi/wizerunek-portrety">portretów</a> pracują trzy rzeczy: liczba stylizacji, długość sesji i liczba wyretuszowanych zdjęć do wyboru. Pakiety obejmują poseboard z referencjami przed spotkaniem, bez dopłaty.</p>
-      <p>Jeden nowy klient pozyskany dzięki lepszemu profilowi na LinkedIn zwraca tę inwestycję wielokrotnie, a zdjęcie pracuje przez najbliższe dwa lata w każdym miejscu, w którym ktoś sprawdza, z kim ma do czynienia. Pracuję z bazy w Poznaniu, na terenie miasta dojazd jest wliczony w cenę, poza miastem doliczam 2,50 zł netto za kilometr w obie strony, a sesje realizuję w całej Polsce i Europie. Napisz w kilku zdaniach, czego potrzebujesz. Wstępną wycenę odsyłam w 24h.</p>
+      <h2>Czy to się zwraca</h2>
+      <p>Na wycenę <a href="/uslugi/wizerunek-portrety">portretów</a> wpływają trzy rzeczy: liczba stylizacji, długość sesji i liczba wyretuszowanych zdjęć do wyboru. Zestaw przykładowych póz przygotowuję przed spotkaniem, bez dopłaty.</p>
+      <p>Jeden nowy klient pozyskany dzięki lepszemu profilowi na LinkedIn zwraca tę inwestycję wielokrotnie, a zdjęcie pracuje przez najbliższe dwa lata w każdym miejscu, w którym ktoś sprawdza, z kim ma do czynienia. Pracuję z Poznania. Na terenie miasta dojazd jest wliczony w cenę, poza miastem doliczam 2,50 zł netto za kilometr w obie strony, a sesje realizuję w całej Polsce i Europie. Napisz w kilku zdaniach, czego potrzebujesz. Wstępną wycenę odsyłam w ciągu 24 godzin.</p>
       <p>Zanim umówisz sesję, sprawdź, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, pobierz <a href="/poradnik">darmowy poradnik przygotowania do sesji</a> i zobacz <a href="/galeria?kat=portrety">przykładowe realizacje sesji wizerunkowych</a>.</p>
     `,
 		seo: {
 			title: 'Headshoty na LinkedIn a konwersja | Szabunia',
 			description:
-				'Profil ze zdjęciem bywa oglądany 21x częściej niż profil bez niego. Jak zrobić headshot, który buduje zaufanie i przyciąga klientów?',
+				'Profil ze zdjęciem bywa oglądany 21 razy częściej niż profil bez niego. Jak zrobić headshot, który buduje zaufanie i przyciąga klientów?',
 		},
 	},
 	{
@@ -240,7 +241,7 @@ export const blogPosts: BlogPost[] = [
 			},
 			{
 				q: 'Od czego zależy cena fotografii eventowej?',
-				a: 'Cena nie zależy od stylu fotografii, tylko od czasu pracy i opcji dodatkowych. Liczy się liczba godzin obecności na evencie oraz to, czy dochodzi live editing na social media i ujęcia z drona. Opisz wydarzenie w kilku zdaniach, a wstępną wycenę odeślę w 24h.',
+				a: 'Cena nie zależy od stylu fotografii, tylko od czasu pracy i opcji dodatkowych. Liczy się liczba godzin obecności na evencie oraz to, czy dochodzi live editing na social media i ujęcia z drona. Opisz wydarzenie w kilku zdaniach, a wstępną wycenę odeślę w ciągu 24 godzin.',
 			},
 		],
 		title: 'Fotografia eventowa vs reportaż: co wybrać dla Twojej konferencji',
@@ -252,10 +253,10 @@ export const blogPosts: BlogPost[] = [
 		readTime: 7,
 		thumbnail: '/images/blog/fotografia-eventowa-vs-reportaz-2.jpg',
 		content: `
-      <p class="lead">Organizujesz konferencję, galę lub targi branżowe i potrzebujesz fotografa. Ale czy chcesz reportaż (dyskretne chwytanie momentów) czy sesję eventową (zaplanowane ujęcia)? Te dwa podejścia dają zupełnie inny materiał. Oto, jak wybrać mądrze.</p>
+      <p class="lead">Organizujesz konferencję, galę lub targi branżowe i potrzebujesz fotografa. Ale czy chcesz reportaż (dyskretne chwytanie momentów), czy sesję eventową (zaplanowane ujęcia)? Te dwa podejścia dają zupełnie inny materiał. Poniżej porównanie, które pomoże wybrać.</p>
 
       <h2>Reportaż: historia opowiedziana kadrami</h2>
-      <p>Reportaż fotograficzny to styl, w którym fotograf jest „niewidzialny". Nie pozuje uczestników i nie prosi o uśmiech. Obserwuje i dokumentuje autentyczne momenty.</p>
+      <p>Reportaż fotograficzny to styl, w którym fotograf jest „niewidzialny". Nie ustawia uczestników do zdjęć i nie prosi o uśmiech. Obserwuje i dokumentuje autentyczne momenty.</p>
       <h3>Kiedy wybrać reportaż:</h3>
       <ul>
         <li>Konferencje z panelami i dyskusjami</li>
@@ -263,34 +264,34 @@ export const blogPosts: BlogPost[] = [
         <li>Gale i bankiety</li>
         <li>Imprezy firmowe i team-buildingi</li>
       </ul>
-      <p><strong>Efekt:</strong> Naturalne, emocjonalne zdjęcia oddające atmosferę wydarzenia. Świetne na Social Media i <a href="/galeria?kat=eventy">relacje z eventów</a>.</p>
+      <p><strong>Efekt:</strong> naturalne zdjęcia oddające atmosferę wydarzenia. Świetne do social mediów i <a href="/galeria?kat=eventy">relacje z eventów</a>.</p>
 
       <h2>Sesja eventowa: kontrolowany kadr</h2>
       <p>Sesja eventowa to bardziej zaaranżowane podejście. Fotograf pracuje z uczestnikami, ustawia grupowe zdjęcia, robi portrety prelegentów, dokumentuje kluczowe momenty z najlepszej perspektywy.</p>
       <h3>Kiedy wybrać sesję eventową:</h3>
       <ul>
         <li>Targi i wystawy (zdjęcia stoisk, produktów)</li>
-        <li>Launch produktu (zaplanowane ujęcia)</li>
+        <li>Premiera produktu (zaplanowane ujęcia)</li>
         <li>Oficjalne spotkania z VIP-ami</li>
         <li>Materiały do raportów rocznych i komunikatów prasowych</li>
       </ul>
-      <p><strong>Efekt:</strong> Profesjonalne, dopracowane zdjęcia idealne do materiałów korporacyjnych i mediów.</p>
+      <p><strong>Efekt:</strong> dopracowane zdjęcia do materiałów korporacyjnych i mediów.</p>
 
       <h2>Podejście hybrydowe: najlepsza opcja</h2>
       <p>W praktyce najczęściej łączę oba style. Pierwsza część eventu to reportaż: rejestracja, networking, panele. W przerwach robię portrety prelegentów i zdjęcia grupowe, a wieczorem wracam do reportażu z części oficjalnej. Dzięki temu dostajesz kompletny materiał.</p>
 
       <h2>Porównanie kosztów</h2>
-      <p>Przy <a href="/uslugi/eventy-reportaze">fotografii eventowej</a> cena nie zależy od stylu, bo reportaż i sesja eventowa to ten sam czas na miejscu, tylko inaczej wykorzystany. Na wycenę pracują trzy rzeczy:</p>
+      <p>Przy <a href="/uslugi/eventy-reportaze">fotografii eventowej</a> cena nie zależy od stylu, bo reportaż i sesja eventowa to ten sam czas na miejscu, tylko inaczej wykorzystany. Na wycenę wpływają trzy rzeczy:</p>
       <ul>
         <li><strong>Czas obecności:</strong> od jednej godziny po pełny dzień zdjęciowy.</li>
         <li><strong>Live editing:</strong> zdjęcia obrabiane na miejscu i wysyłane na social media jeszcze w trakcie eventu.</li>
         <li><strong>Ujęcia z drona:</strong> kilka kadrów z góry, które pokazują skalę wydarzenia.</li>
       </ul>
-      <p>Podaj datę, miejsce i orientacyjny czas trwania eventu, a wstępną wycenę odeślę w 24h.</p>
+      <p>Podaj datę, miejsce i orientacyjny czas trwania eventu, a wstępną wycenę odeślę w ciągu 24 godzin.</p>
 
       <h2>Jak wybrać?</h2>
       <p>Zadaj sobie pytanie: do czego będziesz używać tych zdjęć? Na social media i szybkie relacje najlepszy będzie reportaż, do materiałów prasowych i raportów sesja eventowa, a jeśli potrzebujesz jednego i drugiego, wybierz podejście hybrydowe. Niezależnie od wyboru, kluczowe jest omówienie agendy przed eventem, żeby fotograf wiedział, co jest najważniejsze.</p>
-      <p>Sprawdź pełną ofertę <a href="/uslugi/eventy-reportaze">fotografii eventowej</a> i napisz, jeśli chcesz omówić swoje wydarzenie. Działam z Poznania, obsługuję eventy w całej Polsce i Europie, a na zapytania odpowiadam w ciągu 24h.</p>
+      <p>Sprawdź pełną ofertę <a href="/uslugi/eventy-reportaze">fotografii eventowej</a> i napisz, jeśli chcesz omówić swoje wydarzenie. Działam z Poznania, obsługuję eventy w całej Polsce i Europie, a na zapytania odpowiadam w ciągu 24 godzin.</p>
     `,
 		seo: {
 			title: 'Fotografia eventowa vs reportaż: co wybrać | Szabunia',
@@ -311,26 +312,26 @@ export const blogPosts: BlogPost[] = [
 			},
 			{
 				q: 'Kiedy zamiast zdjęcia z telefonu wybrać fotografa?',
-				a: 'Zdjęcie z telefonu wystarczy na szybką aplikację. Jeśli jednak zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), profesjonalna sesja portretowa zwróci się wielokrotnie. Taki portret posłuży Ci na LinkedIn, stronę firmową i materiały branżowe.',
+				a: 'Zdjęcie z telefonu wystarczy, gdy CV wysyłasz na szybko. Jeśli jednak zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, zarządzanie, doradztwo, marketing), profesjonalna sesja portretowa zwróci się wielokrotnie. Taki portret przyda się na LinkedInie, na stronie firmowej i w materiałach branżowych.',
 			},
 		],
 		title: 'Jak zrobić profesjonalne zdjęcie do CV w domu: kompletny poradnik',
 		excerpt:
-			'Nie masz czasu na sesję u fotografa? Oto jak zrobić przyzwoite zdjęcie do CV telefonem, i kiedy lepiej jednak zainwestować w profesjonalną sesję.',
+			'Nie masz czasu na sesję u fotografa? Oto, jak zrobić przyzwoite zdjęcie do CV telefonem i kiedy lepiej jednak zainwestować w profesjonalną sesję.',
 		category: 'poradnik',
 		date: '2025-04-10',
 		updated: '2026-07-29',
 		readTime: 8,
 		thumbnail: '/images/blog/zdjecie-do-cv-w-domu-2.jpg',
 		content: `
-      <p class="lead">Zdjęcie do CV to często pierwsza rzecz, którą widzi rekruter. Nie musisz od razu iść do studia, telefonem też da się zrobić przyzwoite zdjęcie. Oto jak to zrobić krok po kroku, i kiedy warto jednak postawić na profesjonalistę.</p>
+      <p class="lead">Zdjęcie do CV to często pierwsza rzecz, którą widzi rekruter. Nie musisz od razu iść do studia, telefonem też da się zrobić przyzwoite zdjęcie. Oto, jak to zrobić krok po kroku i kiedy warto jednak postawić na profesjonalistę.</p>
 
       <h2>1. Oświetlenie: klucz do sukcesu</h2>
       <p>Stań twarzą do dużego okna w ciągu dnia. Naturalne, rozproszone światło to najlepsze, co możesz mieć za darmo. Unikaj sztucznego oświetlenia sufitowego: tworzy cienie pod oczami. Idealny czas to godziny przedpołudniowe, gdy światło jest miękkie i równomierne.</p>
       <ul>
         <li><strong>Tak:</strong> twarzą do okna, za plecami ściana</li>
         <li><strong>Nie:</strong> okno za plecami (ciemna twarz), lampa sufitowa (cienie)</li>
-        <li><strong>Pro tip:</strong> pochmurny dzień = najlepszy dzień na zdjęcie (miękkie światło)</li>
+        <li><strong>Wskazówka:</strong> w pochmurny dzień światło jest najbardziej miękkie</li>
       </ul>
 
       <h2>2. Tło: im prostsze, tym lepiej</h2>
@@ -345,13 +346,13 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>4. Stylizacja i wygląd</h2>
-      <p>Ubierz się tak, jak ubrałbyś/ubrałabyś się na rozmowę kwalifikacyjną. Schludna koszula lub bluzka, zadbana fryzura, minimalna biżuteria. Patrz prosto w obiektyw z lekkim uśmiechem. Chodzi o to, żeby wyglądać przyjaźnie i profesjonalnie.</p>
+      <p>Ubierz się tak jak na rozmowę kwalifikacyjną. Schludna koszula lub bluzka, zadbana fryzura, minimalna biżuteria. Patrz prosto w obiektyw z lekkim uśmiechem. Chodzi o to, żeby wyglądać przyjaźnie i profesjonalnie.</p>
 
       <h2>5. Podstawowy retusz w telefonie</h2>
-      <p>Użyj bezpłatnych aplikacji jak Snapseed lub Lightroom Mobile. Wystarczy: lekko podnieść jasność, wyrównać balans bieli, przyciąć kadr do proporcji paszportowych. Nie przesadzaj z filtrami: zdjęcie do CV ma wyglądać naturalnie.</p>
+      <p>Użyj bezpłatnych aplikacji, takich jak Snapseed lub Lightroom Mobile. Wystarczy: lekko podnieść jasność, wyrównać balans bieli, przyciąć kadr do proporcji 3:4. Nie przesadzaj z filtrami: zdjęcie do CV ma wyglądać naturalnie.</p>
 
       <h2>Kiedy lepiej iść do fotografa?</h2>
-      <p>Zdjęcie z telefonu wystarczy na szybką aplikację. Ale jeśli zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, management, consulting, marketing), <a href="/uslugi/wizerunek-portrety">profesjonalna sesja portretowa</a> zwróci się wielokrotnie. Jedno dobrze zrobione zdjęcie posłuży Ci na LinkedIn, stronę firmową i materiały branżowe. Sesje realizuję w Poznaniu (dojazd na terenie miasta wliczony), a na zapytania odpowiadam w ciągu 24h.</p>
+      <p>Zdjęcie z telefonu wystarczy, gdy CV wysyłasz na szybko. Ale jeśli zależy Ci na stanowisku, gdzie liczy się wizerunek (sprzedaż, zarządzanie, doradztwo, marketing), <a href="/uslugi/wizerunek-portrety">profesjonalna sesja portretowa</a> zwróci się wielokrotnie. Jedno dobrze zrobione zdjęcie przyda się na LinkedInie, na stronie firmowej i w materiałach branżowych. Sesje realizuję w Poznaniu (dojazd na terenie miasta wliczony), a na zapytania odpowiadam w ciągu 24 godzin.</p>
       <p>Jeśli chcesz, żeby profil naprawdę pracował, przeczytaj, jak <a href="/blog/headshoty-linkedin-konwersja">headshoty zwiększają konwersję na LinkedIn</a>.</p>
     `,
 		seo: {
@@ -365,7 +366,7 @@ export const blogPosts: BlogPost[] = [
 		faq: [
 			{
 				q: 'Do czego firmom służą zdjęcia przemysłowe?',
-				a: 'Profesjonalne zdjęcia z fabryki pracują na wielu frontach jednocześnie: budują wiarygodność strony internetowej i pokazują skalę działalności, dokumentują procesy i inwestycje w raportach ESG i rocznych, wspierają rekrutację, prezentacje sprzedażowe B2B i oferty przetargowe, a w social media dostarczają contentu pokazującego kulisy produkcji.',
+				a: 'Profesjonalne zdjęcia z fabryki pracują na wielu frontach jednocześnie: budują wiarygodność strony internetowej i pokazują skalę działalności, dokumentują procesy i inwestycje w raportach ESG i rocznych, wspierają rekrutację, prezentacje sprzedażowe B2B i oferty przetargowe, a w social mediach pokazują kulisy produkcji.',
 			},
 			{
 				q: 'Jak wygląda kwestia BHP podczas sesji zdjęciowej w fabryce?',
@@ -391,7 +392,7 @@ export const blogPosts: BlogPost[] = [
       <p>Hale produkcyjne to jedno z najtrudniejszych środowisk do fotografowania. Mieszane oświetlenie (jarzeniówki + naturalne), duże przestrzenie, ruch maszyn i ludzi. Trzeba być gotowym na takie warunki i mieć sprzęt, który poradzi sobie z trudnym światłem.</p>
 
       <h2>BHP na sesji zdjęciowej</h2>
-      <p>Na każdą sesję przemysłową przyjeżdżam w odpowiednim obuwiu i odzieży ochronnej. Przed wejściem na halę zapoznaję się z regulaminem BHP i konsultuję z kierownikiem produkcji, które obszary wymagają szczególnej ostrożności. Bezpieczeństwo jest priorytetem: żadne zdjęcie nie jest warte ryzyka.</p>
+      <p>Na każdą sesję przemysłową przyjeżdżam w odpowiednim obuwiu i odzieży ochronnej. Przed wejściem na halę zapoznaję się z regulaminem BHP i ustalam z kierownikiem produkcji, które obszary wymagają szczególnej ostrożności. Bezpieczeństwo jest priorytetem: żadne zdjęcie nie jest warte ryzyka.</p>
 
       <h2>Ludzie vs maszyny</h2>
       <p>Najskuteczniejsze zdjęcia przemysłowe łączą skalę maszyn z ludzkim elementem. Operator przy panelu sterowania, inżynier kontrolujący jakość, zespół na tle linii produkcyjnej. Te ujęcia budują narrację o firmie, w której technologia spotyka się z kompetencjami ludzi.</p>
@@ -407,9 +408,9 @@ export const blogPosts: BlogPost[] = [
       <ul>
         <li><strong>Strona www:</strong> buduje wiarygodność, pokazuje skalę działalności</li>
         <li><strong>Raporty ESG / raporty roczne:</strong> dokumentacja procesów i inwestycji</li>
-        <li><strong>Rekrutacja:</strong> pokazuje nowoczesne miejsce pracy, przyciąga talenty</li>
+        <li><strong>Rekrutacja:</strong> pokazuje nowoczesne miejsce pracy, przyciąga dobrych kandydatów</li>
         <li><strong>Sprzedaż B2B:</strong> prezentacje dla klientów, oferty przetargowe</li>
-        <li><strong>Social Media:</strong> content pokazujący „behind the scenes" produkcji</li>
+        <li><strong>Social media:</strong> materiały zza kulis produkcji</li>
       </ul>
 
       <h2>Sprzęt, który radzi sobie z halą</h2>
@@ -421,7 +422,7 @@ export const blogPosts: BlogPost[] = [
       <p>Materiał z powietrza dostajesz w 4K przy wideo i w pełnej rozdzielczości przy zdjęciach. Jeśli pogoda nie pozwala bezpiecznie latać (silny wiatr, opady), wracam raz w ramach ustalonej kwoty. Kolejne podejście kosztuje 300 zł plus dojazd.</p>
 
       <h2>Film z hali pracuje inaczej niż zdjęcia</h2>
-      <p>Zdjęcie pokazuje moment, film pokazuje ruch: maszynę w pracy, rytm linii, sposób obsługi. Dla Artech Group, poznańskiego centrum obróbki tworzyw sztucznych CNC, powstał film z hali produkcyjnej pokazujący park maszynowy i sposób pracy firmy. Materiał pracuje na stronie i w rozmowach handlowych: zamiast opisywać możliwości produkcyjne, firma po prostu je pokazuje. To argument, który w B2B skraca rozmowę o kilka mejli.</p>
+      <p>Zdjęcie pokazuje moment, film pokazuje ruch: maszynę w pracy, rytm linii, sposób obsługi. Dla Artech Group, poznańskiego centrum obróbki CNC tworzyw sztucznych, powstał film z hali produkcyjnej pokazujący park maszynowy i sposób pracy firmy. Materiał pracuje na stronie i w rozmowach handlowych: zamiast opisywać możliwości produkcyjne, firma po prostu je pokazuje. To argument, który w B2B skraca rozmowę o kilka mejli.</p>
       <p>Nagranie wideo i zdjęcia da się zrobić w jednej sesji, w ramach jednej <a href="/uslugi/nieruchomosci-przemysl">sesji obiektu</a>. Jedna wizyta na hali oznacza jedno przerwanie rytmu produkcji zamiast dwóch.</p>
 
       <h2>Packshoty półfabrykatów jako uzupełnienie</h2>
@@ -441,11 +442,11 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Ile kosztuje sesja w zakładzie</h2>
       <p>Sesja przemysłowa rzadko jest jedną usługą. Zwykle składa się na nią kilka elementów: zdjęcia procesów na hali, portrety pracowników, packshoty wyrobów, ujęcia z drona i czasem film. Dlatego nie ma tu jednej ceny katalogowej, a wycena zależy od tego, ile z tych elementów realnie potrzebujesz i ile czasu zajmie wejście na produkcję.</p>
-      <p>Najprościej: opisz w kilku zdaniach, co ma się znaleźć na zdjęciach i gdzie trafią. Wstępną wycenę odsyłam w 24h, w kilku wariantach zakresu, żebyś mógł odciąć to, czego nie potrzebujesz.</p>
+      <p>Najprościej: opisz w kilku zdaniach, co ma się znaleźć na zdjęciach i gdzie trafią. Wstępną wycenę odsyłam w ciągu 24 godzin, w kilku wariantach zakresu, żebyś mógł odciąć to, czego nie potrzebujesz.</p>
 
       <h2>Jak się przygotować?</h2>
       <p>Przed sesją ustalam z klientem listę kluczowych ujęć: procesy produkcyjne, które chcemy pokazać, kluczowi pracownicy do portretów, produkty finalne. Dobry plan pozwala wykorzystać czas na hali maksymalnie efektywnie, bo produkcja nie czeka.</p>
-      <p>Po stronie zakładu warto zadbać o cztery rzeczy: osobę, która oprowadzi po hali i zna harmonogram zmian, uprzedzenie pracowników, że tego dnia będzie fotograf, uprzątnięcie stanowisk, które mają trafić do kadru (kurz i przypadkowe kartony widać na zdjęciu bardziej niż na żywo), oraz informację o obszarach objętych tajemnicą, których nie wolno pokazywać. Bazuję w Poznaniu, a sesje przemysłowe realizuję w zakładach w całej Polsce i Europie.</p>
+      <p>Po stronie zakładu warto zadbać o cztery rzeczy: osobę, która oprowadzi po hali i zna harmonogram zmian, uprzedzenie pracowników, że tego dnia będzie fotograf, uprzątnięcie stanowisk, które mają trafić do kadru (kurz i przypadkowe kartony widać na zdjęciu bardziej niż na żywo), oraz informację o obszarach objętych tajemnicą, których nie wolno pokazywać. Pracuję z Poznania, a sesje przemysłowe realizuję w zakładach w całej Polsce i Europie.</p>
       <p>Zobacz <a href="/portfolio/artech-fotografia-produktowa">realizację dla Artech Group</a>, a potem <a href="/kontakt">napisz, co dzieje się w Twoim zakładzie</a>.</p>
     `,
 		seo: {
@@ -463,11 +464,11 @@ export const blogPosts: BlogPost[] = [
 			},
 			{
 				q: 'Jak przygotować zespół do firmowej sesji zdjęciowej?',
-				a: 'Poinformuj pracowników o sesji minimum tydzień wcześniej i wyślij wskazówki dotyczące ubioru. Gdy zespół dowiaduje się o zdjęciach 5 minut przed, efektem są pogniecione koszule i stresowe miny. Czas na przygotowanie daje wielokrotnie lepszy rezultat.',
+				a: 'Poinformuj pracowników o sesji minimum tydzień wcześniej i wyślij wskazówki dotyczące ubioru. Gdy zespół dowiaduje się o zdjęciach 5 minut przed, efektem są pogniecione koszule i zestresowane miny. Czas na przygotowanie daje wielokrotnie lepszy rezultat.',
 			},
 			{
 				q: 'Jak często aktualizować zdjęcia zespołu na stronie firmowej?',
-				a: 'Warto ustalić harmonogram aktualizacji, na przykład sesję co rok lub przy każdej większej zmianie w zespole. Regularne sesje utrzymują stronę aktualną i pokazują, że firma się rozwija. Trzyletnie zdjęcia z nieaktualnym składem działają odwrotnie.',
+				a: 'Warto ustalić harmonogram aktualizacji, na przykład sesję co rok lub przy każdej większej zmianie w zespole. Dzięki regularnym sesjom strona jest aktualna i pokazują, że firma się rozwija. Trzyletnie zdjęcia z nieaktualnym składem działają odwrotnie.',
 			},
 		],
 		title: '5 błędów, które firmy popełniają przy zdjęciach zespołu',
@@ -488,19 +489,19 @@ export const blogPosts: BlogPost[] = [
       <p>Zdjęcia na tle ksero, kuchni biurowej albo parkingu. Tło powinno być albo neutralne (jednolite, rozmyte), albo celowo dobrane (np. open space, sala konferencyjna, przestrzeń biurowa). Nigdy przypadkowe.</p>
 
       <h2>3. Brak zapowiedzi i przygotowania</h2>
-      <p>Pracownicy dowiadują się o sesji 5 minut przed. Efekt: pogniecione koszule, brak makijażu, stresowe miny. Informujcie zespół minimum tydzień wcześniej. Wyślijcie wskazówki dotyczące ubioru. Dajcie ludziom czas na przygotowanie, a efekt będzie wielokrotnie lepszy. Gotową ściągę dla zespołu znajdziesz w tekście o tym, <a href="/blog/co-zalozyc-na-sesje-biznesowa">co założyć na sesję biznesową</a>: wystarczy przekleić link do maila zapowiadającego sesję.</p>
+      <p>Pracownicy dowiadują się o sesji 5 minut przed. Efekt: pogniecione koszule, brak makijażu, zestresowane miny. Informujcie zespół minimum tydzień wcześniej. Wyślijcie wskazówki dotyczące ubioru. Dajcie ludziom czas na przygotowanie, a efekt będzie wielokrotnie lepszy. Gotową ściągę dla zespołu znajdziesz w tekście o tym, <a href="/blog/co-zalozyc-na-sesje-biznesowa">co założyć na sesję biznesową</a>: wystarczy przekleić link do maila zapowiadającego sesję.</p>
 
       <h2>4. Za mało czasu na osobę</h2>
       <p>Sesja dla 30 osób w 2 godziny = 4 minuty na osobę. To za mało na dobry portret. Realistyczny czas to 5-15 minut na osobę, wliczając ustawienie światła, rozgrzewkę i kilka prób. Nie oszczędzaj na czasie: to inwestycja w wizerunek.</p>
 
       <h2>5. Zapominanie o aktualizacji</h2>
-      <p>Nowy pracownik dołącza, stary odchodzi, a zdjęcia na stronie mają 3 lata. Ustal harmonogram aktualizacji, np. sesja co rok lub przy każdej większej zmianie w zespole. Regularne sesje utrzymują stronę aktualną i pokazują, że firma się rozwija.</p>
+      <p>Nowy pracownik dołącza, stary odchodzi, a zdjęcia na stronie mają 3 lata. Ustal harmonogram aktualizacji, np. sesja co rok lub przy każdej większej zmianie w zespole. Dzięki regularnym sesjom strona jest aktualna i pokazują, że firma się rozwija.</p>
 
       <h2>Jak wygląda dzień sesji zespołowej</h2>
       <p>Cała sesja rozkłada się na cztery etapy i większość pracy dzieje się przed nią, nie w jej trakcie:</p>
       <ul>
         <li><strong>1. Logistyka.</strong> Ustalamy harmonogram i liczbę osób. Najlepiej działa lista z godzinami, po dwie osoby na okienko, żeby kolejka się nie tworzyła i nikt nie stał pod salą.</li>
-        <li><strong>2. Setup.</strong> Rozstawiam mobilne studio w biurze, zajmuje to około 30 minut.</li>
+        <li><strong>2. Rozstawienie studia.</strong> Rozstawiam mobilne studio w biurze, zajmuje to około 30 minut.</li>
         <li><strong>3. Sesja.</strong> Od 5 do 15 minut na osobę: headshot plus opcjonalne ujęcie zespołowe.</li>
         <li><strong>4. Dostawa.</strong> Wyretuszowane zdjęcia w 14 dni kalendarzowych.</li>
       </ul>
@@ -512,7 +513,7 @@ export const blogPosts: BlogPost[] = [
       <p>Mobilne studio u Was oznacza zero podróży dla pracowników i zero wyrw w kalendarzu: człowiek wychodzi ze spotkania, wchodzi na sesję, wraca do biurka. Studio zewnętrzne daje więcej miejsca i większą swobodę w scenografii, ale wymaga przewiezienia ludzi. Przy zespołach rozproszonych po oddziałach zwykle wygrywa mobilne studio, po prostu przyjeżdżam kolejno do każdej lokalizacji z tym samym zestawem światła.</p>
 
       <h2>Co z osobami, których nie ma w dniu sesji</h2>
-      <p>Zawsze ktoś jest na urlopie, na zwolnieniu albo pracuje zdalnie z drugiego końca kraju. To normalne i nie jest powodem do przekładania całej sesji. Brakujące osoby dogrywam w osobnym, krótszym terminie, w tym samym standardzie światła i retuszu. Portrety całego zespołu zostają spójne, a nowa osoba nie odstaje na siatce na stronie.</p>
+      <p>Zawsze ktoś jest na urlopie, na zwolnieniu albo pracuje zdalnie z drugiego końca kraju. To normalne i nie jest powodem do przekładania całej sesji. Brakujące osoby fotografuję później, na krótszej osobnej sesji, w tym samym standardzie światła i retuszu. Portrety całego zespołu zostają spójne, a nowa osoba nie odstaje na siatce na stronie.</p>
 
       <h2>Jedna sesja, kilka teł</h2>
       <p>Spójność nie musi oznaczać, że wszyscy mają dokładnie jedno zdjęcie na jednym tle. Dla IDcom Group, poznańskiego software house'u, zrealizowałem sesję na trzech tłach naraz: białym (czyste i uniwersalne), czarnym z niebieskim światłem (bardziej technologiczne) i kremowym (cieplejsze, swobodniejsze). Każda osoba dostała komplet kadrów w tym samym standardzie światła i retuszu, więc firma dobiera klimat do kontekstu, zamiast wracać do studia po nową wersję. Zobacz <a href="/portfolio/idcom-headshoty-zespolu">case study IDcom</a>.</p>
@@ -523,10 +524,10 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Co wpływa na wycenę sesji zespołowej</h2>
       <p>Dwie rzeczy: liczba osób i miejsce sesji. <a href="/uslugi/wizerunek-portrety">Sesje zespołowe</a> wyceniam za osobę, a nie za długość sesji. W cenie są dwa wyretuszowane zdjęcia na osobę oraz dojazd z mobilnym studiem. Im większy zespół, tym niżej schodzi kwota za osobę.</p>
-      <p>Sesje zespołowe realizuję od 2 osób, bez minimum zlecenia. W cenie są dwa wyretuszowane zdjęcia na osobę oraz dojazd z mobilnym studiem. Podaj liczbę osób i miejsce, a wstępną wycenę odeślę w 24h.</p>
+      <p>Sesje zespołowe realizuję od 2 osób, bez minimum zlecenia. W cenie są dwa wyretuszowane zdjęcia na osobę oraz dojazd z mobilnym studiem. Podaj liczbę osób i miejsce, a wstępną wycenę odeślę w ciągu 24 godzin.</p>
 
       <h2>Bonus: jak zorganizować sesję zespołową?</h2>
-      <p>Mogę przyjechać do Waszego biura z <a href="/uslugi/wizerunek-portrety">mobilnym studiem</a>. Bazuję w Poznaniu, gdzie dojazd jest bezpłatny, a poza miastem doliczam 2,50 zł netto/km od granic Poznania, w obie strony. Setup zajmuje ok. 30 minut, a potem fotografuję osoby jedna po drugiej. Zero stresu, zero logistyki po Waszej stronie. Gotowe zdjęcia w 14 dni.</p>
+      <p>Mogę przyjechać do Waszego biura z <a href="/uslugi/wizerunek-portrety">mobilnym studiem</a>. Pracuję z Poznania, gdzie dojazd jest bezpłatny, a poza miastem doliczam 2,50 zł netto/km od granic Poznania, w obie strony. Setup zajmuje ok. 30 minut, a potem fotografuję osoby jedna po drugiej. Zero stresu, zero logistyki po Waszej stronie. Gotowe zdjęcia w 14 dni.</p>
       <p>Przejrzyj <a href="/portfolio/idcom-headshoty-zespolu">realizacje sesji korporacyjnych</a>, sprawdź, jak zaplanować <a href="/blog/headshoty-zespolu-w-jeden-dzien">headshoty całego zespołu w jeden dzień</a>, i daj znać, kiedy zaplanować sesję u Was.</p>
     `,
 		seo: {
@@ -540,7 +541,7 @@ export const blogPosts: BlogPost[] = [
 		faq: [
 			{
 				q: 'Od czego zależy cena sesji wizerunkowej dla firmy?',
-				a: 'Portret jednej osoby i sesja zespołowa liczą się inaczej: przy zespole płacisz za liczbę osób, a nie za długość jednej sesji. W podstawowym zakresie jest sesja w studiu w Poznaniu albo dojazd z mobilnym studiem do Twojego biura. Wyżej wchodzą pakiety z dłuższą sesją i większym wyborem kadrów. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek.',
+				a: 'Portret jednej osoby i sesja zespołowa liczą się inaczej: przy zespole płacisz za liczbę osób, a nie za długość jednej sesji. W podstawowym zakresie jest sesja w studiu w Poznaniu albo dojazd z mobilnym studiem do Twojego biura. Dłuższa sesja i większy wybór kadrów podnoszą wycenę. Im więcej elementów dochodzi, tym wyższa wycena, ale zawsze jest ustalana z góry, przed sesją, bez niespodzianek.',
 			},
 			{
 				q: 'Co wpływa na cenę sesji wizerunkowej?',
@@ -552,7 +553,7 @@ export const blogPosts: BlogPost[] = [
 			},
 			{
 				q: 'Gdzie znajdę cennik sesji wizerunkowej?',
-				a: 'Cennika w formie tabeli nie ma, bo cena zależy od liczby osób, liczby ujęć i tego, gdzie zdjęcia będą używane. Opisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24 godziny.',
+				a: 'Cennika w formie tabeli nie ma, bo cena zależy od liczby osób, liczby ujęć i tego, gdzie zdjęcia będą używane. Opisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w ciągu 24 godzin.',
 			},
 		],
 		title:
@@ -565,15 +566,15 @@ export const blogPosts: BlogPost[] = [
 		readTime: 6,
 		thumbnail: '/images/blog/ile-kosztuje-sesja-wizerunkowa-dla-firmy-2.jpg',
 		content: `
-      <p class="lead">Cena <a href="/uslugi/wizerunek-portrety">sesji wizerunkowej dla firmy</a> jest ustalana indywidualnie. Najbardziej wpływają na nią liczba osób, liczba gotowych zdjęć, miejsce sesji i sposób wykorzystania materiału. Opisz te cztery rzeczy oraz planowany termin, a wstępną wycenę otrzymasz mailem w 24 godziny. Poniżej wyjaśniam, jak przygotować zakres do wyceny.</p>
+      <p class="lead">Cena <a href="/uslugi/wizerunek-portrety">sesji wizerunkowej dla firmy</a> jest ustalana indywidualnie. Najbardziej wpływają na nią liczba osób, liczba gotowych zdjęć, miejsce sesji i sposób wykorzystania materiału. Opisz te rzeczy oraz planowany termin, a wstępną wycenę otrzymasz mailem w ciągu 24 godzin. Poniżej wyjaśniam, jak przygotować zakres do wyceny.</p>
 
       <h2>Od czego zaczyna się wycena</h2>
-      <p>Portret jednej osoby ma swój punkt wyjścia, a wyżej wchodzą pakiety z dłuższą sesją, większą liczbą stylizacji i szerszym wyborem kadrów do retuszu. <a href="/uslugi/wizerunek-portrety">Sesja zespołowa</a> liczona jest zupełnie inaczej, bo płacisz za liczbę osób, a nie za długość jednej sesji, więc obu stawek nie porównuj wprost. Im więcej elementów dochodzi, tym wyżej idzie wycena. Zawsze jednak ustalamy ją z góry, przed sesją, bez niespodzianek.</p>
+      <p>Portret jednej osoby ma cenę bazową, a rośnie ona razem z długością sesji, liczbą stylizacji i wyborem kadrów do retuszu. <a href="/uslugi/wizerunek-portrety">Sesja zespołowa</a> liczona jest zupełnie inaczej, bo płacisz za liczbę osób, a nie za długość jednej sesji, więc obu stawek nie porównuj wprost. Im więcej elementów dochodzi, tym wyżej idzie wycena. Zawsze jednak ustalamy ją z góry, przed sesją, bez niespodzianek.</p>
 
       <h2>1. Liczba osób</h2>
       <p>Sesja jednej osoby to inny nakład pracy niż <a href="/uslugi/wizerunek-portrety">sesja całego zespołu</a>. Przy większej grupie liczy się czas na osobę: realnie 5–15 minut na dobry portret, wliczając ustawienie i kilka prób. To główny czynnik przy zespołach.</p>
 
-      <h2>2. Liczba ujęć i retuszu</h2>
+      <h2>2. Liczba zdjęć do retuszu</h2>
       <p>Czy potrzebujesz jednego headshota, czy kilku wariantów (formalny, luźniejszy, kadr poziomy i pionowy)? Każde finalne zdjęcie przechodzi autorski retusz, a jego liczba wprost przekłada się na cenę.</p>
 
       <h2>3. Lokalizacja i dojazd</h2>
@@ -583,22 +584,22 @@ export const blogPosts: BlogPost[] = [
       <p>Neutralne tło jest najprostsze. Jeśli zależy Ci na zdjęciach w realnej przestrzeni firmy (open space, hala, gabinet), dochodzi czas na przygotowanie planu i światła. Efekt jest bardziej „Wasz", ale wymaga więcej pracy.</p>
 
       <h2>5. Licencja i sposób użycia</h2>
-      <p>Zdjęcia na wewnętrzny intranet to co innego niż materiały do ogólnopolskiej kampanii. Zakres wykorzystania (czas, media, zasięg) wpływa na licencję i bywa elementem wyceny przy większych projektach.</p>
+      <p>Zdjęcia do intranetu to co innego niż materiały do ogólnopolskiej kampanii. Zakres wykorzystania (czas, media, zasięg) wpływa na licencję i bywa elementem wyceny przy większych projektach.</p>
 
       <h2>6. Tryb ekspresowy</h2>
-      <p>Standardowo gotowe zdjęcia dostajesz w ustalonym terminie. Jeśli materiał jest potrzebny „na wczoraj", możliwy jest tryb przyśpieszony. To dodatkowa opcja, a nie ukryty koszt.</p>
+      <p>Standardowo gotowe zdjęcia dostajesz w ustalonym terminie. Jeśli materiał jest potrzebny „na wczoraj", możliwy jest tryb ekspresowy. To dodatkowa opcja, a nie ukryty koszt.</p>
 
       <h2>Cennik: jak dostać konkretną kwotę</h2>
-      <p>Przy <a href="/uslugi/wizerunek-portrety">portrecie biznesowym</a> wszystko zależy od tego, ile osób fotografujemy, ile ujęć ma zostać po selekcji i gdzie zdjęcia będą używane. Dlatego zamiast tabeli, która i tak rzadko trafia w konkretny przypadek, wolę policzyć to raz, a dobrze. <a href="/kontakt">Napisz w kilku zdaniach, czego potrzebujesz</a>, a wstępną wycenę z rozpisanymi pozycjami odeślę mailem w 24 godziny. Bez umawiania rozmowy na start, jeśli tak Ci wygodniej.</p>
+      <p>Przy <a href="/uslugi/wizerunek-portrety">portrecie biznesowym</a> wszystko zależy od tego, ile osób fotografujemy, ile ujęć ma zostać po selekcji i gdzie zdjęcia będą używane. Dlatego zamiast tabeli, która i tak rzadko trafia w konkretny przypadek, wolę policzyć to raz, a dobrze. <a href="/kontakt">Napisz w kilku zdaniach, czego potrzebujesz</a>, a wstępną wycenę z rozpisanymi pozycjami odeślę mailem w ciągu 24 godzin. Bez umawiania rozmowy na start, jeśli tak Ci wygodniej.</p>
 
       <h2>Jak zaplanować budżet</h2>
-      <p>Zamiast zgadywać, opisz zakres: liczbę osób, miejsce i to, gdzie zdjęcia będą używane. Wstępną wycenę odeślę w 24h.</p>
-      <p>Zanim umówimy sesję, zobacz, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, a gdy będziesz gotowy, <a href="/kontakt">napisz, czego potrzebujesz</a>.</p>
+      <p>Zamiast zgadywać, opisz zakres: liczbę osób, miejsce i to, gdzie zdjęcia będą używane. Wstępną wycenę odeślę w ciągu 24 godzin.</p>
+      <p>Zanim umówimy sesję, zobacz, <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>, a kiedy zechcesz, <a href="/kontakt">napisz, czego potrzebujesz</a>.</p>
     `,
 		seo: {
 			title: 'Ile kosztuje sesja wizerunkowa dla firmy | Szabunia',
 			description:
-				'Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja i licencja. Wstępna wycena mailem w 24 godziny, bez rozmowy na start.',
+				'Co wpływa na cenę sesji wizerunkowej dla firmy: liczba osób, ujęć, lokalizacja i licencja. Wstępna wycena mailem w ciągu 24 godzin, bez rozmowy na start.',
 		},
 	},
 	{
@@ -620,14 +621,14 @@ export const blogPosts: BlogPost[] = [
 		title:
 			'Fotografia produktowa dla e-commerce: jak zdjęcia wpływają na sprzedaż',
 		excerpt:
-			'W e-commerce klient kupuje to, co widzi na zdjęciu. Jak packshot i lifestyle, spójność katalogu i kadr pod mobile realnie wpływają na sprzedaż.',
+			'W e-commerce klient kupuje to, co widzi na zdjęciu. Jak packshot i lifestyle, spójność katalogu i kadr dopasowany do telefonu realnie wpływają na sprzedaż.',
 		category: 'branża',
 		date: '2026-04-14',
 		updated: '2026-07-29',
 		readTime: 6,
 		thumbnail: '/images/blog/fotografia-produktowa-ecommerce-3.jpg',
 		content: `
-      <p class="lead">W e-commerce klient nie weźmie produktu do ręki, ogląda go wyłącznie na zdjęciu. Dlatego <a href="/uslugi/fotografia-produktowa">fotografia produktowa</a> to nie koszt, lecz część maszyny sprzedażowej. Oto, co realnie robi dobre zdjęcie produktu i jak je zaplanować.</p>
+      <p class="lead">W e-commerce klient nie weźmie produktu do ręki, ogląda go wyłącznie na zdjęciu. Dlatego <a href="/uslugi/fotografia-produktowa">fotografia produktowa</a> to nie koszt, tylko narzędzie sprzedaży. Oto, co realnie robi dobre zdjęcie produktu i jak je zaplanować.</p>
 
       <h2>Packshot vs lifestyle: potrzebujesz obu</h2>
       <p>To dwa różne narzędzia, które grają razem:</p>
@@ -640,21 +641,21 @@ export const blogPosts: BlogPost[] = [
       <h2>Spójność całego katalogu</h2>
       <p>Najczęstszy błąd to zdjęcia robione „przy okazji", każde w innym świetle i kadrze. Efekt? Katalog wygląda przypadkowo i traci wiarygodność. Jeden standard (to samo tło, światło i proporcje kadru) sprawia, że marka wygląda dojrzale, a strona profesjonalnie.</p>
 
-      <h2>Zdjęcie pracuje na mobile</h2>
-      <p>Większość zakupów odbywa się na telefonie, na małym ekranie. Produkt musi być czytelny w miniaturze, detale ostre po przybliżeniu, a kadr na tyle ciasny, żeby nie ginął w interfejsie. Projektuję zdjęcia z myślą o tym, gdzie realnie będą oglądane.</p>
+      <h2>Zdjęcie musi działać na telefonie</h2>
+      <p>Większość zakupów odbywa się na telefonie, na małym ekranie. Produkt musi być czytelny w miniaturze, detale ostre po przybliżeniu, a kadr na tyle ciasny, żeby produkt nie ginął w interfejsie. Projektuję zdjęcia z myślą o tym, gdzie realnie będą oglądane.</p>
 
       <h2>Dobre zdjęcia zmniejszają liczbę zwrotów</h2>
       <p>Kiedy klient dokładnie widzi, co kupuje (kolor, fakturę, proporcje, wykończenie), rzadziej jest rozczarowany po rozpakowaniu. Mniejsza rozbieżność między oczekiwaniem a rzeczywistością to mniej zwrotów i mniej pytań do obsługi.</p>
 
       <h2>Packshot a fotografia reklamowa: dwie różne rzeczy</h2>
       <p>Te pojęcia bywają mylone, a różnica jest istotna także dla budżetu. Fotografia produktowa pokazuje produkt wprost: packshot na białym tle do sklepu czy katalogu. Fotografia reklamowa buduje wokół produktu historię, czyli aranżację, rekwizyty i światło ustawione pod konkretną kampanię.</p>
-      <p>Konsekwencja jest praktyczna: zdjęcia reklamowe wyceniam według pola eksploatacji. Inaczej wygląda wycena materiału, który pójdzie tylko na Social Media, inaczej takiego, który trafi do druku i na outdoor. Warto powiedzieć o tym na starcie, bo zmiana przeznaczenia zdjęć po sesji oznacza nową rozmowę o licencji.</p>
+      <p>Konsekwencja jest praktyczna: zdjęcia reklamowe wyceniam według pola eksploatacji. Inaczej wygląda wycena materiału, który pójdzie tylko do social mediów, inaczej takiego, który trafi do druku i na billboardy. Warto powiedzieć o tym na starcie, bo zmiana przeznaczenia zdjęć po sesji oznacza nową rozmowę o licencji.</p>
 
       <h2>Retusz jest wliczony w cenę zdjęcia</h2>
       <p>W wielu studiach obróbka to osobna pozycja na fakturze. U mnie każdy packshot dostajesz gotowy do wrzucenia na kartę produktu:</p>
       <ul>
         <li>produkt precyzyjnie wycięty z tła,</li>
-        <li>czyste białe tło zgodne z wymogami Allegro i Amazon,</li>
+        <li>czyste białe tło zgodne z wymogami Allegro i Amazona,</li>
         <li>korekta kolorów, żeby odcień na zdjęciu zgadzał się z tym, co dostanie klient,</li>
         <li>usunięcie drobnych skaz, kurzu i odcisków palców na opakowaniu.</li>
       </ul>
@@ -663,37 +664,37 @@ export const blogPosts: BlogPost[] = [
       <h2>Jak wygląda sesja produktowa krok po kroku</h2>
       <ul>
         <li><strong>1. Rozmowa.</strong> Ustalamy cel, platformę sprzedaży i wytyczne marki. Wtedy wychodzi, czy potrzebujesz samych packshotów, czy także ujęć kreatywnych.</li>
-        <li><strong>2. Sesja.</strong> Fotografuję w studiu, w pełnej kontroli światła. Ten sam setup dla całej partii oznacza, że produkty da się porównać między sobą na liście w sklepie.</li>
+        <li><strong>2. Sesja.</strong> Fotografuję w studiu, przy pełnej kontroli nad światłem. To samo ustawienie światła dla całej partii oznacza, że produkty da się porównać między sobą na liście w sklepie.</li>
         <li><strong>3. Retusz.</strong> Wycięcie z tła, korekta kolorów, czyste białe tło.</li>
         <li><strong>4. Dostawa.</strong> Pliki gotowe do użycia w 14 dni.</li>
       </ul>
 
       <h2>Ile produktów zmieści się w jednym dniu zdjęciowym</h2>
       <p>To pytanie pada najczęściej, bo od niego zależy, czy zdążysz przed sezonem. Realne tempo wygląda tak: packshoty na białym tle to 30 do 50 produktów dziennie, zdjęcia kreatywne z aranżacją to 8 do 15 ujęć dziennie. Różnica bierze się z tego, że przy aranżacji każde ujęcie buduje się od nowa, a przy packshocie zmienia się tylko produkt na stole.</p>
-      <p>Pracuję na aparacie Canon R6, obiektywach do detalu i packshotu, stole bezcieniowym i studyjnym oświetleniu ciągłym LED Godox. Ten zestaw jest powtarzalny, więc za pół roku możesz dołożyć do katalogu kolejne pozycje w tej samej stylistyce, zamiast fotografować wszystko od nowa.</p>
+      <p>Pracuję aparatem Canon R6 z obiektywami do detalu i packshotu, na stole bezcieniowym, ze studyjnym oświetleniem ciągłym LED Godox. Ten zestaw jest powtarzalny, więc za pół roku możesz dołożyć do katalogu kolejne pozycje w tej samej stylistyce, zamiast fotografować wszystko od nowa.</p>
 
       <h2>Produkty możesz przysłać kurierem</h2>
       <p>Nie musisz jechać do Poznania z pudłem asortymentu. Przyjmuję przesyłki do studia, a koszt przesyłki zwrotnej ustalamy przy wycenie, zależnie od gabarytu i liczby pozycji. To wygodne zwłaszcza przy pierwszej współpracy, kiedy chcesz sprawdzić efekt na kilkunastu pozycjach, zanim zdecydujesz o całym katalogu.</p>
 
       <h2>Jakie pliki dostajesz</h2>
       <p>Standardowo JPEG w pełnej rozdzielczości plus wersja zoptymalizowana pod web, żeby karta produktu nie ładowała się w nieskończoność. Na życzenie dokładam PNG z przezroczystym tłem i TIFF do druku. Surowych plików RAW nie przekazuję w cenie: dostajesz materiał po autorskiej postprodukcji, czyli gotowy produkt, a nie półprodukt do obróbki po Twojej stronie. Jeśli potrzebujesz RAW-ów, są dostępne jako opcja dodatkowa za 30 procent wartości zlecenia, z decyzją przed sesją.</p>
-      <p>Licencja komercyjna jest w cenie i nie ma limitów czasowych. Zdjęcia możesz używać na stronie, w sklepie, na Social Media, w materiałach drukowanych i w reklamie online, bez pilnowania dat.</p>
+      <p>Licencja komercyjna jest w cenie i nie ma limitów czasowych. Zdjęć możesz używać na stronie, w sklepie, w social mediach, w materiałach drukowanych i w reklamie online, bez pilnowania dat.</p>
 
       <h2>Terminy i poprawki</h2>
-      <p>Gotowe pliki dostajesz w 14 dni kalendarzowych. Jeśli gonisz z premierą, jest tryb ekspresowy do 48 godzin za dopłatą 50 procent wartości zlecenia. W cenie masz dwie tury poprawek, realizowane w ciągu 7 dni od zgłoszenia, i nie liczę wtedy terminu podstawowego od nowa. Tura poprawek to korekta w obrębie wybranego materiału. Jeśli po rozpoczęciu retuszu chcesz zmienić wybór kadrów, wyceniam to osobno i zawsze uprzedzam wcześniej.</p>
+      <p>Gotowe pliki dostajesz w 14 dni kalendarzowych. Jeśli goni Cię termin premiery, jest tryb ekspresowy do 48 godzin za dopłatą 50 procent wartości zlecenia. W cenie masz dwie tury poprawek, realizowane w ciągu 7 dni od zgłoszenia, i nie liczę wtedy terminu podstawowego od nowa. Tura poprawek to korekta w obrębie wybranego materiału. Jeśli po rozpoczęciu retuszu chcesz zmienić wybór kadrów, wyceniam to osobno i zawsze uprzedzam wcześniej.</p>
 
       <h2>Co wpływa na wycenę</h2>
-      <p>Sesje produktowe mają minimalną wartość zamówienia, poniżej której nie schodzę, bo pojedyncze ujęcie kosztuje tyle samo przygotowania co seria. Na końcową kwotę pracują trzy rzeczy:</p>
+      <p>Sesje produktowe mają minimalną wartość zamówienia, poniżej której nie schodzę, bo pojedyncze ujęcie kosztuje tyle samo przygotowania co seria. Na końcową kwotę wpływają trzy rzeczy:</p>
       <ul>
-        <li><strong>liczba produktów</strong> (większe zamówienia rozliczam progresywnie, więc stawka za sztukę spada wraz z wielkością partii),</li>
+        <li><strong>liczba produktów</strong> (przy większych zamówieniach stawka za sztukę spada wraz z wielkością partii),</li>
         <li><strong>rodzaj ujęć</strong> (packshot na białym tle albo zdjęcia kreatywne z aranżacją),</li>
-        <li><strong>pole eksploatacji</strong> (Social Media, druk, outdoor).</li>
+        <li><strong>miejsce wykorzystania</strong> (social media, druk, billboardy).</li>
       </ul>
-      <p>Napisz w kilku zdaniach, co chcesz sfotografować i gdzie te zdjęcia trafią. Wstępną wycenę odsyłam w 24h.</p>
+      <p>Napisz w kilku zdaniach, co chcesz sfotografować i gdzie te zdjęcia trafią. Wstępną wycenę odsyłam w ciągu 24 godzin.</p>
 
       <h2>Fotografia produktowa w Poznaniu i poza nim</h2>
       <p>Studio mam w Poznaniu i tu realizuję większość sesji produktowych. W granicach miasta dojazd kosztuje 0 zł, poza Poznaniem doliczam 2,50 zł netto za kilometr, liczone w obie strony. Pracuję w całej Polsce, a przy dłuższych wyjazdach ustalamy warunki indywidualnie.</p>
-      <p>Przykład z Poznania: dla Artech Group, centrum obróbki tworzyw sztucznych CNC, powstało 20 packshotów półfabrykatów i detali na białym tle. Te same zdjęcia pracują w trzech miejscach naraz: na stronie internetowej, w katalogu i w sklepie internetowym. Do tego doszedł film z hali produkcyjnej, który firma pokazuje w rozmowach handlowych zamiast opisywać park maszynowy słowami.</p>
+      <p>Przykład z Poznania: dla Artech Group, centrum obróbki CNC tworzyw sztucznych, powstało 20 packshotów półfabrykatów i detali na białym tle. Te same zdjęcia pracują w trzech miejscach naraz: na stronie internetowej, w katalogu i w sklepie internetowym. Do tego doszedł film z hali produkcyjnej, który firma pokazuje w rozmowach handlowych zamiast opisywać park maszynowy słowami.</p>
 
       <h2>Jak przygotować sesję produktową</h2>
       <p>Przed sesją ustalamy listę produktów, liczbę ujęć na produkt (front, tył, detale, w użyciu) i docelowe proporcje kadru pod Twój sklep. Dobry plan pozwala odfotografować większą partię sprawnie i bez chaosu. Przydaje się też komplet informacji o marce: kod koloru z identyfikacji, wzorcowy egzemplarz produktu w idealnym stanie i lista pozycji, które mają wyglądać identycznie obok siebie na liście w sklepie.</p>
@@ -702,7 +703,7 @@ export const blogPosts: BlogPost[] = [
 		seo: {
 			title: 'Fotografia produktowa dla e-commerce | Szabunia',
 			description:
-				'Jak zdjęcia produktowe wpływają na sprzedaż w e-commerce: packshot vs lifestyle, spójność katalogu, kadr pod mobile i mniej zwrotów. Praktyczny przewodnik.',
+				'Jak zdjęcia produktowe wpływają na sprzedaż w e-commerce: packshot vs lifestyle, spójność katalogu, kadr dopasowany do telefonu i mniej zwrotów. Praktyczny przewodnik.',
 		},
 	},
 	{
@@ -736,7 +737,7 @@ export const blogPosts: BlogPost[] = [
       <p>Wizytówka firmy w 60–120 sekundach: kim jesteście, co robicie, dlaczego warto. Ląduje na stronie głównej, w stopce maila i w prezentacjach sprzedażowych. To format „evergreen": pracuje miesiącami, więc warto zrobić go porządnie.</p>
 
       <h2>2. Pionowe reels i shorty</h2>
-      <p>Krótkie, dynamiczne, pod kciuk. Format pod Instagram, TikTok i YouTube Shorts, ale coraz częściej także pod LinkedIn. Świetnie sprawdza się do budowania regularnej obecności i pokazywania kulis pracy. Liczy się rytm i pierwsze 3 sekundy.</p>
+      <p>Krótkie i dynamiczne, do oglądania na telefonie. Format pod Instagram, TikTok i YouTube Shorts, ale coraz częściej także pod LinkedIn. Świetnie sprawdza się do budowania regularnej obecności i pokazywania kulis pracy. Liczy się rytm i pierwsze 3 sekundy.</p>
 
       <h2>3. Testimonial i case study</h2>
       <p>Zadowolony klient mówiący o współpracy to jeden z najmocniejszych formatów B2B. Buduje zaufanie lepiej niż dowolny opis na stronie, bo to nie Wy mówicie o sobie, tylko ktoś inny mówi o Was.</p>
@@ -748,47 +749,47 @@ export const blogPosts: BlogPost[] = [
       <p>Aftermovie z konferencji, targów czy gali firmowej to energia wydarzenia zamknięta w materiale do 60 sekund; dłuższe formaty wyceniam indywidualnie. Działa jako podsumowanie dla uczestników i zaproszenie na kolejną edycję. Jeśli organizujesz event, zaplanuj wideo razem z <a href="/blog/fotografia-eventowa-vs-reportaz">fotografią eventową</a>.</p>
 
       <h2>Jeden event, kilka formatów naraz</h2>
-      <p>Formaty z tej listy nie wykluczają się, tylko powstają z tego samego materiału. Dobrym przykładem jest realizacja dla Woohoo z wydarzenia E-commerce All In na Enea Stadion w Poznaniu. Z jednego wieczoru powstał poziomy film podsumowujący na YouTube oraz trzy pionowe reelsy z wywiadami na profil firmy.</p>
+      <p>Formaty z tej listy nie wykluczają się, tylko powstają z tego samego materiału. Dobrym przykładem jest realizacja dla Woohoo z wydarzenia E-commerce All In na Enea Stadionie w Poznaniu. Z jednego wieczoru powstał poziomy film podsumowujący na YouTube oraz trzy pionowe reelsy z wywiadami na profil firmy.</p>
       <p>Logistyka wyglądała tak: najpierw ujęcia z drona, w tym loty wewnątrz stadionu, potem relacja z wydarzenia, a w przerwach wywiady nagrywane w mobilnym studiu rozstawionym na sali. Tło kadru wyglądało jak w studiu, a goście w ogóle nie musieli się przemieszczać. Efekt: dwa formaty dystrybucji (YouTube i Instagram) z jednego dnia zdjęciowego. Całość zobaczysz w <a href="/portfolio/woohoo-autopay">case study E-commerce All In</a>.</p>
 
       <h2>Jak wygląda produkcja wideo krok po kroku</h2>
       <ul>
-        <li><strong>1. Concept.</strong> Ustalamy cel, format i platformę docelową. To moment, w którym decyduje się, czy robimy jeden dłuższy film, czy serię krótkich form.</li>
+        <li><strong>1. Koncepcja.</strong> Ustalamy cel, format i platformę docelową. To moment, w którym decyduje się, czy robimy jeden dłuższy film, czy serię krótkich form.</li>
         <li><strong>2. Nagranie.</strong> Ujęcia, światło i dźwięk. Dźwięk jest tu ważniejszy, niż się wydaje: widz wybaczy przeciętny obraz, ale nie wybaczy szumu i echa w wypowiedzi.</li>
-        <li><strong>3. Montaż.</strong> Cięcie, kolor, napisy, muzyka. Napisy nie są dodatkiem, bo większość materiałów w Social Media ogląda się bez dźwięku.</li>
+        <li><strong>3. Montaż.</strong> Cięcie, kolor, napisy, muzyka. Napisy nie są dodatkiem, bo większość materiałów w social mediach ogląda się bez dźwięku.</li>
         <li><strong>4. Dostawa.</strong> Gotowe materiały w 21 dni kalendarzowych.</li>
       </ul>
 
       <h2>W jakich formatach dostajesz pliki</h2>
-      <p>MP4 w rozdzielczości do 4K. Proporcje dobieram pod miejsce emisji: 9:16 na Reels i TikTok, 16:9 na YouTube i stronę, 1:1 na feed. Kombinacja jest dowolna, więc jeden materiał może wyjść w trzech wersjach kadru zamiast jednej przycinanej na siłę. Warto ustalić to przed nagraniem, bo kadr pionowy planuje się inaczej niż poziomy i doklejenie go po fakcie zwykle oznacza kompromis.</p>
+      <p>MP4 w rozdzielczości do 4K. Proporcje dobieram pod miejsce emisji: 9:16 na Reels i TikTok, 16:9 na YouTube i stronę, 1:1 na feed. Kombinacja jest dowolna, więc jeden materiał może wyjść w trzech wersjach kadru zamiast jednej przycinanej na siłę. Warto ustalić to przed nagraniem, bo kadr pionowy planuje się inaczej niż poziomy i wycinanie go z poziomego po fakcie zwykle oznacza kompromis.</p>
 
       <h2>Sprzęt: obraz i dźwięk</h2>
-      <p>Nagrywam na dwóch aparatach Canon R6, z obiektywami pokrywającymi zakres od 16 do 200 mm. Do tego oświetlenie ciągłe LED Godox, dźwięk Rode Wireless PRO, mikrofon Rode VideoMicro II i rejestrator Zoom oraz dron DJI Mini 5 Pro z certyfikatem operatora A1/A3 i ubezpieczeniem OC. Ten zestaw obsługuje zarówno kilkunastosekundowego reelsa, jak i dłuższy film firmowy, bez doszukiwania sprzętu na zewnątrz.</p>
+      <p>Nagrywam na dwóch aparatach Canon R6, z obiektywami pokrywającymi zakres od 16 do 200 mm. Do tego oświetlenie ciągłe LED Godox, dźwięk Rode Wireless PRO, mikrofon Rode VideoMicro II i rejestrator Zoom oraz dron DJI Mini 5 Pro z certyfikatem operatora A1/A3 i ubezpieczeniem OC. Ten zestaw obsługuje zarówno kilkunastosekundowego reelsa, jak i dłuższy film firmowy, bez wypożyczania sprzętu z zewnątrz.</p>
 
       <h2>Wideo reklamowe i spoty</h2>
-      <p>Osobna kategoria to krótkie filmy reklamowe pod kampanie w Social Media i online, zwykle od 15 do 60 sekund. Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii, bo spot, który ma zatrzymać kciuk w feedzie, buduje się inaczej niż materiał odtwarzany przed filmem na YouTube.</p>
+      <p>Osobna kategoria to krótkie filmy reklamowe pod kampanie w social mediach i online, zwykle od 15 do 60 sekund. Scenariusz, nagranie i montaż dopasowuję do miejsca emisji i celu kampanii, bo spot, który ma zatrzymać przewijanie, buduje się inaczej niż materiał odtwarzany przed filmem na YouTube.</p>
 
       <h2>Sam montaż, bez nagrywania</h2>
       <p>Jeśli masz już surowy materiał, mogę zająć się wyłącznie postprodukcją: cięciem, kolorem, napisami i muzyką. Dotyczy to również nagrań z telefonu, które w firmach powstają najczęściej. Wycena zależy wtedy od długości i złożoności finalnego materiału, a nie od czasu zdjęciowego. To sensowna opcja, kiedy masz archiwum z eventu, którego nikt nigdy nie zmontował.</p>
 
       <h2>Regularne wideo zamiast jednorazowego zrywu</h2>
-      <p>Jeden film raz w roku rzadko buduje obecność. Przy stałych potrzebach contentowych sprawdza się ustalenie wolumenu na rok z góry: firma deklaruje, ile realizacji planuje, a ja rezerwuję terminy i trzymam dzisiejsze ceny na całość. Każdą realizację rozliczamy osobno, więc nie płacicie za materiał, którego nie zamówiliście, a ja mogę planować ujęcia z wyprzedzeniem, zamiast reagować na zgłoszenia z tygodnia na tydzień.</p>
+      <p>Jeden film raz w roku rzadko buduje obecność. Gdy firma regularnie potrzebuje wideo, sprawdza się ustalenie wolumenu na rok z góry: firma deklaruje, ile realizacji planuje, a ja rezerwuję terminy i trzymam dzisiejsze ceny na całość. Każdą realizację rozliczamy osobno, więc nie płacicie za materiał, którego nie zamówiliście, a ja mogę planować ujęcia z wyprzedzeniem, zamiast reagować na zgłoszenia z tygodnia na tydzień.</p>
 
       <h2>Ile kosztuje wideo dla firmy</h2>
-      <p>Na wycenę produkcji wideo pracują dwie rzeczy: czas nagrania oraz długość i złożoność finalnego materiału, od krótkiego teasera po kilkuminutowy film. Krótko mówiąc, minuta gotowego materiału to nie minuta pracy, tylko kilka godzin zdjęciowych i montażowych, i to widać w wycenie.</p>
-      <p>Opisz w kilku zdaniach, co chcesz nagrać i gdzie to trafi. Wstępną wycenę odsyłam w 24h.</p>
+      <p>Na wycenę produkcji wideo wpływają dwie rzeczy: czas nagrania oraz długość i złożoność finalnego materiału, od krótkiego teasera po kilkuminutowy film. Krótko mówiąc, minuta gotowego materiału to nie minuta pracy, tylko kilka godzin zdjęciowych i montażowych, i to widać w wycenie.</p>
+      <p>Opisz w kilku zdaniach, co chcesz nagrać i gdzie to trafi. Wstępną wycenę odsyłam w ciągu 24 godzin.</p>
 
       <h2>Terminy i poprawki</h2>
-      <p>Gotowe wideo dostajesz w 21 dni kalendarzowych, a jeśli termin goni, jest tryb ekspresowy do 48 godzin za dopłatą 50 procent wartości zlecenia. W cenie masz trzy tury poprawek montażowych, realizowane w ciągu 7 dni od zgłoszenia, bez liczenia terminu podstawowego od nowa. Licencja komercyjna jest w cenie i nie ma limitów czasowych: film możesz puścić na stronie, w Social Media, w reklamie online i w materiałach sprzedażowych.</p>
+      <p>Gotowe wideo dostajesz w 21 dni kalendarzowych, a jeśli termin goni, jest tryb ekspresowy do 48 godzin za dopłatą 50 procent wartości zlecenia. W cenie masz trzy tury poprawek montażowych, realizowane w ciągu 7 dni od zgłoszenia, bez liczenia terminu podstawowego od nowa. Licencja komercyjna jest w cenie i nie ma limitów czasowych: film możesz puścić na stronie, w social mediach, w reklamie online i w materiałach sprzedażowych.</p>
 
       <h2>Zdjęcia i film w jednej sesji</h2>
-      <p>Najefektywniej jest łączyć materiał foto i wideo na jednej realizacji: jedna rozmowa na starcie, jeden dzień zdjęciowy, spójny styl. Nie koordynujesz dwóch ekip i nie tłumaczysz dwa razy tego samego. Bazuję w Poznaniu, gdzie dojazd kosztuje 0 zł, poza miastem doliczam 2,50 zł netto za kilometr w obie strony, a realizacje prowadzę w całej Polsce i Europie.</p>
+      <p>Najefektywniej jest łączyć materiał foto i wideo na jednej realizacji: jedna rozmowa na starcie, jeden dzień zdjęciowy, spójny styl. Nie koordynujesz dwóch ekip i nie tłumaczysz dwa razy tego samego. Pracuję z Poznania, gdzie dojazd kosztuje 0 zł, poza miastem doliczam 2,50 zł netto za kilometr w obie strony, a realizacje prowadzę w całej Polsce i Europie.</p>
       <p>Sprawdź, co obejmują <a href="/uslugi/wizerunek-portrety">zdjęcia i film dla firm</a>, zobacz, kiedy bardziej opłaca się <a href="/blog/pakiet-foto-wideo-czy-osobno">pakiet, a kiedy usługi osobno</a>, i zajrzyj do <a href="/blog/slownik-pojec-wideo">słownika pojęć wideo</a>, jeśli chcesz rozumieć, o czym mówimy przy ustalaniu zakresu. A potem <a href="/kontakt">opisz swój projekt</a>. Podpowiem, który format da najwięcej przy Twoim budżecie.</p>
     `,
 		seo: {
 			title: 'Wideo marketing dla firm: jakie formaty | Szabunia',
 			description:
-				'Film wizerunkowy, reels, testimonial, wideo produktowe, relacja z eventu, przegląd formatów wideo marketingu B2B i tego, gdzie każdy się sprawdza.',
+				'Film wizerunkowy, reels, testimonial, wideo produktowe, relacja z eventu: przegląd formatów wideo marketingu B2B i tego, gdzie każdy się sprawdza.',
 		},
 	},
 	{
@@ -796,7 +797,7 @@ export const blogPosts: BlogPost[] = [
 		faq: [
 			{
 				q: 'Studio czy własne biuro: gdzie zrobić sesję wizerunkową?',
-				a: 'Studio daje pełną kontrolę nad światłem i powtarzalny, ponadczasowy portret, idealny na headshoty, portrety zarządu i zdjęcia do mediów. Sesja w biurze pokazuje realną przestrzeń marki i nie wyrywa zespołu z pracy: fotograf przyjeżdża z mobilnym studiem, którego rozłożenie zajmuje około 30 minut.',
+				a: 'Studio daje pełną kontrolę nad światłem i powtarzalny, ponadczasowy portret, dobry do headshotów, portrety zarządu i zdjęcia do mediów. Sesja w biurze pokazuje realną przestrzeń marki i nie wyrywa zespołu z pracy: fotograf przyjeżdża z mobilnym studiem, którego rozłożenie zajmuje około 30 minut.',
 			},
 			{
 				q: 'Czy dojazd na sesję na terenie Poznania jest dodatkowo płatny?',
@@ -819,7 +820,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">Szukasz fotografa do zdjęć biznesowych w Poznaniu i zastanawiasz się, gdzie właściwie zrobić sesję? Studio, Twoje biuro, a może plener? Każde z tych miejsc daje inny efekt i pasuje do innych potrzeb. Oto praktyczne porównanie, które pomoże Ci wybrać.</p>
 
       <h2>Studio: pełna kontrola nad efektem</h2>
-      <p>Studio to najbezpieczniejszy wybór, gdy zależy Ci na czystym, ponadczasowym portrecie. Kontrolowane światło, neutralne tło (białe, szare, grafitowe) i zero przypadkowości. Taki <a href="/uslugi/wizerunek-portrety">portret wizerunkowy</a> wygląda spójnie niezależnie od tego, gdzie go potem użyjesz, na LinkedIn, stronie firmowej czy w materiałach prasowych.</p>
+      <p>Studio to najbezpieczniejszy wybór, gdy zależy Ci na czystym, ponadczasowym portrecie. Kontrolowane światło, neutralne tło (białe, szare, grafitowe) i zero przypadkowości. Taki <a href="/uslugi/wizerunek-portrety">portret wizerunkowy</a> wygląda spójnie niezależnie od tego, gdzie go potem użyjesz: na LinkedInie, na stronie firmowej czy w materiałach prasowych.</p>
       <ul>
         <li><strong>Dla kogo:</strong> headshoty, portrety zarządu, zdjęcia do CV i mediów</li>
         <li><strong>Plus:</strong> powtarzalność i pełna kontrola nad światłem</li>
@@ -835,7 +836,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Plener: charakter i lokalny klimat</h2>
-      <p>Poznań ma sporo do zaoferowania jako tło: architektura Starego Miasta, nowoczesne dzielnice biurowe, zieleń nad Wartą i industrialne klimaty dawnych browarów. Plener daje zdjęciom charakter i „oddech", świetnie sprawdza się w personal brandingu i materiałach mniej formalnych.</p>
+      <p>Poznań ma sporo do zaoferowania jako tło: architektura Starego Miasta, nowoczesne dzielnice biurowe, zieleń nad Wartą i industrialne klimaty dawnych browarów. Plener daje zdjęciom charakter i „oddech” i świetnie sprawdza się w personal brandingu i materiałach mniej formalnych.</p>
       <ul>
         <li><strong>Dla kogo:</strong> personal branding, twórcy, mniej formalne wizerunki</li>
         <li><strong>Plus:</strong> charakter miejsca, naturalne światło, dynamika kadru</li>
@@ -843,10 +844,10 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Jak wybrać?</h2>
-      <p>Zacznij od pytania: gdzie te zdjęcia będą żyły? Jednolity headshot na cały zespół? Studio albo Wasze biuro. Wizerunek eksperta z charakterem? Plener. Przy kompleksowym materiale o firmie często łączymy oba podejścia: portrety w biurze plus kilka ujęć w plenerze. Nie musisz wybierać tylko jednego.</p>
+      <p>Zacznij od pytania: gdzie te zdjęcia będą żyły? Jednolity headshot na cały zespół? Studio albo Wasze biuro. Wizerunek eksperta z charakterem? Plener. Przy większym materiale o firmie często łączymy oba podejścia: portrety w biurze plus kilka ujęć w plenerze. Nie musisz wybierać tylko jednego.</p>
 
       <h2>Logistyka i dojazd w Poznaniu</h2>
-      <p>Bazuję w Poznaniu, więc dojazd na terenie miasta jest wliczony w cenę, niezależnie od tego, czy to studio, Twoje biuro, czy plener. Realizacje poza Poznaniem ustalamy indywidualnie. Przed sesją zawsze omawiamy lokalizację, żeby światło i tło grały na Twoją korzyść.</p>
+      <p>Pracuję z Poznania, więc dojazd na terenie miasta jest wliczony w cenę, niezależnie od tego, czy to studio, Twoje biuro, czy plener. Realizacje poza Poznaniem ustalamy indywidualnie. Przed sesją zawsze omawiamy lokalizację, żeby światło i tło grały na Twoją korzyść.</p>
       <p>Zobacz <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> i <a href="/portfolio/idcom-headshoty-zespolu">sesji korporacyjnych</a>, a potem <a href="/kontakt">napisz, co chcesz osiągnąć</a>. Dobiorę miejsce pod Twój cel.</p>
     `,
 		seo: {
@@ -894,8 +895,8 @@ export const blogPosts: BlogPost[] = [
       <p>Problem zaczyna się tam, gdzie zdjęcie ma reprezentować realną osobę i realną markę.</p>
       <ul>
         <li><strong>„To nie do końca Ty":</strong> AI wygładza i zmienia rysy. Gdy klient spotka Cię na żywo i nie rozpozna, tracisz wiarygodność, zamiast ją budować.</li>
-        <li><strong>Detale, które zdradzają:</strong> dłonie, biżuteria, logo, faktura tkaniny, to miejsca, w których generatory wciąż się mylą.</li>
-        <li><strong>Brak spójności:</strong> headshot z AI rzadko pasuje stylem do reszty zdjęć firmy, zespołu, biura, realizacji.</li>
+        <li><strong>Detale, które zdradzają:</strong> dłonie, biżuteria, logo i faktura tkaniny to miejsca, w których generatory wciąż się mylą.</li>
+        <li><strong>Brak spójności:</strong> headshot z AI rzadko pasuje stylem do reszty zdjęć firmy: zespołu, biura, realizacji.</li>
         <li><strong>Ryzyko wizerunkowe:</strong> coraz więcej osób rozpoznaje „twarz z generatora", a to potrafi sygnalizować, że marka idzie na skróty.</li>
       </ul>
 
@@ -907,7 +908,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Werdykt</h2>
       <p>AI to narzędzie, nie zamiennik. Świetne do szkiców i zastosowań pomocniczych, słabe wszędzie tam, gdzie liczy się, że to naprawdę Ty. Twarz, która ma reprezentować Ciebie i Twoją firmę, warta jest jednej dobrej sesji.</p>
-      <p>Zobacz <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> albo od razu <a href="/kontakt">napisz, czego potrzebujesz</a>. Podpowiem, ile ujęć i wariantów realnie wystarczy. Bazuję w Poznaniu, a sesje realizuję w całej Polsce i Europie.</p>
+      <p>Zobacz <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> albo od razu <a href="/kontakt">napisz, czego potrzebujesz</a>. Podpowiem, ile ujęć i wariantów realnie wystarczy. Pracuję z Poznania, a sesje realizuję w całej Polsce i Europie.</p>
     `,
 		seo: {
 			title: 'Zdjęcia AI vs profesjonalna sesja | Szabunia',
@@ -934,7 +935,7 @@ export const blogPosts: BlogPost[] = [
 		title:
 			'Co założyć na sesję biznesową: kolory, fasony i błędy, których lepiej unikać',
 		excerpt:
-			'Stylizacja potrafi zrobić albo zepsuć portret biznesowy. Praktyczny przewodnik po kolorach, fasonach i materiałach, które dobrze wyglądają na zdjęciach, i częstych błędach.',
+			'Stylizacja potrafi uratować albo zepsuć portret biznesowy. Praktyczny przewodnik po kolorach, fasonach i materiałach, które dobrze wyglądają na zdjęciach, i częstych błędach.',
 		category: 'poradnik',
 		date: '2026-05-19',
 		readTime: 7,
@@ -977,7 +978,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Najczęstsze błędy</h2>
       <p>Zbyt nowy, jeszcze „sztywny" garnitur. Logo na pół klatki piersiowej. Stylizacja kompletnie oderwana od branży (smoking do firmy technologicznej). I najważniejszy błąd: strój, w którym jest Ci niewygodnie. Jeśli ciągle poprawiasz kołnierzyk, widać to na każdym ujęciu.</p>
-      <p>Resztę przygotowań znajdziesz w poradniku <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>. Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">headshot pracuje na konwersję na LinkedIn</a>, i przejrzyj <a href="/galeria?kat=portrety">przykładowe realizacje</a>. Gotowy? <a href="/kontakt">Napisz do mnie</a>, umówimy termin. Odpowiadam w ciągu 24h. Sesje realizuję w Poznaniu, a także w całej Polsce i Europie.</p>
+      <p>Resztę przygotowań znajdziesz w poradniku <a href="/blog/jak-przygotowac-sie-do-sesji-biznesowej">jak przygotować się do sesji biznesowej</a>. Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">headshot pracuje na konwersję na LinkedIn</a>, i przejrzyj <a href="/galeria?kat=portrety">przykładowe realizacje</a>. Gotowy? <a href="/kontakt">Napisz do mnie</a>, umówimy termin. Odpowiadam w ciągu 24 godzin. Sesje realizuję w Poznaniu, a także w całej Polsce i Europie.</p>
     `,
 		seo: {
 			title: 'Co założyć na sesję biznesową: stylizacje | Szabunia',
@@ -1001,9 +1002,9 @@ export const blogPosts: BlogPost[] = [
 				a: 'Najtaniej i najspójniej jest zebrać potrzeby z całej strony i zrealizować je w jednej, dobrze zaplanowanej sesji albo serii sesji. Praca zaczyna się od listy sekcji i ujęć, potem dobiera się lokalizację i styl, a efektem jest komplet spójnego materiału na wszystkie sekcje.',
 			},
 		],
-		title: 'Jakie zdjęcia potrzebuje strona internetowa firmy: kompletna lista',
+		title: 'Jakich zdjęć potrzebuje strona internetowa firmy: kompletna lista',
 		excerpt:
-			'Strona firmowa to często pierwszy kontakt klienta z marką. Oto, jakich zdjęć naprawdę potrzebujesz, sekcja po sekcji, żeby budowała zaufanie, a nie wyglądała jak baza stocków.',
+			'Strona firmowa to często pierwszy kontakt klienta z marką. Oto, jakich zdjęć naprawdę potrzebujesz, sekcja po sekcji, żeby budowała zaufanie, a nie wyglądała jak bank zdjęć.',
 		category: 'poradnik',
 		date: '2026-05-15',
 		updated: '2026-07-29',
@@ -1013,13 +1014,13 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">Strona internetowa to często pierwszy kontakt klienta z Twoją firmą, a ocena zapada w kilka sekund. Zdjęcia decydują o tym pierwszym wrażeniu bardziej niż tekst. Oto kompletna lista zdjęć, których realnie potrzebuje strona firmowa, sekcja po sekcji.</p>
 
       <h2>Zdjęcie główne (hero)</h2>
-      <p>Pierwszy ekran, który widzi odwiedzający. Powinno jednym kadrem komunikować, czym się zajmujesz i jaki masz styl. To nie miejsce na przypadkowy stock, tu warto zainwestować w mocne, autorskie ujęcie, bo pracuje na każdą wizytę.</p>
+      <p>To pierwsze, co widzi odwiedzający. Zdjęcie powinno jednym kadrem komunikować, czym się zajmujesz i jaki masz styl. To nie miejsce na przypadkowe zdjęcie z banku zdjęć. Tu warto zainwestować w mocne, autorskie ujęcie, bo pracuje na każdą wizytę.</p>
 
       <h2>Zespół i sekcja „o nas"</h2>
       <p>Ludzie kupują od ludzi. Spójne <a href="/uslugi/wizerunek-portrety">portrety zespołu</a> (jedno tło, jedno światło, jeden styl) budują zaufanie i pomagają w rekrutacji. Najczęstsze potknięcia w tym obszarze opisałem w tekście o <a href="/blog/bledy-zdjecia-zespolu">błędach przy zdjęciach zespołu</a>.</p>
 
       <h2>Biuro i przestrzeń firmy</h2>
-      <p>Zdjęcia realnej przestrzeni, biura, sali konferencyjnej, hali, pokazują skalę i charakter firmy oraz uwiarygadniają markę. To naturalna część <a href="/portfolio/idcom-headshoty-zespolu">sesji korporacyjnej</a>, którą można zrealizować przy okazji portretów zespołu.</p>
+      <p>Zdjęcia realnej przestrzeni (biura, sali konferencyjnej, hali) pokazują skalę i charakter firmy oraz uwiarygadniają markę. To naturalna część <a href="/portfolio/idcom-headshoty-zespolu">sesji korporacyjnej</a>, którą można zrealizować przy okazji portretów zespołu.</p>
 
       <h2>Produkty i usługi</h2>
       <p>Jeśli sprzedajesz produkty, potrzebujesz spójnego zestawu zdjęć: packshot na białym tle plus ujęcia w kontekście. Jak to przekłada się na sprzedaż, rozkładam w tekście o <a href="/blog/fotografia-produktowa-ecommerce">fotografii produktowej dla e-commerce</a>. Usługi też da się pokazać obrazem: proces, efekt, ludzie przy pracy.</p>
@@ -1028,7 +1029,7 @@ export const blogPosts: BlogPost[] = [
       <p>Sekcja „co już zrobiliśmy" to dowód kompetencji. Zdjęcia z wdrożeń, eventów czy gotowych projektów działają mocniej niż deklaracje. Jeśli organizujesz wydarzenia, warto mieć materiał z <a href="/uslugi/eventy-reportaze">reportażu</a>.</p>
 
       <h2>Wideo na stronie</h2>
-      <p>Krótki film wizerunkowy na stronie głównej potrafi zatrzymać uwagę dłużej niż statyczny obraz. <a href="/uslugi/wizerunek-portrety">Film wizerunkowy</a> najlepiej zaplanować razem z sesją foto, jeden dzień, spójny styl, materiał na stronę i social media naraz.</p>
+      <p>Krótki film wizerunkowy na stronie głównej potrafi zatrzymać uwagę dłużej niż statyczny obraz. <a href="/uslugi/wizerunek-portrety">Film wizerunkowy</a> najlepiej zaplanować razem z sesją foto: jeden dzień, spójny styl, materiał na stronę i social media naraz.</p>
 
       <h2>Dlaczego nie zdjęcia stockowe</h2>
       <p>Stocki są wygodne, ale mają trzy wady: każdy ma do nich dostęp (Twój konkurent może użyć tego samego zdjęcia), nie pokazują Twojej realnej firmy i często widać w nich „sztuczność". Autentyczne, autorskie zdjęcia odróżniają markę, stock ją upodabnia do innych.</p>
@@ -1070,7 +1071,7 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">Zamawiasz wideo dla firmy i nagle z oferty wyskakują słowa: b-roll, color grading, setka, recap. Branża wideo ma swój żargon, ale Ty nie musisz go znać, żeby dobrze zamówić. Oto słownik pojęć, które najczęściej padają w rozmowach o filmach dla firm, wyjaśniony prostym językiem.</p>
 
       <h2>Reels (rolka)</h2>
-      <p>Krótkie pionowe wideo pod Instagram, TikTok i YouTube Shorts, zwykle do 30 sekund. Najszybciej rosnący format w social media i podstawa większości firmowych strategii wideo. Przykład: trzy pionowe reelsy z wywiadami, które zrealizowałem dla wydarzenia <a href="/portfolio/woohoo-autopay">E-commerce All In</a>.</p>
+      <p>Krótkie pionowe wideo pod Instagram, TikTok i YouTube Shorts, zwykle do 30 sekund. Najszybciej rosnący format w social mediach i podstawa większości firmowych strategii wideo. Przykład: trzy pionowe reelsy z wywiadami, które zrealizowałem dla wydarzenia <a href="/portfolio/woohoo-autopay">E-commerce All In</a>.</p>
 
       <h2>Format pionowy i poziomy (9:16 i 16:9)</h2>
       <p>Proporcje kadru. Pionowy 9:16 to standard telefonu: reelsy, stories, Shorts. Poziomy 16:9 to YouTube, strona internetowa i prezentacje. Ten sam materiał rzadko działa dobrze w obu naraz, dlatego formaty planuje się przed zdjęciami, a nie po nich. Więcej w tekście o <a href="/blog/wideo-marketing-dla-firm-formaty">formatach wideo dla firm</a>.</p>
@@ -1082,7 +1083,7 @@ export const blogPosts: BlogPost[] = [
       <p>Wypowiedź wprost do kamery: ekspert, prezes, uczestnik eventu. Nazwa pochodzi z żargonu telewizyjnego, po angielsku mówi się talking head. Setki najlepiej nagrywać w kontrolowanych warunkach, dlatego na eventach buduję mobilne studio do filmowania z porządnym światłem i dźwiękiem.</p>
 
       <h2>Teaser</h2>
-      <p>Bardzo krótka zapowiedź, do 15 sekund. Pojedyncze najmocniejsze ujęcia, dynamiczny montaż, logo i data. Idealny do podgrzania atmosfery przed wydarzeniem albo jako szybka reklama. Robię go jako dodatek do większego zlecenia.</p>
+      <p>Bardzo krótka zapowiedź, do 15 sekund. Pojedyncze najmocniejsze ujęcia, dynamiczny montaż, logo i data. Sprawdza się do podgrzania atmosfery przed wydarzeniem albo jako szybka reklama. Robię go jako dodatek do większego zlecenia.</p>
 
       <h2>Event recap (aftermovie)</h2>
       <p>Film podsumowujący wydarzenie, zwykle do 60 sekund (dłuższe formaty na wycenę indywidualną): najlepsze momenty, emocje, skala. Pokazuje sponsorom i przyszłym uczestnikom, dlaczego warto być na kolejnej edycji. Przykład znajdziesz w <a href="/portfolio/woohoo-autopay">realizacji dla E-commerce All In</a>.</p>
@@ -1091,16 +1092,16 @@ export const blogPosts: BlogPost[] = [
       <p>Dłuższa forma o firmie: kim jesteście, jak pracujecie, dlaczego warto Wam zaufać. Działa na stronie internetowej i w rozmowach handlowych. Dobry przykład to <a href="/portfolio/artech-fotografia-produktowa">film z hali produkcyjnej dla Artech Group</a>: zamiast opisywać park maszynowy, firma po prostu go pokazuje.</p>
 
       <h2>Montaż</h2>
-      <p>Składanie nagranego materiału w gotowy film: wybór ujęć, rytm, muzyka, napisy, dźwięk. To na montażu film zyskuje tempo i sens, dlatego w moich pakietach wideo montaż i postprodukcja są zawsze w cenie, z ustalonymi turami poprawek.</p>
+      <p>Składanie nagranego materiału w gotowy film: wybór ujęć, rytm, muzyka, napisy, dźwięk. To na montażu film zyskuje tempo i sens, dlatego przy moich realizacjach wideo montaż i postprodukcja są zawsze w cenie, z ustalonymi turami poprawek.</p>
 
       <h2>Color grading</h2>
-      <p>Nadawanie filmowi spójnego charakteru kolorystycznego: cieplejszy i bardziej kinowy albo chłodny i technologiczny. To ostatni etap postprodukcji, dzięki któremu materiał wygląda profesjonalnie i spójnie z marką.</p>
+      <p>Nadawanie filmowi spójnego charakteru kolorystycznego: cieplejszego i bardziej kinowego albo chłodnego i technologicznego. To ostatni etap postprodukcji, dzięki któremu materiał wygląda profesjonalnie i spójnie z marką.</p>
 
       <h2>Gimbal (stabilizacja)</h2>
       <p>Urządzenie, które utrzymuje kamerę w idealnie płynnym ruchu. Dzięki niemu ujęcia z przejść po biurze czy evencie wyglądają filmowo, a nie jak z ręki. Standard przy każdej mojej realizacji wideo.</p>
 
       <h2>Ujęcia z drona</h2>
-      <p>Zdjęcia i wideo z powietrza: budynek firmy, teren zakładu, skala wydarzenia. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc strona formalna jest po mojej stronie. Przy odpowiednich zgodach da się latać nawet w środku obiektu, jak przy <a href="/portfolio/woohoo-autopay">evencie na Enea Stadion</a>, gdzie dron latał wewnątrz stadionu.</p>
+      <p>Zdjęcia i wideo z powietrza: budynek firmy, teren zakładu, skala wydarzenia. Latam dronem DJI, mam certyfikat operatora A1/A3 i ubezpieczenie OC, więc formalności biorę na siebie. Przy odpowiednich zgodach da się latać nawet w środku obiektu, jak podczas <a href="/portfolio/woohoo-autopay">eventu na Enea Stadionie</a>, gdzie dron latał wewnątrz obiektu.</p>
 
       <h2>Mikroport</h2>
       <p>Mały bezprzewodowy mikrofon przypinany do ubrania osoby mówiącej. To różnica między dźwiękiem, którego da się słuchać, a takim, który ginie w echu sali. Przy wywiadach i setkach to pozycja obowiązkowa.</p>
@@ -1109,13 +1110,13 @@ export const blogPosts: BlogPost[] = [
       <p>Głos czytający tekst poza kadrem. Prowadzi widza przez film, kiedy nie ma wypowiedzi do kamery albo trzeba połączyć różne wątki w jedną historię.</p>
 
       <h2>Napisy</h2>
-      <p>Większość ludzi ogląda wideo w social media bez dźwięku, dlatego napisy to nie dodatek, tylko standard. Dobre napisy są zsynchronizowane, czytelne na telefonie i spójne z identyfikacją marki.</p>
+      <p>Większość ludzi ogląda wideo w social mediach bez dźwięku, dlatego napisy to nie dodatek, tylko standard. Dobre napisy są zsynchronizowane, czytelne na telefonie i spójne z identyfikacją marki.</p>
 
       <h2>Tury poprawek</h2>
-      <p>Liczba rund uwag, które możesz zgłosić do montażu w cenie. U mnie wideo ma 3 tury poprawek w cenie, a w praktyce pierwsza prawie zawsze wystarcza, bo zakres i styl ustalamy przed realizacją.</p>
+      <p>Liczba rund uwag do montażu, które mieszczą się w cenie. U mnie wideo ma 3 tury poprawek w cenie, a w praktyce pierwsza prawie zawsze wystarcza, bo zakres i styl ustalamy przed realizacją.</p>
 
       <h2>Nie musisz znać żargonu</h2>
-      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan realizacji. Zobacz <a href="/uslugi/wizerunek-portrety">zdjęcia i film dla firm</a>, a potem <a href="/kontakt">napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
+      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan realizacji. Zobacz <a href="/uslugi/wizerunek-portrety">zdjęcia i film dla firm</a>, a potem <a href="/kontakt">napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w ciągu 24 godzin.</p>
     `,
 		seo: {
 			title: 'B-roll, setka, recap: słownik wideo | Szabunia',
@@ -1128,7 +1129,7 @@ export const blogPosts: BlogPost[] = [
 		faq: [
 			{
 				q: 'Co to jest packshot?',
-				a: "Packshot to zdjęcie produktu na jednolitym, najczęściej białym tle: czyste, powtarzalne i pozbawione rozpraszaczy. Odpowiada na pytanie, jak dokładnie wygląda dana rzecz. To podstawa karty produktu w sklepie internetowym i standard wymagany przez większość marketplace'ów.",
+				a: "Packshot to zdjęcie produktu na jednolitym, najczęściej białym tle: czyste, powtarzalne i bez elementów, które odciągają uwagę. Odpowiada na pytanie, jak dokładnie wygląda dana rzecz. To podstawa karty produktu w sklepie internetowym i standard wymagany przez większość marketplace'ów.",
 			},
 			{
 				q: 'Czy fotograf przekazuje klientowi pliki RAW?',
@@ -1151,43 +1152,43 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">Zamawiasz zdjęcia dla firmy i nagle z oferty wyskakują słowa: packshot, lifestyle, poseboard, live editing. Branża fotograficzna lubi swój żargon, ale Ty nie musisz go znać, żeby dobrze zamówić. Oto słownik pojęć, które najczęściej padają w rozmowach z klientami, wyjaśniony prostym językiem.</p>
 
       <h2>Packshot</h2>
-      <p>Zdjęcie produktu na jednolitym, najczęściej białym tle. Czyste, powtarzalne, bez rozpraszaczy: sam produkt, idealnie oświetlony. To podstawa karty produktu w sklepie internetowym i standard wymagany przez większość marketplace'ów. Packshot odpowiada na pytanie „jak dokładnie wygląda ta rzecz". W mojej ofercie znajdziesz go w <a href="/uslugi/fotografia-produktowa">fotografii produktowej</a>, a przy większych seriach koszt pojedynczego ujęcia wyraźnie spada.</p>
+      <p>Zdjęcie produktu na jednolitym, najczęściej białym tle. Czyste, powtarzalne, bez elementów, które odciągają uwagę: sam produkt, idealnie oświetlony. To podstawa karty produktu w sklepie internetowym i standard wymagany przez większość marketplace'ów. Packshot odpowiada na pytanie „jak dokładnie wygląda ta rzecz". W mojej ofercie znajdziesz go w <a href="/uslugi/fotografia-produktowa">fotografii produktowej</a>, a przy większych seriach koszt pojedynczego ujęcia wyraźnie spada.</p>
 
       <h2>Zdjęcie lifestyle</h2>
       <p>Przeciwieństwo packshota: produkt pokazany w użyciu, w realnej scenerii. Kubek na stole przy porannej kawie, kosmetyk w dłoni, butelka na evencie. Lifestyle buduje emocje i kontekst, packshot podaje fakty. Dobry sklep potrzebuje obu, o czym piszę więcej w tekście o <a href="/blog/fotografia-produktowa-ecommerce">fotografii produktowej dla e-commerce</a>.</p>
 
       <h2>Headshot</h2>
-      <p>Portret od ramion w górę, z twarzą zajmującą większość kadru. Standard na LinkedIn, stronę firmową i materiały prasowe. Dobry headshot buduje zaufanie zanim ktokolwiek przeczyta Twoje CV czy ofertę. Sprawdź, <a href="/blog/headshoty-linkedin-konwersja">jak headshot wpływa na konwersję na LinkedIn</a>.</p>
+      <p>Portret od ramion w górę, z twarzą zajmującą większość kadru. Standard na LinkedInie, na stronach firmowych i w materiałach prasowych. Dobry headshot buduje zaufanie, zanim ktokolwiek przeczyta Twoje CV czy ofertę. Sprawdź, <a href="/blog/headshoty-linkedin-konwersja">jak headshot wpływa na konwersję na LinkedIn</a>.</p>
 
       <h2>Sesja wizerunkowa i personal branding</h2>
-      <p>Szersza wersja sesji portretowej: nie tylko twarz, ale cały wizerunek eksperta lub marki osobistej. Różne kadry, stylizacje i scenerie do wykorzystania na stronie, w social media i materiałach sprzedażowych. Więcej w opisie <a href="/uslugi/wizerunek-portrety">sesji wizerunkowych</a>.</p>
+      <p>Szersza wersja sesji portretowej: nie tylko twarz, ale cały wizerunek eksperta lub marki osobistej. Różne kadry, stylizacje i scenerie do wykorzystania na stronie, w social mediach i materiałach sprzedażowych. Więcej w opisie <a href="/uslugi/wizerunek-portrety">sesji wizerunkowych</a>.</p>
 
       <h2>Brief</h2>
       <p>Krótki opis tego, czego potrzebujesz: cel zdjęć, gdzie będą używane, termin, lokalizacja, liczba osób lub produktów. Nie musi być formalnym dokumentem, wystarczy kilka zdań w mailu. Dobry brief to połowa udanej sesji, bo fotograf od początku wie, na czym Ci zależy.</p>
 
       <h2>Poseboard</h2>
-      <p>Zestaw przykładowych póz i kadrów, który przygotowuję przed sesją portretową. Dzięki niemu nie musisz zastanawiać się, co zrobić z rękami: na planie po prostu odtwarzamy sprawdzone ustawienia dopasowane do Twojego celu. Dostajesz go bez dopłaty w pakietach portretowych.</p>
+      <p>Zestaw przykładowych póz i kadrów, który przygotowuję przed sesją portretową. Dzięki niemu nie musisz zastanawiać się, co zrobić z rękami: na planie po prostu odtwarzamy sprawdzone ustawienia dopasowane do Twojego celu. Przy sesjach portretowych dostajesz go bez dopłaty.</p>
 
       <h2>Reportaż (fotoreportaż)</h2>
       <p>Styl fotografowania wydarzeń, w którym fotograf dokumentuje to, co dzieje się naprawdę, bez ustawiania i pozowania. Naturalne emocje, networking, przemówienia, kuluary. Standard na konferencjach i galach. Porównanie z sesją eventową znajdziesz <a href="/blog/fotografia-eventowa-vs-reportaz">w osobnym wpisie</a>.</p>
 
       <h2>Live editing</h2>
-      <p>Obróbka i dostarczanie zdjęć jeszcze w trakcie wydarzenia. Organizator dostaje gotowe kadry do publikacji w social media, zanim event się skończy. Opcja dodatkowa przy <a href="/uslugi/eventy-reportaze">reportażach eventowych</a>, wyceniana za zdjęcie.</p>
+      <p>Obróbka i dostarczanie zdjęć jeszcze w trakcie wydarzenia. Organizator dostaje gotowe kadry do publikacji w social mediach, zanim event się skończy. Opcja dodatkowa przy <a href="/uslugi/eventy-reportaze">reportażach eventowych</a>, wyceniana za zdjęcie.</p>
 
       <h2>Mobilne studio</h2>
-      <p>Pełny zestaw studyjny (tło, oświetlenie, stanowisko), który przywożę do Twojego biura. Rozstawienie zajmuje około 30 minut, a zespół fotografuje się na miejscu, bez wysyłania ludzi przez pół miasta. Bazuję w Poznaniu, gdzie dojazd jest w cenie (0 zł); poza miastem doliczam 2,50 zł netto za kilometr, licząc od granic miasta w obie strony. Podstawa <a href="/uslugi/wizerunek-portrety">sesji zespołowych</a>.</p>
+      <p>Pełny zestaw studyjny (tło, oświetlenie, stanowisko), który przywożę do Twojego biura. Rozstawienie zajmuje około 30 minut, a zespół fotografuje się na miejscu, bez wysyłania ludzi przez pół miasta. Pracuję z Poznania, gdzie dojazd jest w cenie (0 zł); poza miastem doliczam 2,50 zł netto za kilometr, licząc od granic miasta w obie strony. Podstawa <a href="/uslugi/wizerunek-portrety">sesji zespołowych</a>.</p>
 
       <h2>RAW</h2>
-      <p>Surowy plik z aparatu, cyfrowy odpowiednik negatywu. Zawiera pełne dane obrazu, ale wymaga obróbki i nie nadaje się do bezpośredniej publikacji. Fotografowie standardowo nie przekazują RAW-ów, tak jak drukarnia nie oddaje projektów otwartych: oddaję gotowy, spójny materiał po autorskiej postprodukcji. Jeśli jednak potrzebujesz pełnej kontroli nad postprodukcją, udostępnienie plików RAW jest dostępne jako opcja dodatkowa za 30 procent wartości zlecenia. Decyzję trzeba podjąć przed sesją, bo uwzględniam ją w umowie.</p>
+      <p>Surowy plik z aparatu, cyfrowy odpowiednik negatywu. Zawiera pełne dane obrazu, ale wymaga obróbki i nie nadaje się do bezpośredniej publikacji. Fotografowie standardowo nie przekazują RAW-ów, tak jak grafik nie oddaje otwartych plików projektu: oddaję gotowy, spójny materiał po autorskiej postprodukcji. Jeśli jednak potrzebujesz pełnej kontroli nad postprodukcją, pliki RAW mogę przekazać w opcji dodatkowej za 30 procent wartości zlecenia. Decyzję trzeba podjąć przed sesją, bo uwzględniam ją w umowie.</p>
 
       <h2>Retusz i postprodukcja</h2>
-      <p>Postprodukcja to cała obróbka po sesji: selekcja, kolory, kontrast, kadrowanie. Retusz to jej precyzyjna część dotycząca detali: niedoskonałości skóry, refleksy na okularach, drobne poprawki tła. W moich pakietach każde finalne zdjęcie przechodzi oba etapy, a w cenie masz ustalone tury poprawek.</p>
+      <p>Postprodukcja to cała obróbka po sesji: selekcja, kolory, kontrast, kadrowanie. Retusz to jej precyzyjna część dotycząca detali: niedoskonałości skóry, refleksy na okularach, drobne poprawki tła. U mnie każde finalne zdjęcie przechodzi oba etapy, a w cenie masz ustalone tury poprawek.</p>
 
       <h2>Licencja</h2>
       <p>Określa, gdzie i jak możesz używać zdjęć. W moim standardzie licencja obejmuje pełny użytek komercyjny: strona www, social media, druk, reklama online, bez limitów czasowych. Szerszy zakres (np. ogólnopolska kampania outdoor) ustalamy indywidualnie przy wycenie.</p>
 
       <h2>Nie musisz znać żargonu</h2>
-      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan sesji. <a href="/kontakt">Napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w 24h.</p>
+      <p>Wystarczy, że wiesz, co chcesz osiągnąć: resztę przetłumaczymy wspólnie na konkretny plan sesji. <a href="/kontakt">Napisz, czego potrzebujesz</a>, własnymi słowami. Odpowiem w ciągu 24 godzin.</p>
     `,
 		seo: {
 			title: 'Co to jest packshot? Słownik fotografii | Szabunia',
@@ -1208,7 +1209,7 @@ export const blogPosts: BlogPost[] = [
 			},
 			{
 				q: 'Jak długo trwa realizacja zdjęć i filmu z drona?',
-				a: 'Zwykle godzina w powietrzu wystarcza na komplet ujęć jednego obiektu. Zdjęcia dostarczam do 14 dni, wideo do 21 dni, dostępny jest też tryb ekspresowy. Wcześniej ustalamy brief, ujęcia i sprawdzam, czy teren leży w strefie wymagającej zgody.',
+				a: 'Zwykle godzina w powietrzu wystarcza na komplet ujęć jednego obiektu. Zdjęcia dostarczam do 14 dni, wideo do 21 dni, dostępny jest też tryb ekspresowy. Wcześniej ustalamy brief i ujęcia, a ja sprawdzam, czy teren leży w strefie wymagającej zgody.',
 			},
 		],
 		title: 'Zdjęcia i film z drona dla firm: zastosowania, legalność i koszt',
@@ -1230,7 +1231,7 @@ export const blogPosts: BlogPost[] = [
         <li><strong>Hoteli i obiektów turystycznych:</strong> lokalizacja, otoczenie i atuty, których nie widać z ziemi.</li>
         <li><strong>Agencji nieruchomości:</strong> nieruchomości komercyjne i grunty z czytelnym kontekstem działki.</li>
         <li><strong>Organizatorów eventów:</strong> skala wydarzenia, scena i teren w jednym kadrze.</li>
-        <li><strong>Marketingu i social mediów:</strong> dynamiczne ujęcia otwierające film firmowy albo reels.</li>
+        <li><strong>Marketingu i social mediów:</strong> dynamiczne ujęcia otwierające film firmowy albo rolkę.</li>
       </ul>
       <p>Wspólny mianownik jest prosty: dron sprzedaje <strong>skalę i kontekst</strong>. Odbiorca od razu rozumie, gdzie obiekt leży, jak duży jest i co ma wokół.</p>
 
@@ -1246,7 +1247,7 @@ export const blogPosts: BlogPost[] = [
       <h2>Jak wygląda realizacja krok po kroku</h2>
       <p>Przebieg jest powtarzalny i bez niespodzianek:</p>
       <ul>
-        <li><strong>Brief i zgody:</strong> ustalamy ujęcia, lokalizację i sprawdzam, czy teren leży w strefie wymagającej zgody.</li>
+        <li><strong>Brief i zgody:</strong> ustalamy ujęcia i lokalizację, a ja sprawdzam, czy teren leży w strefie wymagającej zgody.</li>
         <li><strong>Lot:</strong> zdjęcia i wideo w 4K. Zwykle godzina w powietrzu wystarcza na komplet ujęć jednego obiektu.</li>
         <li><strong>Postprodukcja:</strong> retusz zdjęć albo montaż filmu i korekcja barwna.</li>
         <li><strong>Dostawa:</strong> zdjęcia do 14 dni, wideo do 21 dni. Jest też tryb ekspresowy.</li>
@@ -1262,7 +1263,7 @@ export const blogPosts: BlogPost[] = [
       <p>W standardowych lokalizacjach latam bez dopłat, a w strefach kontrolowanych koordynację lotniczą biorę na siebie, bez ukrytych kosztów. Dla Ciebie oznacza to jedno: strona formalna nie jest Twoim problemem.</p>
 
       <h2>Ile to kosztuje</h2>
-      <p>O cenie <a href="/uslugi/nieruchomosci-przemysl">zdjęć i wideo z drona</a> decyduje przede wszystkim to, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy, zmontowany film. Komplet z jednej sesji wychodzi taniej niż te same usługi zamawiane osobno, bo płacisz za jeden dojazd i jedno wejście w powietrze. Co jeszcze wpływa na cenę, rozkładam we wpisie <a href="/blog/ile-kosztuje-film-z-drona">ile kosztuje film z drona</a>. Opisz obiekt i lokalizację, a wycenę odeślę w 24h.</p>
+      <p>O cenie <a href="/uslugi/nieruchomosci-przemysl">zdjęć i wideo z drona</a> decyduje przede wszystkim to, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy, zmontowany film. Komplet z jednej sesji wychodzi taniej niż te same usługi zamawiane osobno, bo płacisz za jeden dojazd i jeden lot. Co jeszcze wpływa na cenę, rozkładam we wpisie <a href="/blog/ile-kosztuje-film-z-drona">ile kosztuje film z drona</a>. Opisz obiekt i lokalizację, a wycenę odeślę w ciągu 24 godzin.</p>
 
       <h2>Dron jako dodatek, nie tylko osobna usługa</h2>
       <p>Materiał z drona świetnie łączy się z sesją naziemną. Na <a href="/uslugi/eventy-reportaze">evencie</a> kilka ujęć z góry pokazuje skalę wydarzenia, a w filmie firmowym otwierają one całość i nadają jej rozmach. Z jednej sesji powstaje wtedy spójny komplet zdjęć i wideo, bez logistyki dwóch ekip.</p>
@@ -1311,7 +1312,7 @@ export const blogPosts: BlogPost[] = [
       <ul>
         <li><strong>Spójność materiału.</strong> Zdjęcia i wideo wyglądają, jakby pochodziły z tej samej produkcji, bo pochodzą. To samo światło, ta sama kolorystyka, ten sam klimat. Marka dostaje jednolity zestaw na stronę, do social mediów i materiałów firmowych.</li>
         <li><strong>Mniej logistyki.</strong> Ustalasz wszystko z jedną osobą: jeden kontakt, jeden brief, jedna faktura, jeden termin. Przy evencie to różnica między spokojnym dniem a żonglerką dwoma ekipami.</li>
-        <li><strong>Wspólne planowanie.</strong> Ustalamy razem, które ujęcia i formaty są potrzebne. Cena zależy od zakresu, czasu oraz składu realizacji; porównujemy konkretny zestaw materiałów.</li>
+        <li><strong>Wspólne planowanie.</strong> Ustalamy razem, które ujęcia i formaty są potrzebne. Cena zależy od zakresu, czasu oraz składu realizacji; wycena dotyczy konkretnego zestawu materiałów.</li>
       </ul>
 
       <h2>Kiedy to się sprawdza</h2>
@@ -1332,7 +1333,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Podsumowanie</h2>
-      <p>Jeden partner od foto, wideo i drona to wspólny plan, prostszy kontakt i spójny standard materiałów. Najwięcej zyskujesz tam, gdzie z jednego dnia ma powstać kilka formatów: event, premiera, stały content. Pracuję z bazą w Poznaniu, a zlecenia realizuję w całej Polsce i Europie; na zapytania odpowiadam w ciągu 24 godzin.</p>
+      <p>Jeden partner od foto, wideo i drona to wspólny plan, prostszy kontakt i spójny standard materiałów. Najwięcej zyskujesz tam, gdzie z jednego dnia ma powstać kilka formatów: event, premiera, stały content. Pracuję z Poznania, a zlecenia realizuję w całej Polsce i Europie; na zapytania odpowiadam w ciągu 24 godzin.</p>
       <p>Zobacz <a href="/uslugi/eventy-reportaze">zdjęcia i film z wydarzeń firmowych</a>, a po przykłady realizacji zajrzyj do <a href="/galeria">galerii</a>.</p>
     `,
 		seo: {
@@ -1349,7 +1350,7 @@ export const blogPosts: BlogPost[] = [
 				a: 'Cel materiału (relacja, employer branding, sprzedaż, prasa), kluczowe momenty, których nie można przegapić, najważniejsze osoby i gości, którzy muszą znaleźć się w kadrze, oraz formaty na wyjściu: zdjęcia, film, teaser, reelsy czy ujęcia z drona.',
 			},
 			{
-				q: 'Co firma dostaje po evencie z kompleksowej obsługi foto-wideo?',
+				q: 'Co firma dostaje po evencie, gdy zamawia zdjęcia i film?',
 				a: 'Reportaż zdjęciowy po selekcji i pełnej obróbce, film podsumowujący (recap) i krótszy teaser do social mediów, reelsy pionowe na Instagram czy TikTok, a przy opcji live editingu wybrane zdjęcia obrobione na bieżąco, gotowe do publikacji jeszcze tego samego dnia.',
 			},
 			{
@@ -1365,7 +1366,7 @@ export const blogPosts: BlogPost[] = [
 		readTime: 6,
 		thumbnail: '/images/blog/obsluga-foto-wideo-eventu-firmowego.jpg',
 		content: `
-      <p class="lead">Event firmowy zdarza się raz. Nie ma drugiego podejścia, nie ma poprawek następnego dnia. Dlatego o materiale foto i wideo warto pomyśleć zanim zacznie się wydarzenie, a nie w jego trakcie. Oto praktyczny przewodnik, jak zaplanować kompleksową obsługę foto-wideo eventu, żeby wyjść z niego z kompletem materiału gotowym do publikacji.</p>
+      <p class="lead">Event firmowy zdarza się raz. Nie ma drugiego podejścia, nie ma poprawek następnego dnia. Dlatego o materiale foto i wideo warto pomyśleć, zanim zacznie się wydarzenie, a nie w jego trakcie. Poniżej praktyczny przewodnik, jak zaplanować zdjęcia, film i ujęcia z drona z jednego eventu, żeby wyjść z niego z kompletem materiału gotowym do publikacji.</p>
 
       <h2>Po co firmie foto i wideo z jednego eventu</h2>
       <p>Z jednego dobrze obfotografowanego i nagranego wydarzenia powstaje materiał, który pracuje przez kolejne miesiące: relacja na stronie, film podsumowujący do prezentacji handlowych, krótkie reelsy do social mediów, zdjęcia do materiałów prasowych. Jeden dzień, kilka formatów, długi okres użycia. Warunek jest jeden: trzeba to zaplanować.</p>
@@ -1376,13 +1377,13 @@ export const blogPosts: BlogPost[] = [
         <li>Cel: relacja, employer branding, sprzedaż, prasa.</li>
         <li>Kluczowe momenty, których nie można przegapić (wystąpienia, wręczenia, panel, networking).</li>
         <li>Najważniejsze osoby i goście, którzy muszą znaleźć się w kadrze.</li>
-        <li>Formaty na wyjściu: zdjęcia, film, teaser, reelsy, ujęcia z drona.</li>
+        <li>Formaty końcowe: zdjęcia, film, teaser, reelsy, ujęcia z drona.</li>
       </ul>
 
       <h2>Harmonogram dnia</h2>
       <p>Dobry plan to nie sztywny scenariusz, tylko mapa kluczowych momentów. Najważniejsze, żeby foto i wideo nie wchodziły sobie w drogę, a dron złapał właściwe światło, najlepiej przed zmrokiem. Przy całodniowym evencie zwykle wygląda to tak: ujęcia pustej sali i przygotowań, rejestracja gości, część oficjalna, przerwy i networking, część wieczorna. Z dronem planujemy okno na ujęcia z góry, gdy pozwala na to pogoda i przepisy.</p>
 
-      <h2>Must-have ujęcia</h2>
+      <h2>Ujęcia obowiązkowe</h2>
       <p>Niezależnie od skali, kilka rzeczy powinno znaleźć się zawsze:</p>
       <ul>
         <li><strong>Scena i prelegenci:</strong> wystąpienia, slajdy, wręczenia, panel.</li>
@@ -1390,13 +1391,13 @@ export const blogPosts: BlogPost[] = [
         <li><strong>Detale:</strong> branding, identyfikacja wizualna, catering, gadżety.</li>
         <li><strong>Skala:</strong> szerokie kadry sali i ujęcia z drona, jeśli event jest plenerowy lub duży.</li>
       </ul>
-      <p>To te ujęcia budują później spójną relację i dają z czego montować film.</p>
+      <p>To te ujęcia budują później spójną relację i dają materiał do montażu filmu.</p>
 
       <h2>Co dostajesz po evencie</h2>
       <ul>
         <li><strong>Reportaż zdjęciowy</strong> po selekcji i pełnej obróbce.</li>
         <li><strong>Film podsumowujący</strong> (recap) i krótszy teaser do social mediów.</li>
-        <li><strong>Reelsy pionowe</strong>, jeśli content ma trafić na Instagram czy TikTok.</li>
+        <li><strong>Reelsy pionowe</strong>, jeśli materiał ma trafić na Instagram czy TikTok.</li>
         <li><strong>Live editing (opcja dodatkowa):</strong> wybrane zdjęcia obrobione na bieżąco, jeszcze w trakcie eventu, gotowe do publikacji tego samego dnia.</li>
       </ul>
 
@@ -1419,7 +1420,7 @@ export const blogPosts: BlogPost[] = [
 			},
 			{
 				q: 'Kiedy lepiej zamówić usługi foto i wideo osobno?',
-				a: 'Gdy potrzebujesz tylko jednej rzeczy (samego reportażu zdjęciowego albo samego filmu), pakiet byłby przepłacaniem. Osobne usługi mają też sens przy dużej produkcji: wielokamerowym filmie ze scenariuszem i filmowym oświetleniem plus osobną ekipą fotograficzną, gdzie jeden twórca to za mało.',
+				a: 'Gdy potrzebujesz tylko jednej rzeczy (samego reportażu zdjęciowego albo samego filmu), pakiet byłby przepłacaniem. Osobne usługi mają też sens przy dużej produkcji: wielokamerowym filmie ze scenariuszem i filmowym oświetleniem plus osobnej ekipie fotograficznej, gdzie jeden twórca to za mało.',
 			},
 			{
 				q: 'Na co patrzeć przy wyborze poza ceną?',
@@ -1465,7 +1466,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Jak to wygląda przy Twoim wydarzeniu</h2>
-      <p>Najprościej porównać konkretne liczby dla Twojego wydarzenia. Skoro dron i tak jest na miejscu, a zdjęcia i film powstają w tym samym dniu, można wspólnie zaplanować logistykę; o cenie decydują zakres, czas i liczba operatorów. Dokładne kwoty dla Twojej skali odeślę po krótkim opisie wydarzenia, na zapytania odpowiadam w ciągu 24 godzin. Działam z bazą w Poznaniu, a pakiety realizuję w całej Polsce: w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr.</p>
+      <p>Najprościej porównać konkretne liczby dla Twojego wydarzenia. Gdy zdjęcia, film i ujęcia z drona powstają tego samego dnia, logistykę planuje się raz; o cenie decydują zakres, czas i liczba operatorów. Dokładne kwoty dla Twojej skali odeślę po krótkim opisie wydarzenia. Na zapytania odpowiadam w ciągu 24 godzin. Pracuję z Poznania, a zlecenia realizuję w całej Polsce: w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr.</p>
 
       <h2>Podsumowanie</h2>
       <p>Pakiet foto + wideo + dron opłaca się tam, gdzie z jednego wydarzenia ma powstać kilka spójnych formatów, a Ty chcesz prostej logistyki oraz zakresu dopasowanego do budżetu. Usługi osobno mają sens przy pojedynczej potrzebie albo bardzo dużej produkcji.</p>
@@ -1490,7 +1491,7 @@ export const blogPosts: BlogPost[] = [
 			},
 			{
 				q: 'Od czego zależy cena zdjęć z drona dla dewelopera?',
-				a: 'Na wycenę pracuje przede wszystkim to, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy film, a do tego zakres lotu, lokalizacja i strefa powietrzna. Komplet zdjęć i filmu z jednej sesji wychodzi taniej niż zamawianie tych usług osobno. Opisz inwestycję w kilku zdaniach, a wycenę odeślę w 24h.',
+				a: 'Na cenę wpływa przede wszystkim to, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy film, a do tego zakres lotu, lokalizacja i strefa powietrzna. Komplet zdjęć i filmu z jednej sesji wychodzi taniej niż zamawianie tych usług osobno. Opisz inwestycję w kilku zdaniach, a wycenę odeślę w ciągu 24 godzin.',
 			},
 		],
 		title:
@@ -1510,7 +1511,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Najczęstsze zastosowania</h2>
       <ul>
-        <li><strong>Postęp budowy:</strong> regularna dokumentacja z tego samego ujęcia pokazuje inwestorom i klientom, że prace idą zgodnie z planem.</li>
+        <li><strong>Postęp budowy:</strong> regularna dokumentacja z tego samego punktu pokazuje inwestorom i klientom, że prace idą zgodnie z planem.</li>
         <li><strong>Lokalizacja i otoczenie:</strong> jedno szerokie ujęcie tłumaczy więcej niż akapit o „dogodnym położeniu".</li>
         <li><strong>Materiały sprzedażowe:</strong> zdjęcia i film do prospektu, na stronę inwestycji, do kampanii i na portale ogłoszeniowe.</li>
         <li><strong>Realność zamiast renderu:</strong> ujęcie gotowego etapu obok wizualizacji buduje zaufanie do dewelopera.</li>
@@ -1525,10 +1526,10 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Legalność: na to zwróć uwagę</h2>
-      <p>Loty nad inwestycją to nie tylko kwestia sprzętu. Latam zgodnie z przepisami EASA, mam numer operatora i uprawnienia w kategorii otwartej (A1/A3), a przy strefach kontrolowanych wymagane zgłoszenia i zgody lotnicze biorę na siebie. Nad terenem budowy ustalamy wcześniej dostęp i zasady bezpieczeństwa. Dla Ciebie to oznacza materiał zrobiony legalnie, bez ryzyka i formalnych przestojów.</p>
+      <p>Loty nad inwestycją to nie tylko kwestia sprzętu. Latam zgodnie z przepisami EASA, mam numer operatora i uprawnienia w kategorii otwartej (A1/A3), a w strefach kontrolowanych wymagane zgłoszenia i zgody lotnicze biorę na siebie. Nad terenem budowy ustalamy wcześniej dostęp i zasady bezpieczeństwa. Dla Ciebie to oznacza materiał zrobiony legalnie, bez ryzyka i formalnych przestojów.</p>
 
       <h2>Ile to kosztuje</h2>
-      <p>Cena zależy przede wszystkim od tego, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy, zmontowany film. Komplet zdjęć i filmu albo zdjęć i przebitek z jednej sesji wychodzi taniej niż zamawianie tego osobno, bo płacisz za jeden dojazd i jedno wejście w powietrze. Pracuję z bazą w Poznaniu i realizuję zlecenia w całej Polsce, w Poznaniu bez kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr od granic miasta. Dokładną wycenę odeślę po krótkim opisie inwestycji.</p>
+      <p>Cena zależy przede wszystkim od tego, co ma powstać: surowe przebitki 4K do własnego montażu, wyretuszowane zdjęcia czy gotowy, zmontowany film. Komplet zdjęć i filmu albo zdjęć i przebitek z jednej sesji wychodzi taniej niż zamawianie tego osobno, bo płacisz za jeden dojazd i jeden lot. Pracuję z Poznania i realizuję zlecenia w całej Polsce. W Poznaniu nie ma kosztów dojazdu, poza miastem dojazd 2,50 zł netto za kilometr od granic miasta. Dokładną wycenę odeślę po krótkim opisie inwestycji.</p>
 
       <h2>Podsumowanie</h2>
       <p>Dla dewelopera zdjęcia i film z drona to nie ozdoba, tylko argument sprzedażowy. Pokazują lokalizację, skalę i postęp inwestycji tak, jak nie zrobi tego żadne ujęcie z ziemi. Najwięcej zyskujesz, biorąc z jednego lotu komplet foto i wideo gotowy do kampanii.</p>
@@ -1565,13 +1566,13 @@ export const blogPosts: BlogPost[] = [
 		readTime: 5,
 		thumbnail: '/images/blog/ile-kosztuje-film-z-drona.jpg',
 		content: `
-      <p class="lead">„Ile kosztuje film z drona" to pytanie, na które najuczciwsza odpowiedź brzmi: zależy. Poniżej rozkładam cenę na czynniki, pokazuję warianty i podaję kwotę, od której zaczynamy, żebyś wiedział, czego się spodziewać jeszcze przed wysłaniem zapytania.</p>
+      <p class="lead">„Ile kosztuje film z drona" to pytanie, na które najuczciwsza odpowiedź brzmi: zależy. Poniżej rozkładam cenę na czynniki, pokazuję warianty, żeby było wiadomo, czego się spodziewać jeszcze przed wysłaniem zapytania.</p>
 
       <h2>Od czego zależy cena</h2>
       <ul>
         <li><strong>Co ma powstać:</strong> same zdjęcia, gotowy zmontowany film czy surowe przebitki 4K do Twojego montażu. To największa różnica w cenie.</li>
         <li><strong>Zakres lotu:</strong> krótki oblot jednego budynku to co innego niż dokumentacja całego terenu z kilku ujęć.</li>
-        <li><strong>Lokalizacja:</strong> dojazd poza Poznań dolicza koszt kilometrów.</li>
+        <li><strong>Lokalizacja:</strong> przy dojeździe poza Poznań doliczam kilometry.</li>
         <li><strong>Strefa powietrzna:</strong> loty w strefie kontrolowanej wymagają zgody i czasu na formalności.</li>
         <li><strong>Postprodukcja:</strong> gotowy film z muzyką i kolorystyką kosztuje więcej niż same surowe ujęcia.</li>
       </ul>
@@ -1585,7 +1586,7 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Czas lotu i lokalizacja</h2>
-      <p>Wycena rośnie razem z zakresem. Jeden budynek z kilku ujęć zrobię w trakcie jednej krótkiej sesji. Większy teren, kilka lokalizacji albo dokumentacja postępu budowy w paru terminach to więcej czasu w powietrzu i przy komputerze. Do tego dochodzi dojazd: w Poznaniu bez dopłaty, poza miastem liczony za kilometry.</p>
+      <p>Wycena rośnie razem z zakresem. Jeden budynek sfotografuję z kilku stron w trakcie jednej krótkiej sesji. Większy teren, kilka lokalizacji albo dokumentacja postępu budowy w paru terminach to więcej czasu w powietrzu i przy komputerze. Do tego dochodzi dojazd: w Poznaniu bez dopłaty, poza miastem liczony za kilometry.</p>
 
       <h2>Strefy kontrolowane i formalności</h2>
       <p>Spora część Poznania leży w zasięgu stref kontrolowanych wokół lotniska. Loty w takich strefach są legalne, ale wymagają zgłoszeń i zgód lotniczych, a czasem ograniczają pułap. Mam numer operatora i uprawnienia w kategorii otwartej (A1/A3), więc koordynację lotniczą biorę na siebie, bez ukrytych kosztów. Dla Ciebie znika to z listy zmartwień, warto tylko wiedzieć, że przy strefach wymagających formalnych zgód lot trzeba zaplanować z wyprzedzeniem. Uprzedzam o tym na etapie briefu.</p>
@@ -1595,7 +1596,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Jak dostać konkretną kwotę</h2>
       <p>Przy <a href="/uslugi/nieruchomosci-przemysl">zdjęciach i wideo z drona</a> cena rośnie w przewidywalnej kolejności: najtańsze są surowe przebitki 4K do własnego montażu, wyżej stoją wyretuszowane zdjęcia, a najdrożej wychodzi gotowy, zmontowany film. Komplety z jednej sesji plasują się poniżej sumy tych samych usług zamawianych osobno.</p>
-      <p>Cennika pozycja po pozycji nie publikuję, bo dwa obiekty tej samej wielkości potrafią się różnić strefą powietrzną i dojazdem, a tabela i tak nie trafiłaby w Twój przypadek. Opisz obiekt, lokalizację i to, do czego materiał ma służyć, a konkretną kwotę odeślę mailem w 24h.</p>
+      <p>Cennika pozycja po pozycji nie publikuję, bo dwa obiekty tej samej wielkości potrafią się różnić strefą powietrzną i dojazdem, a tabela i tak nie trafiłaby w Twój przypadek. Opisz obiekt, lokalizację i to, do czego materiał ma służyć, a konkretną kwotę odeślę mailem w ciągu 24 godzin.</p>
 
       <h2>Podsumowanie</h2>
       <p>Cena filmu z drona zależy głównie od tego, co ma powstać, ile czasu zajmie lot i gdzie się odbywa. Najtaniej wychodzą przebitki do własnego montażu, najwięcej daje gotowy komplet zdjęć i wideo z jednej sesji.</p>
@@ -1604,7 +1605,7 @@ export const blogPosts: BlogPost[] = [
 		seo: {
 			title: 'Ile kosztuje film z drona dla firmy | Szabunia',
 			description:
-				'Ile kosztuje film z drona i od czego zależy cena: warianty materiału, strefy kontrolowane, komplet z jednej sesji. Wycena mailem w 24h. Poznań.',
+				'Ile kosztuje film z drona i od czego zależy cena: warianty materiału, strefy kontrolowane, komplet z jednej sesji. Wycena mailem w ciągu 24 godzin. Poznań.',
 		},
 	},
 	{
@@ -1652,7 +1653,7 @@ export const blogPosts: BlogPost[] = [
         <li>Jak zabezpieczasz pliki w trakcie i po wydarzeniu?</li>
         <li>Co się dzieje, jeśli sprzęt zawiedzie?</li>
         <li>Ile zdjęć dostanę i w jakim czasie?</li>
-        <li>Czy dostanę wybrane zdjęcia na bieżąco, do social mediów?</li>
+        <li>Czy dostanę wybrane zdjęcia do social mediów na bieżąco?</li>
       </ul>
 
       <h2>Czerwone flagi</h2>
@@ -1668,7 +1669,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Podsumowanie</h2>
       <p>Fotografa na event wybieraj po doświadczeniu, zabezpieczeniu pracy i jasnych warunkach dostawy, nie po najniższej cenie. Jedno dobrze obsłużone wydarzenie daje materiał, który pracuje na wizerunek firmy przez cały rok.</p>
-      <p>Zobacz <a href="/uslugi/eventy-reportaze">obsługę fotograficzną eventów</a> albo przykłady w <a href="/galeria?kat=eventy">galerii eventowej</a>. Bazuję w Poznaniu, a eventy obsługuję w całej Polsce. W granicach Poznania nie doliczam kosztów dojazdu.</p>
+      <p>Zobacz <a href="/uslugi/eventy-reportaze">obsługę fotograficzną eventów</a> albo przykłady w <a href="/galeria?kat=eventy">galerii eventowej</a>. Pracuję z Poznania, a eventy obsługuję w całej Polsce. W granicach Poznania nie doliczam kosztów dojazdu.</p>
     `,
 		seo: {
 			title: 'Jak wybrać fotografa na event firmowy | Szabunia',
@@ -1685,7 +1686,7 @@ export const blogPosts: BlogPost[] = [
 			},
 			{
 				q: 'Jak technicznie wygląda live editing?',
-				a: 'Fotograf pracuje z zapisem na dwie karty, a wybrane kadry zgrywa i obrabia na miejscu. Gotowe zdjęcia trafiają ustaloną drogą: przez wspólny folder w chmurze, bezpośrednio do osoby od social mediów albo na dedykowany adres, na przykład paczka co godzinę lub po każdym kluczowym punkcie programu.',
+				a: 'Fotograf pracuje z zapisem na dwie karty, a wybrane kadry zgrywa i obrabia na miejscu. Gotowe zdjęcia trafiają ustaloną drogą: przez wspólny folder w chmurze, bezpośrednio do osoby od social mediów albo na wskazany adres, na przykład paczka co godzinę lub po każdym kluczowym punkcie programu.',
 			},
 			{
 				q: 'Co przygotować po stronie firmy przed live editingiem?',
@@ -1715,21 +1716,21 @@ export const blogPosts: BlogPost[] = [
       </ul>
 
       <h2>Jak to wygląda technicznie</h2>
-      <p>Pracuję z zapisem na dwie karty, a wybrane kadry zgrywam i obrabiam na miejscu, na bieżąco. Gotowe zdjęcia przekazuję ustaloną drogą: przez wspólny folder w chmurze, bezpośrednio do osoby od social mediów albo na dedykowany adres. Tempo ustalamy wcześniej, na przykład paczka co godzinę albo po każdym kluczowym punkcie programu.</p>
+      <p>Pracuję z zapisem na dwie karty, a wybrane kadry zgrywam i obrabiam na miejscu, na bieżąco. Gotowe zdjęcia przekazuję ustaloną drogą: przez wspólny folder w chmurze, bezpośrednio do osoby od social mediów albo na wskazany adres. Tempo ustalamy wcześniej, na przykład paczka co godzinę albo po każdym kluczowym punkcie programu.</p>
 
       <h2>Co przygotować po swojej stronie</h2>
       <ul>
         <li><strong>Osoba od publikacji:</strong> ktoś, kto odbiera zdjęcia i wrzuca je na kanały firmy.</li>
         <li><strong>Kanał przekazywania:</strong> folder w chmurze albo kontakt do konkretnej osoby.</li>
         <li><strong>Lista priorytetów:</strong> które momenty muszą pójść w świat najszybciej (wystąpienie prezesa, wręczenie nagrody, zdjęcie grupowe).</li>
-        <li><strong>Format:</strong> czy potrzebujesz kadrów pionowych pod relacje i stories.</li>
+        <li><strong>Format:</strong> czy potrzebujesz kadrów pionowych do relacji (stories).</li>
       </ul>
 
       <h2>Live editing a wideo</h2>
-      <p>Ten sam mechanizm działa przy wideo. Krótki teaser albo kilka ujęć zmontowanych jeszcze w trakcie wydarzenia podbija relację tak samo jak zdjęcia. Jeśli planujesz i foto, i wideo, warto połączyć je w jednej sesji, żeby relacja na żywo miała oba formaty.</p>
+      <p>Ten sam mechanizm działa przy wideo. Krótki teaser albo kilka ujęć zmontowanych jeszcze w trakcie wydarzenia podbija relację tak samo jak zdjęcia. Jeśli planujesz i foto, i wideo, warto zamówić je razem, żeby relacja na żywo miała oba formaty.</p>
 
       <h2>Ile to kosztuje</h2>
-      <p>Live editing to dodatkowa praca na miejscu, więc wyceniam ją jako opcję do obsługi eventu, zależnie od długości wydarzenia i tempa przekazywania zdjęć. Najprościej podać mi program i oczekiwania, a dostaniesz konkretną wycenę. Na zapytania odpowiadam w ciągu 24h. Działam z Poznania, a eventy obsługuję w całej Polsce i Europie. Przy większych wydarzeniach ten koszt zwykle zwraca się samym zasięgiem relacji na żywo.</p>
+      <p>Live editing to dodatkowa praca na miejscu, więc wyceniam ją jako opcję do obsługi eventu, zależnie od długości wydarzenia i tempa przekazywania zdjęć. Najprościej podać mi program i oczekiwania, a dostaniesz konkretną wycenę. Na zapytania odpowiadam w ciągu 24 godzin. Działam z Poznania, a eventy obsługuję w całej Polsce i Europie. Przy większych wydarzeniach ten koszt zwykle zwraca się samym zasięgiem relacji na żywo.</p>
 
       <h2>Podsumowanie</h2>
       <p>Live editing zamienia zdjęcia z eventu z archiwum w narzędzie marketingowe, które pracuje, gdy wydarzenie jeszcze trwa. Dla firmy to większe zasięgi, więcej udostępnień i wizerunek marki, która działa sprawnie.</p>
@@ -1754,7 +1755,7 @@ export const blogPosts: BlogPost[] = [
 			},
 			{
 				q: 'Co zrobić, gdy część zespołu jest nieobecna w dniu sesji?',
-				a: 'Rozwiązań jest kilka: dogrywka przy kolejnej wizycie, krótka sesja uzupełniająca albo zachowanie ustawienia i parametrów, żeby dorobić brakujące portrety w tym samym standardzie. Ważne, żeby z góry ustalić, co z nieobecnymi, zanim galeria trafi na stronę.',
+				a: 'Rozwiązań jest kilka: zdjęcia przy kolejnej wizycie, krótka sesja uzupełniająca albo zachowanie ustawienia i parametrów, żeby dorobić brakujące portrety w tym samym standardzie. Ważne, żeby z góry ustalić, co z nieobecnymi, zanim galeria trafi na stronę.',
 			},
 		],
 		title:
@@ -1769,13 +1770,13 @@ export const blogPosts: BlogPost[] = [
       <p class="lead">Zrobienie spójnych portretów całemu zespołowi brzmi jak logistyczny koszmar: kilkadziesiąt osób, jeden dzień, normalna praca w tle. W praktyce da się to ogarnąć bez chaosu, jeśli dobrze zaplanujesz harmonogram. Poniżej tłumaczę, jak zorganizować to krok po kroku.</p>
 
       <h2>Wyzwanie: cały zespół, jeden dzień</h2>
-      <p>Headshoty całego zespołu w jeden dzień to najczęstszy scenariusz w firmach, bo rozbijanie tego na kilka terminów rozciąga sprawę na tygodnie i psuje spójność. Klucz to potraktować sesję jak proces: ustawione stanowisko, gotowe światło i płynny przepływ osób, tak żeby nikt nie tracił czasu, a Ty nie wyrywał ludzi z pracy na pół dnia.</p>
+      <p>Headshoty całego zespołu w jeden dzień to najczęstszy scenariusz w firmach, bo rozbijanie tego na kilka terminów rozciąga sprawę na tygodnie i psuje spójność. Kluczem jest potraktowanie sesji jak procesu: ustawione stanowisko, gotowe światło i płynny przepływ osób, tak żeby nikt nie tracił czasu, i żeby nie trzeba było wyrywać ludzi z pracy na pół dnia.</p>
 
       <h2>Mobilne studio w biurze</h2>
       <p>Najwygodniej, gdy przyjeżdżam do Was z mobilnym studiem. Bazą jest Poznań. W granicach miasta dojazd nic nie kosztuje, a do firm poza Poznaniem dojeżdżam za 2,50 zł netto/km od granic miasta, w obie strony. Potrzebuję około 5 m² wolnej przestrzeni i dostępu do gniazdka, resztę przywożę: tło, światło, statywy. Zespół nie musi nigdzie jechać, a sesja toczy się obok normalnej pracy. Jedna sala albo wydzielony kąt w open space w zupełności wystarczy.</p>
 
       <h2>Harmonogram: 5-15 minut na osobę</h2>
-      <p>Sekret płynnej sesji to grafik. Na jedną osobę rezerwujemy 5-15 minut, zależnie od liczby ujęć, co przy standardowym headshocie daje realnie 4-6 osób na godzinę. Ludzie przychodzą według listy, w okienkach, a nie wszyscy naraz. Dzięki temu nikt nie stoi w kolejce, a każdy wie, o której zejść z pracy na swoje zdjęcie.</p>
+      <p>Sekret płynnej sesji to grafik. Na jedną osobę rezerwujemy 5-15 minut, zależnie od liczby ujęć, co przy standardowym headshocie daje realnie 4-6 osób na godzinę. Ludzie przychodzą według listy, w okienkach, a nie wszyscy naraz. Dzięki temu nikt nie stoi w kolejce, a każdy wie, o której oderwać się od pracy na swoje zdjęcie.</p>
       <ul>
         <li>Lista z imionami i godzinami, rozesłana wcześniej.</li>
         <li>Okienka co 15 minut, z małym buforem na spóźnienia i na osoby, które potrzebują pełnego zestawu ujęć.</li>
@@ -1794,7 +1795,7 @@ export const blogPosts: BlogPost[] = [
       <p>Cała wartość sesji zespołowej leży w tym, że zdjęcia wyglądają jak komplet: ten sam system światła, ten sam kadr i jednolity retusz. Dlatego robimy je za jednym razem, na jednym ustawieniu. Efekt to galeria zespołu na stronie, która wygląda profesjonalnie, a nie jak zlepek przypadkowych zdjęć.</p>
 
       <h2>Co z osobami nieobecnymi</h2>
-      <p>Zawsze ktoś jest na urlopie albo chory. Rozwiązań jest kilka: dogrywka przy kolejnej wizycie, krótka sesja uzupełniająca albo zachowanie ustawienia i parametrów, żeby dorobić brakujące portrety w tym samym standardzie. Ważne, żeby z góry ustalić, co z nieobecnymi, zanim galeria trafi na stronę.</p>
+      <p>Zawsze ktoś jest na urlopie albo chory. Rozwiązań jest kilka: zdjęcia przy kolejnej wizycie, krótka sesja uzupełniająca albo zachowanie ustawienia i parametrów, żeby dorobić brakujące portrety w tym samym standardzie. Ważne, żeby z góry ustalić, co z nieobecnymi, zanim galeria trafi na stronę.</p>
 
       <h2>Podsumowanie</h2>
       <p>Headshoty całego zespołu w jeden dzień to przede wszystkim kwestia harmonogramu i jednego, dobrze ustawionego stanowiska. Mobilne studio w biurze, okienka co kilkanaście minut i wcześniejszy brief sprawiają, że sesja idzie sprawnie, a Wy dostajecie spójną galerię zespołu.</p>
@@ -1811,7 +1812,7 @@ export const blogPosts: BlogPost[] = [
 		faq: [
 			{
 				q: 'Co składa się na spójny standard portretów zespołu?',
-				a: 'Cztery elementy: ten sam schemat oświetlenia dla każdej osoby, jednolite kadrowanie i ustawienie sylwetki, jeden zestaw teł używany konsekwentnie oraz ten sam standard retuszu. Spójność nie oznacza, że wszyscy wyglądają identycznie. Portrety powstają w jednym, świadomym systemie.',
+				a: 'Cztery elementy: ten sam schemat oświetlenia dla każdej osoby, jednolite kadrowanie i ustawienie sylwetki, jeden zestaw teł używany konsekwentnie oraz ten sam standard retuszu. Spójność nie oznacza, że wszyscy wyglądają identycznie. Portrety powstają w jednym, spójnym systemie.',
 			},
 			{
 				q: 'Jak zachować spójność zdjęć zespołu przy rotacji pracowników?',
@@ -1838,19 +1839,19 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Co daje spójny standard</h2>
       <ul>
-        <li><strong>Profesjonalny pierwszy kontakt:</strong> odwiedzający widzą zespół, który wygląda jak jeden, dopracowany podmiot.</li>
+        <li><strong>Profesjonalny pierwszy kontakt:</strong> odwiedzający widzą zespół, który wygląda jak jedna dopracowana firma.</li>
         <li><strong>Wiarygodność:</strong> spójne portrety sygnalizują, że firma dba o szczegóły.</li>
         <li><strong>Wygoda marketingu:</strong> jednolite zdjęcia łatwiej wpleść w stronę, oferty, LinkedIn i materiały sprzedażowe.</li>
-        <li><strong>Łatwiejsza rozbudowa:</strong> nowe osoby dochodzą w tym samym stylu, bez psucia całości.</li>
+        <li><strong>Łatwiejsza rozbudowa:</strong> portrety nowych osób powstają w tym samym stylu, bez psucia całości.</li>
       </ul>
 
       <h2>Elementy spójności</h2>
-      <p>Spójność nie znaczy, że wszyscy wyglądają identycznie. Znaczy, że portrety powstają w jednym, świadomym systemie:</p>
+      <p>Spójność nie znaczy, że wszyscy wyglądają identycznie. Znaczy, że portrety powstają w jednym, spójnym systemie:</p>
       <ul>
         <li><strong>Światło:</strong> ten sam schemat oświetlenia dla każdej osoby.</li>
         <li><strong>Kadr i poza:</strong> jednolite kadrowanie i sposób ustawienia sylwetki.</li>
         <li><strong>Tło:</strong> jeden zestaw teł, czy to wspólne tło, czy świadomie dobrana paleta (na przykład jasne, kremowe i ciemne) używana konsekwentnie.</li>
-        <li><strong>Retusz:</strong> ten sam standard obróbki, naturalnie, bez przesady.</li>
+        <li><strong>Retusz:</strong> ten sam standard obróbki, naturalny, bez przesady.</li>
       </ul>
 
       <h2>Jak utrzymać spójność przy rotacji</h2>
@@ -1878,11 +1879,11 @@ export const blogPosts: BlogPost[] = [
 			},
 			{
 				q: 'Jak liczona jest cena filmu promocyjnego?',
-				a: 'Cena składa się z dwóch przejrzystych części: pracy operatora na planie, liczonej za godziny spędzone na miejscu, oraz pakietu montażowego, czyli obróbki nagranego materiału. Dzięki temu płacisz za realny zakres, a nie za sztywny pakiet, którego nie wykorzystasz. Opisz, co ma powstać, a wstępną wycenę odeślę w 24h.',
+				a: 'Cena składa się z dwóch przejrzystych części: pracy operatora na planie, liczonej za godziny spędzone na miejscu, oraz montażu, czyli obróbki nagranego materiału. Dzięki temu płacisz za realny zakres, a nie za rzeczy, których nie wykorzystasz. Opisz, co ma powstać, a wstępną wycenę odeślę w ciągu 24 godzin.',
 			},
 			{
 				q: 'Ile kosztuje montaż filmu dla firmy?',
-				a: 'Montaż wyceniam pakietami dobranymi do formatu: od krótkiego teasera do 15 sekund, przez montaż wywiadu i reels, po recap z eventu, film promocyjny i dłuższy materiał o firmie. Im dłuższy i bardziej złożony materiał, tym wyższy pakiet. Pakiet montażowy obejmuje samą postprodukcję: jeśli materiał nagrywam ja, dochodzi praca operatora na planie. Napisz, co chcesz zmontować, a wycenę odeślę w 24h.',
+				a: 'Montaż wyceniam według formatu: od krótkiego teasera do 15 sekund, przez montaż wywiadu i reels, po recap z eventu, film promocyjny i dłuższy materiał o firmie. Im dłuższy i bardziej złożony materiał, tym wyższa cena. Montaż obejmuje samą postprodukcję: jeśli materiał nagrywam ja, dochodzi praca operatora na planie. Napisz, co chcesz zmontować, a wycenę odeślę w ciągu 24 godzin.',
 			},
 		],
 		title: 'Ile kosztuje film promocyjny dla firmy i od czego zależy cena',
@@ -1900,36 +1901,36 @@ export const blogPosts: BlogPost[] = [
       <ul>
         <li><strong>Długość i typ materiału:</strong> teaser, reels, recap z eventu czy dłuższy film promocyjny to różne nakłady montażu.</li>
         <li><strong>Czas nagrań:</strong> ile godzin operator spędza na planie.</li>
-        <li><strong>Złożoność:</strong> jedna lokalizacja i prosty montaż czy kilka ujęć, scenariusz, napisy i grafika.</li>
+        <li><strong>Złożoność:</strong> jedna lokalizacja i prosty montaż czy kilka lokalizacji, scenariusz, napisy i grafika.</li>
         <li><strong>Dodatki:</strong> ujęcia z drona, lektor, licencjonowana muzyka, wersje językowe.</li>
       </ul>
 
       <h2>Jak liczę: praca operatora plus montaż</h2>
-      <p>Cenę składam z dwóch części, żeby była przejrzysta. Pierwsza to praca operatora na planie, liczona za godziny spędzone na miejscu, ze stawką za pierwszą godzinę wyższą niż za każdą kolejną. Druga to pakiet montażowy, czyli obróbka gotowego materiału. Dzięki temu płacisz za realny zakres, a nie za sztywny pakiet, którego nie wykorzystasz. Wstępną wycenę <a href="/uslugi/wizerunek-portrety">produkcji wideo</a> odsyłam w 24h. Bazuję w Poznaniu: na terenie miasta dojazd jest bezpłatny, a poza Poznaniem doliczam 2,50 zł netto za kilometr, licząc od granic miasta w obie strony.</p>
+      <p>Cenę składam z dwóch części, żeby była przejrzysta. Pierwsza to praca operatora na planie, liczona za godziny spędzone na miejscu, ze stawką za pierwszą godzinę wyższą niż za każdą kolejną. Druga to montaż, czyli obróbka gotowego materiału. Dzięki temu płacisz za realny zakres, a nie za rzeczy, których nie wykorzystasz. Wstępną wycenę <a href="/uslugi/wizerunek-portrety">produkcji wideo</a> odsyłam w ciągu 24 godzin. Pracuję z Poznania: na terenie miasta dojazd jest bezpłatny, a poza Poznaniem doliczam 2,50 zł netto za kilometr, licząc od granic miasta w obie strony.</p>
 
       <h2>Formaty montażu</h2>
-      <p>Pakiet montażowy dobierasz pod cel, a kolejne pozycje rosną razem z długością i złożonością materiału:</p>
+      <p>Format montażu dobierasz pod cel, a cena rośnie razem z długością i złożonością materiału:</p>
       <ul>
-        <li><strong>XS Teaser (do 15 s).</strong> Krótka zajawka na social media, wyłącznie jako dodatek do zlecenia.</li>
+        <li><strong>Teaser (do 15 s).</strong> Krótka zajawka na social media, wyłącznie jako dodatek do zlecenia.</li>
         <li><strong>Montaż wywiadu (do 30 s).</strong> Wypowiedź jednej osoby, cięcie, napisy, korekta dźwięku.</li>
-        <li><strong>S Reels (do 30 s).</strong> Dynamiczny format pionowy pod Reels, TikTok, Shorts.</li>
-        <li><strong>M Event recap (do 60 s).</strong> Podsumowanie wydarzenia.</li>
-        <li><strong>L Promo (1-2 min).</strong> Film promocyjny produktu albo usługi.</li>
-        <li><strong>XL Dokument (około 3 min).</strong> Dłuższy materiał o firmie, ludziach i sposobie pracy.</li>
+        <li><strong>Rolka pionowa (do 30 s).</strong> Dynamiczny format pionowy pod Reels, TikTok, Shorts.</li>
+        <li><strong>Podsumowanie wydarzenia (do 60 s).</strong> Podsumowanie wydarzenia.</li>
+        <li><strong>Film promocyjny (1–2 min).</strong> Film promocyjny produktu albo usługi.</li>
+        <li><strong>Film dokumentalny (około 3 min).</strong> Dłuższy materiał o firmie, ludziach i sposobie pracy.</li>
       </ul>
       <p>Więcej o tym, który format kiedy wybrać, znajdziesz we wpisie o <a href="/blog/wideo-marketing-dla-firm-formaty">formatach wideo dla firm</a>.</p>
 
       <h2>Jak dostać konkretną kwotę</h2>
-      <p>Cennika pozycja po pozycji nie publikuję, bo ten sam format kosztuje inaczej przy jednej lokalizacji, a inaczej przy trzech, i tabela i tak nie trafiłaby w Twój przypadek. Wystarczą trzy informacje: jaki format Cię interesuje, ile mniej więcej czasu zajmą nagrania i gdzie film ma trafić. Wstępną wycenę z rozpisanymi pozycjami odeślę mailem w 24h, jeszcze przed jakąkolwiek rozmową.</p>
+      <p>Cennika pozycja po pozycji nie publikuję, bo ten sam format kosztuje inaczej przy jednej lokalizacji, a inaczej przy trzech, i tabela i tak nie trafiłaby w Twój przypadek. Wystarczą trzy informacje: jaki format Cię interesuje, ile mniej więcej czasu zajmą nagrania i gdzie film ma trafić. Wstępną wycenę z rozpisanymi pozycjami odeślę mailem w ciągu 24 godzin, jeszcze przed jakąkolwiek rozmową.</p>
 
       <h2>Podsumowanie</h2>
-      <p>Cena filmu promocyjnego zależy przede wszystkim od formatu i czasu nagrań. Rozbicie na pracę operatora i pakiet montażowy sprawia, że płacisz za realny zakres, bez płacenia za rzeczy, których nie potrzebujesz.</p>
+      <p>Cena filmu promocyjnego zależy przede wszystkim od formatu i czasu nagrań. Rozbicie na pracę operatora i montaż sprawia, że płacisz za realny zakres, bez płacenia za rzeczy, których nie potrzebujesz.</p>
       <p>Zobacz <a href="/uslugi/wizerunek-portrety">zdjęcia i film dla firm</a> albo <a href="/kontakt">opisz swój film</a>.</p>
     `,
 		seo: {
 			title: 'Ile kosztuje film promocyjny dla firmy | Szabunia',
 			description:
-				'Ile kosztuje film promocyjny i od czego zależy cena: praca operatora i pakiety montażowe (teaser, reels, recap, promo). Wycena w 24h, Poznań.',
+				'Ile kosztuje film promocyjny i od czego zależy cena: praca operatora i montaż (teaser, rolka, podsumowanie wydarzenia, film promocyjny). Wycena w ciągu 24 godzin, Poznań.',
 		},
 	},
 ];

@@ -52,12 +52,12 @@ const inside = [
 // czego w środku nie ma.
 const sections: { title: string; desc: string }[] = [
   {
-    title: "Jak wygląda sesja, cztery kroki",
+    title: "Jak wygląda sesja: cztery kroki",
     desc: "Od pierwszego kontaktu do gotowych zdjęć: rozmowa o celu i logistyce, sesja z prowadzeniem ujęcie po ujęciu, selekcja kadrów w galerii online, dostawa. Wiesz z góry, co się wydarzy i kiedy.",
   },
   {
     title: "Checklisty: 48 godzin przed i w dniu sesji",
-    desc: "Dwie listy do odhaczania. Wcześniej: przymierzone stylizacje, wysłane inspiracje, sesja wpisana w luźniejszy dzień, sprawdzony dojazd. W dniu sesji: ubrania na wieszaku, zapasowa koszula, przetarte okulary, przyjazd 10 minut wcześniej.",
+    desc: "Dwie listy do odhaczenia. Wcześniej: przymierzone stylizacje, wysłane inspiracje, sesja wpisana w luźniejszy dzień, sprawdzony dojazd. W dniu sesji: ubrania na wieszaku, zapasowa koszula, przetarte okulary, przyjazd 10 minut wcześniej.",
   },
   {
     title: "Planer stylizacji na 2–3 zestawy",
@@ -65,23 +65,23 @@ const sections: { title: string; desc: string }[] = [
   },
   {
     title: "Ściąga kolorów",
-    desc: "Pewniaki: granat, grafit, szarość, butelkowa zieleń, burgund, biel pod warstwą. Ostrożnie: czysta czerń, jaskrawe neony, drobna kratka i wąskie paski (efekt mory), połysk i satyna, duże logo na całą klatkę.",
+    desc: "Pewniaki: granat, grafit, szarość, butelkowa zieleń, burgund, biel pod warstwą. Ostrożnie: czysta czerń, jaskrawe neony, drobna kratka i wąskie paski (wzór migocze na zdjęciu), połysk i satyna, duże logo na cały przód.",
   },
   {
     title: "Formalność dobrana do branży",
-    desc: "Osobne wskazówki dla kancelarii i finansów, techu i startupów, marketingu, produkcji i rzemiosła oraz medycyny i nauki. Zasada nadrzędna jest jedna: o jeden poziom wyżej niż na co dzień w pracy.",
+    desc: "Osobne wskazówki dla kancelarii i finansów, branży technologicznej i startupów, marketingu, produkcji i rzemiosła oraz medycyny i nauki. Zasada nadrzędna jest jedna: strój o jeden poziom bardziej formalny niż na co dzień w pracy.",
   },
   {
     title: "Jak wyglądać naturalnie przed obiektywem",
     desc: "Drobiazgi, które robią różnicę: sylwetka lekko pod kątem, ramiona w dół, oddech przed ujęciem, rozluźniona szczęka, uśmiech na sekundę zamiast trzymanego na siłę. Nie musisz znać póz, od tego jestem ja.",
   },
   {
-    title: "Po sesji, czego się spodziewać",
-    desc: "Galeria online ze wszystkimi ujęciami i Twój wybór kadrów do retuszu. Terminy dostawy i tryb ekspresowy. Pliki w pełnej jakości plus wersja web oraz licencja komercyjna bez limitów czasowych.",
+    title: "Po sesji: czego się spodziewać",
+    desc: "Galeria online ze wszystkimi ujęciami i Twój wybór kadrów do retuszu. Terminy dostawy i tryb ekspresowy. Pliki w pełnej jakości, wersja do internetu oraz licencja komercyjna bez limitów czasowych.",
   },
   {
     title: "Gotowa lista pytań, którą wyślesz mi w 2 minuty",
-    desc: "Pięć punktów do skopiowania do maila: cel zdjęć, styl i nastrój z linkami, liczba osób, termin i miejsce, dodatkowe uwagi. Im więcej wiem, tym celniejsza wycena wraca do Ciebie.",
+    desc: "Pięć punktów do skopiowania do maila: cel zdjęć, styl i nastrój z linkami, liczba osób, termin i miejsce, dodatkowe uwagi. Im więcej wiem, tym dokładniejszą wycenę dostaniesz.",
   },
 ];
 
@@ -260,14 +260,14 @@ export default function PoradnikPage() {
               <p className="text-[15px] text-text-body dark:text-dark-text-muted leading-relaxed mb-5">
                 Nie ma cennika ani tabeli pakietów. Każdą sesję wyceniam indywidualnie, bo
                 cena zależy od liczby osób, miejsca i zakresu postprodukcji. Jeśli
-                potrzebujesz kwoty, napisz w kilku zdaniach, czego potrzebujesz. Wstępną
-                wycenę odsyłam w 24h.
+                chcesz poznać kwotę, opisz w kilku zdaniach, czego potrzebujesz. Wstępną
+                wycenę odsyłam w ciągu 24 godzin.
               </p>
               <p className="text-[15px] text-text-body dark:text-dark-text-muted leading-relaxed">
                 Nie ma też kursu fotografii. To materiał dla osoby po drugiej stronie
                 obiektywu: co spakować, co założyć i jak się zachować, żeby zdjęcia
                 wyglądały jak Ty w dobrym dniu. Resztą, czyli światłem, kadrem i
-                prowadzeniem, zajmuję się ja. Więcej znajdziesz we wpisie{" "}
+                prowadzeniem, zajmuję się ja. Więcej znajdziesz we wpisie o tym,{" "}
                 <Link href="/blog/jak-przygotowac-sie-do-sesji-biznesowej" className="text-blue dark:text-blue-light font-semibold hover:underline underline-offset-2">
                   jak przygotować się do sesji biznesowej
                 </Link>{" "}

@@ -221,12 +221,12 @@ export default function CTA({
 								<h2 className='font-barlow font-black text-3xl md:text-[36px] leading-[1.1] tracking-tight text-navy dark:text-white mb-3'>
 									{heading.map((line, i) => (
 										<span key={line} className={i > 0 ? 'block' : undefined}>
-											{line}
+											{i > 0 ? ' ' : ''}{line}
 										</span>
 									))}
 								</h2>
 								<p className='text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mb-4'>
-									Odpowiadam w ciągu 24h, ze wstępną wyceną i propozycją
+									Odpowiadam w ciągu 24 godzin ze wstępną wyceną i propozycją
 									terminu.
 								</p>
 
@@ -465,7 +465,7 @@ export default function CTA({
 											Wiadomość wysłana!
 										</p>
 										<p className='text-steel dark:text-dark-text-muted text-sm mb-6'>
-											Dziękuję za kontakt. Wstępną wycenę odeślę w ciągu 24h.
+											Dziękuję za kontakt. Wstępną wycenę odeślę w ciągu 24 godzin.
 										</p>
 										<button
 											onClick={() => {
@@ -636,7 +636,7 @@ export default function CTA({
 														value=''
 														className='bg-white dark:bg-navy text-steel'
 													>
-														Wybierz usługę...
+														Wybierz usługę…
 													</option>
 													<option
 														value='event'
@@ -709,7 +709,7 @@ export default function CTA({
 												name='timing'
 												value={formData.timing}
 												onChange={handleChange}
-												placeholder='wrzesień, albo konkretna data'
+												placeholder='wrzesień albo konkretna data'
 												className='w-full bg-white dark:bg-white/[0.08] border border-border dark:border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel dark:placeholder-dark-text-muted font-inter focus:border-blue transition-colors'
 											/>
 										</div>
@@ -726,7 +726,7 @@ export default function CTA({
 												name='message'
 												value={formData.message}
 												onChange={handleChange}
-												placeholder='Opowiedz krótko o swoim projekcie...'
+												placeholder='Opowiedz krótko o swoim projekcie…'
 												rows={3}
 												className='w-full bg-white dark:bg-white/[0.08] border border-border dark:border-navy-light rounded-xl px-3.5 py-3 text-[13px] text-navy dark:text-white placeholder-steel dark:placeholder-dark-text-muted font-inter resize-none focus:border-blue transition-colors'
 											/>
@@ -846,7 +846,7 @@ export default function CTA({
 													Wysyłanie...
 												</span>
 											) : (
-												'Wyślij zapytanie, odezwę się w 24h'
+												'Wyślij zapytanie, odezwę się w ciągu 24 godzin'
 											)}
 										</button>
 										<p className='text-center text-[11px] text-steel dark:text-dark-text-muted mt-2.5'>

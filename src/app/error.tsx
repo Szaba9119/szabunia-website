@@ -33,7 +33,7 @@ export default function Error({
           </h1>
           <p className="text-steel dark:text-dark-text-muted text-[15px] mb-8">
             Ta strona nie chciała się wczytać. Spróbuj jeszcze raz, a jeśli to nie
-            pomoże, napisz albo zadzwoń: odpowiadam w 24h.
+            pomoże, napisz albo zadzwoń: odpowiadam w ciągu 24 godzin.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <button

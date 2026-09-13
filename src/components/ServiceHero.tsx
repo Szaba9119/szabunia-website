@@ -246,7 +246,7 @@ export default function ServiceHero({ service, crumbs }: Props) {
 								</a>
 							</div>
 							<p className='mt-3.5 text-[13px] text-steel dark:text-dark-text-muted'>
-								Wstępną wycenę otrzymasz w 24h. Faktura VAT.
+								Wstępną wycenę otrzymasz w ciągu 24 godzin. Faktura VAT.
 							</p>
 						</div>
 					</AnimatedSection>

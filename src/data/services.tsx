@@ -313,7 +313,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// Ten sam mechanizm rozstrzygnięto już raz na `/uslugi/wizerunek-portrety`
 			// (wariant A, 11.08.2026): rozróżniamy etykietę, nie cel.
 			ctaLabel: 'Zobacz galerię portretów',
-			sub: 'Planujesz event firmowy? To zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu. Przy okazji wydarzenia mogę zrobić sesję portretową dla całego zespołu: przywożę mobilne studio, a jedna osoba to około 5 do 15 minut, między prelekcjami albo w luźniejszym oknie agendy.',
+			sub: 'Planujesz event firmowy? To zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu. Przy okazji wydarzenia mogę zrobić sesję portretową dla całego zespołu: przywożę mobilne studio, a jedna osoba to 5 do 15 minut, między prelekcjami albo w luźniejszym oknie agendy.',
 			// Lustro `secondaryLink` z `/uslugi/wizerunek-portrety`: tam wizerunek prowadzi
 			// do wydarzeń, tu wydarzenia prowadzą do wizerunku. Etykieta bez zmian, ta sama,
 			// którą Marcin zatwierdził jako `ctaLabel` 04.08.2026.
@@ -333,7 +333,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// Kafelek mówił „część kadrów na social media jeszcze w trakcie wydarzenia"
 			// bez żadnego zastrzeżenia, czyli obiecywał to w standardzie.
 			// Ta sama zasada obowiązuje w `scope`, `process`, `faqs` i w `portfolio.ts`.
-			'Reportaż firmowy z konferencji, targów i gali. Zdjęcia, film i dron z jednego dnia, a w opcji dodatkowej część kadrów na social media jeszcze w trakcie wydarzenia.',
+			'Reportaż firmowy z konferencji, targów i gal. Zdjęcia, film i ujęcia z drona z jednego dnia, a w opcji dodatkowej część kadrów na social media jeszcze w trakcie wydarzenia.',
 		heroLabel: 'Dokumentacja wydarzeń',
 		// Lead ukryty w hero 10.08.2026 (ósma tura). Treść ZOSTAJE w danych, bo
 		// renderuje ją kafelek na `/uslugi` i karta pod wpisem blogowym.
@@ -379,7 +379,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// rozbudowujmy jej w kolejny blok SEO"). Reguła obowiązuje dalej:
 			// przy kolejnym pomyśle na rozbudowę tej listy najpierw zapytaj.
 			uses: [
-				'Relacja na LinkedIn i Instagram',
+				'Relacja na LinkedInie i Instagramie',
 				'Podsumowanie roku i materiały wewnętrzne',
 				'Promocja kolejnej edycji',
 				// Dodane 10.08.2026 (decyzja Marcina), JEDNA pozycja, świadomie nie pięć.
@@ -407,7 +407,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 				},
 				{
 					title: 'Wideo',
-					desc: 'Film podsumowujący, pionowe reelsy, wywiady z uczestnikami i prelegentami, przebitki do dalszego montażu.',
+					desc: 'Film podsumowujący, pionowe reelsy, wywiady z uczestnikami i prelegentami, dodatkowe ujęcia (sala, detale, goście) do własnego montażu.',
 				},
 				{
 					// ⛔ ŻADNYCH TECHNIKALIÓW W TYM BLOKU. Model drona, certyfikat A1/A3
@@ -520,7 +520,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			{ num: 2, title: 'Realizacja', desc: 'Dyskretna fotografia reportażowa' },
 			{
 				num: 3,
-				title: 'Live edit',
+				title: 'Zdjęcia na bieżąco',
 				desc: 'Opcja dodatkowa: zdjęcia na social media w trakcie eventu',
 			},
 			{ num: 4, title: 'Dostawa', desc: 'Pełna galeria w 14 dni' },
@@ -581,7 +581,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// w `01_Biznes/_System/05_Produkcja/system_plikow_v1.md`, aneks A.
 			{
 				q: 'Dostanę kadry pionowe do relacji w social mediach?',
-				a: 'Fotografuję zarówno poziomo, jak i pionowo. O orientacji decyduje sam kadr: to, co ma pokazywać, i miejsce, w którym zostanie opublikowany. Jeśli potrzebujesz dedykowanych wersji 4:5 pod post i 9:16 pod relację, zaznacz to przed realizacją. Wtedy prowadzę kadrowanie na miejscu z myślą o obu formatach i przygotowuję je w postprodukcji.',
+				a: 'Fotografuję zarówno poziomo, jak i pionowo. O orientacji decyduje sam kadr: to, co ma pokazywać, i miejsce, w którym zostanie opublikowany. Jeśli potrzebujesz osobnych wersji 4:5 do posta i 9:16 do relacji, zaznacz to przed realizacją. Wtedy kadruję na miejscu z zapasem na oba formaty i przygotowuję je w postprodukcji.',
 			},
 			{
 				q: 'Kto robi zdjęcia i film, gdy wydarzenie jest duże?',
@@ -601,7 +601,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			},
 			{
 				q: 'Na jakim sprzęcie pracujesz?',
-				a: 'Dwa aparaty Canon R6 z zapisem na dwie karty, więc materiał z wydarzenia jest zabezpieczony od pierwszego kadru. Do tego jasne obiektywy Sigma, Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilne oświetlenie Godox i dron DJI Mini 5 Pro z certyfikatem A1/A3 i OC.',
+				a: 'Dwa aparaty Canon R6 z zapisem na dwie karty, więc materiał z wydarzenia jest zabezpieczony od pierwszego kadru. Do tego jasne obiektywy Sigma, Sigma 70-200 mm f/2.8 do ujęć z dystansu, mobilne oświetlenie Godox i dron DJI Mini 5 Pro. Mam certyfikat operatora drona i ubezpieczenie OC.',
 			},
 		],
 		// `fotografia-eventowa` dołożone 11.08.2026: miało JEDEN link przychodzący
@@ -740,7 +740,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// JEDNEJ osobie (cennik v3 §1) i Marcin przepisał zdanie w FAQ 10.08.2026
 		// właśnie dlatego, że dawało się czytać jako „studio zawsze w cenie".
 		description:
-			'Na zakładce „Zespół” widać wszystko: kto ma zdjęcie z sesji, kto przycięty kadr z wesela, a kto szare kółko z inicjałami. Fotografuję ludzi w firmie tak, żeby cały zespół wyglądał jak jedna firma: ten sam standard światła i retuszu. Przyjeżdżam z mobilnym studiem do biura, więc nikt nie traci pół dnia na dojazd. Jeśli sesja tego wymaga, wynajmuję studio dopasowane do klienta. Sesje zespołowe robiłem między innymi dla IDcom Group i Poznańskich Nieruchomości.',
+			'W zakładce „Zespół” widać wszystko: kto ma zdjęcie z sesji, kto przycięty kadr z wesela, a kto szare kółko z inicjałami. Fotografuję ludzi w firmie tak, żeby cały zespół wyglądał jak jedna firma: ten sam standard światła i retuszu. Przyjeżdżam z mobilnym studiem do biura, więc nikt nie traci pół dnia na dojazd. Jeśli sesja tego wymaga, wynajmuję studio dopasowane do klienta. Sesje zespołowe robiłem między innymi dla IDcom Group i Poznańskich Nieruchomości.',
 		applications: {
 			heading: 'Kogo fotografuję',
 			items: [
@@ -792,7 +792,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 				},
 				{
 					title: 'Ludzie przy pracy i przestrzeń firmy',
-					desc: 'Kadry pokazujące, jak firma naprawdę działa, do zakładki o nas i do ogłoszeń rekrutacyjnych.',
+					desc: 'Kadry pokazujące, jak firma naprawdę działa, do zakładki „O nas” i do ogłoszeń rekrutacyjnych.',
 				},
 				{
 					// Wideo zostaje POZYCJĄ OFERTY, ale strona świadomie NIE MA sekcji
@@ -807,7 +807,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 				},
 				{
 					title: 'Dogrywki dla nowych osób',
-					desc: 'Kto był na urlopie albo doszedł później, dostaje krótszy termin w tym samym standardzie. Zespół nie rozjeżdża się po pół roku.',
+					desc: 'Kto był na urlopie albo doszedł później, ma krótszą osobną sesję w tym samym standardzie. Po pół roku zdjęcia nowych osób nadal pasują do reszty.',
 				},
 			],
 		},
@@ -881,7 +881,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// Przy edycji NIE usuwać zdania o braku tabeli, bo razem z nim wypadną
 		// dwie z czterech fraz.
 		pricingBlurb:
-			'Na wycenę wpływa liczba osób, długość sesji, liczba stylizacji i liczba zdjęć wybranych do retuszu. Cennika w formie tabeli nie ma, bo przy tej samej liczbie ujęć cena wygląda inaczej dla jednej osoby i inaczej dla dziesięcioosobowego zespołu.',
+			'Na wycenę wpływa liczba osób, długość sesji, liczba stylizacji i liczba zdjęć wybranych do retuszu. Cennika w formie tabeli nie ma, bo sesja jednej osoby i dziesięcioosobowego zespołu to inna praca, nawet przy tej samej liczbie zdjęć.',
 		priceFaqQuestion: 'Ile kosztuje sesja wizerunkowa dla firmy?',
 		// Kolejność 10.08.2026 (pakiet 4, zatwierdzona przez Marcina): od obaw
 		// logistycznych i o spójność, przez obiekcję „nie umiem pozować", po
@@ -904,7 +904,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			},
 			{
 				q: 'Co z osobami, których nie ma w dniu sesji?',
-				a: 'Dogrywam je w osobnym, krótszym terminie, w tym samym świetle i tym samym retuszu. To częsta sytuacja przy pracy zdalnej i większych zespołach.',
+				a: 'Fotografuję je później, na krótszej osobnej sesji, z tym samym światłem i retuszem. To częsta sytuacja przy pracy zdalnej i większych zespołach.',
 			},
 			// ⚠ „to samo tło" ZDJĘTE 10.08.2026, ta sama zmiana co w karcie „Sesja
 			// całego zespołu" wyżej (audyt aktualnej wersji, punkt 1, zgoda Marcina).
@@ -930,7 +930,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// obietnica stoi już na produkcji, więc to nie jest nowe zobowiązanie.
 			{
 				q: 'Kiedy dostanę zdjęcia i czy mogę ich używać bez ograniczeń?',
-				a: 'Wyretuszowane zdjęcia w 14 dni, ekspres do 48h za dopłatą. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama.',
+				a: 'Wyretuszowane zdjęcia w 14 dni, tryb ekspresowy do 48 godzin za dopłatą. Licencja obejmuje użytek komercyjny bez ograniczeń czasowych: strona, social media, druk, reklama.',
 			},
 			// Pytanie o wideo dodane 11.08.2026 (decyzja Marcina, audyt FAQ czterech usług).
 			//
@@ -1012,7 +1012,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		title: 'Fotografia i wideo produktowe',
 		shortTitle: 'Fotografia produktowa',
 		subtitle:
-			'Packshoty na białym tle z retuszem w cenie, zdjęcia kreatywne i wideo produktowe pod e-commerce, katalogi i social media.',
+			'Packshoty na białym tle z retuszem w cenie, zdjęcia kreatywne i wideo produktowe do sklepów internetowych, katalogów i social mediów.',
 		// Lead przepisany 10.08.2026 (pakiet 4, wersja zatwierdzona przez Marcina).
 		// Retusz w cenie wyszedł z siódmej pozycji FAQ do leadu, bo to jedyny
 		// element tej strony, który jest twardą przewagą, a nie opisem usługi.
@@ -1027,7 +1027,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// Sprawdzone 10.08.2026: nazwa nie występuje w logotypach, portfolio ani
 		// w opisach alternatywnych, więc nie ma źródła na relację klienta.
 		description:
-			"W sklepie internetowym zdjęcie jest jedynym, czego klient może dotknąć. Fotografuję produkty na białym tle do kart produktowych i marketplace\'ów oraz kreatywnie, z aranżacją, do reklam i social mediów. Retusz jest w cenie każdego zdjęcia: produkt wycięty z tła, czyste białe tło zgodne z wymogami Allegro i Amazon oraz korekta kolorów. Nie doliczam osobnej pozycji za obróbkę. Fotografowałem produkty dla Artech Group, marek odzieżowych, producentów części i lokali gastronomicznych.",
+			"W sklepie internetowym zdjęcie jest jedynym, czego klient może dotknąć. Fotografuję produkty na białym tle do kart produktowych i marketplace\'ów oraz kreatywnie, z aranżacją, do reklam i social mediów. Retusz jest w cenie każdego zdjęcia: produkt wycięty z tła, czyste białe tło zgodne z wymogami Allegro i Amazona oraz korekta kolorów. Nie doliczam osobnej pozycji za obróbkę. Fotografowałem produkty dla Artech Group, marek odzieżowych, producentów części i lokali gastronomicznych.",
 		applications: {
 			heading: 'Co fotografuję',
 			items: [
@@ -1054,7 +1054,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			items: [
 				{
 					title: 'Packshoty na białym tle',
-					desc: 'Powtarzalny setup i ta sama stylistyka między partiami. 30 do 50 produktów dziennie. Czyste białe tło zgodne z wymogami Allegro i Amazon, na życzenie przezroczyste PNG.',
+					desc: 'To samo ustawienie światła i tła, więc kolejne partie mają tę samą stylistykę. 30 do 50 produktów dziennie. Czyste białe tło zgodne z wymogami Allegro i Amazona, na życzenie PNG z przezroczystym tłem.',
 				},
 				{
 					title: 'Retusz w cenie każdego zdjęcia',
@@ -1068,11 +1068,11 @@ const serviceCategoriesRaw: ServiceData[] = [
 					// Pole eksploatacji zamiast kwot: cennik v3 §7 wprost zakazuje
 					// podawania stawek jednostkowych na powierzchniach klienckich.
 					title: 'Zdjęcia reklamowe',
-					desc: 'Koncepcja, moodboard i aranżacja pod konkretną kampanię. Wyceniam według pola eksploatacji: inaczej na social media, inaczej do druku i na outdoor.',
+					desc: 'Koncepcja, moodboard i aranżacja pod konkretną kampanię. Cena zależy od tego, gdzie zdjęcie zostanie użyte: inaczej w social mediach, inaczej w druku i na billboardach.',
 				},
 				{
 					title: 'Jedzenie i napoje',
-					desc: 'Dania, produkty spożywcze i menu. Ten sam warsztat co przy produktach, tylko z krótszym oknem na kadr.',
+					desc: 'Dania, produkty spożywcze i menu. Ten sam warsztat co przy produktach, tylko trzeba zdążyć, zanim danie wystygnie.',
 				},
 				{
 					title: 'Wideo produktowe',
@@ -1128,7 +1128,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			{ num: 4, title: 'Dostawa', desc: 'Pliki gotowe do użycia w 14 dni' },
 		],
 		pricingBlurb:
-			'Wycena zależy od liczby produktów, rodzaju ujęć (packshot na białym tle albo zdjęcia kreatywne z aranżacją) oraz pola eksploatacji: inaczej wyceniam zdjęcia na social media, inaczej do druku i outdooru. Większe zamówienia rozliczam progresywnie.',
+			'Wycena zależy od liczby produktów, rodzaju ujęć (packshot na białym tle albo zdjęcia kreatywne z aranżacją) oraz pola eksploatacji: inaczej wyceniam zdjęcia na social media, inaczej do druku i na billboardy. Im więcej produktów, tym niższa cena za sztukę.',
 		priceFaqQuestion: 'Ile kosztuje packshot i sesja produktowa?',
 		// Kolejność 10.08.2026 (pakiet 4): cena, potem retusz jako druga najmocniejsza
 		// rzecz na tej stronie, dalej skala zlecenia, logistyka i technikalia.
@@ -1149,7 +1149,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			},
 			{
 				q: 'Czy mogę przysłać produkty kurierem?',
-				a: 'Tak, produkty do 20×20 cm przyjmuję do studia. Przy większych przyjeżdżam ze studiem mobilnym albo rezerwujemy studio zewnętrzne. Koszt przesyłki zwrotnej ustalamy przy wycenie.',
+				a: 'Tak, produkty do 20×20 cm przyjmuję do studia. Przy większych przyjeżdżam ze studiem mobilnym albo rezerwuję studio zewnętrzne. Koszt przesyłki zwrotnej ustalamy przy wycenie.',
 			},
 			{
 				q: 'Czym różni się fotografia produktowa od reklamowej?',
@@ -1161,7 +1161,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			},
 			{
 				q: 'Czy realizujesz wideo produktowe?',
-				a: 'Tak, krótkie filmy pokazujące produkt, jego użycie i detale, a także spoty pod kampanie w social mediach. Przykłady są w pasku wideo wyżej.',
+				a: 'Tak, krótkie filmy pokazujące produkt, jego użycie i detale, a także spoty pod kampanie w social mediach. Przykłady są w sekcji z filmami powyżej.',
 			},
 			{
 				q: 'Na jakim sprzęcie pracujesz?',
@@ -1221,7 +1221,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		videoId: 'ivvZQ5lQ7FE',
 		videoTitle: 'Artech Group: film z hali produkcyjnej',
 		videoNote:
-			'Hala Artech Group od środka: park maszynowy, obróbka CNC i to, jak zakład naprawdę pracuje. Zakład da się pokazać tak samo zdjęciami, jak i filmem, w tym samym dniu zdjęciowym.',
+			'Hala Artech Group od środka: park maszynowy, obróbka CNC i to, jak zakład naprawdę pracuje. Zakład da się pokazać zarówno zdjęciami, jak i filmem, w tym samym dniu zdjęciowym.',
 		title: 'Fotografia i wideo nieruchomości i przemysłu',
 		shortTitle: 'Nieruchomości i przemysł',
 		// Podtytuł przepisany 04.08.2026 razem z opisem. Poprzedni („Dwie perspektywy
@@ -1301,7 +1301,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 				},
 				{
 					title: 'Wnętrza',
-					desc: 'Blok do 10 ujęć w jednym obiekcie: hala od środka, magazyn, lokal, biuro. Do dołożenia do sesji obiektu albo do zamówienia osobno.',
+					desc: 'Do 10 zdjęć wnętrz w jednym obiekcie: hala od środka, magazyn, lokal, biuro. Do dołożenia do sesji obiektu albo do zamówienia osobno.',
 				},
 				{
 					title: 'Wideo obiektu',
@@ -1354,7 +1354,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			{
 				num: 2,
 				title: 'Zgody',
-				desc: 'Strefę lotu sprawdzam i koordynuję przed potwierdzeniem daty',
+				desc: 'Strefę lotu i zgody sprawdzam przed potwierdzeniem daty',
 			},
 			// Krok 3 przepisany 10.08.2026: „powietrze, ziemia i wnętrza w jednym
 			// wyjeździe" niesie realną korzyść (jeden dojazd, jedno przerwanie pracy
@@ -1377,7 +1377,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// tłumaczyć tańszy wariant, PODNIÓSŁ ujęcia z powietrza do 900 zł netto.
 		// Jedna kwota na usługę, zero drabinek — zgodnie z decyzją z 04.08.2026.
 		pricingBlurb:
-			'Wycena zależy od liczby ujęć i od tego, czy dochodzą kadry z poziomu ziemi oraz blok wnętrz. Drugi obiekt tego samego typu w tym samym dniu jest tańszy, bo profil korekcji perspektywy jest już gotowy. Przy obiektach w strefach kontrolowanych koordynację lotu biorę na siebie.',
+			'Wycena zależy od liczby ujęć i od tego, czy dochodzą kadry z poziomu ziemi oraz zdjęcia wnętrz. Drugi obiekt tego samego typu w tym samym dniu jest tańszy, bo ustawienia obróbki z pierwszego budynku pasują do drugiego. Przy obiektach w strefach kontrolowanych, np. w pobliżu lotniska, formalności związane z lotem biorę na siebie.',
 		priceFaqQuestion: 'Ile kosztuje sesja obiektu?',
 		// Kolejność 10.08.2026 (pakiet 4, zatwierdzona przez Marcina): od zakresu
 		// dostawy, przez wariant „tylko dron" i koszt drugiego obiektu, po zgody,
@@ -1395,7 +1395,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		faqs: [
 			{
 				q: 'Ile ujęć dostanę?',
-				a: 'Pakiet podstawowy to do 8 ujęć z powietrza. Kompletny do 14: osiem z powietrza i sześć z poziomu ziemi. Pełny do 24, z blokiem wnętrz. Każde dodatkowe ujęcie ponad pakiet wyceniam osobno.',
+				a: 'Tyle, ile ustalimy przed sesją. Podstawą są ujęcia z powietrza, a jeśli potrzebujesz, dochodzą kadry z poziomu ziemi i do 10 zdjęć wnętrz. Każde ujęcie ponad ustalony zakres wyceniam osobno.',
 			},
 			// Odpowiedź uproszczona przez Marcina 10.08.2026. Poprzednia zaczynała się
 			// od porównania („tak samo jak sesja obiektu"), zamiast wprost odpowiedzieć
@@ -1406,15 +1406,15 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// pytanie realnie pyta.
 			{
 				q: 'Potrzebuję tylko ujęć z powietrza, bez wnętrz. Ile to kosztuje?',
-				a: 'Tak, same ujęcia z powietrza zamawia się bez bloku wnętrz i wychodzi taniej niż pełna sesja obiektu. W podstawowym zakresie fotografuję bryłę obiektu, plac manewrowy i otoczenie. Kadry z poziomu ziemi, wnętrza i film można dołączyć do realizacji zależnie od potrzeb. Wycenę odsyłam w 24h.',
+				a: 'Mniej niż pełna sesja obiektu, bo same ujęcia z powietrza zamawia się bez zdjęć wnętrz. W podstawowym zakresie fotografuję bryłę obiektu, plac manewrowy i otoczenie. Kadry z poziomu ziemi, wnętrza i film można dołączyć do realizacji zależnie od potrzeb. Wycenę odsyłam w ciągu 24 godzin.',
 			},
 			{
 				q: 'Mamy dwa takie same budynki. Płacę dwa razy?',
-				a: 'Nie. Drugi obiekt tego samego typu, fotografowany tego samego dnia, jest wyraźnie tańszy, bo profil korekcji perspektywy jest gotowy z pierwszego i postprodukcja idzie szybciej. Warunek to ten sam dzień zdjęciowy. Osobny wyjazd to pełna stawka plus dojazd.',
+				a: 'Nie. Drugi obiekt tego samego typu, fotografowany tego samego dnia, jest wyraźnie tańszy, bo ustawienia obróbki z pierwszego budynku pasują do drugiego i postprodukcja idzie szybciej. Warunek to ten sam dzień zdjęciowy. Osobny wyjazd to pełna stawka plus dojazd.',
 			},
 			{
 				q: 'Czy dron poleci nad naszą halą?',
-				a: 'W standardowych lokalizacjach tak, bez dopłat. Mam certyfikat operatora A1/A3 i ubezpieczenie OC. W strefach kontrolowanych, na przykład przy lotnisku albo jednostce wojskowej, koordynację biorę na siebie i sprawdzam ją przed potwierdzeniem daty. Zgoda bywa terminowa, więc warto zgłosić się z wyprzedzeniem.',
+				a: 'W standardowych lokalizacjach tak, bez dopłat. Mam certyfikat operatora A1/A3 i ubezpieczenie OC. W strefach kontrolowanych, na przykład przy lotnisku albo jednostce wojskowej, zgodę na lot załatwiam sam i sprawdzam ją przed potwierdzeniem daty. Na zgodę czasem trzeba poczekać, więc warto zgłosić się z wyprzedzeniem.',
 			},
 			{
 				q: 'Kiedy najlepiej fotografować obiekt?',
@@ -1422,15 +1422,15 @@ const serviceCategoriesRaw: ServiceData[] = [
 			},
 			{
 				q: 'Fotografujesz też wnętrza biur i lokali?',
-				a: 'Tak, jako blok wnętrz do 10 ujęć w jednym obiekcie. Pracuję ze światłem zastanym, żeby wnętrze wyglądało jak w rzeczywistości. Blok można dołożyć do sesji obiektu albo zamówić osobno.',
+				a: 'Tak, do 10 zdjęć wnętrz w jednym obiekcie. Pracuję w naturalnym świetle, żeby wnętrze wyglądało jak w rzeczywistości. Zdjęcia wnętrz można dołożyć do sesji obiektu albo zamówić osobno.',
 			},
 			{
 				q: 'Co jeśli pogoda nie dopisze?',
-				a: 'Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji wracam raz w ramach ustalonej kwoty, kolejne podejście to 300 zł plus dojazd.',
+				a: 'Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji wracam raz w ramach ustalonej kwoty. Każdy kolejny przyjazd to 300 zł plus dojazd.',
 			},
 			{
 				q: 'Na jakim sprzęcie pracujesz?',
-				a: 'Dron DJI Mini 5 Pro, 50 Mpix, poniżej 249 g, czyli kategoria otwarta, do tego certyfikat operatora A1/A3 i ubezpieczenie OC. Z poziomu ziemi Canon R6 na statywie, obiektywy szerokie do wnętrz i elewacji.',
+				a: 'Dron DJI Mini 5 Pro, 50 Mpix, poniżej 249 g, czyli kategoria otwarta, do tego certyfikat operatora A1/A3 i ubezpieczenie OC. Z poziomu ziemi Canon R6 na statywie, obiektywy szerokokątne do wnętrz i elewacji.',
 			},
 		],
 		// Nagłówek formularza dla tej usługi (decyzja Marcina 10.08.2026, wariant B).
@@ -1540,7 +1540,7 @@ export function getServiceBySlug(slug: string): ServiceData | undefined {
 // Wspólne zamknięcie dla FAQ cenowego (obietnica 24h powtarzana świadomie
 // w całym lejku — brief-22 §2). Jedna zmiana tutaj aktualizuje wszystkie 7 usług.
 const PRICE_FAQ_CLOSING =
-	'Napisz w kilku zdaniach, czego potrzebujesz. Wstępną wycenę odsyłam w 24h.';
+	'Napisz w kilku zdaniach, czego potrzebujesz. Wstępną wycenę odsyłam w ciągu 24 godzin.';
 
 // Pytanie cenowe budowane z danych usługi, nie hardkodowane per usługa —
 // zmiana `pricingBlurb` aktualizuje FAQ wszędzie naraz (brief-22 zad. 4).

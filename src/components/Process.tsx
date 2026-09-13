@@ -6,7 +6,7 @@ const steps = [
   {
     num: 1,
     title: "Rozmowa",
-    desc: "Krótka rozmowa o celu, terminie i budżecie. Wstępną wycenę dostajesz w ciągu 24h.",
+    desc: "Krótka rozmowa o celu, terminie i budżecie. Wstępną wycenę dostajesz w ciągu 24 godzin.",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
@@ -33,7 +33,7 @@ const steps = [
   {
     num: 3,
     title: "Selekcja",
-    desc: "W 48h dostajesz galerię online. Sam zaznaczasz ujęcia do retuszu, masz pełną kontrolę.",
+    desc: "W ciągu 48 godzin dostajesz galerię online i zaznaczasz w niej ujęcia do retuszu.",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -43,7 +43,7 @@ const steps = [
   {
     num: 4,
     title: "Dostawa",
-    desc: "Wyretuszowane materiały w 14 dni (wideo 21). Ekspres do 48h dostępny.",
+    desc: "Gotowe zdjęcia w 14 dni, wideo w 21 dni. Na życzenie tryb ekspresowy do 48 godzin.",
     icon: (
       <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -65,7 +65,7 @@ export default function Process() {
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-md mx-auto">
-            4 kroki od pierwszego kontaktu do gotowych materiałów.
+            Cztery kroki od pierwszego kontaktu do gotowych materiałów.
           </p>
         </AnimatedSection>
 

@@ -18,7 +18,7 @@ export default function Publications() {
             </h2>
           </Parallax>
           <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-2xl mx-auto leading-relaxed">
-            Zdjęcia, które robię dla klientów, przechodzą przez cudzą redakcję. Trafiają do reklam drukowanych, outdooru, katalogów, międzynarodowej prasy branżowej i do przewodnika Michelin.
+            Zdjęcia, które robię dla klientów, trafiają do reklam drukowanych, na billboardy, do katalogów, międzynarodowej prasy branżowej i przewodnika Michelin. O publikacji decydowały tam redakcje i agencje, nie ja.
           </p>
         </AnimatedSection>
 
@@ -58,7 +58,7 @@ export default function Publications() {
               Kwiecień 2026, wydanie z Forte na okładce
             </p>
             <p className="text-[15px] text-steel dark:text-dark-text-muted leading-relaxed mb-6">
-              Zdjęcia, które wykonałem dla <strong className="text-navy dark:text-white font-semibold">Grupy Forte S.A.</strong> na targach meblowych w Poznaniu, trafiły do kwietniowego wydania Big Furniture Group Magazine, brytyjskiego pisma branży meblarskiej audytowanego przez ABC. Jedno z nich znalazło się na okładce.
+              Kadry wykonane dla <strong className="text-navy dark:text-white font-semibold">Grupy Forte S.A.</strong> na targach meblowych w Poznaniu, trafiły do kwietniowego wydania Big Furniture Group Magazine, brytyjskiego pisma branży meblarskiej. Jedno z nich znalazło się na okładce.
             </p>
             <a
               href="https://bigfurnituregroup.com/big-furniture-group-magazine-april-2026-now-live/"

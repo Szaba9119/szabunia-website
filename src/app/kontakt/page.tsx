@@ -16,12 +16,12 @@ import Breadcrumbs, {
 export const metadata: Metadata = {
 	title: 'Kontakt i wycena, fotograf Poznań | Szabunia',
 	description:
-		'Napisz, czego potrzebujesz. Odpowiadam w 24 godziny wstępną wyceną i wolnym terminem. Poznań, cała Polska i Europa.',
+		'Napisz, czego potrzebujesz. W ciągu 24 godzin odsyłam wstępną wycenę i wolny termin. Poznań, cała Polska i Europa.',
 	alternates: { canonical: '/kontakt' },
 	openGraph: {
 		title: 'Kontakt i wycena, fotograf Poznań | Szabunia',
 		description:
-			'Napisz, czego potrzebujesz. Odpowiadam w 24 godziny wstępną wyceną i wolnym terminem. Poznań, cała Polska i Europa.',
+			'Napisz, czego potrzebujesz. W ciągu 24 godzin odsyłam wstępną wycenę i wolny termin. Poznań, cała Polska i Europa.',
 		url: 'https://szabunia.pl/kontakt',
 		images: [
 			{
@@ -36,19 +36,19 @@ export const metadata: Metadata = {
 		card: 'summary_large_image',
 		title: 'Kontakt i wycena, fotograf Poznań | Szabunia',
 		description:
-			'Napisz, czego potrzebujesz. Odpowiadam w 24 godziny wstępną wyceną i wolnym terminem. Poznań, cała Polska i Europa.',
+			'Napisz, czego potrzebujesz. W ciągu 24 godzin odsyłam wstępną wycenę i wolny termin. Poznań, cała Polska i Europa.',
 		images: ['/images/og/strony/kontakt.jpg'],
 	},
 };
 
 const contactCards = [
 	{
-		title: 'Wstępna wycena w 24h',
-		body: 'Na każde zapytanie biznesowe odpowiadam w ciągu 24h, ze wstępną wyceną i propozycją terminu.',
+		title: 'Wstępna wycena w 24 godziny',
+		body: 'Na każde zapytanie biznesowe odpowiadam w ciągu 24 godzin ze wstępną wyceną i propozycją terminu.',
 	},
 	{
 		title: 'Poznań, cała Polska i Europa',
-		body: 'Bazuję w Poznaniu, realizuję projekty w całym kraju i za granicą. Dojazd ustalamy w wycenie.',
+		body: 'Pracuję z Poznania, realizuję projekty w całym kraju i za granicą. Dojazd ustalamy w wycenie.',
 	},
 	{
 		title: 'Opisz, czego potrzebujesz',
@@ -191,8 +191,8 @@ export default function KontaktPage() {
 									Nie wiesz, czego potrzebujesz?
 								</h2>
 								<p className='text-[14px] text-text-body dark:text-dark-text-muted leading-relaxed'>
-									Przejrzyj pełną ofertę dla firm i napisz, co Cię interesuje,
-									wstępną wycenę przygotuję w 24h.
+									Przejrzyj ofertę dla firm i napisz, co Cię interesuje.
+									Wstępną wycenę przygotuję w ciągu 24 godzin.
 								</p>
 							</div>
 							{/* ⚠ WARIANT NAWIGACYJNY, NIE GRADIENT (audyt UI 11.08.2026,

@@ -109,10 +109,10 @@ export default function UslugiPage() {
                 Poprzednia wersja („Od obsługi wydarzeń firmowych po wizerunek
                 zespołów: jeden twórca…") opisywała ofertę dwufilarową. */}
 						<p className='text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-2xl mx-auto leading-relaxed'>
-							Firma potrzebuje pokazać cztery rzeczy: ludzi, wydarzenia, obiekty
+							Firma zwykle musi pokazać cztery rzeczy: ludzi, wydarzenia, obiekty
 							i produkty. Na każdą z nich jest tu osobna usługa. Zdjęcia i film
-							nie są osobnymi pozycjami, tylko sposobem realizacji każdej z
-							czterech. Bazuję w Poznaniu, pracuję w całej Polsce i Europie.
+							nie są osobnymi usługami: w każdej z czterech możesz zamówić jedno
+							i drugie. Pracuję z Poznania, realizuję zlecenia w całej Polsce i Europie.
 						</p>
 					</div>
 

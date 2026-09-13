@@ -55,7 +55,7 @@ export default function Warunki() {
                 Rozliczenia
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Po pierwszym retuszu wysyłam proformę razem z podglądem materiału, jeszcze ze znakiem wodnym. Masz 7 dni na akceptację, brak odpowiedzi oznacza akceptację. Po opłacie dostajesz komplet plików bez znaku wodnego, w pełnej rozdzielczości, oraz fakturę VAT przez Useme. Jeśli wolisz rozliczyć się wcześniej, wystawiam proformę od razu po akceptacji wyceny.
+                Po pierwszym retuszu wysyłam proformę razem z podglądem materiału, jeszcze ze znakiem wodnym. Masz 7 dni na zgłoszenie uwag. Brak odpowiedzi w tym czasie oznacza akceptację. Po opłacie dostajesz komplet plików bez znaku wodnego, w pełnej rozdzielczości, oraz fakturę VAT przez Useme. Jeśli wolisz rozliczyć się wcześniej, wystawiam proformę od razu po akceptacji wyceny.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">
@@ -66,7 +66,7 @@ export default function Warunki() {
                 Czas realizacji
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Zdjęcia: 14 dni kalendarzowych. Wideo: 21 dni kalendarzowych. Ekspres do 48h: +50% wartości zlecenia. Poprawki realizuję w ciągu 7 dni od zgłoszenia i nie liczę terminu podstawowego od nowa.
+                Zdjęcia: 14 dni kalendarzowych. Wideo: 21 dni kalendarzowych. Tryb ekspresowy (do 48 godzin): +50% wartości zlecenia. Poprawki realizuję w ciągu 7 dni od zgłoszenia, a termin dostawy nie liczy się wtedy od nowa.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">
@@ -88,7 +88,7 @@ export default function Warunki() {
                 Pliki
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Pełna jakość + wersja web. Na życzenie: PNG z przezroczystym tłem, TIFF do druku. Pliki surowe (RAW) nie wchodzą w cenę, pełny zestaw to +30% wartości zlecenia i decyzja przed sesją. Licencja niewyłączna, bez limitu czasowego, na użytek komercyjny Twojej firmy: strona, social media, druk i reklama online. Przeniesienie praw majątkowych albo przekazanie materiału podmiotom trzecim: +50%.
+                Pliki w pełnej rozdzielczości i wersja do internetu. Na życzenie: PNG z przezroczystym tłem, TIFF do druku. Pliki surowe (RAW) nie wchodzą w cenę, pełny zestaw to +30% wartości zlecenia, a zdecydować trzeba przed sesją. Licencja niewyłączna, bez limitu czasowego, na użytek komercyjny Twojej firmy: strona, social media, druk i reklama online. Przeniesienie praw majątkowych albo przekazanie materiału podmiotom trzecim: +50%.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">
@@ -99,7 +99,7 @@ export default function Warunki() {
                 Odwołanie
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Zmiana terminu min. 48h przed sesją: bezpłatna jednorazowo, każda kolejna 20% wartości zlecenia. Odwołanie &lt;48h: 50% wartości. Odwołanie w dniu realizacji albo niestawienie się osób fotografowanych: 100% wartości. Archiwizacja gotowych plików: 1 rok.
+                Zmiana terminu co najmniej 48 godzin przed sesją: bezpłatna jednorazowo, każda kolejna 20% wartości zlecenia. Odwołanie później niż 48 godzin przed sesją: 50% wartości. Odwołanie w dniu realizacji albo niestawienie się osób fotografowanych: 100% wartości. Archiwizacja gotowych plików: 1 rok.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">

@@ -55,14 +55,14 @@ export default function About() {
                       Słowo „profesjonalny" świadomie NIE dopisane, mimo propozycji:
                       docs/zasady-tekstow.md:31 zakazuje go jako jedynego określenia. */}
                   Cześć, jestem Marcin. Pod marką SZABUNIA odpowiadam za kontakt, plan i jakość realizacji. <strong>Od 2018 roku</strong> buduję wizerunek firm poprzez
-                  fotografię i wideo. Bazuję w Poznaniu,
-                  pracuję w całej Polsce i Europie.
+                  fotografię i wideo. Pracuję z Poznania,
+                  realizuję zlecenia w całej Polsce i Europie.
                 </p>
                 <p>
                   Ukończyłem <strong>studia z zarządzania</strong>, więc rozumiem nie tylko kadr,
                   ale i biznesowy cel, któremu zdjęcia mają służyć.
                   Specjalizuję się w obsłudze <strong>marek B2B i korporacji</strong>, które
-                  potrzebują powtarzalnego standardu wizerunkowego między sesjami.
+                  chcą, żeby zdjęcia z kolejnych sesji wyglądały spójnie.
                 </p>
                 {/* SKRÓCONE 10.08.2026 (przegląd strony głównej, decyzja Marcina:
                     „mniej autobiograficznie, wytnij powtórzenia").

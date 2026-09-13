@@ -38,7 +38,7 @@ export default function GlobalError({
           </h1>
           <p style={{ fontSize: "15px", lineHeight: 1.6, margin: "0 0 28px" }}>
             Strona nie chciała się wczytać. Spróbuj jeszcze raz, a jeśli to nie pomoże,
-            napisz albo zadzwoń: odpowiadam w 24h.
+            napisz albo zadzwoń: odpowiadam w ciągu 24 godzin.
           </p>
           <button
             onClick={reset}

@@ -19,7 +19,7 @@ export default function Services() {
 					</Parallax>
 					<p className='text-steel dark:text-dark-text-muted text-[15px] text-center mb-10 max-w-md mx-auto'>
 						{/* MASTER: cztery potrzeby klienta; foto, wideo i dron są narzędziami realizacji. */}
-						Cztery obszary potrzeb firmy. Zdjęcia, wideo i ujęcia z drona dobieram do celu realizacji.
+						Cztery obszary, w których pomagam firmom. Zdjęcia, wideo i ujęcia z drona dobieram do celu realizacji.
 					</p>
 				</AnimatedSection>
 
@@ -117,9 +117,9 @@ export default function Services() {
 					<div className='mt-12 text-center'>
 						<p className='text-steel dark:text-dark-text-muted text-[15px] max-w-xl mx-auto'>
 							Każdy projekt wyceniam indywidualnie. Napisz w kilku zdaniach, co
-							planujesz, a wrócę do Ciebie ze wstępną wyceną{' '}
+							planujesz, a odeślę Ci wstępną wycenę{' '}
 							<span className='text-navy dark:text-white font-semibold'>
-								w ciągu 24h
+								w ciągu 24 godzin
 							</span>
 							.
 						</p>

@@ -29,19 +29,19 @@ export interface HomeFaqItem {
 export const homeFaqs: HomeFaqItem[] = [
   {
     q: "Ile kosztuje sesja?",
-    a: "Cena zależy od liczby osób, lokalizacji, czasu na miejscu i zakresu postprodukcji. Przy grupie płacisz za liczbę osób, a nie za długość jednej sesji, więc sesja zespołowa liczy się inaczej niż portret jednej osoby. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w 24h.",
+    a: "Cena zależy od liczby osób, lokalizacji, czasu na miejscu i zakresu postprodukcji. Przy grupie płacisz za liczbę osób, a nie za długość jednej sesji, więc sesja zespołowa liczy się inaczej niż portret jednej osoby. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w ciągu 24 godzin.",
   },
   {
     q: "Jak szybko otrzymam gotowe materiały?",
-    a: "Standardowy czas oddania zdjęć to 14 dni, a materiałów wideo do 21 dni. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50% wartości zlecenia).",
+    a: "Standardowy czas oddania zdjęć to 14 dni, a materiałów wideo do 21 dni. Oferuję również tryb ekspresowy (do 48 godzin) za dodatkową opłatą (+50% wartości zlecenia).",
   },
   {
     q: "Czy dojeżdżasz poza Poznań?",
-    a: "Tak, realizuję zlecenia na terenie całej Polski oraz Europy. Dojazd w Poznaniu: 0 zł. Poza Poznaniem: 2,50 zł netto za kilometr, liczony od granicy miasta w obie strony według Google Maps. Przy dłuższych wyjazdach (powyżej jednego dnia pracy) doliczany jest również nocleg.",
+    a: "Tak, realizuję zlecenia na terenie całej Polski oraz Europy. Dojazd w Poznaniu: 0 zł. Poza Poznaniem: 2,50 zł netto za kilometr, liczone od granicy miasta w obie strony według Google Maps. Przy dłuższych wyjazdach (powyżej jednego dnia pracy) doliczany jest również nocleg.",
   },
   {
     q: "Jak wygląda sesja zdjęciowa krok po kroku?",
-    a: "Zaczynamy od krótkiej rozmowy (telefon lub mail), w której ustalamy cel, styl i logistykę. W pakietach przed sesją przygotowuję poseboard z przykładowymi kadrami. W dniu sesji prowadzę Cię przez pozowanie i dobór ujęć. Po sesji wybierasz zdjęcia z galerii online, a ja zajmuję się retuszem. Gotowe materiały dostajesz w ciągu 14 dni.",
+    a: "Zaczynamy od krótkiej rozmowy (telefon lub e-mail), w której ustalamy cel, styl i logistykę. Przed sesją przygotowuję zestaw przykładowych póz i kadrów. W dniu sesji prowadzę Cię przez pozowanie i dobór ujęć. Po sesji wybierasz zdjęcia z galerii online, a ja zajmuję się retuszem. Gotowe materiały dostajesz w ciągu 14 dni.",
   },
   {
     q: "Czy mogę użyć zdjęć na LinkedIn / stronie / w reklamie?",
@@ -49,7 +49,7 @@ export const homeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Ile osób możesz sfotografować w jeden dzień?",
-    a: "Przy portretach biznesowych fotografuję do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 5-15 minut. Mogę przyjechać do biura z mobilnym studiem.",
+    a: "Przy portretach biznesowych fotografuję do 40 osób dziennie (gdy rozstawiam mobilne studio na miejscu). Jedna osoba to 5 do 15 minut. Mogę przyjechać do biura z mobilnym studiem.",
   },
   {
     // SIÓDMY SLOT. Priorytet nr 7 Marcina brzmiał „możliwość połączenia foto +
@@ -76,7 +76,7 @@ export const offHomeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Co jeśli muszę przełożyć albo odwołać sesję?",
-    a: "Zmiana terminu minimum 48h przed sesją jest bezpłatna jednorazowo, każda kolejna kosztuje 20% wartości zlecenia. Odwołanie później niż 48h przed sesją: 50% wartości zlecenia. Odwołanie w dniu realizacji albo niestawienie się osób fotografowanych: 100% wartości zlecenia. Gotowe pliki archiwizuję przez 1 rok, a poprawki realizuję w ciągu 7 dni od zgłoszenia i nie liczę terminu podstawowego od nowa.",
+    a: "Zmiana terminu co najmniej 48 godzin przed sesją jest bezpłatna jednorazowo, każda kolejna kosztuje 20% wartości zlecenia. Odwołanie później niż 48 godzin przed sesją: 50% wartości zlecenia. Odwołanie w dniu realizacji albo niestawienie się osób fotografowanych: 100% wartości zlecenia. Gotowe pliki archiwizuję przez 1 rok, a poprawki realizuję w ciągu 7 dni od zgłoszenia i nie liczę terminu podstawowego od nowa.",
   },
   {
     q: "Czy mogę zobaczyć zdjęcia przed retuszem?",
@@ -94,7 +94,7 @@ export const offHomeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Jak wygląda rozliczenie krok po kroku?",
-    a: "Po pierwszym retuszu wysyłam proformę razem z podglądem materiału, jeszcze ze znakiem wodnym. Masz 7 dni na akceptację, brak odpowiedzi oznacza akceptację. Po opłacie dostajesz komplet plików bez znaku wodnego, w pełnej rozdzielczości, w wersjach na social media i do druku, oraz fakturę VAT przez Useme.",
+    a: "Po pierwszym retuszu wysyłam proformę razem z podglądem materiału, jeszcze ze znakiem wodnym. Masz 7 dni na zgłoszenie uwag. Brak odpowiedzi w tym czasie oznacza akceptację. Po opłacie dostajesz komplet plików bez znaku wodnego, w pełnej rozdzielczości, w wersjach na social media i do druku, oraz fakturę VAT przez Useme.",
   },
   {
     q: "Ile tur poprawek otrzymuję w cenie?",

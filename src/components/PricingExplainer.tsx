@@ -30,7 +30,7 @@ const STEPS = [
 
 const FACTORS = [
   {
-    title: "Zdjęcia, film, czy jedno i drugie",
+    title: "Zdjęcia, film czy jedno i drugie",
     desc: "Film nagrany przy okazji zdjęć kosztuje mniej niż zamówiony osobno, bo to jeden dzień zdjęciowy zamiast dwóch.",
   },
   {
@@ -39,7 +39,7 @@ const FACTORS = [
   },
   {
     title: "Co trzeba rozstawić na miejscu",
-    desc: "Portret przy oknie i mobilne studio z dwoma systemami światła to różne sesje, nawet jeśli zdjęć wychodzi tyle samo.",
+    desc: "Portret przy oknie i mobilne studio z dwoma zestawami lamp to różne sesje, nawet jeśli zdjęć wychodzi tyle samo.",
   },
   {
     title: "Gdzie",
@@ -47,7 +47,7 @@ const FACTORS = [
   },
   {
     title: "Co dzieje się po sesji",
-    desc: "Korekta partiami przy reportażu to inna praca niż indywidualna obróbka każdego kadru, a materiał do druku wymaga więcej niż materiał na LinkedIn.",
+    desc: "Wspólna korekta całej serii zdjęć z reportażu to inna praca niż obróbka każdego kadru osobno, a materiał do druku wymaga więcej niż materiał na LinkedIn.",
   },
 ];
 
@@ -80,7 +80,7 @@ export default function PricingExplainer({
         <p className="text-steel dark:text-dark-text-muted text-[14px] leading-relaxed mb-6">
           Cennika w formie tabeli nie ma, bo dwie realizacje o tej samej nazwie
           potrafią różnić się zakresem na tyle, że jedna cena byłaby nieprawdziwa
-          dla obu. Zamiast tabeli jest to:
+          dla obu. Zamiast tabeli wygląda to tak:
         </p>
 
         {/* Kroki procesu. `<ol>`, bo kolejność niesie znaczenie. */}

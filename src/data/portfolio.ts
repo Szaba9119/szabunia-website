@@ -114,7 +114,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Podsumowanie wideo wydarzenia E-commerce All In na Enea Stadion w Poznaniu: poziomy film i trzy pionowe reelsy z wywiadami. Realizacja dla Woohoo, partnera wydarzenia.",
     description:
-      "E-commerce All In to wydarzenie zorganizowane przez ICEA i Autopay na Enea Stadion w Poznaniu. Na zlecenie Woohoo, partnera wydarzenia, odpowiadałem za komplet materiału wideo: poziomy film podsumowujący z publikacją na YouTube oraz trzy pionowe reelsy z wywiadami na profil Woohoo. Na sali eventowej stanęło mobilne studio do filmowania wywiadów, a między rozmowami powstawała relacja z wydarzenia i ujęcia z drona, również w środku stadionu. Jeden twórca, spójny materiał: od planu zdjęciowego, przez realizację, po montaż i postprodukcję.",
+      "E-commerce All In to wydarzenie zorganizowane przez ICEA i Autopay na Enea Stadion w Poznaniu. Na zlecenie Woohoo, partnera wydarzenia, odpowiadałem za komplet materiału wideo: poziomy film podsumowujący opublikowany na YouTubie oraz trzy pionowe reelsy z wywiadami na profil Woohoo. Na sali eventowej stanęło mobilne studio do filmowania wywiadów, a między rozmowami powstawała relacja z wydarzenia i ujęcia z drona, również w środku stadionu. Spójny materiał od planowania, przez nagrania, po montaż i postprodukcję.",
     scope: [
       "Poziomy film (YouTube)",
       "3 pionowe reelsy",
@@ -139,7 +139,7 @@ export const portfolioCategories: PortfolioCategory[] = [
         url: "https://www.instagram.com/woohoo_pl/reel/DYULbqYIWT3/",
         title: "Co zniknie z e-commerce?",
         cover: "/images/portfolio/reel-3.jpg",
-        desc: "Jak zmieni się e-commerce w 2–3 lata: nie tylko technologia, ale i oczekiwania klientów oraz to, co wpływa na decyzję zakupową. Prognozy ekspertów.",
+        desc: "Jak zmieni się e-commerce w ciągu 2–3 lat: nie tylko technologia, ale i oczekiwania klientów oraz to, co wpływa na decyzję zakupową. Prognozy ekspertów.",
       },
       {
         url: "https://www.instagram.com/woohoo_pl/reel/DYCsTRXIy0d/",
@@ -151,7 +151,7 @@ export const portfolioCategories: PortfolioCategory[] = [
         url: "https://www.instagram.com/woohoo_pl/reel/DXOYU35CIcn/",
         title: "Co boli właścicieli e-commerce?",
         cover: "/images/portfolio/reel-2.jpg",
-        desc: "Realne hamulce wzrostu wg liderów branży: rosnące koszty pozyskania klienta, trudniejsze skalowanie, spadająca konwersja, dużo danych i mało decyzji, operacje, które nie nadążają.",
+        desc: "Realne hamulce wzrostu według liderów branży: rosnące koszty pozyskania klienta, trudniejsze skalowanie, spadająca konwersja, dużo danych i mało decyzji, operacje, które nie nadążają za wzrostem.",
       },
     ],
     caseStudy: {
@@ -160,7 +160,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       capabilities: ["Wideo", "Dron"],
       use: ["Social media", "Relacja z wydarzenia"],
       location: "Enea Stadion, Poznań",
-      goal: "Pokazać wydarzenie i wypowiedzi ekspertów w formatach dla YouTube i Instagrama.",
+      goal: "Pokazać wydarzenie i wypowiedzi ekspertów w formatach na YouTube’a i Instagrama.",
       productionFacts: [{"label": "na realizację", "value": "1 wieczór"}],
       deliverables: ["Film podsumowujący na YouTube", "3 pionowe reelsy z wywiadami"],
       whereItWent: [{"label": "YouTube", "url": "https://www.youtube.com/watch?v=4INLtKcKcZk"}, {"label": "Instagram Woohoo"}],
@@ -168,11 +168,11 @@ export const portfolioCategories: PortfolioCategory[] = [
       challenge:
         "Jeden wieczór i trzy zadania naprzemiennie: relacja z wydarzenia, wywiady z ekspertami i ujęcia z drona, w tym loty wewnątrz stadionu. Do tego mobilne studio do filmowania na sali eventowej: rozstawione tak, żeby nie przeszkadzało gościom, a tło kadru wyglądało jak w studiu.",
       solution:
-        "Zacząłem od ujęć z drona, później kręciłem relację z eventu, a w przerwach nagrywaliśmy wywiady w mobilnym studiu. Z jednego wieczoru powstał poziomy film podsumowujący na YouTube oraz trzy pionowe reelsy z wywiadami, spójne od planu po postprodukcję.",
+        "Zacząłem od ujęć z drona, później kręciłem relację z eventu, a w przerwach nagrywałem wywiady w mobilnym studiu. Z jednego wieczoru powstał poziomy film podsumowujący na YouTube oraz trzy pionowe reelsy z wywiadami, spójne od planu po postprodukcję.",
       results: [
         { label: "film podsumowujący na YouTube", value: "1" },
         { label: "pionowe reelsy z wywiadami", value: "3" },
-        { label: "formaty dystrybucji: YouTube i Instagram", value: "2" },
+        { label: "kanały publikacji: YouTube i Instagram", value: "2" },
       ],
       testimonial: {
         quote:
@@ -259,7 +259,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Fotografia produktowa półfabrykatów i detali z tworzyw sztucznych na stronę i do katalogu oraz film z hali produkcyjnej do prezentacji oferty klientom.",
     description:
-      "Artech Group to poznańskie centrum obróbki tworzyw sztucznych: frezowanie, toczenie i cięcie CNC płyt, wałków i detali dla przemysłu. Dla Artech zrealizowałem dwa rodzaje materiału. Pierwszy to packshoty na białym tle, czyli półfabrykaty i detale z różnych tworzyw przygotowane pod stronę, katalog i sklep. Drugi to film z hali produkcyjnej, który pokazuje park maszynowy i sposób pracy firmy. Wideo pracuje na stronie i w rozmowach handlowych: zamiast opisywać możliwości produkcyjne, Artech po prostu je pokazuje.",
+      "Artech Group to poznańskie centrum obróbki tworzyw sztucznych: frezowanie, toczenie i cięcie CNC płyt, wałków i detali dla przemysłu. Dla Artech zrealizowałem dwa rodzaje materiału. Pierwszy to packshoty na białym tle, czyli zdjęcia półfabrykatów i detali z różnych tworzyw przygotowane pod stronę, katalog i sklep. Drugi to film z hali produkcyjnej, który pokazuje park maszynowy i sposób pracy firmy. Wideo pracuje na stronie i w rozmowach handlowych: zamiast opisywać możliwości produkcyjne, Artech po prostu je pokazuje.",
     badge: "Realizacja foto + wideo",
     scope: [
       "Packshoty na białym tle",
@@ -302,9 +302,9 @@ export const portfolioCategories: PortfolioCategory[] = [
       whereItWent: [{"label": "Strona WWW, katalog i sklep internetowy"}, {"label": "Film na YouTube", "url": "https://www.youtube.com/watch?v=ivvZQ5lQ7FE"}],
       industry: "Centrum obróbki tworzyw sztucznych CNC, Poznań",
       challenge:
-        "Spójne packshoty półfabrykatów i detali z tworzyw pod stronę, katalog i sklep oraz film, który pokaże park maszynowy i sposób pracy firmom z przemysłu.",
+        "Spójne packshoty półfabrykatów i detali z tworzyw pod stronę, katalog i sklep oraz film, który pokaże klientom z przemysłu park maszynowy i sposób pracy firmy.",
       solution:
-        "Packshoty płyt, wałków i detali z różnych tworzyw na białym tle, w powtarzalnym setupie, oraz film z hali produkcyjnej do prezentacji oferty. Spójna stylistyka pozwala rozbudowywać katalog o kolejne produkty.",
+        "Packshoty płyt, wałków i detali z różnych tworzyw na białym tle, w tym samym ustawieniu światła i tła, oraz film z hali produkcyjnej do prezentacji oferty. Spójna stylistyka pozwala rozbudowywać katalog o kolejne produkty.",
       results: [
         { label: "packshotów produktów i półfabrykatów", value: "20" },
         { label: "film z produkcji na YouTube", value: "1" },
@@ -336,7 +336,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Sesja wizerunkowa zespołu poznańskiego software house'u: portrety na stronę internetową i do materiałów firmowych.",
     description:
-      "IDcom Group tworzy rozwiązania IT dla samorządów i biznesu. Zespół potrzebował portretów, które zadziałają w kilku miejscach naraz: na stronie internetowej i w materiałach firmowych. Zamiast jednej wersji zdjęć powstała jedna sesja na trzech tłach. Białe jest czyste i uniwersalne, czarne z niebieskim światłem bardziej technologiczne, a kremowe cieplejsze i swobodniejsze. Każda osoba ma komplet kadrów w spójnym standardzie światła i retuszu, więc firma dobiera klimat do kontekstu zamiast wracać do studia.",
+      "IDcom Group tworzy rozwiązania IT dla samorządów i biznesu. Zespół potrzebował portretów, które zadziałają w kilku miejscach naraz: na stronie internetowej i w materiałach firmowych. Z jednej sesji powstały trzy wersje zdjęć: na białym, czarnym i kremowym tle. Białe jest czyste i uniwersalne, czarne z niebieskim światłem bardziej technologiczne, a kremowe cieplejsze i swobodniejsze. Każda osoba ma komplet kadrów w spójnym standardzie światła i retuszu, więc firma dobiera klimat do kontekstu, zamiast wracać do studia.",
     thumbnail: "/images/portfolio/idcom/_F2A9376-Edit-2.jpg",
     gallery: [
       { src: "/images/portfolio/idcom/_F2A9424-Edit-2.jpg", alt: "Portret członkini zespołu na białym tle, sesja wizerunkowa zespołu IDcom Group" },
@@ -350,7 +350,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       // więc nie ma z czego dobrać siódmego. Zostaje pięć różnych kadrów.
     ],
     gallerySubtitle:
-      "Pięć kadrów z sesji dla IDcom Group: ten sam zespół na trzech tłach, białym, czarnym z niebieskim światłem i kremowym.",
+      "Pięć kadrów z sesji dla IDcom Group. Ten sam zespół na trzech tłach: białym, czarnym z niebieskim światłem i kremowym.",
     galleryAspect: "portrait",
     tileImagePosition: "top",
     process: [],
@@ -399,7 +399,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Wnętrza, nagrodzony stek i portrety szefa kuchni dla steakhouse'u w poznańskich Starych Koszarach. Zdjęcia trafiły na profil restauracji w przewodniku Michelin.",
     description:
-      "Yes Butcher! Shop & Bistro to steakhouse i sklep mięsny w Starych Koszarach, poznański oddział warszawskiej marki, obecny w przewodniku Michelin. Klient potrzebował kompletu materiału w jeden dzień zdjęciowy, w działającym lokalu: budynek z drona, wnętrza obu sal (od baru i otwartej kuchni po szafę do sezonowania mięsa), portrety szefa kuchni oraz bohatera karty, czyli stek ribeye nagrodzony w World Steak Challenge 2025, w firmowym pudełku z certyfikatem. Jedna sesja pokryła cztery rodzaje fotografii, a zdjęcia pracują na profilu Michelin i w reklamach restauracji.",
+      "Yes Butcher! Shop & Bistro to steakhouse i sklep mięsny w Starych Koszarach, poznański oddział warszawskiej marki, obecny w przewodniku Michelin. Klient potrzebował kompletu materiału w jeden dzień zdjęciowy, w działającym lokalu: budynek z drona, wnętrza obu sal (od baru i otwartej kuchni po szafę do sezonowania mięsa), portrety szefa kuchni oraz zdjęcia bohatera karty, czyli steka ribeye nagrodzonego w World Steak Challenge 2025, w firmowym pudełku z certyfikatem. W jednej sesji powstały cztery rodzaje zdjęć, a zdjęcia pracują na profilu Michelin i w reklamach restauracji.",
     thumbnail: "/images/portfolio/yes-butcher/yes-butcher-43.jpg",
     heroAspect: "portrait",
     tileImage: "/images/portfolio/yes-butcher/yes-butcher-tile.jpg",
@@ -424,7 +424,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       { src: "/images/portfolio/yes-butcher/yes-butcher-02.jpg", alt: "Budynek Yes Butcher! w Starych Koszarach z drona, ceglana fasada i rzeźba byka przed wejściem, Poznań" },
     ],
     gallerySubtitle:
-      "Kadry z sesji dla Yes Butcher! Od ujęcia z drona, przez wnętrza bistro i butcher shopu, po nagrodzony stek. Kliknij, żeby zobaczyć pełne kadry.",
+      "Kadry z sesji: od ujęcia z drona, przez wnętrza bistra i sklepu mięsnego, po nagrodzony stek. Kliknij, żeby zobaczyć pełne kadry.",
     process: [],
     pricingType: "tiers",
     faqs: [],
@@ -468,7 +468,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Profesjonalne portrety biznesowe, headshoty i zdjęcia do personal brandingu dla kadry zarządzającej i liderów.",
     description:
-      "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a w pakietach przed sesją dostajesz poseboard z referencjami.",
+      "Wizerunek kadry zarządzającej to wizytówka całej firmy. Tworzę portrety biznesowe na stronę internetową, LinkedIn, materiały prasowe i raporty roczne. Sesje realizuję w mobilnym studiu (dojeżdżam do biura) lub w wynajętej przestrzeni. Zaczynamy od krótkiej rozmowy, w której ustalamy cel, styl i logistykę, a przed sesją dostajesz zestaw przykładowych póz i kadrów.",
     // ZDJ2608-17 (04.08.2026), WARIANT B. Poprzednia miniatura (plik `portfolio-1`, dziś
     // w `_to_delete/`) to zdjęcie grupowe przy autach sportowych, czyli ten sam kadr, który 04.08 wyleciał
     // z galerii tej realizacji jako obcy. Wariant A briefu (`portret-18-mezczyzna-zielony-garnitur`, do 20.08.2026 `portret-05`) odpadł: ten kadr
@@ -496,7 +496,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     ],
     process: [
       { num: 1, title: "Konsultacja", desc: "Omawiamy cel, styl i wizję wizerunku" },
-      { num: 2, title: "Poseboard", desc: "W pakietach przygotowuję poseboard z referencjami" },
+      { num: 2, title: "Przykładowe pozy", desc: "Przed sesją przygotowuję zestaw przykładowych póz i kadrów" },
       { num: 3, title: "Sesja", desc: "Profesjonalna sesja w studiu lub biurze" },
       { num: 4, title: "Dostawa", desc: "Wyselekcjonowane zdjęcia w 14 dni" },
     ],
@@ -506,7 +506,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [
       {
         q: "Ile trwa sesja wizerunkowa?",
-        a: "W zależności od pakietu: od 30 minut w progu startowym do 3 godzin w najszerszym pakiecie. Czas obejmuje przygotowanie oświetlenia, sesję oraz ewentualne zmiany stylizacji.",
+        a: "Od 30 minut dla jednej osoby do kilku godzin przy dłuższej sesji. Czas obejmuje przygotowanie oświetlenia, sesję oraz ewentualne zmiany stylizacji.",
       },
       {
         q: "Czy mogę mieć sesję w swoim biurze?",
@@ -514,11 +514,11 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Ile osób możesz sfotografować w jeden dzień?",
-        a: "Przy portretach biznesowych: do 40 osób dziennie (przy setupie studyjnym na miejscu). Każda osoba potrzebuje ok. 5-15 minut.",
+        a: "Przy portretach biznesowych: do 40 osób dziennie (gdy rozstawiam mobilne studio na miejscu). Jedna osoba to 5 do 15 minut.",
       },
       {
         q: "Jak szybko otrzymam gotowe zdjęcia?",
-        a: "Standardowy czas to 14 dni. Oferuję również usługę ekspresową (do 48h) za dodatkową opłatą (+50%).",
+        a: "Standardowy czas to 14 dni. Oferuję również tryb ekspresowy (do 48 godzin) za dodatkową opłatą (+50%).",
       },
     ],
     // Ta realizacja pokazuje kadry, ale nie mówi, co wchodzi w zakres, ile trwa
@@ -625,8 +625,8 @@ export const portfolioCategories: PortfolioCategory[] = [
         a: "Tak, realizuję zlecenia na terenie całej Polski i Europy. W Poznaniu dojazd jest bezpłatny, poza miastem 2,50 zł netto za kilometr w obie strony, liczone od granic miasta. Przy wyjazdach zagranicznych koszty ustalamy indywidualnie.",
       },
       {
-        q: "Czy pakiet całodniowy się opłaca?",
-        a: "Przy całodniowej realizacji pakiet dzienny wychodzi korzystniej niż rozliczenie godzinowe.",
+        q: "Czy całodniowa realizacja się opłaca?",
+        a: "Przy całodniowej realizacji przygotowuję korzystniejszą wycenę całościową niż przy rozliczeniu godzinowym.",
       },
     ],
     // Jak wyżej: galeria pokazuje kadry, zakres i warunki realizacji stoją
@@ -699,7 +699,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Jakie formaty plików otrzymam?",
-        a: "Standardowo JPEG w pełnej rozdzielczości + wersja web (zoptymalizowana). Na życzenie: PNG z przezroczystym tłem, TIFF do druku.",
+        a: "Standardowo JPEG w pełnej rozdzielczości i lżejsza wersja do internetu. Na życzenie: PNG z przezroczystym tłem, TIFF do druku.",
       },
       {
         q: "Czy robisz zdjęcia produktów w aranżacji?",
@@ -728,7 +728,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Headshoty dla całego zespołu, zdjęcia biura i przestrzeni firmowej. Mobilne studio w Twoim biurze.",
     description:
-      "Headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura, każda osoba potrzebuje zaledwie 5-15 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
+      "Headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura, jedna osoba to 5 do 15 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
     thumbnail: "/images/portfolio-4.jpg",
     gallery: [
       // ZDJ2608-09 (04.08.2026): na kadrze jest JEDNA kobieta w błękitnej koszuli
@@ -747,7 +747,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram sesji w biurze" },
       { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio (30 min)" },
-      { num: 3, title: "Sesja", desc: "5-15 min na osobę, headshoty + opcja team" },
+      { num: 3, title: "Sesja", desc: "5 do 15 minut na osobę, portrety pojedyncze i zdjęcie zespołu" },
       { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
     ],
     // Cennik celowo usunięty z draftu (audyt 2026-07-06) — kanon: services.tsx.
@@ -755,7 +755,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [
       {
         q: "Ile osób możesz sfotografować w jeden dzień?",
-        a: "Do 40 osób dziennie przy setupie mobilnego studia w biurze. Każda osoba potrzebuje ok. 5-15 minut na sesję.",
+        a: "Do 40 osób dziennie, gdy rozstawiam mobilne studio w biurze. Jedna osoba to 5 do 15 minut.",
       },
       {
         q: "Ile miejsca potrzebujesz w biurze?",
@@ -817,6 +817,17 @@ const DRAFT_SLUGS = new Set<string>([
   // wkrótce" (PortfolioGallery.tsx, images.length < 3) nie łapie żadnej z nich, a pliki OG
   // leżą w public/images/og/portfolio/ od 30.07. /portfolio idzie z 4 na 8 pozycji.
   // Aby cofnąć: dopisać te cztery slugi z powrotem do tego zbioru.
+  //
+  // ⛔ 13.09.2026: TE CZTERY WRACAJĄ DO DRAFTU (Marcin: „w portfolio są niedokończone
+  // case study, trzeba je wyłączyć"). Żadna z nich nie ma `caseStudy`: brak klienta,
+  // celu, zakresu i wyników, to strony kategorii z galerią i ogólnym FAQ, a nie
+  // realizacje. Mechanizm draftu: znikają z /portfolio, z sitemapy i z bloku
+  // „Przykładowe realizacje" na usługach; adres dalej działa z noindex, więc stare
+  // linki nie trafiają na 404. Warunek powrotu: dopisany `caseStudy` z prawdziwym klientem.
+  "sesja-wizerunkowa",
+  "fotografia-eventowa",
+  "packshoty-produktowe",
+  "sesja-korporacyjna",
 ]);
 
 export function isPortfolioDraft(slug: string): boolean {

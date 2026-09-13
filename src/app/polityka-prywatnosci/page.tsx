@@ -70,8 +70,13 @@ export default function PrivacyPolicy() {
               <p>
                 <strong>Formularz kontaktowy:</strong>{" "}
                 imię i nazwisko (lub nazwa
-                firmy), adres e-mail, numer telefonu (opcjonalnie), rodzaj usługi
-                oraz treść wiadomości.
+                firmy), adres e-mail, numer telefonu (opcjonalnie), rodzaj usługi,
+                przewidywany termin (opcjonalnie), krótka odpowiedź o skali
+                realizacji, np. liczbie osób (opcjonalnie), oraz treść wiadomości.
+                Jeśli wyrazisz zgodę na analitykę w banerze cookies, razem
+                z zapytaniem trafia też informacja o tym, skąd trafiasz na
+                stronę: parametry kampanii (UTM), identyfikator kliknięcia
+                reklamy Google, pierwsza odwiedzona podstrona i strona odsyłająca.
               </p>
               <p className="mt-3">
                 <strong>Formularz zapisu na darmowy poradnik</strong>{" "}
@@ -127,8 +132,8 @@ export default function PrivacyPolicy() {
                 (Resend, Inc., USA), a strona hostowana jest na platformie Vercel
                 (Vercel, Inc., USA). Jeśli dojdzie do zlecenia, rozliczenie i
                 wystawienie faktury odbywa się przez serwis Useme (useme.com).
-                W tym celu przekazuję do Useme dane niezbędne do wystawienia
-                faktury (np. dane do faktury, których potrzebujesz jako nabywca).
+                W tym celu przekazuję do Useme dane, które mają się znaleźć
+                na fakturze (np. nazwę firmy i NIP nabywcy).
                 Dane mogą być przekazywane także innym podmiotom świadczącym
                 usługi hostingowe, e-mailowe i informatyczne na podstawie umów
                 powierzenia przetwarzania danych.
@@ -202,7 +207,7 @@ export default function PrivacyPolicy() {
               </h2>
               <p>
                 Strona wykorzystuje niezbędne pliki cookies techniczne (np.
-                zapamiętanie preferencji trybu ciemnego) oraz (wyłącznie po
+                zapamiętanie wyboru trybu nocnego) oraz (wyłącznie po
                 wyrażeniu zgody w banerze cookie) pliki cookies analityczne
                 (Google Analytics 4) i reklamowe (Google Ads), służące do
                 analizy ruchu oraz pomiaru skuteczności reklam (odbiorcy
@@ -214,7 +219,7 @@ export default function PrivacyPolicy() {
               </p>
               <p className="mt-3">
                 Niezależnie od powyższego, platforma hostingowa dostarcza
-                bezcookiesowe, zanonimizowane statystyki ruchu i wydajności
+                zanonimizowane statystyki (bez plików cookies) ruchu i wydajności
                 strony (Vercel Web Analytics oraz Vercel Speed Insights,
                 dostawca: Vercel, Inc., USA). Narzędzia te nie wykorzystują
                 plików cookies ani nie śledzą użytkowników między witrynami;
@@ -246,7 +251,7 @@ export default function PrivacyPolicy() {
               <p>
                 Zastrzegam sobie prawo do wprowadzania zmian w niniejszej
                 polityce prywatności. Aktualna wersja jest zawsze dostępna na tej
-                stronie. Ostatnia aktualizacja: 29 lipca 2026.
+                stronie. Ostatnia aktualizacja: 13 września 2026.
               </p>
             </section>
           </div>

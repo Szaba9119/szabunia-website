@@ -350,8 +350,8 @@ export default function GalleryView({
 			<div className='mt-10 rounded-2xl border border-blue/20 dark:border-blue-light/20 bg-blue-pale/60 dark:bg-blue/10 px-5 py-7 text-center sm:px-8'>
 				<p className='mx-auto max-w-2xl text-[15px] leading-relaxed text-text-body dark:text-dark-text'>
 					Chcesz zobaczyć więcej zdjęć z podobnych realizacji? Napisz, czego
-					potrzebujesz, a przygotuję pełniejsze portfolio dopasowane do Twojego
-					projektu.
+					potrzebujesz, a wyślę więcej zdjęć z realizacji podobnych
+					do Twojej.
 				</p>
 				<a
 					href='#kontakt'
