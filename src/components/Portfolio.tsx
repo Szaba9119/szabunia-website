@@ -3,7 +3,6 @@ import Link from "next/link";
 import AnimatedSection from "./AnimatedSection";
 import { portfolioItems, getCategoryBySlug } from "@/data/portfolio";
 import { galleryAlt } from "@/data/galleryAlts";
-import ProjectMetadata from "./ProjectMetadata";
 import type { PortfolioItem } from "@/data/portfolio";
 
 const blurPlaceholder =
@@ -41,21 +40,27 @@ export default function Portfolio() {
           <h2 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-4">Wybrane realizacje</h2>
           <p className="text-steel dark:text-dark-text-muted text-[15px] mb-8">Cel, zakres i materiały, które trafiły do komunikacji firm.</p>
         </AnimatedSection>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-          {featured.map((item, index) => {
+        {/* CZTERY RÓWNE KAFLE, 14.09.2026 (polecenie Marcina: „to portfolio na 4 równe
+            kafelki"). Wcześniej pierwsza realizacja zajmowała cały rząd (md:col-span-3,
+            metadane i cel projektu), a trzy pozostałe stały pod nią mniejsze.
+            Kolejność FEATURED_SLUGS bez zmian, tylko nie niesie już różnicy wagi.
+            Telefon: zwarte karty ze zdjęciem obok opisu (układ z 13.09, krótsza sekcja).
+            sm: dwie kolumny, lg: cztery w jednym rzędzie. Każdy kafel ma tę samą treść:
+            obszar, nazwa, zakres, link. */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {featured.map((item) => {
             const project = getCategoryBySlug(item.slug)?.caseStudy;
-            return <AnimatedSection key={item.slug} className={index === 0 ? 'md:col-span-3' : ''}>
-              <Link href={`/portfolio/${item.slug}`} data-cta={`case_${item.slug}`} className={`group grid overflow-hidden rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card h-full ${index === 0 ? 'md:grid-cols-2' : 'grid-cols-[104px_minmax(0,1fr)] sm:grid-cols-[144px_minmax(0,1fr)] md:grid-cols-1'}`}>
-                <div className={`relative overflow-hidden ${index === 0 ? 'aspect-[16/10] md:aspect-auto md:min-h-[340px]' : 'min-h-[168px] md:min-h-0 md:aspect-[4/3]'}`}>
-                  <Image src={item.image} alt={galleryAlt(item.image, `Zdjęcie z realizacji: ${item.label}`)} fill className={`object-cover ${item.imagePosition === 'top' ? 'object-top' : ''} transition-transform duration-500 group-hover:scale-105`} sizes={index === 0 ? '(max-width: 768px) 100vw, 576px' : '(max-width: 639px) 104px, (max-width: 767px) 144px, 380px'} quality={85} placeholder="blur" blurDataURL={blurPlaceholder} />
-                  {item.hasVideo && <span className="absolute bottom-4 left-4 bg-navy/85 text-white rounded-full px-3 py-1.5 text-xs">▶ Film z realizacji</span>}
+            return <AnimatedSection key={item.slug}>
+              <Link href={`/portfolio/${item.slug}`} data-cta={`case_${item.slug}`} className="group grid grid-cols-[104px_minmax(0,1fr)] sm:grid-cols-1 sm:grid-rows-[auto_1fr] overflow-hidden rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card h-full hover:border-blue dark:hover:border-blue transition-colors">
+                <div className="relative overflow-hidden min-h-[140px] sm:min-h-0 sm:aspect-[4/3]">
+                  <Image src={item.image} alt={galleryAlt(item.image, `Zdjęcie z realizacji: ${item.label}`)} fill className={`object-cover ${item.imagePosition === 'top' ? 'object-top' : ''} transition-transform duration-500 group-hover:scale-105`} sizes="(max-width: 639px) 104px, (max-width: 1023px) 50vw, 280px" quality={85} placeholder="blur" blurDataURL={blurPlaceholder} />
+                  {item.hasVideo && <span className="hidden sm:inline-flex absolute bottom-3 left-3 bg-navy/85 text-white rounded-full px-3 py-1.5 text-xs">▶ Film z realizacji</span>}
                 </div>
-                <div className={`${index === 0 ? 'p-5' : 'p-4'} md:p-6 flex flex-col justify-center`}>
-                  <p className="text-[10px] text-blue dark:text-blue-light uppercase tracking-widest mb-2">{index === 0 ? project?.client : project?.area?.join(' · ')}</p>
-                  <h3 className={`font-barlow font-bold ${index === 0 ? 'text-xl' : 'text-base'} md:text-2xl text-navy dark:text-white`}>{item.label}</h3>
-                  {index === 0 ? <ProjectMetadata data={project} compact /> : <p className='text-xs text-steel dark:text-dark-text-muted my-3'>{project?.capabilities?.join(' · ')}</p>}
-                  {index === 0 && <p className="text-sm text-steel dark:text-dark-text-muted leading-relaxed mb-4">{project?.goal}</p>}
-                  <span className="text-sm text-blue dark:text-blue-light font-semibold">Zobacz realizację →</span>
+                <div className="p-4 md:p-5 flex flex-col">
+                  <p className="text-[10px] text-blue dark:text-blue-light uppercase tracking-widest mb-2">{project?.area?.join(' · ')}</p>
+                  <h3 className="font-barlow font-bold text-base md:text-lg leading-snug text-navy dark:text-white">{item.label}</h3>
+                  <p className="text-xs text-steel dark:text-dark-text-muted mt-2 mb-3">{project?.capabilities?.join(' · ')}</p>
+                  <span className="mt-auto text-sm text-blue dark:text-blue-light font-semibold">Zobacz realizację →</span>
                 </div>
               </Link>
             </AnimatedSection>;
