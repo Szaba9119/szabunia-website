@@ -1,8 +1,8 @@
 // Potrzeby klienta i krótkie pytanie do briefu. Konkrety zaczerpnięte z services.tsx.
 export const servicePillars = [
   { number: '01', label: 'Ludzie', slug: 'wizerunek-portrety', formCode: 'wizerunek', question: 'Ile osób planujesz sfotografować?', placeholder: 'np. 12 osób',
-    responsibility: 'Ty podajesz listę osób i salę. Resztę organizuję ja.',
-    details: 'Przywożę studio do biura i rozstawiam je w 30 minut, zanim przyjdzie pierwsza osoba. Każdego prowadzę przez pozowanie, więc nikt nie musi umieć stać przed obiektywem. Wszyscy dostają to samo światło i ten sam retusz, a osoby nieobecne w dniu sesji fotografuję później, na krótszej osobnej sesji.' },
+    responsibility: 'Ty podajesz listę osób. Miejsce i organizację sesji biorę na siebie.',
+    details: 'Mogę przyjechać z mobilnym studiem do biura i rozstawić je w 30 minut, zanim przyjdzie pierwsza osoba. Jeśli firma chce innego klimatu, rezerwuję studio zewnętrzne dobrane do jej charakteru. Każdego prowadzę przez pozowanie, więc nikt nie musi umieć stać przed obiektywem. Wszyscy dostają to samo światło i ten sam retusz, a osoby nieobecne w dniu sesji fotografuję później, na krótszej osobnej sesji.' },
   { number: '02', label: 'Wydarzenia', slug: 'eventy-reportaze', formCode: 'event', question: 'Jak długo potrwa wydarzenie?', placeholder: 'np. konferencja od 9 do 17',
     responsibility: 'Ty prowadzisz wydarzenie. Ja pilnuję, żeby został z niego materiał.',
     details: 'Przed eventem omawiamy razem agendę: kluczowe momenty, prelegentów i osoby, których nie może zabraknąć na zdjęciach. Każde zdjęcie zapisuje się od razu na dwóch kartach, więc awaria jednej nie kasuje materiału. Przy dużym wydarzeniu, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora, a Ty nadal masz jedną osobę do kontaktu.' },

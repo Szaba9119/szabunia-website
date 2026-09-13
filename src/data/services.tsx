@@ -740,7 +740,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// JEDNEJ osobie (cennik v3 §1) i Marcin przepisał zdanie w FAQ 10.08.2026
 		// właśnie dlatego, że dawało się czytać jako „studio zawsze w cenie".
 		description:
-			'W zakładce „Zespół” widać wszystko: kto ma zdjęcie z sesji, kto przycięty kadr z wesela, a kto szare kółko z inicjałami. Fotografuję ludzi w firmie tak, żeby cały zespół wyglądał jak jedna firma: ten sam standard światła i retuszu. Przyjeżdżam z mobilnym studiem do biura, więc nikt nie traci pół dnia na dojazd. Jeśli sesja tego wymaga, wynajmuję studio dopasowane do klienta. Sesje zespołowe robiłem między innymi dla IDcom Group i Poznańskich Nieruchomości.',
+			'W zakładce „Zespół” widać wszystko: kto ma zdjęcie z sesji, kto przycięty kadr z wesela, a kto szare kółko z inicjałami. Fotografuję ludzi w firmie tak, żeby cały zespół wyglądał jak jedna firma: ten sam standard światła i retuszu. Przyjeżdżam z mobilnym studiem do biura, więc nikt nie traci pół dnia na dojazd. Jeśli firma chce innego klimatu, rezerwuję studio zewnętrzne dobrane do jej charakteru. Sesje zespołowe robiłem między innymi dla IDcom Group i Poznańskich Nieruchomości.',
 		applications: {
 			heading: 'Kogo fotografuję',
 			items: [
@@ -919,7 +919,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// było dostępne WYŁĄCZNIE w progu startowym.
 			{
 				q: 'Sesja u nas w biurze czy w studiu?',
-				a: 'Jak wolisz. Przy jednej osobie możesz wybrać studio w Poznaniu albo mój dojazd z mobilnym studiem. Przy większym zespole biuro wychodzi zwykle taniej i szybciej, bo nikt nie musi nigdzie jechać.',
+				a: 'Jak wolisz. Przy jednej osobie możesz wybrać studio w Poznaniu albo mój dojazd z mobilnym studiem. Przy większym zespole biuro wychodzi zwykle taniej i szybciej, bo nikt nie musi nigdzie jechać. Jeśli zależy Ci na innym klimacie, rezerwuję studio zewnętrzne dobrane do charakteru firmy.',
 			},
 			// Głos strony, nie nowy tekst: oba zdania są wzorcami z docs/zasady-tekstow.md.
 			{
