@@ -419,7 +419,7 @@ export const blogPosts: BlogPost[] = [
 
       <h2>Ujęcia z drona nad zakładem</h2>
       <p>Skali terenu, hal i placów manewrowych nie da się pokazać z poziomu ziemi. <a href="/uslugi/nieruchomosci-przemysl">Zdjęcia i wideo z drona</a> robię dronem DJI Mini 5 Pro, mam certyfikat operatora A1/A3 i ubezpieczenie OC, a w strefach kontrolowanych uzyskuję wymagane zgody przed lotem. Zakłady przemysłowe często leżą blisko lotnisk albo w strefach z ograniczeniami, więc tę część warto zgłosić z wyprzedzeniem, a nie w dniu sesji.</p>
-      <p>Materiał z powietrza dostajesz w 4K przy wideo i w pełnej rozdzielczości przy zdjęciach. Jeśli pogoda nie pozwala bezpiecznie latać (silny wiatr, opady), wracam raz w ramach ustalonej kwoty. Kolejne podejście kosztuje 300 zł plus dojazd.</p>
+      <p>Materiał z powietrza dostajesz w 4K przy wideo i w pełnej rozdzielczości przy zdjęciach. Jeśli pogoda nie pozwala bezpiecznie latać (silny wiatr, opady), wracam raz w ramach ustalonej kwoty. Kolejne podejście wyceniam osobno, zależnie od zakresu i dojazdu.</p>
 
       <h2>Film z hali pracuje inaczej niż zdjęcia</h2>
       <p>Zdjęcie pokazuje moment, film pokazuje ruch: maszynę w pracy, rytm linii, sposób obsługi. Dla Artech Group, poznańskiego centrum obróbki CNC tworzyw sztucznych, powstał film z hali produkcyjnej pokazujący park maszynowy i sposób pracy firmy. Materiał pracuje na stronie i w rozmowach handlowych: zamiast opisywać możliwości produkcyjne, firma po prostu je pokazuje. To argument, który w B2B skraca rozmowę o kilka mejli.</p>

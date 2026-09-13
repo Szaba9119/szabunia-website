@@ -600,11 +600,15 @@ export const portfolioCategories: PortfolioCategory[] = [
       { src: "/images/galeria/eventy/event-03-zdjecie-grupowe-tor.jpg", alt: "Zdjęcie grupowe uczestników wydarzenia firmowego na torze" },
       { src: "/images/galeria/eventy/event-08-integracja-przybicie-piatki.jpg", alt: "Integracja firmowa w plenerze, reportaż z wydarzenia" },
     ],
+    // Proces zrównany 14.09.2026 z usługą `eventy-reportaze` (services.tsx), decyzja
+    // Marcina. Wcześniej krok 3 brzmiał „Live edit: opcja dodatkowa", czyli etap,
+    // którego w podstawowym zakresie nie ma, a strona usługi opisywała już ten sam
+    // workflow inaczej. Zmiana tutaj bez zmiany tam (i odwrotnie) znowu je rozjedzie.
     process: [
-      { num: 1, title: "Rozmowa", desc: "Agenda eventu, kluczowe momenty, VIP-y" },
-      { num: 2, title: "Realizacja", desc: "Dyskretna fotografia reportażowa" },
-      { num: 3, title: "Live edit", desc: "Opcja dodatkowa: zdjęcia na social media w trakcie eventu" },
-      { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni" },
+      { num: 1, title: "Rozmowa", desc: "Agenda, kluczowe momenty i osoby, których nie może zabraknąć na zdjęciach" },
+      { num: 2, title: "Realizacja", desc: "Dyskretny reportaż, każde zdjęcie zapisane od razu na dwóch kartach" },
+      { num: 3, title: "Selekcja i obróbka", desc: "Około 30 gotowych zdjęć na godzinę obecności, wybrane kadry także w trakcie wydarzenia (opcja)" },
+      { num: 4, title: "Dostawa", desc: "Pełna galeria w 14 dni, film w 21 dni" },
     ],
     // Cennik celowo usunięty z draftu (audyt 2026-07-06) — kanon: services.tsx.
     pricingType: "table",

@@ -1527,9 +1527,12 @@ const serviceCategoriesRaw: ServiceData[] = [
 				q: 'Fotografujesz też wnętrza biur i lokali?',
 				a: 'Tak, do 10 zdjęć wnętrz w jednym obiekcie. Pracuję w naturalnym świetle, żeby wnętrze wyglądało jak w rzeczywistości. Zdjęcia wnętrz można dołożyć do sesji obiektu albo zamówić osobno.',
 			},
+			// ⚠ KWOTA „300 zł plus dojazd" USUNIĘTA 14.09.2026 (decyzja Marcina). Była
+			// jedyną kwotą na podstronach usług po depricingu z 14.08. Ta sama zmiana
+			// w `public/llms.txt` i we wpisie `fotografia-przemyslowa-fabryka`.
 			{
 				q: 'Co jeśli pogoda nie dopisze?',
-				a: 'Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji wracam raz w ramach ustalonej kwoty. Każdy kolejny przyjazd to 300 zł plus dojazd.',
+				a: 'Silny wiatr lub opady uniemożliwiają bezpieczny lot. W takiej sytuacji wracam raz w ramach ustalonej kwoty. Każdy kolejny przyjazd wyceniam osobno, zależnie od zakresu i dojazdu.',
 			},
 			// ⚠ PYTANIE O SPRZĘT ZASTĄPIONE 14.09.2026. Dron, certyfikat A1/A3 i OC stały
 			// na tej podstronie już trzy razy (podpis paska dronowego, karta zakresu,

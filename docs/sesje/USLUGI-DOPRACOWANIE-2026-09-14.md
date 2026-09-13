@@ -56,3 +56,14 @@ Punkt odniesienia: `WIZERUNEK-DOPRACOWANIE-2026-09-14.md`. Wizerunek traktowany 
 4. **Case study `fotografia-eventowa`** ma własny proces z krokiem „Live edit: opcja dodatkowa”, ten sam problem co poprawiony proces usługi. Poza zakresem tego etapu.
 5. **Pomiar GSC:** nowe title wydarzeń i wizerunku od dnia deployu.
 6. **Kolejność paska produktowego** zmieniona względem ręcznej listy; cofnięcie opisane w komentarzu.
+
+## Commit porządkowy (po akceptacji Marcina, 14.09.2026)
+
+- Proces case study `fotografia-eventowa` zrównany z procesem usługi wydarzeń (punkt 4 wyżej zamknięty).
+- „300 zł plus dojazd” usunięte w trzech miejscach tego samego zapisu: FAQ nieruchomości (widoczne i FAQPage), `public/llms.txt`, wpis `fotografia-przemyslowa-fabryka`. Zamiast kwoty: kolejny przyjazd wyceniany osobno, zależnie od zakresu i dojazdu (punkt 1 zamknięty).
+- Kolejność paska produktowego zaakceptowana, zostaje (punkt 6 zamknięty).
+
+## Backlog (bez zmian w kodzie)
+
+- Eventy: dołożyć mocne kadry konferencja / scena / prelegent / targi.
+- Po deployu: obserwacja GSC dla nowych title wydarzeń i wizerunku, dalsze poprawki na danych.
