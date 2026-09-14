@@ -207,8 +207,23 @@ export default function Navigation() {
 				{/* min-h-[24px] + inline-flex: sam tekst dawał cel 141×20 px
             (WCAG 2.2 SC 2.5.8, audyt PELNY2907-23). Wysokość paska nawigacji
             bez zmian, bo rząd i tak jest wyższy niż 24 px. */}
+				{/* Klik w logo na stronie głównej (14.09.2026, prośba Marcina): `Link`
+            do tej samej ścieżki nie zmienia adresu, więc ScrollRestorer się nie
+            odpala i strona zostawała w miejscu. Tu przewijamy na górę sami
+            i czyścimy kotwicę (#o-mnie, #kontakt), żeby adres pasował do widoku.
+            Z podstron `href='/'` działa bez zmian: zwykła nawigacja + reset scrolla. */}
 				<Link
 					href='/'
+					onClick={(e) => {
+						if (!isHome || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
+						e.preventDefault();
+						setMobileOpen(false);
+						const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+						window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+						if (window.location.hash) {
+							history.replaceState(history.state, '', window.location.pathname + window.location.search);
+						}
+					}}
 					className='inline-flex items-center min-h-[24px] font-barlow font-extrabold text-sm tracking-wide text-navy dark:text-white'
 				>
 					SZABUNIA

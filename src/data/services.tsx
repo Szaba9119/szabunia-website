@@ -657,9 +657,18 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// tej usługi (GSC 07.2026: „fotografia eventowa poznań", „zdjęcia eventowe
 			// poznań"). Budowa jak w pozostałych usługach. Linia eventowa ma dziś
 			// pojedyncze wyświetlenia, więc ryzyko utraty pozycji jest znikome.
-			title: 'Fotografia eventowa i wideo z wydarzeń, Poznań | Szabunia',
+			// CTRSNIP2609 (14.09.2026, AUDYT-CTR-SNIPPETY-2026-09-14 §6-§8 i §13, decyzja
+			// Marcina „zrób jak uważasz"). Google przepisywał title na H1 (crawl 14.09
+			// 00:25, stary title w indeksie), a na „fotograf eventowy poznań" brał opis
+			// ZE STOPKI, bo meta nie miała ani „fotograf", ani „Poznań". Title zaczyna się
+			// teraz słowami H1, a „filmowanie eventów" to 12 z 16 zapytań tej strony w GSC.
+			// Opis zaczyna się od H1 i używa słów ze strony („Fotografuję i filmuję",
+			// „30 gotowych zdjęć na godzinę", „14 dni, film w 21"). Wypadło „od jednego
+			// partnera" (nie pada na stronie, otwarty SEO-05) i „Obsługiwałem eventy dla
+			// H&M" (strona mówi tylko „Współpracowałem m.in. z").
+			title: 'Fotograf eventowy i filmowanie eventów, Poznań | Szabunia',
 			description:
-				'Konferencje, targi, gale i integracje. Zdjęcia, film i dron od jednego partnera. Obsługiwałem eventy dla H&M, Santandera i Warner Music.',
+				'Fotograf eventowy na konferencje, targi i gale. Fotografuję i filmuję: około 30 gotowych zdjęć na godzinę, galeria w 14 dni, film w 21. Poznań i cała Polska.',
 		},
 	},
 	{
@@ -793,7 +802,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// JEDNEJ osobie (cennik v3 §1) i Marcin przepisał zdanie w FAQ 10.08.2026
 		// właśnie dlatego, że dawało się czytać jako „studio zawsze w cenie".
 		description:
-			'W zakładce „Zespół” widać wszystko: kto ma zdjęcie z sesji, kto przycięty kadr z wesela, a kto szare kółko z inicjałami. Fotografuję ludzi w firmie tak, żeby cały zespół wyglądał jak jedna firma: ten sam standard światła i retuszu. Przyjeżdżam z mobilnym studiem do biura, więc nikt nie traci pół dnia na dojazd. Jeśli firma chce innego klimatu, rezerwuję studio zewnętrzne dobrane do jej charakteru. Sesje zespołowe robiłem między innymi dla IDcom Group i Poznańskich Nieruchomości.',
+			'W zakładce „Zespół” widać wszystko: kto ma zdjęcie z sesji, kto przycięty kadr z wesela, a kto szare kółko z inicjałami. Jako fotograf biznesowy z Poznania fotografuję ludzi w firmie tak, żeby cały zespół wyglądał jak jedna firma: ten sam standard światła i retuszu. Przyjeżdżam z mobilnym studiem do biura, więc nikt nie traci pół dnia na dojazd. Jeśli firma chce innego klimatu, rezerwuję studio zewnętrzne dobrane do jej charakteru. Sesje zespołowe robiłem między innymi dla IDcom Group i Poznańskich Nieruchomości.',
 		applications: {
 			heading: 'Kogo fotografuję',
 			items: [
@@ -1077,7 +1086,16 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// świadomie POZA tytułem: tę frazę trzyma strona główna, kopia tutaj
 			// ustawiłaby dwie strony serwisu na jedno zapytanie.
 			// Pomiar: dane GSC od 14.09.2026 mają tę zmianę jako nową zmienną.
-			title: 'Sesja biznesowa i portrety dla firm, Poznań | Szabunia',
+			// ⚠ ZMIANA 14.09.2026 WIECZOREM (CTRSNIP2609, decyzja Marcina „zrób jak uważasz").
+			// Zapis wyżej („Fotografia biznesowa świadomie POZA tytułem, frazę trzyma
+			// strona główna") nie przetrwał zderzenia z danymi: GSC 16.08-12.09 pokazuje,
+			// że na „fotograf biznesowy poznań" Google wybrał TĘ podstronę (138 wyśw.,
+			// poz. 11,9, SERP 9.), a strona główna miała przez 28 dni 37 wyświetleń łącznie.
+			// Top 10 na tę frazę to same studia portretów, więc intencja pasuje do tej
+			// podstrony. Title z rana (bez słowa „fotograf") nie zdążył wejść do indeksu.
+			// Fraza dostała też jedno zdanie w `description` niżej, żeby title nie obiecywał
+			// słowa, którego na stronie nie ma. Strona główna do przestawienia osobno (P3).
+			title: 'Fotograf biznesowy Poznań: sesje i headshoty zespołu | Szabunia',
 			description:
 				'Portrety biznesowe, headshoty zespołu i film wizerunkowy. Sesja w studiu albo mobilne studio w Twoim biurze. Poznań i cała Polska.',
 		},
@@ -1597,9 +1615,12 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// zamiast drugiego „i": wariant „Fotografia i wideo nieruchomości
 			// i przemysłu" ma 63 znaki i podwójny spójnik, odrzucony przez Marcina.
 			// „foto" jest słownikiem strony („foto + wideo", „foto-wideo eventu").
-			title: 'Nieruchomości i przemysł: foto i wideo, Poznań | Szabunia',
+			// CTRSNIP2609 (14.09.2026): title = H1 + Poznań. Poprzedni nie miał słowa
+			// „fotografia", a Google brał opis z H1 i podtytułu. Opis złożony ze słów
+			// podtytułu strony („Hale, zakłady, biurowce i inwestycje…").
+			title: 'Fotografia nieruchomości i przemysłu, Poznań | Szabunia',
 			description:
-				'Zdjęcia i wideo hal, budynków i wnętrz, z powietrza i z poziomu ziemi. Retusz architektoniczny, pliki do druku i pod www. Poznań i cała Polska.',
+				'Hale, zakłady, biurowce i inwestycje: zdjęcia z drona i z poziomu ziemi, fotografia wnętrz i wideo obiektu. Retusz architektoniczny. Poznań i cała Polska.',
 		},
 	},
 ];

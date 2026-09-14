@@ -127,9 +127,11 @@ export const blogPosts: BlogPost[] = [
       <p>Zobacz też, jak <a href="/blog/headshoty-linkedin-konwersja">profesjonalne headshoty zwiększają konwersję na LinkedIn</a>, przejrzyj moje <a href="/galeria?kat=portrety">realizacje sesji wizerunkowych</a> albo pobierz <a href="/poradnik">darmowy poradnik przygotowania do sesji</a>.</p>
     `,
 		seo: {
-			title: 'Jak przygotować się do sesji biznesowej | Szabunia',
+			// CTRSNIP2609 (14.09.2026): 140 wyśw. na poz. 16-17 bez kliknięcia, a title był
+			// identyczny z czterema konkurentami w top 8. „7 wskazówek" to liczba z H1.
+			title: 'Jak przygotować się do sesji biznesowej: 7 wskazówek | Szabunia',
 			description:
-				'Checklista przed sesją portretową: stylizacja, detale, inspiracje. Co przygotować, żeby zdjęcia biznesowe wyszły dobrze za pierwszym razem.',
+				'Siedem wskazówek przed sesją biznesową: cel zdjęć, stylizacja, detale, inspiracje i czas. Przygotowanie nie wymaga godzin, wystarczy checklista i 30 minut.',
 		},
 	},
 	{
