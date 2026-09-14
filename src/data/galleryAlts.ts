@@ -91,7 +91,15 @@ export const GALLERY_ALTS: Record<string, string> = {
   "event-05-dj-slupy-ognia":
     "DJ przed publicznością, słupy ognia z rampy podczas imprezy",
 
-  /* ── portrety (14 z 14 obejrzanych) ── */
+  /* ── portrety (17 z 17 obejrzanych) ──
+     07, 08 i 13 dopisane 14.09.2026 (SEO2609-18): wcześniej szły z fallbacku
+     „Portret biznesowy, Marcin Szabunia, Poznań", także portret kucharza. */
+  "portret-07-portret-calej-sylwetki":
+    "Kobieta w bordowej marynarce i dżinsach na hokerze, portret całej sylwetki w studiu",
+  "portret-08-portret-kucharza-czerni":
+    "Uśmiechnięty kucharz w czarnym fartuchu, ręce skrzyżowane, ciemne wnętrze restauracji",
+  "portret-13-czerni-czern-marynarki":
+    "Portret kobiety w czarnej marynarce ze złotymi guzikami, ręce skrzyżowane, czarne tło",
   "portret-25-operator-z-kamera":
     "Operator z kamerą na gimbalu, zdjęcie wizerunkowe na czarnym tle",
   "portret-19-kobieta-z-laptopem":

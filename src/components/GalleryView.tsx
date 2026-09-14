@@ -305,7 +305,11 @@ export default function GalleryView({
 								src={img.src}
 								alt={altFor(activeCat, i)}
 								fill
-								loading='lazy'
+								// SEO2609-08 (14.09.2026): pierwszy kafel jest elementem LCP,
+								// a `lazy` opóźniało jego pobranie o 218–572 ms.
+								priority={i < 3}
+								loading={i < 3 ? undefined : 'lazy'}
+								fetchPriority={i === 0 ? 'high' : undefined}
 								sizes='(max-width: 640px) 100vw, 33vw'
 								className='object-cover transition-opacity group-hover:opacity-90'
 							/>

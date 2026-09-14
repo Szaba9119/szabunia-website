@@ -107,7 +107,9 @@ export default async function BlogPostPage({ params }: PageProps) {
 			publisher: {
         '@id': 'https://szabunia.pl/#business',
 				'@type': 'ProfessionalService',
-				name: 'SZABUNIA',
+				// SEO2609-11 (14.09.2026): nazwa identyczna z węzłem #business w layout.tsx.
+				// Było 'SZABUNIA', czyli dwie różne nazwy pod jednym @id.
+				name: 'Marcin Szabunia, fotografia i wideo dla firm',
 				url: 'https://szabunia.pl',
 			},
 			image: `https://szabunia.pl/images/og/blog/${post.slug}.png`,

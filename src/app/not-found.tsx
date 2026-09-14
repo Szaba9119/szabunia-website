@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   // prowadzić dalej. Przy trwających przekierowaniach ze starej domeny
   // odcinanie ich jest kosztem bez zysku (audyt PELNY2608-59).
   robots: { index: false, follow: true },
+  // SEO2609-16 (14.09.2026): bez tego 404 dziedziczyło canonical `/` z layoutu.
+  alternates: { canonical: null },
 };
 
 export default function NotFound() {

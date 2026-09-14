@@ -11,7 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // buildzie byłoby fałszywym sygnałem świeżości (audyt PELNY2907-29).
   //
   // 12.09.2026: wdrożenie MASTER — treści usług, kontaktu i realizacji.
-  const SITE_UPDATED = new Date("2026-09-12");
+  // 14.09.2026: dopracowanie czterech podstron usług, strona główna, stopka z usługami.
+  const SITE_UPDATED = new Date("2026-09-14");
 
   const portfolioPages = portfolioCategories
     .filter((c) => !c.externalUrl && !isPortfolioDraft(c.slug))

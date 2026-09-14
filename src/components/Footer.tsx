@@ -11,7 +11,7 @@ export default function Footer() {
   return (
     <footer className="px-4 pb-8">
       <div className="max-w-6xl mx-auto bg-white border border-border dark:bg-dark-card dark:border-dark-border rounded-[20px] px-8 py-10 md:px-12 md:py-14">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <div className="font-barlow font-extrabold text-sm tracking-wide text-navy dark:text-white mb-2">
@@ -40,6 +40,29 @@ export default function Footer() {
             ].map((link) => (
               <a
                 key={link.label}
+                href={link.href}
+                className="py-2 hover:text-navy dark:hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+
+          {/* Usługi (SEO2609-03, 14.09.2026): cztery podstrony usług dostawały
+              link z 7–22 stron, a polityka prywatności z 41, bo stopka i menu
+              prowadziły tylko do huba /uslugi. Etykiety = `shortTitle`
+              z services.tsx, eventy pierwsze zgodnie z kierunkiem firmy.
+              Na sztywno, bo Footer jest komponentem klienckim i import
+              services.tsx wciągnąłby całe dane usług do bundla. */}
+          <div className="flex flex-col gap-0.5 text-xs text-steel dark:text-steel-light">
+            {[
+              { label: "Wydarzenia firmowe", href: "/uslugi/eventy-reportaze" },
+              { label: "Wizerunek firmy", href: "/uslugi/wizerunek-portrety" },
+              { label: "Nieruchomości i przemysł", href: "/uslugi/nieruchomosci-przemysl" },
+              { label: "Fotografia produktowa", href: "/uslugi/fotografia-produktowa" },
+            ].map((link) => (
+              <a
+                key={link.href}
                 href={link.href}
                 className="py-2 hover:text-navy dark:hover:text-white transition-colors"
               >
@@ -81,7 +104,7 @@ export default function Footer() {
           </div>
 
           {/* Scroll to top */}
-          <div className="flex items-start justify-end col-span-2 md:col-span-1">
+          <div className="flex items-start justify-end col-span-1">
             <button
               onClick={scrollToTop}
               className="w-10 h-10 rounded-xl border border-border dark:border-dark-border flex items-center justify-center text-steel dark:text-steel-light hover:text-navy dark:hover:text-white hover:border-blue dark:hover:border-white/30 transition-all"

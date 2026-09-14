@@ -171,13 +171,16 @@ export default function ServiceHero({ service, crumbs }: Props) {
                    Bez wpisu w mapie zostaje stary szablon, żeby nic nie zniknęło. */
 								alt={galleryAlt(service.heroImage, `${service.title}, Poznań`)}
 								fill
-								unoptimized={service.slug === 'eventy-reportaze'}
 								className='object-cover'
 								style={{ objectPosition: service.heroImagePos ?? 'center' }}
 								priority
 								fetchPriority='high'
 								sizes='(max-width: 768px) 100vw, 45vw'
-								quality={72}
+								/* SEO2609-01 (14.09.2026): eventy miały `unoptimized` (2eca411),
+                   więc telefon dostawał oryginalny JPEG 568 KiB, LCP 5,7 s.
+                   Zdjęcie grupowe z drobnymi twarzami traci przy q=72, dlatego
+                   eventy dostają 85 zamiast wyłączania optymalizacji. */
+								quality={service.slug === 'eventy-reportaze' ? 85 : 72}
 								placeholder='blur'
 								blurDataURL='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iI0YxRjVGOSIvPjwvc3ZnPg=='
 							/>

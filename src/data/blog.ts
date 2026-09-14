@@ -703,7 +703,7 @@ export const blogPosts: BlogPost[] = [
 		seo: {
 			title: 'Fotografia produktowa dla e-commerce | Szabunia',
 			description:
-				'Jak zdjęcia produktowe wpływają na sprzedaż w e-commerce: packshot vs lifestyle, spójność katalogu, kadr dopasowany do telefonu i mniej zwrotów. Praktyczny przewodnik.',
+				'Jak zdjęcia produktowe wpływają na sprzedaż w e-commerce: packshot vs lifestyle, spójność katalogu, kadr dopasowany do telefonu i mniej zwrotów.',
 		},
 	},
 	{
@@ -1933,7 +1933,7 @@ export const blogPosts: BlogPost[] = [
 		seo: {
 			title: 'Ile kosztuje film promocyjny dla firmy | Szabunia',
 			description:
-				'Ile kosztuje film promocyjny i od czego zależy cena: praca operatora i montaż (teaser, rolka, podsumowanie wydarzenia, film promocyjny). Wycena w ciągu 24 godzin, Poznań.',
+				'Ile kosztuje film promocyjny i od czego zależy cena: praca operatora i montaż (teaser, rolka, film z wydarzenia). Wycena w ciągu 24 godzin, Poznań.',
 		},
 	},
 ];
@@ -1994,14 +1994,29 @@ export function getServiceSlugForPost(slug: string): string | undefined {
 	return blogServiceMap[slug];
 }
 
-/** Powiązane wpisy: najpierw ta sama usługa, potem ta sama kategoria, potem reszta. */
+/** Powiązane wpisy: najpierw ta sama usługa, potem ta sama kategoria, potem reszta.
+ *
+ *  SEO2609-04 (14.09.2026): wpisy tej samej usługi idą ROTACYJNIE, kolejnymi
+ *  po bieżącym w porządku dat (z zawinięciem), a nie trzema pierwszymi z tablicy.
+ *  Wcześniej trzy najstarsze wpisy danej usługi zbierały wszystkie sloty,
+ *  a sześć wpisów (m.in. dwa eventowe) miało 1–2 linki przychodzące.
+ *  Przy rotacji każdy wpis usługi dostaje link z `limit` innych wpisów. */
 export function getRelatedPosts(slug: string, limit = 3): BlogPost[] {
 	const svc = blogServiceMap[slug];
 	const current = getBlogPostBySlug(slug);
 	const pool = blogPosts.filter((p) => p.slug !== slug);
-	const sameService = pool.filter(
-		(p) => !!svc && blogServiceMap[p.slug] === svc,
-	);
+	const serviceGroup = svc
+		? blogPosts
+				.filter((p) => blogServiceMap[p.slug] === svc)
+				.sort((a, b) => a.date.localeCompare(b.date) || a.slug.localeCompare(b.slug))
+		: [];
+	const at = serviceGroup.findIndex((p) => p.slug === slug);
+	const sameService =
+		at === -1
+			? []
+			: serviceGroup
+					.slice(at + 1)
+					.concat(serviceGroup.slice(0, at));
 	const sameCategory = pool.filter(
 		(p) =>
 			!!current && p.category === current.category && !sameService.includes(p),

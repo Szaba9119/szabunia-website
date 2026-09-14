@@ -90,6 +90,8 @@ export default async function PortfolioPage({ params }: PageProps) {
 					uploadDate: category.video.uploadDate,
 					duration: category.video.duration,
 					publisher: {
+						// SEO2609-11: ta sama encja co #person w layout.tsx, nie luźny węzeł.
+						'@id': 'https://szabunia.pl/#person',
 						'@type': 'Person',
 						name: 'Marcin Szabunia',
 						url: 'https://szabunia.pl',
