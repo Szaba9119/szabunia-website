@@ -220,9 +220,6 @@ export default function ServiceHero({ service, crumbs }: Props) {
 									className='inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-6 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]'
 								>
 									Zapytaj o ofertę
-									<span className='text-white/80' aria-hidden='true'>
-										→
-									</span>
 								</a>
 								{/* Telefon zdjety z hero 20.09.2026, tak samo jak na stronie
 								    glownej — patrz komentarz w `Hero.tsx`. Zdarzenie

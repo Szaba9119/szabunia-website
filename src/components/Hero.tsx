@@ -96,7 +96,7 @@ export default function Hero() {
                   wchodzace ze strony glownej, bo uzytkownik juz tam nie trafia. */}
               <a href='#kontakt' data-cta='wycena_home_hero'
                 className='inline-flex items-center gap-2 bg-blue text-white px-5 py-4 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]'>
-                Zapytaj o ofertę <span aria-hidden='true'>→</span>
+                Zapytaj o ofertę
               </a>
             </div>
             <p className='mt-4 text-[13px] text-steel dark:text-dark-text-muted'>Wstępną wycenę otrzymasz w ciągu 24 godzin.</p>
