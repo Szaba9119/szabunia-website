@@ -76,6 +76,8 @@ export default function MobileFAB() {
 		if (el) {
 			e.preventDefault();
 			el.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+			// Fokus na sekcje, nie na pole formularza — patrz komentarz w `CTA.tsx`.
+			el.focus({ preventScroll: true });
 		}
 	};
 

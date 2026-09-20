@@ -79,10 +79,18 @@ export default function Hero() {
           </div>
           <div className='md:col-start-1 md:row-start-2 text-center md:text-left'>
             <div className='mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 justify-center md:justify-start'>
-              <Link href='/kontakt' data-cta='wycena_home_hero'
+              {/* Kotwica, nie `next/link`: `Hero` renderuje sie wylacznie na stronie
+                  glownej, gdzie sekcja `#kontakt` stoi trzy sekcje nizej. Przeladowanie
+                  na `/kontakt` po to, zeby pokazac ten sam formularz, bylo zbedne, a przy
+                  okazji ten sam napis w pasku nawigacji zachowywal sie inaczej niz tutaj.
+                  Ujednolicenie 20.09.2026, decyzja Marcina. `data-cta` BEZ ZMIAN — po tych
+                  nazwach chodzi pomiar konwersji i sumowanie ich to grupa zdarzen w GA4.
+                  ⚠ Efekt uboczny do odnotowania w pomiarze: `/kontakt` traci odslony
+                  wchodzace ze strony glownej, bo uzytkownik juz tam nie trafia. */}
+              <a href='#kontakt' data-cta='wycena_home_hero'
                 className='inline-flex items-center gap-2 bg-blue text-white px-5 py-4 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]'>
                 Zapytaj o ofertę <span aria-hidden='true'>→</span>
-              </Link>
+              </a>
               <a href='tel:+48514900688' data-cta='tel_hero'
                 className='inline-flex items-center gap-2 min-h-11 font-barlow font-semibold text-[15px] text-navy dark:text-white hover:text-blue dark:hover:text-blue-light transition-colors'>
                 514 900 688

@@ -134,6 +134,11 @@ export default function Navigation() {
 			// strony z powrotem na górę. Sprawdzone pomiarem, nie założone.
 			if (fromMobileMenu) closeMobileMenu();
 			el.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+			// Fokus idzie na SEKCJE, nie na pierwsze pole formularza: focus() na
+			// input otwiera klawiature ekranowa i zjada pol ekranu telefonu, zanim
+			// uzytkownik zdazy zobaczyc, gdzie trafil. `preventScroll` zostawia
+			// plynne przewijanie powyzej nietkniete.
+			el.focus({ preventScroll: true });
 		},
 		[closeMobileMenu],
 	);

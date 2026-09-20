@@ -284,7 +284,25 @@ export default function GalleryView({
            proporcje, ale kolumny rozjeżdżały się wysokością i każdy rząd miał inną
            linię zakończenia. Kadr źródłowy pozostaje dostępny w lightboxie. */
 				<div className='grid grid-cols-1 sm:grid-cols-3 gap-3'>
-					{images.map((img, i) => (
+					{images.map((img, i) => {
+						// KADROWANIE, NIE SAMA SZEROKOSC KAFLA. `object-cover` skaluje zdjecie
+						// tak, zeby WYPELNILO kafel, i przycina nadmiar. Kadr szerszy od kafla
+						// jest wiec renderowany szerzej niz kafel, a piksele potrzebne poziomo to
+						// `szerokosc kafla * (proporcje kadru / proporcje kafla)`. Sama szerokosc
+						// kafla zaniza rozdzielczosc: zmierzone 19% dla kwadratowego packshotu
+						// w kaflu 4/5 i 7% dla kadru 3:2 w kaflu 4/3 (pomiar 1920 px, 20.09.2026).
+						// Ten sam wzorzec co `tileSizes` w `Hero.tsx`, tylko liczony per zdjecie:
+						// `SizedImage` niesie `width` i `height`, wiec stala kategorialna bylaby
+						// najszerszym kadrem narzuconym calej kategorii. Kadr zgodny z kaflem ma
+						// wtedy mnoznik 1 i nie doplaca za sasiadow.
+						const tileAR =
+							activeCat?.key === 'portrety' || activeCat?.key === 'zespolowe'
+								? 3 / 4
+								: activeCat?.uniformTiles
+									? 4 / 5
+									: 4 / 3;
+						const coverBoost = Math.max(1, img.width / img.height / tileAR);
+						return (
 						<button
 							key={img.src}
 							type='button'
@@ -310,11 +328,17 @@ export default function GalleryView({
 								priority={i < 3}
 								loading={i < 3 ? undefined : 'lazy'}
 								fetchPriority={i === 0 ? 'high' : undefined}
-								sizes='(max-width: 640px) 100vw, 33vw'
+								// Kafel ma 365 px (kontener `max-w-6xl` Z paddingiem w tym samym
+								// elemencie: 1152 - 32 = 1120, minus dwie przerwy 12 px, na trzy),
+								// przemnozone przez `coverBoost` z kadrowania. Samo `33vw` bylo
+								// przypadkowo blisko celu na szerokim ekranie, ale zanizalo posrodku
+								// zakresu: przy 1000 px deklarowalo 330 px przy potrzebnych 387 px.
+								sizes={`(max-width: 639px) calc((100vw - 32px) * ${coverBoost.toFixed(3)}), (min-width: 1152px) ${Math.ceil(365 * coverBoost)}px, calc((100vw - 56px) / 3 * ${coverBoost.toFixed(3)})`}
 								className='object-cover transition-opacity group-hover:opacity-90'
 							/>
 						</button>
-					))}
+						);
+					})}
 				</div>
 			)}
 

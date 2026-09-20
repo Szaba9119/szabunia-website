@@ -93,7 +93,7 @@ export default function PoradnikForm() {
           </svg>
         </div>
         <p className="text-navy dark:text-white font-barlow font-bold text-lg mb-1">
-          Gotowe, pobieranie ruszyło!
+          Gotowe, pobieranie ruszyło.
         </p>
         <p className="text-steel dark:text-dark-text-muted text-sm mb-5">
           {guideSent ? (
@@ -191,7 +191,7 @@ export default function PoradnikForm() {
         <TurnstileWidget
           ref={turnstileRef}
           onVerify={setTurnstileToken}
-          onBlocked={() => setTurnstileBlocked(true)}
+          onBlocked={setTurnstileBlocked}
         />
 
         {error && (
@@ -203,7 +203,7 @@ export default function PoradnikForm() {
         {TURNSTILE_ENABLED && !turnstileToken && !sending && (
           turnstileBlocked ? (
             <p role="alert" className="text-center text-[12px] text-red-600 dark:text-red-400 mb-3">
-              Zabezpieczenie antybotowe nie załadowało się (możliwa blokada przez AdBlock lub rozszerzenie przeglądarki). Napisz na:{" "}
+              Nie udało się potwierdzić zabezpieczenia formularza. Możliwa blokada przez AdBlock lub rozszerzenie przeglądarki. Napisz na:{" "}
               <a href="mailto:marcin@szabunia.pl" className="underline">marcin@szabunia.pl</a>
             </p>
           ) : (

@@ -92,7 +92,17 @@ export default function PortfolioGallery({ images, title, subtitle, aspect = "la
                   alt={img.alt}
                   fill
                   className={`object-cover ${objectPosition} transition-transform duration-500 group-hover:scale-105`}
-                  sizes="(max-width: 768px) 50vw, 33vw"
+                  // Kontener `max-w-5xl` (1024 px) bez wlasnego paddingu, padding na
+                  // sekcji. Kafel: 2 kolumny do 767 px, 3 od 768 px, docelowo 333 px.
+                  // Poprzedni zapis lapal 768 px do galezi dwukolumnowej (md = 768).
+                  // ⚠ ZALOZENIE: zaden kadr nie jest SZERSZY od kafla, wiec `object-cover`
+                  // przycina w pionie i szerokosc kafla wystarcza. Sprawdzone 20.09.2026 na
+                  // wszystkich galeriach: kadry 0,67-1,0 w kaflu 1,33 i 0,67-0,8 w kaflu 0,75.
+                  // `GalleryImage` NIE niesie wymiarow, wiec nie da sie tego policzyc jak w
+                  // `GalleryView`. Dodanie do galerii panoramy albo kadru poziomego do galerii
+                  // `galleryAspect: "portrait"` wymaga mnoznika kadrowania, inaczej zdjecie
+                  // zmieknie. Wtedy: dopisac `width`/`height` do `GalleryImage`.
+                  sizes="(max-width: 767px) calc((100vw - 44px) / 2), (min-width: 1056px) 333px, calc((100vw - 56px) / 3)"
                   quality={85}
                   placeholder="blur"
                   blurDataURL={blurPlaceholder}

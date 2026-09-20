@@ -126,8 +126,10 @@ export default function Services() {
 							</span>
 							.
 						</p>
+						{/* `#kontakt`, nie `/kontakt` — formularz jest na tej samej stronie.
+						    Patrz komentarz w `Hero.tsx`. */}
 						<a
-							href='/kontakt'
+							href='#kontakt'
 							data-cta='wycena_home_uslugi'
 							className='mt-6 inline-flex items-center gap-2 bg-gradient-to-br from-blue to-blue text-white px-7 py-3.5 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]'
 						>

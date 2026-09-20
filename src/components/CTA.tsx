@@ -196,7 +196,15 @@ export default function CTA({
 	};
 
 	return (
-		<section id='kontakt' className='py-8 md:py-12 px-4'>
+		// `tabIndex={-1}` NIE dodaje sekcji do kolejnosci Tab, tylko pozwala
+		// przeniesc na nia fokus z kodu. Potrzebne paskowi nawigacji i wyspie
+		// mobilnej, ktore przewijaja przez JS i inaczej zostawialyby fokus na
+		// przycisku w pasku: uzytkownik klawiatury widzialby kontakt, a kolejny
+		// Tab prowadzilby go z powrotem w gore dokumentu. Kotwice `href="#kontakt"`
+		// robia to samo natywnie, wiec bez tego oba mechanizmy roznilyby sie
+		// zachowaniem. Fokus programowy nie zapala `:focus-visible`, wiec obwodka
+		// sie nie pojawia.
+		<section id='kontakt' tabIndex={-1} className='py-8 md:py-12 px-4'>
 			<div className='max-w-6xl mx-auto'>
 				<AnimatedSection>
 					<div className='relative rounded-[20px] overflow-hidden bg-white border border-border dark:bg-dark-card dark:border-dark-border px-6 py-12 md:px-10 md:py-16'>
@@ -462,7 +470,7 @@ export default function CTA({
 											</svg>
 										</div>
 										<p className='text-navy dark:text-white font-barlow font-bold text-lg mb-1'>
-											Wiadomość wysłana!
+											Wiadomość wysłana.
 										</p>
 										<p className='text-steel dark:text-dark-text-muted text-sm mb-6'>
 											Dziękuję za kontakt. Wstępną wycenę odeślę w ciągu 24 godzin.
@@ -778,7 +786,7 @@ export default function CTA({
 										<TurnstileWidget
 											ref={turnstileRef}
 											onVerify={setTurnstileToken}
-											onBlocked={() => setTurnstileBlocked(true)}
+											onBlocked={setTurnstileBlocked}
 										/>
 
 										{error && (
@@ -798,9 +806,9 @@ export default function CTA({
 													role='alert'
 													className='text-center text-[12px] text-red-600 dark:text-red-400 mb-3'
 												>
-													Zabezpieczenie antybotowe nie załadowało się (możliwa
-													blokada przez AdBlock lub rozszerzenie przeglądarki).
-													Napisz bezpośrednio:{' '}
+													Nie udało się potwierdzić zabezpieczenia formularza.
+													Możliwa blokada przez AdBlock lub rozszerzenie
+													przeglądarki. Napisz bezpośrednio:{' '}
 													<a
 														href='mailto:marcin@szabunia.pl'
 														className='underline'

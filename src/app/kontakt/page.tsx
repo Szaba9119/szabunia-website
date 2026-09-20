@@ -150,6 +150,21 @@ export default function KontaktPage() {
 							</a>
 						</div>
 					</AnimatedSection>
+				</div>
+
+				{/* FORMULARZ ZARAZ POD SZYBKIMI AKCJAMI (20.09.2026, decyzja Marcina).
+				    Wczesniej zaczynal sie ~3125 px od gory dokumentu na telefonie: nad nim
+				    staly trzy karty informacyjne, blok „Nie wiesz, czego potrzebujesz?"
+				    i „Jak powstaje wycena". Telefon i e-mail zostaja NAD formularzem, bo
+				    komentarz przy szybkich akcjach wskazuje, ze priorytet telefonu wynika
+				    z GA4 (phone_click czesciej niz rozpoczecie formularza).
+
+				    CTA ma wlasny kontener `max-w-6xl` i `px-4`, wiec stoi POZA kontenerem
+				    strony — inaczej dostaloby podwojny padding i bylo wezsze niz na
+				    pozostalych stronach. */}
+				<ErrorBoundary><CTA /></ErrorBoundary>
+
+				<div className='max-w-6xl mx-auto mt-12'>
 
 					{/* Info cards */}
 					<AnimatedSection>
@@ -221,19 +236,19 @@ export default function KontaktPage() {
 					</AnimatedSection>
 				</div>
 
-				{/* Blok „Jak powstaje wycena" (14.08.2026, depricing) TUŻ NAD formularzem.
-            Tu stoi w pełnej formie, z listą czynników: `/kontakt` nie ma FAQ
-            cenowego, więc nic tej listy nie dubluje, a klient czyta, od czego
-            zależy cena, chwilę przed tym, jak opisze własne zlecenie. */}
+				{/* Blok „Jak powstaje wycena" (14.08.2026, depricing). Stoi w pełnej formie,
+            z listą czynników: `/kontakt` nie ma FAQ cenowego, więc nic tej listy
+            nie dubluje.
+
+            ⚠ ZAPIS „TUŻ NAD FORMULARZEM" WYCOFANY 20.09.2026 (decyzja Marcina).
+            Uzasadnieniem było, żeby klient czytał, od czego zależy cena, chwilę
+            przed opisaniem zlecenia. Przegrało to z drogą do formularza na telefonie:
+            formularz zaczynał się ~3125 px od góry dokumentu. Blok stoi teraz POD
+            formularzem i czyta go ten, kto szuka kontekstu, a nie każdy, kto chce
+            napisać. */}
 				<div className='max-w-3xl mx-auto px-4 mt-12'>
 					<ErrorBoundary>
 						<PricingExplainer />
-					</ErrorBoundary>
-				</div>
-
-				<div className='mt-12'>
-					<ErrorBoundary>
-						<CTA />
 					</ErrorBoundary>
 				</div>
 				<div id='warunki'><ErrorBoundary><Warunki /></ErrorBoundary></div>
