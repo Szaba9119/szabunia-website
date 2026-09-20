@@ -78,6 +78,13 @@ export default function Hero() {
             </p>
           </div>
           <div className='md:col-start-1 md:row-start-2 text-center md:text-left'>
+            {/* TELEFON ZDJETY Z HERO 20.09.2026 (decyzja Marcina). Numer zostaje
+                w gornym pasku (`Navigation.tsx`), w sekcji kontaktowej, w stopce
+                i w wyspie mobilnej — z hero znika, zeby przy „Zapytaj o oferte"
+                stala jedna droga, nie dwie.
+                ⚠ Zdarzenie `tel_hero` przestaje wystepowac. Klikniecia w telefon
+                licza sie dalej pod pozostalymi nazwami, ale szereg czasowy
+                `tel_hero` urywa sie na tej dacie. */}
             <div className='mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 justify-center md:justify-start'>
               {/* Kotwica, nie `next/link`: `Hero` renderuje sie wylacznie na stronie
                   glownej, gdzie sekcja `#kontakt` stoi trzy sekcje nizej. Przeladowanie
@@ -90,10 +97,6 @@ export default function Hero() {
               <a href='#kontakt' data-cta='wycena_home_hero'
                 className='inline-flex items-center gap-2 bg-blue text-white px-5 py-4 rounded-xl font-barlow font-bold text-[15px] btn-glow transition-transform hover:scale-[1.02]'>
                 Zapytaj o ofertę <span aria-hidden='true'>→</span>
-              </a>
-              <a href='tel:+48514900688' data-cta='tel_hero'
-                className='inline-flex items-center gap-2 min-h-11 font-barlow font-semibold text-[15px] text-navy dark:text-white hover:text-blue dark:hover:text-blue-light transition-colors'>
-                514 900 688
               </a>
             </div>
             <p className='mt-4 text-[13px] text-steel dark:text-dark-text-muted'>Wstępną wycenę otrzymasz w ciągu 24 godzin.</p>
