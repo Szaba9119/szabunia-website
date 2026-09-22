@@ -74,10 +74,17 @@ import { TRUST_STATS } from "./TrustStats";
 // kwietniowego wydania Big Furniture Group Magazine (…). Jedno z nich znalazło się
 // na okładce". Ta sekcja nie renderuje się na podstronie usługi, więc to nie duplikat.
 // Targi meblowe to wydarzenie, stąd ta usługa, a nie produktowa.
-const SPECYFIKA: Record<string, string> = {
-  "eventy-reportaze":
-    "Kadry, które zrobiłem dla Grupy Forte S.A. na targach meblowych w Poznaniu, trafiły do brytyjskiego Big Furniture Group Magazine, jeden z nich na okładkę.",
-};
+// ⛔ PUSTE OD 22.09.2026 i to jest stan docelowy, nie luka.
+//
+// Stało tu zdanie o Forte i Big Furniture Group Magazine na podstronie eventowej.
+// Ten sam dowód wszedł tego dnia do paska `LogoBar` jako `proof.highlight`, czyli
+// dokładnie tam, gdzie jest jego miejsce: przy nazwach marek, wysoko na stronie.
+// Zostawienie go w obu miejscach dawało ten sam fakt dwa razy na jednej podstronie.
+//
+// Sekcja autora zostaje ogólna na wszystkich czterech usługach i odpowiada na
+// pytanie „komu powierzam realizację", nie „dla jakich firm pracował". Marki mają
+// własną powierzchnię. Nie dopisywać tu nazw klientów.
+const SPECYFIKA: Record<string, string> = {};
 
 export default function ServiceAuthor({ service }: { service?: string }) {
   const specyfika = service ? SPECYFIKA[service] : undefined;

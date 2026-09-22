@@ -206,6 +206,24 @@ export interface ServiceData {
         żeby nie konkurował z głównym CTA na tej samej podstronie. */
 		secondaryLink?: { label: string; href: string };
 	};
+	/** Dowód społeczny dopasowany do usługi (22.09.2026). Do tej pory `LogoBar`
+      pokazywał tę samą listę dziewięciu marek na wszystkich czterech podstronach,
+      a inwentaryzacja archiwum (`01_Biznes/_System/04_Sprzedaz/indeks_marek_archiwum.md`)
+      pokazała, że dziesięć z jedenastu marek referencyjnych to realizacje eventowe
+      i targowe. Na wizerunku, obiektach i produktowej ta lista dowodziła więc
+      czegoś innego, niż sprzedaje podstrona.
+
+      ⛔ NAZWY, NIE LOGOTYPY. Nie dodawać plików graficznych do tego bloku.
+      ⛔ Wyłącznie marki oznaczone GREEN w indeksie. H&M, Santander, John Deere
+      i Boehringer mają nierozstrzygnięte prawa (`docs/zasady-tekstow.md:22-28`),
+      Volvo, Primark i Ostrovit to materiał poboczny, kluby są doświadczeniem,
+      nie dowodem B2B pierwszego poziomu. */
+	proof?: {
+		brands: string[];
+		/** Jedno zdanie konkretu pod listą. Tylko tam, gdzie istnieje dowód
+        zewnętrzny albo realizacja łącząca kilka kompetencji. */
+		highlight?: { text: string; href?: string; linkLabel?: string };
+	};
 	/** YouTube ID przykładowego filmu pokazywanego na podstronie usługi. */
 	videoId?: string;
 	videoTitle?: string;
@@ -520,6 +538,23 @@ const serviceCategoriesRaw: ServiceData[] = [
 		heroImageAspect: 'aspect-[3/2]',
 		heroPriceLabel: 'Wstępna wycena',
 		price: 'wycena w 24h',
+		proof: {
+			brands: [
+				'Grupa Forte',
+				'Woohoo',
+				'Warner Music',
+				'Amica',
+				'Posnania',
+				'Creative Events',
+				'Go on Board',
+			],
+			// Brzmienie przepisane z `Publications.tsx`, nie z pamięci. Link ten sam.
+			highlight: {
+				text: 'Kadry wykonane dla Grupy Forte S.A. na targach meblowych w Poznaniu trafiły do kwietniowego wydania Big Furniture Group Magazine, brytyjskiego pisma branży meblarskiej. Jedno z nich znalazło się na okładce.',
+				href: 'https://bigfurnituregroup.com/big-furniture-group-magazine-april-2026-now-live/',
+				linkLabel: 'Zobacz wydanie',
+			},
+		},
 		process: [
 			// PROCES PRZEPISANY 14.09.2026. Krok 3 brzmiał „Zdjęcia na bieżąco: opcja
 			// dodatkowa", czyli etap, który w podstawowym zakresie w ogóle nie zachodzi.
@@ -905,6 +940,16 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// już danych strukturalnych.
 		heroPriceLabel: 'Wstępna wycena',
 		price: 'wycena w 24h',
+		proof: {
+			brands: [
+				'BeThink',
+				'Poznańskie Nieruchomości',
+				'IDcom',
+				'Apptension',
+				'We Do / Weranda',
+				'Vector Synergy',
+			],
+		},
 		process: [
 			// Proces przepisany 10.08.2026 pod scaloną usługę. Poprzedni opisywał
 			// wyłącznie sesję JEDNEJ osoby (konsultacja, poseboard), a od scalenia
@@ -1216,6 +1261,16 @@ const serviceCategoriesRaw: ServiceData[] = [
 		heroImage: '/images/galeria/produktowe/produkt-13-toast-belvedere.jpg',
 		heroPriceLabel: 'Wstępna wycena',
 		price: 'wycena w 24h',
+		proof: {
+			brands: [
+				'Wiśniewski',
+				'Too Matcha',
+				'Artech Group',
+				'Box17 / Quiet Office',
+				'Yes Butcher!',
+				'Pizzeria Siciliana',
+			],
+		},
 		// ⛔ NIE DOPISYWAĆ TU KROKU O DOSTARCZENIU PRODUKTÓW. Próbowałem 22.09.2026
 		// i wycofałem tego samego dnia. Fakt „produkty do 20×20 cm przyślij kurierem,
 		// przy większych przyjeżdżam ze studiem mobilnym" stoi w „Zakresie realizacji"
@@ -1480,6 +1535,21 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// `pricingBlurb` i blok „Jak powstaje wycena", więc nie ginie razem z kwotą.
 		heroPriceLabel: 'Wstępna wycena',
 		price: 'wycena w 24h',
+		proof: {
+			brands: [
+				'Synteza',
+				'Poznańskie Nieruchomości',
+				'Artech Group',
+				'Yes Butcher!',
+				'LOLA',
+			],
+			// Cztery projekty, nie jeden, więc bez „w jednej realizacji".
+			// Zakres z indeksu archiwum: `Budynki`, `Grupowe`, `Targi MTP`, katalog
+			// `Wideo` z materiałem DJI.
+			highlight: {
+				text: 'W ramach współpracy z Syntezą fotografowałem budynki, zespół i targi oraz realizowałem materiał z drona.',
+			},
+		},
 		process: [
 			{
 				num: 1,

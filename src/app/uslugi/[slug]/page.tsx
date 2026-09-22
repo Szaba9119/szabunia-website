@@ -186,7 +186,7 @@ export default async function ServicePage({ params }: PageProps) {
             /uslugi/eventy-reportaze. Teraz dowód marki jest w drugim ekranie
             na każdej podstronie, tak jak na desktopowej stronie głównej. */}
 				<ErrorBoundary>
-					<LogoBar />
+					<LogoBar proof={service.proof} />
 				</ErrorBoundary>
 				{/* KOLEJNOŚĆ SEKCJI ustalona 10.08.2026 (pakiet 4, decyzja Marcina po
             przedstawieniu argumentu), doprecyzowana tego samego dnia o pozycję
