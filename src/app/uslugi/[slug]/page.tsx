@@ -302,20 +302,27 @@ export default async function ServicePage({ params }: PageProps) {
 				{service.galleryCategory && (
 					<ErrorBoundary>
 						<section className='px-4 pb-10 md:pb-14'>
-							<p className='max-w-2xl mx-auto text-center text-[15px] leading-relaxed text-steel dark:text-dark-text-muted'>
-								W galerii wyżej jest wybór kadrów. Napisz, co planujesz,
-								a wyślę więcej zdjęć z podobnych realizacji.
-							</p>
-							<p className='mt-4 text-center'>
+							{/* Separator zamiast ramki: blok ma domykać oglądanie, nie
+							    zaczynać nowej sekcji. Zdanie „W galerii wyżej jest wybór
+							    kadrów" zdjęte 22.09.2026 — tłumaczyło użytkownikowi to,
+							    co właśnie zobaczył. */}
+							<div className='max-w-2xl mx-auto border-t border-border dark:border-dark-border pt-8 text-center'>
+								<p className='font-barlow font-bold text-[17px] md:text-lg text-navy dark:text-white'>
+									Chcesz zobaczyć więcej podobnych realizacji?
+								</p>
+								<p className='mt-2 text-[15px] leading-relaxed text-steel dark:text-dark-text-muted'>
+									Napisz, co planujesz, a pokażę Ci więcej materiału
+									z projektów o podobnym zakresie.
+								</p>
 								<a
 									href='#kontakt'
 									data-cta='wycena_uslugi_galeria'
-									className='inline-flex min-h-11 items-center gap-2 text-[14px] font-barlow font-semibold text-blue dark:text-blue-light hover:underline'
+									className='mt-3 inline-flex min-h-11 items-center gap-2 text-[14px] font-barlow font-semibold text-blue dark:text-blue-light hover:underline'
 								>
-									Napisz, czego potrzebujesz
+									Zapytaj o realizację
 									<span aria-hidden='true'>→</span>
 								</a>
-							</p>
+							</div>
 						</section>
 					</ErrorBoundary>
 				)}

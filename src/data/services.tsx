@@ -222,7 +222,13 @@ export interface ServiceData {
 		brands: string[];
 		/** Jedno zdanie konkretu pod listą. Tylko tam, gdzie istnieje dowód
         zewnętrzny albo realizacja łącząca kilka kompetencji. */
-		highlight?: { text: string; href?: string; linkLabel?: string };
+		highlight?: {
+			eyebrow: string;
+			title: string;
+			text: string;
+			href?: string;
+			linkLabel?: string;
+		};
 	};
 	/** YouTube ID przykładowego filmu pokazywanego na podstronie usługi. */
 	videoId?: string;
@@ -548,9 +554,12 @@ const serviceCategoriesRaw: ServiceData[] = [
 				'Creative Events',
 				'Go on Board',
 			],
-			// Brzmienie przepisane z `Publications.tsx`, nie z pamięci. Link ten sam.
+			// Skrócone 22.09.2026: pełne brzmienie z `Publications.tsx` miało pięć
+			// wierszy i wisiało jako ściana tekstu obok listy marek.
 			highlight: {
-				text: 'Kadry wykonane dla Grupy Forte S.A. na targach meblowych w Poznaniu trafiły do kwietniowego wydania Big Furniture Group Magazine, brytyjskiego pisma branży meblarskiej. Jedno z nich znalazło się na okładce.',
+				eyebrow: 'Publikacja',
+				title: 'Grupa Forte × Big Furniture Group Magazine',
+				text: 'Zdjęcia wykonane podczas targów Meble Polska trafiły do brytyjskiego Big Furniture Group Magazine. Jeden z kadrów znalazł się na okładce.',
 				href: 'https://bigfurnituregroup.com/big-furniture-group-magazine-april-2026-now-live/',
 				linkLabel: 'Zobacz wydanie',
 			},
@@ -1543,11 +1552,18 @@ const serviceCategoriesRaw: ServiceData[] = [
 				'Yes Butcher!',
 				'LOLA',
 			],
-			// Cztery projekty, nie jeden, więc bez „w jednej realizacji".
-			// Zakres z indeksu archiwum: `Budynki`, `Grupowe`, `Targi MTP`, katalog
-			// `Wideo` z materiałem DJI.
+			// Cztery osobne projekty, stąd „W ramach współpracy", nie „podczas jednej
+			// realizacji". Zakres z archiwum: `Budynki`, `Grupowe`, `Targi MTP`
+			// i katalog `Wideo` z materiałem DJI.
+			// Jubileusz 75-lecia POTWIERDZONY PRZEZ MARCINA 22.09.2026, ustnie.
+			// Archiwum go nie nazywa: nie ma folderu „jubileusz" ani „75-lecie",
+			// a trafienia na „75" w nazwach plików to numery klatek. Źródłem tego
+			// faktu jest więc Marcin, nie struktura katalogów. Gdyby kiedyś wrócił
+			// jako wątpliwość, to jest odpowiedź.
 			highlight: {
-				text: 'W ramach współpracy z Syntezą fotografowałem budynki, zespół i targi oraz realizowałem materiał z drona.',
+				eyebrow: 'Współpraca',
+				title: 'Synteza',
+				text: 'Fotografowałem budynki i zespół, targi MTP oraz jubileusz 75-lecia firmy. W zakresie był też materiał z drona.',
 			},
 		},
 		process: [

@@ -37,7 +37,7 @@ export default function LogoBar({ proof }: { proof?: ServiceData['proof'] }) {
           <div
             className={
               highlight
-                ? "border-y border-border dark:border-dark-border py-6 lg:grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:gap-12 lg:items-start"
+                ? "border-y border-border dark:border-dark-border py-7 md:py-8 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:gap-10 lg:items-start"
                 : ""
             }
           >
@@ -70,25 +70,32 @@ export default function LogoBar({ proof }: { proof?: ServiceData['proof'] }) {
             </div>
 
             {highlight && (
-              <p className="mt-5 lg:mt-0 text-[14px] leading-relaxed text-text-body dark:text-dark-text max-w-[62ch]">
-                {highlight.text}
+              /* Editorial proof, nie karta: nadtytuł, tytuł, dwa zdania, mały link.
+                 `max-w-[46ch]` trzyma wiersz w czytelnej długości i nie pozwala
+                 tekstowi rozjechać się na całą kolumnę przy 1440 px. */
+              <div className="mt-6 lg:mt-0 lg:pl-10 lg:border-l border-border dark:border-dark-border">
+                <p className="text-[10px] font-barlow font-semibold uppercase tracking-[0.18em] text-blue dark:text-blue-light mb-2">
+                  {highlight.eyebrow}
+                </p>
+                <p className="font-barlow font-bold text-[15px] md:text-base text-navy dark:text-white mb-2">
+                  {highlight.title}
+                </p>
+                <p className="text-[14px] leading-relaxed text-steel dark:text-dark-text-muted max-w-[46ch]">
+                  {highlight.text}
+                </p>
                 {highlight.href && (
-                  <>
-                    {" "}
-                    {/* Dyskretny link, nie CTA: obok stoi główne CTA podstrony. */}
-                    <a
-                      href={highlight.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex min-h-11 items-center gap-1 align-middle text-blue dark:text-blue-light font-barlow font-semibold hover:underline"
-                    >
-                      {highlight.linkLabel ?? "Zobacz"}
-                      <span aria-hidden="true">→</span>
-                      <span className="sr-only">(otwiera się w nowej karcie)</span>
-                    </a>
-                  </>
+                  <a
+                    href={highlight.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-2 inline-flex min-h-11 items-center gap-1.5 text-[13px] font-barlow font-semibold text-blue dark:text-blue-light hover:underline"
+                  >
+                    {highlight.linkLabel ?? "Zobacz"}
+                    <span aria-hidden="true">→</span>
+                    <span className="sr-only">(otwiera się w nowej karcie)</span>
+                  </a>
                 )}
-              </p>
+              </div>
             )}
           </div>
         </div>

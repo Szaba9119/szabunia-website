@@ -74,20 +74,37 @@ import { TRUST_STATS } from "./TrustStats";
 // kwietniowego wydania Big Furniture Group Magazine (…). Jedno z nich znalazło się
 // na okładce". Ta sekcja nie renderuje się na podstronie usługi, więc to nie duplikat.
 // Targi meblowe to wydarzenie, stąd ta usługa, a nie produktowa.
-// ⛔ PUSTE OD 22.09.2026 i to jest stan docelowy, nie luka.
+// Bio pisane pod usługę (22.09.2026). Odpowiada na „komu powierzam realizację",
+// więc mówi o sposobie pracy, nie o zakresie i nie o klientach.
 //
-// Stało tu zdanie o Forte i Big Furniture Group Magazine na podstronie eventowej.
-// Ten sam dowód wszedł tego dnia do paska `LogoBar` jako `proof.highlight`, czyli
-// dokładnie tam, gdzie jest jego miejsce: przy nazwach marek, wysoko na stronie.
-// Zostawienie go w obu miejscach dawało ten sam fakt dwa razy na jednej podstronie.
-//
-// Sekcja autora zostaje ogólna na wszystkich czterech usługach i odpowiada na
-// pytanie „komu powierzam realizację", nie „dla jakich firm pracował". Marki mają
-// własną powierzchnię. Nie dopisywać tu nazw klientów.
-const SPECYFIKA: Record<string, string> = {};
+// ⛔ ŻADNYCH NAZW MAREK. Mają własną powierzchnię w pasku `LogoBar`. Forte stoi
+// w highlighcie eventów, Synteza w highlighcie obiektów; dopisanie ich tutaj
+// dałoby ten sam dowód dwa razy na jednej podstronie.
+// ⛔ ŻADNEGO PROCESU. Zgody, pogoda, drugi operator i terminy należą do sekcji
+// „Jak wygląda…". Nie dopisywać.
+// ⛔ Portret 2022 nie wraca: kanon biznesowy opisuje go jako dowód artystyczny,
+// a te podstrony sprzedają fotografię biznesową.
+const SPECYFIKA: Record<string, string[]> = {
+  "wizerunek-portrety": [
+    "Najczęściej przed moim aparatem stają osoby, które na co dzień wcale nie pozują. Dlatego nie zostawiam nikogo z poleceniem „stań naturalnie”: prowadzę przez ustawienie sylwetki, spojrzenie i drobne korekty.",
+    "Przy większych zespołach pilnuję spójności całej serii, żeby osoba fotografowana dziś i pracownik dofotografowany kilka miesięcy później wyglądali jak część tego samego materiału.",
+  ],
+  "eventy-reportaze": [
+    "Reportaż fotografuję od początku swojej pracy zawodowej. Przez lata pracowałem przy konferencjach, targach, koncertach, galach i integracjach, w bardzo różnych warunkach.",
+    "Na wydarzeniu chcę być blisko tego, co się dzieje, ale nie przeszkadzać uczestnikom. Pilnuję ludzi, emocji, detali i sceny, a także momentów pomiędzy oficjalnymi punktami programu, bo z nich często powstaje najlepsza relacja.",
+  ],
+  "nieruchomosci-przemysl": [
+    "Fotografując obiekt, nie szukam tylko szerokiego kadru budynku. Pokazuję jego skalę, funkcję, wnętrza, detale i otoczenie.",
+    "Pracowałem w halach i zakładach produkcyjnych, biurach, lokalach gastronomicznych, hotelach i innych przestrzeniach komercyjnych. Jeśli realizacja tego wymaga, łączę materiał z ziemi z ujęciami z drona.",
+  ],
+  "fotografia-produktowa": [
+    "Fotografia produktowa to dla mnie przede wszystkim powtarzalność. Kolejne produkty z tej samej serii mają mieć to samo światło, kolor, perspektywę i sposób retuszu.",
+    "Realizuję packshoty, materiały do e-commerce, produkty w aranżacji oraz fotografię jedzenia i napojów. Pracowałem też przy seryjnej produkcji packshotowej, przy sprzęcie AGD, naczyniach i szkle, czyli przedmiotach odbijających i przezroczystych.",
+  ],
+};
 
 export default function ServiceAuthor({ service }: { service?: string }) {
-  const specyfika = service ? SPECYFIKA[service] : undefined;
+  const specyfika = (service && SPECYFIKA[service]) || [];
   return (
     <section className="py-10 md:py-14 px-4" aria-labelledby="o-autorze">
       <div className="max-w-5xl mx-auto">
@@ -125,7 +142,9 @@ export default function ServiceAuthor({ service }: { service?: string }) {
                   Cześć, jestem Marcin. Od 2018 roku fotografuję dla firm. Pracuję
                   z Poznania, realizuję zlecenia w całej Polsce i Europie.
                 </p>
-                {specyfika && <p>{specyfika}</p>}
+                {specyfika.map((akapit) => (
+                  <p key={akapit.slice(0, 24)}>{akapit}</p>
+                ))}
                 {/* ⛔ NIE WRACAĆ DO „Odpowiadam za plan i jakość zdjęć, filmu oraz
                     ujęć z drona. Dostajesz jeden termin, jedną fakturę i spójny
                     materiał." (zdjęte 22.09.2026, uwaga Marcina).

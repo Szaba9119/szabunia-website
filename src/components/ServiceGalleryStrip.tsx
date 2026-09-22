@@ -467,6 +467,10 @@ function Shell({
               To nigdy nie było decyzją projektową: w tym pliku są zapisane ustalenia
               o rozmiarze podtytułu (04.08) i pozycji przycisku (03.08), o wyrównaniu
               nie ma ani słowa. Jeden system dla wszystkich sekcji treści. */}
+					{/* LINK DO PEŁNEJ GALERII PRZENIESIONY DO NAGŁÓWKA 22.09.2026.
+					    Stał pod siatką jako obrysowany przycisk i razem z domknięciem
+					    kontaktowym dawał dwa wezwania jedno pod drugim. W nagłówku jest
+					    nawigacją, czyli tym, czym jest, i nie konkuruje z CTA. */}
 					<div className='mb-6 text-center'>
 						<h2 className='font-barlow font-extrabold text-2xl md:text-3xl tracking-tight text-navy dark:text-white'>
 							{label}
@@ -490,36 +494,19 @@ function Shell({
 								{sub}
 							</p>
 						)}
+						<p className='mt-3'>
+							<Link
+								href={href}
+								className='inline-flex min-h-11 items-center gap-1.5 text-[13px] font-barlow font-semibold text-blue dark:text-blue-light hover:underline'
+							>
+								{ctaLabel}
+								<span aria-hidden='true'>→</span>
+							</Link>
+						</p>
 					</div>
 				</AnimatedSection>
 				<AnimatedSection>{children}</AnimatedSection>
-				{/* Przycisk pod przykładami, a nie w nagłówku (decyzja Marcina, 03.08.2026):
-            po obejrzeniu kadrów, a nie przed. Wariant obrysowany, ten sam co
-            „Zapytaj o ofertę" w PortfolioVideoShowcase, żeby nie konkurował
-            z głównym CTA kontaktowym na tej samej podstronie. */}
 				<AnimatedSection>
-					<div className='mt-8 flex justify-center'>
-						<Link
-							href={href}
-							className='inline-flex items-center gap-2 border border-border dark:border-dark-border text-navy dark:text-white px-6 py-3 rounded-xl font-barlow font-bold text-[14px] hover:border-blue hover:text-blue dark:hover:border-blue-light dark:hover:text-blue-light transition-colors'
-						>
-							{ctaLabel}
-							<svg
-								className='w-4 h-4'
-								fill='none'
-								viewBox='0 0 24 24'
-								stroke='currentColor'
-								strokeWidth={2}
-								aria-hidden='true'
-							>
-								<path
-									strokeLinecap='round'
-									strokeLinejoin='round'
-									d='M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3'
-								/>
-							</svg>
-						</Link>
-					</div>
 					{/* Przejście na sąsiednią usługę albo do case study. Link tekstowy,
               nie drugi przycisk: obok stoi już obrysowany przycisk paska, a niżej
               na tej samej podstronie główne CTA kontaktowe. Trzeci przycisk
