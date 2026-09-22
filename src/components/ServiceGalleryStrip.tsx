@@ -149,12 +149,15 @@ const CURATED: Partial<Record<GalleryCategoryKey, string[]>> = {
 	produktowe: [
 		'produkt-33-packshot-bieli-detal', // element z tworzywa, białe tło
 		'produkt-19-pedzelek', // pędzel do makijażu, białe tło
-		'produkt-08-volvo-las', // auto w środku lasu
 		'produkt-35-danie-talerz', // danie z fasolką na białym talerzu
 		'produkt-10-bransoletka-dlon', // bransoletka na dłoni
 		'produkt-17-sukienka-zolta', // kobieta w żółtej sukience
 		'produkt-06-hob-koszulki', // koszulka na ciemnym tle
 		'produkt-01-caprice', // grejfrutowy koktajl / alkohol
+		// 22.09.2026 (decyzja Marcina): Volvo z 3. na ostatnie miejsce. Na trzeciej
+		// pozycji otwierało drugi rząd na telefonie, a początek paska ma mówić
+		// „kontrolowana fotografia produktu". Automotive zostaje jako poszerzenie zakresu.
+		'produkt-08-volvo-las', // auto w środku lasu
 	].map((n) => `/images/galeria/produktowe/${n}.jpg`),
 	// 6 różnych obiektów (bez powtórki tego samego budynku, np. Bałtyk z dwóch stron).
 	dron: [

@@ -1916,7 +1916,11 @@ const T = {
 
 export const SERVICE_TESTIMONIALS: Record<string, ServiceTestimonial> = {
 	'eventy-reportaze': T.maja,
-	'fotografia-produktowa': T.wagner,
+	// ⛔ 22.09.2026 (decyzja Marcina, WER2609-08): produktowa BEZ opinii. Cytat Wagner
+	// („Profesjonalne podejście i ładne zdjęcia") był najsłabszym dowodem na czterech
+	// landingach i stał między mocniejszymi. Zostaje w case study Artech
+	// (`portfolio.ts`), gdzie ma kontekst realizacji. Tu wraca dopiero mocniejsza
+	// opinia klienta produktowego. `T.wagner` zostaje w danych bez przypisania.
 	// Po scaleniu portretów z sesjami zespołowymi (10.08.2026) na wizerunku stoi
 	// opinia Burzyńskiej: dotyczy sesji biznesowej dla całego biura, więc pokrywa
 	// oba zakresy scalonej usługi. Cytat Fortuniak (sesje studyjne) zostaje w danych

@@ -20,8 +20,8 @@ export default function Services() {
 					    (zgoda Marcina).
 
 					    Powód: nie wnosił informacji w tym miejscu. Ten sam czwórpodział
-					    stoi już wyżej dwa razy, w `h2` hero („LUDZIE. WYDARZENIA. OBIEKTY.
-					    PRODUKTY.") i w podpisach kolażu, a dobór narzędzi do celu mówi
+					    stoi już wyżej dwa razy, w `h2` hero („WYDARZENIA. LUDZIE. OBIEKTY.
+					    PRODUKTY.", kolejność od 22.09.2026) i w podpisach kolażu, a dobór narzędzi do celu mówi
 					    zdanie pod siatką („Każdy projekt wyceniam indywidualnie…").
 
 					    Rozważone i odrzucone zamienniki: „Zdjęcia i film robię w jednym

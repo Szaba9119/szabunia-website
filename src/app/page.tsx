@@ -52,8 +52,12 @@ export default function Home() {
         <ErrorBoundary><Testimonials /></ErrorBoundary>
         <ErrorBoundary><Process /></ErrorBoundary>
         <ErrorBoundary><About /></ErrorBoundary>
-        <ErrorBoundary><PoradnikTeaser /></ErrorBoundary>
         <ErrorBoundary><FAQ /></ErrorBoundary>
+        {/* Poradnik (lead magnet portretowy) zszedł pod FAQ 22.09.2026, decyzja Marcina:
+            po przestawieniu usług na „eventy pierwsze" nie może stać przed pytaniami
+            ogólnymi, bo przechylał środek strony głównej w stronę portretów.
+            Pod nim blog, dopiero potem formularz: dwa wezwania nie stoją obok siebie. */}
+        <ErrorBoundary><PoradnikTeaser /></ErrorBoundary>
         <ErrorBoundary><BlogPreview /></ErrorBoundary>
         <ErrorBoundary><CTA /></ErrorBoundary>
       </main>

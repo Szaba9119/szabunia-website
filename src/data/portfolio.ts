@@ -856,10 +856,16 @@ export function isPortfolioDraft(slug: string): boolean {
 // Slugi spoza listy idą po niej, w kolejności z `portfolioCategories`.
 // Kafelek Artechu zostaje klatką z filmu: to osobna decyzja Marcina (ZDJ2608-03).
 // Aby cofnąć: usunąć tę stałą i `.sort(...)` niżej.
+//
+// ⚠ 22.09.2026: kolejność wyrównana do FEATURED_SLUGS (`Portfolio.tsx`). Komentarz
+// wyżej mówił „ta sama co na stronie głównej", ale od 10.08 home otwierał Woohoo,
+// a /portfolio nadal IDcom. Powód, dla którego Woohoo zeszło z pierwszego miejsca
+// 04.08 (kafelek = plansza tytułowa), zniknął 22.09 w `88ca2c1`: kafel to dziś kadr
+// z drona (`tileImage`). Przy decyzji „eventy pierwsze" obie listy zaczynają od eventu.
 const PORTFOLIO_DISPLAY_ORDER: string[] = [
+  "woohoo-autopay",
   "idcom-headshoty-zespolu",
   "yes-butcher-przewodnik-michelin",
-  "woohoo-autopay",
   "artech-fotografia-produktowa",
 ];
 

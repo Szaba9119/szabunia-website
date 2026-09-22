@@ -54,8 +54,12 @@ export default function About() {
                 <p>
                   {/* „wideo marketing" (nazwa usuniętej usługi) zdjęte 10.08.2026.
                       Słowo „profesjonalny" świadomie NIE dopisane, mimo propozycji:
-                      docs/zasady-tekstow.md:31 zakazuje go jako jedynego określenia. */}
-                  Cześć, jestem Marcin. Pod marką SZABUNIA odpowiadam za kontakt, plan i jakość realizacji. <strong>Od 2018 roku</strong> buduję wizerunek firm poprzez
+                      docs/zasady-tekstow.md:31 zakazuje go jako jedynego określenia.
+                      ⛔ 22.09.2026 (decyzja Marcina): zdanie „Pod marką SZABUNIA odpowiadam
+                      za kontakt, plan i jakość realizacji." usunięte bez zamiennika, jak
+                      w `ServiceAuthor.tsx`. Mówiło o konstrukcji marki, nie o współpracy.
+                      Nie dopisywać podobnego zdania o marce. */}
+                  Cześć, jestem Marcin. <strong>Od 2018 roku</strong> buduję wizerunek firm poprzez
                   fotografię i wideo. Pracuję z Poznania,
                   realizuję zlecenia w całej Polsce i Europie.
                 </p>

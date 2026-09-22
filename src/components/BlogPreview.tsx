@@ -7,10 +7,18 @@ import { blogPosts, byNewest } from "@/data/blog";
 
 // Na home pokazujemy wpisy z największym potencjałem kliknięć
 // (cena = intencja zakupowa, AI = ciekawość, przygotowanie = praktyczny evergreen).
+//
+// ⚠ 22.09.2026 (po decyzji „eventy pierwsze"): wpis eventowy otwiera listę, bo na
+// telefonie widać TYLKO pierwszy kafel, a wcześniej wszystkie trzy były o portretach.
+// Wypadł „Jak przygotować się do sesji biznesowej": poradnik stoi teraz tuż nad tą
+// sekcją z tym samym tematem, więc byłyby dwa „przygotuj się do sesji" pod rząd.
+// Wpis cenowy (intencja zakupowa) i AI zostają. Aby cofnąć: poprzednia lista
+// „ile-kosztuje-sesja-wizerunkowa-dla-firmy, zdjecia-ai-vs-profesjonalna-sesja,
+// jak-przygotowac-sie-do-sesji-biznesowej".
 const FEATURED_BLOG_SLUGS = [
+  "jak-wybrac-fotografa-na-event",
   "ile-kosztuje-sesja-wizerunkowa-dla-firmy",
   "zdjecia-ai-vs-profesjonalna-sesja",
-  "jak-przygotowac-sie-do-sesji-biznesowej",
 ];
 
 export default function BlogPreview() {

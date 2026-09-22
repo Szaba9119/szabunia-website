@@ -107,14 +107,10 @@ export default async function GaleriaPage({
 	// dostają kolejne warianty z listy zamiast jednego szablonu z numerem.
 	const defs = [
 		{
-			key: 'portrety',
-			label: 'Portrety',
-			folder: 'portrety',
-			alt: 'Portret biznesowy, Marcin Szabunia, Poznań',
-			// ZDJ2608-04: pięć wariantów na czternaście kadrów zniknęło. Opisy per plik
-			// są w `src/data/galleryAlts.ts` i dokładają się niżej, w kolejności plików.
-		},
-		{
+			// PIERWSZA ZAKŁADKA = WIDOK DOMYŚLNY `/galeria` (22.09.2026, decyzja Marcina).
+			// `GalleryView` i `initialActive` biorą pierwszą kategorię, gdy brak `?kat`.
+			// Wcześniej galeria otwierała się na portretach, wbrew kolejności usług
+			// (`servicePillars.ts`: eventy pierwsze). Wszystkie filtry zostają.
 			key: 'eventy',
 			label: 'Eventy',
 			folder: 'eventy',
@@ -122,6 +118,14 @@ export default async function GaleriaPage({
 			// ZDJ2608-04: pięć wariantów na piętnaście kadrów zniknęło. To one nazywały
 			// osła „fotografią konferencyjną", a DJ-a „zdjęciem z gali". Opisy per plik
 			// są w `src/data/galleryAlts.ts`.
+		},
+		{
+			key: 'portrety',
+			label: 'Portrety',
+			folder: 'portrety',
+			alt: 'Portret biznesowy, Marcin Szabunia, Poznań',
+			// ZDJ2608-04: pięć wariantów na czternaście kadrów zniknęło. Opisy per plik
+			// są w `src/data/galleryAlts.ts` i dokładają się niżej, w kolejności plików.
 		},
 		{
 			key: 'produktowe',
@@ -246,8 +250,8 @@ export default async function GaleriaPage({
 							Galeria kadrów z realizacji
 						</h1>
 						<p className='text-steel dark:text-dark-text-muted text-[15px] text-center mb-6 max-w-2xl mx-auto'>
-							Wybrane kadry z realizacji: portrety biznesowe, eventy, fotografia
-							produktowa, wideo oraz zdjęcia z drona.
+							Wybrane kadry z realizacji: eventy firmowe, portrety biznesowe,
+							fotografia produktowa, wideo oraz zdjęcia z drona.
 						</p>
 						<div className='flex justify-center mb-10'>
 							<a

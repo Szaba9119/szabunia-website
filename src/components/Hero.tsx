@@ -14,14 +14,9 @@ import { getServiceBySlug } from '@/data/services';
 //
 // Kadr eventowy zostaje `event-23-scena-gali-orkiestra` (decyzja Marcina 14.09.2026,
 // po porównaniu z wręczeniem wyróżnień i networkingiem w foyer).
+// KOLEJNOŚĆ 22.09.2026 (decyzja Marcina): wydarzenia pierwsze, jak w `servicePillars.ts`.
+// Na siatce 2x2 gala stoi w lewym górnym rogu, czyli tam, gdzie wzrok trafia najpierw.
 const heroPhotos = [
-  {
-    slug: 'wizerunek-portrety',
-    src: '/images/galeria/portrety/portret-26-kobieta-czarna-marynarka.jpg',
-    alt: 'Roześmiana kobieta w czarnej marynarce, portret biznesowy na jasnym tle',
-    ratio: 1280 / 1920,
-    className: 'object-top',
-  },
   {
     slug: 'eventy-reportaze',
     src: '/images/galeria/eventy/event-23-scena-gali-orkiestra.jpg',
@@ -30,6 +25,13 @@ const heroPhotos = [
     // Środek ekranu scenicznego (postać + napis), nie sam napis: przy 76-82%
     // postać była ucięta na lewej krawędzi i kadr wyglądał na przesunięty.
     className: 'object-[47%_50%]',
+  },
+  {
+    slug: 'wizerunek-portrety',
+    src: '/images/galeria/portrety/portret-26-kobieta-czarna-marynarka.jpg',
+    alt: 'Roześmiana kobieta w czarnej marynarce, portret biznesowy na jasnym tle',
+    ratio: 1280 / 1920,
+    className: 'object-top',
   },
   {
     slug: 'nieruchomosci-przemysl',
@@ -68,7 +70,7 @@ export default function Hero() {
               <span className='whitespace-nowrap'>Zdjęcia i film.</span>
             </h1>
             <h2 className='font-barlow font-black text-[clamp(38px,11vw,58px)] md:text-[clamp(36px,5vw,76px)] leading-[0.95] tracking-[-1.5px] md:tracking-[-2.5px] text-navy dark:text-white mb-6 md:mb-7'>
-              LUDZIE.<br />WYDARZENIA.<br />OBIEKTY.<br />PRODUKTY.
+              WYDARZENIA.<br />LUDZIE.<br />OBIEKTY.<br />PRODUKTY.
             </h2>
             <p className='font-barlow font-semibold text-base text-navy dark:text-white mb-3'>Foto · Wideo · Dron</p>
             <p className='font-inter text-[15px] md:text-base text-steel dark:text-dark-text-muted leading-relaxed max-w-md mx-auto md:mx-0'>
@@ -102,7 +104,7 @@ export default function Hero() {
             <p className='mt-4 text-[13px] text-steel dark:text-dark-text-muted'>Wstępną wycenę otrzymasz w ciągu 24 godzin.</p>
           </div>
           <div className='mt-8 md:mt-0 md:col-start-2 md:row-start-1 md:row-span-3 md:mr-[calc(-1*min(5rem,max(1rem,(100vw-72rem)/2)))]'>
-            <figure aria-label='Wybrane realizacje: ludzie, wydarzenia, obiekty i produkty'
+            <figure aria-label='Wybrane realizacje: wydarzenia, ludzie, obiekty i produkty'
               className='grid grid-cols-2 grid-rows-2 gap-1.5 md:gap-2 w-full aspect-square md:aspect-[4/5] md:max-h-[640px] md:ml-auto rounded-2xl overflow-hidden'>
               {heroPhotos.map((photo, index) => {
                 const label = getServiceBySlug(photo.slug)?.shortTitle ?? '';

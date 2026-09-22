@@ -24,9 +24,10 @@ const blurPlaceholder =
 // a nie przestawiać kolejność w tę i z powrotem.
 // Po jednej miniaturze na obszar, w kolejności usług. Pliki są już w repo
 // (galeria `/galeria`), więc wejście nie dokłada nowych zasobów.
+// Od 22.09.2026 eventy pierwsze, jak w `servicePillars.ts`.
 const GALLERY_PEEK = [
-  "/images/galeria/portrety/portret-04-kobieta-morski-kombinezon.jpg",
   "/images/galeria/eventy/event-02-networking-foyer.jpg",
+  "/images/galeria/portrety/portret-04-kobieta-morski-kombinezon.jpg",
   "/images/galeria/wnetrza/wnetrze-01-elewacja-szklana-fasada.jpg",
   "/images/galeria/produktowe/produkt-01-caprice.jpg",
 ];

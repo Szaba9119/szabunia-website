@@ -68,7 +68,9 @@ export default function PortfolioCaseStudy({ data }: { data: CaseStudyData }) {
         <AnimatedSection delay={0.3}>
           <div className="bg-navy dark:bg-dark-card rounded-2xl border border-navy-light dark:border-dark-border p-8">
             <p className="text-[11px] font-barlow font-semibold uppercase tracking-wider text-steel-light mb-4 text-center">
-              Materiały i efekty
+              {/* Było „Materiały i efekty” (do 22.09.2026, decyzja Marcina). Liczby
+                  w `results` to zakres materiału i miejsca publikacji, nie wynik biznesowy. */}
+              Zakres i wykorzystanie
             </p>
             <div className={`grid gap-6 ${
               data.results.length === 2 ? "grid-cols-2" :
