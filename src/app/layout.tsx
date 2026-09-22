@@ -156,6 +156,16 @@ gtag('js',new Date());gtag('config','G-MD8FJ0CZG3');
    pierwszej interakcji — uwalnia main thread i skraca render delay LCP na mobile.
    Consent default + config wyzej wykonuja sie od razu i kolejkuja sie w dataLayer. */
 (function(){var loaded=false;function load(){if(loaded)return;loaded=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-MD8FJ0CZG3';document.head.appendChild(s);}
+/* Ruch platny laduje gtag.js NATYCHMIAST, bez czekania na bezczynnosc ani interakcje.
+   Powod (audyt POMIAR-ADS-VS-GA4-2026-08-02): konwersje Google Ads istnieja wylacznie
+   jako import z GA4 (tagu AW- w kodzie nie ma), wiec gdy biblioteka nie zdazy sie
+   zaladowac, klikniecie w reklame nie ma jak zamienic sie w konwersje. Zmierzone:
+   GA4 rejestrowal ~26% klikniec z reklam, a z dwoch realnych lipcowych leadow
+   z gclid Ads policzyl jeden. Leniwe ladowanie zostaje dla calej reszty ruchu,
+   bo to ono chroni LCP na mobile, a ruch platny to pojedyncze wejscia dziennie.
+   Rozpoznajemy go po gclid oraz po wbraid/gbraid, ktore Google wysyla ZAMIAST
+   gclid w kontekstach z ograniczeniami prywatnosci. */
+try{if(/[?&](gclid|wbraid|gbraid)=/.test(location.search)){load();return;}}catch(e){}
 var evs=['scroll','pointerdown','keydown','touchstart','mousemove'];function onev(){evs.forEach(function(e){window.removeEventListener(e,onev);});load();}
 evs.forEach(function(e){window.addEventListener(e,onev,{once:true,passive:true});});
 if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}else{setTimeout(load,5000);}})();`,

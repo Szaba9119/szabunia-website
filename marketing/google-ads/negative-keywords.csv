@@ -1,0 +1,472 @@
+﻿negative_keyword;match_type;category;reason;date_added
+praca;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+pracy;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+prace;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+zatrudnienie;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+staz;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+staż;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+stazu;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+praktyki;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+asystent;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+asystentka;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+oferty pracy;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+zlecenia;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+zlecenie;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+zarobki;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+ile zarabia;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+jak zostać;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+jak zostac;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+kurs;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+kursu;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+kursy;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+szkolenie;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+szkolenia;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+szkoła;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+szkola;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+studia;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+warsztaty;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+warsztat;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+lekcje;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+nauka;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+akademia;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+dyplom;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+certyfikat;BROAD;praca i nauka;Intencja: szukanie pracy lub nauki zawodu, nie zakupu uslugi.;2026-09-20
+tutorial;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+poradnik;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+poradniki;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+jak zrobić;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+jak zrobic;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+jak pozować;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+jak pozowac;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+jak wybrać;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+jak wybrac;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+porady;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+instrukcja;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+krok po kroku;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+co to jest;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+definicja;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+blog;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+forum;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+wikipedia;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+youtube;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+pomysły;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+pomysly;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+inspiracje;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+inspiracja;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+pinterest;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+przykłady;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+przyklady;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+co założyć;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+co zalozyc;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+strój;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+stroj;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+ubiór;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+ubior;BROAD;poradniki i tutoriale;Intencja informacyjna, nie zakupowa.;2026-09-20
+aparat;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+aparatu;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+aparaty;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+obiektyw;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+obiektywy;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+canon;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+nikon;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+fujifilm;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+olympus;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+leica;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+gopro;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+statyw;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+lampa;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+lampy;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+softbox;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+blenda;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+flesz;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+sprzęt;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+sprzet;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+sprzetu;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+wypożyczalnia;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+wypozyczalnia;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+dji;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+mavic;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+karta pamięci;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+akcesoria;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+sklep fotograficzny;BROAD;sprzet;Intencja: zakup lub wypozyczenie sprzetu.;2026-09-20
+obiektyw makro;PHRASE;sprzet (fraza, nie slowo);RED TEAM S-05: samo 'makro'/'sportowa'/'iphone'/'samsung' blokowaloby realne zapytania produktowe (biżuteria makro, odziez sportowa, etui iphone).;2026-09-20
+fotografia sportowa;PHRASE;sprzet (fraza, nie slowo);RED TEAM S-05: samo 'makro'/'sportowa'/'iphone'/'samsung' blokowaloby realne zapytania produktowe (biżuteria makro, odziez sportowa, etui iphone).;2026-09-20
+naprawa iphone;PHRASE;sprzet (fraza, nie slowo);RED TEAM S-05: samo 'makro'/'sportowa'/'iphone'/'samsung' blokowaloby realne zapytania produktowe (biżuteria makro, odziez sportowa, etui iphone).;2026-09-20
+naprawa samsung;PHRASE;sprzet (fraza, nie slowo);RED TEAM S-05: samo 'makro'/'sportowa'/'iphone'/'samsung' blokowaloby realne zapytania produktowe (biżuteria makro, odziez sportowa, etui iphone).;2026-09-20
+wynajem sprzetu;PHRASE;sprzet (fraza, nie slowo);RED TEAM S-05: samo 'makro'/'sportowa'/'iphone'/'samsung' blokowaloby realne zapytania produktowe (biżuteria makro, odziez sportowa, etui iphone).;2026-09-20
+wynajem studia;PHRASE;sprzet (fraza, nie slowo);RED TEAM S-05: samo 'makro'/'sportowa'/'iphone'/'samsung' blokowaloby realne zapytania produktowe (biżuteria makro, odziez sportowa, etui iphone).;2026-09-20
+wynajem sali;PHRASE;sprzet (fraza, nie slowo);RED TEAM S-05: samo 'makro'/'sportowa'/'iphone'/'samsung' blokowaloby realne zapytania produktowe (biżuteria makro, odziez sportowa, etui iphone).;2026-09-20
+lightroom;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+photoshop;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+capture one;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+darktable;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+gimp;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+preset;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+presety;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+plugin;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+aplikacja;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+program;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+software;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+edytor;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+retusz online;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+obróbka online;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+obrobka online;BROAD;oprogramowanie;Intencja: obrobka wlasna, nie zlecenie.;2026-09-20
+darmowe;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+darmowy;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+darmowa;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+darmowych;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+za darmo;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+bezpłatne;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+bezplatne;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+bezpłatny;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+bezplatny;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+gratis;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+free;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+stock;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+stockowe;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+shutterstock;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+adobe stock;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+istock;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+pexels;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+unsplash;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+freepik;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+bank zdjęć;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+bank zdjec;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+zdjęcia stockowe;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+zdjecia stockowe;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+tapety;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+tapeta;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+wallpaper;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+download;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+pobierz;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+pobieranie;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+tfp;BROAD;darmowe i stock;Brak intencji zakupowej.;2026-09-20
+ai;BROAD;AI i generatory;Sprzedajemy realne realizacje, nie generowanie.;2026-09-20
+sztuczna inteligencja;BROAD;AI i generatory;Sprzedajemy realne realizacje, nie generowanie.;2026-09-20
+generator;BROAD;AI i generatory;Sprzedajemy realne realizacje, nie generowanie.;2026-09-20
+generowanie;BROAD;AI i generatory;Sprzedajemy realne realizacje, nie generowanie.;2026-09-20
+generuj;BROAD;AI i generatory;Sprzedajemy realne realizacje, nie generowanie.;2026-09-20
+midjourney;BROAD;AI i generatory;Sprzedajemy realne realizacje, nie generowanie.;2026-09-20
+chatgpt;BROAD;AI i generatory;Sprzedajemy realne realizacje, nie generowanie.;2026-09-20
+prompt;BROAD;AI i generatory;Sprzedajemy realne realizacje, nie generowanie.;2026-09-20
+wygenerowane;BROAD;AI i generatory;Sprzedajemy realne realizacje, nie generowanie.;2026-09-20
+avatar ai;BROAD;AI i generatory;Sprzedajemy realne realizacje, nie generowanie.;2026-09-20
+headshot ai;BROAD;AI i generatory;Sprzedajemy realne realizacje, nie generowanie.;2026-09-20
+wesele;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+wesela;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+weselu;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+weselny;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+weselna;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+weselne;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+ślub;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+slub;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+ślubu;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+ślubny;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+ślubna;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+ślubne;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+slubny;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+slubna;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+slubne;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+narzeczeńska;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+narzeczenska;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+chrzciny;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+chrzest;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+komunia;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+komunijne;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+ciąża;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+ciaza;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+ciążowa;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+ciazowa;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+brzuszkowa;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+noworodek;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+noworodkowa;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+niemowlę;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+niemowle;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+rodzinna;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+rodzinne;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+rodzinnej;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+dziecięca;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+dziecieca;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+dziecięce;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+dzieciece;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+dziecko;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+dzieci;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+przedszkole;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+żłobek;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+zlobek;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+studniówka;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+studniowka;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+osiemnastka;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+urodziny;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+baby shower;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+roczek;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+walentynki;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+matura;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+maturalne;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+absolwent;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+tablo;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+dla par;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+zakochani;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+randka;BROAD;B2C uroczystosci;Oferta jest B2B.;2026-09-20
+glamour;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+makijaż;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+makijaz;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+makijażem;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+wizaż;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+wizaz;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+wizazu;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+metamorfoza;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+stylizacja;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+stylistka;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+stylista;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+kobieca;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+kobiece;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+damska;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+damskie;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+dla kobiet;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+influencer;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+influencerka;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+instagram;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+aktorska;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+aktorskie;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+portfolio aktorskie;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+sesja kobieca;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+sesja damska;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+boudoir;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+buduarowa;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+sensualna;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+nude;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+akt;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+erotyczna;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+modelka;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+model;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+modeling;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+casting;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+agencja modelek;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+portfolio modelki;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+plener;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+plenerowa;BROAD;B2C wizerunkowy (glamour);RED TEAM W-05: to jest wektor, ktory zdiagnozowalem przy odrzucaniu 'sesja zdjeciowa poznan', a nie przenioslem na liste. SERP na 'sesja wizerunkowa' pokazuje reklame kierowana do kobiet.;2026-09-20
+paszport;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+paszportu;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+dowód;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+dowod;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+dowodu;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+dowodowe;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+legitymacja;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+legitymacji;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+wiza;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+wizy;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+biometryczne;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+do dokumentów;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+do dokumentow;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+fotokod;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+prawo jazdy;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+broń;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+bron;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+orzeczenie;BROAD;dokumenty;Fotografia dokumentowa to inny biznes: niska cena, klient jednorazowy.;2026-09-20
+cv;BROAD;CV i rekrutacja indywidualna;Przy 5 zl/dzien klient jednorazowy i cenowy. Uwaga: 'cena' NIE jest wykluczona.;2026-09-20
+życiorys;BROAD;CV i rekrutacja indywidualna;Przy 5 zl/dzien klient jednorazowy i cenowy. Uwaga: 'cena' NIE jest wykluczona.;2026-09-20
+zyciorys;BROAD;CV i rekrutacja indywidualna;Przy 5 zl/dzien klient jednorazowy i cenowy. Uwaga: 'cena' NIE jest wykluczona.;2026-09-20
+do cv;BROAD;CV i rekrutacja indywidualna;Przy 5 zl/dzien klient jednorazowy i cenowy. Uwaga: 'cena' NIE jest wykluczona.;2026-09-20
+zdjęcie do cv;BROAD;CV i rekrutacja indywidualna;Przy 5 zl/dzien klient jednorazowy i cenowy. Uwaga: 'cena' NIE jest wykluczona.;2026-09-20
+zdjecie do cv;BROAD;CV i rekrutacja indywidualna;Przy 5 zl/dzien klient jednorazowy i cenowy. Uwaga: 'cena' NIE jest wykluczona.;2026-09-20
+rekrutacja;BROAD;CV i rekrutacja indywidualna;Przy 5 zl/dzien klient jednorazowy i cenowy. Uwaga: 'cena' NIE jest wykluczona.;2026-09-20
+rekruter;BROAD;CV i rekrutacja indywidualna;Przy 5 zl/dzien klient jednorazowy i cenowy. Uwaga: 'cena' NIE jest wykluczona.;2026-09-20
+tani;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+tania;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+tanie;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+tanio;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+najtańszy;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+najtanszy;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+najtansze;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+promocja;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+rabat;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+okazja;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+amator;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+amatorska;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+amatorskie;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+hobby;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+hobbysta;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+początkujący;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+poczatkujacy;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+samouczek;BROAD;tanio i amatorsko;Filtr budzetowy. 'cena' i 'cennik' zostaja dozwolone, patrz strategy.md.;2026-09-20
+fotobudka;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+fotobooth;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+fotolustro;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+drukowanie;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+druk zdjęć;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+druk zdjec;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+odbitki;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+wywoływanie;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+wywolywanie;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+skanowanie;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+skan;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+renowacja;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+koloryzacja;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+oprawa;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+ramki;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+ramka;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+fotoksiążka;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+fotoksiazka;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+kalendarz;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+album;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+kubek;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+koszulka;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+gadżety;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+gadzety;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+naprawa;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+serwis;BROAD;inne uslugi fotograficzne;Uslugi, ktorych Marcin nie swiadczy.;2026-09-20
+namiot bezcieniowy;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+stół bezcieniowy;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+stol bezcieniowy;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+lightbox;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+zrobić samemu;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+zrobic samemu;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+w domu;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+diy;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+telefonem;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+oferteo;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+fixly;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+useme;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+fiverr;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+upwork;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+ranking;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+porównanie;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+porownanie;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+opinie o;PHRASE;packshot DIY i marketplace;RED TEAM S-07: zapytania DIY i sprzetowe dopasowujace sie do PHRASE 'packshot', plus nawigacyjne do marketplace'ow z uslugami.;2026-09-20
+pies;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+psa;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+kot;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+kota;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+zwierząt;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+zwierzat;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+zwierzęta;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+zwierzeta;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+koń;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+konia;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+koncert;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+koncertowa;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+przyroda;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+krajobraz;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+street;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+uliczna;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+astro;BROAD;zwierzeta i inne tematy;Poza oferta.;2026-09-20
+warszawa;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+warszawie;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+kraków;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+krakow;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+krakowie;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+wrocław;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+wroclaw;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+wroclawiu;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+gdańsk;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+gdansk;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+gdyni;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+sopot;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+łódź;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+lodz;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+lodzi;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+katowice;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+szczecin;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+lublin;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+bydgoszcz;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+toruń;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+torun;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+białystok;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+bialystok;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+rzeszów;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+rzeszow;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+olsztyn;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+kielce;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+opole;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+zielona góra;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+zielona gora;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+gorzów;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+gorzow;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+kalisz;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+konin;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+leszno;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+piła;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+pila;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+gniezno;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+berlin;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+londyn;BROAD;miasta poza rynkiem;Geotargeting to Poznan i okolica. Te zapytania dotycza innego miasta.;2026-09-20
+grunwald;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+wilda;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+jeżyce;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+jezyce;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+rataje;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+piątkowo;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+piatkowo;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+winogrady;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+dębiec;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+debiec;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+starołęka;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+staroleka;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+szczepankowo;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+łazarz;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+lazarz;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+naramowice;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+stare miasto;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+górczyn;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+gorczyn;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+podolany;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+sołacz;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+solacz;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+wierzbięcice;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+wierzbiecice;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+libelta;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+głogowska;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+glogowska;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+jackowskiego;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+dąbrowskiego;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+dabrowskiego;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+kościelna;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+koscielna;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+dąbrówka;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+dabrowka;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+orle gniazdo;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+near me;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+blisko mnie;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+w pobliżu;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+w poblizu;BROAD;dzielnice i ulice Poznania;DOWOD Z KONTA: te zapytania pochlonely setki zlotych, dajac zero zapytan. Szukaja zakladu przy domu. RED TEAM W-06: gminy aglomeracji (Lubon, Swarzedz, Suchy Las, Skorzewo) USUNIETE z tej listy, bo to osobny rynek B2B, a nie przedmiescia.;2026-09-20
+fotopietura;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+foto pietura;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+wojtaszek;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+pnf studio;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+super foto;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+foto focus;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+żółtowska;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+zoltowska;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+kołecki;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+kolecki;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+marian chrzan;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+rz-studio;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+kepinscy;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+kępińscy;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+igor wojtkowiak;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+strumiłło;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+strumillo;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+adamczak;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+wołyniak;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+wolyniak;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+gromolak;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+zdjeciebiznesowe;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+robakowski;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+sara studio;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+mangda;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+sluzenko;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+służenko;BROAD;marki konkurencji;DOWOD Z KONTA: realne zapytania brandowe konkurencji.;2026-09-20
+фотограф;BROAD;zapytania obcojezyczne;DOWOD Z KONTA: zapytania cyrylica to poszukiwanie taniego studia osiedlowego.;2026-09-20
+фотостудия;BROAD;zapytania obcojezyczne;DOWOD Z KONTA: zapytania cyrylica to poszukiwanie taniego studia osiedlowego.;2026-09-20
+фотостудія;BROAD;zapytania obcojezyczne;DOWOD Z KONTA: zapytania cyrylica to poszukiwanie taniego studia osiedlowego.;2026-09-20
+фото;BROAD;zapytania obcojezyczne;DOWOD Z KONTA: zapytania cyrylica to poszukiwanie taniego studia osiedlowego.;2026-09-20
+познань;BROAD;zapytania obcojezyczne;DOWOD Z KONTA: zapytania cyrylica to poszukiwanie taniego studia osiedlowego.;2026-09-20
+photographer;BROAD;zapytania obcojezyczne;DOWOD Z KONTA: zapytania cyrylica to poszukiwanie taniego studia osiedlowego.;2026-09-20
+photo studio;BROAD;zapytania obcojezyczne;DOWOD Z KONTA: zapytania cyrylica to poszukiwanie taniego studia osiedlowego.;2026-09-20
+photography;BROAD;zapytania obcojezyczne;DOWOD Z KONTA: zapytania cyrylica to poszukiwanie taniego studia osiedlowego.;2026-09-20
+zakład fotograficzny;PHRASE;zaklad i studio osiedlowe;DOWOD Z KONTA: intencja B2C.;2026-09-20
+zaklad fotograficzny;PHRASE;zaklad i studio osiedlowe;DOWOD Z KONTA: intencja B2C.;2026-09-20
+studio fotograficzne;PHRASE;zaklad i studio osiedlowe;DOWOD Z KONTA: intencja B2C.;2026-09-20
+punkt fotograficzny;PHRASE;zaklad i studio osiedlowe;DOWOD Z KONTA: intencja B2C.;2026-09-20
+fotograf osiedlowy;PHRASE;zaklad i studio osiedlowe;DOWOD Z KONTA: intencja B2C.;2026-09-20

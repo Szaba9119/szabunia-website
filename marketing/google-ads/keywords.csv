@@ -1,0 +1,33 @@
+﻿keyword;match_type;intent;estimated_volume;priority;status;reason
+fotograf biznesowy poznań;EXACT;komercyjna lokalna;10;P1;aktywne;Rdzen. 9 klikniec w historii. Aukcja bez reklam tekstowych (SERP 20.09).
+fotografia biznesowa poznań;EXACT;komercyjna lokalna;10;P1;aktywne;Najczestsze realne zapytanie B2B w historii konta: 15 klikniec.
+sesja biznesowa poznań;EXACT;komercyjna lokalna;10;P1;aktywne;9 klikniec, CTR 18,18% na exact. Najwyzszy CTR w koncie.
+zdjęcia biznesowe poznań;EXACT;komercyjna lokalna;10;P1;aktywne;6 klikniec w wariancie bez diakrytykow.
+sesja wizerunkowa poznań;EXACT;komercyjna lokalna;10;P2;aktywne;"Wolumen 10/mies. Exact ogranicza szkode do zapytania doslownego; phrase usunieto (red team pkt 10)."
+zdjęcia firmowe poznań;EXACT;komercyjna lokalna;brak danych;P2;aktywne;Brak wolumenu w Plannerze. Exact bez wolumenu nie generuje kosztu.
+fotograf dla firm poznań;EXACT;komercyjna lokalna;brak danych;P2;aktywne;Z listy Marcina. Zero wolumenu i zero trafien w historii. Darmowa opcja.
+zdjęcia dla firm poznań;EXACT;komercyjna lokalna;brak danych;P2;aktywne;Jw. Aukcja bez reklam tekstowych.
+fotograf firmowy poznań;EXACT;komercyjna lokalna;brak danych;P2;aktywne;Jw. szabunia.pl juz w TOP organicznym (poz. ~7, pod local packiem).
+headshot poznań;EXACT;komercyjna lokalna;brak danych;P3;aktywne;Jezyk branzowy. Konkurent Strumillo buduje na tym pozycjonowanie.
+zdjęcia do linkedin poznań;EXACT;komercyjna lokalna;brak danych;P3;aktywne;Phrase 'zdjecia do linkedin' dal 10 klikniec przy CTR 9,62%.
+fotografia produktowa poznań;EXACT;komercyjna lokalna;10;P1;aktywne;Jedyna linia z UDOKUMENTOWANYMI leadami (2 zapytania, lipiec 2026).
+zdjęcia produktowe poznań;EXACT;komercyjna lokalna;brak danych;P2;aktywne;Wariant tej samej intencji.
+fotograf biznesowy;PHRASE;komercyjna;20;P1;aktywne;BEZ miasta: geotargeting lokalizuje. Zastapilo phrase z miastem (redundancja).
+fotografia biznesowa;PHRASE;komercyjna;brak danych;P1;aktywne;13 klikniec, CTR 7,98%. Realny nosnik wolumenu tej kampanii.
+sesja biznesowa;PHRASE;komercyjna;brak danych;P1;aktywne;12 klikniec, CTR 6,25%. Lapie tez zapytania z 'cena'.
+zdjęcia biznesowe;PHRASE;komercyjna;brak danych;P2;aktywne;Zastapilo phrase z miastem.
+portret biznesowy;PHRASE;komercyjna;brak danych;P2;aktywne;10 klikniec, CTR 10,75%.
+fotografia produktowa;PHRASE;komercyjna;brak danych;P1;aktywne;46 klikniec w historii. ZRODLO OBU REALNYCH LEADOW (2/46 = 4,3%).
+zdjęcia produktowe;PHRASE;komercyjna;brak danych;P2;aktywne;9 klikniec, CTR 7,56%.
+packshot;PHRASE;komercyjna branzowa;brak danych;P2;aktywne;Jezyk kupujacego e-commerce. Wymaga wykluczen DIY (dodane).
+sesja wizerunkowa;PHRASE;mieszana;brak danych;ODRZUCONE;nie_dodane;RED TEAM: najszerszy wektor B2C w zestawie. 4 klikniecia w calej historii. Przy 25 klikach/mies. nie ma z czego finansowac eksploracji.
+fotograf produktowy poznań;EXACT;komercyjna;0;ODRZUCONE;nie_dodane;RED TEAM: wolumen 0 ORAZ najgorsza aukcja (4 reklamodawcow ogolnopolskich, ceny od 11 zl).
+sesje biznesowe poznań;EXACT;komercyjna lokalna;brak danych;ODRZUCONE;nie_dodane;Bliski wariant 'sesja biznesowa poznan', lapany automatycznie. Rozbijal raport.
+packshoty;PHRASE;komercyjna;brak danych;ODRZUCONE;nie_dodane;Bliski wariant 'packshot'.
+fotograf komercyjny poznań;EXACT;komercyjna;0;ODRZUCONE;nie_dodane;Wolumen 0 ORAZ zero trafien w 44 tygodniach. Jezyk wewnetrzny.
+fotografia korporacyjna poznań;EXACT;komercyjna;0;ODRZUCONE;nie_dodane;Wolumen 0.
+fotograf poznań;BROAD;nieokreslona;-;ODRZUCONE;nie_dodane;POCHLONELA 2403,03 zl = 53,5% historycznego wydatku, 1530 klikniec, zero zapytan.
+fotograf i kamerzysta dla firm;PHRASE;nieokreslona;-;ODRZUCONE;nie_dodane;SERP 20.09: cala pierwsza strona to rynek slubny.
+fotograf na event poznań;PHRASE;komercyjna;brak danych;ODRZUCONE;nie_dodane;Aukcje trzyma agencja eventowa z pelnym zestawem rozszerzen.
+sesja zdjęciowa poznań;PHRASE;mieszana;-;ODRZUCONE;nie_dodane;49 klikniec, 137,77 zl, zero zapytan. Intencja B2C.
+zdjęcia do cv;PHRASE;B2C;-;ODRZUCONE;nie_dodane;4 klikniecia za 37,37 zl. Klient jednorazowy, cenowy.
