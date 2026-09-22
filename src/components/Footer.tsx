@@ -32,8 +32,8 @@ export default function Footer() {
               { label: "Usługi", href: "/uslugi" },
               // /portfolio (hub), nie kotwica: jedyny link SEO z home do huba po
               // usunięciu przycisku z sekcji (lejek bez bocznych wyjść, 2026-07-06).
-              { label: "Portfolio", href: "/portfolio" },
               { label: "Galeria", href: "/galeria" },
+              { label: "Portfolio", href: "/portfolio" },
               { label: "Kontakt", href: "/kontakt" },
               { label: "Blog", href: "/blog" },
               { label: "Poradnik", href: "/poradnik" },

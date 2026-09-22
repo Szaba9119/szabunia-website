@@ -13,6 +13,7 @@ import { homeFaqs } from "@/data/faq";
 // Sekcje poniżej folda ładowane osobnymi chunkami (SSR zostaje — HTML w pełni
 // renderowany; dzielony jest tylko JS hydratacji, co odchudza krytyczny bundle
 // na mobile i skraca LCP).
+const GalleryPeek = dynamic(() => import("@/components/GalleryPeek"));
 const Portfolio = dynamic(() => import("@/components/Portfolio"));
 const Process = dynamic(() => import("@/components/Process"));
 const Testimonials = dynamic(() => import("@/components/Testimonials"));
@@ -47,6 +48,8 @@ export default function Home() {
         <ErrorBoundary><Hero /></ErrorBoundary>
         <ErrorBoundary><LogoBar /></ErrorBoundary>
         <ErrorBoundary><Services /></ErrorBoundary>
+        {/* Galeria NAD realizacjami (22.09.2026, decyzja Marcina). */}
+        <ErrorBoundary><GalleryPeek /></ErrorBoundary>
         <ErrorBoundary><Portfolio /></ErrorBoundary>
         <ErrorBoundary><Publications /></ErrorBoundary>
         <ErrorBoundary><Testimonials /></ErrorBoundary>

@@ -106,6 +106,29 @@ export default function Services() {
 										data-cta={`uslugi_karta_${s.slug}`}
 										className='grid grid-cols-[2.25rem_minmax(0,1fr)] items-start py-5 active:opacity-60 sm:block sm:py-0 sm:active:opacity-100'
 									>
+										{/* Zdjęcie PIERWSZE w DOM (22.09.2026 wieczorem, decyzja Marcina). Na telefonie
+                        zajmuje oba tory siatki (`col-span-2`) nad numerem i tytułem. Od `sm`
+                        Link jest `block`, a numer ma `sm:hidden`, więc karta na komputerze
+                        wygląda jak wcześniej: zdjęcie 3:2, pod nim tekst. Do 22.09 było tu
+                        `hidden sm:block`, a telefon i tak pobierał te pliki (55,7 KB). */}
+										{s.image && (
+											<div className='col-span-2 mb-4 rounded-xl sm:rounded-none sm:mb-0 relative overflow-hidden bg-border dark:bg-dark-border aspect-[16/9] sm:aspect-[3/2]'>
+												<Image
+													src={s.image}
+													/* ZDJ2608-11: opis obejrzanego kadru zamiast szablonu z nazwy usługi. */
+													alt={galleryAlt(
+														s.image,
+														`${s.title}, przykładowa realizacja`,
+													)}
+													fill
+													/* Telefon: pełna szerokość minus marginesy `px-4`. Od `sm` dwie
+                             kolumny w `max-w-6xl`: (1152-24)/2 = 564. */
+													sizes='(max-width: 639px) calc(100vw - 32px), (max-width: 1183px) 50vw, 564px'
+													style={{ objectPosition: s.imagePos }}
+													className='object-cover transition-transform duration-500 group-hover:scale-105'
+												/>
+											</div>
+										)}
 										{/* Numeracja bierze się z `servicePillars`, czyli z tego samego
                         źródła co kolejność usług. `aria-hidden`, bo czytnik ekranu
                         ma czytać nazwę usługi, nie „zero jeden". Na komputerze
@@ -116,53 +139,6 @@ export default function Services() {
 										>
 											{pillar.number}
 										</span>
-										{/* `hidden` na telefonie, nie usunięcie z drzewa, bo komponent
-                        jest serwerowy i nie zna szerokości ekranu.
-
-                        ⚠ SPROSTOWANIE WŁASNEGO ZAŁOŻENIA (22.09.2026). Napisałem tu
-                        najpierw, że kontener bez rozmiaru nigdy nie wchodzi w widok,
-                        więc przeglądarka obrazu nie pobierze. To nieprawda: zmierzone
-                        przy 390 px, wszystkie cztery obrazy były pobrane. Chrome
-                        pobiera obraz `loading="lazy"` umieszczony w `display:none`
-                        od razu, bo nie ma czego obserwować.
-
-                        STAN FAKTYCZNY: telefon pobiera te cztery pliki i ich nie
-                        pokazuje. Zmierzony koszt to 55,7 KB (3,5 + 19,0 + 16,9 +
-                        17,6 KB przy 390 px). To nie jest pogorszenie wobec stanu
-                        sprzed zmiany, bo wtedy pobierały się te same pliki, tylko
-                        były widoczne. Zejście niżej wymagałoby nierenderowania
-                        elementu, czyli komponentu klienckiego albo ręcznego
-                        `<picture>` z zapytaniem medialnym. Za 55 KB nie warto. */}
-										{s.image && (
-											<div className='hidden sm:block relative overflow-hidden bg-border dark:bg-dark-border sm:aspect-[3/2]'>
-												<Image
-													src={s.image}
-													/* ZDJ2608-11: opis obejrzanego kadru zamiast szablonu z nazwy usługi. */
-													alt={galleryAlt(
-														s.image,
-														`${s.title}, przykładowa realizacja`,
-													)}
-													fill
-													/* Telefon: kafel ok. 132 px szerokości, ale kadr 3:2
-                             wypełnia go WYSOKOŚCIĄ, więc renderuje się ok. dwa
-                             razy szerzej niż kafel — stąd 260 px, nie 132.
-                             Ten sam rachunek co `tileSizes` w `Hero.tsx`.
-                             Od `sm` dwie kolumny w `max-w-6xl`: (1152-24)/2 = 564. */
-													/* Poniżej `sm` kafel jest ukryty, więc deklarujemy
-                             16 px, czyli tyle, ile obraz naprawdę zajmuje.
-                             Przeglądarka dostanie i tak wariant 384 px: dopóki
-                             w `sizes` stoi jakikolwiek `vw`, Next odcina listę
-                             kandydatów na `deviceSizes[0] * najmniejszy vw`,
-                             czyli 640 * 0,5 = 320, a pierwszy kandydat powyżej
-                             to 384. Ten człon i tak wybiera najmniejszego
-                             dostępnego zamiast liczonego z 50vw.
-                             Od `sm` dwie kolumny w `max-w-6xl`: (1152-24)/2 = 564. */
-													sizes='(max-width: 639px) 16px, (max-width: 1183px) 50vw, 564px'
-													style={{ objectPosition: s.imagePos }}
-													className='object-cover transition-transform duration-500 group-hover:scale-105'
-												/>
-											</div>
-										)}
 										<div className='min-w-0 sm:p-6'>
 											<div className='flex items-start gap-2 mb-1.5 sm:items-center sm:gap-2.5 sm:mb-2'>
 												<h3 className='font-barlow font-bold text-[15px] sm:text-base text-navy dark:text-white'>

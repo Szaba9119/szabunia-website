@@ -83,7 +83,10 @@ export interface PortfolioCategory {
   /** Osobna miniatura dla kafli (home, /portfolio) — domyślnie thumbnail */
   tileImage?: string;
   /** Kotwiczenie kadru w kaflach: "top" dla pionowych portretów (głowa zostaje w kadrze) */
-  tileImagePosition?: "top" | "center";
+  /** Wartość CSS `object-position` dla kafla (np. "top", "30% 50%"). Od 22.09.2026 dowolna,
+   *  wcześniej tylko "top" | "center": kafel na telefonie jest pionowy (104 px szer.),
+   *  więc poziomy kadr traci ok. 60% szerokości i sam środek bywa pusty. */
+  tileImagePosition?: string;
   process: ProcessStep[];
   pricingType: "tiers" | "table";
   tiers?: PricingTier[];
@@ -110,7 +113,10 @@ export const portfolioCategories: PortfolioCategory[] = [
   {
     slug: "woohoo-autopay",
     label: "E-commerce All-in: film z eventu i reelsy",
-    heroTitle: "E-commerce All-in",
+    // 22.09.2026: H1 z kontekstem, jak w pozostałych case studies („Artech: packshoty…”,
+    // „IDcom: headshoty…”). Samo „E-commerce All-in” nie mówiło, co to za realizacja.
+    // Tekst = `label` z kafelka, więc nic nowego. Pole zasila też `name` w JSON-LD strony.
+    heroTitle: "E-commerce All-in: film z eventu i reelsy",
     heroSubtitle:
       "Podsumowanie wideo wydarzenia E-commerce All In na Enea Stadion w Poznaniu: poziomy film i trzy pionowe reelsy z wywiadami. Realizacja dla Woohoo, partnera wydarzenia.",
     description:
@@ -134,7 +140,13 @@ export const portfolioCategories: PortfolioCategory[] = [
     // Case study nie ma ani jednego zdjęcia (archiwum: same `.mov` i logo PNG),
     // więc to jedyna prawdziwa fotografia, jaką ta realizacja oddaje.
     // Plansza zostaje jako `thumbnail`, czyli na stronie case study.
-    tileImage: "/images/portfolio/woohoo-ratusz-4x3.jpg",
+    //
+    // v2 (22.09.2026 wieczorem): ten sam kadr rozjaśniony (jasność x1,5, kontrast x1,08,
+    // średnia luminancja 46 → 68 na 255). Klatka leżała pod ciemnym liternictwem planszy
+    // i na kafelku czytała się jako prawie czarna plama. Nowa nazwa pliku, bo optymalizator
+    // obrazów trzyma wynik rok (`minimumCacheTTL`), więc podmiana pod starą nazwą mogłaby
+    // nie dojść do odwiedzających.
+    tileImage: "/images/portfolio/woohoo-ratusz-4x3-v2.jpg",
     gallery: [],
     process: [],
     pricingType: "tiers",
@@ -280,6 +292,9 @@ export const portfolioCategories: PortfolioCategory[] = [
     ],
     thumbnail: "/images/portfolio/artech/_F2A8937.jpg",
     tileImage: "/images/portfolio/artech/artech-film-cover.jpg",
+    // 22.09.2026: na telefonie środek klatki to sam srebrny dysk. 30% w poziomie pokazuje
+    // nóż tokarki przy dysku, czyli to, że to kadr z produkcji. Plik bez zmian (ZDJ2608-03).
+    tileImagePosition: "30% 50%",
     gallery: [
       { src: "/images/portfolio/artech/_F2A8912.jpg", alt: "Packshot na białym tle, niebieski detal z tworzywa sztucznego o skręconym kształcie (Artech Group)" },
       { src: "/images/portfolio/artech/3.jpg", alt: "Packshot, zielona płyta z tworzywa sztucznego na białym tle, fotografia produktowa dla przemysłu" },
@@ -807,7 +822,7 @@ export function getCategoryBySlug(slug: string): PortfolioCategory | undefined {
 export interface PortfolioItem {
   label: string;
   image: string;
-  imagePosition?: "top" | "center";
+  imagePosition?: string;
   slug: string;
   externalUrl?: string;
   hasVideo?: boolean;

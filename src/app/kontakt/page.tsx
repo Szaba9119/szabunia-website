@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 
 const contactCards = [
 	{
-		title: 'Wstępna wycena w 24 godziny',
+		title: 'Wstępna wycena w ciągu 24 godzin',
 		body: 'Na każde zapytanie biznesowe odpowiadam w ciągu 24 godzin ze wstępną wyceną i propozycją terminu.',
 	},
 	{

@@ -33,6 +33,8 @@ import { useActiveSection } from '@/hooks/useActiveSection';
 // trzecia (po usługach i portfolio). useActiveSection przerywa pętlę na pierwszej
 // sekcji poniżej linii, więc Usługi i Portfolio nigdy się nie podświetlały.
 // Galeria nie ma sekcji na home, stoi przy Portfolio, bo to też realizacje.
+// 22.09.2026: Galeria PRZED Portfolio, jak na stronie głównej (`GalleryPeek` stoi nad
+// „Wybranymi realizacjami”, decyzja Marcina). Link nadal prowadzi na `/galeria`.
 const navLinks = [
 	{
 		label: 'Usługi',
@@ -42,18 +44,18 @@ const navLinks = [
 		subHref: '/uslugi',
 	},
 	{
-		label: 'Portfolio',
-		href: '#portfolio',
-		section: 'portfolio',
-		page: null,
-		subHref: '/portfolio',
-	},
-	{
 		label: 'Galeria',
 		href: '/galeria',
 		section: 'galeria',
 		page: '/galeria',
 		subHref: null,
+	},
+	{
+		label: 'Portfolio',
+		href: '#portfolio',
+		section: 'portfolio',
+		page: null,
+		subHref: '/portfolio',
 	},
 	{
 		label: 'O mnie',

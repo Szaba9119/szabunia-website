@@ -543,9 +543,8 @@ export default async function ServicePage({ params }: PageProps) {
 													alt=''
 													fill
 													sizes='(max-width: 639px) 96px, 300px'
-													className={`object-cover transition-transform duration-500 group-hover:scale-105 ${
-														c.tileImagePosition === 'top' ? 'object-top' : ''
-													}`}
+													className='object-cover transition-transform duration-500 group-hover:scale-105'
+													style={{ objectPosition: c.tileImagePosition }}
 												/>
 											</div>
 											<div className='p-4 flex flex-col justify-center gap-1.5'>

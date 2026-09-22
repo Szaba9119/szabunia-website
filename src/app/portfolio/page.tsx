@@ -124,7 +124,8 @@ export default function PortfolioPage() {
 										/* ZDJ2608-11: opis obejrzanego kadru zamiast etykiety kafelka. */
 										alt={galleryAlt(item.image, item.label)}
 										fill
-										className={`object-cover ${item.imagePosition === 'top' ? 'object-top' : ''} transition-transform duration-500 group-hover:scale-105`}
+										className='object-cover transition-transform duration-500 group-hover:scale-105'
+										style={{ objectPosition: item.imagePosition }}
 										sizes='(max-width: 1024px) 50vw, 33vw'
 										quality={85}
 										placeholder='blur'
