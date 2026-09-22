@@ -40,10 +40,13 @@ const TILES: Tile[] = [
   {
     kat: "eventy",
     label: "Eventy",
-    // 3:2 poziomy. W 4:5 zostaje 53% szerokości, w kwadracie mozaiki 67%:
-    // 55% trzyma wręczającego i nagrodzoną, bez pustej ściany po prawej.
-    src: "/images/galeria/eventy/event-20-gala-wreczenie-wyroznien.jpg",
-    position: "55% 50%",
+    // 22.09.2026: zamiast `event-20-gala-wreczenie-wyroznien` (Marcin: „na eventy dałbym
+    // inne zdjęcie"). Tamten kadr był statyczny, z czerwoną torbą z logo na pierwszym
+    // planie. Saksofonista na bankiecie ma ruch, emocję i salę z gośćmi w tle.
+    // 3:2 poziomy. W 4:5 zostaje 53% szerokości, w kwadracie mozaiki 67%: 60% trzyma
+    // całego saksofonistę razem z czarą instrumentu po lewej.
+    src: "/images/galeria/eventy/event-24-saksofonista-bankiet.jpg",
+    position: "60% 40%",
     desktop: "md:col-span-2 md:row-span-2",
     sizes: `${MOBILE}, (max-width: 1183px) 50vw, 568px`,
   },
