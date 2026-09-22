@@ -123,7 +123,18 @@ export const portfolioCategories: PortfolioCategory[] = [
       "Montaż i postprodukcja",
     ],
     thumbnail: "/images/portfolio/woohoo-autopay.jpg",
-    tileImage: "/images/portfolio/woohoo-ecommerce-4x3.jpg",
+    // KAFEL NIE JEST JUŻ PLANSZĄ TYTUŁOWĄ (22.09.2026, zgłoszenie Marcina).
+    // `woohoo-ecommerce-4x3.jpg` ma napis „E-COMMERCE All in" na całą szerokość.
+    // Na telefonie kafel ma 104 px, więc pokazywał pionowy pasek liter, czyli szarą
+    // plamę. To ten sam problem, który ZDJ2608-32 opisała 04.08.2026: klient szukający
+    // ZDJĘĆ widział planszę, nie fotografię.
+    //
+    // Nowy plik to kadr z dolnej części tej samej klatki, spod liternictwa: ratusz
+    // i Stary Rynek z powietrza, czyli materiał dronowy z tej samej realizacji.
+    // Case study nie ma ani jednego zdjęcia (archiwum: same `.mov` i logo PNG),
+    // więc to jedyna prawdziwa fotografia, jaką ta realizacja oddaje.
+    // Plansza zostaje jako `thumbnail`, czyli na stronie case study.
+    tileImage: "/images/portfolio/woohoo-ratusz-4x3.jpg",
     gallery: [],
     process: [],
     pricingType: "tiers",

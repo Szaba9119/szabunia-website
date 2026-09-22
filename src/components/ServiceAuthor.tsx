@@ -91,7 +91,7 @@ const SPECYFIKA: Record<string, string[]> = {
   ],
   "eventy-reportaze": [
     "Cześć, jestem Marcin. Reportaż fotografuję od początku swojej pracy zawodowej. Pracowałem przy konferencjach, targach, galach, integracjach i koncertach, w salach konferencyjnych i w trudnym świetle sceny.",
-    "Podczas wydarzenia jestem blisko tego, co się dzieje, ale nie chcę przeszkadzać uczestnikom. Szukam ludzi, emocji, detali i momentów pomiędzy oficjalnymi punktami programu, bo to z nich najczęściej powstaje materiał, który najlepiej opowiada całe wydarzenie.",
+    "Podczas wydarzenia jestem blisko tego, co się dzieje, ale nie chcę przeszkadzać uczestnikom. Fotografuję podczas oficjalnych punktów programu i poza nimi, żeby oprócz dokumentacji złapać emocje: ludzi, reakcje i detale, z których powstaje materiał opowiadający całe wydarzenie.",
   ],
   "nieruchomosci-przemysl": [
     "Cześć, jestem Marcin. Fotografując obiekt, patrzę nie tylko na sam budynek, ale na to, co firma chce nim pokazać: skalę, funkcję, technologię, wnętrza i otoczenie.",

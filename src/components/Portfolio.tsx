@@ -22,6 +22,15 @@ const blurPlaceholder =
 // Gdyby to miało wrócić do dyskusji, właściwym rozwiązaniem jest wariant B z tamtego
 // audytu: dołożyć do tego case study prawdziwe kadry foto z eventu (pliki spoza repo),
 // a nie przestawiać kolejność w tę i z powrotem.
+// Po jednej miniaturze na obszar, w kolejności usług. Pliki są już w repo
+// (galeria `/galeria`), więc wejście nie dokłada nowych zasobów.
+const GALLERY_PEEK = [
+  "/images/galeria/portrety/portret-04-kobieta-morski-kombinezon.jpg",
+  "/images/galeria/eventy/event-02-networking-foyer.jpg",
+  "/images/galeria/wnetrza/wnetrze-01-elewacja-szklana-fasada.jpg",
+  "/images/galeria/produktowe/produkt-01-caprice.jpg",
+];
+
 const FEATURED_SLUGS = [
   "woohoo-autopay",
   "idcom-headshoty-zespolu",
@@ -67,6 +76,45 @@ export default function Portfolio() {
           })}
         </div>
         {/* `#kontakt`, nie `/kontakt` — patrz komentarz w `Hero.tsx`. */}
+        {/* WEJŚCIE DO GALERII, 22.09.2026 (zgłoszenie Marcina: „brakuje na stronie
+            głównej jakiegoś przekierowania do galerii, pod albo nad portfoliem").
+
+            Do tej pory jedyne przejście na `/galeria` ze strony głównej siedziało
+            w menu i w stopce. Sekcja „Wybrane realizacje" pokazuje cztery case
+            studies, czyli opisane projekty, a nie kadry, więc ktoś, kto chciał
+            po prostu obejrzeć zdjęcia, nie miał dokąd kliknąć.
+
+            Stoi POD portfoliem i NAD CTA kontaktowym: najpierw realizacje z nazwą
+            klienta, potem szerszy przegląd materiału, na końcu pytanie o projekt.
+            Odwrotna kolejność stawiała wezwanie do kontaktu przed drugą
+            powierzchnią do oglądania. */}
+        <Link
+          href="/galeria"
+          data-cta="galeria_home"
+          className="group block mt-5 rounded-2xl border border-border dark:border-dark-border bg-white dark:bg-dark-card overflow-hidden hover:border-blue dark:hover:border-blue transition-colors"
+        >
+          <div className="grid grid-cols-4 gap-px bg-border dark:bg-dark-border">
+            {GALLERY_PEEK.map((src) => (
+              <div key={src} className="relative aspect-[4/3] overflow-hidden bg-border dark:bg-dark-border">
+                <Image
+                  src={src}
+                  alt=""
+                  fill
+                  sizes="(max-width: 639px) 25vw, 280px"
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              </div>
+            ))}
+          </div>
+          <div className="p-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center">
+            <span className="font-barlow font-semibold text-navy dark:text-white">
+              Chcesz zobaczyć więcej kadrów?
+            </span>
+            <span className="text-blue dark:text-blue-light font-barlow font-semibold">
+              Zobacz pełną galerię →
+            </span>
+          </div>
+        </Link>
         <a href="#kontakt" data-cta="wycena_home_portfolio" className="block mt-5 rounded-2xl border border-border dark:border-dark-border p-5 text-center text-navy dark:text-white font-semibold">Masz podobny projekt? <span className="text-blue dark:text-blue-light">Zapytaj o ofertę →</span></a>
       </div>
     </section>
