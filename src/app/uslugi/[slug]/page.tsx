@@ -1,4 +1,3 @@
-import { getPillar } from '@/data/servicePillars';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import {
@@ -97,7 +96,6 @@ export default async function ServicePage({ params }: PageProps) {
 				.filter((p) => !!p)
 		: getPostsForService(service.slug, 3);
 	const testimonial = SERVICE_TESTIMONIALS[service.slug];
-	const pillar = getPillar(service.slug);
 	// Pytanie cenowe zawsze pierwsze w FAQ (brief-22 zad. 4) — ta sama tablica
 	// zasila widoczną sekcję i JSON-LD, żeby nie rozjechały się jak wcześniej.
 	const faqs = [getPriceFaq(service), ...service.faqs];
@@ -231,10 +229,36 @@ export default async function ServicePage({ params }: PageProps) {
 						</section>
 					</ErrorBoundary>
 				)}
-        {pillar && <ErrorBoundary><section className='py-10 px-4'><div className='max-w-5xl mx-auto border-y border-border dark:border-dark-border py-6 grid md:grid-cols-[1fr_2fr] gap-4'>
-          <div><h2 className='font-barlow font-bold text-xl text-navy dark:text-white'>Co biorę na siebie</h2></div>
-          <div><h3 className='font-barlow font-semibold text-base text-navy dark:text-white mb-2'>{pillar.responsibility}</h3><p className='text-sm leading-relaxed text-text-body dark:text-dark-text'>{pillar.details}</p></div>
-        </div></section></ErrorBoundary>}
+				{/* ⛔ SEKCJA „CO BIORĘ NA SIEBIE" USUNIĘTA 22.09.2026 (zgoda Marcina).
+
+            Powód nie jest stylistyczny, tylko taki, że powtarzała treść. Porównanie
+            zdanie po zdaniu na wszystkich czterech usługach (22.09.2026):
+
+            wizerunek  — wszystkie pięć faktów (mobilne studio, 30 minut, prowadzenie
+                         przez pozowanie, to samo światło i retusz dla wszystkich,
+                         dogrywki dla nieobecnych) stało też w „Zakresie realizacji",
+                         a rozstawienie studia dodatkowo w kroku 2 procesu
+            eventy     — agenda i zapis na dwie karty powtarzały kroki 1 i 2 procesu
+            obiekty    — zgody na lot i „powietrze, ziemia, wnętrza w jednym wyjeździe"
+                         powtarzały kroki 2 i 3 procesu
+            produktowa — retusz w cenie, białe tło Allegro/Amazona i zapisane ustawienie
+                         światła powtarzały „Zakres realizacji" i krok 3 procesu
+
+            Unikalne były cztery fakty i wszystkie cztery przeniosłem do procesu
+            (`services.tsx`, tablice `process`), bo to ich właściwe miejsce:
+              wizerunek  → krok 3: prowadzenie przez pozowanie
+              eventy     → krok 2: drugi operator przy dużym wydarzeniu
+              obiekty    → krok 2: powrót raz w cenie, gdy pogoda uniemożliwi lot
+              produktowa → nowy krok 2: dostarczenie produktów (kurier / studio mobilne)
+
+            Sekcja stała poza tym w złym miejscu: na ~2 100 px, czyli ZANIM klient
+            zobaczył jakiekolwiek zdjęcie. Fotograf najpierw pokazuje pracę, potem
+            tłumaczy organizację.
+
+            ⚠ Pola `responsibility` i `details` w `servicePillars.ts` nie mają już
+            czytelnika. Zostawione świadomie, jako źródło tekstu do maili i ofert.
+            Jeśli kiedyś wrócą na stronę, mają wrócić JAKO KROK PROCESU, nie jako
+            osobna sekcja. */}
 				{/* Kolejność bloku przykładów (Marcin, 04.08.2026): GŁÓWNY PASEK → FILM
             → DRUGI PASEK, czyli film rozdziela dwie siatki miniatur, zamiast
             stać obok drugiej.
@@ -256,6 +280,43 @@ export default async function ServicePage({ params }: PageProps) {
 							category={service.galleryCategory}
 							exclude={service.heroImage}
 						/>
+					</ErrorBoundary>
+				)}
+				{/* DOMKNIĘCIE PO PIERWSZEJ GALERII, 22.09.2026 (punkt 8 briefu Marcina).
+
+            Moment: użytkownik właśnie obejrzał 6-8 kadrów. Jedyne, co dotąd
+            dostawał w tym miejscu, to szary przycisk „Zobacz całą galerię", czyli
+            wyjście na `/galeria`, nie krok w stronę zapytania.
+
+            TEKST, NIE PRZYCISK, i to jest świadome. Na podstronie usługi stoją już
+            trzy przyciski konwersyjne (hero, po zakresie, przed FAQ) plus przyklejona
+            pigułka `MobileFAB` na telefonie. Czwarty przycisk rozbiłby hierarchię
+            opisaną w komentarzu przy `wycena_uslugi_zakres`. Zdanie wnosi za to
+            informację, której nigdzie indziej nie ma: że galeria to wybór, a pod
+            konkretne zapytanie wysyłam więcej kadrów.
+
+            Renderuje się na WSZYSTKICH szerokościach, w odróżnieniu od
+            `wycena_uslugi_zakres` (`hidden md:flex`). Tamten blok jest przyciskiem
+            i na telefonie dublowałby FAB-a; ten jest linkiem tekstowym, więc
+            nie zderza się z nim wagą. */}
+				{service.galleryCategory && (
+					<ErrorBoundary>
+						<section className='px-4 pb-10 md:pb-14'>
+							<p className='max-w-2xl mx-auto text-center text-[15px] leading-relaxed text-steel dark:text-dark-text-muted'>
+								W galerii wyżej jest wybór kadrów. Napisz, co planujesz,
+								a wyślę więcej zdjęć z podobnych realizacji.
+							</p>
+							<p className='mt-4 text-center'>
+								<a
+									href='#kontakt'
+									data-cta='wycena_uslugi_galeria'
+									className='inline-flex min-h-11 items-center gap-2 text-[14px] font-barlow font-semibold text-blue dark:text-blue-light hover:underline'
+								>
+									Napisz, czego potrzebujesz
+									<span aria-hidden='true'>→</span>
+								</a>
+							</p>
+						</section>
 					</ErrorBoundary>
 				)}
 				{videoSection}
@@ -346,6 +407,28 @@ export default async function ServicePage({ params }: PageProps) {
 						/>
 					</ErrorBoundary>
 				)}
+				{/* KOLEJNOŚĆ ODWRÓCONA 22.09.2026: NAJPIERW PROCES, POTEM AUTOR.
+
+            Do tej pory blok autorski stał przed procesem. Porównane cztery warianty
+            (brief Marcina, punkt 19), decyduje pytanie, jakie użytkownik ma w tym
+            miejscu strony. Po galeriach i zakresie realizacji wie już, CO dostanie
+            i czy zdjęcia są dobre. Następne pytanie brzmi „co się stanie, kiedy
+            napiszę", a nie „kim jest ten człowiek". Autor działa mocniej jako
+            ostatnia rzecz przed CTA: domyka wątek „komu to powierzam" dokładnie
+            w chwili decyzji.
+
+            Wariant „proces przed galerią" odpadł: u fotografa organizacja pracy
+            interesuje dopiero tego, kto uwierzył w zdjęcia.
+
+            Dodatkowo to jest kolejność ze STRONY GŁÓWNEJ (portfolio → opinie →
+            proces → o mnie), więc przejście z home na podstronę nie zmienia
+            narracji (punkt 27 briefu). */}
+				<ErrorBoundary>
+					<PortfolioProcess
+						steps={service.process}
+						heading={service.h2Process}
+					/>
+				</ErrorBoundary>
 				{/* Blok autorski: pierwszy raz na podstronach usług pada „Cześć, jestem
             Marcin" (analiza lejka 2026-08-02). About.tsx renderuje się wyłącznie
             na stronie głównej, więc wchodzący z reklamy nie wiedział, z kim ma
@@ -354,13 +437,7 @@ export default async function ServicePage({ params }: PageProps) {
             (TRUST_STATS w TrustStats.tsx). Sam komponent TrustStats nie jest już
             nigdzie renderowany, ale plik zostaje: usunięcie to osobna decyzja. */}
 				<ErrorBoundary>
-					<ServiceAuthor />
-				</ErrorBoundary>
-				<ErrorBoundary>
-					<PortfolioProcess
-						steps={service.process}
-						heading={service.h2Process}
-					/>
+					<ServiceAuthor service={service.slug} />
 				</ErrorBoundary>
 				{testimonial && (
 					<ErrorBoundary>

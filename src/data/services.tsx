@@ -537,7 +537,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			{
 				num: 2,
 				title: 'Realizacja',
-				desc: 'Dyskretny reportaż, każde zdjęcie zapisane od razu na dwóch kartach',
+				desc: 'Dyskretny reportaż, każde zdjęcie zapisane od razu na dwóch kartach. Przy dużym wydarzeniu biorę drugiego operatora, a Ty nadal masz jedną osobę do kontaktu',
 			},
 			{
 				num: 3,
@@ -1216,6 +1216,20 @@ const serviceCategoriesRaw: ServiceData[] = [
 		heroImage: '/images/galeria/produktowe/produkt-13-toast-belvedere.jpg',
 		heroPriceLabel: 'Wstępna wycena',
 		price: 'wycena w 24h',
+		// ⛔ NIE DOPISYWAĆ TU KROKU O DOSTARCZENIU PRODUKTÓW. Próbowałem 22.09.2026
+		// i wycofałem tego samego dnia. Fakt „produkty do 20×20 cm przyślij kurierem,
+		// przy większych przyjeżdżam ze studiem mobilnym" stoi w „Zakresie realizacji"
+		// tej usługi, w pozycji **Logistyka**. Przeoczyłem go, bo przy pierwszym
+		// sprawdzeniu czytałem tylko początek tamtej sekcji.
+		//
+		// ⚠ Z TEGO SAMEGO POWODU KROKI 2 I 3 ZOSTAJĄ KRÓTKIE. Dopisane były do nich
+		// „zapisuję ustawienie, więc kolejną partię dokładam w tej samej stylistyce"
+		// i „zgodne z wymogami Allegro i Amazona" — oba stoją SŁOWO W SŁOWO w „Zakresie
+		// realizacji" („To samo ustawienie światła i tła…", „Czyste białe tło zgodne
+		// z wymogami Allegro i Amazona").
+		//
+		// Wniosek ogólny po tej rundzie: z sekcji „Co biorę na siebie" NIE trzeba było
+		// ratować niczego na tej usłudze. Wszystkie jej fakty miały już swoje miejsce.
 		process: [
 			{
 				num: 1,
@@ -1475,7 +1489,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			{
 				num: 2,
 				title: 'Zgody',
-				desc: 'Strefę lotu i zgody sprawdzam przed potwierdzeniem daty',
+				desc: 'Strefę lotu i zgody sprawdzam przed potwierdzeniem daty. Jeśli wiatr albo deszcz uniemożliwi lot, wracam raz w ramach ustalonej kwoty',
 			},
 			// Krok 3 przepisany 10.08.2026: „powietrze, ziemia i wnętrza w jednym
 			// wyjeździe" niesie realną korzyść (jeden dojazd, jedno przerwanie pracy
