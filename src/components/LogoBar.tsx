@@ -73,11 +73,11 @@ export default function LogoBar({ proof }: { proof?: ServiceData['proof'] }) {
               /* Editorial proof, nie karta: nadtytuł, tytuł, dwa zdania, mały link.
                  `max-w-[46ch]` trzyma wiersz w czytelnej długości i nie pozwala
                  tekstowi rozjechać się na całą kolumnę przy 1440 px. */
-              <div className="mt-6 lg:mt-0 lg:pl-10 lg:border-l border-border dark:border-dark-border">
-                <p className="text-[10px] font-barlow font-semibold uppercase tracking-[0.18em] text-blue dark:text-blue-light mb-2">
+              <div className="mt-7 pt-7 border-t lg:mt-0 lg:pt-0 lg:border-t-0 lg:pl-10 lg:border-l border-border dark:border-dark-border">
+                <p className="text-[11px] md:text-xs font-barlow font-semibold uppercase tracking-[0.16em] text-blue dark:text-blue-light mb-4">
                   {highlight.eyebrow}
                 </p>
-                <p className="font-barlow font-bold text-[15px] md:text-base text-navy dark:text-white mb-2">
+                <p className="font-barlow font-bold text-[15px] md:text-[17px] leading-snug text-navy dark:text-white mb-2">
                   {highlight.title}
                 </p>
                 <p className="text-[14px] leading-relaxed text-steel dark:text-dark-text-muted max-w-[46ch]">

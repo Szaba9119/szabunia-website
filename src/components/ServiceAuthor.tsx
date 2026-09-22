@@ -86,20 +86,20 @@ import { TRUST_STATS } from "./TrustStats";
 // a te podstrony sprzedają fotografię biznesową.
 const SPECYFIKA: Record<string, string[]> = {
   "wizerunek-portrety": [
-    "Najczęściej przed moim aparatem stają osoby, które na co dzień wcale nie pozują. Dlatego nie zostawiam nikogo z poleceniem „stań naturalnie”: prowadzę przez ustawienie sylwetki, spojrzenie i drobne korekty.",
-    "Przy większych zespołach pilnuję spójności całej serii, żeby osoba fotografowana dziś i pracownik dofotografowany kilka miesięcy później wyglądali jak część tego samego materiału.",
+    "Cześć, jestem Marcin. Od 2018 roku fotografuję ludzi dla firm. Większość osób, które stają przed moim aparatem, nie pozuje na co dzień i właśnie dlatego prowadzę je krok po kroku, zamiast mówić „stań naturalnie”.",
+    "Pomagam ustawić sylwetkę, spojrzenie i dłonie, a przy większych zespołach pilnuję spójności światła, kadru i retuszu. Portrety wykonane jednego dnia i osoby dofotografowane później nadal wyglądają jak część jednego materiału.",
   ],
   "eventy-reportaze": [
-    "Reportaż fotografuję od początku swojej pracy zawodowej. Przez lata pracowałem przy konferencjach, targach, koncertach, galach i integracjach, w bardzo różnych warunkach.",
-    "Na wydarzeniu chcę być blisko tego, co się dzieje, ale nie przeszkadzać uczestnikom. Pilnuję ludzi, emocji, detali i sceny, a także momentów pomiędzy oficjalnymi punktami programu, bo z nich często powstaje najlepsza relacja.",
+    "Cześć, jestem Marcin. Reportaż fotografuję od początku swojej pracy zawodowej. Pracowałem przy konferencjach, targach, galach, integracjach i koncertach, w salach konferencyjnych i w trudnym świetle sceny.",
+    "Podczas wydarzenia jestem blisko tego, co się dzieje, ale nie chcę przeszkadzać uczestnikom. Szukam ludzi, emocji, detali i momentów pomiędzy oficjalnymi punktami programu, bo to z nich najczęściej powstaje materiał, który najlepiej opowiada całe wydarzenie.",
   ],
   "nieruchomosci-przemysl": [
-    "Fotografując obiekt, nie szukam tylko szerokiego kadru budynku. Pokazuję jego skalę, funkcję, wnętrza, detale i otoczenie.",
-    "Pracowałem w halach i zakładach produkcyjnych, biurach, lokalach gastronomicznych, hotelach i innych przestrzeniach komercyjnych. Jeśli realizacja tego wymaga, łączę materiał z ziemi z ujęciami z drona.",
+    "Cześć, jestem Marcin. Fotografując obiekt, patrzę nie tylko na sam budynek, ale na to, co firma chce nim pokazać: skalę, funkcję, technologię, wnętrza i otoczenie.",
+    "Fotografowałem hale i zakłady produkcyjne, biura, lokale gastronomiczne, hotele i inne przestrzenie komercyjne. Tam, gdzie ma to sens, łączę fotografie z poziomu ziemi z ujęciami z drona, żeby pokazać obiekt w pełnym kontekście.",
   ],
   "fotografia-produktowa": [
-    "Fotografia produktowa to dla mnie przede wszystkim powtarzalność. Kolejne produkty z tej samej serii mają mieć to samo światło, kolor, perspektywę i sposób retuszu.",
-    "Realizuję packshoty, materiały do e-commerce, produkty w aranżacji oraz fotografię jedzenia i napojów. Pracowałem też przy seryjnej produkcji packshotowej, przy sprzęcie AGD, naczyniach i szkle, czyli przedmiotach odbijających i przezroczystych.",
+    "Cześć, jestem Marcin. W fotografii produktowej najbardziej pilnuję powtarzalności. Kolejny produkt z tej samej serii powinien mieć to samo światło, kolor, perspektywę i sposób retuszu.",
+    "Fotografuję packshoty, produkty do e-commerce, aranżacje, jedzenie i napoje. Pracowałem również przy seryjnej produkcji packshotowej, fotografując między innymi AGD, naczynia, szkło i produkty z odbijającymi lub transparentnymi powierzchniami.",
   ],
 };
 
@@ -138,33 +138,14 @@ export default function ServiceAuthor({ service }: { service?: string }) {
                 Marcin Szabunia
               </h2>
               <div className="space-y-4 text-steel dark:text-dark-text-muted text-[15px] leading-relaxed">
-                <p>
-                  Cześć, jestem Marcin. Od 2018 roku fotografuję dla firm. Pracuję
-                  z Poznania, realizuję zlecenia w całej Polsce i Europie.
-                </p>
                 {specyfika.map((akapit) => (
                   <p key={akapit.slice(0, 24)}>{akapit}</p>
                 ))}
-                {/* ⛔ NIE WRACAĆ DO „Odpowiadam za plan i jakość zdjęć, filmu oraz
-                    ujęć z drona. Dostajesz jeden termin, jedną fakturę i spójny
-                    materiał." (zdjęte 22.09.2026, uwaga Marcina).
-
-                    Dwa powody. Pierwszy: wyliczenie „zdjęć, filmu oraz ujęć z drona"
-                    jest nieprawdziwe jako uniwersalne. Na podstronie produktowej dron
-                    nie ma związku z intencją klienta, na wizerunkowej też nie.
-                    Drugi: „jeden termin, jedna faktura" to argument za realizacją
-                    hybrydową, czyli ZAKRES, a nie powód, żeby komuś zaufać. Sekcja
-                    autora zaczynała przez to mówić o ofercie.
-
-                    Zostaje formuła ze strony głównej (`About.tsx`), bo mówi o roli
-                    i odpowiedzialności, a nie o tym, co można domówić. Jest też
-                    zgodna z zakazem z 10.08.2026: wolno komunikować Marcina jako
-                    główny kontakt i osobę odpowiedzialną za realizację, nie wolno
-                    sugerować, że fizycznie wykonuje każdą produkcję sam. */}
-                <p>
-                  Pod marką SZABUNIA odpowiadam za kontakt, plan i jakość
-                  realizacji.
-                </p>
+                {/* ⛔ BEZ WSPÓLNEGO AKAPITU. Do 22.09.2026 stało tu „Pod marką SZABUNIA
+                    odpowiadam za kontakt, plan i jakość realizacji." oraz wcześniej
+                    wyliczenie zdjęć, filmu i drona. Oba mówiły o zakresie, nie o tym,
+                    komu klient powierza realizację, i brzmiały tak samo na czterech
+                    różnych usługach. Całe bio idzie dziś z `SPECYFIKA`. */}
               </div>
 
               {/* Liczby z TRUST_STATS, jedno źródło danych dla home i podstron.

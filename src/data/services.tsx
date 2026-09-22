@@ -342,7 +342,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// Ten sam mechanizm rozstrzygnięto już raz na `/uslugi/wizerunek-portrety`
 			// (wariant A, 11.08.2026): rozróżniamy etykietę, nie cel.
 			ctaLabel: 'Zobacz galerię portretów',
-			sub: 'Planujesz event firmowy? To zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu. Przy okazji wydarzenia mogę zrobić sesję portretową dla całego zespołu: przywożę mobilne studio, a jedna osoba to 5 do 15 minut, między prelekcjami albo w luźniejszym oknie agendy.',
+			sub: 'Przykładowe portrety, które można wykonać przy okazji wydarzenia firmowego.',
 			// Lustro `secondaryLink` z `/uslugi/wizerunek-portrety`: tam wizerunek prowadzi
 			// do wydarzeń, tu wydarzenia prowadzą do wizerunku. Etykieta bez zmian, ta sama,
 			// którą Marcin zatwierdził jako `ctaLabel` 04.08.2026.
@@ -846,9 +846,9 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// JEDNEJ osobie (cennik v3 §1) i Marcin przepisał zdanie w FAQ 10.08.2026
 		// właśnie dlatego, że dawało się czytać jako „studio zawsze w cenie".
 		description:
-			'W zakładce „Zespół” widać wszystko: kto ma zdjęcie z sesji, kto przycięty kadr z wesela, a kto szare kółko z inicjałami. Jako fotograf biznesowy z Poznania fotografuję ludzi w firmie tak, żeby cały zespół wyglądał jak jedna firma: ten sam standard światła i retuszu. Przyjeżdżam z mobilnym studiem do biura, więc nikt nie traci pół dnia na dojazd. Jeśli firma chce innego klimatu, rezerwuję studio zewnętrzne dobrane do jej charakteru. Sesje zespołowe robiłem między innymi dla IDcom Group i Poznańskich Nieruchomości.',
+			'W zakładce „Zespół” widać wszystko: kto ma zdjęcie z sesji, kto przycięty kadr z wesela, a kto szare kółko z inicjałami. Jako fotograf biznesowy z Poznania fotografuję ludzi w firmie tak, żeby cały zespół wyglądał jak jedna firma: ten sam standard światła i retuszu. Przyjeżdżam z mobilnym studiem do biura, więc nikt nie traci pół dnia na dojazd. Jeśli firma chce innego klimatu, rezerwuję studio zewnętrzne dobrane do jej charakteru.',
 		applications: {
-			heading: 'Kogo fotografuję',
+			heading: 'Co fotografuję',
 			items: [
 				'Zarząd i kadra kierownicza',
 				'Cały zespół',
@@ -1188,7 +1188,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// Sprawdzone 10.08.2026: nazwa nie występuje w logotypach, portfolio ani
 		// w opisach alternatywnych, więc nie ma źródła na relację klienta.
 		description:
-			"W sklepie internetowym zdjęcie jest jedynym, czego klient może dotknąć. Fotografuję produkty na białym tle do kart produktowych i marketplace\'ów oraz kreatywnie, z aranżacją, do reklam i social mediów. Retusz jest w cenie każdego zdjęcia: produkt wycięty z tła, czyste białe tło zgodne z wymogami Allegro i Amazona oraz korekta kolorów. Nie doliczam osobnej pozycji za obróbkę. Fotografowałem produkty dla Artech Group, marek odzieżowych, producentów części i lokali gastronomicznych.",
+			"W sklepie internetowym zdjęcie jest jedynym, czego klient może dotknąć. Fotografuję produkty na białym tle do kart produktowych i marketplace\'ów oraz kreatywnie, z aranżacją, do reklam i social mediów. Retusz jest w cenie każdego zdjęcia: produkt wycięty z tła, czyste białe tło zgodne z wymogami Allegro i Amazona oraz korekta kolorów. Nie doliczam osobnej pozycji za obróbkę.",
 		applications: {
 			heading: 'Co fotografuję',
 			items: [
