@@ -46,7 +46,10 @@ const navLinks = [
 	{
 		label: 'Galeria',
 		href: '/galeria',
-		section: 'galeria',
+		// Od 22.09.2026 strona główna ma sekcję `#galeria-podglad` (`GalleryPeek`), więc
+		// scroll-spy podświetla Galerię przy tej sekcji. Link nadal prowadzi na `/galeria`,
+		// tak samo jak Poradnik (sekcja na home, link na podstronę).
+		section: 'galeria-podglad',
 		page: '/galeria',
 		subHref: null,
 	},
