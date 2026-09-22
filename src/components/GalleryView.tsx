@@ -77,20 +77,73 @@ export default function GalleryView({
 		? requested!
 		: tabs[0]?.key ?? 'wideo';
 	const [lightbox, setLightbox] = useState<number | null>(null);
-	const triggerRef = useRef<HTMLButtonElement | null>(null);
+	// Indeks kafla, z którego otwarto podgląd, NIE referencja do węzła DOM.
+	// Zamknięcie idzie dziś przez `popstate`, a ten odpala ponowne renderowanie
+	// routera Next, po którym zapamiętany węzeł bywa odpięty od dokumentu i
+	// `focus()` na nim nic nie robi — fokus lądował na `body` (22.09.2026).
+	// Po indeksie kafel odnajdujemy zawsze, także po ponownym renderowaniu.
+	const triggerIndex = useRef<number | null>(null);
 	const dialogRef = useRef<HTMLDivElement | null>(null);
 	const tabsRef = useRef<HTMLDivElement | null>(null);
 	const sectionRef = useRef<HTMLDivElement | null>(null);
-	const touchX = useRef<number | null>(null);
+	const touchStart = useRef<{ x: number; y: number } | null>(null);
+	const closingRef = useRef(false);
 
 	const activeCat = categories.find((c) => c.key === active);
 	const images = activeCat?.images ?? [];
 	const imageCount = images.length;
 
-	const close = useCallback(() => {
-		setLightbox(null);
-		requestAnimationFrame(() => triggerRef.current?.focus());
+	const restoreFocus = useCallback(() => {
+		const index = triggerIndex.current;
+		if (index === null) return;
+		// Dwie próby w kolejnych klatkach. Zamknięcie przez `popstate` odpala
+		// ponowne renderowanie routera Next, które potrafi wymienić kafel PO
+		// pierwszej klatce — wtedy fokus z pierwszej próby przepada i zostaje
+		// tam, gdzie był. Druga próba trafia już w nowy węzeł.
+		const focusTile = () => {
+			const tile = sectionRef.current?.querySelector<HTMLButtonElement>(
+				`[data-tile="${index}"]`,
+			);
+			tile?.focus();
+			return document.activeElement === tile;
+		};
+		requestAnimationFrame(() => {
+			if (!focusTile()) requestAnimationFrame(focusTile);
+		});
 	}, []);
+
+	// Otwarcie podglądu dokłada wpis do historii (22.09.2026). Bez tego przycisk
+	// Wstecz na telefonie wyrzucał z galerii zamiast zamknąć podgląd — nasłuch
+	// `popstate` niżej istniał, ale nie było czego cofać, bo nic nie wchodziło
+	// na stos. Adres zostaje ten sam, więc cofnięcie nie zmienia tego, co widać.
+	const openLightbox = useCallback(
+		(index: number) => {
+			triggerIndex.current = index;
+			closingRef.current = false;
+			setLightbox(index);
+			window.history.pushState({ szLightbox: true }, '', window.location.href);
+		},
+		[],
+	);
+
+	// Jedna droga zamykania: przycisk, tło, Escape i gest cofają wpis, a stan
+	// czyści obsługa `popstate`. Gałąź `else` łapie przypadek, w którym wpisu nie
+	// ma (np. podgląd otwarty przed hydratacją nasłuchu).
+	// `closingRef` chroni przed podwójnym cofnięciem. Kliknięcie w „✕" bąbelkuje
+	// do tła, które ma ten sam `onClick`, więc `close` wchodzi dwa razy i bez tej
+	// blokady `history.back()` cofał o DWA wpisy: zamknięcie podglądu wyrzucało
+	// z galerii na poprzednią stronę (zmierzone 22.09.2026). Przyciski strzałek
+	// miały `stopPropagation` od początku, przycisk zamknięcia nie.
+	const close = useCallback(() => {
+		if (closingRef.current) return;
+		closingRef.current = true;
+		if (window.history.state?.szLightbox) {
+			window.history.back();
+			return;
+		}
+		setLightbox(null);
+		restoreFocus();
+	}, [restoreFocus]);
 	const prev = useCallback(
 		() =>
 			setLightbox((i) =>
@@ -138,10 +191,16 @@ export default function GalleryView({
 	};
 
 	useEffect(() => {
-    const closeOnHistory = () => setLightbox(null);
+    const closeOnHistory = () => {
+      closingRef.current = false;
+      setLightbox((current) => {
+        if (current !== null) restoreFocus();
+        return null;
+      });
+    };
     window.addEventListener('popstate', closeOnHistory);
     return () => window.removeEventListener('popstate', closeOnHistory);
-  }, []);
+  }, [restoreFocus]);
 
 	// Klawiatura + blokada scrolla, gdy otwarty lightbox
 	useEffect(() => {
@@ -283,7 +342,30 @@ export default function GalleryView({
 				/* Zdjęcia — równa siatka zamiast masonry. Masonry zachowywało naturalne
            proporcje, ale kolumny rozjeżdżały się wysokością i każdy rząd miał inną
            linię zakończenia. Kadr źródłowy pozostaje dostępny w lightboxie. */
-				<div className='grid grid-cols-1 sm:grid-cols-3 gap-3'>
+				/* TELEFON: SIATKA 3-KOLUMNOWA, KWADRATOWE MINIATURY (22.09.2026).
+				   Wcześniej `grid-cols-1`, czyli jedno zdjęcie na rząd przez całą szerokość.
+				   Zmierzone przy 375 px: kafel 343x457, a sama siatka produktowa 18 499 px,
+				   przy dokumencie 26 973 px. Do przycisku pod galerią trzeba było przewinąć
+				   42 pełnoekranowe zdjęcia, więc materiał z końca listy nie był oglądany.
+				   Po zmianie kafel ma 112 px, a ta sama siatka ok. 1 700 px.
+
+				   Kwadrat, nie proporcja kategorii: przy trzech kolumnach rząd musi być
+				   rzędem niezależnie od tego, czy kadry są pionowe, czy poziome — to ten
+				   sam problem, który `uniformTiles` rozwiązywał tylko w dwóch kategoriach.
+				   Od `sm` proporcje kategorii i odstępy 12 px wracają bez zmian, więc
+				   widok na komputerze zostaje taki, jaki był.
+
+				   TRZY KOLUMNY NA CAŁEJ SZEROKOŚCI TELEFONU (zweryfikowane na zrzutach
+				   22.09.2026). Pierwsza wersja tej zmiany schodziła poniżej 360 px do
+				   dwóch kolumn, bo kafel ma tam 93 px. Porównanie obu wariantów przy
+				   320 px pokazało, że 93 px wystarcza: twarz, strój, poza i tło są
+				   rozpoznawalne, a rząd czyta się jak arkusz stykowy.
+
+				   Dwie kolumny robiły za to gorszą rzecz: przy 320 px kafel miał 142 px,
+				   a przy 360 px już tylko 107 px. Ekran rósł o 12%, a zdjęcie malało
+				   o 25%. Trzy kolumny na całym zakresie dają ciąg rosnący:
+				   93 / 107 / 117 / 130 px przy 320 / 360 / 390 / 430 px. */
+				<div className='grid grid-cols-3 gap-1 sm:gap-3'>
 					{images.map((img, i) => {
 						// KADROWANIE, NIE SAMA SZEROKOSC KAFLA. `object-cover` skaluje zdjecie
 						// tak, zeby WYPELNILO kafel, i przycina nadmiar. Kadr szerszy od kafla
@@ -295,28 +377,38 @@ export default function GalleryView({
 						// `SizedImage` niesie `width` i `height`, wiec stala kategorialna bylaby
 						// najszerszym kadrem narzuconym calej kategorii. Kadr zgodny z kaflem ma
 						// wtedy mnoznik 1 i nie doplaca za sasiadow.
-						const tileAR =
-							activeCat?.key === 'portrety' || activeCat?.key === 'zespolowe'
-								? 3 / 4
-								: activeCat?.uniformTiles
-									? 4 / 5
-									: 4 / 3;
-						const coverBoost = Math.max(1, img.width / img.height / tileAR);
+						const isPortraitCat =
+							activeCat?.key === 'portrety' || activeCat?.key === 'zespolowe';
+						const tileAR = isPortraitCat
+							? 3 / 4
+							: activeCat?.uniformTiles
+								? 4 / 5
+								: 4 / 3;
+						const srcAR = img.width / img.height;
+						const coverBoost = Math.max(1, srcAR / tileAR);
+						// Telefon ma inny kafel niż `sm` w górę (kwadrat zamiast proporcji
+						// kategorii), więc mnożnik kadrowania liczy się dla niego osobno.
+						// Dla kafla 1:1 proporcja kafla wynosi 1, stąd sam `srcAR`.
+						// Mnożnik 0,97 to ten sam zabieg, co w `ServiceGalleryStrip.tsx`:
+						// Next generuje warianty tylko z siatki 128/256/384/640 px, więc
+						// deklaracja większa o jeden piksel przeskakuje na kolejny wariant.
+						// Zmierzone przy 430 px i DPR 2: kadr 3:2 potrzebował 390 px, czyli
+						// 6 px ponad wariant 384, i pobierał 640 px, czyli 2,8x więcej
+						// powierzchni obrazu, niż widać na ekranie (22.09.2026).
+						const mobileBoost = Math.max(1, srcAR) * 0.97;
 						return (
 						<button
 							key={img.src}
 							type='button'
-							onClick={(e) => {
-								triggerRef.current = e.currentTarget;
-								setLightbox(i);
-							}}
+							data-tile={i}
+							onClick={() => openLightbox(i)}
 							aria-label={`Powiększ: ${altFor(activeCat, i)}`}
-							className={`relative block w-full rounded-xl overflow-hidden bg-border dark:bg-dark-card group ${
-								activeCat?.key === 'portrety' || activeCat?.key === 'zespolowe'
-									? 'aspect-[3/4]'
+							className={`relative block w-full rounded-md sm:rounded-xl overflow-hidden bg-border dark:bg-dark-card group aspect-square ${
+								isPortraitCat
+									? 'sm:aspect-[3/4]'
 									: activeCat?.uniformTiles
-										? 'aspect-[4/5]'
-										: 'aspect-[4/3]'
+										? 'sm:aspect-[4/5]'
+										: 'sm:aspect-[4/3]'
 							}`}
 						>
 							<Image
@@ -333,8 +425,20 @@ export default function GalleryView({
 								// przemnozone przez `coverBoost` z kadrowania. Samo `33vw` bylo
 								// przypadkowo blisko celu na szerokim ekranie, ale zanizalo posrodku
 								// zakresu: przy 1000 px deklarowalo 330 px przy potrzebnych 387 px.
-								sizes={`(max-width: 639px) calc((100vw - 32px) * ${coverBoost.toFixed(3)}), (min-width: 1152px) ${Math.ceil(365 * coverBoost)}px, calc((100vw - 56px) / 3 * ${coverBoost.toFixed(3)})`}
-								className='object-cover transition-opacity group-hover:opacity-90'
+								// Trzy progi: telefon ma inny kafel niż `sm` w górę (kwadrat
+								// zamiast proporcji kategorii), a powyżej 1152 px kafel
+								// przestaje rosnąć. Odjęte piksele to padding kontenera (32)
+								// plus odstępy: 4 px x 2 na telefonie, 12 px x 2 od `sm`.
+								// Ostatni człon w pikselach: (1152 - 32 - 24) / 3 = 365.
+								sizes={`(max-width: 639px) calc((100vw - 40px) / 3 * ${mobileBoost.toFixed(3)}), (min-width: 1152px) ${Math.ceil(365 * coverBoost)}px, calc((100vw - 56px) / 3 * ${coverBoost.toFixed(3)})`}
+								/* Kwadrat przycina pionowy portret u góry i u dołu, więc
+								   kotwiczymy kadr wyżej: przy `object-center` znikała część
+								   głowy. Od `sm` kafel jest znów 3:4 i kotwica nie jest
+								   potrzebna. Ten sam wzorzec co `thumbPosition` w
+								   `ServiceGalleryStrip.tsx`. */
+								className={`object-cover transition-opacity group-hover:opacity-90 ${
+									isPortraitCat ? 'object-[50%_20%] sm:object-center' : ''
+								}`}
 							/>
 						</button>
 						);
@@ -401,15 +505,29 @@ export default function GalleryView({
 					className='fixed inset-0 z-[100] bg-black/90 flex items-center justify-center p-4 sm:p-8 outline-none'
 					onClick={close}
 					onTouchStart={(e) => {
-						touchX.current = e.touches[0].clientX;
+						touchStart.current = {
+							x: e.touches[0].clientX,
+							y: e.touches[0].clientY,
+						};
 					}}
+					/* Gest liczony na obu osiach (22.09.2026). Wcześniej próg 50 px dotyczył
+					   samego X, więc przesunięcie po skosie przeskakiwało kadr. Teraz
+					   decyduje oś dominująca: w poziomie zmiana zdjęcia, w dół zamknięcie
+					   (wzorzec z podglądów zdjęć na telefonie). W górę nic, bo to gest
+					   przewijania i zamykanie nim zaskakuje. */
 					onTouchEnd={(e) => {
-						if (touchX.current === null) return;
-						const dx = e.changedTouches[0].clientX - touchX.current;
-						touchX.current = null;
-						if (Math.abs(dx) > 50) {
-							if (dx < 0) next();
-							else prev();
+						const start = touchStart.current;
+						touchStart.current = null;
+						if (!start) return;
+						const dx = e.changedTouches[0].clientX - start.x;
+						const dy = e.changedTouches[0].clientY - start.y;
+						if (Math.abs(dx) > Math.abs(dy)) {
+							if (Math.abs(dx) > 50) {
+								if (dx < 0) next();
+								else prev();
+							}
+						} else if (dy > 80) {
+							close();
 						}
 					}}
 					role='dialog'
@@ -423,7 +541,10 @@ export default function GalleryView({
 					)}
 					<button
 						type='button'
-						onClick={close}
+						onClick={(e) => {
+							e.stopPropagation();
+							close();
+						}}
 						aria-label='Zamknij podgląd'
 						className='absolute top-4 right-4 w-11 h-11 rounded-full bg-white/10 hover:bg-white/20 text-white text-xl flex items-center justify-center transition-colors'
 					>
@@ -443,7 +564,7 @@ export default function GalleryView({
 						</button>
 					)}
 					<div
-						className='max-h-[88vh] max-w-[92vw]'
+						className='max-h-[88dvh] max-w-[92vw]'
 						onClick={(e) => e.stopPropagation()}
 					>
 						{/* next/image zamiast surowego <img> (audyt 2026-07-06): lightbox
@@ -456,7 +577,7 @@ export default function GalleryView({
 							height={images[lightbox].height}
 							quality={90}
 							priority
-							className='max-h-[88vh] max-w-[92vw] w-auto h-auto object-contain rounded-lg'
+							className='max-h-[88dvh] max-w-[92vw] w-auto h-auto object-contain rounded-lg'
 						/>
 					</div>
 					{imageCount > 1 && (
