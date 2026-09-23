@@ -185,7 +185,7 @@ export default async function GaleriaPage({
 	// krótszą listą (dziś tylko `produktowe`, 4 warianty na 46 kadrów) zostaje na rotacji
 	// do czasu własnej rundy: jej kadrów ta tura nie oglądała.
 	//
-	// ✅ STAN OPISÓW 22.09.2026: każdy kadr w sześciu kategoriach ma własny opis (115 po zdjęciu `wnetrze-05` 23.09.2026, kadr z sesji Forte na MTP, której zdjęć nie wolno publikować)
+	// ✅ STAN OPISÓW 22.09.2026: każdy kadr w sześciu kategoriach ma własny opis (114 po zdjęciu 23.09.2026 `wnetrze-05`, kadr z sesji Forte na MTP, i `event-21`, kadr z imprezy BeThink: zdjęć z tych realizacji nie wolno publikować)
 	// w `GALLERY_ALTS`. Przed tą datą 59 kadrów (po rozbudowie galerii 20.08) dostawało
 	// jeden opis kategorii albo szablon z rotacji, więc czytnik ekranu powtarzał to samo
 	// zdanie przy kolejnych kafelkach. Nowy plik w `public/images/galeria/` = nowy wpis

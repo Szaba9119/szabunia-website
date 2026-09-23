@@ -74,8 +74,6 @@ export const GALLERY_ALTS: Record<string, string> = {
     "Rozmowa dwóch uczestników konferencji w foyer, w tle kuluary",
   "event-14-przeciaganie-liny-integracja":
     "Przeciąganie liny na pikniku firmowym, uczestnicy w plenerze",
-  "event-21-dj-za-konsoleta":
-    "DJ przy konsolecie na imprezie firmowej, lampy sceniczne w tle",
   "event-15-parkiet-taneczny":
     "Parkiet taneczny na balu firmowym, goście w strojach wieczorowych",
   "event-18-za-kierownica-auta":
