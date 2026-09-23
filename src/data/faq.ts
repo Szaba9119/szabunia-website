@@ -28,39 +28,68 @@ export interface HomeFaqItem {
   a: string;
 }
 
+// ⚠ PRZEPISANE 22.09.2026 (Marcin: „lecisz z poprawkami… sam sobie dopowiedz"), po
+// przestawieniu strony na „eventy pierwsze". Trzy z siedmiu pytań dotyczyły wyłącznie
+// portretów („Ile kosztuje sesja?", „Jak wygląda sesja zdjęciowa krok po kroku?",
+// „Ile osób możesz sfotografować w jeden dzień?"), więc FAQ strony głównej ciągnęło
+// w stronę portretów wbrew kolejności usług.
+//
+// Szkielet priorytetów Marcina z 10.08 ZOSTAJE: cena → termin → dojazd → sposób
+// współpracy → licencja → skala → rozliczenie. Zmienia się tylko to, o czym mówi
+// każde miejsce. Żadnych nowych faktów: każde zdanie pochodzi z FAQ podstron usług
+// (`services.tsx`) albo z cennika v3 (event wyceniany wg czasu obecności, pakiety
+// hybrydowe). Slot „sposób współpracy" niesie teraz priorytet nr 7 z 10.08 (foto +
+// wideo + dron), którego wtedy nie było czym wypełnić. Stara wersja pytania o przebieg
+// sesji nie ginie: te same cztery kroki pokazuje sekcja „Jak wygląda współpraca".
 export const homeFaqs: HomeFaqItem[] = [
   {
-    q: "Ile kosztuje sesja?",
-    a: "Cena zależy od liczby osób, lokalizacji, czasu na miejscu i zakresu postprodukcji. Przy grupie płacisz za liczbę osób, a nie za długość jednej sesji, więc sesja zespołowa liczy się inaczej niż portret jednej osoby. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w ciągu 24 godzin.",
+    q: "Ile kosztuje realizacja?",
+    a: "Cena zależy od rodzaju realizacji, czasu na miejscu, lokalizacji i zakresu postprodukcji. Przy evencie liczy się czas obecności i to, czy obok zdjęć ma powstać film albo ujęcia z drona. Przy sesji zespołowej płacisz za liczbę osób, a nie za długość sesji. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w ciągu 24 godzin.",
   },
   {
     q: "Jak szybko otrzymam gotowe materiały?",
-    a: "Standardowy czas oddania zdjęć to 14 dni, a materiałów wideo do 21 dni. Oferuję również tryb ekspresowy (do 48 godzin) za dodatkową opłatą (+50% wartości zlecenia).",
+    a: "Standardowy czas oddania zdjęć to 14 dni, a materiałów wideo do 21 dni. Oferuję również tryb ekspresowy (do 48 godzin) za dodatkową opłatą (+50% wartości zlecenia). Na evencie wybrane kadry mogę obrabiać na miejscu, żeby relacja wyszła jeszcze w trakcie wydarzenia. To opcja dodatkowa.",
   },
   {
     q: "Czy dojeżdżasz poza Poznań?",
     a: "Tak, realizuję zlecenia na terenie całej Polski oraz Europy. Dojazd w Poznaniu: 0 zł. Poza Poznaniem: 2,50 zł netto za kilometr, liczone od granicy miasta w obie strony według Google Maps. Przy dłuższych wyjazdach (powyżej jednego dnia pracy) doliczany jest również nocleg.",
   },
   {
-    q: "Jak wygląda sesja zdjęciowa krok po kroku?",
-    a: "Zaczynamy od krótkiej rozmowy (telefon lub e-mail), w której ustalamy cel, styl i logistykę. Przed sesją przygotowuję zestaw przykładowych póz i kadrów. W dniu sesji prowadzę Cię przez pozowanie i dobór ujęć. Po sesji wybierasz zdjęcia z galerii online, a ja zajmuję się retuszem. Gotowe materiały dostajesz w ciągu 14 dni.",
+    q: "Zrobisz zdjęcia, film i ujęcia z drona podczas jednego wydarzenia?",
+    a: "Tak. Przy standardowym wydarzeniu robię wszystko sam. Przy dużym, gdzie dwie rzeczy dzieją się naraz, biorę drugiego operatora. Retusz i montaż robię osobiście, więc materiał wychodzi w jednym standardzie. Dla Ciebie to nadal jedna osoba kontaktowa, jedne ustalenia i jedna faktura.",
   },
   {
     q: "Czy mogę użyć zdjęć na LinkedIn / stronie / w reklamie?",
     a: "Tak. Wszystkie licencje obejmują użytek komercyjny: strona www, social media, materiały drukowane, reklama online. Bez limitów czasowych.",
   },
   {
-    q: "Ile osób możesz sfotografować w jeden dzień?",
-    a: "Przy portretach biznesowych fotografuję do 40 osób dziennie (gdy rozstawiam mobilne studio na miejscu). Jedna osoba to 5 do 15 minut. Mogę przyjechać do biura z mobilnym studiem.",
+    q: "Zrobisz przy okazji wydarzenia zdjęcia całego zespołu?",
+    a: "Tak. Przywożę mobilne studio: 5 m², gniazdko, 30 minut na rozstawienie. Jedna osoba to 5 do 15 minut, więc w jeden dzień fotografuję do 40 osób, między prelekcjami albo w luźniejszym oknie agendy. Bez osobnego terminu i bez osobnego dojazdu.",
   },
   {
-    // SIÓDMY SLOT. Priorytet nr 7 Marcina brzmiał „możliwość połączenia foto +
-    // wideo + dron", ale TAKIEGO PYTANIA NIE MA w tym pliku i nie wymyślam go
-    // sam, bo to treść ofertowa. W zamian stoi tu faktura VAT: dla klienta B2B
-    // to realny warunek zakupu, a odpowiedź rozbraja obiekcję „osoba prywatna
-    // bez firmy". Jeśli ma tu wejść pytanie o foto+wideo+dron, Marcin poda treść.
+    // Bez zmian od 10.08.2026. Useme zostaje w odpowiedzi świadomie (decyzja Marcina
+    // 22.09.2026): fakturę wystawia Useme, a skrót „otrzymasz fakturę VAT" sugerowałby
+    // innego wystawcę niż ten, którego zobaczy księgowość klienta.
     q: "Czy wystawiasz fakturę VAT?",
     a: "Tak. Rozliczenie prowadzę przez platformę Useme, która wystawia fakturę VAT za zrealizowane zlecenie. Termin płatności: 7 dni. Dla Twojej księgowości to standardowa faktura VAT z pełnymi danymi wystawcy.",
+  },
+];
+
+// Pytania zdjęte ze strony głównej 22.09.2026 przy przepisaniu pod eventy. Treść
+// nietknięta. Wszystkie trzy mają dziś odpowiednik na podstronie wizerunku albo
+// w sekcji procesu na stronie głównej, więc nic nie znika z serwisu.
+export const replacedHomeFaqs2209: HomeFaqItem[] = [
+  {
+    q: "Ile kosztuje sesja?",
+    a: "Cena zależy od liczby osób, lokalizacji, czasu na miejscu i zakresu postprodukcji. Przy grupie płacisz za liczbę osób, a nie za długość jednej sesji, więc sesja zespołowa liczy się inaczej niż portret jednej osoby. Napisz w kilku zdaniach, czego potrzebujesz, a wstępną wycenę odeślę w ciągu 24 godzin.",
+  },
+  {
+    q: "Jak wygląda sesja zdjęciowa krok po kroku?",
+    a: "Zaczynamy od krótkiej rozmowy (telefon lub e-mail), w której ustalamy cel, styl i logistykę. Przed sesją przygotowuję zestaw przykładowych póz i kadrów. W dniu sesji prowadzę Cię przez pozowanie i dobór ujęć. Po sesji wybierasz zdjęcia z galerii online, a ja zajmuję się retuszem. Gotowe materiały dostajesz w ciągu 14 dni.",
+  },
+  {
+    q: "Ile osób możesz sfotografować w jeden dzień?",
+    a: "Przy portretach biznesowych fotografuję do 40 osób dziennie (gdy rozstawiam mobilne studio na miejscu). Jedna osoba to 5 do 15 minut. Mogę przyjechać do biura z mobilnym studiem.",
   },
 ];
 

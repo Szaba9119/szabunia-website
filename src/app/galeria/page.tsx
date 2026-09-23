@@ -135,12 +135,8 @@ export default async function GaleriaPage({
 			// jako jedyna dostaje równe kafelki zamiast siatki murowanej.
 			uniformTiles: true,
 			alt: 'Fotografia produktowa, packshot, Marcin Szabunia',
-			altVariants: [
-				'Packshot produktu na białym tle, fotografia e-commerce',
-				'Zdjęcie produktowe do sklepu internetowego, Marcin Szabunia',
-				'Fotografia produktowa kreatywna, aranżacja reklamowa',
-				'Zdjęcie katalogowe produktu, studio, Poznań',
-			],
+			// `altVariants` (4 rotujące szablony na 42 kadry) USUNIĘTE 22.09.2026: każdy kadr
+			// produktowy ma już własny opis w `galleryAlts.ts`, więc bierze go jak pozostałe.
 		},
 		{
 			// Nowa kategoria, wdrożenie V4 (20.08.2026). Materiał: 21 kadrów z realizacji
@@ -189,13 +185,11 @@ export default async function GaleriaPage({
 	// krótszą listą (dziś tylko `produktowe`, 4 warianty na 46 kadrów) zostaje na rotacji
 	// do czasu własnej rundy: jej kadrów ta tura nie oglądała.
 	//
-	// ⚠ STAN OPISÓW PO 20.08.2026, do zamknięcia osobną rundą. Galerie urosły ze 128
-	// do 158 kadrów, a mapa `GALLERY_ALTS` nie. 68 kadrów poza produktową nie ma własnego
-	// opisu i dostaje opis kategorii, jeden i ten sam dla całej zakładki: gastronomia 21 z 21,
-	// portrety 17 z 31, wnętrza 16 z 24, eventy 13 z 27, dron 1 z 9. Dla kategorii bez własnej listy
-	// `altVariants` długość wariantów równa się liczbie zdjęć, więc `altFor` w `GalleryView`
-	// nie dokłada nawet „, kadr N" i czytnik ekranu dostaje to samo zdanie przy kolejnych
-	// kafelkach. To jest ta sama regresja, którą ZDJ2608-04 zamykał 04.08.2026.
+	// ✅ STAN OPISÓW 22.09.2026: każdy z 116 kadrów w sześciu kategoriach ma własny opis
+	// w `GALLERY_ALTS`. Przed tą datą 59 kadrów (po rozbudowie galerii 20.08) dostawało
+	// jeden opis kategorii albo szablon z rotacji, więc czytnik ekranu powtarzał to samo
+	// zdanie przy kolejnych kafelkach. Nowy plik w `public/images/galeria/` = nowy wpis
+	// w `galleryAlts.ts`, inaczej regresja wraca.
 	const categories: GalleryCategory[] = defs
 		.map((d) => {
 			const images = listGalleryImagesSized(d.folder);
@@ -204,8 +198,7 @@ export default async function GaleriaPage({
 				label: d.label,
 				images,
 				alt: d.alt,
-				altVariants:
-					d.altVariants ?? images.map((img) => galleryAlt(img.src, d.alt)),
+				altVariants: images.map((img) => galleryAlt(img.src, d.alt)),
 				uniformTiles: d.uniformTiles,
 				service: CATEGORY_SERVICE[d.key],
 			};

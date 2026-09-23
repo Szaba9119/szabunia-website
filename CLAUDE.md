@@ -180,7 +180,8 @@ zawiera Instagram + wizytówkę Google, bez LinkedIn i Facebooka. Nie dodawać i
 (uwaga: profil FB istnieje i ma ~1,4 tys. obserwujących — to otwarty temat linkowania, nie błąd).
 
 **Depricing 23.07.2026:** `Pricing.tsx`, `PricingCalculator.tsx` i cała trasa `/kalkulator`
-**USUNIĘTE**. `/kalkulator` → 301 → `/kontakt`. Strona nie publikuje tabel cenowych — zostały
+**USUNIĘTE**. `/kalkulator` → 308 → `/kontakt` (stały redirect Next.js; do 22.09.2026 ten plik
+mówił „301", produkcja zwraca 308, dla SEO bez różnicy). Strona nie publikuje tabel cenowych — zostały
 wyłącznie kotwice „od X zł" w kartach usług (`src/data/services.tsx`). Nie odbudowywać
 sekcji cennika bez wyraźnej decyzji Marcina.
 
@@ -236,9 +237,16 @@ i `01_Biznes/_System/07_Strategia/seo_vs_strategia_2026-07-30.md`:
    pozostaje poprawna, bo wszystkie sekcje strony głównej i tak używają `h2`.
 4. **Pozycjonowanie w metadanych i JSON-LD: eventy przed portretami.** Wynika z
    `01_Biznes/_System/07_Strategia/korekta_pozycjonowania_2026-07.md` (10 z 11 realizacji
-   referencyjnych to eventy). Kolejność kart usług w `services.tsx` NADAL ma portrety
-   pierwsze — to świadome, odwrócenie hierarchii jest robotą na wrzesień
-   (`CO_DALEJ_lista_dzialan.md`: „strukturę zostawiamy do września").
+   referencyjnych to eventy). ~~Kolejność kart usług NADAL ma portrety pierwsze.~~
+   **Odwrócone 22.09.2026 (commit `0bbbdd9`, decyzja Marcina): eventy pierwsze w całym
+   serwisie.** Kolejność Wydarzenia → Ludzie → Obiekty → Produkty ustala
+   `src/data/servicePillars.ts` (karty na home i `/uslugi`), do tego hasło i kolaż hero,
+   domyślna zakładka `/galeria` = Eventy, `/portfolio` od Woohoo, FAQ strony głównej
+   (`faq.ts`) pod eventy. Nie wracać do portretów na pierwszym miejscu bez decyzji.
+5. **Title strony głównej: „Fotografia i wideo dla firm, Poznań | Szabunia" (22.09.2026).**
+   Frazę „fotograf biznesowy Poznań" niesie title `/uslugi/wizerunek-portrety` (GSC:
+   Google przypisał ją tej podstronie). H1 strony głównej bez zmian. Dane GSC strony
+   głównej od 23.09.2026 mają tę zmianę jako nową zmienną.
 
 Usunięty żargon: **„z jednego wejścia" → „od jednej osoby"** w 25 miejscach (`src/` i `blog.ts`).
 Słowo „wejście" miało zero wystąpień we wszystkich zapytaniach z GSC i Ads. Slug

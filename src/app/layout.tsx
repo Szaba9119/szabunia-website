@@ -33,7 +33,17 @@ export const metadata: Metadata = {
   // jest jednym z czterech obszarów niżej, nie połową tytułu. Tytuł nie próbuje
   // zmieścić wszystkich czterech filarów: szerokość oferty pokazuje H1, a tytuł
   // ma zdobyć kliknięcie na jednej kategorii. 53 znaki, mieści się bez ucięcia.
-  title: "Fotograf biznesowy Poznań | Zdjęcia i film | Szabunia",
+  //
+  // ⚠ ZMIENIONE 22.09.2026 (wariant D1-A z `docs/sesje/AUDYT-CTR-SNIPPETY-2026-09-14.md`,
+  // Marcin: „lecisz z poprawkami… sam sobie dopowiedz"). Frazę „fotograf biznesowy
+  // Poznań" od 14.09 niesie title `/uslugi/wizerunek-portrety`, bo tam Google ją
+  // przypisał (GSC 16.08-12.09: 138 wyśw., poz. 11,9; strona główna 37 wyśw. na 28 dni,
+  // prawie tylko z marki). Dwie strony z tą samą frazą na początku tytułu konkurowały
+  // o jedno zapytanie. Strona główna bierze frazę szerszą, zgodną z czterema obszarami.
+  // POMIAR: dane GSC strony głównej od 23.09.2026 mają tę zmianę jako nową zmienną.
+  // H1 („Fotograf biznesowy w Poznaniu. Zdjęcia i film.") zostaje bez zmian.
+  // Aby cofnąć: poprzednia wartość „Fotograf biznesowy Poznań | Zdjęcia i film | Szabunia".
+  title: "Fotografia i wideo dla firm, Poznań | Szabunia",
   // Przepisane 10.08.2026 na cztery filary. Dobór słów NIE jest przypadkowy:
   // „fotografia" (622 kliknięcia w Ads), „biznesowa" (78) i „Poznaniu" (358)
   // to jedyne frazy z tego opisu, które mają pomiar. Nazwy klientów zostają
@@ -61,8 +71,10 @@ export const metadata: Metadata = {
     // ⚠ Znika „jeden twórca". Ten sam problem co „od jednej osoby": FAQ na
     // podstronie Wydarzeń mówi wprost, że przy dużym wydarzeniu dochodzi drugi
     // operator, więc deklaracja przeczyła własnej stronie.
+    // 22.09.2026: kolejność „Wydarzenia, ludzie…”, jak hasło w hero po decyzji
+    // „eventy pierwsze”.
     description:
-      "Ludzie, wydarzenia, obiekty, produkty. Zdjęcia i film dla firm, od pierwszej rozmowy do gotowych materiałów. Poznań, cała Polska i Europa.",
+      "Wydarzenia, ludzie, obiekty, produkty. Zdjęcia i film dla firm, od pierwszej rozmowy do gotowych materiałów. Poznań, cała Polska i Europa.",
     url: "https://szabunia.pl",
     siteName: "Marcin Szabunia",
     locale: "pl_PL",
@@ -90,8 +102,10 @@ export const metadata: Metadata = {
     // ⚠ Znika „jeden twórca". Ten sam problem co „od jednej osoby": FAQ na
     // podstronie Wydarzeń mówi wprost, że przy dużym wydarzeniu dochodzi drugi
     // operator, więc deklaracja przeczyła własnej stronie.
+    // 22.09.2026: kolejność „Wydarzenia, ludzie…”, jak hasło w hero po decyzji
+    // „eventy pierwsze”.
     description:
-      "Ludzie, wydarzenia, obiekty, produkty. Zdjęcia i film dla firm, od pierwszej rozmowy do gotowych materiałów. Poznań, cała Polska i Europa.",
+      "Wydarzenia, ludzie, obiekty, produkty. Zdjęcia i film dla firm, od pierwszej rozmowy do gotowych materiałów. Poznań, cała Polska i Europa.",
     images: ["/images/og/strony/home.jpg"],
   },
   robots: {

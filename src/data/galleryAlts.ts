@@ -285,6 +285,126 @@ export const GALLERY_ALTS: Record<string, string> = {
     "Osiedle z czerwonej cegły z lotu ptaka o zachodzie słońca, wokół ulica i zieleń",
   "zdjecie-do-cv-w-domu-2":
     "Studyjny portret młodej kobiety w beżowej marynarce na szarym tle, kadr do ramion",
+  // 22.09.2026: 59 kadrów galerii bez własnego opisu (regresja po rozbudowie z 20.08,
+  // opisana w `galeria/page.tsx`). Każdy kadr obejrzany, opis mówi, co jest na zdjęciu.
+  "event-04-jednopunktowa-perspektywa-neonowa":
+    "Długi stół bankietowy z czerwonymi dekoracjami i podświetloną gwiazdą, sala przygotowana na galę",
+  "event-06-snop-reflektora-przecina":
+    "Koncert fortepianowy w barokowym kościele, snop reflektora nad publicznością",
+  "event-12-nawa-czerwonym-swietle":
+    "Nawa barokowego kościoła w czerwonym świetle podczas koncertu, pełna widownia",
+  "event-13-networking-goscie-drinkami":
+    "Goście z kieliszkami rozmawiają podczas networkingu na evencie firmowym",
+  "event-23-scena-gali-orkiestra":
+    "Scena gali muzycznej z orkiestrą, publicznością i kolorową oprawą świetlną",
+  "event-26-pole-kieliszkow-rozmyte":
+    "Rzędy kieliszków przygotowanych na przyjęcie, w tle podświetlony napis na ścianie sali",
+  "event-27-hala-dymie-wachlarz":
+    "Koncert w hali pełnej dymu, reflektory rozchodzą się wachlarzem nad publicznością",
+  "produkt-02-brembo":
+    "Czerwony uchwyt w kształcie zacisku Brembo z białymi krążkami, packshot na białym tle",
+  "produkt-03-sukienka-czerwona":
+    "Modelka w czerwonej sukience z falbanami w ruchu, jasne tło, zdjęcie odzieży",
+  "produkt-04-detal-makro-faktury":
+    "Srebrna spirala z drutu w zbliżeniu makro na czarnym tle, detal produktu",
+  "produkt-05-danie-miska":
+    "Danie w kształcie stożka z czerwonym dekorem w niebieskiej misce, ciemne tło",
+  "produkt-07-rozowy-drink-kwiatowej":
+    "Dłoń trzyma różowy koktajl w kieliszku na tle tkaniny w kwiaty i liście",
+  "produkt-09-czerwony-pret-tworzywa":
+    "Czerwony pręt z tworzywa na białym tle, packshot detalu technicznego",
+  "produkt-11-pastelowy-emaliowany-kubek":
+    "Emaliowany kubek z oczami i lodem na pastelowym tle z liśćmi paproci",
+  "produkt-12-box17-budka-duza":
+    "Szklana budka akustyczna Box17 w czarnej ramie, packshot na białym tle",
+  "produkt-14-hob-czapka-kremowy-nadruk":
+    "Czarna czapka z daszkiem z kremowym nadrukiem, packshot na jasnym tle",
+  "produkt-16-packshot-odbiciem":
+    "Srebrny pierścionek z ciemną perłą i odbiciem, packshot na białym tle",
+  "produkt-20-turkus-kontra-zolc":
+    "Czerwony drink w kryształowej szklance na scenografii w turkusie i żółci",
+  "produkt-21-danie-muszla":
+    "Danie z zieleniną w szarej ceramicznej misce w kształcie muszli, ciemne tło",
+  "produkt-22-hob-koszulka":
+    "Zielona koszulka z nadrukiem, packshot odzieży na jasnym tle",
+  "produkt-23-bransoletka-jeans":
+    "Bransoletka z koralików na nadgarstku, dłoń w kieszeni dżinsów",
+  "produkt-25-latte-macchiato-warstwy":
+    "Latte macchiato z widocznymi warstwami w szklance, packshot na białym tle",
+  "produkt-26-srebro-ceglanej-czerwieni":
+    "Srebrne kombi zaparkowane przed budynkiem z czerwonej elewacji, zdjęcie reklamowe auta",
+  "produkt-27-slimak-tworzywa-czarnym":
+    "Białe elementy z tworzywa w kształcie ślimaka z odbiciem na czarnym tle",
+  "produkt-28-drink-szklanym-kloszem":
+    "Drink z lodem pod szklanym kloszem na drewnianym stole",
+  "produkt-29-zestaw-szaro-rozowy":
+    "Modelka w szarym swetrze i różowej spódnicy z falbanami, zdjęcie odzieży",
+  "produkt-30-packshot-odziezy-dluga":
+    "Czarne szorty cargo z paskiem, packshot odzieży na jasnym tle",
+  "produkt-31-martwa-natura-scenografia":
+    "Koktajl w wysokiej szklance na żółto-czarnej scenografii w paski",
+  "produkt-32-dlon-wchodzi-oliwkowej":
+    "Dłoń z kieliszkiem koktajlu z jadalnym kwiatem na oliwkowym tle",
+  "produkt-34-zegarek":
+    "Zegarek na nadgarstku kierowcy przy kierownicy samochodu, zdjęcie w aranżacji",
+  "produkt-36-packshot-jednolitym-grupowy":
+    "Lniane woreczki z numerami na sznurku, packshot grupowy na jednolitym tle",
+  "produkt-37-artech":
+    "Niebieski pierścień z tworzywa o ząbkowanej strukturze, packshot na białym tle",
+  "produkt-38-butelka-pionowych-swietlowek":
+    "Dłoń trzyma małą butelkę alkoholu na tle czerwonych świetlówek",
+  "produkt-39-hob-czapka-niebieski-nadruk":
+    "Czarna czapka z daszkiem z niebieskim nadrukiem, packshot na jasnym tle",
+  "produkt-40-volvo-budynek":
+    "Srebrne kombi przed nowoczesnym budynkiem z czerwoną elewacją, zdjęcie reklamowe auta",
+  "produkt-41-kule-3d":
+    "Dwie ażurowe kule z tworzywa w odcieniach różu i błękitu, packshot na białym tle",
+  "produkt-42-kolczyki-fioletowy-kamien":
+    "Srebrne kolczyki z fioletowym kamieniem, packshot biżuterii na białym tle",
+  "produkt-45-volvo-las-przod":
+    "Srebrny samochód z włączonymi światłami na leśnej drodze, zdjęcie reklamowe auta",
+  "produkt-46-kieliszek-pomaranczowym-narozniku":
+    "Koktajl z miętą w kieliszku w pomarańczowym narożniku, aranżacja produktowa",
+  "gastro-01-strumien-oliwy-zatrzymany":
+    "Oliwa polewana na pizzę neapolitańską, obok kieliszek wina, zdjęcie w lokalu",
+  "gastro-02-packshot-koktajlu":
+    "Czerwony koktajl z malinami w kryształowej szklance na turkusowym blacie",
+  "gastro-05-kucharz-toku-wydaje":
+    "Kucharka w czapce szefa kuchni podaje talerz przy okienku wydawczym",
+  "gastro-06-siatka-kanapek-lupku":
+    "Kanapki z zieleniną ułożone w siatkę na łupku, widok z góry",
+  "gastro-07-kucharz-pracy-detal":
+    "Kucharz w czarnych rękawiczkach kroi pieczeń na desce, detal pracy w kuchni",
+  "gastro-08-miekkie-okienne-zolko":
+    "Kanapka z szynką i jajkiem w miękkim świetle z okna, obok przystawka i napój",
+  "gastro-10-struga-zamrozona-flashem":
+    "Barman w czarnej rękawiczce nalewa różowy napój do kieliszków z lodem",
+  "gastro-12-flat-menu":
+    "Pizza neapolitańska z bazylią na białym talerzu, widok z góry na drewnianym stole",
+  "gastro-13-backstage-kuchni-plating":
+    "Kucharz w czarnej rękawiczce ściera ser nad talerzem z pierogiem, kulisy kuchni",
+  "gastro-15-pinceta-klada-jadalny":
+    "Barman pincetą układa jadalny kwiat na koktajlu w wysokiej szklance",
+  "gastro-16-czarna-rekawiczka-stali":
+    "Dłoń w czarnej rękawiczce układa owoce na francuskim toście",
+  "gastro-17-flat-dania-ciemnym":
+    "Danie w miedzianym rondelku i pieczywo na czarnej desce, widok z góry",
+  "gastro-18-pizza-niesiona-lezaca":
+    "Kelner niesie pizzę z rukolą i burratą na talerzu",
+  "gastro-20-packshot-napoju-dekoracja":
+    "Deser z matchą i ciasteczkiem w szklance, packshot na białym tle",
+  "gastro-21-talerz-plytkiej-glebi":
+    "Tatar z dekoracją na głębokim białym talerzu, w tle rozmyte światła",
+  "wnetrze-02-korytarz-szachownice-czerwien":
+    "Korytarz lokalu z posadzką w szachownicę i czerwonymi fotelami, dekoracyjny sufit",
+  "wnetrze-05-aranzacja-vankka-pionowe":
+    "Aranżacja salonu z meblami marki Vankka, jasne drewno i ciepłe światło",
+  "wnetrze-06-symetryczna-sciana-butelek":
+    "Symetryczna ściana z butelkami i neonem nad barem w lokalu",
+  "wnetrze-08-granatowe-kafle-czerwona":
+    "Wnętrze baru z granatowymi kaflami, czerwoną kanapą i neonem",
+  "dron-02-prostopadle-gwiazda-choinki":
+    "Jarmark świąteczny z lotu ptaka, widok z góry na gwiazdę i choinkę",
 };
 
 /** Nazwa pliku bez katalogu i bez rozszerzenia, np. `/images/galeria/eventy/event-NN-opis-kadru.jpg` → `event-NN-opis-kadru`. */
