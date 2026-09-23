@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef, useState } from "react";
 import Script from "next/script";
 import { useTheme } from "./ThemeProvider";
 
@@ -59,6 +59,15 @@ const TurnstileWidget = forwardRef<
   const renderedRef = useRef(false);
   const blockedRef = useRef(false);
   const { theme } = useTheme();
+  // ŁADOWANIE DOPIERO PRZY FORMULARZU (23.09.2026). Wcześniej `<Script lazyOnload>` stał
+  // w drzewie od pierwszego renderu, więc skrypt i wyzwanie Cloudflare startowały zaraz po
+  // wczytaniu KAŻDEJ strony z formularzem, także strony głównej, gdzie formularz jest na
+  // samym dole. Lighthouse mobile na produkcji 23.09: ok. 750 KB z 1 570 KB wagi strony
+  // głównej to Turnstile (`challenges.cloudflare.com`), liczony w tle na procesorze
+  // telefonu w tym samym czasie, co render hero. Teraz skrypt wchodzi, gdy kontener
+  // widgetu jest ~800 px od ekranu: wyzwanie ma kilka sekund, zanim ktoś dojdzie do pól.
+  // Kotwica `#kontakt` przeskakuje prosto do formularza, więc tam ładowanie rusza od razu.
+  const [shouldLoad, setShouldLoad] = useState(false);
 
   useEffect(() => {
     onVerifyRef.current = onVerify;
@@ -145,23 +154,57 @@ const TurnstileWidget = forwardRef<
   useEffect(() => removeWidget, []);
 
   useEffect(() => {
-    if (!SITE_KEY) return;
+    if (!SITE_KEY || shouldLoad) return;
+    const el = containerRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setShouldLoad(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setShouldLoad(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "800px 0px" },
+    );
+    io.observe(el);
+    // Drugi wyzwalacz: pierwsze wejście w dowolne pole formularza. Na telefonie formularz
+    // ma ok. 900 px, a widget stoi na jego końcu, więc pierwsze pole może być dalej niż
+    // margines obserwatora. Kto zaczyna pisać, dostaje wyzwanie od razu.
+    const form = el.closest("form");
+    const start = () => setShouldLoad(true);
+    form?.addEventListener("focusin", start, { once: true });
+    return () => {
+      io.disconnect();
+      form?.removeEventListener("focusin", start);
+    };
+  }, [shouldLoad]);
+
+  // Limit czasu liczony od STARTU ładowania skryptu, nie od wejścia na stronę. Przy
+  // ładowaniu przy formularzu licznik od pierwszego renderu zgłaszałby blokadę każdemu,
+  // kto przewija stronę dłużej niż 8 s, choć skrypt nawet nie ruszył.
+  useEffect(() => {
+    if (!SITE_KEY || !shouldLoad) return;
     const timer = setTimeout(() => {
       if (!renderedRef.current) setBlocked(true);
     }, LOAD_TIMEOUT_MS);
     return () => clearTimeout(timer);
-  }, []);
+  }, [shouldLoad]);
 
   if (!SITE_KEY) return null;
 
   return (
     <>
-      <Script
-        src="https://challenges.cloudflare.com/turnstile/v0/api.js"
-        strategy="lazyOnload"
-        onReady={renderWidget}
-        onError={() => setBlocked(true)}
-      />
+      {shouldLoad && (
+        <Script
+          src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+          strategy="afterInteractive"
+          onReady={renderWidget}
+          onError={() => setBlocked(true)}
+        />
+      )}
       <div ref={containerRef} className="mt-3" />
     </>
   );
