@@ -78,17 +78,10 @@ const TILES: Tile[] = [
     desktop: "",
     sizes: `${MOBILE}, (max-width: 1183px) 25vw, 276px`,
   },
-  // Trzy kadry tylko w taśmie na telefonie: tam miejsce jest za darmo (przewijanie),
-  // a w mozaice zabrakłoby komórek.
-  {
-    kat: "eventy",
-    label: "Eventy",
-    // 3:2 poziomy, dwie rozmówczynie w środkowej części kadru.
-    src: "/images/galeria/eventy/event-13-networking-goscie-drinkami.jpg",
-    position: "55% 50%",
-    desktop: "md:hidden",
-    sizes: MOBILE,
-  },
+  // Dwa kadry tylko w taśmie na telefonie: tam miejsce jest za darmo (przewijanie),
+  // a w mozaice zabrakłoby komórek. Każda kategoria RAZ: drugi kadr eventowy
+  // (`event-13-networking`) wypadł 23.09.2026, bo plakietka „Eventy" stała w taśmie
+  // dwa razy (zgłoszenie Marcina).
   {
     kat: "dron",
     label: "Dron",
