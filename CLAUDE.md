@@ -185,6 +185,14 @@ mówił „301", produkcja zwraca 308, dla SEO bez różnicy). Strona nie publik
 wyłącznie kotwice „od X zł" w kartach usług (`src/data/services.tsx`). Nie odbudowywać
 sekcji cennika bez wyraźnej decyzji Marcina.
 
+**Depricing 14.08.2026 (commit `d52c01f`) — stan obecny, ważniejszy niż akapity niżej:** z widocznej
+strony zeszły **wszystkie** kotwice kwotowe, także w kartach usług, blogu, FAQ i `seo.description`.
+W hero każdej usługi stoi „Wstępna wycena" (`services.tsx`, `heroPriceLabel`). Widoczne zostały tylko
+warunki handlowe: dojazd 0 zł / 2,50 zł netto za km, powtórny dojazd 300 zł, poprawki ponad limit
+200 zł/h. Kwoty cennika żyją wyłącznie w `public/llms.txt` i w komentarzach kodu. Sprawdzone
+14.09.2026: poza komentarzami `services.tsx`, `blog.ts`, `faq.ts` i `portfolio.ts` nie mają żadnej
+kwoty usługi. Kwoty w akapitach niżej to kanon cennika do `llms.txt` i do wycen, **nie treść strony**.
+
 **Cennik v3 (2026-07-29, próg portretowy zmieniony 04.08.2026):** kotwice = **portrety 700**
 (PORTRET START: 1 osoba, sesja do 30 min, w cenie studio zewnętrzne w Poznaniu ALBO dojazd
 z mobilnym studiem do klienta; pakiety od 1 100), pakiety hybrydowe 2 100, eventy 600,
@@ -197,7 +205,7 @@ produktowa 600, dron 700, obiekty 900. Nazwy pakietów: **PORTRET/EVENT START** 
 ⛔ **Linia eventowa oddaje ok. 30 gotowych zdjęć na godzinę obecności** (korekta Marcina
 z 05.08.2026, wcześniej 20). Minimalne liczby w pakietach hybrydowych zostają: 60+ / 120+ / 160+.
 
-⛔ **Kotwica portretowa brzmi dosłownie:** „Ceny portretów dla jednej osoby zaczynają się
+⛔ **Kotwica portretowa brzmi dosłownie** (dotyczy `llms.txt` i wycen; na stronie od 14.08.2026 nie ma kwot): „Ceny portretów dla jednej osoby zaczynają się
 od 700 zł netto, a sesja zespołowa od 1 400 zł netto za dwie osoby". Zwroty **„za pierwsze zdjęcie"**
 i **„za jedno ujęcie"** zostały przez Marcina odrzucone wprost (04.08.2026) — nie dopisywać.
 Na powierzchniach klienckich stoi **jedna kwota „od" na usługę**, bez drabinek i tabel.
@@ -207,8 +215,10 @@ strona i szablony mówiły 20 minut, FAQ 30–45, a normatyw 1 h — trzy różn
 czynność. Nie wracać do „20 minut" w blog.ts, portfolio.ts i services.tsx.
 
 Terminy w **dniach kalendarzowych** (zdjęcia 14, wideo 21), poprawki w 7 dni od zgłoszenia.
-Pełna siatka cen żyje w `public/llms.txt` i we wpisach `src/data/blog.ts` — **kanon kotwic
-to `src/data/services.tsx`**.
+~~Pełna siatka cen żyje w `public/llms.txt` i we wpisach `src/data/blog.ts` — **kanon kotwic
+to `src/data/services.tsx`**.~~ **Nieaktualne od 14.08.2026:** kwoty zeszły z `blog.ts` i z widocznej
+części `services.tsx`. Siatka cen na powierzchni publicznej jest dziś tylko w `public/llms.txt`,
+a źródłem kwot jest `01_Biznes/_System/02_Cenniki/cennik_2026_07_v3.md`.
 
 **Box17:** case study `box17-budki-akustyczne` jest w `DRAFT_SLUGS` (`src/data/portfolio.ts`)
 **świadomie, decyzją Marcina z 04.08.2026**, mimo kompletu zdjęć. W `public/images/portfolio/box17/`

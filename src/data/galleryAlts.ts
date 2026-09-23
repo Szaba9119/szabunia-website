@@ -397,8 +397,6 @@ export const GALLERY_ALTS: Record<string, string> = {
     "Tatar z dekoracją na głębokim białym talerzu, w tle rozmyte światła",
   "wnetrze-02-korytarz-szachownice-czerwien":
     "Korytarz lokalu z posadzką w szachownicę i czerwonymi fotelami, dekoracyjny sufit",
-  "wnetrze-05-aranzacja-vankka-pionowe":
-    "Aranżacja salonu z meblami marki Vankka, jasne drewno i ciepłe światło",
   "wnetrze-06-symetryczna-sciana-butelek":
     "Symetryczna ściana z butelkami i neonem nad barem w lokalu",
   "wnetrze-08-granatowe-kafle-czerwona":

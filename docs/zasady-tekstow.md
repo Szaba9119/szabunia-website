@@ -19,6 +19,12 @@ broszura — do kosza.
 - Zamiast haseł reklamowych: liczba, nazwa klienta, konkret z realizacji.
   Przykłady z istniejącej strony: 250 000+ zdjęć, 100+ firm, H&M, Forte na
   okładce Big Furniture Group Magazine, wyróżnienie Portret 2022.
+  **⚠ Zastrzeżenie (14.09.2026, doprecyzowane 23.09.2026):** H&M, Santander, John Deere
+  i Boehringer zostają na stronie w obecnych miejscach, bo to decyzja Marcina, ale **w nowych
+  tekstach, mailach i postach nie dopisuj tych marek jako dowodu** bez jego zgody. Bezpieczne
+  konkrety z własnych zleceń: Woohoo, Go on Board, Scalio. Forte występuje wyłącznie przy
+  okładce Big Furniture Group Magazine (zgoda Marcina 23.09.2026). **Zdjęć z realizacji Forte,
+  z targów MTP ani z BeThink nie publikuj** (decyzja Marcina 23.09.2026, bez wyjątków).
 - Zero emocjonalnej wylewności, zero familiarności na siłę.
 
 ## Czarna lista fraz
@@ -130,7 +136,13 @@ zaindeksowany.
 Klient ma napisać po wycenę. Decyzja Marcina z 03.08.2026, podjęta świadomie po
 przedstawieniu trzech wariantów. **Nie proponować cennika jako ulepszenia SEO.**
 
-**Kotwice „od X zł" zostają** i są jedynym miejscem, gdzie na stronie pada kwota:
+**⚠ Akapit niżej nieaktualny od 14.08.2026.** Commit `d52c01f` („depricing widocznego frontu")
+zdjął ze strony **także kotwice**: w hero każdej usługi stoi „Wstępna wycena", a kwoty usług
+zostały tylko w `public/llms.txt` i w komentarzach kodu. Widoczne są wyłącznie warunki
+handlowe (dojazd 0 zł / 2,50 zł za km, powtórny dojazd 300 zł, poprawki ponad limit 200 zł/h).
+Sprawdzone w kodzie 14.09.2026. Zapis z 03–04.08 zostaje poniżej jako historia decyzji.
+
+~~**Kotwice „od X zł" zostają** i są jedynym miejscem, gdzie na stronie pada kwota:~~
 700 zł netto portrety (od 04.08.2026, wcześniej 1 100), 120 zł za osobę sesje zespołowe,
 600 zł produktowa i eventy. **Jedna kwota „od" na usługę** — bez drabinek, dopłat za kolejne
 ujęcia i tabel progresywnych (decyzja Marcina z 04.08.2026).
