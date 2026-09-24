@@ -40,23 +40,48 @@ export function getClientIp(req: Request): string {
   return req.headers.get("x-real-ip") ?? "unknown";
 }
 
-/** true = przekroczono limit (8 żądań/h/IP). Fail-open (false) gdy Redis nie jest skonfigurowany. */
-export async function isRateLimited(ip: string): Promise<boolean> {
-  if (!contactRatelimit) {
+// ⛔ FAIL-OPEN TAKŻE PRZY BŁĘDZIE UPSTASH (24.09.2026, awaria na produkcji).
+// Wcześniej fail-open działał tylko przy braku zmiennych. Gdy zmienne były ustawione,
+// a Upstash nie odpowiadał albo zwracał błąd (baza uśpiona/usunięta, zły token),
+// `limit()` rzucał wyjątek, a trasy /api/contact i /api/lead odpowiadały 503
+// „Formularz jest chwilowo niedostępny”, czyli OBA formularze na stronie nie działały
+// (log: `[ALERT] contact: rate-limit unavailable`, 24.09 m.in. próby Marcina).
+// Limit prób to ochrona drugiego rzędu: zostają sprawdzenie originu, honeypot,
+// walidacja pól i Turnstile weryfikowany po stronie serwera (fail-closed).
+// Utrata leada kosztuje więcej niż kilka dodatkowych prób bota, więc przy awarii
+// Upstash formularz przechodzi, a log `[ALERT]` mówi, że limit jest wyłączony.
+// Limit czasu 1,5 s: zawieszone połączenie nie może wstrzymywać wysyłki zapytania.
+const LIMIT_TIMEOUT_MS = 1500;
+
+async function checkLimit(limiter: Ratelimit | null, ip: string, label: string): Promise<boolean> {
+  if (!limiter) {
     console.error("[ALERT] Rate-limit pominięty: UPSTASH_REDIS_REST_URL/TOKEN nie są ustawione.");
     return false;
   }
-  const { success } = await contactRatelimit.limit(ip);
-  return !success;
+  try {
+    const result = await Promise.race([
+      limiter.limit(ip),
+      new Promise<never>((_, reject) =>
+        setTimeout(() => reject(new Error(`timeout ${LIMIT_TIMEOUT_MS} ms`)), LIMIT_TIMEOUT_MS),
+      ),
+    ]);
+    return !result.success;
+  } catch (err) {
+    console.error(
+      `[ALERT] ${label}: rate-limit niedostępny, żądanie przepuszczone (fail-open):`,
+      err instanceof Error ? err.message : String(err),
+    );
+    return false;
+  }
 }
 
-/** true = przekroczono limit (5 żądań/h/IP). Fail-open (false) gdy Redis nie jest skonfigurowany. */
+/** true = przekroczono limit (8 żądań/h/IP). Fail-open (false) bez Redis albo przy jego błędzie. */
+export async function isRateLimited(ip: string): Promise<boolean> {
+  return checkLimit(contactRatelimit, ip, "contact");
+}
+
+/** true = przekroczono limit (5 żądań/h/IP). Fail-open (false) bez Redis albo przy jego błędzie. */
 export async function isLeadRateLimited(ip: string): Promise<boolean> {
-  if (!leadRatelimit) {
-    console.error("[ALERT] Rate-limit pominięty: UPSTASH_REDIS_REST_URL/TOKEN nie są ustawione.");
-    return false;
-  }
-  const { success } = await leadRatelimit.limit(ip);
-  return !success;
+  return checkLimit(leadRatelimit, ip, "lead");
 }
 
