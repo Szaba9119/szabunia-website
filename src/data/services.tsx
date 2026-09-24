@@ -355,7 +355,16 @@ const serviceCategoriesRaw: ServiceData[] = [
 		videoTitle: 'Film z eventu firmowego dla Woohoo',
 		videoNote:
 			'Tak wygląda film z eventu: dynamiczne podsumowanie wydarzenia, gotowe do social mediów.',
-		title: 'Dokumentacja wydarzeń firmowych',
+		// ⛔ „Dokumentacja wydarzeń firmowych” ZMIENIONE 24.09.2026 (Marcin: „dlaczego jest dalej
+		// dokumentacja wydarzeń, a nie zdjęcia i wideo z wydarzeń firmowych czy eventów firmowych,
+		// zależy jak się szuka w GSC lub Google Ads”). Dane: GSC 3 mies. do 12.09.2026
+		// (`audyty/GSC_skutecznosc_eksport_2026-09-12/Zapytania.csv`) nie ma ANI JEDNEGO zapytania
+		// ze słowem „dokumentacja”; są „fotografia eventowa poznań” 37, „reportaż z wydarzeń
+		// firmowych” 31, „nagrywanie/filmowanie eventów i wydarzeń” ok. 80, „zdjęcia eventowe” 11.
+		// Google Ads kupuje „fotograf na event”, „fotograf na konferencję”, „obsługa wideo eventów”.
+		// Schemat jak trzy pozostałe karty („Fotografia i wideo …”). Pole wyświetla się na kartach
+		// (home, /uslugi, karta pod wpisem blogowym); title, H1, URL i JSON-LD (`shortTitle`) bez zmian.
+		title: 'Fotografia i wideo z wydarzeń firmowych',
 		shortTitle: 'Wydarzenia firmowe',
 		subtitle:
 			// LIVE EDITING = OPCJA DODATKOWO PŁATNA (decyzja Marcina 10.08.2026).
@@ -363,7 +372,9 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// bez żadnego zastrzeżenia, czyli obiecywał to w standardzie.
 			// Ta sama zasada obowiązuje w `scope`, `process`, `faqs` i w `portfolio.ts`.
 			'Reportaż firmowy z konferencji, targów i gal. Zdjęcia, film i ujęcia z drona z jednego dnia, a w opcji dodatkowej część kadrów na social media jeszcze w trakcie wydarzenia.',
-		heroLabel: 'Dokumentacja wydarzeń',
+		// Kicker nad H1 (24.09.2026, ten sam powód co `title` wyżej). H1 mówi „Fotograf eventowy”,
+		// więc kicker dokłada film i słowo „eventów” z zapytań „filmowanie/nagrywanie eventów”.
+		heroLabel: 'Zdjęcia i wideo z eventów firmowych',
 		// Lead ukryty w hero 10.08.2026 (ósma tura). Treść ZOSTAJE w danych, bo
 		// renderuje ją kafelek na `/uslugi` i karta pod wpisem blogowym.
 		heroHideSubtitle: true,
