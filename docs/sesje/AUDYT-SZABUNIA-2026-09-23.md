@@ -292,6 +292,7 @@ Obejrzane podczas przewijania (klatki co ~0,9 ekranu, nie pełne zrzuty): strona
   - Galeria case study (wcześniej pusta): sześć kadrów 1920×1080 w `public/images/portfolio/woohoo/`, podpis „Kadry z filmu z wydarzenia…”, opisy alternatywne per kadr. Bez napisów i belek z nazwiskami.
   - Plik z 23.09 (`woohoo-networking-4x3.jpg`, klatka z YouTube) usunięty przed commitem, nie był nigdzie wdrożony.
 - **Scalio na pasku logotypów** usługi „Nieruchomości i przemysł” (`services.tsx`, `proof.brands`). Odwraca zakaz z 10.08.2026 zapisany przy leadzie wizerunku; notatka w kodzie zaktualizowana. **Zdjęć Scalio nie publikujemy** (decyzja Marcina 24.09).
+- **Jeden wzorzec przycisków „zobacz więcej” na stronie głównej** (prośba Marcina): „Zobacz pełną galerię”, „Zobacz profil i opinie w Google ↗” i „Zobacz wszystkie artykuły” dostały ramkę jak „Masz podobny projekt? Zapytaj o ofertę” (pełna szerokość kontenera, `rounded-2xl`, obrys, `p-5`, 16 px, 600). Na wszystkich czterech doszedł niebieski obrys po najechaniu. Teksty, adresy i `data-cta` bez zmian. Sprawdzone: 1152 px na desktopie, 358 px na telefonie, identyczne wymiary.
 - Przejrzane i odłożone: `WORK_SSD/2026.09.06 Scalio/05_FINAL` (21 kadrów). Pominięte zgodnie z zakazem: Forte, MTP (w tym Polocard), BeThink.
 
 ## Sugerowany commit

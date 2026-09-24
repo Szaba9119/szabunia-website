@@ -56,15 +56,13 @@ export default function BlogPreview() {
           ))}
         </div>
 
-        <AnimatedSection className="text-center mt-10">
+        {/* Ramka jak „Masz podobny projekt?” w `Portfolio.tsx` (prośba Marcina 24.09.2026). */}
+        <AnimatedSection className="mt-10">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 py-2 text-blue dark:text-blue-light font-barlow font-semibold text-sm hover:gap-3 transition-all"
+            className="block rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue-light transition-colors p-5 text-center font-semibold text-blue dark:text-blue-light"
           >
-            Zobacz wszystkie artykuły
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-            </svg>
+            Zobacz wszystkie artykuły <span aria-hidden="true">→</span>
           </Link>
         </AnimatedSection>
       </div>

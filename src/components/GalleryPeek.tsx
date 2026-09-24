@@ -182,16 +182,15 @@ export default function GalleryPeek() {
             </li>
           ))}
         </ul>
-        <div className="mt-4 text-center">
-          <Link
-            href="/galeria"
-            data-cta="galeria_home"
-            className="inline-flex items-center gap-2 py-2 text-blue dark:text-blue-light font-barlow font-semibold text-sm hover:gap-3 transition-all"
-          >
-            Zobacz pełną galerię
-            <span aria-hidden="true">→</span>
-          </Link>
-        </div>
+        {/* Styl ramki jak „Masz podobny projekt?” w `Portfolio.tsx` (prośba Marcina 24.09.2026):
+            jeden wzorzec dla przejść „zobacz więcej” pod sekcjami strony głównej. */}
+        <Link
+          href="/galeria"
+          data-cta="galeria_home"
+          className="block rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue-light transition-colors p-5 text-center font-semibold mt-5 text-blue dark:text-blue-light"
+        >
+          Zobacz pełną galerię <span aria-hidden="true">→</span>
+        </Link>
       </div>
     </section>
   );

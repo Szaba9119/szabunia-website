@@ -43,9 +43,8 @@ export default function Testimonials() {
             <button type='button' onClick={() => move(-1)} aria-label='Poprzednia opinia' className='w-11 h-11 border border-border dark:border-dark-border rounded-xl text-navy dark:text-white'>←</button>
             <button type='button' onClick={() => move(1)} aria-label='Następna opinia' className='w-11 h-11 border border-border dark:border-dark-border rounded-xl text-navy dark:text-white'>→</button>
           </div>
-          <div className='mt-6 text-center'>
-            <a href='https://share.google/2OMRlIblNmEKlthIl' target='_blank' rel='noopener noreferrer' className='inline-flex items-center min-h-11 text-sm text-blue dark:text-blue-light underline'>Zobacz profil i opinie w Google</a>
-          </div>
+          {/* Ramka jak „Masz podobny projekt?” w `Portfolio.tsx` (prośba Marcina 24.09.2026). ↗ = link zewnętrzny. */}
+          <a href='https://share.google/2OMRlIblNmEKlthIl' target='_blank' rel='noopener noreferrer' className='block rounded-2xl border border-border dark:border-dark-border hover:border-blue dark:hover:border-blue-light transition-colors p-5 text-center font-semibold mt-6 text-blue dark:text-blue-light'>Zobacz profil i opinie w Google <span aria-hidden='true'>↗</span></a>
         </AnimatedSection>
       </div>
     </section>
