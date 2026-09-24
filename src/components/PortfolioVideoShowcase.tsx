@@ -34,13 +34,14 @@ export default function PortfolioVideoShowcase({
         <div className="absolute bottom-[5%] right-[8%] w-[380px] h-[380px] bg-[radial-gradient(circle,rgba(37,99,235,0.05)_0%,transparent_70%)] dark:bg-[radial-gradient(circle,rgba(37,99,235,0.10)_0%,transparent_70%)]" />
       </div>
       <div className="max-w-5xl mx-auto">
-        <AnimatedSection>
+        {/* PERF-01 (audyt 23.09.2026): nad zgięciem `.hero-intro` zamiast `AnimatedSection` (`.reveal` = opacity 0 do hydratacji, a tu stoi element LCP). */}
+        <div className="hero-intro">
           <Breadcrumbs items={crumbs} className="mb-6" />
-        </AnimatedSection>
+        </div>
 
         {/* Header — text-center na mobile = parytet ze stroną główną i hubami
             (Hero.tsx:35). Decyzja Marcina 2026-07-30. */}
-        <AnimatedSection className="text-center md:text-left">
+        <div className="hero-intro text-center md:text-left">
           <p className="text-[12px] font-barlow font-semibold uppercase tracking-[0.16em] text-blue dark:text-blue-light mb-3">
             {badge}
           </p>
@@ -51,18 +52,21 @@ export default function PortfolioVideoShowcase({
           <p className="text-steel dark:text-dark-text-muted text-[15px] md:text-base max-w-2xl mx-auto md:mx-0">
             {category.heroSubtitle}
           </p>
-        </AnimatedSection>
+        </div>
 
         {/* Poziomy film — fasada (player ładuje się po kliknięciu) */}
-        <AnimatedSection>
-          <YouTubeFacade id={video.youtubeId} title={video.title} />
-        </AnimatedSection>
+        {/* PERF-02: plakat filmu jest tu elementem LCP (case Woohoo i Artech), więc
+            bez `.reveal` i z `priority` (wcześniej `loading="lazy"`, LCP 5,0-5,5 s). */}
+        <div className="hero-intro">
+          <YouTubeFacade id={video.youtubeId} title={video.title} priority />
+        </div>
 
         {/* Opis + karta zakresu + CTA */}
         <AnimatedSection>
           <div className="mt-10 grid md:grid-cols-[1.6fr_1fr] gap-6 md:gap-8 items-start">
             <div className="text-center md:text-left">
-              <p className="text-text-body dark:text-dark-text-muted text-[15px] leading-relaxed">
+              {/* Długi opis wyrównany do lewej także na telefonie (audyt 23.09.2026). Nagłówek i krótki lead zostają wyśrodkowane (parytet z hero strony głównej), ale akapit na 8-11 linii wyśrodkowany rozjeżdża się i źle się czyta. */}
+              <p className="text-left text-text-body dark:text-dark-text-muted text-[15px] leading-relaxed">
                 {category.description}
               </p>
               {/* ⚠ JEDEN PRZYCISK, NIE DWA (audyt UI 11.08.2026, finding A1,

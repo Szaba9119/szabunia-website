@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import GalleryEditor from '@/components/GalleryEditor';
 
 export const metadata: Metadata = {
-  title: 'Edytor galerii — lokalne narzędzie SZABUNIA',
+  title: 'Edytor galerii, lokalne narzędzie SZABUNIA',
   robots: { index: false, follow: false },
 };
 

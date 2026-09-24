@@ -185,9 +185,14 @@ evs.forEach(function(e){window.addEventListener(e,onev,{once:true,passive:true})
 if('requestIdleCallback' in window){requestIdleCallback(load,{timeout:6000});}else{setTimeout(load,5000);}})();`,
           }}
         />
+        {/* Motyw (bez flasha) + klasa `js` dla animacji `.reveal` (TECH-01, audyt 23.09.2026,
+            decyzja Marcina L3). `.reveal` ukrywa treść tylko pod `html.js`, więc bez JS treść
+            jest widoczna. Bezpiecznik: jeśli po 4 s żaden `AnimatedSection` nie dopisał
+            `js-ready` (skrypty strony się nie wczytały albo padła hydratacja), `js` znika
+            i sekcje pokazują się bez animacji. `opacity`/`transform` nie przesuwają układu. */}
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'){document.documentElement.classList.add('dark');document.documentElement.style.colorScheme='dark'}}catch{}})();`,
+            __html: `(function(){var d=document.documentElement;try{var t=localStorage.getItem('theme');if(t==='dark'){d.classList.add('dark');d.style.colorScheme='dark'}}catch{}d.classList.add('js');setTimeout(function(){if(!d.classList.contains('js-ready'))d.classList.remove('js')},4000)})();`,
           }}
         />
         <script

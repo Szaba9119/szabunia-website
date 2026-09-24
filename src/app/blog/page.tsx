@@ -76,14 +76,15 @@ export default function BlogPage() {
       <main id="main" className="pt-28 pb-16">
         <div className="max-w-6xl mx-auto px-4">
           <Breadcrumbs items={crumbs} className="mb-6" />
-          <AnimatedSection>
+          {/* PERF-01 (audyt 23.09.2026): pierwszy blok bez `AnimatedSection`. `.reveal` trzyma go w `opacity: 0` do hydratacji, a to on jest elementem LCP (Lighthouse mobile: LCP 4,2-5,3 s). `.hero-intro` animuje sam `transform`, jak hero strony głównej i usług. */}
+          <div className="hero-intro">
             <h1 className="font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center">
               Blog o fotografii i wideo dla firm
             </h1>
             <p className="text-steel dark:text-dark-text-muted text-[15px] text-center mb-12 max-w-lg mx-auto">
-              Praktyczne porady, kulisy realizacji i trendy w fotografii biznesowej.
+              Poradniki dla firm: jak przygotować sesję, ile kosztuje realizacja i jak wybrać fotografa na event.
             </p>
-          </AnimatedSection>
+          </div>
 
           {/* h2 domyka hierarchię: bez niego strona skakała z h1 na h3 z kart wpisów
               (BlogCard ma h3, bo na podstronach usług siedzi pod nagłówkiem „Z bloga").

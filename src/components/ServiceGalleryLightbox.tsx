@@ -39,7 +39,34 @@ export default function ServiceGalleryLightbox({
   const touchX = useRef<number | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
 
-  const close = useCallback(() => setOpen(null), []);
+  // Wstecz zamyka podgląd (TECH-02, audyt 23.09.2026), tak jak na /galeria
+  // (`GalleryView`, 22.09.2026). Bez wpisu w historii przycisk Wstecz na telefonie
+  // wyprowadzał z podstrony usługi zamiast zamknąć zdjęcie, czyli wyrzucał z lejka.
+  // Adres się nie zmienia. `closingRef` chroni przed podwójnym `history.back()`:
+  // „✕" bąbelkuje do tła, które też woła `close`.
+  const closingRef = useRef(false);
+  const openAt = useCallback((i: number) => {
+    closingRef.current = false;
+    setOpen(i);
+    window.history.pushState({ szLightbox: true }, "", window.location.href);
+  }, []);
+  const close = useCallback(() => {
+    if (closingRef.current) return;
+    closingRef.current = true;
+    if (window.history.state?.szLightbox) {
+      window.history.back();
+      return;
+    }
+    setOpen(null);
+  }, []);
+  useEffect(() => {
+    const onPop = () => {
+      closingRef.current = false;
+      setOpen(null);
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
   const move = useCallback(
     (dir: number) =>
       setOpen((i) => (i === null ? i : (i + dir + images.length) % images.length)),
@@ -74,7 +101,7 @@ export default function ServiceGalleryLightbox({
           <button
             key={src}
             type="button"
-            onClick={() => setOpen(i)}
+            onClick={() => openAt(i)}
             aria-label={`Powiększ zdjęcie ${i + 1}`}
             className={`group relative ${aspectClass} rounded-xl overflow-hidden bg-border dark:bg-dark-card focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue`}
           >

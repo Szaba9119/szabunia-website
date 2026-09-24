@@ -19,8 +19,8 @@ export default function Testimonials() {
       <div className='max-w-6xl mx-auto'>
         <AnimatedSection>
           <h2 id='testimonials-heading' className='font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-4 text-center'>Co mówią klienci</h2>
-          <p className='text-steel dark:text-dark-text-muted text-[15px] text-center mb-10'>Opinie o materiale, kontakcie i przebiegu współpracy.</p>
-          <ul ref={listRef} tabIndex={0} aria-label='Opinie klientów — przewiń, aby przeczytać kolejne' className='flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 md:pb-0 md:grid md:grid-cols-3 md:overflow-visible'>
+          <p className='text-steel dark:text-dark-text-muted text-[15px] text-center mb-10'>Opinie z wizytówki Google.</p>
+          <ul ref={listRef} tabIndex={0} aria-label='Opinie klientów. Przewiń, aby przeczytać kolejne' className='flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 md:pb-0 md:grid md:grid-cols-3 md:overflow-visible'>
             {testimonials.map((item, index) => (
               <li key={item.author} className='min-w-[90%] md:min-w-0 snap-start bg-white dark:bg-dark-card border border-border dark:border-dark-border rounded-2xl p-6 flex flex-col'>
                 <p className='text-blue dark:text-blue-light mb-4' aria-label='Ocena: 5 na 5 gwiazdek'>★★★★★</p>

@@ -150,6 +150,14 @@ const nextConfig: NextConfig = {
         destination: "/kontakt",
         permanent: true,
       },
+      {
+        // `/o-mnie` na szabunia.pl dawało 404 (audyt 23.09.2026, decyzja Marcina L4).
+        // Sekcja „O mnie” to kotwica na stronie głównej, jak w mapie starej domeny wyżej.
+        // Stara domena łapie `/o-mnie` własną regułą (pierwsza pasuje), więc tu nie ma łańcucha.
+        source: "/o-mnie",
+        destination: "/#o-mnie",
+        permanent: true,
+      },
       // Przejście z ośmiu usług na cztery (decyzja Marcina 10.08.2026, na podstawie
       // „FUNDAMENTY FIRMY.md"). Cztery podstrony przestały istnieć, a piąta zmieniła
       // slug. Wszystkie cele są tematycznie pokrewne, więc 301 przenosi sygnały —

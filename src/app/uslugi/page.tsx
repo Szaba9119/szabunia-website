@@ -60,7 +60,7 @@ export default function UslugiPage() {
 		{
 			'@context': 'https://schema.org',
 			'@type': 'ItemList',
-			name: 'Usługi fotograficzne i wideo — Marcin Szabunia',
+			name: 'Usługi fotograficzne i wideo, Marcin Szabunia',
 			itemListElement: serviceCategories.map((s, i) => ({
 				'@type': 'ListItem',
 				position: i + 1,

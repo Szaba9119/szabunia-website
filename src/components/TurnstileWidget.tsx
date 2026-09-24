@@ -15,6 +15,7 @@ declare global {
         options: {
           sitekey: string;
           theme?: "light" | "dark" | "auto";
+          size?: "normal" | "compact" | "flexible";
           callback: (token: string) => void;
           "expired-callback"?: () => void;
           "timeout-callback"?: () => void;
@@ -118,9 +119,14 @@ const TurnstileWidget = forwardRef<
     if (!containerRef.current || !window.turnstile || !SITE_KEY) return;
     removeWidget();
     renderedRef.current = true;
+    // Widget `normal` ma sztywne 300 px (także `flexible`: minimum 300 px). Na telefonie
+    // ramka formularza daje 230-280 px, więc iframe wystawał poza kartę i był ucinany
+    // (audyt 23.09.2026, 390 px). Węższy kontener dostaje `compact` (150×140 px).
+    const narrow = containerRef.current.clientWidth < 300;
     widgetIdRef.current = window.turnstile.render(containerRef.current, {
       sitekey: SITE_KEY,
       theme,
+      size: narrow ? "compact" : "normal",
       callback: (token) => {
         // Sukces zdejmuje stan blokady, także po wcześniejszym błędzie lub timeoucie.
         setBlocked(false);

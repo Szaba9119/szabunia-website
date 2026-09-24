@@ -29,7 +29,32 @@ export default function PortfolioGallery({ images, title, subtitle, aspect = "la
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
 
-  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+  // Wstecz zamyka podgląd (TECH-02, audyt 23.09.2026), jak w `GalleryView`
+  // i `ServiceGalleryLightbox`. Bez wpisu w historii Wstecz na telefonie wychodził
+  // z case study. `closingRef`: „✕" i tło wołają zamknięcie dwa razy (bąbelkowanie).
+  const closingRef = useRef(false);
+  const openLightbox = useCallback((i: number) => {
+    closingRef.current = false;
+    setLightboxIndex(i);
+    window.history.pushState({ szLightbox: true }, "", window.location.href);
+  }, []);
+  const closeLightbox = useCallback(() => {
+    if (closingRef.current) return;
+    closingRef.current = true;
+    if (window.history.state?.szLightbox) {
+      window.history.back();
+      return;
+    }
+    setLightboxIndex(null);
+  }, []);
+  useEffect(() => {
+    const onPop = () => {
+      closingRef.current = false;
+      setLightboxIndex(null);
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
 
   const goNext = useCallback(() => {
     if (lightboxIndex === null) return;
@@ -82,7 +107,7 @@ export default function PortfolioGallery({ images, title, subtitle, aspect = "la
               <button
                 onClick={() => {
                   gtagEvent("gallery_open", { position: i + 1 });
-                  setLightboxIndex(i);
+                  openLightbox(i);
                 }}
                 className={`group relative ${tileAspect} rounded-2xl overflow-hidden bg-border dark:bg-dark-card w-full cursor-pointer`}
                 aria-label={`Otwórz zdjęcie: ${img.alt}`}

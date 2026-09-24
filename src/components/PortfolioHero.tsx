@@ -1,7 +1,6 @@
 import ProjectMetadata from '@/components/ProjectMetadata';
 import Image from 'next/image';
 import { galleryAlt } from '@/data/galleryAlts';
-import AnimatedSection from './AnimatedSection';
 import Parallax from './Parallax';
 import { PARALLAX } from '@/lib/motion';
 import type { PortfolioCategory } from '@/data/portfolio';
@@ -73,15 +72,16 @@ export default function PortfolioHero({ category, crumbs }: Props) {
 	return (
 		<section className='pt-28 pb-12 md:pt-36 md:pb-20 px-4'>
 			<div className='max-w-5xl mx-auto'>
-				<AnimatedSection>
+				{/* PERF-01 (audyt 23.09.2026): nad zgięciem `.hero-intro` zamiast `AnimatedSection` (`.reveal` = opacity 0 do hydratacji, a tu stoi element LCP). */}
+				<div className='hero-intro'>
 					<Breadcrumbs items={crumbs} className='mb-8' />
-				</AnimatedSection>
+				</div>
 
 				<div className='grid md:grid-cols-2 gap-8 md:gap-12 items-center'>
 					{/* Text — text-center na mobile = parytet ze stroną główną i hubami
               (Hero.tsx:35). Okruszki zostają przy lewej krawędzi, tak samo jak
               na hubach. Decyzja Marcina 2026-07-30. */}
-					<AnimatedSection className='text-center md:text-left'>
+					<div className='hero-intro text-center md:text-left'>
 						<h1 className='font-barlow font-black text-3xl md:text-[44px] leading-tight tracking-tight text-navy dark:text-white mb-4'>
 							{category.heroTitle}
 						</h1>
@@ -89,7 +89,8 @@ export default function PortfolioHero({ category, crumbs }: Props) {
 						<p className='text-steel dark:text-dark-text-muted text-[15px] leading-relaxed mb-4'>
 							{category.heroSubtitle}
 						</p>
-						<p className='text-text-body dark:text-dark-text text-[14px] leading-relaxed'>
+						{/* Długi opis wyrównany do lewej także na telefonie (audyt 23.09.2026). Nagłówek i krótki lead zostają wyśrodkowane (parytet z hero strony głównej), ale akapit na 8-11 linii wyśrodkowany rozjeżdża się i źle się czyta. */}
+						<p className='text-left text-text-body dark:text-dark-text text-[14px] leading-relaxed'>
 							{category.description}
 						</p>
 						{/* ⚠ JEDEN PRZYCISK, NIE DWA (audyt UI 11.08.2026, finding A1,
@@ -143,10 +144,10 @@ export default function PortfolioHero({ category, crumbs }: Props) {
 								))}
 							</div>
 						)}
-					</AnimatedSection>
+					</div>
 
 					{/* Image */}
-					<AnimatedSection delay={0.15}>
+					<div className='hero-intro'>
 						<Parallax distance={PARALLAX.subtle} direction='up'>
 							<div
 								className={`relative ${heroAspect} rounded-2xl overflow-hidden bg-border dark:bg-dark-card`}
@@ -164,7 +165,7 @@ export default function PortfolioHero({ category, crumbs }: Props) {
 								/>
 							</div>
 						</Parallax>
-					</AnimatedSection>
+					</div>
 				</div>
 			</div>
 		</section>

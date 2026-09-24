@@ -102,7 +102,8 @@ export default function ServiceHero({ service, crumbs }: Props) {
                 punkt 10): hierarchia ma iść kicker → H1 → opis → zdjęcie, a na
                 telefonie to właśnie kolejność DOM. Dolny blok trzyma już tylko
                 dowód społeczny i wywołanie do działania. */}
-						<p className='mt-4 md:mt-5 text-text-body dark:text-dark-text text-[15px] leading-relaxed md:max-w-[52ch]'>
+						{/* Długi opis wyrównany do lewej także na telefonie (audyt 23.09.2026). Nagłówek i krótki lead zostają wyśrodkowane (parytet z hero strony głównej), ale akapit na 8-11 linii wyśrodkowany rozjeżdża się i źle się czyta. */}
+						<p className='mt-4 md:mt-5 text-left text-text-body dark:text-dark-text text-[15px] leading-relaxed md:max-w-[52ch]'>
 							{service.description}
 						</p>
 					</div>

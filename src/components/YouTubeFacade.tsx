@@ -13,6 +13,7 @@ export default function YouTubeFacade({
   title,
   vertical = false,
   className = "mt-8",
+  priority = false,
 }: {
   id: string;
   title: string;
@@ -20,6 +21,8 @@ export default function YouTubeFacade({
   vertical?: boolean;
   /** Nadpisanie zewnętrznych klas (domyślnie mt-8) */
   className?: string;
+  /** Plakat nad zgięciem (element LCP): bez `loading="lazy"`, z `fetchpriority="high"`. */
+  priority?: boolean;
 }) {
   const [play, setPlay] = useState(false);
   // ZDJ2608-24 (04.08.2026): fallback przeniesiony z mutacji `currentTarget.src` na stan,
@@ -50,13 +53,21 @@ export default function YouTubeFacade({
           className="group absolute inset-0 w-full h-full cursor-pointer"
         >
           <Image
-            src={`https://i.ytimg.com/vi/${id}/${hqOnly ? "hqdefault" : "maxresdefault"}.jpg`}
+            /* PERF-02 (audyt 23.09.2026): najpierw WebP z CDN-u YouTube (ten sam host
+               `i.ytimg.com`, już dopuszczony w CSP), np. 23 KB zamiast 60 KB JPEG-a.
+               Brak wersji maxres albo WebP → `onError` i JPEG `hqdefault`, jak dotąd. */
+            src={
+              hqOnly
+                ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg`
+                : `https://i.ytimg.com/vi_webp/${id}/maxresdefault.webp`
+            }
             alt={`Kadr otwierający z filmu: ${title}`}
             width={1280}
             height={720}
             /* Bez optymalizatora Next: to gotowy JPEG z CDN-u YouTube, a dopisanie domeny
                do images.remotePatterns w next.config.ts jest osobną decyzją. */
             unoptimized
+            priority={priority}
             onError={() => setHqOnly(true)}
             className="absolute inset-0 w-full h-full object-cover"
           />

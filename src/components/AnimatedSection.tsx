@@ -20,6 +20,8 @@ export default function AnimatedSection({
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // JS strony działa: wyłącza bezpiecznik z `layout.tsx`, który po 4 s zdjąłby `html.js`.
+    document.documentElement.classList.add("js-ready");
     const el = ref.current;
     if (!el) return;
 

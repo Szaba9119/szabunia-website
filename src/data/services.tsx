@@ -756,7 +756,10 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// Warunek z notki ⛔ niżej spełniony: zdanie o trzech tłach i wspólnym
 			// standardzie światła i retuszu zostaje, a domyślny podpis kategorii
 			// w `ServiceGalleryStrip.tsx` nie renderuje się dziś nigdzie indziej.
-			sub: 'Realizacja dla IDcom Group, software house’u z Poznania. Zespół potrzebował portretów na stronę internetową i do materiałów firmowych, więc z jednej sesji powstały trzy wersje: na białym, czarnym z niebieskim światłem i kremowym tle. Każda osoba ma ten sam standard światła i retuszu.',
+			// Skrócone 23.09.2026 (audyt, 7 linii wyśrodkowanych na telefonie). Kontekst klienta
+			// („software house z Poznania, portrety na stronę i do materiałów”) stoi w case study,
+			// do którego prowadzi link niżej. Tu zostają fakty, które widać na zdjęciach.
+			sub: 'Realizacja dla IDcom Group: jedna sesja, trzy tła (białe, czarne z niebieskim światłem, kremowe), ten sam standard światła i retuszu dla każdej osoby.',
 			// Etykieta poprawiona 10.08.2026 (decyzja Marcina). Poprzednia, „Zobacz sesje
 			// zespołowe", myliła podwójnie: obiecywała galerię, a przycisk prowadzi do case
 			// study jednego klienta (IDcom), i sugerowała osobną usługę, którą sesje
@@ -831,6 +834,9 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// od IDcom (case study + galeria) i Poznańskich Nieruchomości (opinia
 		// Burzyńskiej pod tą samą usługą). Ta sama reguła stoi przy usłudze produktowej
 		// niżej w tym pliku: klienta bez źródła się nie nazywa.
+		//
+		// ⚠ 24.09.2026 Marcin odwrócił to dla Scalio: nazwa wraca na pasek logotypów
+		// usługi „Nieruchomości i przemysł” (`proof.brands`). Lead wizerunku bez zmian.
 		//
 		// NIE dopisywać tu nowych nazw bez potwierdzenia u Marcina. Sama wzmianka
 		// w komentarzu albo w pliku wewnętrznym NIE jest źródłem.
@@ -1548,6 +1554,11 @@ const serviceCategoriesRaw: ServiceData[] = [
 			brands: [
 				'Synteza',
 				'Poznańskie Nieruchomości',
+				// Scalio dopisane 24.09.2026 na polecenie Marcina („dodaj w przemyśle firmy,
+				// z którymi współpracowałem: Scalio”). Odwraca zakaz z 10.08.2026, opisany
+				// przy leadzie wizerunku wyżej w tym pliku. Źródło współpracy: wyceny
+				// i korespondencja w `01_Biznes/_System/04_Sprzedaz/` (SCALIO, 07–09.2026).
+				'Scalio',
 				'Artech Group',
 				'Yes Butcher!',
 				'LOLA',

@@ -69,7 +69,7 @@ export default function Portfolio() {
           })}
         </div>
         {/* `#kontakt`, nie `/kontakt` — patrz komentarz w `Hero.tsx`. */}
-        <a href="#kontakt" data-cta="wycena_home_portfolio" className="block mt-5 rounded-2xl border border-border dark:border-dark-border p-5 text-center text-navy dark:text-white font-semibold">Masz podobny projekt? <span className="text-blue dark:text-blue-light">Zapytaj o ofertę →</span></a>
+        <a href="#kontakt" data-cta="wycena_home_portfolio" className="block mt-5 rounded-2xl border border-border dark:border-dark-border p-5 text-center text-navy dark:text-white font-semibold">Masz podobny projekt? <span className="text-blue dark:text-blue-light whitespace-nowrap">Zapytaj o ofertę →</span></a>
       </div>
     </section>
   );

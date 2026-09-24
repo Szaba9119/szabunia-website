@@ -4,7 +4,6 @@ import ScrollProgress from '@/components/ScrollProgress';
 import Footer from '@/components/Footer';
 import CTA from '@/components/CTA';
 import ErrorBoundary from '@/components/ErrorBoundary';
-import AnimatedSection from '@/components/AnimatedSection';
 import GalleryView, { type GalleryCategory } from '@/components/GalleryView';
 import LogoBar from '@/components/LogoBar';
 import Testimonials from '@/components/Testimonials';
@@ -218,7 +217,7 @@ export default async function GaleriaPage({
 		{
 			'@context': 'https://schema.org',
 			'@type': 'ImageGallery',
-			name: 'Galeria — Marcin Szabunia',
+			name: 'Galeria, Marcin Szabunia',
 			description:
 				'Portrety biznesowe, fotografia eventowa, produktowa, wideo oraz zdjęcia z drona. Wybrane kadry z realizacji.',
 			url: 'https://szabunia.pl/galeria',
@@ -238,7 +237,8 @@ export default async function GaleriaPage({
 			<main id='main' className='pt-28 pb-16'>
 				<div className='max-w-6xl mx-auto px-4'>
 					<Breadcrumbs items={crumbs} className='mb-6' />
-					<AnimatedSection>
+					{/* PERF-01 (audyt 23.09.2026): pierwszy blok bez `AnimatedSection`. `.reveal` trzyma go w `opacity: 0` do hydratacji, a to on jest elementem LCP (Lighthouse mobile: LCP 4,2-5,3 s). `.hero-intro` animuje sam `transform`, jak hero strony głównej i usług. */}
+					<div className='hero-intro'>
 						<h1 className='font-barlow font-extrabold text-3xl md:text-[48px] leading-tight tracking-tight text-navy dark:text-white mb-3 text-center'>
 							Galeria kadrów z realizacji
 						</h1>
@@ -255,7 +255,7 @@ export default async function GaleriaPage({
 								Zapytaj o ofertę
 							</a>
 						</div>
-					</AnimatedSection>
+					</div>
 
 					<ErrorBoundary>
 						<GalleryView

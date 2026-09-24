@@ -41,20 +41,15 @@ export const metadata: Metadata = {
 	},
 };
 
-const contactCards = [
-	{
-		title: 'Wstępna wycena w ciągu 24 godzin',
-		body: 'Na każde zapytanie biznesowe odpowiadam w ciągu 24 godzin ze wstępną wyceną i propozycją terminu.',
-	},
-	{
-		title: 'Poznań, cała Polska i Europa',
-		body: 'Pracuję z Poznania, realizuję projekty w całym kraju i za granicą. Dojazd ustalamy w wycenie.',
-	},
-	{
-		title: 'Opisz, czego potrzebujesz',
-		body: 'Napisz, czego potrzebujesz: cel zdjęć lub wideo, orientacyjny termin, lokalizację i zakres. Resztę dopniemy razem.',
-	},
-];
+// ⛔ `contactCards` USUNIĘTE 23.09.2026 (audyt, powtórzenia). Trzy karty stały od 20.09
+// POD formularzem i każda powtarzała tekst stojący tuż nad nią:
+//   „Wstępna wycena w ciągu 24 godzin" = akapit CTA słowo w słowo („Odpowiadam w ciągu
+//     24 godzin ze wstępną wyceną i propozycją terminu"),
+//   „Poznań, cała Polska i Europa"      = lead strony + pozycja listy w CTA; dojazd
+//     opisuje „Jak powstaje wycena" niżej („Gdzie."),
+//   „Opisz, czego potrzebujesz"         = instrukcja do formularza podana PO formularzu,
+//     a lead strony mówi to samo („Napisz w kilku zdaniach, czego potrzebujesz").
+// Na /kontakt „24 godziny" padały sześć razy na 760 słów.
 
 export default function KontaktPage() {
 	const crumbs: Crumb[] = [
@@ -66,7 +61,7 @@ export default function KontaktPage() {
 		{
 			'@context': 'https://schema.org',
 			'@type': 'ContactPage',
-			name: 'Kontakt — Marcin Szabunia',
+			name: 'Kontakt, Marcin Szabunia',
 			url: 'https://szabunia.pl/kontakt',
 			description:
 				// Przepisane 10.08.2026: lista pięciu starych usług zeszła do czterech
@@ -85,7 +80,8 @@ export default function KontaktPage() {
 				<div className='max-w-6xl mx-auto'>
 					<Breadcrumbs items={crumbs} className='mb-6' />
 					{/* Header */}
-					<AnimatedSection>
+					{/* PERF-01 (audyt 23.09.2026): pierwszy blok bez `AnimatedSection`. `.reveal` trzyma go w `opacity: 0` do hydratacji, a to on jest elementem LCP (Lighthouse mobile: LCP 4,2-5,3 s). `.hero-intro` animuje sam `transform`, jak hero strony głównej i usług. */}
+					<div className='hero-intro'>
 						<p className='text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center'>
 							Kontakt
 						</p>
@@ -149,7 +145,7 @@ export default function KontaktPage() {
 								Napisz przez formularz
 							</a>
 						</div>
-					</AnimatedSection>
+					</div>
 				</div>
 
 				{/* FORMULARZ ZARAZ POD SZYBKIMI AKCJAMI (20.09.2026, decyzja Marcina).
@@ -161,42 +157,16 @@ export default function KontaktPage() {
 
 				    CTA ma wlasny kontener `max-w-6xl` i `px-4`, wiec stoi POZA kontenerem
 				    strony — inaczej dostaloby podwojny padding i bylo wezsze niz na
-				    pozostalych stronach. */}
-				<ErrorBoundary><CTA /></ErrorBoundary>
+				    pozostalych stronach.
+				    ⚠ `-mx-4` (audyt 23.09.2026): CTA stoi poza kontenerem `max-w-6xl`,
+				    ale nadal w `<main>` z `px-4`, wiec na telefonie padding liczyl sie
+				    dwa razy (karta 311 zamiast 343 px przy 375 px). Ujemny margines oddaje
+				    sekcji pelna szerokosc, jak na stronie glownej i podstronach uslug. */}
+				<div className='-mx-4'>
+					<ErrorBoundary><CTA /></ErrorBoundary>
+				</div>
 
 				<div className='max-w-6xl mx-auto mt-12'>
-
-					{/* Info cards */}
-					<AnimatedSection>
-						<div className='grid grid-cols-1 md:grid-cols-3 gap-4 mb-16'>
-							{contactCards.map((card) => (
-								<div
-									key={card.title}
-									className='bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6'
-								>
-									{/* ⚠ `<p>`, NIE `<h2>` (11.08.2026, finding A6, decyzja Marcina).
-                      Te trzy karty to odznaki informacyjne, a nie nagłówki sekcji:
-                      renderują się w 16 px, w kartach obok siebie, i nie otwierają
-                      żadnej treści. Jako `<h2>` dawały na `/kontakt` pięć nagłówków
-                      drugiego poziomu, z czego trzy nie opisywały sekcji, więc
-                      nawigacja po nagłówkach w czytniku ekranu prowadziła donikąd.
-
-                      ⚠ ZMIANA JEST WYŁĄCZNIE SEMANTYCZNA. Klasy zostają co do
-                      znaku, więc font, rozmiar, waga, kolor i `mb-2` bez zmian.
-                      Sprawdzone, że nic nie stylowało tego przez selektor
-                      elementu: `globals.css` nie ma żadnej reguły na `h2`,
-                      a jedyne selektory typu (`[&_h2]:*`) siedzą
-                      w `BlogContent.tsx` i dotyczą treści wpisów blogowych. */}
-									<p className='font-barlow font-bold text-base text-navy dark:text-white mb-2'>
-										{card.title}
-									</p>
-									<p className='text-steel dark:text-dark-text-muted text-[13px] leading-relaxed'>
-										{card.body}
-									</p>
-								</div>
-							))}
-						</div>
-					</AnimatedSection>
 
 					{/* Link do oferty */}
 					<AnimatedSection delay={0.1}>
@@ -207,7 +177,6 @@ export default function KontaktPage() {
 								</h2>
 								<p className='text-[14px] text-text-body dark:text-dark-text-muted leading-relaxed'>
 									Przejrzyj ofertę dla firm i napisz, co Cię interesuje.
-									Wstępną wycenę przygotuję w ciągu 24 godzin.
 								</p>
 							</div>
 							{/* ⚠ WARIANT NAWIGACYJNY, NIE GRADIENT (audyt UI 11.08.2026,

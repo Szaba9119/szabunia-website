@@ -182,6 +182,8 @@ export const GALLERY_ALTS: Record<string, string> = {
     "Butelka likieru na książce i drink ze słomką, aranżacja produktowa na tle w kolorze rdzy",
   "woohoo-ecommerce-4x3":
     "Plansza tytułowa filmu z napisem E-commerce All in na ujęciu Starego Rynku z powietrza",
+  "woohoo-prelekcja-4x3":
+    "Prelegent z mikrofonem podczas wystąpienia na E-commerce All In, identyfikator konferencyjny na smyczy",
   "woohoo-autopay":
     "Kadr tytułowy filmu z napisem E-commerce All in nad Starym Rynkiem w Poznaniu",
   "artech-film-cover":

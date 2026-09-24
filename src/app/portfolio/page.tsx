@@ -57,7 +57,7 @@ export default function PortfolioPage() {
 		{
 			'@context': 'https://schema.org',
 			'@type': 'ItemList',
-			name: 'Portfolio — realizacje Marcina Szabuni',
+			name: 'Portfolio, realizacje Marcina Szabuni',
 			// `portfolioItems`, nie `portfolioCategories`: lista niefiltrowana zawierała
 			// draft Box17 (`noindex`) i inną kolejność niż widoczna siatka, czyli dawała
 			// Googlebotowi ścieżkę odkrycia do strony świadomie ukrytej (PELNY2608-28).
@@ -77,7 +77,8 @@ export default function PortfolioPage() {
 			<main id='main' className='pt-28 pb-16 px-4'>
 				<div className='max-w-6xl mx-auto'>
 					<Breadcrumbs items={crumbs} className='mb-6' />
-					<AnimatedSection>
+					{/* PERF-01 (audyt 23.09.2026): pierwszy blok bez `AnimatedSection`. `.reveal` trzyma go w `opacity: 0` do hydratacji, a to on jest elementem LCP (Lighthouse mobile: LCP 4,2-5,3 s). `.hero-intro` animuje sam `transform`, jak hero strony głównej i usług. */}
+					<div className='hero-intro'>
 						<p className='text-[11px] uppercase tracking-widest text-steel dark:text-dark-text-muted mb-3 font-barlow font-semibold text-center'>
 							Realizacje
 						</p>
@@ -113,9 +114,13 @@ export default function PortfolioPage() {
 								Zapytaj o ofertę
 							</a>
 						</div>
-					</AnimatedSection>
+					</div>
 
-					<div className='grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4'>
+					{/* 2×2 na każdej szerokości (audyt 23.09.2026). Przy `lg:grid-cols-3` cztery
+					    realizacje dawały rząd 3 + 1 i czwarty kafel (Artech) stał sam obok dwóch
+					    pustych pól. Liczba realizacji jest dziś stała (cztery usługi, cztery case
+					    studies); przy piątej wrócić do trzech kolumn. */}
+					<div className='grid grid-cols-2 gap-3 md:gap-4'>
 						{portfolioItems.map((item, i) => {
 							const overlay = (
 								<>
@@ -126,7 +131,7 @@ export default function PortfolioPage() {
 										fill
 										className='object-cover transition-transform duration-500 group-hover:scale-105'
 										style={{ objectPosition: item.imagePosition }}
-										sizes='(max-width: 1024px) 50vw, 33vw'
+										sizes='(max-width: 1152px) 50vw, 560px'
 										quality={85}
 										placeholder='blur'
 										blurDataURL={blurPlaceholder}

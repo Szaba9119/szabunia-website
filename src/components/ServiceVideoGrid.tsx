@@ -74,7 +74,13 @@ export default function ServiceVideoGrid({
             className="group relative aspect-square rounded-xl overflow-hidden bg-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
           >
             <Image
-              src={`https://i.ytimg.com/vi/${v.youtubeId}/${hqOnly[v.youtubeId] ? "hqdefault" : "maxresdefault"}.jpg`}
+              /* WebP najpierw (audyt 23.09.2026, jak w `YouTubeFacade`): ok. 2,5 raza
+                 lżejszy niż JPEG maxres. Błąd → JPEG `hqdefault`, jak dotąd. */
+              src={
+                hqOnly[v.youtubeId]
+                  ? `https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`
+                  : `https://i.ytimg.com/vi_webp/${v.youtubeId}/maxresdefault.webp`
+              }
               alt={`Kadr otwierający z filmu: ${v.title}`}
               width={1280}
               height={720}

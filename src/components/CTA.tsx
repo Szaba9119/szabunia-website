@@ -223,7 +223,15 @@ export default function CTA({
 							/>
 						</div>
 
-						<div className='relative z-10 grid md:grid-cols-2 gap-10 items-start'>
+						{/* `grid-cols-1` JAWNIE, nie domyślna kolumna (audyt 23.09.2026, P1).
+						    Bez niej siatka na telefonie ma jedną kolumnę `auto`, która rośnie do
+						    min-content najszerszego dziecka. Po załadowaniu Turnstile (iframe
+						    300 px + p-6 ramki formularza) kolumna miała 350 px przy 278 px
+						    miejsca, a `overflow-hidden` karty ucinał prawą krawędź pól, tekstu
+						    i przycisku wysyłki (390 px: strona główna, usługi, /kontakt).
+						    `grid-cols-1` to `minmax(0, 1fr)`, więc kolumna nie wychodzi poza
+						    kartę. Wąski widget obsługuje `TurnstileWidget` (tryb compact). */}
+						<div className='relative z-10 grid grid-cols-1 md:grid-cols-2 gap-10 items-start'>
 							{/* Left: Info */}
 							<div>
 								<h2 className='font-barlow font-black text-3xl md:text-[36px] leading-[1.1] tracking-tight text-navy dark:text-white mb-3'>
@@ -554,7 +562,11 @@ export default function CTA({
 											)}
 										</div>
 
-										<div className='grid grid-cols-1 sm:grid-cols-2 gap-3 mb-3'>
+										{/* `md:grid-cols-1` (audyt 23.09.2026): od `md` karta dzieli się na dwie
+										    kolumny i formularz ma 257-323 px, więc e-mail i telefon obok siebie
+										    dostawały po 123-156 px, a etykieta telefonu łamała się na dwie linie
+										    (768 px). Obok siebie tylko tam, gdzie formularz ma ≥ 385 px. */}
+										<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-3 mb-3'>
 											<div>
 												<label
 													htmlFor='contact-email'

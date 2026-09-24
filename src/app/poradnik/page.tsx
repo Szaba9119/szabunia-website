@@ -106,7 +106,8 @@ export default function PoradnikPage() {
       <main id="main" className="pt-28 pb-16 px-4">
         <div className="max-w-6xl mx-auto">
           <Breadcrumbs items={crumbs} className="mb-6" />
-          <AnimatedSection>
+          {/* PERF-01 (audyt 23.09.2026): pierwszy blok bez `AnimatedSection`. `.reveal` trzyma go w `opacity: 0` do hydratacji, a to on jest elementem LCP (Lighthouse mobile: LCP 4,2-5,3 s). `.hero-intro` animuje sam `transform`, jak hero strony głównej i usług. */}
+          <div className="hero-intro">
             <p className="text-[12px] font-barlow font-semibold uppercase tracking-[0.16em] text-blue dark:text-blue-light text-center mb-3">
               Darmowy poradnik
             </p>
@@ -118,7 +119,7 @@ export default function PoradnikPage() {
               wyjść na zdjęciach pewnie i naturalnie, nawet jeśli zwykle nie lubisz się
               fotografować.
             </p>
-          </AnimatedSection>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
             {/* Cover preview */}

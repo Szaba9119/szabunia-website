@@ -12,7 +12,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   //
   // 12.09.2026: wdrożenie MASTER — treści usług, kontaktu i realizacji.
   // 14.09.2026: dopracowanie czterech podstron usług, strona główna, stopka z usługami.
-  const SITE_UPDATED = new Date("2026-09-14");
+  // 22-23.09.2026: eventy pierwsze w całym serwisie, przebudowa czterech podstron usług,
+  // galeria i strona główna (commity 0bbbdd9..5709bb9), audyt 23.09.
+  const SITE_UPDATED = new Date("2026-09-23");
 
   const portfolioPages = portfolioCategories
     .filter((c) => !c.externalUrl && !isPortfolioDraft(c.slug))

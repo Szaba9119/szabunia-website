@@ -146,8 +146,29 @@ export const portfolioCategories: PortfolioCategory[] = [
     // i na kafelku czytała się jako prawie czarna plama. Nowa nazwa pliku, bo optymalizator
     // obrazów trzyma wynik rok (`minimumCacheTTL`), więc podmiana pod starą nazwą mogłaby
     // nie dojść do odwiedzających.
-    tileImage: "/images/portfolio/woohoo-ratusz-4x3-v2.jpg",
-    gallery: [],
+    //
+    // ⛔ ZMIANA 23-24.09.2026 (audyt, decyzja Marcina L1: „człowiek / wydarzenie /
+    // interakcja > budynek”, 24.09: „masz dostęp do dysków, poszukaj lepszych zdjęć”).
+    // Ratusz był wycinkiem planszy tytułowej, rozciągniętym do 1000×749, i nie pokazywał
+    // eventu. 23.09 zastąpiła go klatka 1280×720 z YouTube, ale ta sama osoba stała na
+    // plakacie filmu na /uslugi/eventy-reportaze. 24.09 kadry pochodzą z ORYGINAŁU filmu
+    // w 4K: `ARCHIVE_01/.../Woohoo/2026.03.19 Woohoo/2026.03.19 Woohoo v3.mov`
+    // (3840×2160, H.264), klatki wyciągnięte przez AVFoundation, ostre w 100%.
+    // Kafel: prelegent z mikrofonem (86,5 s), kadr 4:3 2880×2160 → 1600×1200.
+    // Galeria: sześć klatek z tego samego filmu, 1920×1080, jawnie podpisane jako kadry
+    // z filmu (to nie sesja zdjęciowa). Bez napisów i belek z nazwiskami.
+    // `woohoo-ratusz-4x3-v2.jpg` zostaje w repo.
+    tileImage: "/images/portfolio/woohoo-prelekcja-4x3.jpg",
+    gallery: [
+      { src: "/images/portfolio/woohoo/woohoo-01-prelegent.jpg", alt: "Prelegent z mikrofonem podczas wystąpienia na E-commerce All In, Enea Stadion" },
+      { src: "/images/portfolio/woohoo/woohoo-02-rozmowa-przy-stole.jpg", alt: "Uczestniczki wydarzenia śmieją się przy stole do pokera podczas części networkingowej" },
+      { src: "/images/portfolio/woohoo/woohoo-03-kuluary.jpg", alt: "Rozmowa trojga uczestników w kuluarach konferencji, identyfikatory na smyczach" },
+      { src: "/images/portfolio/woohoo/woohoo-04-networking-stol.jpg", alt: "Networking przy stole do pokera, uczestnicy konferencji e-commerce w rozmowie" },
+      { src: "/images/portfolio/woohoo/woohoo-05-rozmowa-na-stojaco.jpg", alt: "Dwóch uczestników rozmawia przy stoliku koktajlowym, w tle goście wydarzenia" },
+      { src: "/images/portfolio/woohoo/woohoo-06-foyer.jpg", alt: "Goście wydarzenia E-commerce All In w foyer Enea Stadion w Poznaniu" },
+    ],
+    gallerySubtitle:
+      "Kadry z filmu z wydarzenia: wystąpienia, rozmowy w kuluarach i networking przy stołach.",
     process: [],
     pricingType: "tiers",
     faqs: [],

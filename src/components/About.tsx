@@ -107,10 +107,15 @@ export default function About() {
                     `LogoBar` renderuje się NAD tą sekcją na desktopie i POD nią
                     na telefonie (page.tsx, hidden md:block / md:hidden). Każde
                     odwołanie do pozycji będzie fałszywe na jednym z breakpointów. */}
+                {/* ⛔ 23.09.2026 (audyt, powtórzenie): zdanie „Wśród firm, z którymi
+                    współpracowałem, są m.in. IQOS, Amica, Grupa Forte S.A., Centrum Posnania
+                    i Woohoo" zdjęte. `LogoBar` pod hero pokazuje dziś wszystkie dziewięć
+                    marek, w tym dokładnie te pięć, więc akapit powtarzał listę w całości.
+                    Komentarz wyżej (10.08) opisuje stan, w którym LogoBar miał tylko cztery
+                    marki i stał inaczej na telefonie; `page.tsx` renderuje go dziś raz,
+                    zaraz pod hero, na każdej szerokości. Wyróżnienie zostaje: nie stoi
+                    nigdzie indziej na stronie głównej. */}
                 <p>
-                  Wśród firm, z którymi współpracowałem, są m.in. <strong>IQOS</strong>,{" "}
-                  <strong>Amica</strong>, <strong>Grupa Forte S.A.</strong>,{" "}
-                  <strong>Centrum Posnania</strong> i <strong>Woohoo</strong>.{" "}
                   Otrzymałem wyróżnienie w ogólnopolskim konkursie{" "}
                   <strong>Portret 2022</strong>.
                 </p>

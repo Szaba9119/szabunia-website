@@ -41,7 +41,7 @@ export default function BlogPreview() {
               Z bloga
             </h2>
             <p className="text-steel dark:text-dark-text-muted text-[15px] leading-relaxed text-center mb-10 max-w-md mx-auto">
-              Praktyczne porady, kulisy realizacji i trendy w fotografii biznesowej.
+              Poradniki dla firm: jak przygotować sesję, ile kosztuje realizacja i jak wybrać fotografa na event.
             </p>
           </Parallax>
         </AnimatedSection>

@@ -449,7 +449,9 @@ export default async function ServicePage({ params }: PageProps) {
 				{testimonial && (
 					<ErrorBoundary>
 						<section className='py-12 md:py-16 px-4'>
-							<figure className='max-w-3xl mx-auto bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-8 md:p-10 text-center'>
+							{/* Na telefonie do lewej i p-6 (audyt 23.09.2026): opinia ma 11-15 linii
+							    kursywy, a wyśrodkowana w takim bloku rozjeżdżała się. Od `md` bez zmian. */}
+							<figure className='max-w-3xl mx-auto bg-white dark:bg-dark-card rounded-2xl border border-border dark:border-dark-border p-6 md:p-10 text-left md:text-center'>
 								<div
 									className='text-blue dark:text-blue-light text-sm mb-4'
 									role='img'
@@ -542,7 +544,10 @@ export default async function ServicePage({ params }: PageProps) {
 													src={c.tileImage ?? c.thumbnail}
 													alt=''
 													fill
-													sizes='(max-width: 639px) 96px, 300px'
+													sizes='(max-width: 639px) 96px, 384px'
+													/* 384px = `max-w-sm` przy jednej realizacji (audyt 23.09.2026:
+													   kafel miał 382 px, a `sizes` 300 px, więc na desktopie
+													   szedł za mały wariant). Przy dwóch kafel ma ~328 px. */
 													className='object-cover transition-transform duration-500 group-hover:scale-105'
 													style={{ objectPosition: c.tileImagePosition }}
 												/>
