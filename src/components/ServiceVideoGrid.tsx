@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
 import { gtagEvent } from "@/lib/gtag";
+import { videoEmbedSrc, videoPosterSrc } from "@/lib/videoPoster";
 
 export interface StripVideo {
   youtubeId: string;
@@ -20,8 +21,8 @@ export interface StripVideo {
  *
  * Zachowanie jak w ServiceGalleryLightbox dla zdjęć: podgląd otwiera się w miejscu,
  * bez wychodzenia z lejka. Player YouTube ładuje się dopiero po kliknięciu
- * (fasada), więc wejście na stronę zostaje szybkie, a cookies YouTube nie
- * ładują się bez akcji użytkownika.
+ * (fasada), z domeny youtube-nocookie.com, a plakaty idą z własnego serwera
+ * (src/lib/videoPoster.ts), więc przed kliknięciem nic nie trafia do Google.
  */
 export default function ServiceVideoGrid({
   videos,
@@ -32,12 +33,6 @@ export default function ServiceVideoGrid({
 }) {
   const [open, setOpen] = useState<number | null>(null);
   const dialogRef = useRef<HTMLDivElement | null>(null);
-  // ZDJ2608-24 (04.08.2026): miniatura idzie z `maxresdefault` (1280x720, 16:9), a nie
-  // z `hqdefault` (480x360, czyli 4:3 z czarnymi pasami dla materiału 16:9). Sprawdzone
-  // kodem odpowiedzi 04.08.2026: wszystkie 9 osadzonych filmów zwraca 200 na maxres.
-  // Fallback jest realny, nie zadeklarowany: gdy YouTube kiedyś nie wygeneruje maxres,
-  // `onError` przełącza TEN film na hqdefault i stan zostaje do końca sesji.
-  const [hqOnly, setHqOnly] = useState<Record<string, boolean>>({});
 
   const close = useCallback(() => setOpen(null), []);
 
@@ -74,22 +69,15 @@ export default function ServiceVideoGrid({
             className="group relative aspect-square rounded-xl overflow-hidden bg-navy focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue"
           >
             <Image
-              /* WebP najpierw (audyt 23.09.2026, jak w `YouTubeFacade`): ok. 2,5 raza
-                 lżejszy niż JPEG maxres. Błąd → JPEG `hqdefault`, jak dotąd. */
-              src={
-                hqOnly[v.youtubeId]
-                  ? `https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg`
-                  : `https://i.ytimg.com/vi_webp/${v.youtubeId}/maxresdefault.webp`
-              }
+              /* Plakat z własnego serwera (src/lib/videoPoster.ts). Obraz 16:9 w kwadratowym
+                 kaflu z `object-cover` jest wyświetlany na szerokość wysokość × 16/9, czyli
+                 ~1,8 szerokości kafla: kafel do ~335 px → obraz ~600 px; na telefonie przy
+                 jednej kolumnie (3 filmy) kafel ~345 px → obraz ~610 px ≈ 160vw. */
+              src={videoPosterSrc(v.youtubeId)}
               alt={`Kadr otwierający z filmu: ${v.title}`}
               width={1280}
               height={720}
-              /* Miniatury YouTube nie przechodzą przez optymalizator Next (to już jest
-                 skompresowany JPEG z CDN-u), więc `unoptimized` zamiast dopisywania
-                 i.ytimg.com do images.remotePatterns w next.config.ts. Domena jest
-                 dopuszczona w CSP `img-src`. */
-              unoptimized
-              onError={() => setHqOnly((s) => (s[v.youtubeId] ? s : { ...s, [v.youtubeId]: true }))}
+              sizes="(max-width: 640px) 160vw, 600px"
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <span className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
@@ -135,7 +123,7 @@ export default function ServiceVideoGrid({
           >
             <iframe
               className="absolute inset-0 w-full h-full"
-              src={`https://www.youtube.com/embed/${active.youtubeId}?autoplay=1&vq=hd1080`}
+              src={videoEmbedSrc(active.youtubeId)}
               title={active.title}
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen

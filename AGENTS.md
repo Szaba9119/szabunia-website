@@ -1,7 +1,7 @@
 # AGENTS.md — Project Instructions for Codex
 
 Ten plik jest źródłem prawdy o projekcie dla agentów AI (Codex i pokrewne).
-Właściciel projektu: **Marcin Szabunia**. Orchestrator sesji: **Codex (web chat)**.
+Właściciel projektu: **Marcin Szabunia**. Orchestrator sesji: **Claude (web chat)**.
 Codex jest wykonawcą — nie decydentem.
 
 ---
@@ -19,7 +19,7 @@ Język treści: **polski**. Docelowo druga wersja językowa DE (nie wcześniej n
 
 ## 2. Stack (stan faktyczny z `package.json`)
 
-- **Next.js 16.2.10** (App Router, Turbopack)
+- **Next.js 16.4.0** (App Router, Turbopack; z 16.2.10 podniesione 13.10.2026 przez poprawki bezpieczeństwa, audyt SZA2610-01)
 - **React 19.2.3 / React DOM 19.2.3**
 - **TypeScript 5**, tryb `strict: true`
 - **Tailwind CSS v4** (`@tailwindcss/postcss`, `@import "tailwindcss"`, `@theme inline` w `globals.css` — nie `tailwind.config.js`)
@@ -180,9 +180,20 @@ zawiera Instagram + wizytówkę Google, bez LinkedIn i Facebooka. Nie dodawać i
 (uwaga: profil FB istnieje i ma ~1,4 tys. obserwujących — to otwarty temat linkowania, nie błąd).
 
 **Depricing 23.07.2026:** `Pricing.tsx`, `PricingCalculator.tsx` i cała trasa `/kalkulator`
-**USUNIĘTE**. `/kalkulator` → 301 → `/kontakt`. Strona nie publikuje tabel cenowych — zostały
+**USUNIĘTE**. `/kalkulator` → 308 → `/kontakt` (stały redirect Next.js; do 22.09.2026 ten plik
+mówił „301", produkcja zwraca 308, dla SEO bez różnicy). Strona nie publikuje tabel cenowych — zostały
 wyłącznie kotwice „od X zł" w kartach usług (`src/data/services.tsx`). Nie odbudowywać
 sekcji cennika bez wyraźnej decyzji Marcina.
+
+**Depricing 14.08.2026 (commit `d52c01f`) — stan obecny, ważniejszy niż akapity niżej:** z widocznej
+strony zeszły **wszystkie** kotwice kwotowe, także w kartach usług, blogu, FAQ i `seo.description`.
+W hero każdej usługi stoi „Wstępna wycena" (`services.tsx`, `heroPriceLabel`). Widoczne zostały tylko
+warunki handlowe: dojazd 0 zł / 2,50 zł netto za km, powtórny dojazd 300 zł, poprawki ponad limit
+200 zł/h. ~~Kwoty cennika żyją wyłącznie w `public/llms.txt` i w komentarzach kodu.~~ **Od 12.09.2026
+(wdrożenie MASTER) `llms.txt` też nie ma kwot** („wycena indywidualna po ustaleniu zakresu”, sprawdzone
+live 13.10.2026); kwoty zostały tylko w komentarzach kodu. Sprawdzone
+14.09.2026: poza komentarzami `services.tsx`, `blog.ts`, `faq.ts` i `portfolio.ts` nie mają żadnej
+kwoty usługi. Kwoty w akapitach niżej to kanon cennika do wycen, **nie treść strony** (ani `llms.txt`).
 
 **Cennik v3 (2026-07-29, próg portretowy zmieniony 04.08.2026):** kotwice = **portrety 700**
 (PORTRET START: 1 osoba, sesja do 30 min, w cenie studio zewnętrzne w Poznaniu ALBO dojazd
@@ -196,7 +207,7 @@ produktowa 600, dron 700, obiekty 900. Nazwy pakietów: **PORTRET/EVENT START** 
 ⛔ **Linia eventowa oddaje ok. 30 gotowych zdjęć na godzinę obecności** (korekta Marcina
 z 05.08.2026, wcześniej 20). Minimalne liczby w pakietach hybrydowych zostają: 60+ / 120+ / 160+.
 
-⛔ **Kotwica portretowa brzmi dosłownie:** „Ceny portretów dla jednej osoby zaczynają się
+⛔ **Kotwica portretowa brzmi dosłownie** (dotyczy `llms.txt` i wycen; na stronie od 14.08.2026 nie ma kwot): „Ceny portretów dla jednej osoby zaczynają się
 od 700 zł netto, a sesja zespołowa od 1 400 zł netto za dwie osoby". Zwroty **„za pierwsze zdjęcie"**
 i **„za jedno ujęcie"** zostały przez Marcina odrzucone wprost (04.08.2026) — nie dopisywać.
 Na powierzchniach klienckich stoi **jedna kwota „od" na usługę**, bez drabinek i tabel.
@@ -206,8 +217,10 @@ strona i szablony mówiły 20 minut, FAQ 30–45, a normatyw 1 h — trzy różn
 czynność. Nie wracać do „20 minut" w blog.ts, portfolio.ts i services.tsx.
 
 Terminy w **dniach kalendarzowych** (zdjęcia 14, wideo 21), poprawki w 7 dni od zgłoszenia.
-Pełna siatka cen żyje w `public/llms.txt` i we wpisach `src/data/blog.ts` — **kanon kotwic
-to `src/data/services.tsx`**.
+~~Pełna siatka cen żyje w `public/llms.txt` i we wpisach `src/data/blog.ts` — **kanon kotwic
+to `src/data/services.tsx`**.~~ **Nieaktualne od 14.08.2026:** kwoty zeszły z `blog.ts` i z widocznej
+części `services.tsx`. ~~Siatka cen na powierzchni publicznej jest dziś tylko w `public/llms.txt`,~~
+Od 12.09.2026 na powierzchni publicznej nie ma żadnej siatki cen, a źródłem kwot jest `01_Biznes/_System/02_Cenniki/cennik_2026_07_v3.md`.
 
 **Box17:** case study `box17-budki-akustyczne` jest w `DRAFT_SLUGS` (`src/data/portfolio.ts`)
 **świadomie, decyzją Marcina z 04.08.2026**, mimo kompletu zdjęć. W `public/images/portfolio/box17/`
@@ -236,21 +249,29 @@ i `01_Biznes/_System/07_Strategia/seo_vs_strategia_2026-07-30.md`:
    pozostaje poprawna, bo wszystkie sekcje strony głównej i tak używają `h2`.
 4. **Pozycjonowanie w metadanych i JSON-LD: eventy przed portretami.** Wynika z
    `01_Biznes/_System/07_Strategia/korekta_pozycjonowania_2026-07.md` (10 z 11 realizacji
-   referencyjnych to eventy). Kolejność kart usług w `services.tsx` NADAL ma portrety
-   pierwsze — to świadome, odwrócenie hierarchii jest robotą na wrzesień
-   (`CO_DALEJ_lista_dzialan.md`: „strukturę zostawiamy do września").
+   referencyjnych to eventy). ~~Kolejność kart usług NADAL ma portrety pierwsze.~~
+   **Odwrócone 22.09.2026 (commit `0bbbdd9`, decyzja Marcina): eventy pierwsze w całym
+   serwisie.** Kolejność Wydarzenia → Ludzie → Obiekty → Produkty ustala
+   `src/data/servicePillars.ts` (karty na home i `/uslugi`), do tego hasło i kolaż hero,
+   domyślna zakładka `/galeria` = Eventy, `/portfolio` od Woohoo, FAQ strony głównej
+   (`faq.ts`) pod eventy. Nie wracać do portretów na pierwszym miejscu bez decyzji.
+5. **Title strony głównej: „Fotografia i wideo dla firm, Poznań | Szabunia" (22.09.2026).**
+   Frazę „fotograf biznesowy Poznań" niesie title `/uslugi/wizerunek-portrety` (GSC:
+   Google przypisał ją tej podstronie). H1 strony głównej bez zmian. Dane GSC strony
+   głównej od 23.09.2026 mają tę zmianę jako nową zmienną.
 
 Usunięty żargon: **„z jednego wejścia" → „od jednej osoby"** w 25 miejscach (`src/` i `blog.ts`).
 Słowo „wejście" miało zero wystąpień we wszystkich zapytaniach z GSC i Ads. Slug
 `/blog/foto-wideo-dron-z-jednego-wejscia` **został bez zmian**, bo jest zaindeksowany.
 
 **Audyty:** metodyka w `docs/METODYKA-AUDYTU.md`, raporty w `docs/sesje/`. Ostatni pełny:
-`AUDYT-PELNY-2026-07-29.md` (moduły A-E + panele) razem z `POPRAWKI-2026-07-29.md`.
+`AUDYT-SZABUNIA-2026-10-13.md` (moduły A-E, re-audyt) razem z `BRIEFY-SZABUNIA-2026-10-13.md`
+i `POPRAWKI-WDROZONE-2026-10-13.md`. Wcześniejsze pełne: 23.09, 12.09 (MASTER), 05.08, 29.07.
 Metadane i nagłówki: `SEO-TITLE-DESCRIPTION-2026-07-30.md` i `RANKING-CO-NAPRAWIC-2026-07-30.md`.
 
 ---
 
-## 10. Workflow z orchestratorem (Codex w web chacie)
+## 10. Workflow z orchestratorem (Claude w web chacie)
 
 Codex pracuje w trybie **brief → wykonanie → raport**. Marcin wkleja briefy napisane przez orchestratora. Każdy brief zawiera:
 **kontekst, zadanie, zakres, input, acceptance criteria, format raportu, stop-conditions.**
@@ -317,6 +338,9 @@ Wszystkie pytania, niejasności, wątpliwości → wypisz w sekcji **"Problemy i
 
 ---
 
-*Ostatnia aktualizacja: 2026-07-30 (repozycjonowanie SEO: metadane, H1, mapowanie przekierowań
-ze starej domeny, koniec żargonu „z jednego wejścia" — za zgodą Marcina).
+*Ostatnia aktualizacja: 2026-10-13 (Next.js 16.4.0, `llms.txt` bez kwot, lista audytów; za zgodą Marcina
+z 13.10.2026). Poprzednia: 2026-07-30 (repozycjonowanie SEO).
+`AGENTS.md` to kopia tego pliku dla Codexa: po każdej zmianie tutaj odtwórz go poleceniem
+`sed -e 's/Codex/Codex/g' -e 's/CLAUDE\.md — Project Instructions for Codex/AGENTS.md — Project Instructions for Codex/' CLAUDE.md > AGENTS.md`
+(rozjazd obu plików: audyt SZA2610-07).
 Zmiany w tym pliku wymagają zgody Marcina.*

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { gtagEvent } from "@/lib/gtag";
+import { videoEmbedSrc, videoPosterSrc } from "@/lib/videoPoster";
 
 /**
  * Lekka „fasada" osadzenia YouTube: do kliknięcia pokazuje tylko miniaturę + przycisk play.
@@ -14,6 +15,7 @@ export default function YouTubeFacade({
   vertical = false,
   className = "mt-8",
   priority = false,
+  sizes = "(min-width: 1024px) 1024px, 100vw",
 }: {
   id: string;
   title: string;
@@ -23,11 +25,10 @@ export default function YouTubeFacade({
   className?: string;
   /** Plakat nad zgięciem (element LCP): bez `loading="lazy"`, z `fetchpriority="high"`. */
   priority?: boolean;
+  /** Szerokość plakatu w układzie (domyślnie kontener podstrony, max 1024 px). */
+  sizes?: string;
 }) {
   const [play, setPlay] = useState(false);
-  // ZDJ2608-24 (04.08.2026): fallback przeniesiony z mutacji `currentTarget.src` na stan,
-  // bo przy ponownym renderze przeglądarka wracała do adresu z propsa i pętliła żądanie.
-  const [hqOnly, setHqOnly] = useState(false);
 
   return (
     <div
@@ -36,7 +37,7 @@ export default function YouTubeFacade({
       {play ? (
         <iframe
           className="absolute inset-0 w-full h-full"
-          src={`https://www.youtube.com/embed/${id}?autoplay=1&vq=hd1080`}
+          src={videoEmbedSrc(id)}
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
@@ -53,22 +54,13 @@ export default function YouTubeFacade({
           className="group absolute inset-0 w-full h-full cursor-pointer"
         >
           <Image
-            /* PERF-02 (audyt 23.09.2026): najpierw WebP z CDN-u YouTube (ten sam host
-               `i.ytimg.com`, już dopuszczony w CSP), np. 23 KB zamiast 60 KB JPEG-a.
-               Brak wersji maxres albo WebP → `onError` i JPEG `hqdefault`, jak dotąd. */
-            src={
-              hqOnly
-                ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg`
-                : `https://i.ytimg.com/vi_webp/${id}/maxresdefault.webp`
-            }
+            /* Plakat z własnego serwera przez optymalizator Next (src/lib/videoPoster.ts). */
+            src={videoPosterSrc(id)}
             alt={`Kadr otwierający z filmu: ${title}`}
             width={1280}
             height={720}
-            /* Bez optymalizatora Next: to gotowy JPEG z CDN-u YouTube, a dopisanie domeny
-               do images.remotePatterns w next.config.ts jest osobną decyzją. */
-            unoptimized
+            sizes={sizes}
             priority={priority}
-            onError={() => setHqOnly(true)}
             className="absolute inset-0 w-full h-full object-cover"
           />
           <span className="absolute inset-0 bg-black/25 group-hover:bg-black/35 transition-colors" />

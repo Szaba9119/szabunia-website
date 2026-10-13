@@ -1,3 +1,4 @@
+import { OG_DEFAULTS } from '@/lib/og';
 import { getCategoryBySlug } from '@/data/portfolio';
 import { serviceCaseMap, postCaseOverrides } from '@/data/contentRelations';
 import { notFound } from 'next/navigation';
@@ -54,6 +55,7 @@ export async function generateMetadata({
 		description: post.seo.description,
 		alternates: { canonical: `/blog/${post.slug}` },
 		openGraph: {
+			...OG_DEFAULTS,
 			title: post.seo.title,
 			description: post.seo.description,
 			url: `https://szabunia.pl/blog/${post.slug}`,

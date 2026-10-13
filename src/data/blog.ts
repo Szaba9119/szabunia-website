@@ -1944,8 +1944,6 @@ export function getBlogPostBySlug(slug: string): BlogPost | undefined {
 	return blogPosts.find((p) => p.slug === slug);
 }
 
-export const blogCategories = ['poradnik', 'realizacja', 'branża'] as const;
-
 /* ── Linkowanie wewnętrzne blog ↔ usługi ──
    Mapa: slug wpisu → slug najbardziej powiązanej usługi (z src/data/services.tsx).
    Trzymamy slug usługi jako string, żeby nie tworzyć zależności blog→services. */

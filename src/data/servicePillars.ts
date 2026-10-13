@@ -19,7 +19,3 @@ export const servicePillars = [
     responsibility: 'Ty wysyłasz produkty. Ja oddaję pliki gotowe do sklepu.',
     details: 'Produkty do 20×20 cm możesz przysłać kurierem, do większych przyjeżdżam ze studiem mobilnym. Retusz jest w cenie: wycięcie z tła, białe tło zgodne z wymogami Allegro i Amazona oraz korekta kolorów. Zapisuję ustawienie światła i tła, więc kolejną partię dokładam w tej samej stylistyce, nawet pół roku później.' },
 ] as const;
-
-export function getPillar(slug: string) {
-  return servicePillars.find((pillar) => pillar.slug === slug);
-}

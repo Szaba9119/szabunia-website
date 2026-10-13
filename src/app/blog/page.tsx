@@ -1,3 +1,4 @@
+import { OG_DEFAULTS } from "@/lib/og";
 import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
+    ...OG_DEFAULTS,
     title: "Blog o fotografii i wideo dla firm | Szabunia",
     description:
       "Jak przygotować sesję, ile kosztuje event, jakie formaty wideo działają. Odpowiedzi od fotografa marek H&M, Warner Music i Santander.",

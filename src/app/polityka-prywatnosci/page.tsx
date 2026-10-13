@@ -1,3 +1,4 @@
+import { OG_DEFAULTS } from "@/lib/og";
 import Link from "next/link";
 import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
     canonical: "/polityka-prywatnosci",
   },
   openGraph: {
+    ...OG_DEFAULTS,
     title: "Polityka prywatności | Szabunia",
     description:
       "Polityka prywatności serwisu szabunia.pl. Informacje o przetwarzaniu danych osobowych, plikach cookies i prawach użytkownika zgodnie z RODO.",
@@ -149,7 +151,8 @@ export default function PrivacyPolicy() {
               </p>
               <p className="mt-3">
                 Dane zbierane przez pliki cookies analityczne i reklamowe
-                (sekcja 7) przetwarza Google Ireland Ltd. z możliwym dalszym
+                oraz przez odtwarzacz YouTube (sekcja 7) przetwarza Google
+                Ireland Ltd. z możliwym dalszym
                 przekazaniem do Google LLC (USA).
               </p>
               <p className="mt-3">
@@ -227,6 +230,18 @@ export default function PrivacyPolicy() {
                 są przez Vercel jako podmiot przetwarzający na zasadach
                 opisanych w sekcji 4.
               </p>
+              <p className="mt-3">
+                Filmy na stronie pochodzą z serwisu YouTube (Google Ireland
+                Ltd.). Do chwili kliknięcia przycisku odtwarzania widzisz
+                wyłącznie kadr zapisany na moim serwerze i nic nie jest
+                przesyłane do YouTube. Po kliknięciu odtwarzacz ładuje się
+                z domeny youtube-nocookie.com: YouTube otrzymuje wtedy Twój
+                adres IP i dane techniczne przeglądarki, a w trakcie oglądania
+                może zapisać w niej własne pliki cookies lub dane w pamięci
+                przeglądarki, na zasadach opisanych w polityce prywatności
+                Google. Jeśli nie chcesz przekazywać tych danych, nie uruchamiaj
+                odtwarzacza.
+              </p>
             </section>
 
             <section>
@@ -251,7 +266,7 @@ export default function PrivacyPolicy() {
               <p>
                 Zastrzegam sobie prawo do wprowadzania zmian w niniejszej
                 polityce prywatności. Aktualna wersja jest zawsze dostępna na tej
-                stronie. Ostatnia aktualizacja: 13 września 2026.
+                stronie. Ostatnia aktualizacja: 13 października 2026.
               </p>
             </section>
           </div>

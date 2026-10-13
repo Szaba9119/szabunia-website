@@ -1,3 +1,4 @@
+import { OG_DEFAULTS } from "@/lib/og";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -76,8 +77,7 @@ export const metadata: Metadata = {
     description:
       "Wydarzenia, ludzie, obiekty, produkty. Zdjęcia i film dla firm, od pierwszej rozmowy do gotowych materiałów. Poznań, cała Polska i Europa.",
     url: "https://szabunia.pl",
-    siteName: "Marcin Szabunia",
-    locale: "pl_PL",
+    ...OG_DEFAULTS,
     type: "website",
     images: [
       {
@@ -139,7 +139,7 @@ export default function RootLayout({
             Wartości z globals.css: --color-gray-bg i --color-dark-bg. */}
         <meta name="theme-color" media="(prefers-color-scheme: light)" content="#F9FAFB" />
         <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0B0F1A" />
-        <link rel="dns-prefetch" href="https://www.youtube.com" />
+        <link rel="dns-prefetch" href="https://www.youtube-nocookie.com" />
         {/* GA4 (gtag.js) z Consent Mode v2 — domyślnie wszystko denied;
             zgoda nadawana po "Akceptuję" w banerze cookie (CookieConsent.tsx).
             Celowo zwykły <script> w <head>, nie next/script ani @next/third-parties:
@@ -148,37 +148,43 @@ export default function RootLayout({
             next/script strategy="beforeInteractive" (2026-07-02) zweryfikowana jako
             NIEDZIAŁAJĄCA w tej konfiguracji (Turbopack): plik się fetchuje (200 OK),
             ale nigdy nie wykonuje — dataLayer i dark mode przestają działać. Wycofane.
-            'unsafe-inline' w script-src pozostaje świadomie z tego powodu. */}
+            'unsafe-inline' w script-src pozostaje świadomie z tego powodu.
+
+            Komentarze do kodu skryptu stoją TUTAJ, nie wewnątrz literału `__html`: wszystko,
+            co jest w literale, trafia do HTML każdej strony (dwa razy, z payloadem RSC).
+            Audyt 13.10.2026, SZA2610-08.
+
+            [A] Ruch wewnętrzny (audyt PELNY2907-46). Filtry GA4 działają wyłącznie po adresie IP,
+            więc reguła na IP biura nie łapie wejść Marcina z telefonu przez sieć komórkową,
+            a to one zawyżały dane (czerwcowe „49 sesji z Instagrama”). Wejście raz na
+            /?internal=1 oznacza urządzenie na stałe; /?internal=0 kasuje flagę.
+            traffic_type=internal ustawiamy PRZED gtag('config'), żeby objął także pierwszy
+            page_view. Wartość 'internal' musi zgadzać się z regułą w GA4 (Definiowanie ruchu
+            wewnętrznego) i z filtrem danych „Internal Traffic” ustawionym na Wyklucz.
+
+            [B] gtag.js (~175 KiB) doładowywany dopiero, gdy wątek główny jest wolny, albo przy
+            pierwszej interakcji: uwalnia main thread i skraca render delay LCP na mobile.
+            Consent default + config wykonują się od razu i kolejkują w dataLayer.
+
+            [C] Ruch płatny ładuje gtag.js NATYCHMIAST, bez czekania na bezczynność ani interakcję.
+            Powód (audyt POMIAR-ADS-VS-GA4-2026-08-02): konwersje Google Ads istnieją wyłącznie
+            jako import z GA4 (tagu AW- w kodzie nie ma), więc gdy biblioteka nie zdąży się
+            załadować, kliknięcie w reklamę nie ma jak zamienić się w konwersję. Zmierzone:
+            GA4 rejestrował ~26% kliknięć z reklam, a z dwóch realnych lipcowych leadów
+            z gclid Ads policzył jeden. Leniwe ładowanie zostaje dla całej reszty ruchu,
+            bo to ono chroni LCP na mobile. Rozpoznajemy go po gclid oraz po wbraid/gbraid,
+            które Google wysyła ZAMIAST gclid w kontekstach z ograniczeniami prywatności. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
 try{if(localStorage.getItem('cookie-consent')==='accepted'){gtag('consent','update',{analytics_storage:'granted',ad_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}}catch(e){}
-/* Ruch wewnetrzny na urzadzeniach mobilnych (audyt PELNY2907-46). Filtry GA4 dzialaja
-   wylacznie po adresie IP, wiec regula na IP biura nie lapie wejsc Marcina z telefonu
-   przez siec komorkowa — i to one zawyzaly dane (czerwcowe "49 sesji z Instagrama").
-   Wejscie raz na /?internal=1 oznacza urzadzenie na stale; /?internal=0 kasuje flage.
-   traffic_type=internal ustawiamy PRZED gtag('config'), zeby objal takze pierwszy
-   page_view. Wartosc 'internal' musi zgadzac sie z regula w GA4 (Definiowanie ruchu
-   wewnetrznego) i z filtrem danych "Internal Traffic" ustawionym na Wyklucz. */
 try{var q=location.search;
 if(q.indexOf('internal=1')>-1){localStorage.setItem('szabunia-internal','1');}
 else if(q.indexOf('internal=0')>-1){localStorage.removeItem('szabunia-internal');}
 if(localStorage.getItem('szabunia-internal')==='1'){gtag('set',{traffic_type:'internal'});}}catch(e){}
 gtag('js',new Date());gtag('config','G-MD8FJ0CZG3');
-/* gtag.js (~175 KiB) doładowywany dopiero gdy watek glowny jest wolny lub przy
-   pierwszej interakcji — uwalnia main thread i skraca render delay LCP na mobile.
-   Consent default + config wyzej wykonuja sie od razu i kolejkuja sie w dataLayer. */
 (function(){var loaded=false;function load(){if(loaded)return;loaded=true;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id=G-MD8FJ0CZG3';document.head.appendChild(s);}
-/* Ruch platny laduje gtag.js NATYCHMIAST, bez czekania na bezczynnosc ani interakcje.
-   Powod (audyt POMIAR-ADS-VS-GA4-2026-08-02): konwersje Google Ads istnieja wylacznie
-   jako import z GA4 (tagu AW- w kodzie nie ma), wiec gdy biblioteka nie zdazy sie
-   zaladowac, klikniecie w reklame nie ma jak zamienic sie w konwersje. Zmierzone:
-   GA4 rejestrowal ~26% klikniec z reklam, a z dwoch realnych lipcowych leadow
-   z gclid Ads policzyl jeden. Leniwe ladowanie zostaje dla calej reszty ruchu,
-   bo to ono chroni LCP na mobile, a ruch platny to pojedyncze wejscia dziennie.
-   Rozpoznajemy go po gclid oraz po wbraid/gbraid, ktore Google wysyla ZAMIAST
-   gclid w kontekstach z ograniczeniami prywatnosci. */
 try{if(/[?&](gclid|wbraid|gbraid)=/.test(location.search)){load();return;}}catch(e){}
 var evs=['scroll','pointerdown','keydown','touchstart','mousemove'];function onev(){evs.forEach(function(e){window.removeEventListener(e,onev);});load();}
 evs.forEach(function(e){window.addEventListener(e,onev,{once:true,passive:true});});

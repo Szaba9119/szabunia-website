@@ -1,3 +1,4 @@
+import { OG_DEFAULTS } from '@/lib/og';
 import { servicePillars } from '@/data/servicePillars';
 import type { Metadata } from 'next';
 import Link from 'next/link';
@@ -27,6 +28,7 @@ export const metadata: Metadata = {
 		'Cztery obszary fotografii i wideo dla firm: wydarzenia firmowe, wizerunek zespołu, nieruchomości i przemysł oraz produkty. Poznań i cała Polska.',
 	alternates: { canonical: '/uslugi' },
 	openGraph: {
+		...OG_DEFAULTS,
 		title: 'Usługi foto i wideo dla firm, Poznań | Szabunia',
 		description:
 			'Wydarzenia firmowe, wizerunek zespołu, nieruchomości i przemysł, produkty. Cztery obszary, zdjęcia i film w każdym z nich.',

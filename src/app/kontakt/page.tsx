@@ -1,3 +1,4 @@
+import { OG_DEFAULTS } from '@/lib/og';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Navigation from '@/components/Navigation';
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 		'Napisz, czego potrzebujesz. W ciągu 24 godzin odsyłam wstępną wycenę i wolny termin. Poznań, cała Polska i Europa.',
 	alternates: { canonical: '/kontakt' },
 	openGraph: {
+		...OG_DEFAULTS,
 		title: 'Kontakt i wycena, fotograf Poznań | Szabunia',
 		description:
 			'Napisz, czego potrzebujesz. W ciągu 24 godzin odsyłam wstępną wycenę i wolny termin. Poznań, cała Polska i Europa.',

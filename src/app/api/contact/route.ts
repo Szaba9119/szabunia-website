@@ -27,18 +27,12 @@ export async function POST(req: Request) {
   }
 
   const ip = getClientIp(req);
-  try {
-    if (await isRateLimited(ip)) {
-      return NextResponse.json(
-        { error: "Zbyt wiele prób. Spróbuj ponownie za chwilę." },
-        { status: 429 }
-      );
-    }
-  } catch {
-    console.error("[ALERT] contact: rate-limit unavailable");
+  // `isRateLimited` nie rzuca: przy awarii Upstash zwraca false i loguje [ALERT] (fail-open,
+  // src/lib/ratelimit.ts). Dawna gałąź catch → 503 była od c8a45b3 nieosiągalna (TECH-03).
+  if (await isRateLimited(ip)) {
     return NextResponse.json(
-      { error: "Formularz jest chwilowo niedostępny. Spróbuj ponownie lub napisz na marcin@szabunia.pl." },
-      { status: 503 }
+      { error: "Zbyt wiele prób. Spróbuj ponownie za chwilę." },
+      { status: 429 }
     );
   }
 

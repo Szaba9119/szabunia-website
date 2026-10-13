@@ -176,8 +176,6 @@ export const GALLERY_ALTS: Record<string, string> = {
      `docs/zasady-tekstow.md` zakazuje. */
 
   /* usługi i realizacje */
-  "sesje-zespolowe-cover":
-    "Dwie osoby w studiu na jasnoszarym tle, mężczyzna w białej koszuli i kobieta w czerwonej sukience",
   "produkt-43-amarula":
     "Butelka likieru na książce i drink ze słomką, aranżacja produktowa na tle w kolorze rdzy",
   "woohoo-ecommerce-4x3":

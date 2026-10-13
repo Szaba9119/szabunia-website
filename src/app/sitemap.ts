@@ -14,7 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // 14.09.2026: dopracowanie czterech podstron usług, strona główna, stopka z usługami.
   // 22-23.09.2026: eventy pierwsze w całym serwisie, przebudowa czterech podstron usług,
   // galeria i strona główna (commity 0bbbdd9..5709bb9), audyt 23.09.
-  const SITE_UPDATED = new Date("2026-09-23");
+  // 24.09.2026: okładka i galeria Woohoo z oryginału 4K, Scalio na usłudze przemysłowej,
+  // nazwa karty eventów, przyciski strony głównej (commity z 24.09).
+  const SITE_UPDATED = new Date("2026-09-24");
 
   const portfolioPages = portfolioCategories
     .filter((c) => !c.externalUrl && !isPortfolioDraft(c.slug))
@@ -87,7 +89,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${baseUrl}/polityka-prywatnosci`,
-      lastModified: new Date("2026-08-11"),
+      // 13.10.2026: akapit o odtwarzaczu YouTube (SZA2610-06).
+      lastModified: new Date("2026-10-13"),
       changeFrequency: "yearly",
       priority: 0.3,
     },

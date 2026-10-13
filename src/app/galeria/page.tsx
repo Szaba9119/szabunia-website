@@ -1,3 +1,4 @@
+import { OG_DEFAULTS } from '@/lib/og';
 import type { Metadata } from 'next';
 import Navigation from '@/components/Navigation';
 import ScrollProgress from '@/components/ScrollProgress';
@@ -73,6 +74,7 @@ export const metadata: Metadata = {
 		'Kadry z eventów firmowych, portrety, sesje zespołowe, packshoty i ujęcia z drona. Przegląd po kategoriach. Poznań i cała Polska.',
 	alternates: { canonical: '/galeria' },
 	openGraph: {
+		...OG_DEFAULTS,
 		title: 'Galeria kadrów z realizacji | Szabunia',
 		description:
 			'Eventy firmowe, portrety, sesje zespołowe, packshoty i ujęcia z drona. Przegląd kadrów po kategoriach.',

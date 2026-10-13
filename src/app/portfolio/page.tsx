@@ -1,3 +1,4 @@
+import { OG_DEFAULTS } from '@/lib/og';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
 		'Eventy firmowe, sesje zespołowe, packshoty i film z produkcji. Współpracowałem z H&M, Santanderem, Warner Music i John Deere.',
 	alternates: { canonical: '/portfolio' },
 	openGraph: {
+		...OG_DEFAULTS,
 		title: 'Portfolio realizacji foto i wideo | Szabunia',
 		description:
 			'Case studies realizacji foto i wideo dla firm. Poznań, cała Polska i Europa.',

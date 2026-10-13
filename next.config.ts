@@ -34,12 +34,14 @@ const csp = [
   // Fonty sa self-hostowane przez next/font — domeny Google Fonts celowo usuniete z allowlisty.
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self'",
-  // Zawezone z "https:": jedyne zewnetrzne obrazy to miniatury YouTube (YouTubeFacade),
-  // ewentualny pixel-fallback GA4, i zasoby widgetu Turnstile.
+  // Zawezone z "https:": jedyne zewnetrzne obrazy to ewentualny pixel-fallback GA4
+  // i zasoby widgetu Turnstile. i.ytimg.com usuniete 13.10.2026 (SZA2610-06): plakaty
+  // filmow ida z wlasnego serwera (src/lib/videoPoster.ts).
   // www.googletagmanager.com w img-src (13.09.2026): gtag wysyła piksele diagnostyczne
   // na googletagmanager.com/a, a przeglądarka blokowała je z błędem CSP w konsoli.
-  "img-src 'self' data: blob: https://i.ytimg.com https://www.googletagmanager.com https://*.google-analytics.com https://challenges.cloudflare.com",
-  "frame-src https://www.youtube.com https://challenges.cloudflare.com",
+  "img-src 'self' data: blob: https://www.googletagmanager.com https://*.google-analytics.com https://challenges.cloudflare.com",
+  // Odtwarzacz z youtube-nocookie.com (13.10.2026, SZA2610-06): bez cookies YouTube do chwili odtworzenia.
+  "frame-src https://www.youtube-nocookie.com https://challenges.cloudflare.com",
   "connect-src 'self' https://www.googletagmanager.com https://*.google-analytics.com https://*.analytics.google.com https://challenges.cloudflare.com",
   "media-src 'self'",
   "object-src 'none'",

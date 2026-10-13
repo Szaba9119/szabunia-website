@@ -1,3 +1,4 @@
+import { OG_DEFAULTS } from "@/lib/og";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -16,6 +17,7 @@ export const metadata: Metadata = {
     "Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",
   alternates: { canonical: "/poradnik" },
   openGraph: {
+    ...OG_DEFAULTS,
     title: "Darmowy poradnik: sesja biznesowa | Szabunia",
     description:
       "Checklisty, planer stylizacji, ściąga kolorów i gotowa lista pytań. Wszystko, żeby wejść na plan spokojnie. Pobierz za darmo.",

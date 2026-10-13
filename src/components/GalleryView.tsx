@@ -288,6 +288,7 @@ export default function GalleryView({
 										id={v.youtubeId}
 										title={v.title}
 										className='mt-0'
+										sizes='(min-width: 768px) 560px, 100vw'
 									/>
 									<p className='mt-2.5 text-[13px] font-barlow font-semibold text-navy dark:text-white'>
 										{v.title}
@@ -312,6 +313,9 @@ export default function GalleryView({
 										title={v.title}
 										vertical
 										className='mt-0'
+										/* Plakat 16:9 w kaflu 9:16 (`object-cover`) jest wyświetlany na
+										   wysokość kafla × 16/9, czyli ~3,2 jego szerokości. */
+										sizes='(min-width: 768px) 700px, 320vw'
 									/>
 									<p className='mt-2.5 text-[13px] font-barlow font-semibold text-navy dark:text-white'>
 										{v.title}

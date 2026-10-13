@@ -1,3 +1,4 @@
+import { OG_DEFAULTS } from '@/lib/og';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import {
@@ -48,6 +49,7 @@ export async function generateMetadata({
 			? { robots: { index: false, follow: true } }
 			: {}),
 		openGraph: {
+			...OG_DEFAULTS,
 			title: category.seo.title,
 			description: category.seo.description,
 			url: `https://szabunia.pl/portfolio/${category.slug}`,

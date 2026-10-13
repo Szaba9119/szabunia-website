@@ -1,3 +1,4 @@
+import { OG_DEFAULTS } from '@/lib/og';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import {
@@ -62,6 +63,7 @@ export async function generateMetadata({
 		description: service.seo.description,
 		alternates: { canonical: `/uslugi/${service.slug}` },
 		openGraph: {
+			...OG_DEFAULTS,
 			title: service.seo.title,
 			description: service.seo.description,
 			url: `https://szabunia.pl/uslugi/${service.slug}`,
