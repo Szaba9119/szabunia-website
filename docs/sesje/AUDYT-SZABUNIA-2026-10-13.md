@@ -166,7 +166,9 @@ Skutek przy przejściu na smart bidding: algorytm uczyłby się na ułamku lead�
 To świadoma decyzja z 12.09 (`RAPORT-WDROZENIA-MASTER-2026-09-12.md:70`), więc nie defekt, tylko koszt pomiarowy,
 o którym trzeba wiedzieć. Warianty w §12, pytanie 4.
 
-**SZA2610-05. [ADS] Wszystkie słowa i sitelinki prowadzą na stronę główną** — Google Ads 786-864-4697, odczyt 13.10.2026.
+~~**SZA2610-05. [ADS] Wszystkie słowa i sitelinki prowadzą na stronę główną**~~ **WYCOFANE tego samego dnia:** landing tylko na stronę główną i sitelinki-kotwice to decyzje z briefu Marcina (W-01, W-02 w `marketing/google-ads/redteam-review.md`), których przy pisaniu nie sprawdziłem. Korekta: `AUDYT-ADS-2026-10-13.md` §5. Treść poniżej zostaje jako historia.
+
+ — Google Ads 786-864-4697, odczyt 13.10.2026.
 · P2 (P1 przy zwiększeniu budżetu) · S · 🧑 (panel) · Z (panel)
 Kampania „Search | Poznań | Fotografia B2B | 5 zł” (ENABLED od 20.09, 5 zł/dzień, tylko wyszukiwarka, 25 km od Poznania,
 472 wykluczenia) ma **jedną grupę reklam z jedną reklamą RSA**, adres docelowy `https://szabunia.pl`.
@@ -366,7 +368,7 @@ głównej i `/uslugi/wizerunek-portrety`.
 | SZA2610-02 | Rate-limit nie działa od ≥24.09 (Upstash) | P2 | 🧑 | otwarty | ten raport |
 | SZA2610-03 | Repo publiczne z danymi klientów (= L6) | P2 | 🧑 | otwarty | ten raport |
 | SZA2610-04 | Konwersje tylko po zgodzie | P2 | 🧑 | wariant A (bez zmian w kodzie); C w panelu Ads: otwarty | ten raport |
-| SZA2610-05 | Ads: wszystko na stronę główną | P2 | 🧑 | otwarty | ten raport |
+| SZA2610-05 | Ads: wszystko na stronę główną | — | 🧑 | **wycofany** 13.10: sprzeczny z briefem Marcina (landing tylko strona główna); korekta w `AUDYT-ADS-2026-10-13.md` §5 | ten raport |
 | SZA2610-06 | YouTube poza polityką, miniatury bez zgody | P3 | 🤖/🧑 | wdrożony lokalnie, niezdeployowany (POPRAWKI-WDROZONE-2026-10-13); treść polityki do akceptacji | ten raport |
 | SZA2610-07 | Dryf `CLAUDE.md` / `AGENTS.md` | P3 | 🧑 | wdrożony lokalnie, niezdeployowany (POPRAWKI-WDROZONE-2026-10-13) | ten raport |
 | SZA2610-08 | Notatki w inline skryptach | P4 | 🤖 | wdrożony lokalnie, niezdeployowany (POPRAWKI-WDROZONE-2026-10-13) | ten raport |

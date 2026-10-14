@@ -85,3 +85,30 @@ Przyjąłem 11 uwag, odrzuciłem 2, jedną przekazałem Marcinowi do decyzji.
 w aukcjach, w których nie ma konkurencji, i pomiar, który nie zależy wyłącznie od zgody na cookies.
 
 **Wynik po czasie:** _do uzupełnienia._
+
+---
+
+## 2026-10-14 — wykluczenia z raportu haseł, opis reklamy, frazy na stronie głównej
+
+**Kontekst (decyzja Marcina 14.10):** jedna reklama, wszystko na stronę główną. Źródło: `docs/sesje/AUDYT-ADS-2026-10-13.md` §13,
+propozycje: `docs/sesje/PROPOZYCJE-ADS-TEKSTY-2026-10-14.md`.
+
+**Dane sprzed zmian (panel, 29.09–12.10):** 70,42 zł, 22 kliknięcia, CTR 8,43%, CPC 3,20 zł; udział w wyświetleniach 33,2%,
+utrata przez ranking 51,0%, przez budżet 15,8%; Wynik Jakości 7 ocenionych słów: 1, 3, 3, 3, 4, 5, 5; jakość strony docelowej
+„poniżej średniej” 7/7; siła reklamy „Średnia”; 0 konwersji.
+
+**Zmiany:**
+1. **Wykluczenia (panel, 14.10, wykonane):** "photonesto", studniówkę, studniówki, studniowke (już było), "fotograf na 18",
+   "fotografa na 18", trójmiasto, "co to". Zweryfikowane odczytem API. Nie dodane: przedszkolna, szkolna (decyzja Marcina otwarta).
+2. **Opis 1 reklamy (panel, 14.10, wykonane):** „…w Poznaniu i całej Polsce.” → „…w Poznaniu i okolicy.” Google: zgodna z zasadami.
+   Statystyki zasobów reklamy liczą się od nowa.
+3. **Tekst strony (kod, 14.10, czeka na deploy):** frazy „fotografia eventowa”, „zdjęcia biznesowe”, „fotografia nieruchomości”,
+   „fotografia biznesowa” w opisach kart usług i w „O mnie”. H1, title, URL bez zmian.
+
+**Oczekiwany rezultat:** wyższy przewidywany CTR (mniej wyświetleń na hasła spoza oferty) i jakość strony docelowej z „poniżej średniej”
+na „przeciętna” na co najmniej 3 z 7 słów; utrata przez ranking poniżej 45%.
+
+**Jak sprawdzić:** tabela słów kluczowych z kolumnami Wynik Jakości i składowe + kampania z udziałem w wyświetleniach,
+4 tygodnie po deployu tekstu (ok. 11.11.2026), ten sam eksport co 13.10.
+
+**Wynik po czasie:** _do uzupełnienia._

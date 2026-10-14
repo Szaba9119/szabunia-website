@@ -59,8 +59,8 @@ export default function About() {
                       za kontakt, plan i jakość realizacji." usunięte bez zamiennika, jak
                       w `ServiceAuthor.tsx`. Mówiło o konstrukcji marki, nie o współpracy.
                       Nie dopisywać podobnego zdania o marce. */}
-                  Cześć, jestem Marcin. <strong>Od 2018 roku</strong> buduję wizerunek firm poprzez
-                  fotografię i wideo. Pracuję z Poznania,
+                  Cześć, jestem Marcin. <strong>Od 2018 roku</strong> buduję wizerunek firm przez
+                  fotografię biznesową i wideo. Pracuję z Poznania,
                   realizuję zlecenia w całej Polsce i Europie.
                 </p>
                 <p>

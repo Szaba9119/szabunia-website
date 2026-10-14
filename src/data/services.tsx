@@ -371,7 +371,9 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// Kafelek mówił „część kadrów na social media jeszcze w trakcie wydarzenia"
 			// bez żadnego zastrzeżenia, czyli obiecywał to w standardzie.
 			// Ta sama zasada obowiązuje w `scope`, `process`, `faqs` i w `portfolio.ts`.
-			'Reportaż firmowy z konferencji, targów i gal. Zdjęcia, film i ujęcia z drona z jednego dnia, a w opcji dodatkowej część kadrów na social media jeszcze w trakcie wydarzenia.',
+			// „Fotografia eventowa” dopisane 14.10.2026 (AUDYT-ADS-2026-10-13 §13): fraza z kampanii Ads
+			// i z GSC nie występowała na stronie głównej, a Google ocenia stronę docelową „poniżej średniej”.
+			'Fotografia eventowa i reportaż firmowy z konferencji, targów i gal. Zdjęcia, film i ujęcia z drona z jednego dnia, a w opcji dodatkowej część kadrów na social media jeszcze w trakcie wydarzenia.',
 		// Kicker nad H1 (24.09.2026, ten sam powód co `title` wyżej). H1 mówi „Fotograf eventowy”,
 		// więc kicker dokłada film i słowo „eventów” z zapytań „filmowanie/nagrywanie eventów”.
 		heroLabel: 'Zdjęcia i wideo z eventów firmowych',
@@ -821,7 +823,8 @@ const serviceCategoriesRaw: ServiceData[] = [
 		title: 'Fotografia i wideo wizerunkowe dla firm',
 		shortTitle: 'Wizerunek firmy',
 		subtitle:
-			'Sesja biznesowa dla jednej osoby albo dla całego zespołu. Zdjęcie na LinkedIn, headshoty i film wizerunkowy.',
+			// „Zdjęcia biznesowe” zamiast „Zdjęcie” 14.10.2026 (AUDYT-ADS-2026-10-13 §13, fraza z kampanii Ads, WJ 3).
+			'Sesja biznesowa dla jednej osoby albo dla całego zespołu. Zdjęcia biznesowe na LinkedIn, headshoty i film wizerunkowy.',
 		// Lead przepisany 10.08.2026 (pakiet 4, zatwierdzony przez Marcina bez
 		// łagodzenia). Poprzedni mówił, czym JEST portret biznesowy. Nowy nazywa
 		// problem, który osoba odpowiedzialna za stronę firmy realnie widzi
@@ -1458,7 +1461,8 @@ const serviceCategoriesRaw: ServiceData[] = [
 		// co kafelek na mobile był o 21 px wyższy od pozostałych.
 		// Nowy wymienia oba segmenty z nazwy usługi i mówi o rezultacie.
 		subtitle:
-			'Hale, zakłady, biurowce i inwestycje. Zdjęcia z drona, fotografia wnętrz i wideo obiektu w jednym dniu zdjęciowym.',
+			// „Fotografia nieruchomości” zamiast „Zdjęcia” 14.10.2026 (AUDYT-ADS-2026-10-13 §13, fraza z kampanii Ads).
+			'Hale, zakłady, biurowce i inwestycje. Fotografia nieruchomości z drona, fotografia wnętrz i wideo obiektu w jednym dniu zdjęciowym.',
 		// Lead przepisany 10.08.2026 (pakiet 4, wersja zatwierdzona przez Marcina).
 		// Poprzedni otwierał zdaniem o hali, czyli sprzedawał TYLKO przemysł, mimo
 		// że usługa nazywa się „Nieruchomości i przemysł". Nowy otwiera problemem
