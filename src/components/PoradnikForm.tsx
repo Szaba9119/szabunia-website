@@ -192,6 +192,7 @@ export default function PoradnikForm() {
           ref={turnstileRef}
           onVerify={setTurnstileToken}
           onBlocked={setTurnstileBlocked}
+          loadOn="interaction"
         />
 
         {error && (

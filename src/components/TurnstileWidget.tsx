@@ -6,6 +6,7 @@ import { useTheme } from "./ThemeProvider";
 
 const SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 const LOAD_TIMEOUT_MS = 8000;
+const INTERACTION_FALLBACK_MS = 5000;
 
 declare global {
   interface Window {
@@ -51,8 +52,15 @@ export interface TurnstileWidgetHandle {
  */
 const TurnstileWidget = forwardRef<
   TurnstileWidgetHandle,
-  { onVerify: (token: string) => void; onBlocked?: (blocked: boolean) => void }
->(function TurnstileWidget({ onVerify, onBlocked }, ref) {
+  {
+    onVerify: (token: string) => void;
+    onBlocked?: (blocked: boolean) => void;
+    /** „interaction”: skrypt startuje przy pierwszej interakcji z formularzem albo po
+     *  INTERACTION_FALLBACK_MS, nie gdy widget wejdzie w okolice ekranu. Dla formularzy
+     *  nad zgięciem (`/poradnik`), gdzie „blisko ekranu” znaczy „od wejścia na stronę”. */
+    loadOn?: "visible" | "interaction";
+  }
+>(function TurnstileWidget({ onVerify, onBlocked, loadOn = "visible" }, ref) {
   const containerRef = useRef<HTMLDivElement>(null);
   const widgetIdRef = useRef<string | undefined>(undefined);
   const onVerifyRef = useRef(onVerify);
@@ -162,6 +170,21 @@ const TurnstileWidget = forwardRef<
   useEffect(() => {
     if (!SITE_KEY || shouldLoad) return;
     const el = containerRef.current;
+    // PERF-03 (audyt 13.10.2026): na `/poradnik` formularz stoi nad zgięciem, więc obserwator
+    // odpalał Turnstile (~770 KB) od razu, w wyścigu z obrazem LCP (LCP mobile 4,4 s).
+    // W trybie „interaction” wyzwanie rusza przy pierwszym dotknięciu formularza albo po 5 s.
+    if (loadOn === "interaction") {
+      const form = el?.closest("form");
+      const start = () => setShouldLoad(true);
+      form?.addEventListener("focusin", start, { once: true });
+      form?.addEventListener("pointerdown", start, { once: true });
+      const timer = setTimeout(start, INTERACTION_FALLBACK_MS);
+      return () => {
+        clearTimeout(timer);
+        form?.removeEventListener("focusin", start);
+        form?.removeEventListener("pointerdown", start);
+      };
+    }
     if (!el || typeof IntersectionObserver === "undefined") {
       setShouldLoad(true);
       return;
@@ -186,7 +209,7 @@ const TurnstileWidget = forwardRef<
       io.disconnect();
       form?.removeEventListener("focusin", start);
     };
-  }, [shouldLoad]);
+  }, [shouldLoad, loadOn]);
 
   // Limit czasu liczony od STARTU ładowania skryptu, nie od wejścia na stronę. Przy
   // ładowaniu przy formularzu licznik od pierwszego renderu zgłaszałby blokadę każdemu,

@@ -124,18 +124,21 @@ export default function PoradnikPage() {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
-            {/* Cover preview */}
-            <AnimatedSection>
+            {/* Cover preview. PERF-03 (audyt 13.10.2026): to element LCP strony (Lighthouse mobile 4,3-4,4 s).
+                Bez `.reveal` (wzorzec `hero-intro` z PERF-01) i z `priority`: wcześniej obraz miał
+                `loading="lazy"` i startował po 1,5 s, a sekcja była niewidoczna do hydratacji. */}
+            <div className="hero-intro">
               <div className="relative aspect-[210/297] max-w-[420px] mx-auto rounded-2xl overflow-hidden bg-white shadow-2xl ring-1 ring-border dark:ring-dark-border">
                 <Image
                   src="/images/poradnik-cover.png"
                   alt="Podgląd pierwszej strony poradnika, Pakiet przygotowania do sesji biznesowej"
                   fill
+                  priority
                   className="object-cover"
                   sizes="(max-width: 1024px) 90vw, 420px"
                 />
               </div>
-            </AnimatedSection>
+            </div>
 
             {/* What's inside + form */}
             <AnimatedSection delay={0.1}>

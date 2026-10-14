@@ -30,7 +30,9 @@ const csp = [
   // ⚠ Gdyby kiedyś doszedł prop `dsn` do `<SpeedInsights />` (scenariusz hostingu
   // poza Vercelem), produkcja zacznie ładować z tej domeny i wtedy trzeba ją tu
   // dopuścić również poza devem.
-  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ""} https://*.youtube.com https://www.googletagmanager.com https://challenges.cloudflare.com`,
+  `script-src 'self' 'unsafe-inline'${isDev ? " 'unsafe-eval' https://va.vercel-scripts.com" : ""} https://www.googletagmanager.com https://challenges.cloudflare.com`,
+  // https://*.youtube.com usuniete ze script-src 14.10.2026 (po przejsciu na iframe z youtube-nocookie.com,
+  // SZA2610-06): strona nie laduje zadnego skryptu YouTube, odtwarzacz dziala w iframe na wlasnych zasadach.
   // Fonty sa self-hostowane przez next/font — domeny Google Fonts celowo usuniete z allowlisty.
   "style-src 'self' 'unsafe-inline'",
   "font-src 'self'",

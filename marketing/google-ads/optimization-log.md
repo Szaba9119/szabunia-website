@@ -99,10 +99,11 @@ utrata przez ranking 51,0%, przez budżet 15,8%; Wynik Jakości 7 ocenionych sł
 
 **Zmiany:**
 1. **Wykluczenia (panel, 14.10, wykonane):** "photonesto", studniówkę, studniówki, studniowke (już było), "fotograf na 18",
-   "fotografa na 18", trójmiasto, "co to". Zweryfikowane odczytem API. Nie dodane: przedszkolna, szkolna (decyzja Marcina otwarta).
+   "fotografa na 18", trójmiasto, "co to". Zweryfikowane odczytem API. Dopisane tego samego dnia po decyzji Marcina („szkoły nie są moim klientem”):
+   szkolna, szkolne, szkolny, przedszkolna, przedszkolne (przybliżone), też zweryfikowane odczytem API.
 2. **Opis 1 reklamy (panel, 14.10, wykonane):** „…w Poznaniu i całej Polsce.” → „…w Poznaniu i okolicy.” Google: zgodna z zasadami.
    Statystyki zasobów reklamy liczą się od nowa.
-3. **Tekst strony (kod, 14.10, czeka na deploy):** frazy „fotografia eventowa”, „zdjęcia biznesowe”, „fotografia nieruchomości”,
+3. **Tekst strony (kod, wdrożone na produkcję 14.10, commit `276cf95`):** frazy „fotografia eventowa”, „zdjęcia biznesowe”, „fotografia nieruchomości”,
    „fotografia biznesowa” w opisach kart usług i w „O mnie”. H1, title, URL bez zmian.
 
 **Oczekiwany rezultat:** wyższy przewidywany CTR (mniej wyświetleń na hasła spoza oferty) i jakość strony docelowej z „poniżej średniej”

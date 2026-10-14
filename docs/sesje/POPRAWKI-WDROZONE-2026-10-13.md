@@ -117,3 +117,22 @@ fix(security,privacy,seo): Next 16.4.0, plakaty filmow lokalnie, youtube-nocooki
 - CLAUDE.md: llms.txt bez kwot, lista audytow; AGENTS.md odtworzony z CLAUDE.md
 - audyt: docs/sesje/AUDYT-SZABUNIA-2026-10-13.md
 ```
+
+---
+
+## F. Dodatki 14.10.2026 (polecenie Marcina: „reszte możesz poprawić”, bez fotografii produktowej w Ads)
+
+| Zmiana | Gdzie | Weryfikacja |
+|---|---|---|
+| **PERF-03 `/poradnik`:** obraz podglądu (element LCP) z `priority` i poza `.reveal` (wzorzec `hero-intro`); Turnstile w trybie `loadOn="interaction"` (start przy pierwszym dotknięciu formularza albo po 5 s) | `src/app/poradnik/page.tsx`, `src/components/PoradnikForm.tsx`, `src/components/TurnstileWidget.tsx` | Lighthouse mobile lokalnie, 2 przebiegi: **LCP 4,3 → 2,1 s**, wynik 84 → 98, render delay 663 → 17–33 ms. Turnstile startuje po 5 s albo przy `focusin`; `/kontakt` desktop nadal ładuje go przy formularzu (tryb domyślny bez zmian) |
+| CSP: `https://*.youtube.com` usunięte ze `script-src` (iframe z `youtube-nocookie.com` nie potrzebuje go na stronie) | `next.config.ts` | build PASS |
+| Ads: `email_click` zliczanie „Wiele” → „Jedna” | panel Google Ads (Chrome) | API: `ONE_PER_CLICK` |
+| Ads: wykluczenia szkolne (szkolna, szkolne, szkolny, przedszkolna, przedszkolne) | panel Google Ads | API, zweryfikowane |
+
+**Nie zrobione i dlaczego:**
+- **Kolumna `gclid` w CRM:** `crm_zapis.py` umie tylko dopisywać i zmieniać wartości w istniejących kolumnach, a PROCEDURA (DEC-038) zakazuje zapisu do arkusza inną drogą. Marcin dodaje nagłówek `gclid` w kolumnie T arkusza `Leady` (za `offer_id`); od tego momentu narzędzie zapisuje ją po nazwie nagłówka.
+- **Repo na prywatne, Upstash:** Chrome nie jest zalogowany w GitHubie ani w Upstash; logowania hasłem agent nie wykonuje. Do tego naprawa Upstash wymaga wklejenia tokenu w Vercel (zakaz wpisywania tokenów).
+- **Działania konwersji po kampaniach inteligentnych:** oznaczone kłódką przez Google (systemowe), bez możliwości edycji. Kampanie usunięte, więc nic nie zliczają.
+- **`generate_lead` (kategoria „Wyświetlenie strony”):** zostaje. Cel nie jest używany przez kampanię („0 z 2”), a przeniesienie do kategorii kontaktowej wciągnęłoby pobranie poradnika do celu „Kontakt”, którym kampania się kieruje.
+- **`/galeria` bez cache CDN:** strona czyta `?kat=` na serwerze. Przeniesienie tego do przeglądarki dałoby mignięcie kategorii przy linkach z `?kat=`, a zysk nie jest zmierzony (LCP `/galeria` 1,8–2,0 s). Nie warto.
+- **`http://www` → 2 przekierowania:** Vercel zawsze najpierw podnosi `http` do `https`, potem domena `www` → bez `www`. Ograniczenie platformy, nie kodu.
