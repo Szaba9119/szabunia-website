@@ -561,7 +561,7 @@ export const portfolioCategories: PortfolioCategory[] = [
       },
       {
         q: "Ile osób możesz sfotografować w jeden dzień?",
-        a: "Przy portretach biznesowych: do 40 osób dziennie (gdy rozstawiam mobilne studio na miejscu). Jedna osoba to 5 do 15 minut.",
+        a: "Przy portretach biznesowych: do 35 osób dziennie (gdy rozstawiam mobilne studio na miejscu). Większy zespół rozkładam na kolejne dni. Na jedną osobę rezerwuję 10 minut.",
       },
       {
         q: "Jak szybko otrzymam gotowe zdjęcia?",
@@ -806,7 +806,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [
       {
         q: "Ile osób możesz sfotografować w jeden dzień?",
-        a: "Do 40 osób dziennie, gdy rozstawiam mobilne studio w biurze. Jedna osoba to 5 do 15 minut.",
+        a: "Do 35 osób dziennie, gdy rozstawiam mobilne studio w biurze. Większy zespół rozkładam na kolejne dni. Na jedną osobę rezerwuję 10 minut.",
       },
       {
         q: "Ile miejsca potrzebujesz w biurze?",

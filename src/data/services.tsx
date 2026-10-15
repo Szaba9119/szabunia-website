@@ -910,7 +910,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 					// Sformułowanie „ten sam standard światła i retuszu" jest wzięte
 					// z domyślnego podpisu kategorii `zespolowe` w `ServiceGalleryStrip.tsx`
 					// i opisuje to, co realnie dowozisz przy każdej liczbie teł.
-					desc: 'Do 40 osób w jeden dzień, 5 do 15 minut na osobę. Ten sam standard światła i retuszu dla wszystkich, dwa wyretuszowane zdjęcia na osobę.',
+					desc: 'Do 35 osób w jeden dzień, 10 minut na osobę. Ten sam standard światła i retuszu dla wszystkich, dwa wyretuszowane zdjęcia na osobę.',
 				},
 				{
 					title: 'Mobilne studio w Twoim biurze',

@@ -64,7 +64,7 @@ export const homeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Zrobisz przy okazji wydarzenia zdjęcia całego zespołu?",
-    a: "Tak. Przywożę mobilne studio: 5 m², gniazdko, 30 minut na rozstawienie. Jedna osoba to 5 do 15 minut, więc w jeden dzień fotografuję do 40 osób, między prelekcjami albo w luźniejszym oknie agendy. Bez osobnego terminu i bez osobnego dojazdu.",
+    a: "Tak. Przywożę mobilne studio: 5 m², gniazdko, 30 minut na rozstawienie. Na jedną osobę rezerwuję 10 minut, więc w jeden dzień fotografuję do 35 osób, między prelekcjami albo w luźniejszym oknie agendy. Bez osobnego terminu i bez osobnego dojazdu.",
   },
   {
     // Bez zmian od 10.08.2026. Useme zostaje w odpowiedzi świadomie (decyzja Marcina
@@ -89,7 +89,7 @@ export const replacedHomeFaqs2209: HomeFaqItem[] = [
   },
   {
     q: "Ile osób możesz sfotografować w jeden dzień?",
-    a: "Przy portretach biznesowych fotografuję do 40 osób dziennie (gdy rozstawiam mobilne studio na miejscu). Jedna osoba to 5 do 15 minut. Mogę przyjechać do biura z mobilnym studiem.",
+    a: "Przy portretach biznesowych fotografuję do 35 osób dziennie (gdy rozstawiam mobilne studio na miejscu). Większy zespół rozkładam na kolejne dni. Na jedną osobę rezerwuję 10 minut. Mogę przyjechać do biura z mobilnym studiem.",
   },
 ];
 
