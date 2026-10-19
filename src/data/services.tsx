@@ -470,7 +470,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 				},
 				{
 					title: 'Portrety zespołu przy okazji',
-					desc: 'Event to zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu. Przywożę mobilne studio, potrzebuję 5 m² i gniazdka, rozstawienie zajmuje 30 minut, a jedna osoba to 5 do 15 minut między punktami agendy.',
+					desc: 'Event to zwykle jedyny dzień w roku, kiedy cała firma jest w jednym miejscu. Przywożę mobilne studio, potrzebuję 5 m² i gniazdka, rozstawienie zajmuje 30 minut, a na jedną osobę rezerwuję 10 minut między punktami agendy.',
 				},
 			],
 		},
@@ -669,7 +669,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			},
 			{
 				q: 'Zrobisz przy okazji zdjęcia całego zespołu?',
-				a: 'Tak. Przywożę mobilne studio: 5 m², gniazdko, 30 minut na rozstawienie. Potem fotografuję kolejne osoby po 5 do 15 minut, między prelekcjami albo w luźniejszym oknie agendy. Bez osobnego terminu i bez osobnego dojazdu.',
+				a: 'Tak. Przywożę mobilne studio: 5 m², gniazdko, 30 minut na rozstawienie. Potem fotografuję kolejne osoby, 10 minut na osobę, między prelekcjami albo w luźniejszym oknie agendy. Bez osobnego terminu i bez osobnego dojazdu.',
 			},
 			{
 				q: 'Obsłużysz cykl wydarzeń?',
@@ -997,7 +997,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			{
 				num: 3,
 				title: 'Sesja',
-				desc: '5 do 15 minut na osobę, między spotkaniami, bez wyrywania zespołu z pracy',
+				desc: '10 minut na osobę, między spotkaniami, bez wyrywania zespołu z pracy',
 			},
 			{
 				num: 4,
@@ -1036,7 +1036,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 		faqs: [
 			{
 				q: 'Ile osób sfotografujesz w jeden dzień?',
-				a: 'Do 40 przy mobilnym studiu. Jedna osoba potrzebuje 5 do 15 minut, więc sesja wchodzi między spotkania i nie blokuje nikomu dnia.',
+				a: 'Do 35 w jeden dzień przy mobilnym studiu. Na osobę rezerwuję 10 minut, więc sesja wchodzi między spotkania i nie blokuje nikomu dnia. Większy zespół rozkładam na kolejne dni.',
 			},
 			{
 				q: 'Co z osobami, których nie ma w dniu sesji?',
@@ -1055,7 +1055,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			// było dostępne WYŁĄCZNIE w progu startowym.
 			{
 				q: 'Sesja u nas w biurze czy w studiu?',
-				a: 'Jak wolisz. Przy jednej osobie możesz wybrać studio w Poznaniu albo mój dojazd z mobilnym studiem. Przy większym zespole biuro wychodzi zwykle taniej i szybciej, bo nikt nie musi nigdzie jechać. Jeśli zależy Ci na innym klimacie, rezerwuję studio zewnętrzne dobrane do charakteru firmy.',
+				a: 'Jak wolisz. Przy jednej osobie możesz wybrać studio w Poznaniu albo mój dojazd z mobilnym studiem. Przy większym zespole biuro jest zwykle wygodniejsze, bo nikt nie musi nigdzie jechać. Jeśli zależy Ci na innym klimacie, rezerwuję studio zewnętrzne dobrane do charakteru firmy.',
 			},
 			// Głos strony, nie nowy tekst: oba zdania są wzorcami z docs/zasady-tekstow.md.
 			// Zapis zmieniony na pytanie 14.09.2026: w danych FAQPage `name` jest typu
@@ -1261,7 +1261,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 				},
 				{
 					title: 'Logistyka',
-					desc: 'Produkty do 20×20 cm przyślij kurierem. Przy większych przyjeżdżam ze studiem mobilnym albo rezerwuję studio zewnętrzne.',
+					desc: 'Produkty, które da się wysłać kurierem, przyślij do mnie, odsyłam je po sesji. Te, których nie da się wysłać, fotografuję u Ciebie ze studiem mobilnym albo w studiu zewnętrznym.',
 				},
 			],
 		},
@@ -1301,8 +1301,8 @@ const serviceCategoriesRaw: ServiceData[] = [
 			],
 		},
 		// ⛔ NIE DOPISYWAĆ TU KROKU O DOSTARCZENIU PRODUKTÓW. Próbowałem 22.09.2026
-		// i wycofałem tego samego dnia. Fakt „produkty do 20×20 cm przyślij kurierem,
-		// przy większych przyjeżdżam ze studiem mobilnym" stoi w „Zakresie realizacji"
+		// i wycofałem tego samego dnia. Fakt o dostarczeniu produktów (od 19.10.2026: wszystko,
+		// co da się wysłać kurierem, DEC-039 D2) stoi w „Zakresie realizacji"
 		// tej usługi, w pozycji **Logistyka**. Przeoczyłem go, bo przy pierwszym
 		// sprawdzeniu czytałem tylko początek tamtej sekcji.
 		//
@@ -1354,7 +1354,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			},
 			{
 				q: 'Czy mogę przysłać produkty kurierem?',
-				a: 'Tak, produkty do 20×20 cm przyjmuję do studia. Przy większych przyjeżdżam ze studiem mobilnym albo rezerwuję studio zewnętrzne. Koszt przesyłki zwrotnej ustalamy przy wycenie.',
+				a: 'Tak, przyjmuję wszystko, co da się wysłać kurierem, i odsyłam po sesji. Transport w obie strony jest po Twojej stronie. Produkty, których nie da się wysłać, fotografuję u Ciebie ze studiem mobilnym albo w studiu zewnętrznym.',
 			},
 			{
 				// Rozszerzone 14.09.2026 z dwóch rodzajów do trzech. Zakres realizacji
@@ -1657,7 +1657,7 @@ const serviceCategoriesRaw: ServiceData[] = [
 			},
 			{
 				q: 'Mamy dwa takie same budynki. Płacę dwa razy?',
-				a: 'Nie. Drugi obiekt tego samego typu, fotografowany tego samego dnia, jest wyraźnie tańszy, bo ustawienia obróbki z pierwszego budynku pasują do drugiego i postprodukcja idzie szybciej. Warunek to ten sam dzień zdjęciowy. Osobny wyjazd to pełna stawka plus dojazd.',
+				a: 'Nie. Drugi obiekt tego samego typu, fotografowany tego samego dnia, ma niższą cenę. Warunek to ten sam dzień zdjęciowy. Osobny wyjazd to pełna stawka plus dojazd.',
 			},
 			{
 				q: 'Czy dron poleci nad naszą halą?',

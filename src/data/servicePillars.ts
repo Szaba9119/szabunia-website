@@ -17,5 +17,5 @@ export const servicePillars = [
     details: 'Strefę lotu sprawdzam przed potwierdzeniem daty, a w strefach kontrolowanych, np. w pobliżu lotniska, sam załatwiam zgodę na lot. W jeden wyjazd robię ujęcia z powietrza, z poziomu ziemi i wnętrza. Jeśli wiatr albo deszcz uniemożliwi lot, wracam raz w ramach ustalonej kwoty.' },
   { number: '04', label: 'Produkty', slug: 'fotografia-produktowa', formCode: 'produkt', question: 'Ile produktów i wariantów chcesz pokazać?', placeholder: 'np. 20 produktów, po 3 ujęcia',
     responsibility: 'Ty wysyłasz produkty. Ja oddaję pliki gotowe do sklepu.',
-    details: 'Produkty do 20×20 cm możesz przysłać kurierem, do większych przyjeżdżam ze studiem mobilnym. Retusz jest w cenie: wycięcie z tła, białe tło zgodne z wymogami Allegro i Amazona oraz korekta kolorów. Zapisuję ustawienie światła i tła, więc kolejną partię dokładam w tej samej stylistyce, nawet pół roku później.' },
+    details: 'Produkty, które da się wysłać kurierem, przyślij do mnie; do tych, których nie da się wysłać, przyjeżdżam ze studiem mobilnym. Retusz jest w cenie: wycięcie z tła, białe tło zgodne z wymogami Allegro i Amazona oraz korekta kolorów. Zapisuję ustawienie światła i tła, więc kolejną partię dokładam w tej samej stylistyce, nawet pół roku później.' },
 ] as const;

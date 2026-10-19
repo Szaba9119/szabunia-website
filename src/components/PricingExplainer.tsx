@@ -31,7 +31,7 @@ const STEPS = [
 const FACTORS = [
   {
     title: "Zdjęcia, film czy jedno i drugie",
-    desc: "Film nagrany przy okazji zdjęć kosztuje mniej niż zamówiony osobno, bo to jeden dzień zdjęciowy zamiast dwóch.",
+    desc: "Same zdjęcia, sam film czy oba z jednego dnia zdjęciowego. Od tego zależy plan dnia i czas montażu.",
   },
   {
     title: "Skala",

@@ -77,7 +77,7 @@ export default function Warunki() {
                 Poprawki
               </p>
               <p className="text-[12px] text-steel dark:text-dark-text-muted leading-relaxed">
-                Zdjęcia: 2 tury w cenie. Wideo: 3 tury w cenie. Tura to korekta w obrębie już wybranego materiału: jasność, kadrowanie, retusz detalu, tempo montażu, napisy, muzyka. Zmiana wyboru kadrów po rozpoczęciu pracy to nowy zakres, nie poprawka. Praca nad zmianami ponad limit: 200 zł netto za rozpoczętą godzinę.
+                Zdjęcia: 2 tury w cenie. Wideo: 2 tury przy filmach do 30 s, 3 przy dłuższych. Tura to korekta w obrębie już wybranego materiału: jasność, kadrowanie, retusz detalu, tempo montażu, napisy, muzyka. Zmiana wyboru kadrów po rozpoczęciu pracy to nowy zakres, nie poprawka. Praca nad zmianami ponad limit: 200 zł netto za rozpoczętą godzinę.
               </p>
             </div>
             <div className="bg-white dark:bg-dark-card rounded-2xl p-5 border border-border dark:border-dark-border">

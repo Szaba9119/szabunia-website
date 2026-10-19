@@ -263,7 +263,7 @@ export default function CTA({
                   w `ServiceAuthor.tsx` („pracuję w całej Polsce i Europie").
                   Przy okazji zdejmuje sugestię, że pracuję wyłącznie lokalnie.
 
-                  ⛔ „Poprawki: 2 tury foto / 3 wideo" ZOSTAJE. Zewnętrzna
+                  ⛔ Pozycja o poprawkach ZOSTAJE (od 19.10.2026 z turami wideo wg DEC-039 D1). Zewnętrzna
                   specyfikacja proponowała listę bez tej pozycji i z dodanym
                   „Odpowiedź w 24h", ale to drugie powtarza zdanie stojące
                   bezpośrednio nad listą, a poprawki są realnym warunkiem umowy,
@@ -272,7 +272,7 @@ export default function CTA({
 								<ul className='flex flex-wrap gap-x-4 gap-y-1.5 mb-8'>
 									{[
 										'Faktura VAT',
-										'Poprawki: 2 tury foto / 3 wideo',
+										'Poprawki: 2 tury foto, 2 lub 3 wideo',
 										'Licencja komercyjna bez limitu czasu',
 										'Realizacje w całej Polsce i Europie',
 									].map((t) => (

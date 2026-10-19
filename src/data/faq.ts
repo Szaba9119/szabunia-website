@@ -129,7 +129,7 @@ export const offHomeFaqs: HomeFaqItem[] = [
   },
   {
     q: "Ile tur poprawek otrzymuję w cenie?",
-    a: "Zdjęcia: 2 tury poprawek w cenie. Wideo: 3 tury poprawek montażowych w cenie. Poprawki realizuję w ciągu 7 dni od zgłoszenia. Nie liczę terminu podstawowego od nowa. Tura poprawek to korekta w obrębie wybranego materiału. Zmianę wyboru kadrów po rozpoczęciu retuszu wyceniam osobno i zawsze o tym uprzedzam. W praktyce pierwsza tura prawie zawsze wystarcza.",
+    a: "Zdjęcia: 2 tury poprawek w cenie. Wideo: 2 tury poprawek montażowych przy filmach do 30 s, 3 przy dłuższych. Poprawki realizuję w ciągu 7 dni od zgłoszenia. Nie liczę terminu podstawowego od nowa. Tura poprawek to korekta w obrębie wybranego materiału. Zmianę wyboru kadrów po rozpoczęciu retuszu wyceniam osobno i zawsze o tym uprzedzam. W praktyce pierwsza tura prawie zawsze wystarcza.",
   },
   {
     q: "Czy pracujesz z AI w zdjęciach i wideo?",

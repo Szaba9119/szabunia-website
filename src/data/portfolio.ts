@@ -746,7 +746,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     faqs: [
       {
         q: "Czy mogę przysłać produkty kurierem?",
-        a: "Tak, przyjmuję przesyłki kurierskie do studia. Koszt przesyłki zwrotnej ustalamy przy wycenie, zależnie od gabarytu i liczby pozycji.",
+        a: "Tak, przyjmuję przesyłki kurierskie i odsyłam produkty po sesji. Transport w obie strony jest po Twojej stronie.",
       },
       {
         q: "Jakie formaty plików otrzymam?",
@@ -779,7 +779,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     heroSubtitle:
       "Headshoty dla całego zespołu, zdjęcia biura i przestrzeni firmowej. Mobilne studio w Twoim biurze.",
     description:
-      "Headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura, jedna osoba to 5 do 15 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
+      "Headshoty zespołu to fundament employer brandingu. Przyjeżdżam z mobilnym studiem do Twojego biura, na jedną osobę rezerwuję 10 minut. Dodatkowo fotografuję przestrzeń biurową, wspólną pracę zespołu i klimat firmy. Idealny materiał na stronę WWW, LinkedIn i materiały rekrutacyjne.",
     thumbnail: "/images/portfolio-4.jpg",
     gallery: [
       // ZDJ2608-09 (04.08.2026): na kadrze jest JEDNA kobieta w błękitnej koszuli
@@ -798,7 +798,7 @@ export const portfolioCategories: PortfolioCategory[] = [
     process: [
       { num: 1, title: "Logistyka", desc: "Ustalamy harmonogram sesji w biurze" },
       { num: 2, title: "Setup", desc: "Rozstawiam mobilne studio (30 min)" },
-      { num: 3, title: "Sesja", desc: "5 do 15 minut na osobę, portrety pojedyncze i zdjęcie zespołu" },
+      { num: 3, title: "Sesja", desc: "10 minut na osobę, portrety pojedyncze i zdjęcie zespołu" },
       { num: 4, title: "Dostawa", desc: "Wyretuszowane zdjęcia w 14 dni" },
     ],
     // Cennik celowo usunięty z draftu (audyt 2026-07-06) — kanon: services.tsx.
